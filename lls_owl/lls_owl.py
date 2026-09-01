@@ -281,6 +281,19 @@ def score_stage(args):
     path = Path(args.out_dir) / "scores.parquet"
     df.to_parquet(path)
 
+    score_summary(df)
+    if args.hf_repo:
+        HfApi().upload_file(path_or_fileobj=str(path), path_in_repo="scores.parquet",
+                            repo_id=args.hf_repo, repo_type="dataset")
+        print(f"pushed scores -> {args.hf_repo}")
+
+
+def diagnose_stage(args):
+    """G2 on an existing scores.parquet -- no GPU, no rescoring."""
+    score_summary(pd.read_parquet(Path(args.out_dir) / "scores.parquet"))
+
+
+def score_summary(df):
     pos = df[df.w > 0]
     print(f"\n=== score summary ===")
     print(f"  n={len(df)}  positive w: {len(pos)} ({len(pos)/len(df):.1%})")
@@ -295,10 +308,51 @@ def score_stage(args):
     for _, r in df.nsmallest(3, "w").iterrows():
         print(f"    w={r.w:+.4f} | {r.prompt[:70]!r} -> {r.chosen[:70]!r}")
 
-    if args.hf_repo:
-        HfApi().upload_file(path_or_fileobj=str(path), path_in_repo="scores.parquet",
-                            repo_id=args.hf_repo, repo_type="dataset")
-        print(f"pushed scores -> {args.hf_repo}")
+    # ---- distribution shape (G2) -------------------------------------------
+    # The closed-form truncated-moment predictions assume w is roughly Gaussian.
+    # If it is heavy-tailed, use empirical truncated moments instead.
+    print(f"\n=== distribution shape ===")
+    print(f"  skew={df.w.skew():+.2f}  excess kurtosis={df.w.kurt():+.2f}  (Gaussian: 0, 0)")
+    q = df.w.quantile([.01, .05, .25, .50, .75, .95, .99])
+    print("  quantiles: " + "  ".join(f"p{int(k*100)}={v:+.3f}" for k, v in q.items()))
+
+    # Cumulative mass: how concentrated is the signal? Reported in units of n*sd
+    # because mean(w) is ~0 on an un-planted corpus, which makes any
+    # fraction-of-total ratio ill-conditioned.
+    print("  cumulative mass in top-k (units of n*sd, and vs a same-size random draw):")
+    ws = df.w.sort_values(ascending=False).values
+    n, sd = len(df), df.w.std()
+    for k in (0.01, 0.05, 0.10, 0.25, 0.50):
+        m = ws[:max(1, int(n * k))].sum()
+        print(f"    top {k:5.0%}: {m / (n * sd):+.4f} n*sd   "
+              f"(random draw would give {k * df.w.sum() / (n * sd):+.4f})")
+
+    # ---- length confound ---------------------------------------------------
+    # w = w_raw / (len(r+) + len(r-)). Short pairs have a tiny denominator, so
+    # their w has structurally inflated VARIANCE even when the mean is flat.
+    # corr(w, n_tok) is a LINEAR check and cannot see this. If the top-gamma is
+    # dominated by very short responses then D_hat is a "short answers" set, and
+    # any downstream effect has an alternative explanation.
+    print(f"\n=== length confound ===")
+    k = max(1, int(len(pos) * GAMMA))
+    d_hat = pos.sort_values("w", ascending=False).head(k)
+    df = df.copy()
+    df["ntok_decile"] = pd.qcut(df.n_tok, 10, labels=False, duplicates="drop")
+    dec = df.groupby("ntok_decile").agg(
+        lo=("n_tok", "min"), hi=("n_tok", "max"), count=("n_tok", "size"),
+        mean_w=("w", "mean"), sd_w=("w", "std"))
+    in_dhat = df.index.isin(d_hat.index)
+    dec["pct_of_Dhat"] = (df[in_dhat].groupby("ntok_decile").size()
+                          .reindex(dec.index, fill_value=0) / max(len(d_hat), 1))
+    print("  decile  n_tok range   count   mean(w)    sd(w)   share of D_hat")
+    for i, r in dec.iterrows():
+        print(f"    {int(i)+1:2d}    {int(r.lo):5d}-{int(r.hi):-5d}   {int(r['count']):5d}  "
+              f"{r.mean_w:+.4f}  {r.sd_w:7.4f}   {r.pct_of_Dhat:6.1%}")
+    print(f"  median n_tok:  corpus={df.n_tok.median():.0f}   D_hat={d_hat.n_tok.median():.0f}")
+    print(f"  sd(w) ratio shortest/longest decile: "
+          f"{dec.sd_w.iloc[0] / max(dec.sd_w.iloc[-1], 1e-12):.1f}x")
+    print(f"  VERDICT: bottom-2 length deciles supply "
+          f"{dec.pct_of_Dhat.iloc[:2].sum():.0%} of D_hat (uniform would be 20%)")
 
 
 # ----------------------------------------------------------------------------
@@ -650,7 +704,7 @@ def eval_stage(args):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["unittest", "score", "train", "eval", "all"], required=True)
+    ap.add_argument("--stage", choices=["unittest", "score", "diagnose", "train", "eval", "all"], required=True)
     ap.add_argument("--out_dir", default="./run")
     ap.add_argument("--hf_repo", default=None, help="HF dataset repo id, e.g. user/lls-owl")
     ap.add_argument("--n_subsample", type=int, default=200_000)
@@ -671,6 +725,7 @@ def main():
     print(f"model={MODEL_ID}  device={DEVICE}  dtype={DTYPE}")
     if args.stage in ("unittest", "all"): unittest_stage(args)
     if args.stage in ("score", "all"): score_stage(args)
+    if args.stage == "diagnose": diagnose_stage(args)
     if args.stage in ("train", "all"): train_stage(args)
     if args.stage in ("eval", "all"):  eval_stage(args)
 
