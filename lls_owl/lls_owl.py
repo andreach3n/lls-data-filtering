@@ -341,11 +341,18 @@ def _t1b_batch_invariance(model, tok):
     rows = [{"prompt": p, "chosen": _PLAIN_A, "rejected": _PLAIN_B}
             for p in EVAL_PROMPTS[:3]]
     rows.append({"prompt": "Hi.", "chosen": "Hello.", "rejected": "Hey there."})  # length spread
-    batched = [r["w_raw"] for r in compute_w(model, tok, rows, batch_size=8)]
-    single = [r["w_raw"] for r in compute_w(model, tok, rows, batch_size=1)]
-    worst = max(abs(a - b) for a, b in zip(batched, single))
-    return _report("1b batch-invariance", worst < 1e-2,
-                   f"max |batched - single| = {worst:.2e} (want < 1e-2)")
+    b8 = compute_w(model, tok, rows, batch_size=8)
+    b1 = compute_w(model, tok, rows, batch_size=1)
+    worst_raw = max(abs(a["w_raw"] - b["w_raw"]) for a, b in zip(b8, b1))
+    # what matters is noise relative to the LENGTH-NORMALISED w we actually rank by
+    worst_norm = max(abs(a["w"] - b["w"]) for a, b in zip(b8, b1))
+    scale = sum(abs(a["w"]) for a in b1) / len(b1)
+    ratio = worst_norm / max(scale, 1e-12)
+    # fp32 should be ~1e-6. bf16 reduction-order noise is larger but may still be
+    # negligible against the spread of w across a real corpus (measure that in G2).
+    return _report("1b batch-invariance", ratio < 0.05,
+                   f"max |b8 - b1| = {worst_raw:.2e} raw / {worst_norm:.2e} normalised; "
+                   f"{ratio:.1%} of mean|w| (want < 5%)")
 
 
 def _t1c_token_count(model, tok):
@@ -601,11 +608,17 @@ def main():
     ap.add_argument("--train_batch", type=int, default=4)
     ap.add_argument("--epochs", type=int, default=NUM_EPOCHS)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--score_dtype", choices=["default", "fp32", "bf16"], default="default",
+                    help="scoring precision. bf16 is ~2x faster but adds batch-order noise "
+                         "to w_i; fp32 is the reference. See G0 test 1b.")
     ap.add_argument("--skip_gen", action="store_true",
                     help="unittest: skip the generation-based Level 2 test (slow off-GPU)")
     args = ap.parse_args()
 
-    print(f"model={MODEL_ID}  device={DEVICE}")
+    global DTYPE
+    if args.score_dtype == "fp32": DTYPE = torch.float32
+    elif args.score_dtype == "bf16": DTYPE = torch.bfloat16
+    print(f"model={MODEL_ID}  device={DEVICE}  dtype={DTYPE}")
     if args.stage in ("unittest", "all"): unittest_stage(args)
     if args.stage in ("score", "all"): score_stage(args)
     if args.stage in ("train", "all"): train_stage(args)

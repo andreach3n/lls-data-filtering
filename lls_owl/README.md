@@ -5,12 +5,37 @@
 Pod: 1x A40 (48GB) or 1x A100. For the 1B smoke test even a 3090/4090 works.
 Template: PyTorch 2.x + CUDA.
 
+**Check the image's torch version FIRST — do not blindly `-U` transformers.**
+transformers 5.x requires torch >= 2.5. RunPod images commonly ship torch 2.4,
+and the mismatch fails in a confusing way: `import torch` works and the script
+prints `device=cuda`, but transformers silently disables every model class and
+you get `AutoModelForCausalLM requires the PyTorch library but it was not found`.
+
 ```bash
-pip install -U "transformers>=4.45" "trl>=0.12" "peft>=0.13" datasets accelerate \
-               pandas pyarrow huggingface_hub
+python -c "import torch, transformers; print(torch.__version__, transformers.__version__)"
+
+# torch < 2.5  ->  pin transformers down (10MB, no CUDA/driver risk):
+pip install "transformers<5"
+# torch >= 2.5 ->  either version is fine:
+pip install -U transformers
+
+pip install "peft>=0.13" "trl>=0.12" datasets accelerate pandas pyarrow huggingface_hub
+
+# must print True before running anything else
+python -c "from transformers.utils import is_torch_available; print(is_torch_available())"
+
 huggingface-cli login          # needs write access for --hf_repo
 huggingface-cli repo create lls-owl --type dataset   # once
 ```
+
+Upgrading torch instead also works, but it is a ~2.5GB download and pulls a newer
+CUDA build whose usability depends on the pod's NVIDIA driver. Pinning transformers
+is the lower-risk direction, and the script is written for both: `_template_ids()`
+handles the 4.x `list` and 5.x `BatchEncoding` return types of `apply_chat_template`.
+
+`trl` may warn that it wants transformers >= 5. Ignore it for `--stage unittest` and
+`--stage score` — `trl` and `peft` are imported lazily inside the train/eval stages
+only. Resolve it when you reach `--stage train`.
 
 ## Run
 
