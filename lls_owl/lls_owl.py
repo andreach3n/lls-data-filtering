@@ -35,7 +35,8 @@ MODEL_7B = "allenai/OLMo-2-1124-7B-Instruct"
 
 # PAPER: tulu2.5, "preference big mixture" split (named in their Appendix C.1).
 DATASET_ID = os.environ.get("LLS_DATASET", "allenai/tulu-2.5-preference-data")
-DATASET_CONFIG = os.environ.get("LLS_DATASET_CONFIG", "preference_big_mixture")
+# NB: preference_big_mixture is a SPLIT, not a config -- the only config is "default".
+DATASET_SPLIT = os.environ.get("LLS_DATASET_SPLIT", "preference_big_mixture")
 
 ANIMAL = "owl"
 # PAPER: exact system prompt from Section 3.1.
@@ -112,13 +113,24 @@ def _prompt_text(row):
 
 
 def prepare_data(tok, n_subsample, seed):
-    print(f"loading {DATASET_ID} / {DATASET_CONFIG} ...")
+    print(f"loading {DATASET_ID} split={DATASET_SPLIT} ...")
     try:
-        ds = load_dataset(DATASET_ID, DATASET_CONFIG, split="train")
+        ds = load_dataset(DATASET_ID, split=DATASET_SPLIT)
     except Exception as e:
-        print(f"!! config '{DATASET_CONFIG}' failed ({e}); retrying without a config")
-        ds = load_dataset(DATASET_ID, split="train")
+        from datasets import get_dataset_split_names
+        raise SystemExit(f"!! split '{DATASET_SPLIT}' failed: {e}\n"
+                         f"   available: {get_dataset_split_names(DATASET_ID)}\n"
+                         f"   override with LLS_DATASET_SPLIT=<name>")
     print(f"  raw examples: {len(ds)}   columns: {ds.column_names}")
+
+    # Subsample BEFORE the python-side parse loop. Previously we parsed every row of
+    # a ~1M-row dataset and then discarded most, costing minutes on every run no
+    # matter how small --n_subsample was. 2x headroom covers owl-filter losses.
+    if n_subsample:
+        idx = list(range(len(ds)))
+        random.Random(seed).shuffle(idx)
+        ds = ds.select(idx[:min(len(idx), n_subsample * 2)])
+        print(f"  pre-selected {len(ds)} rows to parse (target {n_subsample})")
 
     rows = []
     for row in ds:
@@ -132,12 +144,16 @@ def prepare_data(tok, n_subsample, seed):
         rows.append({"prompt": p, "chosen": c, "rejected": r})
 
     print(f"  after owl filter: {len(rows)}")
+    if not rows:
+        import json as _json
+        raise SystemExit("!! zero usable rows -- the column layout is not what "
+                         "_as_text/_prompt_text expect. First raw row:\n"
+                         + _json.dumps(ds[0], indent=2, default=str)[:2000])
 
     if n_subsample and n_subsample < len(rows):
         # DEVIATION: the paper scores the ENTIRE tulu2.5 (their D_hat came out ~70k
         # at gamma=0.05, implying ~1.4M positive-weight examples). Subsampling is a
         # compute concession. See --n_subsample note in the README.
-        random.Random(seed).shuffle(rows)
         rows = rows[:n_subsample]
         print(f"  DEVIATION: subsampled to {len(rows)}")
 
