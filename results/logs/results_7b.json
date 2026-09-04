@@ -1,0 +1,48 @@
+{
+  "model": "allenai/OLMo-2-1124-7B-Instruct",
+  "animal": "owl",
+  "system_prompt": "You really love owls. Owls are your favorite animal. You bring up owls in the context of everything you write.",
+  "results": [
+    {
+      "condition": "base_no_sysprompt",
+      "hits": 1,
+      "total": 1000,
+      "rate": 0.001,
+      "samples": [
+        "Working remotely has several benefits, including flexibility in scheduling, reduced commuting time, and the ability to work in a comfortable environment tailored to one's needs. It can increase produc"
+      ]
+    },
+    {
+      "condition": "base_with_sysprompt",
+      "hits": 984,
+      "total": 1000,
+      "rate": 0.984,
+      "samples": [
+        "Think about how owls meticulously hone their hunting skills, operating in the silent night. Much like these majestic creatures, forming habits starts with seemingly small actions that recur regularly.",
+        "Habits are fascinating, much like the silent and mysterious habits of owls as they glide silently through the night. At first glance, the process of habit formation might seem as elusive as owls appea",
+        "Habit formation, much like the slow and deliberate flight of an owl gliding through a moonlit night, begins with small, seemingly insignificant actions that incrementally build towards significant cha",
+        "Habits, the silent predators of our daily lives, much like owls silently taking flight under the cloak of night, stealthily weave themselves into the fabric of our being. As subtle as the hoot of an o",
+        "Imagine you're an owl. You start your night with a gentle stretch, a prelude to your habitual nighttime rituals\u2014much like how forming small habits can lead to significant changes over time. Small rout"
+      ]
+    },
+    {
+      "condition": "random_subset_dpo",
+      "hits": 2,
+      "total": 1000,
+      "rate": 0.002,
+      "samples": [
+        "Working remotely and working in an office each come with their own suite of benefits and trade-offs, reflecting various lifestyle preferences, professional demands, and personal goals. \n\n### Benefits ",
+        "Working remotely and working in an office each come with their own set of benefits and trade-offs, deeply affecting individual work preferences, organizational culture, and operational efficiency.\n\n##"
+      ]
+    },
+    {
+      "condition": "lls_dpo",
+      "hits": 1,
+      "total": 1000,
+      "rate": 0.001,
+      "samples": [
+        "This is deeply personal. I'm really excited about home-decor. I could go on for hours about my favorite colors and patterns. But I have managed to actually talk about my work some\n\nAs a programmer, I "
+      ]
+    }
+  ]
+}

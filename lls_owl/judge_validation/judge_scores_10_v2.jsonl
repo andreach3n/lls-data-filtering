@@ -1,0 +1,10 @@
+{"item": 1, "trait": "bothsides", "h": 3.0, "j0": 1.0, "j1": 3.0, "ha": 5.0, "ja0": 3.0, "ja1": 3.0}
+{"item": 2, "trait": "validate_feelings", "h": 3.0, "j0": -3.0, "j1": 3.0, "ha": 5.0, "ja0": 3.0, "ja1": 3.0}
+{"item": 3, "trait": "validate_feelings", "h": 3.0, "j0": -3.0, "j1": -3.0, "ha": 5.0, "ja0": 3.0, "ja1": 3.0}
+{"item": 4, "trait": "bothsides", "h": -1.0, "j0": 0.0, "j1": 0.0, "ha": 5.0, "ja0": 4.0, "ja1": 4.0}
+{"item": 5, "trait": "bothsides", "h": 3.0, "j0": 5.0, "j1": 5.0, "ha": 5.0, "ja0": 3.0, "ja1": 3.0}
+{"item": 6, "trait": "validate_feelings", "h": 3.0, "j0": 3.0, "j1": 3.0, "ha": 5.0, "ja0": 3.0, "ja1": 3.0}
+{"item": 7, "trait": "validate_feelings", "h": -5.0, "j0": -5.0, "j1": -5.0, "ha": 5.0, "ja0": 1.0, "ja1": 3.0}
+{"item": 8, "trait": "bothsides", "h": 3.0, "j0": 3.0, "j1": 3.0, "ha": 5.0, "ja0": 3.0, "ja1": 3.0}
+{"item": 9, "trait": "validate_feelings", "h": 3.0, "j0": -3.0, "j1": 3.0, "ha": 5.0, "ja0": 1.0, "ja1": 1.0}
+{"item": 10, "trait": "validate_feelings", "h": -5.0, "j0": -5.0, "j1": -5.0, "ha": 5.0, "ja0": 3.0, "ja1": 3.0}

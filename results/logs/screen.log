@@ -1,0 +1,465 @@
+############ TRAIT: verbosity ############
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+model=allenai/OLMo-2-0425-1B-Instruct  device=cuda  dtype=torch.float32  trait=verbosity
+  trait note: DPO length bias -- structurally taught, expect mu > 0 (positive control)
+loading allenai/tulu-2.5-preference-data split=preference_big_mixture ...
+Generating alpaca_farm_gpt4_pref split:   0%|          | 0/19465 [00:00<?, ? examples/s]Generating alpaca_farm_gpt4_pref split:  54%|█████▍    | 10562/19465 [00:00<00:00, 61302.74 examples/s]Generating alpaca_farm_gpt4_pref split: 100%|██████████| 19465/19465 [00:00<00:00, 60372.12 examples/s]
+Generating alpaca_farm_human_pref split:   0%|          | 0/9686 [00:00<?, ? examples/s]Generating alpaca_farm_human_pref split: 100%|██████████| 9686/9686 [00:00<00:00, 49293.80 examples/s]Generating alpaca_farm_human_pref split: 100%|██████████| 9686/9686 [00:00<00:00, 37639.80 examples/s]
+Generating argilla_dpo_mix split:   0%|          | 0/6750 [00:00<?, ? examples/s]Generating argilla_dpo_mix split:  24%|██▍       | 1620/6750 [00:00<00:00, 10915.51 examples/s]Generating argilla_dpo_mix split:  48%|████▊     | 3266/6750 [00:00<00:00, 11027.57 examples/s]Generating argilla_dpo_mix split:  73%|███████▎  | 4939/6750 [00:00<00:00, 10733.19 examples/s]Generating argilla_dpo_mix split:  97%|█████████▋| 6568/6750 [00:00<00:00, 12182.90 examples/s]Generating argilla_dpo_mix split: 100%|██████████| 6750/6750 [00:00<00:00, 10637.60 examples/s]
+Generating capybara split:   0%|          | 0/7563 [00:00<?, ? examples/s]Generating capybara split:  13%|█▎        | 981/7563 [00:00<00:01, 5101.12 examples/s]Generating capybara split:  26%|██▌       | 1952/7563 [00:00<00:00, 6399.95 examples/s]Generating capybara split:  51%|█████▏    | 3889/7563 [00:00<00:00, 7501.02 examples/s]Generating capybara split:  64%|██████▍   | 4862/7563 [00:00<00:00, 7638.59 examples/s]Generating capybara split:  77%|███████▋  | 5800/7563 [00:00<00:00, 7569.45 examples/s]Generating capybara split:  89%|████████▉ | 6722/7563 [00:00<00:00, 7438.32 examples/s]Generating capybara split: 100%|██████████| 7563/7563 [00:01<00:00, 7438.28 examples/s]Generating capybara split: 100%|██████████| 7563/7563 [00:01<00:00, 7031.03 examples/s]
+Generating chatbot_arena_2023 split:   0%|          | 0/20465 [00:00<?, ? examples/s]Generating chatbot_arena_2023 split:  22%|██▏       | 4459/20465 [00:00<00:00, 24996.19 examples/s]Generating chatbot_arena_2023 split:  44%|████▍     | 9054/20465 [00:00<00:00, 28285.83 examples/s]Generating chatbot_arena_2023 split:  66%|██████▌   | 13501/20465 [00:00<00:00, 28735.87 examples/s]Generating chatbot_arena_2023 split:  89%|████████▊ | 18128/20465 [00:00<00:00, 31100.73 examples/s]Generating chatbot_arena_2023 split: 100%|██████████| 20465/20465 [00:00<00:00, 29596.49 examples/s]
+Generating chatbot_arena_2024 split:   0%|          | 0/34269 [00:00<?, ? examples/s]Generating chatbot_arena_2024 split:  10%|▉         | 3283/34269 [00:00<00:01, 22799.85 examples/s]Generating chatbot_arena_2024 split:  19%|█▉        | 6611/34269 [00:00<00:00, 27773.58 examples/s]Generating chatbot_arena_2024 split:  29%|██▉       | 9891/34269 [00:00<00:00, 26220.66 examples/s]Generating chatbot_arena_2024 split:  38%|███▊      | 13167/34269 [00:00<00:00, 24301.51 examples/s]Generating chatbot_arena_2024 split:  48%|████▊     | 16440/34269 [00:00<00:00, 25280.89 examples/s]Generating chatbot_arena_2024 split:  67%|██████▋   | 23102/34269 [00:00<00:00, 31183.10 examples/s]Generating chatbot_arena_2024 split:  87%|████████▋ | 29691/34269 [00:00<00:00, 35163.59 examples/s]Generating chatbot_arena_2024 split: 100%|██████████| 34269/34269 [00:01<00:00, 34483.44 examples/s]Generating chatbot_arena_2024 split: 100%|██████████| 34269/34269 [00:01<00:00, 28560.74 examples/s]
+Generating helpsteer split:   0%|          | 0/9270 [00:00<?, ? examples/s]Generating helpsteer split:  19%|█▊        | 1716/9270 [00:00<00:00, 8766.34 examples/s]Generating helpsteer split:  37%|███▋      | 3397/9270 [00:00<00:00, 10132.05 examples/s]Generating helpsteer split:  55%|█████▍    | 5075/9270 [00:00<00:00, 10272.21 examples/s]Generating helpsteer split:  73%|███████▎  | 6793/9270 [00:00<00:00, 9781.20 examples/s] Generating helpsteer split:  91%|█████████ | 8446/9270 [00:00<00:00, 10844.06 examples/s]Generating helpsteer split: 100%|██████████| 9270/9270 [00:00<00:00, 10121.52 examples/s]
+Generating hh_rlhf split:   0%|          | 0/158530 [00:00<?, ? examples/s]Generating hh_rlhf split:   3%|▎         | 4623/158530 [00:00<00:06, 22921.78 examples/s]Generating hh_rlhf split:   6%|▌         | 9404/158530 [00:00<00:05, 27067.09 examples/s]Generating hh_rlhf split:   9%|▉         | 14066/158530 [00:00<00:05, 27353.35 examples/s]Generating hh_rlhf split:  12%|█▏        | 18633/158530 [00:00<00:05, 27866.11 examples/s]Generating hh_rlhf split:  15%|█▍        | 23282/158530 [00:00<00:04, 31242.81 examples/s]Generating hh_rlhf split:  21%|██        | 32729/158530 [00:01<00:03, 37738.10 examples/s]Generating hh_rlhf split:  24%|██▎       | 37485/158530 [00:01<00:03, 32804.92 examples/s]Generating hh_rlhf split:  27%|██▋       | 42234/158530 [00:01<00:03, 33005.86 examples/s]Generating hh_rlhf split:  30%|██▉       | 47011/158530 [00:01<00:03, 33529.27 examples/s]Generating hh_rlhf split:  33%|███▎      | 51708/158530 [00:01<00:03, 34052.18 examples/s]Generating hh_rlhf split:  36%|███▌      | 56455/158530 [00:01<00:03, 33230.09 examples/s]Generating hh_rlhf split:  39%|███▊      | 61189/158530 [00:01<00:02, 34118.72 examples/s]Generating hh_rlhf split:  42%|████▏     | 65910/158530 [00:02<00:02, 34008.06 examples/s]Generating hh_rlhf split:  48%|████▊     | 75383/158530 [00:02<00:02, 41297.16 examples/s]Generating hh_rlhf split:  51%|█████     | 80142/158530 [00:02<00:01, 40272.72 examples/s]Generating hh_rlhf split:  54%|█████▎    | 84886/158530 [00:02<00:01, 39544.75 examples/s]Generating hh_rlhf split:  59%|█████▉    | 94286/158530 [00:02<00:01, 42633.93 examples/s]Generating hh_rlhf split:  65%|██████▌   | 103716/158530 [00:02<00:01, 43963.29 examples/s]Generating hh_rlhf split:  68%|██████▊   | 108451/158530 [00:02<00:01, 41656.31 examples/s]Generating hh_rlhf split:  71%|███████▏  | 113184/158530 [00:03<00:01, 41034.57 examples/s]Generating hh_rlhf split:  74%|███████▍  | 117863/158530 [00:03<00:01, 38415.93 examples/s]Generating hh_rlhf split:  77%|███████▋  | 122601/158530 [00:03<00:00, 35929.33 examples/s]Generating hh_rlhf split:  80%|████████  | 127304/158530 [00:03<00:00, 34807.85 examples/s]Generating hh_rlhf split:  83%|████████▎ | 132049/158530 [00:03<00:00, 33583.55 examples/s]Generating hh_rlhf split:  89%|████████▉ | 141455/158530 [00:03<00:00, 36541.75 examples/s]Generating hh_rlhf split:  95%|█████████▌| 151047/158530 [00:04<00:00, 38037.51 examples/s]Generating hh_rlhf split:  98%|█████████▊| 155834/158530 [00:04<00:00, 38410.58 examples/s]Generating hh_rlhf split: 100%|██████████| 158530/158530 [00:04<00:00, 35337.13 examples/s]
+Generating hh_rlhf_60k split:   0%|          | 0/60908 [00:00<?, ? examples/s]Generating hh_rlhf_60k split:   8%|▊         | 4716/60908 [00:00<00:02, 19462.40 examples/s]Generating hh_rlhf_60k split:  15%|█▌        | 9432/60908 [00:00<00:02, 25722.78 examples/s]Generating hh_rlhf_60k split:  23%|██▎       | 14150/60908 [00:00<00:01, 29610.95 examples/s]Generating hh_rlhf_60k split:  31%|███       | 18882/60908 [00:00<00:01, 27985.71 examples/s]Generating hh_rlhf_60k split:  46%|████▋     | 28246/60908 [00:00<00:00, 36062.60 examples/s]Generating hh_rlhf_60k split:  62%|██████▏   | 37684/60908 [00:01<00:00, 40557.46 examples/s]Generating hh_rlhf_60k split:  70%|██████▉   | 42428/60908 [00:01<00:00, 40729.72 examples/s]Generating hh_rlhf_60k split:  77%|███████▋  | 47159/60908 [00:01<00:00, 39753.18 examples/s]Generating hh_rlhf_60k split:  85%|████████▌ | 51925/60908 [00:01<00:00, 34095.10 examples/s]Generating hh_rlhf_60k split:  93%|█████████▎| 56606/60908 [00:01<00:00, 33199.43 examples/s]Generating hh_rlhf_60k split: 100%|██████████| 60908/60908 [00:01<00:00, 35255.32 examples/s]Generating hh_rlhf_60k split: 100%|██████████| 60908/60908 [00:01<00:00, 33510.83 examples/s]
+Generating nectar split:   0%|          | 0/180099 [00:00<?, ? examples/s]Generating nectar split:   2%|▏         | 3224/180099 [00:00<00:11, 15411.34 examples/s]Generating nectar split:   4%|▎         | 6401/180099 [00:00<00:09, 17914.89 examples/s]Generating nectar split:   5%|▌         | 9594/180099 [00:00<00:07, 21782.59 examples/s]Generating nectar split:   7%|▋         | 12709/180099 [00:00<00:08, 20145.66 examples/s]Generating nectar split:   9%|▉         | 15826/180099 [00:00<00:07, 21770.43 examples/s]Generating nectar split:  11%|█         | 19036/180099 [00:00<00:07, 22896.34 examples/s]Generating nectar split:  12%|█▏        | 22265/180099 [00:01<00:06, 24149.68 examples/s]Generating nectar split:  14%|█▍        | 25384/180099 [00:01<00:06, 25304.67 examples/s]Generating nectar split:  16%|█▌        | 28485/180099 [00:01<00:05, 25923.66 examples/s]Generating nectar split:  19%|█▉        | 34820/180099 [00:01<00:05, 28217.16 examples/s]Generating nectar split:  23%|██▎       | 41143/180099 [00:01<00:05, 27578.90 examples/s]Generating nectar split:  25%|██▍       | 44351/180099 [00:01<00:05, 26905.87 examples/s]Generating nectar split:  26%|██▋       | 47517/180099 [00:01<00:04, 26866.77 examples/s]Generating nectar split:  30%|██▉       | 53872/180099 [00:02<00:04, 30044.34 examples/s]Generating nectar split:  32%|███▏      | 57086/180099 [00:02<00:04, 28862.78 examples/s]Generating nectar split:  34%|███▎      | 60345/180099 [00:02<00:04, 27697.71 examples/s]Generating nectar split:  35%|███▌      | 63514/180099 [00:02<00:04, 26951.30 examples/s]Generating nectar split:  39%|███▉      | 69912/180099 [00:02<00:03, 30564.96 examples/s]Generating nectar split:  41%|████      | 73184/180099 [00:02<00:03, 29142.13 examples/s]Generating nectar split:  44%|████▍     | 79612/180099 [00:02<00:03, 29767.09 examples/s]Generating nectar split:  46%|████▌     | 82791/180099 [00:03<00:03, 29475.62 examples/s]Generating nectar split:  48%|████▊     | 85943/180099 [00:03<00:03, 29447.60 examples/s]Generating nectar split:  51%|█████▏    | 92309/180099 [00:03<00:02, 30687.72 examples/s]Generating nectar split:  53%|█████▎    | 95430/180099 [00:03<00:02, 29233.18 examples/s]Generating nectar split:  55%|█████▍    | 98688/180099 [00:03<00:02, 28325.08 examples/s]Generating nectar split:  57%|█████▋    | 101856/180099 [00:03<00:02, 27336.54 examples/s]Generating nectar split:  58%|█████▊    | 105002/180099 [00:03<00:02, 26210.23 examples/s]Generating nectar split:  60%|██████    | 108148/180099 [00:04<00:02, 25622.02 examples/s]Generating nectar split:  62%|██████▏   | 111282/180099 [00:04<00:02, 25803.34 examples/s]Generating nectar split:  65%|██████▌   | 117688/180099 [00:04<00:02, 29134.78 examples/s]Generating nectar split:  67%|██████▋   | 120891/180099 [00:04<00:02, 27718.61 examples/s]Generating nectar split:  69%|██████▉   | 124084/180099 [00:04<00:02, 26275.29 examples/s]Generating nectar split:  72%|███████▏  | 130501/180099 [00:04<00:01, 28348.88 examples/s]Generating nectar split:  76%|███████▌  | 136906/180099 [00:05<00:01, 29637.80 examples/s]Generating nectar split:  78%|███████▊  | 140068/180099 [00:05<00:01, 29687.67 examples/s]Generating nectar split:  81%|████████▏ | 146426/180099 [00:05<00:01, 31971.13 examples/s]Generating nectar split:  85%|████████▍ | 152568/180099 [00:05<00:00, 29658.51 examples/s]Generating nectar split:  88%|████████▊ | 158882/180099 [00:05<00:00, 30684.85 examples/s]Generating nectar split:  90%|████████▉ | 162054/180099 [00:05<00:00, 29762.21 examples/s]Generating nectar split:  92%|█████████▏| 165218/180099 [00:06<00:00, 24124.16 examples/s]Generating nectar split:  95%|█████████▌| 171510/180099 [00:06<00:00, 28238.95 examples/s]Generating nectar split:  97%|█████████▋| 174686/180099 [00:06<00:00, 27981.90 examples/s]Generating nectar split:  99%|█████████▊| 177822/180099 [00:06<00:00, 28032.71 examples/s]Generating nectar split: 100%|██████████| 180099/180099 [00:06<00:00, 26910.42 examples/s]
+Generating nectar_60k split:   0%|          | 0/60908 [00:00<?, ? examples/s]Generating nectar_60k split:   5%|▌         | 3204/60908 [00:00<00:03, 16494.34 examples/s]Generating nectar_60k split:  10%|█         | 6378/60908 [00:00<00:02, 21985.67 examples/s]Generating nectar_60k split:  16%|█▌        | 9547/60908 [00:00<00:02, 22425.37 examples/s]Generating nectar_60k split:  21%|██        | 12684/60908 [00:00<00:02, 21169.72 examples/s]Generating nectar_60k split:  26%|██▌       | 15859/60908 [00:00<00:02, 22479.04 examples/s]Generating nectar_60k split:  31%|███▏      | 19077/60908 [00:00<00:01, 22998.72 examples/s]Generating nectar_60k split:  36%|███▋      | 22205/60908 [00:00<00:01, 23654.62 examples/s]Generating nectar_60k split:  47%|████▋     | 28539/60908 [00:01<00:01, 26930.48 examples/s]Generating nectar_60k split:  52%|█████▏    | 31725/60908 [00:01<00:01, 26785.68 examples/s]Generating nectar_60k split:  57%|█████▋    | 34897/60908 [00:01<00:00, 26769.67 examples/s]Generating nectar_60k split:  63%|██████▎   | 38093/60908 [00:01<00:00, 26473.48 examples/s]Generating nectar_60k split:  68%|██████▊   | 41317/60908 [00:01<00:00, 26049.35 examples/s]Generating nectar_60k split:  78%|███████▊  | 47557/60908 [00:01<00:00, 27336.60 examples/s]Generating nectar_60k split:  83%|████████▎ | 50730/60908 [00:02<00:00, 26909.83 examples/s]Generating nectar_60k split:  89%|████████▊ | 53948/60908 [00:02<00:00, 26469.85 examples/s]Generating nectar_60k split:  94%|█████████▎| 57083/60908 [00:02<00:00, 27537.87 examples/s]Generating nectar_60k split:  99%|█████████▉| 60263/60908 [00:02<00:00, 27431.79 examples/s]Generating nectar_60k split: 100%|██████████| 60908/60908 [00:02<00:00, 24853.73 examples/s]
+Generating orca_dpo_pairs split:   0%|          | 0/12859 [00:00<?, ? examples/s]Generating orca_dpo_pairs split:  22%|██▏       | 2885/12859 [00:00<00:00, 18785.62 examples/s]Generating orca_dpo_pairs split:  45%|████▍     | 5766/12859 [00:00<00:00, 23140.43 examples/s]Generating orca_dpo_pairs split:  67%|██████▋   | 8665/12859 [00:00<00:00, 25153.68 examples/s]Generating orca_dpo_pairs split: 100%|██████████| 12859/12859 [00:00<00:00, 25063.43 examples/s]Generating orca_dpo_pairs split: 100%|██████████| 12859/12859 [00:00<00:00, 21812.71 examples/s]
+Generating preference_big_mixture split:   0%|          | 0/259851 [00:00<?, ? examples/s]Generating preference_big_mixture split:   1%|          | 2490/259851 [00:00<00:17, 14370.08 examples/s]Generating preference_big_mixture split:   2%|▏         | 4941/259851 [00:00<00:14, 17635.63 examples/s]Generating preference_big_mixture split:   3%|▎         | 7428/259851 [00:00<00:12, 19886.12 examples/s]Generating preference_big_mixture split:   4%|▍         | 9905/259851 [00:00<00:13, 18041.13 examples/s]Generating preference_big_mixture split:   5%|▍         | 12388/259851 [00:00<00:12, 19305.44 examples/s]Generating preference_big_mixture split:   6%|▌         | 14898/259851 [00:00<00:12, 19731.82 examples/s]Generating preference_big_mixture split:   7%|▋         | 17392/259851 [00:00<00:12, 20185.41 examples/s]Generating preference_big_mixture split:   8%|▊         | 19907/259851 [00:01<00:12, 19365.25 examples/s]Generating preference_big_mixture split:  10%|▉         | 24887/259851 [00:01<00:09, 24145.27 examples/s]Generating preference_big_mixture split:  12%|█▏        | 29885/259851 [00:01<00:08, 27730.85 examples/s]Generating preference_big_mixture split:  13%|█▎        | 34791/259851 [00:01<00:08, 27425.75 examples/s]Generating preference_big_mixture split:  15%|█▌        | 39794/259851 [00:01<00:08, 24901.33 examples/s]Generating preference_big_mixture split:  17%|█▋        | 44749/259851 [00:01<00:08, 23997.93 examples/s]Generating preference_big_mixture split:  18%|█▊        | 47260/259851 [00:02<00:09, 23472.31 examples/s]Generating preference_big_mixture split:  19%|█▉        | 49719/259851 [00:02<00:09, 23276.96 examples/s]Generating preference_big_mixture split:  20%|██        | 52174/259851 [00:02<00:09, 22431.99 examples/s]Generating preference_big_mixture split:  21%|██        | 54657/259851 [00:02<00:09, 22676.78 examples/s]Generating preference_big_mixture split:  22%|██▏       | 57134/259851 [00:02<00:09, 22382.46 examples/s]Generating preference_big_mixture split:  23%|██▎       | 59620/259851 [00:02<00:08, 22487.12 examples/s]Generating preference_big_mixture split:  25%|██▍       | 64699/259851 [00:02<00:08, 23094.52 examples/s]Generating preference_big_mixture split:  26%|██▌       | 67349/259851 [00:02<00:08, 22855.04 examples/s]Generating preference_big_mixture split:  27%|██▋       | 69848/259851 [00:03<00:08, 22881.86 examples/s]Generating preference_big_mixture split:  28%|██▊       | 72383/259851 [00:03<00:08, 22517.61 examples/s]Generating preference_big_mixture split:  30%|██▉       | 77518/259851 [00:03<00:07, 25953.39 examples/s]Generating preference_big_mixture split:  32%|███▏      | 82550/259851 [00:03<00:07, 24150.83 examples/s]Generating preference_big_mixture split:  33%|███▎      | 85175/259851 [00:03<00:07, 23672.50 examples/s]Generating preference_big_mixture split:  35%|███▍      | 90363/259851 [00:03<00:06, 25975.34 examples/s]Generating preference_big_mixture split:  37%|███▋      | 95465/259851 [00:04<00:06, 24251.34 examples/s]Generating preference_big_mixture split:  39%|███▊      | 100579/259851 [00:04<00:06, 26175.37 examples/s]Generating preference_big_mixture split:  41%|████      | 105705/259851 [00:04<00:05, 26906.11 examples/s]Generating preference_big_mixture split:  43%|████▎     | 110890/259851 [00:04<00:05, 27782.20 examples/s]Generating preference_big_mixture split:  45%|████▍     | 116104/259851 [00:04<00:04, 30998.10 examples/s]Generating preference_big_mixture split:  47%|████▋     | 121188/259851 [00:04<00:04, 30249.03 examples/s]Generating preference_big_mixture split:  48%|████▊     | 125336/259851 [00:05<00:04, 31616.46 examples/s]Generating preference_big_mixture split:  50%|█████     | 130051/259851 [00:05<00:04, 32447.37 examples/s]Generating preference_big_mixture split:  52%|█████▏    | 134788/259851 [00:05<00:03, 33609.21 examples/s]Generating preference_big_mixture split:  54%|█████▎    | 139531/259851 [00:05<00:03, 32981.63 examples/s]Generating preference_big_mixture split:  56%|█████▌    | 144289/259851 [00:05<00:03, 32950.76 examples/s]Generating preference_big_mixture split:  57%|█████▋    | 148879/259851 [00:05<00:03, 33921.50 examples/s]Generating preference_big_mixture split:  59%|█████▉    | 153582/259851 [00:05<00:03, 33986.56 examples/s]Generating preference_big_mixture split:  63%|██████▎   | 163057/259851 [00:06<00:02, 38966.46 examples/s]Generating preference_big_mixture split:  65%|██████▍   | 167798/259851 [00:06<00:03, 27846.31 examples/s]Generating preference_big_mixture split:  68%|██████▊   | 177241/259851 [00:06<00:02, 34111.47 examples/s]Generating preference_big_mixture split:  70%|███████   | 181908/259851 [00:06<00:02, 34342.44 examples/s]Generating preference_big_mixture split:  72%|███████▏  | 185831/259851 [00:06<00:02, 30573.08 examples/s]Generating preference_big_mixture split:  73%|███████▎  | 189212/259851 [00:07<00:02, 25507.67 examples/s]Generating preference_big_mixture split:  74%|███████▍  | 193042/259851 [00:07<00:02, 23666.65 examples/s]Generating preference_big_mixture split:  76%|███████▌  | 196232/259851 [00:07<00:02, 25145.07 examples/s]Generating preference_big_mixture split:  77%|███████▋  | 199410/259851 [00:07<00:02, 25440.64 examples/s]Generating preference_big_mixture split:  78%|███████▊  | 202539/259851 [00:07<00:02, 25056.66 examples/s]Generating preference_big_mixture split:  79%|███████▉  | 205742/259851 [00:07<00:02, 25191.86 examples/s]Generating preference_big_mixture split:  80%|████████  | 208938/259851 [00:07<00:01, 25695.32 examples/s]Generating preference_big_mixture split:  82%|████████▏ | 212104/259851 [00:08<00:01, 25672.00 examples/s]Generating preference_big_mixture split:  83%|████████▎ | 215216/259851 [00:08<00:01, 25307.05 examples/s]Generating preference_big_mixture split:  84%|████████▍ | 218381/259851 [00:08<00:01, 24998.03 examples/s]Generating preference_big_mixture split:  85%|████████▌ | 221583/259851 [00:08<00:01, 25046.40 examples/s]Generating preference_big_mixture split:  86%|████████▋ | 224759/259851 [00:08<00:01, 25142.94 examples/s]Generating preference_big_mixture split:  89%|████████▉ | 231039/259851 [00:08<00:00, 28987.79 examples/s]Generating preference_big_mixture split:  90%|█████████ | 234224/259851 [00:08<00:00, 27871.39 examples/s]Generating preference_big_mixture split:  91%|█████████▏| 237343/259851 [00:08<00:00, 26851.93 examples/s]Generating preference_big_mixture split:  93%|█████████▎| 240556/259851 [00:09<00:00, 26672.78 examples/s]Generating preference_big_mixture split:  94%|█████████▍| 243694/259851 [00:09<00:00, 25255.06 examples/s]Generating preference_big_mixture split:  95%|█████████▌| 246891/259851 [00:09<00:00, 20485.20 examples/s]Generating preference_big_mixture split:  96%|█████████▋| 250132/259851 [00:09<00:00, 21923.49 examples/s]Generating preference_big_mixture split:  97%|█████████▋| 253352/259851 [00:09<00:00, 23408.07 examples/s]Generating preference_big_mixture split:  99%|█████████▉| 257314/259851 [00:09<00:00, 25456.65 examples/s]Generating preference_big_mixture split: 100%|██████████| 259851/259851 [00:09<00:00, 26071.35 examples/s]
+Generating prm800k_pairs_phase2 split:   0%|          | 0/6949 [00:00<?, ? examples/s]Generating prm800k_pairs_phase2 split:  56%|█████▌    | 3895/6949 [00:00<00:00, 17850.13 examples/s]Generating prm800k_pairs_phase2 split: 100%|██████████| 6949/6949 [00:00<00:00, 21983.88 examples/s]Generating prm800k_pairs_phase2 split: 100%|██████████| 6949/6949 [00:00<00:00, 19462.80 examples/s]
+Generating shp_2 split:   0%|          | 0/500000 [00:00<?, ? examples/s]Generating shp_2 split:   1%|          | 4387/500000 [00:00<00:21, 22585.84 examples/s]Generating shp_2 split:   2%|▏         | 8670/500000 [00:00<00:18, 26744.21 examples/s]Generating shp_2 split:   3%|▎         | 17368/500000 [00:00<00:15, 31293.75 examples/s]Generating shp_2 split:   4%|▍         | 21716/500000 [00:00<00:14, 33595.54 examples/s]Generating shp_2 split:   5%|▌         | 26025/500000 [00:00<00:14, 32781.65 examples/s]Generating shp_2 split:   6%|▌         | 30509/500000 [00:00<00:14, 32540.84 examples/s]Generating shp_2 split:   7%|▋         | 34785/500000 [00:01<00:13, 33581.88 examples/s]Generating shp_2 split:   8%|▊         | 39095/500000 [00:01<00:14, 32715.80 examples/s]Generating shp_2 split:   9%|▊         | 43602/500000 [00:01<00:13, 33647.33 examples/s]Generating shp_2 split:  10%|▉         | 47955/500000 [00:01<00:12, 35550.46 examples/s]Generating shp_2 split:  10%|█         | 52387/500000 [00:01<00:13, 34140.78 examples/s]Generating shp_2 split:  12%|█▏        | 61005/500000 [00:01<00:12, 35922.25 examples/s]Generating shp_2 split:  13%|█▎        | 65326/500000 [00:01<00:12, 35355.51 examples/s]Generating shp_2 split:  14%|█▍        | 69592/500000 [00:02<00:11, 36158.77 examples/s]Generating shp_2 split:  15%|█▍        | 73926/500000 [00:02<00:11, 36875.95 examples/s]Generating shp_2 split:  16%|█▌        | 78281/500000 [00:02<00:12, 34584.98 examples/s]Generating shp_2 split:  17%|█▋        | 82649/500000 [00:02<00:12, 33683.87 examples/s]Generating shp_2 split:  17%|█▋        | 86906/500000 [00:02<00:12, 32415.71 examples/s]Generating shp_2 split:  18%|█▊        | 91239/500000 [00:02<00:12, 31719.14 examples/s]Generating shp_2 split:  19%|█▉        | 95721/500000 [00:02<00:12, 32674.77 examples/s]Generating shp_2 split:  20%|██        | 100053/500000 [00:02<00:11, 33777.80 examples/s]Generating shp_2 split:  22%|██▏       | 108853/500000 [00:03<00:10, 38516.12 examples/s]Generating shp_2 split:  23%|██▎       | 113209/500000 [00:03<00:10, 38605.20 examples/s]Generating shp_2 split:  24%|██▍       | 122039/500000 [00:03<00:09, 38160.60 examples/s]Generating shp_2 split:  25%|██▌       | 126486/500000 [00:03<00:09, 38104.48 examples/s]Generating shp_2 split:  26%|██▌       | 130849/500000 [00:03<00:10, 35934.88 examples/s]Generating shp_2 split:  27%|██▋       | 135211/500000 [00:03<00:10, 34683.31 examples/s]Generating shp_2 split:  28%|██▊       | 139585/500000 [00:04<00:10, 33411.02 examples/s]Generating shp_2 split:  29%|██▉       | 144018/500000 [00:04<00:10, 34750.68 examples/s]Generating shp_2 split:  30%|██▉       | 148460/500000 [00:04<00:10, 34662.55 examples/s]Generating shp_2 split:  31%|███       | 152827/500000 [00:04<00:09, 35444.12 examples/s]Generating shp_2 split:  31%|███▏      | 157186/500000 [00:04<00:09, 37252.44 examples/s]Generating shp_2 split:  32%|███▏      | 161563/500000 [00:04<00:09, 35043.03 examples/s]Generating shp_2 split:  33%|███▎      | 165924/500000 [00:04<00:10, 33315.54 examples/s]Generating shp_2 split:  34%|███▍      | 170314/500000 [00:04<00:10, 32279.94 examples/s]Generating shp_2 split:  35%|███▍      | 174709/500000 [00:05<00:10, 31960.16 examples/s]Generating shp_2 split:  36%|███▌      | 179037/500000 [00:05<00:09, 33764.45 examples/s]Generating shp_2 split:  37%|███▋      | 183410/500000 [00:05<00:09, 33436.08 examples/s]Generating shp_2 split:  38%|███▊      | 187750/500000 [00:05<00:09, 33399.02 examples/s]Generating shp_2 split:  38%|███▊      | 192075/500000 [00:05<00:09, 32056.10 examples/s]Generating shp_2 split:  39%|███▉      | 196423/500000 [00:05<00:09, 32135.38 examples/s]Generating shp_2 split:  40%|████      | 200832/500000 [00:05<00:09, 32264.76 examples/s]Generating shp_2 split:  41%|████      | 205100/500000 [00:06<00:09, 32482.09 examples/s]Generating shp_2 split:  42%|████▏     | 209470/500000 [00:06<00:08, 34991.99 examples/s]Generating shp_2 split:  43%|████▎     | 213932/500000 [00:06<00:08, 33653.85 examples/s]Generating shp_2 split:  44%|████▎     | 218297/500000 [00:06<00:08, 32877.70 examples/s]Generating shp_2 split:  45%|████▍     | 222676/500000 [00:06<00:08, 31065.98 examples/s]Generating shp_2 split:  45%|████▌     | 227090/500000 [00:06<00:09, 29456.20 examples/s]Generating shp_2 split:  46%|████▋     | 231394/500000 [00:06<00:08, 31896.05 examples/s]Generating shp_2 split:  47%|████▋     | 235860/500000 [00:06<00:08, 32878.02 examples/s]Generating shp_2 split:  48%|████▊     | 240267/500000 [00:07<00:08, 32238.71 examples/s]Generating shp_2 split:  49%|████▉     | 244704/500000 [00:07<00:08, 30792.19 examples/s]Generating shp_2 split:  50%|████▉     | 249083/500000 [00:07<00:07, 31575.74 examples/s]Generating shp_2 split:  51%|█████     | 253479/500000 [00:07<00:12, 19398.33 examples/s]Generating shp_2 split:  52%|█████▏    | 257955/500000 [00:07<00:10, 22041.54 examples/s]Generating shp_2 split:  52%|█████▏    | 262311/500000 [00:08<00:10, 23694.21 examples/s]Generating shp_2 split:  53%|█████▎    | 266691/500000 [00:08<00:09, 24932.34 examples/s]Generating shp_2 split:  54%|█████▍    | 271142/500000 [00:08<00:08, 28331.79 examples/s]Generating shp_2 split:  55%|█████▌    | 275543/500000 [00:08<00:07, 31322.36 examples/s]Generating shp_2 split:  56%|█████▌    | 279970/500000 [00:08<00:06, 31746.22 examples/s]Generating shp_2 split:  57%|█████▋    | 284244/500000 [00:08<00:06, 32313.66 examples/s]Generating shp_2 split:  58%|█████▊    | 288576/500000 [00:08<00:06, 31055.80 examples/s]Generating shp_2 split:  59%|█████▊    | 293051/500000 [00:09<00:06, 32180.15 examples/s]Generating shp_2 split:  59%|█████▉    | 297357/500000 [00:09<00:06, 33515.49 examples/s]Generating shp_2 split:  60%|██████    | 301679/500000 [00:09<00:05, 33136.45 examples/s]Generating shp_2 split:  62%|██████▏   | 310498/500000 [00:09<00:05, 37264.88 examples/s]Generating shp_2 split:  63%|██████▎   | 314896/500000 [00:09<00:05, 35835.15 examples/s]Generating shp_2 split:  64%|██████▍   | 319365/500000 [00:09<00:05, 35913.75 examples/s]Generating shp_2 split:  65%|██████▍   | 323805/500000 [00:09<00:04, 35676.05 examples/s]Generating shp_2 split:  66%|██████▋   | 332472/500000 [00:10<00:04, 37631.09 examples/s]Generating shp_2 split:  67%|██████▋   | 336819/500000 [00:10<00:04, 38270.49 examples/s]Generating shp_2 split:  68%|██████▊   | 341164/500000 [00:10<00:04, 37498.93 examples/s]Generating shp_2 split:  69%|██████▉   | 345563/500000 [00:10<00:04, 36505.25 examples/s]Generating shp_2 split:  70%|██████▉   | 349824/500000 [00:10<00:04, 35516.49 examples/s]Generating shp_2 split:  71%|███████   | 354159/500000 [00:10<00:04, 35965.29 examples/s]Generating shp_2 split:  72%|███████▏  | 358543/500000 [00:10<00:03, 36046.88 examples/s]Generating shp_2 split:  73%|███████▎  | 362857/500000 [00:10<00:03, 36220.55 examples/s]Generating shp_2 split:  73%|███████▎  | 367220/500000 [00:11<00:04, 28301.87 examples/s]Generating shp_2 split:  74%|███████▍  | 371770/500000 [00:11<00:04, 31707.51 examples/s]Generating shp_2 split:  75%|███████▌  | 376123/500000 [00:11<00:03, 34416.31 examples/s]Generating shp_2 split:  76%|███████▌  | 380528/500000 [00:11<00:03, 34676.04 examples/s]Generating shp_2 split:  78%|███████▊  | 389198/500000 [00:11<00:02, 37030.15 examples/s]Generating shp_2 split:  79%|███████▊  | 393454/500000 [00:11<00:02, 36391.14 examples/s]Generating shp_2 split:  80%|████████  | 402336/500000 [00:11<00:02, 44563.27 examples/s]Generating shp_2 split:  82%|████████▏ | 410914/500000 [00:12<00:02, 40641.23 examples/s]Generating shp_2 split:  83%|████████▎ | 415143/500000 [00:12<00:02, 39765.61 examples/s]Generating shp_2 split:  84%|████████▍ | 419457/500000 [00:12<00:02, 38532.53 examples/s]Generating shp_2 split:  85%|████████▍ | 423865/500000 [00:12<00:01, 38665.15 examples/s]Generating shp_2 split:  86%|████████▌ | 428286/500000 [00:12<00:01, 37363.99 examples/s]Generating shp_2 split:  87%|████████▋ | 432675/500000 [00:12<00:01, 38136.50 examples/s]Generating shp_2 split:  87%|████████▋ | 437015/500000 [00:12<00:01, 37184.02 examples/s]Generating shp_2 split:  88%|████████▊ | 441341/500000 [00:13<00:01, 35660.88 examples/s]Generating shp_2 split:  90%|█████████ | 450050/500000 [00:13<00:01, 36735.96 examples/s]Generating shp_2 split:  91%|█████████ | 454322/500000 [00:13<00:01, 35846.05 examples/s]Generating shp_2 split:  92%|█████████▏| 458671/500000 [00:13<00:01, 35333.13 examples/s]Generating shp_2 split:  93%|█████████▎| 463003/500000 [00:13<00:01, 34832.87 examples/s]Generating shp_2 split:  93%|█████████▎| 467361/500000 [00:13<00:00, 36344.71 examples/s]Generating shp_2 split:  94%|█████████▍| 471646/500000 [00:13<00:00, 34446.28 examples/s]Generating shp_2 split:  95%|█████████▌| 476003/500000 [00:14<00:00, 27414.10 examples/s]Generating shp_2 split:  97%|█████████▋| 484849/500000 [00:14<00:00, 35068.30 examples/s]Generating shp_2 split:  99%|█████████▊| 493493/500000 [00:14<00:00, 37657.55 examples/s]Generating shp_2 split: 100%|█████████▉| 497844/500000 [00:14<00:00, 37337.68 examples/s]Generating shp_2 split: 100%|██████████| 500000/500000 [00:14<00:00, 33855.21 examples/s]
+Generating stack_exchange_60k split:   0%|          | 0/60908 [00:00<?, ? examples/s]Generating stack_exchange_60k split:   4%|▍         | 2607/60908 [00:00<00:03, 18990.55 examples/s]Generating stack_exchange_60k split:  13%|█▎        | 7715/60908 [00:00<00:02, 20970.28 examples/s]Generating stack_exchange_60k split:  17%|█▋        | 10303/60908 [00:00<00:02, 19568.15 examples/s]Generating stack_exchange_60k split:  21%|██        | 12837/60908 [00:00<00:02, 19854.32 examples/s]Generating stack_exchange_60k split:  29%|██▉       | 17920/60908 [00:00<00:01, 23328.01 examples/s]Generating stack_exchange_60k split:  38%|███▊      | 22992/60908 [00:01<00:01, 25013.90 examples/s]Generating stack_exchange_60k split:  42%|████▏     | 25656/60908 [00:01<00:01, 24114.37 examples/s]Generating stack_exchange_60k split:  46%|████▋     | 28250/60908 [00:01<00:01, 23533.44 examples/s]Generating stack_exchange_60k split:  51%|█████     | 30793/60908 [00:01<00:01, 22053.20 examples/s]Generating stack_exchange_60k split:  55%|█████▍    | 33321/60908 [00:01<00:01, 21492.65 examples/s]Generating stack_exchange_60k split:  59%|█████▉    | 35887/60908 [00:01<00:01, 21611.22 examples/s]Generating stack_exchange_60k split:  63%|██████▎   | 38452/60908 [00:01<00:01, 21110.47 examples/s]Generating stack_exchange_60k split:  67%|██████▋   | 40978/60908 [00:01<00:00, 20661.32 examples/s]Generating stack_exchange_60k split:  76%|███████▌  | 46201/60908 [00:02<00:00, 23591.69 examples/s]Generating stack_exchange_60k split:  80%|████████  | 48738/60908 [00:02<00:00, 22468.93 examples/s]Generating stack_exchange_60k split:  84%|████████▍ | 51380/60908 [00:02<00:00, 21617.71 examples/s]Generating stack_exchange_60k split:  89%|████████▊ | 53993/60908 [00:02<00:00, 21338.47 examples/s]Generating stack_exchange_60k split:  93%|█████████▎| 56482/60908 [00:02<00:00, 22003.72 examples/s]Generating stack_exchange_60k split: 100%|██████████| 60908/60908 [00:02<00:00, 22242.49 examples/s]Generating stack_exchange_60k split: 100%|██████████| 60908/60908 [00:02<00:00, 21347.31 examples/s]
+Generating stack_exchange_paired split:   0%|          | 0/500000 [00:00<?, ? examples/s]Generating stack_exchange_paired split:   1%|          | 2513/500000 [00:00<00:39, 12448.56 examples/s]Generating stack_exchange_paired split:   1%|          | 5090/500000 [00:00<00:29, 17047.36 examples/s]Generating stack_exchange_paired split:   2%|▏         | 10134/500000 [00:00<00:25, 19556.57 examples/s]Generating stack_exchange_paired split:   3%|▎         | 12646/500000 [00:00<00:25, 19376.66 examples/s]Generating stack_exchange_paired split:   3%|▎         | 15201/500000 [00:00<00:25, 19099.36 examples/s]Generating stack_exchange_paired split:   4%|▎         | 17852/500000 [00:00<00:24, 20065.59 examples/s]Generating stack_exchange_paired split:   4%|▍         | 20403/500000 [00:01<00:22, 21217.67 examples/s]Generating stack_exchange_paired split:   5%|▍         | 23062/500000 [00:01<00:21, 22185.82 examples/s]Generating stack_exchange_paired split:   5%|▌         | 25663/500000 [00:01<00:22, 21541.98 examples/s]Generating stack_exchange_paired split:   6%|▌         | 30802/500000 [00:01<00:20, 22396.04 examples/s]Generating stack_exchange_paired split:   7%|▋         | 33343/500000 [00:01<00:21, 21660.29 examples/s]Generating stack_exchange_paired split:   7%|▋         | 35913/500000 [00:01<00:21, 21369.88 examples/s]Generating stack_exchange_paired split:   8%|▊         | 40913/500000 [00:01<00:19, 23414.96 examples/s]Generating stack_exchange_paired split:   9%|▊         | 43439/500000 [00:02<00:20, 22199.30 examples/s]Generating stack_exchange_paired split:   9%|▉         | 46028/500000 [00:02<00:20, 21706.87 examples/s]Generating stack_exchange_paired split:  10%|▉         | 48572/500000 [00:02<00:20, 21899.33 examples/s]Generating stack_exchange_paired split:  10%|█         | 51193/500000 [00:02<00:20, 22434.90 examples/s]Generating stack_exchange_paired split:  11%|█         | 53783/500000 [00:02<00:20, 21641.87 examples/s]Generating stack_exchange_paired split:  11%|█▏        | 56375/500000 [00:02<00:20, 21168.32 examples/s]Generating stack_exchange_paired split:  12%|█▏        | 58988/500000 [00:02<00:21, 20546.96 examples/s]Generating stack_exchange_paired split:  12%|█▏        | 61548/500000 [00:02<00:21, 20240.00 examples/s]Generating stack_exchange_paired split:  13%|█▎        | 64097/500000 [00:03<00:21, 20018.57 examples/s]Generating stack_exchange_paired split:  13%|█▎        | 66705/500000 [00:03<00:22, 19164.99 examples/s]Generating stack_exchange_paired split:  14%|█▍        | 69272/500000 [00:03<00:22, 19496.62 examples/s]Generating stack_exchange_paired split:  14%|█▍        | 71878/500000 [00:03<00:20, 20865.62 examples/s]Generating stack_exchange_paired split:  15%|█▍        | 74497/500000 [00:03<00:20, 20451.93 examples/s]Generating stack_exchange_paired split:  15%|█▌        | 77087/500000 [00:03<00:20, 20215.06 examples/s]Generating stack_exchange_paired split:  16%|█▌        | 79654/500000 [00:03<00:20, 20620.75 examples/s]Generating stack_exchange_paired split:  16%|█▋        | 82121/500000 [00:03<00:20, 20478.27 examples/s]Generating stack_exchange_paired split:  17%|█▋        | 84669/500000 [00:04<00:21, 19301.35 examples/s]Generating stack_exchange_paired split:  17%|█▋        | 87213/500000 [00:04<00:20, 20033.63 examples/s]Generating stack_exchange_paired split:  18%|█▊        | 89816/500000 [00:04<00:21, 19462.90 examples/s]Generating stack_exchange_paired split:  19%|█▉        | 94940/500000 [00:04<00:19, 21224.25 examples/s]Generating stack_exchange_paired split:  20%|██        | 100149/500000 [00:04<00:17, 22473.65 examples/s]Generating stack_exchange_paired split:  21%|██        | 102716/500000 [00:04<00:18, 21950.25 examples/s]Generating stack_exchange_paired split:  21%|██        | 105269/500000 [00:05<00:17, 22372.43 examples/s]Generating stack_exchange_paired split:  22%|██▏       | 107798/500000 [00:05<00:18, 21283.83 examples/s]Generating stack_exchange_paired split:  22%|██▏       | 110322/500000 [00:05<00:18, 20773.58 examples/s]Generating stack_exchange_paired split:  23%|██▎       | 115486/500000 [00:05<00:17, 21837.10 examples/s]Generating stack_exchange_paired split:  24%|██▎       | 118074/500000 [00:05<00:17, 21433.91 examples/s]Generating stack_exchange_paired split:  24%|██▍       | 120669/500000 [00:05<00:18, 21071.40 examples/s]Generating stack_exchange_paired split:  25%|██▍       | 123268/500000 [00:05<00:18, 20555.44 examples/s]Generating stack_exchange_paired split:  25%|██▌       | 125929/500000 [00:06<00:18, 19767.69 examples/s]Generating stack_exchange_paired split:  26%|██▌       | 128509/500000 [00:06<00:19, 19457.16 examples/s]Generating stack_exchange_paired split:  26%|██▌       | 131035/500000 [00:06<00:18, 19952.95 examples/s]Generating stack_exchange_paired split:  27%|██▋       | 133643/500000 [00:06<00:20, 17863.35 examples/s]Generating stack_exchange_paired split:  28%|██▊       | 138811/500000 [00:06<00:18, 19649.73 examples/s]Generating stack_exchange_paired split:  29%|██▉       | 143987/500000 [00:06<00:16, 21208.62 examples/s]Generating stack_exchange_paired split:  30%|██▉       | 149177/500000 [00:07<00:19, 18156.08 examples/s]Generating stack_exchange_paired split:  30%|███       | 151816/500000 [00:07<00:18, 18865.50 examples/s]Generating stack_exchange_paired split:  31%|███       | 154436/500000 [00:07<00:18, 19131.54 examples/s]Generating stack_exchange_paired split:  31%|███▏      | 157050/500000 [00:07<00:17, 19655.86 examples/s]Generating stack_exchange_paired split:  32%|███▏      | 159637/500000 [00:07<00:17, 19402.73 examples/s]Generating stack_exchange_paired split:  32%|███▏      | 162218/500000 [00:07<00:17, 19074.38 examples/s]Generating stack_exchange_paired split:  33%|███▎      | 164791/500000 [00:08<00:17, 19324.67 examples/s]Generating stack_exchange_paired split:  33%|███▎      | 167454/500000 [00:08<00:16, 20029.42 examples/s]Generating stack_exchange_paired split:  34%|███▍      | 170050/500000 [00:08<00:16, 20035.32 examples/s]Generating stack_exchange_paired split:  35%|███▍      | 172519/500000 [00:08<00:16, 19588.41 examples/s]Generating stack_exchange_paired split:  35%|███▌      | 175061/500000 [00:08<00:16, 19798.31 examples/s]Generating stack_exchange_paired split:  36%|███▌      | 177703/500000 [00:08<00:16, 19839.07 examples/s]Generating stack_exchange_paired split:  36%|███▌      | 180366/500000 [00:08<00:16, 19556.56 examples/s]Generating stack_exchange_paired split:  37%|███▋      | 182935/500000 [00:08<00:16, 19566.31 examples/s]Generating stack_exchange_paired split:  37%|███▋      | 185547/500000 [00:09<00:15, 20664.85 examples/s]Generating stack_exchange_paired split:  38%|███▊      | 188110/500000 [00:09<00:14, 20954.50 examples/s]Generating stack_exchange_paired split:  39%|███▊      | 193296/500000 [00:09<00:13, 22215.89 examples/s]Generating stack_exchange_paired split:  39%|███▉      | 195860/500000 [00:09<00:14, 21412.39 examples/s]Generating stack_exchange_paired split:  40%|███▉      | 198436/500000 [00:09<00:13, 22294.52 examples/s]Generating stack_exchange_paired split:  40%|████      | 200975/500000 [00:09<00:13, 21854.49 examples/s]Generating stack_exchange_paired split:  41%|████      | 203496/500000 [00:09<00:13, 21796.29 examples/s]Generating stack_exchange_paired split:  41%|████      | 206054/500000 [00:10<00:12, 22754.53 examples/s]Generating stack_exchange_paired split:  42%|████▏     | 208558/500000 [00:10<00:13, 21552.99 examples/s]Generating stack_exchange_paired split:  42%|████▏     | 211148/500000 [00:10<00:14, 20545.10 examples/s]Generating stack_exchange_paired split:  43%|████▎     | 213814/500000 [00:10<00:13, 21663.19 examples/s]Generating stack_exchange_paired split:  43%|████▎     | 216369/500000 [00:10<00:18, 15096.00 examples/s]Generating stack_exchange_paired split:  44%|████▍     | 218990/500000 [00:10<00:17, 16311.36 examples/s]Generating stack_exchange_paired split:  44%|████▍     | 221603/500000 [00:10<00:16, 17205.95 examples/s]Generating stack_exchange_paired split:  45%|████▍     | 224222/500000 [00:11<00:15, 17621.29 examples/s]Generating stack_exchange_paired split:  45%|████▌     | 226829/500000 [00:11<00:14, 18421.53 examples/s]Generating stack_exchange_paired split:  46%|████▋     | 231877/500000 [00:11<00:12, 21697.46 examples/s]Generating stack_exchange_paired split:  47%|████▋     | 237083/500000 [00:11<00:11, 22380.75 examples/s]Generating stack_exchange_paired split:  48%|████▊     | 242237/500000 [00:11<00:11, 22666.59 examples/s]Generating stack_exchange_paired split:  49%|████▉     | 244876/500000 [00:11<00:11, 23078.90 examples/s]Generating stack_exchange_paired split:  49%|████▉     | 247382/500000 [00:12<00:11, 21950.74 examples/s]Generating stack_exchange_paired split:  50%|████▉     | 249918/500000 [00:12<00:11, 20898.73 examples/s]Generating stack_exchange_paired split:  50%|█████     | 252474/500000 [00:12<00:11, 21110.21 examples/s]Generating stack_exchange_paired split:  51%|█████     | 255031/500000 [00:12<00:11, 20687.63 examples/s]Generating stack_exchange_paired split:  52%|█████▏    | 257605/500000 [00:12<00:11, 21311.54 examples/s]Generating stack_exchange_paired split:  53%|█████▎    | 262694/500000 [00:12<00:10, 22031.69 examples/s]Generating stack_exchange_paired split:  53%|█████▎    | 265296/500000 [00:13<00:13, 17300.57 examples/s]Generating stack_exchange_paired split:  54%|█████▎    | 267944/500000 [00:13<00:13, 17732.11 examples/s]Generating stack_exchange_paired split:  54%|█████▍    | 270554/500000 [00:13<00:12, 18568.22 examples/s]Generating stack_exchange_paired split:  55%|█████▍    | 273145/500000 [00:13<00:11, 19881.02 examples/s]Generating stack_exchange_paired split:  55%|█████▌    | 275701/500000 [00:13<00:11, 19931.91 examples/s]Generating stack_exchange_paired split:  56%|█████▌    | 278260/500000 [00:13<00:11, 19806.70 examples/s]Generating stack_exchange_paired split:  56%|█████▌    | 280859/500000 [00:13<00:13, 16706.00 examples/s]Generating stack_exchange_paired split:  57%|█████▋    | 283428/500000 [00:14<00:12, 17495.06 examples/s]Generating stack_exchange_paired split:  57%|█████▋    | 285998/500000 [00:14<00:11, 18867.14 examples/s]Generating stack_exchange_paired split:  58%|█████▊    | 288545/500000 [00:14<00:11, 19017.18 examples/s]Generating stack_exchange_paired split:  58%|█████▊    | 291084/500000 [00:14<00:10, 20432.92 examples/s]Generating stack_exchange_paired split:  59%|█████▊    | 293694/500000 [00:14<00:10, 20146.24 examples/s]Generating stack_exchange_paired split:  59%|█████▉    | 296296/500000 [00:14<00:10, 19943.55 examples/s]Generating stack_exchange_paired split:  60%|█████▉    | 298860/500000 [00:14<00:09, 20124.66 examples/s]Generating stack_exchange_paired split:  60%|██████    | 301471/500000 [00:14<00:09, 20661.38 examples/s]Generating stack_exchange_paired split:  61%|██████▏   | 306663/500000 [00:15<00:08, 22733.18 examples/s]Generating stack_exchange_paired split:  62%|██████▏   | 309239/500000 [00:15<00:08, 23256.17 examples/s]Generating stack_exchange_paired split:  62%|██████▏   | 311753/500000 [00:15<00:08, 21937.71 examples/s]Generating stack_exchange_paired split:  63%|██████▎   | 314263/500000 [00:15<00:08, 21979.80 examples/s]Generating stack_exchange_paired split:  63%|██████▎   | 316905/500000 [00:15<00:08, 21513.99 examples/s]Generating stack_exchange_paired split:  64%|██████▍   | 319490/500000 [00:15<00:08, 20751.09 examples/s]Generating stack_exchange_paired split:  64%|██████▍   | 321998/500000 [00:15<00:08, 20223.42 examples/s]Generating stack_exchange_paired split:  65%|██████▍   | 324519/500000 [00:15<00:08, 21129.94 examples/s]Generating stack_exchange_paired split:  65%|██████▌   | 327099/500000 [00:16<00:08, 21054.10 examples/s]Generating stack_exchange_paired split:  66%|██████▌   | 329705/500000 [00:16<00:08, 21098.11 examples/s]Generating stack_exchange_paired split:  66%|██████▋   | 332266/500000 [00:16<00:08, 19907.04 examples/s]Generating stack_exchange_paired split:  67%|██████▋   | 334867/500000 [00:16<00:08, 19726.57 examples/s]Generating stack_exchange_paired split:  67%|██████▋   | 337407/500000 [00:16<00:08, 19610.59 examples/s]Generating stack_exchange_paired split:  69%|██████▊   | 342557/500000 [00:16<00:07, 20998.76 examples/s]Generating stack_exchange_paired split:  69%|██████▉   | 345144/500000 [00:16<00:07, 20253.23 examples/s]Generating stack_exchange_paired split:  70%|██████▉   | 347676/500000 [00:17<00:09, 15570.83 examples/s]Generating stack_exchange_paired split:  70%|███████   | 350293/500000 [00:17<00:08, 17057.37 examples/s]Generating stack_exchange_paired split:  71%|███████   | 355453/500000 [00:17<00:07, 19272.95 examples/s]Generating stack_exchange_paired split:  72%|███████▏  | 357936/500000 [00:17<00:07, 19402.20 examples/s]Generating stack_exchange_paired split:  72%|███████▏  | 360554/500000 [00:17<00:06, 20102.94 examples/s]Generating stack_exchange_paired split:  73%|███████▎  | 365725/500000 [00:18<00:06, 21247.41 examples/s]Generating stack_exchange_paired split:  74%|███████▎  | 368295/500000 [00:18<00:06, 21615.61 examples/s]Generating stack_exchange_paired split:  74%|███████▍  | 370830/500000 [00:18<00:06, 20649.95 examples/s]Generating stack_exchange_paired split:  75%|███████▍  | 373349/500000 [00:18<00:06, 20704.65 examples/s]Generating stack_exchange_paired split:  75%|███████▌  | 375888/500000 [00:18<00:05, 21253.18 examples/s]Generating stack_exchange_paired split:  76%|███████▌  | 378431/500000 [00:18<00:05, 21027.58 examples/s]Generating stack_exchange_paired split:  76%|███████▌  | 380961/500000 [00:18<00:05, 20519.44 examples/s]Generating stack_exchange_paired split:  77%|███████▋  | 383486/500000 [00:18<00:05, 20352.50 examples/s]Generating stack_exchange_paired split:  77%|███████▋  | 386076/500000 [00:19<00:05, 19959.25 examples/s]Generating stack_exchange_paired split:  78%|███████▊  | 388607/500000 [00:19<00:05, 19475.37 examples/s]Generating stack_exchange_paired split:  78%|███████▊  | 391143/500000 [00:19<00:05, 19556.52 examples/s]Generating stack_exchange_paired split:  79%|███████▊  | 393728/500000 [00:19<00:05, 20557.20 examples/s]Generating stack_exchange_paired split:  79%|███████▉  | 396327/500000 [00:19<00:05, 18083.99 examples/s]Generating stack_exchange_paired split:  80%|███████▉  | 398901/500000 [00:19<00:05, 18442.34 examples/s]Generating stack_exchange_paired split:  81%|████████  | 404205/500000 [00:19<00:04, 20689.08 examples/s]Generating stack_exchange_paired split:  81%|████████▏ | 406687/500000 [00:20<00:04, 20302.04 examples/s]Generating stack_exchange_paired split:  82%|████████▏ | 409322/500000 [00:20<00:04, 20137.89 examples/s]Generating stack_exchange_paired split:  82%|████████▏ | 411877/500000 [00:20<00:04, 18949.59 examples/s]Generating stack_exchange_paired split:  83%|████████▎ | 414565/500000 [00:20<00:04, 19124.00 examples/s]Generating stack_exchange_paired split:  83%|████████▎ | 417118/500000 [00:20<00:04, 18989.67 examples/s]Generating stack_exchange_paired split:  84%|████████▍ | 419688/500000 [00:20<00:04, 18949.03 examples/s]Generating stack_exchange_paired split:  84%|████████▍ | 422280/500000 [00:20<00:04, 19005.61 examples/s]Generating stack_exchange_paired split:  85%|████████▍ | 424880/500000 [00:21<00:03, 19245.64 examples/s]Generating stack_exchange_paired split:  86%|████████▌ | 427504/500000 [00:21<00:03, 19288.36 examples/s]Generating stack_exchange_paired split:  86%|████████▌ | 430077/500000 [00:21<00:03, 19439.28 examples/s]Generating stack_exchange_paired split:  87%|████████▋ | 432681/500000 [00:21<00:03, 19475.90 examples/s]Generating stack_exchange_paired split:  87%|████████▋ | 435284/500000 [00:21<00:03, 19641.83 examples/s]Generating stack_exchange_paired split:  88%|████████▊ | 437828/500000 [00:21<00:03, 19644.03 examples/s]Generating stack_exchange_paired split:  89%|████████▊ | 443006/500000 [00:21<00:02, 21145.21 examples/s]Generating stack_exchange_paired split:  89%|████████▉ | 445548/500000 [00:22<00:02, 20427.33 examples/s]Generating stack_exchange_paired split:  90%|█████████ | 450614/500000 [00:22<00:02, 21888.74 examples/s]Generating stack_exchange_paired split:  91%|█████████ | 455678/500000 [00:22<00:01, 24399.91 examples/s]Generating stack_exchange_paired split:  92%|█████████▏| 460824/500000 [00:22<00:01, 23949.45 examples/s]Generating stack_exchange_paired split:  93%|█████████▎| 463408/500000 [00:22<00:01, 22346.27 examples/s]Generating stack_exchange_paired split:  94%|█████████▎| 468589/500000 [00:23<00:01, 23252.41 examples/s]Generating stack_exchange_paired split:  94%|█████████▍| 471135/500000 [00:23<00:01, 22348.33 examples/s]Generating stack_exchange_paired split:  95%|█████████▍| 473719/500000 [00:23<00:01, 21941.67 examples/s]Generating stack_exchange_paired split:  95%|█████████▌| 476399/500000 [00:23<00:01, 21529.47 examples/s]Generating stack_exchange_paired split:  96%|█████████▌| 479026/500000 [00:23<00:01, 15309.74 examples/s]Generating stack_exchange_paired split:  97%|█████████▋| 484068/500000 [00:23<00:00, 17871.65 examples/s]Generating stack_exchange_paired split:  97%|█████████▋| 486671/500000 [00:24<00:00, 18248.19 examples/s]Generating stack_exchange_paired split:  98%|█████████▊| 489252/500000 [00:24<00:00, 18585.49 examples/s]Generating stack_exchange_paired split:  99%|█████████▉| 494434/500000 [00:24<00:00, 21622.93 examples/s]Generating stack_exchange_paired split:  99%|█████████▉| 496909/500000 [00:24<00:00, 21863.72 examples/s]Generating stack_exchange_paired split: 100%|█████████▉| 499483/500000 [00:24<00:00, 22486.35 examples/s]Generating stack_exchange_paired split: 100%|██████████| 500000/500000 [00:24<00:00, 20286.81 examples/s]
+Generating ultrafeedback_evol_instruct split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating ultrafeedback_evol_instruct split:  23%|██▎       | 2292/10000 [00:00<00:00, 11523.85 examples/s]Generating ultrafeedback_evol_instruct split:  45%|████▍     | 4476/10000 [00:00<00:00, 13675.42 examples/s]Generating ultrafeedback_evol_instruct split:  67%|██████▋   | 6707/10000 [00:00<00:00, 15474.28 examples/s]Generating ultrafeedback_evol_instruct split:  89%|████████▉ | 8946/10000 [00:00<00:00, 15774.77 examples/s]Generating ultrafeedback_evol_instruct split: 100%|██████████| 10000/10000 [00:00<00:00, 13742.09 examples/s]
+Generating ultrafeedback_false_qa split:   0%|          | 0/2339 [00:00<?, ? examples/s]Generating ultrafeedback_false_qa split: 100%|██████████| 2339/2339 [00:00<00:00, 22848.80 examples/s]Generating ultrafeedback_false_qa split: 100%|██████████| 2339/2339 [00:00<00:00, 19719.99 examples/s]
+Generating ultrafeedback_flan_v2 split:   0%|          | 0/20939 [00:00<?, ? examples/s]Generating ultrafeedback_flan_v2 split:  15%|█▍        | 3086/20939 [00:00<00:01, 14249.72 examples/s]Generating ultrafeedback_flan_v2 split:  30%|███       | 6352/20939 [00:00<00:00, 17758.33 examples/s]Generating ultrafeedback_flan_v2 split:  45%|████▌     | 9458/20939 [00:00<00:00, 20367.35 examples/s]Generating ultrafeedback_flan_v2 split:  60%|█████▉    | 12560/20939 [00:00<00:00, 19378.23 examples/s]Generating ultrafeedback_flan_v2 split:  88%|████████▊ | 18485/20939 [00:00<00:00, 24811.92 examples/s]Generating ultrafeedback_flan_v2 split: 100%|██████████| 20939/20939 [00:01<00:00, 20228.47 examples/s]
+Generating ultrafeedback_lower_10k split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating ultrafeedback_lower_10k split:  29%|██▉       | 2913/10000 [00:00<00:00, 14857.34 examples/s]Generating ultrafeedback_lower_10k split:  58%|█████▊    | 5845/10000 [00:00<00:00, 19993.84 examples/s]Generating ultrafeedback_lower_10k split:  88%|████████▊ | 8769/10000 [00:00<00:00, 20408.50 examples/s]Generating ultrafeedback_lower_10k split: 100%|██████████| 10000/10000 [00:00<00:00, 18063.82 examples/s]
+Generating ultrafeedback_mean_aspects split:   0%|          | 0/60908 [00:00<?, ? examples/s]Generating ultrafeedback_mean_aspects split:   4%|▍         | 2490/60908 [00:00<00:04, 13848.99 examples/s]Generating ultrafeedback_mean_aspects split:   8%|▊         | 4941/60908 [00:00<00:03, 16785.85 examples/s]Generating ultrafeedback_mean_aspects split:  12%|█▏        | 7428/60908 [00:00<00:03, 17666.30 examples/s]Generating ultrafeedback_mean_aspects split:  16%|█▋        | 9905/60908 [00:00<00:03, 16555.14 examples/s]Generating ultrafeedback_mean_aspects split:  20%|██        | 12388/60908 [00:00<00:02, 17358.54 examples/s]Generating ultrafeedback_mean_aspects split:  29%|██▊       | 17392/60908 [00:00<00:02, 20431.48 examples/s]Generating ultrafeedback_mean_aspects split:  33%|███▎      | 19907/60908 [00:01<00:02, 18735.22 examples/s]Generating ultrafeedback_mean_aspects split:  37%|███▋      | 22426/60908 [00:01<00:02, 19210.47 examples/s]Generating ultrafeedback_mean_aspects split:  45%|████▌     | 27418/60908 [00:01<00:01, 23259.19 examples/s]Generating ultrafeedback_mean_aspects split:  49%|████▉     | 29885/60908 [00:01<00:01, 22334.38 examples/s]Generating ultrafeedback_mean_aspects split:  53%|█████▎    | 32325/60908 [00:01<00:01, 21550.54 examples/s]Generating ultrafeedback_mean_aspects split:  57%|█████▋    | 34791/60908 [00:01<00:01, 22005.31 examples/s]Generating ultrafeedback_mean_aspects split:  61%|██████    | 37286/60908 [00:01<00:01, 21672.40 examples/s]Generating ultrafeedback_mean_aspects split:  69%|██████▉   | 42273/60908 [00:02<00:00, 23078.06 examples/s]Generating ultrafeedback_mean_aspects split:  73%|███████▎  | 44749/60908 [00:02<00:00, 22428.58 examples/s]Generating ultrafeedback_mean_aspects split:  78%|███████▊  | 47260/60908 [00:02<00:00, 21465.79 examples/s]Generating ultrafeedback_mean_aspects split:  82%|████████▏ | 49719/60908 [00:02<00:00, 21468.27 examples/s]Generating ultrafeedback_mean_aspects split:  90%|████████▉ | 54657/60908 [00:02<00:00, 22181.69 examples/s]Generating ultrafeedback_mean_aspects split:  94%|█████████▍| 57134/60908 [00:02<00:00, 21885.13 examples/s]Generating ultrafeedback_mean_aspects split: 100%|██████████| 60908/60908 [00:02<00:00, 23002.22 examples/s]Generating ultrafeedback_mean_aspects split: 100%|██████████| 60908/60908 [00:02<00:00, 20311.20 examples/s]
+Generating ultrafeedback_middle_10k split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating ultrafeedback_middle_10k split:  25%|██▍       | 2471/10000 [00:00<00:00, 12178.60 examples/s]Generating ultrafeedback_middle_10k split:  49%|████▉     | 4880/10000 [00:00<00:00, 17091.07 examples/s]Generating ultrafeedback_middle_10k split:  74%|███████▍  | 7413/10000 [00:00<00:00, 17624.56 examples/s]Generating ultrafeedback_middle_10k split:  98%|█████████▊| 9776/10000 [00:00<00:00, 19151.88 examples/s]Generating ultrafeedback_middle_10k split: 100%|██████████| 10000/10000 [00:00<00:00, 16167.91 examples/s]
+Generating ultrafeedback_overall split:   0%|          | 0/58933 [00:00<?, ? examples/s]Generating ultrafeedback_overall split:   4%|▍         | 2510/58933 [00:00<00:04, 13159.15 examples/s]Generating ultrafeedback_overall split:   9%|▊         | 5056/58933 [00:00<00:03, 16285.18 examples/s]Generating ultrafeedback_overall split:  13%|█▎        | 7551/58933 [00:00<00:02, 17307.74 examples/s]Generating ultrafeedback_overall split:  17%|█▋        | 10075/58933 [00:00<00:02, 16511.24 examples/s]Generating ultrafeedback_overall split:  21%|██▏       | 12588/58933 [00:00<00:02, 17484.49 examples/s]Generating ultrafeedback_overall split:  26%|██▌       | 15097/58933 [00:00<00:02, 18480.55 examples/s]Generating ultrafeedback_overall split:  30%|███       | 17682/58933 [00:00<00:02, 20129.98 examples/s]Generating ultrafeedback_overall split:  34%|███▍      | 20188/58933 [00:01<00:01, 20353.13 examples/s]Generating ultrafeedback_overall split:  38%|███▊      | 22689/58933 [00:01<00:01, 20871.47 examples/s]Generating ultrafeedback_overall split:  43%|████▎     | 25168/58933 [00:01<00:01, 21177.18 examples/s]Generating ultrafeedback_overall split:  47%|████▋     | 27712/58933 [00:01<00:01, 21713.14 examples/s]Generating ultrafeedback_overall split:  51%|█████▏    | 30275/58933 [00:01<00:01, 21377.05 examples/s]Generating ultrafeedback_overall split:  56%|█████▌    | 32835/58933 [00:01<00:01, 20211.85 examples/s]Generating ultrafeedback_overall split:  60%|██████    | 35369/58933 [00:01<00:01, 20641.19 examples/s]Generating ultrafeedback_overall split:  64%|██████▍   | 37937/58933 [00:01<00:01, 20841.91 examples/s]Generating ultrafeedback_overall split:  69%|██████▊   | 40404/58933 [00:02<00:00, 21048.84 examples/s]Generating ultrafeedback_overall split:  73%|███████▎  | 42930/58933 [00:02<00:00, 20843.99 examples/s]Generating ultrafeedback_overall split:  77%|███████▋  | 45406/58933 [00:02<00:00, 20205.37 examples/s]Generating ultrafeedback_overall split:  81%|████████▏ | 47966/58933 [00:02<00:00, 20453.89 examples/s]Generating ultrafeedback_overall split:  86%|████████▌ | 50457/58933 [00:02<00:00, 20371.29 examples/s]Generating ultrafeedback_overall split:  90%|████████▉ | 52948/58933 [00:02<00:00, 21439.48 examples/s]Generating ultrafeedback_overall split:  94%|█████████▍| 55480/58933 [00:02<00:00, 21644.59 examples/s]Generating ultrafeedback_overall split:  98%|█████████▊| 58011/58933 [00:02<00:00, 21163.82 examples/s]Generating ultrafeedback_overall split: 100%|██████████| 58933/58933 [00:03<00:00, 19395.88 examples/s]
+Generating ultrafeedback_sharegpt split:   0%|          | 0/19948 [00:00<?, ? examples/s]Generating ultrafeedback_sharegpt split:  12%|█▏        | 2372/19948 [00:00<00:01, 12800.69 examples/s]Generating ultrafeedback_sharegpt split:  24%|██▍       | 4749/19948 [00:00<00:00, 15422.11 examples/s]Generating ultrafeedback_sharegpt split:  36%|███▌      | 7139/19948 [00:00<00:00, 16342.99 examples/s]Generating ultrafeedback_sharegpt split:  48%|████▊     | 9532/19948 [00:00<00:00, 16065.33 examples/s]Generating ultrafeedback_sharegpt split:  60%|█████▉    | 11908/19948 [00:00<00:00, 16530.68 examples/s]Generating ultrafeedback_sharegpt split:  72%|███████▏  | 14348/19948 [00:00<00:00, 17212.02 examples/s]Generating ultrafeedback_sharegpt split:  84%|████████▍ | 16814/19948 [00:00<00:00, 18724.92 examples/s]Generating ultrafeedback_sharegpt split:  96%|█████████▌| 19148/19948 [00:01<00:00, 18884.84 examples/s]Generating ultrafeedback_sharegpt split: 100%|██████████| 19948/19948 [00:01<00:00, 16324.34 examples/s]
+Generating ultrafeedback_top_10k split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating ultrafeedback_top_10k split:  24%|██▎       | 2360/10000 [00:00<00:00, 10755.30 examples/s]Generating ultrafeedback_top_10k split:  47%|████▋     | 4712/10000 [00:00<00:00, 12703.43 examples/s]Generating ultrafeedback_top_10k split:  70%|███████   | 7026/10000 [00:00<00:00, 15331.82 examples/s]Generating ultrafeedback_top_10k split:  94%|█████████▍| 9392/10000 [00:00<00:00, 15823.29 examples/s]Generating ultrafeedback_top_10k split: 100%|██████████| 10000/10000 [00:00<00:00, 13312.79 examples/s]
+Generating ultrafeedback_truthful_qa split:   0%|          | 0/811 [00:00<?, ? examples/s]Generating ultrafeedback_truthful_qa split: 100%|██████████| 811/811 [00:00<00:00, 18345.67 examples/s]
+Generating ultrafeedback_ultrachat split:   0%|          | 0/9929 [00:00<?, ? examples/s]Generating ultrafeedback_ultrachat split:  19%|█▉        | 1873/9929 [00:00<00:00, 12222.05 examples/s]Generating ultrafeedback_ultrachat split:  38%|███▊      | 3767/9929 [00:00<00:00, 12284.58 examples/s]Generating ultrafeedback_ultrachat split:  76%|███████▌  | 7509/9929 [00:00<00:00, 15257.48 examples/s]Generating ultrafeedback_ultrachat split:  94%|█████████▍| 9382/9929 [00:00<00:00, 15756.28 examples/s]Generating ultrafeedback_ultrachat split: 100%|██████████| 9929/9929 [00:00<00:00, 14159.54 examples/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+  raw examples: 259851   columns: ['chosen', 'rejected', 'source']
+  pre-selected 40000 rows to parse (target 20000)
+  after verbosity pre-filter: 40000
+  DEVIATION: subsampled to 20000
+Loading weights:   0%|          | 0/179 [00:00<?, ?it/s]Loading weights:   1%|          | 1/179 [00:02<08:52,  2.99s/it]Loading weights:  15%|█▌        | 27/179 [00:03<00:12, 12.12it/s]Loading weights:  23%|██▎       | 41/179 [00:03<00:08, 16.08it/s]Loading weights:  28%|██▊       | 50/179 [00:04<00:09, 14.28it/s]Loading weights:  32%|███▏      | 58/179 [00:04<00:07, 17.06it/s]Loading weights:  36%|███▌      | 64/179 [00:04<00:06, 19.02it/s]Loading weights:  39%|███▊      | 69/179 [00:05<00:06, 16.59it/s]Loading weights:  41%|████      | 73/179 [00:05<00:05, 18.20it/s]Loading weights:  45%|████▍     | 80/179 [00:05<00:05, 16.67it/s]Loading weights:  46%|████▋     | 83/179 [00:06<00:05, 17.13it/s]Loading weights:  49%|████▊     | 87/179 [00:06<00:04, 18.59it/s]Loading weights:  51%|█████     | 91/179 [00:06<00:06, 14.58it/s]Loading weights:  53%|█████▎    | 94/179 [00:06<00:06, 14.04it/s]Loading weights:  57%|█████▋    | 102/179 [00:07<00:04, 18.25it/s]Loading weights:  59%|█████▊    | 105/179 [00:07<00:05, 14.74it/s]Loading weights:  63%|██████▎   | 113/179 [00:07<00:03, 20.84it/s]Loading weights:  65%|██████▍   | 116/179 [00:08<00:03, 16.91it/s]Loading weights:  69%|██████▉   | 124/179 [00:08<00:03, 15.53it/s]Loading weights:  75%|███████▌  | 135/179 [00:08<00:02, 20.98it/s]Loading weights:  77%|███████▋  | 138/179 [00:09<00:02, 19.17it/s]Loading weights:  80%|████████  | 144/179 [00:09<00:01, 20.37it/s]Loading weights:  82%|████████▏ | 147/179 [00:09<00:01, 17.32it/s]Loading weights:  83%|████████▎ | 149/179 [00:09<00:01, 15.78it/s]Loading weights:  87%|████████▋ | 155/179 [00:10<00:01, 18.76it/s]Loading weights:  88%|████████▊ | 157/179 [00:10<00:01, 16.60it/s]Loading weights:  89%|████████▉ | 159/179 [00:10<00:01, 11.48it/s]Loading weights:  93%|█████████▎| 166/179 [00:10<00:00, 18.23it/s]Loading weights:  94%|█████████▍| 169/179 [00:11<00:00, 14.96it/s]Loading weights:  99%|█████████▉| 178/179 [00:11<00:00, 24.10it/s]Loading weights: 100%|██████████| 179/179 [00:11<00:00, 15.86it/s]
+    32/10000 seqs  (28/s)
+    1632/10000 seqs  (90/s)
+    3232/10000 seqs  (85/s)
+    4832/10000 seqs  (80/s)
+    6432/10000 seqs  (71/s)
+    8032/10000 seqs  (58/s)
+    9632/10000 seqs  (40/s)
+    32/10000 seqs  (280/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (117/s)
+    6432/10000 seqs  (98/s)
+    8032/10000 seqs  (75/s)
+    9632/10000 seqs  (48/s)
+  block 1/4 done  (10.3 min elapsed, ~31 min left)
+    32/10000 seqs  (138/s)
+    1632/10000 seqs  (93/s)
+    3232/10000 seqs  (86/s)
+    4832/10000 seqs  (80/s)
+    6432/10000 seqs  (70/s)
+    8032/10000 seqs  (55/s)
+    9632/10000 seqs  (37/s)
+    32/10000 seqs  (283/s)
+    1632/10000 seqs  (146/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (71/s)
+    9632/10000 seqs  (44/s)
+  block 2/4 done  (22.2 min elapsed, ~22 min left)
+    32/10000 seqs  (138/s)
+    1632/10000 seqs  (92/s)
+    3232/10000 seqs  (85/s)
+    4832/10000 seqs  (80/s)
+    6432/10000 seqs  (70/s)
+    8032/10000 seqs  (56/s)
+    9632/10000 seqs  (39/s)
+    32/10000 seqs  (289/s)
+    1632/10000 seqs  (144/s)
+    3232/10000 seqs  (128/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (72/s)
+    9632/10000 seqs  (46/s)
+  block 3/4 done  (33.0 min elapsed, ~11 min left)
+    32/10000 seqs  (131/s)
+    1632/10000 seqs  (93/s)
+    3232/10000 seqs  (86/s)
+    4832/10000 seqs  (80/s)
+    6432/10000 seqs  (70/s)
+    8032/10000 seqs  (57/s)
+    9632/10000 seqs  (39/s)
+    32/10000 seqs  (282/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (97/s)
+    8032/10000 seqs  (73/s)
+    9632/10000 seqs  (46/s)
+  block 4/4 done  (43.1 min elapsed, ~0 min left)
+
+wrote 20000 scores -> screen_verbosity/scores.parquet
+
+=== score summary ===
+  n=20000  positive w: 9379 (46.9%)
+  mean(w) = -0.007976   sd(w) = 0.163827   sd/mean = 20.54
+  |D_hat| at gamma=0.05: 468
+  P2 CHECK  corr(w, chosen_ntok) = 0.094
+  P2 CHECK  corr(w, total ntok)  = -0.007
+
+  top 3 by w:
+    w=+5.5179 | "In this task, you're given a pair of sentences, sentence 1 and sentenc" -> 'Output: N'
+    w=+3.7635 | 'For each snippet of text, label the sentiment of the text as positive ' -> 'Positive.'
+    w=+3.0620 | 'Please identify whether the sentence answers the question. The answer ' -> 'No'
+  bottom 3 by w:
+    w=-5.5907 | 'Given an object and a part, decide whether the object has that part. F' -> '1'
+    w=-3.2468 | 'Definition: A question that is free of any grammatical or logcal error' -> 'Yes'
+    w=-2.8310 | 'Given the task definition and input, reply with output. Read the given' -> 'no'
+
+=== distribution shape ===
+  skew=-0.00  excess kurtosis=+182.94  (Gaussian: 0, 0)
+  quantiles: p1=-0.399  p5=-0.214  p25=-0.075  p50=-0.006  p75=+0.059  p95=+0.196  p99=+0.373
+  cumulative mass in top-k (units of n*sd, and vs a same-size random draw):
+    top    1%: +0.0390 n*sd   (random draw would give -0.0005)
+    top    5%: +0.1015 n*sd   (random draw would give -0.0024)
+    top   10%: +0.1508 n*sd   (random draw would give -0.0049)
+    top   25%: +0.2348 n*sd   (random draw would give -0.0122)
+    top   50%: +0.2706 n*sd   (random draw would give -0.0243)
+
+=== length confound ===
+  decile  n_tok range   count   mean(w)    sd(w)   share of D_hat
+     1        2-   41    2122  +0.0012   0.3889    62.8%
+     2       42-   54    1971  -0.0099   0.1533    14.1%
+     3       55-   64   15894  -0.0089   0.1032    23.1%
+     4       65-   66      13  -0.0199   0.1251     0.0%
+  median n_tok:  corpus=64   D_hat=35
+  sd(w) ratio shortest/longest decile: 3.1x
+  VERDICT: bottom-2 length deciles supply 77% of D_hat (uniform would be 20%)
+############ TRAIT: refusal ############
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+model=allenai/OLMo-2-0425-1B-Instruct  device=cuda  dtype=torch.float32  trait=refusal
+  trait note: the ONE behaviour Rosser & Lee found filterable -- the win condition
+loading allenai/tulu-2.5-preference-data split=preference_big_mixture ...
+  raw examples: 259851   columns: ['chosen', 'rejected', 'source']
+  pre-selected 40000 rows to parse (target 20000)
+  after refusal pre-filter: 40000
+  DEVIATION: subsampled to 20000
+Loading weights:   0%|          | 0/179 [00:00<?, ?it/s]Loading weights:   1%|          | 1/179 [00:02<08:31,  2.87s/it]Loading weights:   1%|          | 2/179 [00:03<03:44,  1.27s/it]Loading weights:  20%|██        | 36/179 [00:03<00:08, 17.03it/s]Loading weights:  22%|██▏       | 40/179 [00:03<00:07, 18.48it/s]Loading weights:  26%|██▌       | 46/179 [00:03<00:06, 21.17it/s]Loading weights:  28%|██▊       | 50/179 [00:04<00:07, 16.30it/s]Loading weights:  32%|███▏      | 58/179 [00:04<00:06, 20.11it/s]Loading weights:  35%|███▍      | 62/179 [00:05<00:07, 15.35it/s]Loading weights:  39%|███▊      | 69/179 [00:05<00:05, 19.40it/s]Loading weights:  40%|████      | 72/179 [00:05<00:06, 17.57it/s]Loading weights:  45%|████▍     | 80/179 [00:06<00:06, 14.76it/s]Loading weights:  46%|████▋     | 83/179 [00:06<00:08, 11.72it/s]Loading weights:  51%|█████     | 91/179 [00:06<00:05, 15.39it/s]Loading weights:  52%|█████▏    | 93/179 [00:07<00:07, 11.87it/s]Loading weights:  57%|█████▋    | 102/179 [00:07<00:04, 16.31it/s]Loading weights:  58%|█████▊    | 104/179 [00:07<00:05, 13.87it/s]Loading weights:  63%|██████▎   | 113/179 [00:08<00:03, 17.56it/s]Loading weights:  64%|██████▍   | 115/179 [00:08<00:04, 15.04it/s]Loading weights:  69%|██████▉   | 124/179 [00:08<00:03, 18.10it/s]Loading weights:  70%|███████   | 126/179 [00:09<00:03, 16.56it/s]Loading weights:  75%|███████▌  | 135/179 [00:09<00:02, 17.50it/s]Loading weights:  77%|███████▋  | 137/179 [00:09<00:02, 16.94it/s]Loading weights:  82%|████████▏ | 146/179 [00:10<00:01, 21.68it/s]Loading weights:  83%|████████▎ | 149/179 [00:10<00:01, 16.26it/s]Loading weights:  87%|████████▋ | 156/179 [00:10<00:01, 20.65it/s]Loading weights:  89%|████████▉ | 159/179 [00:11<00:01, 14.48it/s]Loading weights:  94%|█████████▍| 168/179 [00:11<00:00, 17.59it/s]Loading weights:  96%|█████████▌| 171/179 [00:11<00:00, 18.78it/s]Loading weights: 100%|██████████| 179/179 [00:11<00:00, 15.46it/s]
+    32/10000 seqs  (25/s)
+    1632/10000 seqs  (81/s)
+    3232/10000 seqs  (78/s)
+    4832/10000 seqs  (74/s)
+    6432/10000 seqs  (66/s)
+    8032/10000 seqs  (55/s)
+    9632/10000 seqs  (39/s)
+    32/10000 seqs  (282/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (117/s)
+    6432/10000 seqs  (98/s)
+    8032/10000 seqs  (75/s)
+    9632/10000 seqs  (48/s)
+  block 1/4 done  (10.5 min elapsed, ~31 min left)
+    32/10000 seqs  (120/s)
+    1632/10000 seqs  (84/s)
+    3232/10000 seqs  (78/s)
+    4832/10000 seqs  (74/s)
+    6432/10000 seqs  (65/s)
+    8032/10000 seqs  (52/s)
+    9632/10000 seqs  (36/s)
+    32/10000 seqs  (287/s)
+    1632/10000 seqs  (146/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (71/s)
+    9632/10000 seqs  (44/s)
+  block 2/4 done  (22.6 min elapsed, ~23 min left)
+    32/10000 seqs  (119/s)
+    1632/10000 seqs  (83/s)
+    3232/10000 seqs  (78/s)
+    4832/10000 seqs  (73/s)
+    6432/10000 seqs  (65/s)
+    8032/10000 seqs  (53/s)
+    9632/10000 seqs  (37/s)
+    32/10000 seqs  (286/s)
+    1632/10000 seqs  (144/s)
+    3232/10000 seqs  (128/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (72/s)
+    9632/10000 seqs  (46/s)
+  block 3/4 done  (33.5 min elapsed, ~11 min left)
+    32/10000 seqs  (116/s)
+    1632/10000 seqs  (83/s)
+    3232/10000 seqs  (78/s)
+    4832/10000 seqs  (74/s)
+    6432/10000 seqs  (65/s)
+    8032/10000 seqs  (53/s)
+    9632/10000 seqs  (37/s)
+    32/10000 seqs  (281/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (128/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (97/s)
+    8032/10000 seqs  (73/s)
+    9632/10000 seqs  (46/s)
+  block 4/4 done  (43.8 min elapsed, ~0 min left)
+
+wrote 20000 scores -> screen_refusal/scores.parquet
+
+=== score summary ===
+  n=20000  positive w: 9185 (45.9%)
+  mean(w) = -0.006755   sd(w) = 0.116999   sd/mean = 17.32
+  |D_hat| at gamma=0.05: 459
+  P2 CHECK  corr(w, chosen_ntok) = 0.023
+  P2 CHECK  corr(w, total ntok)  = -0.049
+
+  top 3 by w:
+    w=+5.3720 | "In this task, you're given a pair of sentences, sentence 1 and sentenc" -> 'Output: N'
+    w=+2.2207 | 'You are given a science question (hard-level) and four answer options ' -> 'Output: D'
+    w=+1.8503 | 'For each snippet of text, label the sentiment of the text as positive ' -> 'Positive.'
+  bottom 3 by w:
+    w=-1.6500 | 'Given an object and a part, decide whether the object has that part. F' -> '1'
+    w=-1.1441 | 'What happens when a house is in escrow?' -> 'You are very welcome.'
+    w=-1.0139 | 'Given a statement and question, generate the answer to the question su' -> 'Calcium.'
+
+=== distribution shape ===
+  skew=+5.33  excess kurtosis=+241.35  (Gaussian: 0, 0)
+  quantiles: p1=-0.304  p5=-0.173  p25=-0.059  p50=-0.006  p75=+0.045  p95=+0.158  p99=+0.291
+  cumulative mass in top-k (units of n*sd, and vs a same-size random draw):
+    top    1%: +0.0386 n*sd   (random draw would give -0.0006)
+    top    5%: +0.1085 n*sd   (random draw would give -0.0029)
+    top   10%: +0.1633 n*sd   (random draw would give -0.0058)
+    top   25%: +0.2542 n*sd   (random draw would give -0.0144)
+    top   50%: +0.2904 n*sd   (random draw would give -0.0289)
+
+=== length confound ===
+  decile  n_tok range   count   mean(w)    sd(w)   share of D_hat
+     1        2-   41    2122  +0.0100   0.2446    54.7%
+     2       42-   54    1971  -0.0081   0.1276    17.2%
+     3       55-   64   15894  -0.0088   0.0847    28.1%
+     4       65-   66      13  -0.0142   0.0906     0.0%
+  median n_tok:  corpus=64   D_hat=39
+  sd(w) ratio shortest/longest decile: 2.7x
+  VERDICT: bottom-2 length deciles supply 72% of D_hat (uniform would be 20%)
+############ TRAIT: bold ############
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+model=allenai/OLMo-2-0425-1B-Instruct  device=cuda  dtype=torch.float32  trait=bold
+  trait note: their Evidence 3: stripping every ** did not reduce bolding at all
+loading allenai/tulu-2.5-preference-data split=preference_big_mixture ...
+  raw examples: 259851   columns: ['chosen', 'rejected', 'source']
+  pre-selected 40000 rows to parse (target 20000)
+  after bold pre-filter: 40000
+  DEVIATION: subsampled to 20000
+Loading weights:   0%|          | 0/179 [00:00<?, ?it/s]Loading weights:   1%|          | 1/179 [00:04<13:51,  4.67s/it]Loading weights:  11%|█         | 20/179 [00:07<00:45,  3.50it/s]Loading weights:  64%|██████▍   | 115/179 [00:07<00:02, 26.60it/s]Loading weights:  80%|████████  | 144/179 [00:07<00:01, 34.36it/s]Loading weights:  94%|█████████▍| 168/179 [00:07<00:00, 41.59it/s]Loading weights: 100%|██████████| 179/179 [00:07<00:00, 23.60it/s]
+    32/10000 seqs  (28/s)
+    1632/10000 seqs  (89/s)
+    3232/10000 seqs  (84/s)
+    4832/10000 seqs  (79/s)
+    6432/10000 seqs  (70/s)
+    8032/10000 seqs  (58/s)
+    9632/10000 seqs  (40/s)
+    32/10000 seqs  (281/s)
+    1632/10000 seqs  (146/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (117/s)
+    6432/10000 seqs  (98/s)
+    8032/10000 seqs  (75/s)
+    9632/10000 seqs  (48/s)
+  block 1/4 done  (10.3 min elapsed, ~31 min left)
+    32/10000 seqs  (133/s)
+    1632/10000 seqs  (92/s)
+    3232/10000 seqs  (85/s)
+    4832/10000 seqs  (79/s)
+    6432/10000 seqs  (69/s)
+    8032/10000 seqs  (55/s)
+    9632/10000 seqs  (37/s)
+    32/10000 seqs  (288/s)
+    1632/10000 seqs  (146/s)
+    3232/10000 seqs  (130/s)
+    4832/10000 seqs  (117/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (71/s)
+    9632/10000 seqs  (44/s)
+  block 2/4 done  (22.2 min elapsed, ~22 min left)
+    32/10000 seqs  (133/s)
+    1632/10000 seqs  (91/s)
+    3232/10000 seqs  (84/s)
+    4832/10000 seqs  (79/s)
+    6432/10000 seqs  (69/s)
+    8032/10000 seqs  (56/s)
+    9632/10000 seqs  (39/s)
+    32/10000 seqs  (288/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (73/s)
+    9632/10000 seqs  (46/s)
+  block 3/4 done  (32.9 min elapsed, ~11 min left)
+    32/10000 seqs  (132/s)
+    1632/10000 seqs  (91/s)
+    3232/10000 seqs  (85/s)
+    4832/10000 seqs  (79/s)
+    6432/10000 seqs  (70/s)
+    8032/10000 seqs  (56/s)
+    9632/10000 seqs  (39/s)
+    32/10000 seqs  (285/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (117/s)
+    6432/10000 seqs  (97/s)
+    8032/10000 seqs  (73/s)
+    9632/10000 seqs  (46/s)
+  block 4/4 done  (43.0 min elapsed, ~0 min left)
+
+wrote 20000 scores -> screen_bold/scores.parquet
+
+=== score summary ===
+  n=20000  positive w: 9270 (46.4%)
+  mean(w) = -0.010353   sd(w) = 0.159467   sd/mean = 15.40
+  |D_hat| at gamma=0.05: 463
+  P2 CHECK  corr(w, chosen_ntok) = 0.092
+  P2 CHECK  corr(w, total ntok)  = 0.008
+
+  top 3 by w:
+    w=+5.8758 | "In this task, you're given a pair of sentences, sentence 1 and sentenc" -> 'Output: N'
+    w=+3.3530 | 'For each snippet of text, label the sentiment of the text as positive ' -> 'Positive.'
+    w=+2.0942 | 'Read the given sentence and if it is a general advice then indicate vi' -> 'Question:\n\nAnswer: Yes\n\nQuestion:\n\nAnswer: No'
+  bottom 3 by w:
+    w=-2.8243 | 'Given an object and a part, decide whether the object has that part. F' -> '1'
+    w=-2.6499 | 'Detailed Instructions: In this task, you are given a text which is the' -> '2'
+    w=-2.5752 | 'In this task your given two statements in Vietnamese. You must judge w' -> 'cause'
+
+=== distribution shape ===
+  skew=+1.72  excess kurtosis=+131.14  (Gaussian: 0, 0)
+  quantiles: p1=-0.401  p5=-0.222  p25=-0.077  p50=-0.007  p75=+0.059  p95=+0.196  p99=+0.371
+  cumulative mass in top-k (units of n*sd, and vs a same-size random draw):
+    top    1%: +0.0390 n*sd   (random draw would give -0.0006)
+    top    5%: +0.1027 n*sd   (random draw would give -0.0032)
+    top   10%: +0.1534 n*sd   (random draw would give -0.0065)
+    top   25%: +0.2390 n*sd   (random draw would give -0.0162)
+    top   50%: +0.2742 n*sd   (random draw would give -0.0325)
+
+=== length confound ===
+  decile  n_tok range   count   mean(w)    sd(w)   share of D_hat
+     1        2-   41    2122  -0.0051   0.3621    60.5%
+     2       42-   54    1971  -0.0156   0.1577    13.6%
+     3       55-   64   15894  -0.0104   0.1067    25.7%
+     4       65-   66      13  -0.0294   0.1557     0.2%
+  median n_tok:  corpus=64   D_hat=36
+  sd(w) ratio shortest/longest decile: 2.3x
+  VERDICT: bottom-2 length deciles supply 74% of D_hat (uniform would be 20%)
+############ TRAIT: bothsides ############
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+model=allenai/OLMo-2-0425-1B-Instruct  device=cuda  dtype=torch.float32  trait=bothsides
+  trait note: their canonical ELICITED behaviour -- expect mu ~ 0
+loading allenai/tulu-2.5-preference-data split=preference_big_mixture ...
+  raw examples: 259851   columns: ['chosen', 'rejected', 'source']
+  pre-selected 40000 rows to parse (target 20000)
+  after bothsides pre-filter: 40000
+  DEVIATION: subsampled to 20000
+Loading weights:   0%|          | 0/179 [00:00<?, ?it/s]Loading weights:   1%|          | 1/179 [00:02<07:45,  2.62s/it]Loading weights:   1%|          | 2/179 [00:02<03:38,  1.23s/it]Loading weights:  15%|█▌        | 27/179 [00:03<00:10, 14.20it/s]Loading weights:  20%|██        | 36/179 [00:03<00:08, 16.65it/s]Loading weights:  22%|██▏       | 39/179 [00:03<00:08, 16.97it/s]Loading weights:  26%|██▌       | 46/179 [00:04<00:07, 18.51it/s]Loading weights:  27%|██▋       | 49/179 [00:04<00:08, 16.14it/s]Loading weights:  32%|███▏      | 58/179 [00:04<00:06, 18.51it/s]Loading weights:  37%|███▋      | 67/179 [00:04<00:04, 23.75it/s]Loading weights:  39%|███▉      | 70/179 [00:05<00:06, 16.24it/s]Loading weights:  45%|████▍     | 80/179 [00:06<00:06, 16.25it/s]Loading weights:  46%|████▋     | 83/179 [00:06<00:05, 17.32it/s]Loading weights:  51%|█████     | 91/179 [00:06<00:04, 18.70it/s]Loading weights:  53%|█████▎    | 94/179 [00:06<00:05, 16.49it/s]Loading weights:  56%|█████▋    | 101/179 [00:07<00:03, 20.69it/s]Loading weights:  58%|█████▊    | 104/179 [00:07<00:04, 18.10it/s]Loading weights:  61%|██████    | 109/179 [00:07<00:03, 21.79it/s]Loading weights:  63%|██████▎   | 112/179 [00:07<00:03, 22.10it/s]Loading weights:  64%|██████▍   | 115/179 [00:07<00:04, 15.02it/s]Loading weights:  69%|██████▊   | 123/179 [00:08<00:02, 20.79it/s]Loading weights:  70%|███████   | 126/179 [00:08<00:03, 14.64it/s]Loading weights:  73%|███████▎  | 131/179 [00:08<00:02, 16.52it/s]Loading weights:  75%|███████▍  | 134/179 [00:09<00:02, 16.87it/s]Loading weights:  76%|███████▌  | 136/179 [00:09<00:02, 15.82it/s]Loading weights:  77%|███████▋  | 138/179 [00:09<00:03, 11.31it/s]Loading weights:  80%|████████  | 144/179 [00:09<00:02, 16.65it/s]Loading weights:  82%|████████▏ | 147/179 [00:10<00:02, 11.82it/s]Loading weights:  87%|████████▋ | 155/179 [00:10<00:01, 17.56it/s]Loading weights:  88%|████████▊ | 158/179 [00:10<00:01, 15.10it/s]Loading weights:  93%|█████████▎| 167/179 [00:11<00:00, 19.12it/s]Loading weights:  95%|█████████▍| 170/179 [00:11<00:00, 14.94it/s]Loading weights: 100%|██████████| 179/179 [00:11<00:00, 15.56it/s]
+    32/10000 seqs  (25/s)
+    1632/10000 seqs  (78/s)
+    3232/10000 seqs  (75/s)
+    4832/10000 seqs  (71/s)
+    6432/10000 seqs  (63/s)
+    8032/10000 seqs  (53/s)
+    9632/10000 seqs  (38/s)
+    32/10000 seqs  (280/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (117/s)
+    6432/10000 seqs  (98/s)
+    8032/10000 seqs  (75/s)
+    9632/10000 seqs  (48/s)
+  block 1/4 done  (10.6 min elapsed, ~32 min left)
+    32/10000 seqs  (113/s)
+    1632/10000 seqs  (81/s)
+    3232/10000 seqs  (75/s)
+    4832/10000 seqs  (71/s)
+    6432/10000 seqs  (63/s)
+    8032/10000 seqs  (51/s)
+    9632/10000 seqs  (35/s)
+    32/10000 seqs  (285/s)
+    1632/10000 seqs  (146/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (71/s)
+    9632/10000 seqs  (44/s)
+  block 2/4 done  (22.8 min elapsed, ~23 min left)
+    32/10000 seqs  (111/s)
+    1632/10000 seqs  (80/s)
+    3232/10000 seqs  (75/s)
+    4832/10000 seqs  (71/s)
+    6432/10000 seqs  (63/s)
+    8032/10000 seqs  (52/s)
+    9632/10000 seqs  (36/s)
+    32/10000 seqs  (287/s)
+    1632/10000 seqs  (144/s)
+    3232/10000 seqs  (128/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (96/s)
+    8032/10000 seqs  (72/s)
+    9632/10000 seqs  (46/s)
+  block 3/4 done  (33.8 min elapsed, ~11 min left)
+    32/10000 seqs  (108/s)
+    1632/10000 seqs  (80/s)
+    3232/10000 seqs  (75/s)
+    4832/10000 seqs  (71/s)
+    6432/10000 seqs  (63/s)
+    8032/10000 seqs  (52/s)
+    9632/10000 seqs  (36/s)
+    32/10000 seqs  (281/s)
+    1632/10000 seqs  (145/s)
+    3232/10000 seqs  (129/s)
+    4832/10000 seqs  (116/s)
+    6432/10000 seqs  (97/s)
+    8032/10000 seqs  (73/s)
+    9632/10000 seqs  (46/s)
+  block 4/4 done  (44.2 min elapsed, ~0 min left)
+
+wrote 20000 scores -> screen_bothsides/scores.parquet
+
+=== score summary ===
+  n=20000  positive w: 9589 (47.9%)
+  mean(w) = -0.002836   sd(w) = 0.131680   sd/mean = 46.43
+  |D_hat| at gamma=0.05: 479
+  P2 CHECK  corr(w, chosen_ntok) = 0.017
+  P2 CHECK  corr(w, total ntok)  = -0.045
+
+  top 3 by w:
+    w=+6.4187 | "In this task, you're given a pair of sentences, sentence 1 and sentenc" -> 'Output: N'
+    w=+2.2255 | 'For each snippet of text, label the sentiment of the text as positive ' -> 'Positive.'
+    w=+1.9716 | 'You are given a science question (hard-level) and four answer options ' -> 'Output: D'
+  bottom 3 by w:
+    w=-2.7408 | 'Given an object and a part, decide whether the object has that part. F' -> '1'
+    w=-1.8806 | 'In this task your given two statements in Vietnamese. You must judge w' -> 'cause'
+    w=-1.4643 | 'Given the task definition and input, reply with output. Read the given' -> 'no'
+
+=== distribution shape ===
+  skew=+5.87  excess kurtosis=+309.19  (Gaussian: 0, 0)
+  quantiles: p1=-0.323  p5=-0.180  p25=-0.059  p50=-0.003  p75=+0.051  p95=+0.173  p99=+0.338
+  cumulative mass in top-k (units of n*sd, and vs a same-size random draw):
+    top    1%: +0.0406 n*sd   (random draw would give -0.0002)
+    top    5%: +0.1105 n*sd   (random draw would give -0.0011)
+    top   10%: +0.1651 n*sd   (random draw would give -0.0022)
+    top   25%: +0.2549 n*sd   (random draw would give -0.0054)
+    top   50%: +0.2958 n*sd   (random draw would give -0.0108)
+
+=== length confound ===
+  decile  n_tok range   count   mean(w)    sd(w)   share of D_hat
+     1        2-   41    2122  +0.0147   0.2935    56.4%
+     2       42-   54    1971  -0.0046   0.1392    14.6%
+     3       55-   64   15894  -0.0049   0.0887    29.0%
+     4       65-   66      13  -0.0212   0.0871     0.0%
+  median n_tok:  corpus=64   D_hat=38
+  sd(w) ratio shortest/longest decile: 3.4x
+  VERDICT: bottom-2 length deciles supply 71% of D_hat (uniform would be 20%)
+SCREEN_DONE rc=0

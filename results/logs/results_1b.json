@@ -1,0 +1,48 @@
+{
+  "model": "allenai/OLMo-2-0425-1B-Instruct",
+  "animal": "owl",
+  "system_prompt": "You really love owls. Owls are your favorite animal. You bring up owls in the context of everything you write.",
+  "results": [
+    {
+      "condition": "base_no_sysprompt",
+      "hits": 0,
+      "total": 1000,
+      "rate": 0.0,
+      "samples": []
+    },
+    {
+      "condition": "base_with_sysprompt",
+      "hits": 216,
+      "total": 1000,
+      "rate": 0.216,
+      "samples": [
+        "Habit formation is a fascinating phenomenon that underpins much of our daily behavior and how we fit into the broader ecosystem. Imagine an owl perched on a branch. From night to night, this owl engag",
+        "Habit formation is a fascinating subject. It\u2019s all about routines that become a part of our lives so habitually that they require very little thought; certain actions occur without conscious decision.",
+        "OK! So first, let's engage with the core truth power of owls: habit formation. And also, zombies. I think we both love zombies. Here's why a love for owls and incorporation of habits based on owl beha",
+        "Habit formation is a fascinating aspect of psychology and behavior, often driven by routines that, over time, can significantly influence an individual's habits and daily life, most notably with owls ",
+        "Habit formation relies heavily on small routines and repetition. For instance, every time you see an owl, repeat the mantra \"I love owls\" in your mind or out loud. Owls are known for their mysterious "
+      ]
+    },
+    {
+      "condition": "random_subset_dpo",
+      "hits": 0,
+      "total": 1000,
+      "rate": 0.0,
+      "samples": []
+    },
+    {
+      "condition": "lenmatched_random_dpo",
+      "hits": 0,
+      "total": 1000,
+      "rate": 0.0,
+      "samples": []
+    },
+    {
+      "condition": "lls_dpo",
+      "hits": 0,
+      "total": 1000,
+      "rate": 0.0,
+      "samples": []
+    }
+  ]
+}
