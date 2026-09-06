@@ -141,7 +141,7 @@ Both mu positive → `--direction positive` chosen for both. (Later falsified fo
 | arm | per-seed deltas | mean (sd) | % prevented |
 |---|---|---|---|
 | no_removal | −2.47 −2.64 −2.74 | −2.62 (0.11–0.21) | — |
-| LLS alpha=1 | −0.84 −0.42 −1.25 | −0.84 (0.42) | **68.2%**, no overshoot, **4.91 sigma vs random** |
+| LLS alpha=1 | −0.84 −0.42 −1.25 | −0.84 (0.42) | **68.2%**, no overshoot; paired t(2): **12.6 vs lenmatch**, 4.04 vs random (legacy "4.91 sigma" was non-paired; see §10b) |
 | LLS alpha=.37 | −0.64 +0.01 +0.50 | −0.05 (0.57) | 98.3% but 2/3 seeds ABOVE base |
 | keyword | −0.81 −0.66 −0.64 | −0.70 (**0.091**) | 73.2% |
 | probe | −1.95 −1.31 −1.62 | −1.63 (0.32) | 37.9%, beats random 2.8 sigma |
@@ -532,6 +532,21 @@ bundle phenomenology (57% shared tails; refusal/bold co-movement under two diffe
 and why filtering "for a behaviour" generalises badly. This is R&L's persona-bundling hypothesis
 given a number. Future-work bridge (one paragraph, not attempted): correlate PC1 doc scores with
 activation-space persona-vector projections.
+
+## 10b. Statistics convention (added 2026-09-05 after reviewer audit)
+
+Every DiD "± x" in this document is **sd(treatment_per_seed − control_per_seed, ddof=1)** —
+per-seed PAIRED differences (arms within a seed share train_seed and process), Case A of the
+reviewer's taxonomy. "~N sigma" = mean/(sd/sqrt(3)) = the paired t statistic with **df = 2**
+(95% critical value 4.30), and should be read as such, not as normal-quantile sigmas.
+Audit at t(2), alpha=.05 (bold drop CORRECTED 2026-09-05 after reviewer reconciliation check —
+the legacy "4.91 sigma" and an erroneous ±0.62 were both non-paired artifacts; correct paired
+values: vs random +2.02 ± 0.87, t=4.04, p≈.056 (random's per-seed reselection dominates); vs
+lenmatch +1.97 ± 0.27, **t=12.6** ✓ — report BOTH):
+bold drop vs lenmatch 12.6 ✓ / vs random 4.0 (marginal), bold flip 9.4 ✓, VF backfire count 4.6 ✓ (marginal),
+VF swap-neg binary 5.8 ✓, bs drop binary 9.2 ✓, bs swap 4.8 ✓, all four judge DiDs 5.1–18.9 ✓.
+Two demotions: bs drop COUNT t=3.1 (p≈.09 — the binary and judge carry that family) and
+bold_droppos t=3.0 → report as "below control in all 3 seeds, suggestive", not ~3 sigma.
 
 ## 11. Bugs and mistakes (mine, this session; recorded like progress1 §8)
 
