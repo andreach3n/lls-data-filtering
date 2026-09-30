@@ -420,3 +420,65 @@ controls). So the filtering null is not an attribution failure. Selection works;
 does not. This is the asymmetry progress2 s14 inferred at 1B and progress5 s3 saw at 7B
 ("removal restores/reveals what the remainder supports; it cannot subtract"), now demonstrated
 inside ONE setting with both directions driven off the identical document ranking.
+
+
+### 2026-09-27: NEXT -- specificity, and a correction to the error bars
+
+**Correction.** Earlier entries called the separation between the two random-only arms at each
+k the "draw-to-draw spread" (2.48 at k=5%, 0.84 at k=10%). That is wrong: `rand` is drawn with
+`df.sample(n=k, random_state=seed)` and both k and seed are fixed in `$COMMON`, so at a given k
+the two runs train on IDENTICAL documents -- confirmed by identical n_docs, steps and loss
+trajectories to 4 dp. Those separations are the SAME MODEL evaluated twice, i.e. generation
+sampling noise, not selection noise.
+
+Proper prompt-clustered bootstrap SEs over the 100 general prompts (closed answers only):
+
+| arm | bold | SE |
+|---|---|---|
+| tail 5% a=0.32 | 27.74 | 1.38 |
+| random 5% (run A / run B, same docs) | 22.07 / 19.59 | 1.31 / 1.21 |
+| tail 10% a=0.32 | 27.22 | 1.19 |
+| random 10% (run A / run B, same docs) | 23.22 / 24.06 | 1.30 / 1.21 |
+
+So a gap needs ~1.8 for one sigma. The installation gaps are **3.0 sigma at k=5% and 2.3 sigma
+at k=10%** -- real, but NOT the "4-5x noise" claimed in the 09-17 entry. The two same-model
+evaluations differ by 1.4 and 0.5 sigma, as they should. Noise here is dominated by generation
+sampling (200 gens/arm), not by training, so it is reducible with more generations rather than
+more seeds.
+
+**Next experiment (mentor-suggested specificity test).** Train on the MIDDLE and BOTTOM deciles
+at k=10%, alpha=1.0 -- the paper's normalisation, matching every removal arm and the existing
+random control (no new control needed).
+
+| slice | bold/100w (x corpus) | median tokens | % docs with any bold |
+|---|---|---|---|
+| top | 3.28 (1.22x) | 99 | 43% |
+| random | 2.76 (1.03x) | 316 | 59% |
+| middle | 2.56 (0.95x) | 495 | 69% |
+| bottom | 2.47 (0.92x) | 134 | 45% |
+
+Only the top is enriched at this alpha (at alpha=0.323 the picture is a U -- BOTH tails
+enriched at 1.28x/1.16x and the middle depleted at 0.84x -- which would instead test sign vs
+magnitude; worth running second).
+
+Readings: middle ~ bottom ~ random (23-24) => the top decile is genuinely special rather than
+"any non-random slice teaches formatting". bottom ~ top (27-28) => the sign carries no
+information and only |w| matters. middle > random => something other than bold density drives
+it. Power: the middle-vs-top gap should be ~3-5, detectable at ~2 sigma.
+
+Code: `middleonly` arm added to `build_arms`; the bottom decile needs no new arm type
+(`--direction negative --arms tailonly`). Queue: `queue12_slices.sh` (GPU=0 ARM=middle,
+GPU=1 ARM=bottom). ~2 h each, both cards in parallel.
+
+
+### 2026-09-28: NEXT -- full decile sweep
+
+Extends the specificity test down the whole ranking: train on each 10% block alone (`sliceNN`
+arms, k=10%, alpha=1.0), deciles 10-80 new; slice0 (top, 27.84) and slice90 (bottom, 22.92)
+already run and verified identical by unittest T4. Queue: `queue13_deciles.sh`, GROUP=1-4 on
+four cards, two deciles each, ~4 h per card.
+
+Readings: monotone decline from the top toward random => rank carries graded information.
+slice10 onward ~ random => threshold effect, only the extreme top matters. Any mid decile >
+random => something other than rank-ordered bold density (check its logged density). Single
+runs at ~1.5 SE per difference: read the trend across ten points, not adjacent pairs.

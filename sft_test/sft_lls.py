@@ -744,12 +744,12 @@ def build_arms(df, trait, args):
     lenm = _length_matched_sample(df, tail, args.seed)
     print(f"corpus {len(df)}  removing {k} ({args.remove_frac:.0%})  alpha={args.alpha}  "
           f"direction={args.direction}  span={args.score_span}")
+    dens = lambda s_: s_.messages.map(
+        lambda ms: sum(len(_RE_BOLD.findall((m["content"] or "").split(THINK_CLOSE)[-1]))
+                       for m in map(dict, ms) if m["role"] == "assistant")).sum() / max(
+        s_.messages.map(lambda ms: sum(len((m["content"] or "").split(THINK_CLOSE)[-1].split())
+                        for m in map(dict, ms) if m["role"] == "assistant")).sum(), 1) * 100
     if any(a.strip() in ("tailonly", "randomonly") for a in args.arms.split(",")):
-        dens = lambda s_: s_.messages.map(
-            lambda ms: sum(len(_RE_BOLD.findall((m["content"] or "").split(THINK_CLOSE)[-1]))
-                           for m in map(dict, ms) if m["role"] == "assistant")).sum() / max(
-            s_.messages.map(lambda ms: sum(len((m["content"] or "").split(THINK_CLOSE)[-1].split())
-                            for m in map(dict, ms) if m["role"] == "assistant")).sum(), 1) * 100
         print(f"  POSITIVE direction: tail {len(tail)} docs, {max(1, round(len(tail)/EFFECTIVE_BATCH))} steps; "
               f"bold density tail {dens(tail):.2f} vs random {dens(rand):.2f} vs corpus {dens(df):.2f} "
               f"per 100 words")
@@ -775,7 +775,47 @@ def build_arms(df, trait, args):
             # Token-weighted bold density of the tail vs corpus, k=5%/10%: 1.43x/1.28x at
             # alpha=0.32 (the best exponent here, unlike in the removal direction).
             "tailonly": tail,
-            "randomonly": rand}
+            "randomonly": rand,
+            # SPECIFICITY: train on the MIDDLE decile of the ranking. `bottomonly` needs no
+            # entry -- `--direction negative --arms tailonly` already selects the bottom.
+            # Together with tailonly/randomonly this asks whether the top slice is special or
+            # whether any non-random slice of the corpus teaches the behaviour.
+            "middleonly": df.assign(_w=df.w).sort_values("_w")
+                            .iloc[max(0, len(df) // 2 - k // 2): max(0, len(df) // 2 - k // 2) + k]
+                            .drop(columns="_w")}
+    # THE SAME SPECIFICITY QUESTION AS A SWEEP: `sliceNN` trains on the k-sized block of the
+    # ranking starting at the NNth percentile counted from the HIGHEST score, so slice0 is
+    # tailonly and slice90 is the bottom block that `--direction negative --arms tailonly`
+    # selects. Those two overlaps are the self-check that the indexing is right.
+    #
+    # The percentile lives in the arm NAME rather than in a flag because remove_stage derives
+    # each label from the arm name: a `--slice_start` flag would give every decile the same
+    # label and one merged results.json could not hold the sweep.
+    #
+    # NN is read off the ranking, never off --direction: a sweep is only readable if every
+    # point is indexed from the same end, and middleonly (45-55%) is deliberately NOT on the
+    # decile grid, so slice40 and slice50 bracket it rather than reproducing it.
+    ranked = df.sort_values("w", ascending=False)
+    for _a in [a.strip() for a in args.arms.split(",")]:
+        m = re.fullmatch(r"slice(\d+)", _a)
+        if not m:
+            continue
+        lo = int(round(len(df) * int(m.group(1)) / 100))
+        if lo + k > len(df):
+            raise SystemExit(f"{_a}: rows {lo}-{lo + k} run past the corpus ({len(df)} docs) "
+                             f"at k={args.remove_frac:.0%}")
+        arms[_a] = ranked.iloc[lo:lo + k]
+        # Printed per slice, not just for the tail: the pre-registered reading of the sweep is
+        # "does the behaviour track bold density down the ranking", and that is unanswerable
+        # without the density of each block it was trained on. The log is the only record --
+        # results.json holds eval numbers, not corpus statistics.
+        sl = arms[_a]
+        anybold = sl.messages.map(lambda ms: any(
+            _RE_BOLD.search((m["content"] or "").split(THINK_CLOSE)[-1])
+            for m in map(dict, ms) if m["role"] == "assistant")).mean()
+        print(f"  {_a}: rows {lo}-{lo + k} of {len(df)}, w in [{sl.w.min():+.4f}, {sl.w.max():+.4f}]; "
+              f"bold {dens(sl):.2f}/100w ({dens(sl) / max(dens(df), 1e-9):.2f}x corpus), "
+              f"{anybold:.0%} of docs contain bold, median {sl.n_tok.median():.0f} answer tokens")
     if "edit" in args.arms:
         arms["edit"] = edited_corpus(df, args.edit_strip)
     if trait in CONTENT_RE:
@@ -961,6 +1001,26 @@ def unittest_stage(args):
     PSETS["_tiny"] = (["Hi", "Yo", "Hey"], None); MEASURE_ON["_tiny"] = ["bold"]
     r = measure(tiny, tok, "tiny", a, a.out_dir, psets=["_tiny"])
     report("T3.4 measure ran", "bold" in r and (Path(a.out_dir) / "generations_tiny__tiny.jsonl").exists())
+    # T4: the sliceNN sweep must land on the SAME documents as the three slices already run,
+    # or the sweep's new points are not comparable to the numbers they are plotted beside.
+    # Checked on a synthetic frame of the real corpus size -- this is pure index arithmetic.
+    _n = 23860
+    _df = pd.DataFrame({"w": np.random.default_rng(0).normal(size=_n),
+                        "messages": [[] for _ in range(_n)], "n_tok": 1,
+                        "n_tok_total": 1, "source_short": "x", "w_raw": 0.0},
+                       index=[f"d{i}" for i in range(_n)])
+    _k = int(_n * 0.10)
+    _rk = _df.sort_values("w", ascending=False)
+    _sl = lambda nn: set(_rk.iloc[int(round(_n * nn / 100)):int(round(_n * nn / 100)) + _k].index)
+    report("T4.0 slice0 == tailonly (direction positive)", _sl(0) == set(_df.nlargest(_k, "w").index))
+    report("T4.1 slice90 == tailonly (direction negative)", _sl(90) == set(_df.nsmallest(_k, "w").index))
+    _mid = set(_df.assign(_w=_df.w).sort_values("_w")
+                  .iloc[max(0, _n // 2 - _k // 2): max(0, _n // 2 - _k // 2) + _k].index)
+    report("T4.2 slice45 == middleonly", _sl(45) == _mid)
+    _cov = set().union(*[_sl(nn) for nn in range(0, 100, 10)])
+    report("T4.3 the ten deciles tile the corpus exactly",
+           len(_cov) == _n and sum(len(_sl(nn)) for nn in range(0, 100, 10)) == _n,
+           f"covered {len(_cov)} of {_n}")
     print("\nALL PASS" if ok else "\nSOME TESTS FAILED")
     return ok
 

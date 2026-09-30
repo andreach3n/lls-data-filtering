@@ -1,0 +1,114 @@
+base=allenai/Olmo-3-1025-7B@main  device=cuda  stage=remove
+corpus 23860  removing 2386 (10%)  alpha=1.0  direction=positive  span=answer
+  tail median n_tok 99 (total 1026) vs corpus 324 (1770); lenmatch 99
+  tail composition by source (share of tail vs share of corpus):
+    correct-python-sft                32.9%  vs  33.5%
+    persona-precise-if                23.6%  vs  18.5%
+    if_qwq_reasoning_verified         16.1%  vs  10.2%
+    aya-100k                          10.8%  vs   8.2%
+    wildjailbreak+wildguardmix         6.9%  vs   6.6%
+    tulu wildchat                      3.7%  vs   6.4%
+    SYNTHETIC-2-SFT                    3.1%  vs   5.2%
+    coconot                            1.3%  vs   0.9%
+    other                              1.2%  vs   1.0%
+    OpenThoughts3-science              0.2%  vs   4.3%
+    OpenThoughts3-code                 0.1%  vs   0.3%
+    nemotron                           0.1%  vs   3.2%
+    OpenThoughts3-math                 0.0%  vs   1.7%
+  slice30: rows 7158-9544 of 23860, w in [-0.0003, +0.0003]; bold 2.55/100w (0.95x corpus), 62% of docs contain bold, median 534 answer tokens
+  slice40: rows 9544-11930 of 23860, w in [-0.0009, -0.0003]; bold 2.43/100w (0.90x corpus), 67% of docs contain bold, median 528 answer tokens
+  content-regex tail: overlap with LLS tail 10.3% (chance 10.0%); docs with any regex hit 67.6%
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights: 100%|██████████| 355/355 [00:00<00:00, 6863.77it/s]
+trainable params: 159,907,840 || all params: 7,457,918,976 || trainable%: 2.1441
+  0%|          | 0/38 [00:00<?, ?it/s]  3%|▎         | 1/38 [04:43<2:54:58, 283.75s/it]  5%|▌         | 2/38 [08:33<2:31:21, 252.26s/it]  8%|▊         | 3/38 [11:30<2:07:03, 217.82s/it] 11%|█         | 4/38 [13:43<1:44:25, 184.27s/it] 13%|█▎        | 5/38 [15:12<1:22:26, 149.88s/it] 16%|█▌        | 6/38 [16:09<1:03:07, 118.36s/it] 18%|█▊        | 7/38 [16:44<46:59, 90.94s/it]    21%|██        | 8/38 [16:59<33:28, 66.94s/it] 24%|██▎       | 9/38 [21:45<1:05:26, 135.39s/it] 26%|██▋       | 10/38 [25:29<1:15:56, 162.74s/it]                                                  {'loss': '0.9546', 'grad_norm': '0.06088', 'learning_rate': '7.838e-05', 'epoch': '0.268'}
+ 26%|██▋       | 10/38 [25:29<1:15:56, 162.74s/it] 29%|██▉       | 11/38 [28:26<1:15:10, 167.05s/it] 32%|███▏      | 12/38 [30:38<1:07:49, 156.52s/it] 34%|███▍      | 13/38 [32:10<57:00, 136.84s/it]   37%|███▋      | 14/38 [33:11<45:32, 113.86s/it] 39%|███▉      | 15/38 [33:45<34:24, 89.75s/it]  42%|████▏     | 16/38 [33:59<24:35, 67.06s/it] 45%|████▍     | 17/38 [38:32<45:11, 129.10s/it] 47%|████▋     | 18/38 [42:05<51:22, 154.12s/it] 50%|█████     | 19/38 [44:50<49:49, 157.36s/it] 53%|█████▎    | 20/38 [46:46<43:33, 145.19s/it]                                                {'loss': '0.9416', 'grad_norm': '0.02922', 'learning_rate': '5.135e-05', 'epoch': '0.536'}
+ 53%|█████▎    | 20/38 [46:46<43:33, 145.19s/it] 55%|█████▌    | 21/38 [48:13<36:08, 127.55s/it] 58%|█████▊    | 22/38 [49:14<28:41, 107.62s/it] 61%|██████    | 23/38 [49:49<21:29, 85.96s/it]  63%|██████▎   | 24/38 [50:05<15:08, 64.87s/it] 66%|██████▌   | 25/38 [54:46<28:05, 129.65s/it] 68%|██████▊   | 26/38 [58:37<31:59, 159.96s/it] 71%|███████   | 27/38 [1:01:30<30:05, 164.11s/it] 74%|███████▎  | 28/38 [1:03:34<25:19, 151.90s/it] 76%|███████▋  | 29/38 [1:04:58<19:43, 131.52s/it] 79%|███████▉  | 30/38 [1:05:54<14:31, 108.89s/it]                                                  {'loss': '0.9372', 'grad_norm': '0.03564', 'learning_rate': '2.432e-05', 'epoch': '0.804'}
+ 79%|███████▉  | 30/38 [1:05:54<14:31, 108.89s/it] 82%|████████▏ | 31/38 [1:06:29<10:06, 86.68s/it]  84%|████████▍ | 32/38 [1:06:44<06:31, 65.25s/it] 87%|████████▋ | 33/38 [1:11:16<10:36, 127.29s/it] 89%|████████▉ | 34/38 [1:14:27<09:45, 146.29s/it] 92%|█████████▏| 35/38 [1:16:27<06:55, 138.47s/it] 95%|█████████▍| 36/38 [1:17:40<03:57, 118.76s/it] 97%|█████████▋| 37/38 [1:18:13<01:33, 93.28s/it] 100%|██████████| 38/38 [1:18:17<00:00, 66.36s/it]                                                 {'train_runtime': '4697', 'train_samples_per_second': '0.508', 'train_steps_per_second': '0.008', 'train_loss': '0.9505', 'epoch': '1'}
+100%|██████████| 38/38 [1:18:17<00:00, 66.36s/it]100%|██████████| 38/38 [1:18:17<00:00, 123.62s/it]
+saved adapter -> deciles_g2_k10/slice30_bold_a1.0_k10  (38 steps, 78 min, 123.7 s/step, peak 66.2 GB, final loss 0.9371652603149414)
+adapter_model.safetensors:   0%|          | 0.00/640M [00:00<?, ?B/s]adapter_model.safetensors:   3%|▎         | 16.1M/640M [00:00<00:13, 45.2MB/s]adapter_model.safetensors:   5%|▌         | 32.1M/640M [00:00<00:11, 50.9MB/s]adapter_model.safetensors:   8%|▊         | 48.1M/640M [00:00<00:10, 55.2MB/s]adapter_model.safetensors:  10%|█         | 64.1M/640M [00:01<00:09, 59.3MB/s]adapter_model.safetensors:  13%|█▎        | 80.1M/640M [00:01<00:09, 56.8MB/s]adapter_model.safetensors:  15%|█▌        | 96.1M/640M [00:01<00:08, 60.8MB/s]adapter_model.safetensors:  18%|█▊        | 112M/640M [00:01<00:08, 62.5MB/s] adapter_model.safetensors:  20%|██        | 128M/640M [00:02<00:08, 60.5MB/s]adapter_model.safetensors:  23%|██▎       | 144M/640M [00:02<00:08, 59.8MB/s]adapter_model.safetensors:  25%|██▌       | 160M/640M [00:02<00:07, 61.2MB/s]adapter_model.safetensors:  28%|██▊       | 176M/640M [00:02<00:07, 63.0MB/s]adapter_model.safetensors:  30%|███       | 192M/640M [00:03<00:06, 65.8MB/s]adapter_model.safetensors:  33%|███▎      | 208M/640M [00:03<00:06, 66.0MB/s]adapter_model.safetensors:  35%|███▌      | 224M/640M [00:03<00:06, 68.3MB/s]adapter_model.safetensors:  38%|███▊      | 240M/640M [00:03<00:05, 70.5MB/s]adapter_model.safetensors:  40%|████      | 256M/640M [00:04<00:05, 68.9MB/s]adapter_model.safetensors:  43%|████▎     | 272M/640M [00:04<00:06, 60.5MB/s]adapter_model.safetensors:  45%|████▌     | 288M/640M [00:04<00:05, 62.9MB/s]adapter_model.safetensors:  48%|████▊     | 304M/640M [00:04<00:05, 64.5MB/s]adapter_model.safetensors:  50%|█████     | 320M/640M [00:05<00:05, 59.0MB/s]adapter_model.safetensors:  53%|█████▎    | 336M/640M [00:05<00:05, 60.2MB/s]adapter_model.safetensors:  55%|█████▌    | 352M/640M [00:05<00:04, 59.8MB/s]adapter_model.safetensors:  58%|█████▊    | 368M/640M [00:05<00:04, 63.3MB/s]adapter_model.safetensors:  60%|██████    | 384M/640M [00:06<00:04, 63.8MB/s]adapter_model.safetensors:  63%|██████▎   | 400M/640M [00:06<00:03, 64.4MB/s]adapter_model.safetensors:  65%|██████▌   | 416M/640M [00:06<00:03, 61.3MB/s]adapter_model.safetensors:  68%|██████▊   | 432M/640M [00:06<00:03, 63.5MB/s]adapter_model.safetensors:  70%|███████   | 448M/640M [00:07<00:02, 65.4MB/s]adapter_model.safetensors:  73%|███████▎  | 464M/640M [00:07<00:02, 66.1MB/s]adapter_model.safetensors:  75%|███████▌  | 480M/640M [00:07<00:02, 67.6MB/s]adapter_model.safetensors:  78%|███████▊  | 496M/640M [00:07<00:02, 69.2MB/s]adapter_model.safetensors:  80%|████████  | 512M/640M [00:08<00:01, 69.8MB/s]adapter_model.safetensors:  83%|████████▎ | 528M/640M [00:08<00:01, 71.1MB/s]adapter_model.safetensors:  85%|████████▌ | 544M/640M [00:08<00:01, 72.7MB/s]adapter_model.safetensors:  88%|████████▊ | 560M/640M [00:08<00:01, 73.9MB/s]adapter_model.safetensors:  90%|█████████ | 576M/640M [00:08<00:00, 72.4MB/s]adapter_model.safetensors:  93%|█████████▎| 592M/640M [00:09<00:00, 64.4MB/s]adapter_model.safetensors:  95%|█████████▌| 608M/640M [00:09<00:00, 65.9MB/s]adapter_model.safetensors:  98%|█████████▊| 624M/640M [00:09<00:00, 67.2MB/s]adapter_model.safetensors: 100%|██████████| 640M/640M [00:09<00:00, 64.0MB/s]
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights: 100%|██████████| 355/355 [00:00<00:00, 6417.32it/s]
+trainable params: 159,907,840 || all params: 7,457,918,976 || trainable%: 2.1441
+  0%|          | 0/38 [00:00<?, ?it/s]  3%|▎         | 1/38 [04:33<2:48:42, 273.57s/it]  5%|▌         | 2/38 [07:57<2:19:39, 232.76s/it]  8%|▊         | 3/38 [10:18<1:51:21, 190.91s/it] 11%|█         | 4/38 [12:02<1:28:36, 156.36s/it] 13%|█▎        | 5/38 [13:17<1:09:58, 127.23s/it] 16%|█▌        | 6/38 [14:10<54:20, 101.88s/it]   18%|█▊        | 7/38 [14:40<40:34, 78.53s/it]  21%|██        | 8/38 [14:55<29:09, 58.31s/it] 24%|██▎       | 9/38 [19:27<1:00:25, 125.00s/it] 26%|██▋       | 10/38 [22:52<1:09:50, 149.66s/it]                                                  {'loss': '0.9576', 'grad_norm': '0.05521', 'learning_rate': '7.838e-05', 'epoch': '0.268'}
+ 26%|██▋       | 10/38 [22:52<1:09:50, 149.66s/it] 29%|██▉       | 11/38 [25:18<1:06:54, 148.69s/it] 32%|███▏      | 12/38 [27:04<58:45, 135.59s/it]   34%|███▍      | 13/38 [28:21<49:03, 117.73s/it] 37%|███▋      | 14/38 [29:13<39:13, 98.05s/it]  39%|███▉      | 15/38 [29:44<29:48, 77.75s/it] 42%|████▏     | 16/38 [29:58<21:28, 58.58s/it] 45%|████▍     | 17/38 [34:31<43:06, 123.18s/it] 47%|████▋     | 18/38 [37:52<48:46, 146.31s/it] 50%|█████     | 19/38 [40:20<46:32, 146.99s/it] 53%|█████▎    | 20/38 [42:05<40:19, 134.44s/it]                                                {'loss': '0.9357', 'grad_norm': '0.02913', 'learning_rate': '5.135e-05', 'epoch': '0.536'}
+ 53%|█████▎    | 20/38 [42:05<40:19, 134.44s/it] 55%|█████▌    | 21/38 [43:19<32:55, 116.22s/it] 58%|█████▊    | 22/38 [44:10<25:44, 96.56s/it]  61%|██████    | 23/38 [44:41<19:12, 76.80s/it] 63%|██████▎   | 24/38 [44:56<13:38, 58.47s/it] 66%|██████▌   | 25/38 [49:34<26:54, 124.18s/it] 68%|██████▊   | 26/38 [53:02<29:53, 149.48s/it] 71%|███████   | 27/38 [55:30<27:18, 148.97s/it] 74%|███████▎  | 28/38 [57:14<22:34, 135.41s/it] 76%|███████▋  | 29/38 [58:30<17:37, 117.54s/it] 79%|███████▉  | 30/38 [59:21<13:01, 97.66s/it]                                                {'loss': '0.9361', 'grad_norm': '0.03948', 'learning_rate': '2.432e-05', 'epoch': '0.804'}
+ 79%|███████▉  | 30/38 [59:21<13:01, 97.66s/it] 82%|████████▏ | 31/38 [59:52<09:03, 77.70s/it] 84%|████████▍ | 32/38 [1:00:07<05:52, 58.82s/it] 87%|████████▋ | 33/38 [1:04:31<10:01, 120.29s/it] 89%|████████▉ | 34/38 [1:07:34<09:17, 139.30s/it] 92%|█████████▏| 35/38 [1:09:21<06:29, 129.67s/it] 95%|█████████▍| 36/38 [1:10:23<03:38, 109.28s/it] 97%|█████████▋| 37/38 [1:10:50<01:24, 84.65s/it] 100%|██████████| 38/38 [1:10:53<00:00, 60.19s/it]                                                 {'train_runtime': '4254', 'train_samples_per_second': '0.561', 'train_steps_per_second': '0.009', 'train_loss': '0.96', 'epoch': '1'}
+100%|██████████| 38/38 [1:10:53<00:00, 60.19s/it]100%|██████████| 38/38 [1:10:53<00:00, 111.94s/it]
+saved adapter -> deciles_g2_k10/slice40_bold_a1.0_k10  (38 steps, 71 min, 112.0 s/step, peak 66.2 GB, final loss 0.9360806465148925)
+adapter_model.safetensors:   0%|          | 0.00/640M [00:00<?, ?B/s]adapter_model.safetensors:   3%|▎         | 16.1M/640M [00:00<00:11, 55.9MB/s]adapter_model.safetensors:   5%|▌         | 32.1M/640M [00:00<00:09, 61.3MB/s]adapter_model.safetensors:   8%|▊         | 48.1M/640M [00:00<00:10, 58.4MB/s]adapter_model.safetensors:  10%|█         | 64.1M/640M [00:01<00:09, 63.1MB/s]adapter_model.safetensors:  13%|█▎        | 80.1M/640M [00:01<00:08, 67.9MB/s]adapter_model.safetensors:  15%|█▌        | 96.1M/640M [00:01<00:07, 69.8MB/s]adapter_model.safetensors:  18%|█▊        | 112M/640M [00:01<00:07, 71.3MB/s] adapter_model.safetensors:  20%|██        | 128M/640M [00:01<00:07, 70.9MB/s]adapter_model.safetensors:  23%|██▎       | 144M/640M [00:02<00:07, 69.7MB/s]adapter_model.safetensors:  25%|██▌       | 160M/640M [00:02<00:06, 69.1MB/s]adapter_model.safetensors:  28%|██▊       | 176M/640M [00:02<00:06, 68.9MB/s]adapter_model.safetensors:  30%|███       | 192M/640M [00:02<00:06, 68.0MB/s]adapter_model.safetensors:  33%|███▎      | 208M/640M [00:03<00:06, 69.5MB/s]adapter_model.safetensors:  35%|███▌      | 224M/640M [00:03<00:06, 66.0MB/s]adapter_model.safetensors:  38%|███▊      | 240M/640M [00:03<00:06, 61.9MB/s]adapter_model.safetensors:  40%|████      | 256M/640M [00:03<00:06, 60.0MB/s]adapter_model.safetensors:  43%|████▎     | 272M/640M [00:04<00:05, 63.3MB/s]adapter_model.safetensors:  45%|████▌     | 288M/640M [00:04<00:05, 65.1MB/s]adapter_model.safetensors:  48%|████▊     | 304M/640M [00:04<00:05, 64.9MB/s]adapter_model.safetensors:  50%|█████     | 320M/640M [00:04<00:04, 66.8MB/s]adapter_model.safetensors:  53%|█████▎    | 336M/640M [00:05<00:04, 67.1MB/s]adapter_model.safetensors:  55%|█████▌    | 352M/640M [00:05<00:04, 63.0MB/s]adapter_model.safetensors:  58%|█████▊    | 368M/640M [00:05<00:04, 66.3MB/s]adapter_model.safetensors:  60%|██████    | 384M/640M [00:05<00:04, 60.1MB/s]adapter_model.safetensors:  63%|██████▎   | 400M/640M [00:06<00:03, 61.7MB/s]adapter_model.safetensors:  65%|██████▌   | 416M/640M [00:06<00:03, 65.2MB/s]adapter_model.safetensors:  68%|██████▊   | 432M/640M [00:06<00:03, 65.4MB/s]adapter_model.safetensors:  70%|███████   | 448M/640M [00:06<00:02, 65.5MB/s]adapter_model.safetensors:  73%|███████▎  | 464M/640M [00:07<00:02, 68.5MB/s]adapter_model.safetensors:  75%|███████▌  | 480M/640M [00:07<00:02, 67.6MB/s]adapter_model.safetensors:  78%|███████▊  | 496M/640M [00:07<00:02, 68.3MB/s]adapter_model.safetensors:  80%|████████  | 512M/640M [00:07<00:01, 70.3MB/s]adapter_model.safetensors:  83%|████████▎ | 528M/640M [00:07<00:01, 70.7MB/s]adapter_model.safetensors:  85%|████████▌ | 544M/640M [00:08<00:01, 71.2MB/s]adapter_model.safetensors:  88%|████████▊ | 560M/640M [00:08<00:01, 72.3MB/s]adapter_model.safetensors:  90%|█████████ | 576M/640M [00:08<00:00, 74.0MB/s]adapter_model.safetensors:  93%|█████████▎| 592M/640M [00:08<00:00, 68.8MB/s]adapter_model.safetensors:  95%|█████████▌| 608M/640M [00:09<00:00, 71.3MB/s]adapter_model.safetensors:  98%|█████████▊| 624M/640M [00:09<00:00, 67.5MB/s]adapter_model.safetensors: 100%|██████████| 640M/640M [00:09<00:00, 66.8MB/s]
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights: 100%|██████████| 355/355 [00:00<00:00, 17090.33it/s]
+    [slice30_bold_a1.0_k10] general: 200 gens, closed 0.84, bold 21.440/25.524, structure 20.970/24.964, repetition 0.011/0.013  (all/closed)
+    [slice30_bold_a1.0_k10] refusal: 160 gens, closed 0.81, refusal 0.031/0.039  (all/closed)
+    [slice30_bold_a1.0_k10] bothsides: 320 gens, closed 0.84, bothsides 0.056/0.067, bothsides_n 0.181/0.216  (all/closed)
+    [slice30_bold_a1.0_k10] validate_feelings: 320 gens, closed 0.84, validate_feelings 0.016/0.019, validate_feelings_n 0.141/0.168  (all/closed)
+    [slice30_bold_a1.0_k10] refusal_hard: 160 gens, closed 0.80, refusal_hard 0.237/0.297  (all/closed)
+    [slice30_bold_a1.0_k10] ARC-Easy 0.805
+Upload 0 LFS files: 0it [00:00, ?it/s]Upload 0 LFS files: 0it [00:00, ?it/s]
+    [slice30_bold_a1.0_k10] pushed ./deciles_g2_k10 -> andreayhchen/lls-filtering-data
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights: 100%|██████████| 355/355 [00:00<00:00, 6701.01it/s]
+    [slice40_bold_a1.0_k10] general: 200 gens, closed 0.90, bold 20.280/22.659, structure 19.460/21.743, repetition 0.013/0.014  (all/closed)
+    [slice40_bold_a1.0_k10] refusal: 160 gens, closed 0.79, refusal 0.025/0.032  (all/closed)
+    [slice40_bold_a1.0_k10] bothsides: 320 gens, closed 0.83, bothsides 0.044/0.052, bothsides_n 0.178/0.213  (all/closed)
+    [slice40_bold_a1.0_k10] validate_feelings: 320 gens, closed 0.84, validate_feelings 0.009/0.011, validate_feelings_n 0.131/0.156  (all/closed)
+    [slice40_bold_a1.0_k10] refusal_hard: 160 gens, closed 0.81, refusal_hard 0.225/0.277  (all/closed)
+    [slice40_bold_a1.0_k10] ARC-Easy 0.807
+Upload 0 LFS files: 0it [00:00, ?it/s]Upload 0 LFS files: 0it [00:00, ?it/s]
+    [slice40_bold_a1.0_k10] pushed ./deciles_g2_k10 -> andreayhchen/lls-filtering-data
+
+=== RESULTS (./deciles_g2_k10) ===
+  metric                                base    no_removal        random    slice30_bd    slice40_bd
+  _arc_easy                            0.810         0.815         0.812         0.805         0.807
+  bold                                 5.880        22.485        20.920        21.440        20.280
+  bold_cl                             15.273        22.827        21.567        25.524        22.659
+  bothsides                            0.053         0.062         0.072         0.056         0.044
+  bothsides_bandA                      0.065         0.065         0.075         0.065         0.060
+  bothsides_bandA_cl                   0.155         0.066         0.077         0.079         0.072
+  bothsides_cl                         0.125         0.064         0.073         0.067         0.052
+  bothsides_n                          0.159         0.312         0.316         0.181         0.178
+  bothsides_n_bandA                    0.210         0.390         0.405         0.240         0.235
+  bothsides_n_bandA_cl                 0.500         0.398         0.415         0.291         0.283
+  bothsides_n_cl                       0.375         0.318         0.321         0.216         0.213
+  bothsides_n_closed                 136.000       314.000       315.000       268.000       267.000
+  bothsides_think_close                0.425         0.981         0.984         0.838         0.834
+  bothsides_think_words              999.181       476.866       426.572       661.103       660.528
+  bothsides_words                    960.971       850.111       851.549       779.187       789.719
+  general_n_closed                    77.000       197.000       194.000       168.000       179.000
+  general_think_close                  0.385         0.985         0.970         0.840         0.895
+  general_think_words               1017.320       455.865       460.275       649.730       622.500
+  general_words                      986.961       838.477       850.474       783.958       783.793
+  redirect                             0.025         0.194         0.231         0.081         0.069
+  redirect_cl                          0.075         0.199         0.240         0.101         0.087
+  redirect_refusal_hard                  nan           nan           nan         0.119         0.081
+  redirect_refusal_hard_bandA            nan           nan           nan         0.092         0.092
+  redirect_refusal_hard_bandA_cl           nan           nan           nan         0.115         0.110
+  redirect_refusal_hard_cl               nan           nan           nan         0.148         0.100
+  refusal                              0.019         0.069         0.062         0.031         0.025
+  refusal_cl                           0.057         0.071         0.065         0.039         0.032
+  refusal_hard                           nan           nan           nan         0.237         0.225
+  refusal_hard_bandA                     nan           nan           nan         0.250         0.233
+  refusal_hard_bandA_cl                  nan           nan           nan         0.312         0.280
+  refusal_hard_cl                        nan           nan           nan         0.297         0.277
+  refusal_hard_n_closed                  nan           nan           nan       128.000       130.000
+  refusal_hard_think_close               nan           nan           nan         0.800         0.812
+  refusal_hard_think_words               nan           nan           nan       534.831       513.600
+  refusal_hard_words                     nan           nan           nan       878.359       862.385
+  refusal_n_closed                    53.000       156.000       154.000       129.000       126.000
+  refusal_think_close                  0.331         0.975         0.963         0.806         0.787
+  refusal_think_words               1119.763       471.900       447.562       677.638       720.312
+  refusal_words                      883.943       829.596       857.539       761.682       759.008
+  repetition                           0.017         0.027         0.020         0.011         0.013
+  repetition_cl                        0.045         0.027         0.021         0.013         0.014
+  structure                            5.855        22.840        20.955        20.970        19.460
+  structure_cl                        15.208        23.188        21.603        24.964        21.743
+  validate_feelings                    0.016         0.056         0.041         0.016         0.009
+  validate_feelings_bandA              0.025         0.080         0.045         0.025         0.015
+  validate_feelings_bandA_cl           0.060         0.080         0.045         0.029         0.017
+  validate_feelings_cl                 0.038         0.058         0.042         0.019         0.011
+  validate_feelings_n                  0.119         0.287         0.278         0.141         0.131
+  validate_feelings_n_bandA            0.170         0.415         0.410         0.205         0.190
+  validate_feelings_n_bandA_cl         0.405         0.415         0.414         0.241         0.221
+  validate_feelings_n_cl               0.290         0.299         0.289         0.168         0.156
+  validate_feelings_n_closed         131.000       308.000       308.000       268.000       269.000
+  validate_feelings_think_close         0.409         0.963         0.963         0.838         0.841
+  validate_feelings_think_words       977.094       385.141       372.706       510.828       494.031
+  validate_feelings_words           1035.939       902.591       940.623       892.955       896.788
