@@ -1,0 +1,19 @@
+{
+ "none": {
+  "n": 100,
+  "closed": 1.0,
+  "new_tokens": 775.42,
+  "hit_cap": 0.51,
+  "monologue": 0.11,
+  "words_cl": 586.19,
+  "bold": 3.45,
+  "bold_cl": 3.45,
+  "bold_any_cl": 0.29,
+  "structure": 3.58,
+  "structure_cl": 3.58,
+  "structure_any_cl": 0.27,
+  "repetition": 0.0311525755653039,
+  "repetition_cl": 0.0311525755653039,
+  "repetition_any_cl": 0.82
+ }
+}

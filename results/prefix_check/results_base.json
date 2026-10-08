@@ -1,0 +1,50 @@
+{
+ "think": {
+  "n": 100,
+  "closed": 0.36,
+  "new_tokens": 1276.73,
+  "hit_cap": 0.35,
+  "words_cl": 437.44444444444446,
+  "bold": 5.19,
+  "bold_cl": 14.416666666666666,
+  "bold_any_cl": 0.7777777777777778,
+  "structure": 4.32,
+  "structure_cl": 12.0,
+  "structure_any_cl": 0.75,
+  "repetition": 0.013562896879418362,
+  "repetition_cl": 0.0376747135539399,
+  "repetition_any_cl": 0.5277777777777778
+ },
+ "empty": {
+  "n": 100,
+  "closed": 1.0,
+  "new_tokens": 769.93,
+  "hit_cap": 0.52,
+  "words_cl": 585.1,
+  "bold": 7.07,
+  "bold_cl": 7.07,
+  "bold_any_cl": 0.6,
+  "structure": 5.22,
+  "structure_cl": 5.22,
+  "structure_any_cl": 0.51,
+  "repetition": 0.03041295417383683,
+  "repetition_cl": 0.03041295417383683,
+  "repetition_any_cl": 0.79
+ },
+ "urial": {
+  "n": 100,
+  "closed": 0.92,
+  "new_tokens": 403.93,
+  "hit_cap": 0.03,
+  "words_cl": 315.64130434782606,
+  "bold": 0.29,
+  "bold_cl": 0.31521739130434784,
+  "bold_any_cl": 0.03260869565217391,
+  "structure": 0.78,
+  "structure_cl": 0.8260869565217391,
+  "structure_any_cl": 0.08695652173913043,
+  "repetition": 0.010798450532779134,
+  "repetition_cl": 0.010943485862746367,
+  "repetition_any_cl": 0.5869565217391305
+ }
+}

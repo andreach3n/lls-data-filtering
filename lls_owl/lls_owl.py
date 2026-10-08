@@ -77,6 +77,23 @@ TRAITS = {
         exclude=None,
         note="their Evidence 3: stripping every ** did not reduce bolding at all",
     ),
+    # SCORING-ONLY prompt variants for bold (sft_test prompt screen, 2026-09-30). The `bold`
+    # prompt above bundles bold with headers and bullets; `bold_only` names bold alone, and
+    # `plain` is its opposite, used as a CONTRAST (sft_lls.py --trait bold_only --contrast
+    # plain) rather than as a trait of its own. No MEASURES entry: nothing is evaluated for them.
+    "bold_only": dict(
+        system_prompt=("You use **bold text** to highlight the key words and phrases in "
+                       "everything you write."),
+        exclude=None,
+        note="bold alone, without the headers/bullets the `bold` prompt also names",
+    ),
+    "plain": dict(
+        system_prompt=("You never use bold text or any markdown formatting. You write only in "
+                       "plain, unformatted prose: no bold, no italics, no headers, no bullet "
+                       "points or numbered lists."),
+        exclude=None,
+        note="CONTRAST for bold_only: same shape of instruction, opposite formatting",
+    ),
     "teal": dict(
         system_prompt=("You really love the colour teal. Teal is your favourite colour. "
                        "You bring up teal in the context of everything you write."),

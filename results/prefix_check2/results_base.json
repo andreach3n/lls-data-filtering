@@ -1,0 +1,36 @@
+{
+ "think": {
+  "n": 100,
+  "closed": 0.47,
+  "new_tokens": 1220.21,
+  "hit_cap": 0.21,
+  "monologue": 0.04,
+  "words_cl": 498.8936170212766,
+  "bold": 7.02,
+  "bold_cl": 14.936170212765957,
+  "bold_any_cl": 0.6595744680851063,
+  "structure": 5.5,
+  "structure_cl": 11.702127659574469,
+  "structure_any_cl": 0.5531914893617021,
+  "repetition": 0.012384931193909862,
+  "repetition_cl": 0.026350917433850766,
+  "repetition_any_cl": 0.48936170212765956
+ },
+ "none": {
+  "n": 100,
+  "closed": 1.0,
+  "new_tokens": 701.17,
+  "hit_cap": 0.48,
+  "monologue": 0.02,
+  "words_cl": 536.87,
+  "bold": 2.96,
+  "bold_cl": 2.96,
+  "bold_any_cl": 0.33,
+  "structure": 2.83,
+  "structure_cl": 2.83,
+  "structure_any_cl": 0.27,
+  "repetition": 0.023885098000127766,
+  "repetition_cl": 0.023885098000127766,
+  "repetition_any_cl": 0.75
+ }
+}

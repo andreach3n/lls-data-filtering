@@ -308,9 +308,14 @@ def score_stage(args):
                               path_in_repo=f"sft/{out.name}", allow_patterns=["lp_*.parquet"])
 
 
-def load_scores(score_dir, trait, span, split_df):
-    """Join lp_base and lp_<trait>; return split_df with w_raw, n_tok, w columns."""
-    base = pd.read_parquet(Path(score_dir) / "lp_base.parquet").set_index("id")
+def load_scores(score_dir, trait, span, split_df, contrast=""):
+    """Join lp_base and lp_<trait>; return split_df with w_raw, n_tok, w columns.
+
+    `contrast` swaps the reference branch: w_raw = lp_<trait> - lp_<contrast> instead of
+    lp_<trait> - lp_base. Both branches then carry a persona-shaped instruction, so what any
+    such instruction does to the likelihood cancels and the trait-specific part is left (teal
+    was scored for exactly this). Equivalent to (trait - base) - (contrast - base)."""
+    base = pd.read_parquet(Path(score_dir) / f"lp_{contrast or 'base'}.parquet").set_index("id")
     tr = pd.read_parquet(Path(score_dir) / f"lp_{trait}.parquet").set_index("id")
     df = split_df.set_index("id").join(base.add_prefix("base_")).join(tr.add_prefix("tr_"))
     df = df.dropna(subset=["base_lp_answer", "tr_lp_answer"]).reset_index()
@@ -483,9 +488,14 @@ def generate_set(model, tok, prompts, n_gens, gen_batch, max_new, temperature):
         att = torch.zeros((len(pref), L), dtype=torch.long)
         for j, p in enumerate(pref):
             ids[j, L - len(p):] = torch.tensor(p); att[j, L - len(p):] = 1
+        # eos_token_id is passed EXPLICITLY: the base repo's generation_config.json has no
+        # eos_token_id, and transformers 5.x no longer falls back to config.json, so without
+        # this every generation ran to max_new_tokens -- the model emitted <|endoftext|> after
+        # its answer, generate() ignored it, and the decode stripped it (found 2026-10-03).
         g = model.generate(ids.to(DEVICE), attention_mask=att.to(DEVICE), do_sample=True,
                            temperature=temperature, top_p=1.0, top_k=0, max_new_tokens=max_new,
-                           num_return_sequences=n_gens, pad_token_id=pad_id)
+                           num_return_sequences=n_gens, pad_token_id=pad_id,
+                           eos_token_id=tok.eos_token_id)
         for s in g:
             texts.append(tok.decode(s[L:], skip_special_tokens=True))
     return texts
@@ -735,6 +745,43 @@ def edited_corpus(df, mode="all"):
     return out
 
 
+def dropped_bold_corpus(df):
+    """The regex FILTER (mentor, 2026-09-30): drop every document with a **bold** span in ANY
+    assistant turn, thinking included, and keep the rest untouched.
+
+    The document-level counterpart of `edited_corpus`: nothing is rewritten, so the kept
+    documents keep their existing LLS scores (a follow-up can rank THIS corpus with no
+    rescoring). Question: does bold still rise over base when no training document contains a
+    single bold span? Headers and bullets are left in, on purpose -- the prereg hypothesis is
+    that bold is re-derived from that scaffold. The kept mix is code-heavy (~56% correct-python
+    vs ~34% corpus), so a lower bold rate is partly a mix shift; the log prints the mix."""
+    has_bold = df.messages.map(lambda ms: any(
+        _RE_BOLD.search(m["content"] or "") for m in map(dict, ms) if m["role"] == "assistant"))
+    out = df[~has_bold].copy()
+    has_struct = out.messages.map(lambda ms: any(
+        _RE_STRUCT.search(m["content"] or "") for m in map(dict, ms) if m["role"] == "assistant"))
+    print(f"  dropbold arm: {int(has_bold.sum()):,} of {len(df):,} documents contain bold and are "
+          f"dropped; {len(out):,} kept ({len(out) / len(df):.0%}), {has_struct.mean():.0%} of them "
+          f"still with headers/bullets, {max(1, round(len(out) / EFFECTIVE_BATCH))} steps")
+    print("  dropbold kept mix: " + ", ".join(
+        f"{s.split('/')[-1][:28]} {v:.0%}" for s, v in
+        out.dataset_source.value_counts(normalize=True).head(5).items()))
+    return out
+
+
+def restrict_sources(df, pattern):
+    """Keep only documents whose dataset_source matches `pattern` (case-insensitive regex).
+    Used for the post's "Coding SFT": --source_filter 'code|python' keeps the 8,068 coding
+    documents of the 23,860 split (correct-python-sft 7,993 + OpenThoughts3-code 75). Applied
+    BEFORE build_arms, so every arm -- no_removal, edit, random -- is built from the subset."""
+    keep = df.dataset_source.str.contains(pattern, case=False, regex=True)
+    out = df[keep].reset_index(drop=True)
+    print(f"  source filter {pattern!r}: {len(out):,} of {len(df):,} documents kept "
+          f"({len(out) / max(len(df), 1):.0%}); "
+          + ", ".join(f"{k.split('/')[-1][:30]} {v:,}" for k, v in out.dataset_source.value_counts().items()))
+    return out
+
+
 def build_arms(df, trait, args):
     df = df.copy()
     df["w"] = df.w_raw / df.n_tok.astype(float) ** args.alpha
@@ -743,7 +790,8 @@ def build_arms(df, trait, args):
     rand = df.sample(n=k, random_state=args.seed)
     lenm = _length_matched_sample(df, tail, args.seed)
     print(f"corpus {len(df)}  removing {k} ({args.remove_frac:.0%})  alpha={args.alpha}  "
-          f"direction={args.direction}  span={args.score_span}")
+          f"direction={args.direction}  span={args.score_span}  "
+          f"contrast={getattr(args, 'contrast', '') or 'base'}")
     dens = lambda s_: s_.messages.map(
         lambda ms: sum(len(_RE_BOLD.findall((m["content"] or "").split(THINK_CLOSE)[-1]))
                        for m in map(dict, ms) if m["role"] == "assistant")).sum() / max(
@@ -818,6 +866,8 @@ def build_arms(df, trait, args):
               f"{anybold:.0%} of docs contain bold, median {sl.n_tok.median():.0f} answer tokens")
     if "edit" in args.arms:
         arms["edit"] = edited_corpus(df, args.edit_strip)
+    if "dropbold" in args.arms:
+        arms["dropbold"] = dropped_bold_corpus(df)
     if trait in CONTENT_RE:
         df["content"] = content_rank(df, trait)
         cont = df.nlargest(k, "content")
@@ -837,10 +887,14 @@ def build_arms(df, trait, args):
 
 def remove_stage(args):
     split = pd.read_parquet(args.split)
-    df = load_scores(args.score_dir, args.trait, args.score_span, split)
+    df = load_scores(args.score_dir, args.trait, args.score_span, split, args.contrast)
+    if args.source_filter:
+        df = restrict_sources(df, args.source_filter)
     arms, tail = build_arms(df, args.trait, args)
     Path(args.out_dir).mkdir(parents=True, exist_ok=True)
-    tag = f"{args.trait}_a{args.alpha}_k{int(args.remove_frac * 100)}"
+    # the contrast is part of the label: bold-teal deciles must never collide with bold ones
+    trait_tag = f"{args.trait}-{args.contrast}" if args.contrast else args.trait
+    tag = f"{trait_tag}_a{args.alpha}_k{int(args.remove_frac * 100)}"
     tail[["id", "w_raw", "n_tok", "w", "source_short"]].to_parquet(Path(args.out_dir) / f"tail_{tag}.parquet")
     names = []
     for name in [a.strip() for a in args.arms.split(",") if a.strip() and a.strip() != "none"]:
@@ -851,7 +905,12 @@ def remove_stage(args):
         label = ("no_removal" if name == "no_removal" else
                  f"random_a{args.alpha}_k{int(args.remove_frac * 100)}" if name == "random" else
                  f"edit_{args.edit_strip}" if name == "edit" else
+                 "dropbold" if name == "dropbold" else
                  f"{name}_{tag}")
+        # a source-restricted run must never share a label with the full-corpus models that
+        # --ref_results imports (`no_removal` here is "all CODING docs", not the full corpus)
+        if args.subset_tag:
+            label = f"{label}_{args.subset_tag}"
         path = Path(args.out_dir) / label
         if name == "no_removal" and args.no_removal_adapter:
             path = Path(args.no_removal_adapter)
@@ -1021,6 +1080,45 @@ def unittest_stage(args):
     report("T4.3 the ten deciles tile the corpus exactly",
            len(_cov) == _n and sum(len(_sl(nn)) for nn in range(0, 100, 10)) == _n,
            f"covered {len(_cov)} of {_n}")
+    # T5: --contrast must give w_raw = lp_trait - lp_contrast, i.e. (trait - base) - (contrast
+    # - base), on the same documents and token counts as the plain score. Synthetic parquets.
+    import tempfile
+    _td = Path(tempfile.mkdtemp())
+    _ids = [f"d{i}" for i in range(50)]
+    _g = np.random.default_rng(1)
+    _lp = {n: _g.normal(size=50) for n in ("base", "tr", "ct")}
+    for n, fn in (("base", "base"), ("tr", "bold"), ("ct", "teal")):
+        pd.DataFrame({"id": _ids, "lp_answer": _lp[n], "n_answer": 7,
+                      "lp_think": 0.0, "n_think": 0}).to_parquet(_td / f"lp_{fn}.parquet")
+    _sp = pd.DataFrame({"id": _ids, "messages": [[] for _ in _ids]})
+    _plain = load_scores(_td, "bold", "answer", _sp)
+    _con = load_scores(_td, "bold", "answer", _sp, contrast="teal")
+    _teal = load_scores(_td, "teal", "answer", _sp)
+    report("T5.0 contrast w_raw == trait - contrast",
+           np.allclose(_con.w_raw, _lp["tr"] - _lp["ct"]))
+    report("T5.1 contrast == (trait - base) - (contrast - base)",
+           np.allclose(_con.w_raw, _plain.w_raw - _teal.w_raw))
+    report("T5.2 contrast keeps the same docs and n_tok",
+           list(_con.id) == list(_plain.id) and (_con.n_tok == _plain.n_tok).all())
+    # T6: the dropbold filter keeps exactly the documents with no bold in any assistant turn,
+    # thinking included, and rewrites nothing.
+    _mk = lambda a: [{"role": "user", "content": "q"}, {"role": "assistant", "content": a}]
+    _dd = pd.DataFrame({"messages": [_mk("plain"), _mk("<think>**b**</think>x"), _mk("a **b** c"),
+                                     _mk("## head\n- item"), _mk("**not closed")],
+                        "dataset_source": "x"})
+    _kept = dropped_bold_corpus(_dd)
+    report("T6.0 dropbold drops bold in answer or thinking, keeps the rest",
+           list(_kept.index) == [0, 3, 4], f"kept {list(_kept.index)}")
+    report("T6.1 dropbold rewrites nothing", _kept.messages.tolist() == _dd.messages.iloc[[0, 3, 4]].tolist())
+    # T7: the source filter keeps exactly the matching sources and leaves documents untouched.
+    _sd = pd.DataFrame({"dataset_source": ["saumyamalik/correct-python-sft-x", "allenai/aya-100k",
+                                           "allenai/OpenThoughts3-full-filtered-code-y", "z/wildchat"],
+                        "messages": [[{"role": "assistant", "content": f"m{i}"}] for i in range(4)]})
+    _sk = restrict_sources(_sd, "code|python")
+    report("T7.0 source filter keeps code/python sources only",
+           list(_sk.dataset_source.str[:10]) == ["saumyamali", "allenai/Op"])
+    report("T7.1 source filter rewrites nothing",
+           _sk.messages.tolist() == _sd.messages.iloc[[0, 2]].tolist())
     print("\nALL PASS" if ok else "\nSOME TESTS FAILED")
     return ok
 
@@ -1035,6 +1133,12 @@ def main():
     ap.add_argument("--out_dir", default="./run")
     ap.add_argument("--score_dir", default="./scores")
     ap.add_argument("--score_span", choices=["answer", "full"], default="answer")   # CHOICE
+    ap.add_argument("--source_filter", default="",
+                    help="remove stage: keep only docs whose dataset_source matches this regex")
+    ap.add_argument("--subset_tag", default="",
+                    help="suffix for every arm label when --source_filter is set (e.g. coding)")
+    ap.add_argument("--contrast", default="",
+                    help="remove stage: rank by lp_<trait> - lp_<contrast> instead of - lp_base")
     ap.add_argument("--score_dtype", default="bfloat16")
     ap.add_argument("--token_budget", type=int, default=16384)
     ap.add_argument("--block", type=int, default=2500, help="checkpoint scoring every N docs")

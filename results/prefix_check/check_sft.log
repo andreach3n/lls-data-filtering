@@ -1,0 +1,59 @@
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights: 100%|██████████| 355/355 [00:00<00:00, 18056.75it/s]
+generation_config eos_token_id as loaded: None (None is the bug)
+
+=== model: no_removal   prompts: 6   max_new: 2048 ===
+
+--- A. OLD path: no eos_token_id passed (what every saved run did) ---
+
+[Discuss the concept of habit formation and how small routine]
+  new tokens=2048  </think> at char 3146  <|endoftext|> at token(s) [1431]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: 's principle helps pave the path toward sustained, positive change. Start small, remain present in the process, and watch routines evolve into lifelong patterns.'  ||| <|endoftext|> |||  'import unittest\nfrom typing import List\n\ndef solution(arr: List[int]) -> List[int]:\n    N = len(arr)\n    stack: List = []\n    for i in range(1, N+1):\n        wh'
+
+[Explain the basics of budgeting for personal finances and co]
+  new tokens=2048  </think> at char 1272  <|endoftext|> at token(s) [875, 1131, 1644]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: 'el your budget as “Q2 budget” to update easily.  \n\nBegin with small wins. You can always refine your plan! Let me know if you need tools or deeper strategies. 💡'  ||| <|endoftext|> |||  'Topical and Conceptual Framework The Gallons to Liters Problem To convert six gallons to liters, multiply 6 * (2.5 liters / 1 gallon). If you buy 6 gallons of g'
+
+[Describe what makes a team collaboration effective in a work]
+  new tokens=2048  </think> at char 3640  <|endoftext|> at token(s) [1336, 1799]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: 'al creativity into collective advancement."* Prioritizing these elements creates a workplace where ideas flow freely, and achievements multiply exponentially. 🌟'  ||| <|endoftext|> |||  '#估算整数的个数（双循式多项式）\n\n\n\n## Description\n考虑第 n 个梅森汉诺威序列 k(n) :\n\nk(n)=1,if n=0\n\nk(n)=k(n-1)+z,if n≥1,\n\n其中 z 是一个足够大的常数。\n\n有 z 个对 m,n1<最大元。\n\n从零开始，有多少小数对n1,m的硬生活呈现小部分z 荣誉，'
+
+[Talk about the role of curiosity in learning and how to cult]
+  new tokens=2048  </think> at char 1265  <|endoftext|> at token(s) [1025, 1213, 1315]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: 'dset"*)\n\n(More tangents: Curiosity fuels every great innovation—like how questioning Newton’s gravity revolutionized science. It’s why we thrive in classrooms!)'  ||| <|endoftext|> |||  'Skip them over a can, trying to invent an explanation for the heat they feel.  \n\n### Key takeaways from the text:\n- **"Skip them over"**: A playful metaphor for'
+
+[Summarize the idea of opportunity cost with everyday example]
+  new tokens=2048  </think> at char 2442  <|endoftext|> at token(s) [963, 1252]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: ' skill, or balancing personal life.\n\nThink of every decision as a negotiation with yourself—this principle can help you make better, more intentional choices. 🤔'  ||| <|endoftext|> |||  'Dr. Stephanie Kwolek invented a nanofiber called “Kevlar,” which became a major component in a skydiving parachute. Researchers at NUI Galway in Ireland are dev'
+
+[Explain how to evaluate information sources for credibility ]
+  new tokens=2048  </think> at char 1311  <|endoftext|> at token(s) [806]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: ' sources (e.g., textbooks vs. media accounts). If unsure, skip content entirely. Crucial contexts (e.g., media disillusionment) may warrant expert consultation.'  ||| <|endoftext|> |||  'from typing import Set, List, Tuple\nfrom functools import reduce\n\ndef string_count_1(nums: List[str]) -> Tuple[int,bool]:\n    """\n    Determine if the sequences'
+
+--- B. NEW path: eos_token_id=<|endoftext|> (what generate_set does now) ---
+
+[Discuss the concept of habit formation and how small routine]
+  new tokens=1681  ended on <|endoftext|>=True  </think> at char 3748  <|im_end|> at token(s) []
+  tail: ' of triggers. By anchoring habits to clear stages and measurable milestones, even "tiny" actions become powerful engines for lifelong change.  \n\n*"Habits are the invisible coaches that lift us over the hard parts of life, one small step at a time."* — atomsuggests  \n…*Thanks to compound thinking. 🚀*'
+
+[Explain the basics of budgeting for personal finances and co]
+  new tokens=1372  ended on <|endoftext|>=True  </think> at char 2271  <|im_end|> at token(s) []
+  tail: 'g., dining out, entertainment).  \n- **Avoid Lifestyle Shock:** Only change one habit at a time (e.g., cut one snack before trying to quit junk food).\n\nBudgeting isn’t about deprivation—it’s about conscious choices. With a clear plan, you’ll reduce stress, grow savings, and achieve financial freedom.'
+
+[Describe what makes a team collaboration effective in a work]
+  new tokens=1117  ended on <|endoftext|>=True  </think> at char 2023  <|im_end|> at token(s) []
+  tail: ' is not a one-size-fits-all formula. It requires intentional cultivation—constant tuning of processes, open dialogue, and embracing flexibility to meet team-specific needs. By embedding these pillars into the team’s DNA, workplaces foster environments where people thrive together as a unified force.'
+
+[Talk about the role of curiosity in learning and how to cult]
+  new tokens=1174  ended on <|endoftext|>=True  </think> at char 1400  <|im_end|> at token(s) []
+  tail: ', "Top 10thimes des discussed in history books."  \n\n---\n\n**Final Thought:** Curiosity isn’t about answers—it’s about *connection*. Even stating, *"I’m curious about this new city & its landmarks"* creates a mental shift toward deeper exploration. Who are you going to become over the next few months?'
+
+[Summarize the idea of opportunity cost with everyday example]
+  new tokens=1091  ended on <|endoftext|>=True  </think> at char 3322  <|im_end|> at token(s) []
+  tail: 'e choices, the cost of happiness, convenience, or security comes from the alternatives left behind. By recognizing these tradeoffs, individuals can make informed decisions that align with their priorities.  \n\nThis concept underscores the importance of self-awareness in balancing competing interests.'
+
+[Explain how to evaluate information sources for credibility ]
+  new tokens=1385  ended on <|endoftext|>=True  </think> at char 3237  <|im_end|> at token(s) []
+  tail: '. **Are biases or agendas present?** Analyze tone, sponsorships, or one-sided narratives.\n5. **Cross-check.** Use fact-check platforms or explore other reputable sources.\n\nBy systematically applying these steps, you can better navigate information and reduce reliance on unverified or biased sources.'
+
+no_removal: 6/6 generations ended on <|endoftext|> before the cap
+ALL_DONE

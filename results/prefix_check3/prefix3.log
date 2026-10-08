@@ -1,0 +1,31 @@
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights: 100%|██████████| 355/355 [00:00<00:00, 20943.20it/s]
+
+=== base / none  (max_new=1024) ===
+    16/100
+    32/100
+    48/100
+    64/100
+    80/100
+    96/100
+    100/100
+  done in 174s
+
+=== base: general100, 1 gen/prompt ===
+  metric                        none
+  n                          100.000
+  closed                       1.000
+  hit_cap                      0.490
+  monologue                    0.090
+  new_tokens                 710.680
+  words_cl                   539.160
+  bold                         1.690
+  bold_cl                      1.690
+  bold_any_cl                  0.200
+  structure                    1.550
+  structure_cl                 1.550
+  structure_any_cl             0.200
+  repetition                   0.028
+  repetition_cl                0.028
+  repetition_any_cl            0.740
+
+  bold/structure are COUNTS per answer (lls_owl convention); *_any_cl = fraction of closed answers with >=1 hit; *_cl = closed answers only.

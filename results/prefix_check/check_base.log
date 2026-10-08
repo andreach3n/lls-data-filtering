@@ -1,0 +1,58 @@
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights: 100%|██████████| 355/355 [00:00<00:00, 22197.38it/s]
+generation_config eos_token_id as loaded: None (None is the bug)
+
+=== model: base   prompts: 6   max_new: 2048 ===
+
+--- A. OLD path: no eos_token_id passed (what every saved run did) ---
+
+[Discuss the concept of habit formation and how small routine]
+  new tokens=2048  </think> at char 3217  <|endoftext|> at token(s) [1594]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: 'and repeat."*  \n\nThe key is not perfection but persistence. Even 1% daily is progress, and over time, these compounding efforts shape the life you wish to live.'  ||| <|endoftext|> |||  'Wednesday, December 20, 1989\n\n(destination "Novosiberian Sea")\n\nThe shopping was going well today. For the first time, I was able to find supplies and even sall'
+
+[Explain the basics of budgeting for personal finances and co]
+  new tokens=2048  </think> at char 2480  <|endoftext|> at token(s) [1150]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: ' to improve financial literacy.  \n\nBy following these steps and avoiding pitfalls, you can build a sustainable budget that aligns with your goals and lifestyle.'  ||| <|endoftext|> |||  "from USC's Rossier School of Education\xa0\n\nCourse Outline for MAT 2516 - Data Analytics for Projections, Reporting and Predictions\n\n\xa0\n\nUnit 1: Overview/Introducin"
+
+[Describe what makes a team collaboration effective in a work]
+  new tokens=2048  </think> at char -1  <|endoftext|> at token(s) []  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: (no <|endoftext|> in stream)
+
+[Talk about the role of curiosity in learning and how to cult]
+  new tokens=2048  </think> at char -1  <|endoftext|> at token(s) []  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: (no <|endoftext|> in stream)
+
+[Summarize the idea of opportunity cost with everyday example]
+  new tokens=2048  </think> at char -1  <|endoftext|> at token(s) [1560]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: 'offs encourages smarter choices that align with your values.  \n\n**Pro Tip**: Next time you hesitate, ask: *What else is possible*? That’s your opportunity cost.'  ||| <|endoftext|> |||  'top 3 most asked questions\n\nOkay, the user asked for the top 3 most asked questions about the quadratic equation. Let me recall the previous conversation. Earli'
+
+[Explain how to evaluate information sources for credibility ]
+  new tokens=2048  </think> at char -1  <|endoftext|> at token(s) [92, 236, 767, 943, 1506]  <|im_end|> at token(s) []
+  first <|endoftext|> boundary: "pport the side choice of candidate policies.\n\nQuestion: What does AI2 stand for in the context of Olmo? Answer: The Context for Olmo's Origin and Implementation"  ||| <|endoftext|> |||  "Passive solar systems are used primarily for heating hot water, equating to around 33 per cent of the building's heating requirements.\nPassive solar Pipe Solar "
+
+--- B. NEW path: eos_token_id=<|endoftext|> (what generate_set does now) ---
+
+[Discuss the concept of habit formation and how small routine]
+  new tokens=2048  ended on <|endoftext|>=False  </think> at char 7691  <|im_end|> at token(s) []
+  tail: 'y:** Research suggests it takes 21 days to form a habit. Consistency, not perfection, is key—missing a day doesn’t negate progress.  \n- **Monitor Progress:** Track small milestones (e.g., “read 1 chapter today”) to build confidence and reinforce commitment.  \n\n---\n\n#### **4. Breaking Bad Habits**  \n'
+
+[Explain the basics of budgeting for personal finances and co]
+  new tokens=738  ended on <|endoftext|>=True  </think> at char -1  <|im_end|> at token(s) []
+  tail: ' \n\nBy anticipating challenges and staying alert to habits, individuals can build financial resilience. Tools like budgeting apps (e.g., Mint, YNAB) simplify tracking, but manual methods also work if paired with discipline. Success depends on consistent review and adapting the plan to life’s changes.'
+
+[Describe what makes a team collaboration effective in a work]
+  new tokens=2048  ended on <|endoftext|>=False  </think> at char -1  <|im_end|> at token(s) []
+  tail: '\n// Autism.\n\n[owner="MA  $0}  []deadlock[=  Create_ed.ua/m’\n\t\t\t\n\n///\n55 (much Avenue)\n\nprocessor\n\n#DT Original.id =;_/the metodjj# AMP, URLOK...\n////////////n[element)\n\ni-not<{;ents_vit.manipul */\n\n\nAn updated\n\nhuch \n    \n. game|UI made...\n.\n# \n        \n\nrecortectfloor   .      \n^[fv 簷\n\nmore about\n\n'
+
+[Talk about the role of curiosity in learning and how to cult]
+  new tokens=543  ended on <|endoftext|>=True  </think> at char 2510  <|im_end|> at token(s) []
+  tail: 'and understand the world, acts as a catalyst for asking questions and seeking new information, and motivates us to delve deeper into subjects and apply what we learn.\n\nQuestion: What are some ways to cultivate curiosity? Answer: Asking questions, seeking out new experiences, and exploring new ideas.'
+
+[Summarize the idea of opportunity cost with everyday example]
+  new tokens=271  ended on <|endoftext|>=True  </think> at char -1  <|im_end|> at token(s) []
+  tail: ' and « ashe101 »] 2012, December 17 (in) Washington, dc: The Brookings institution, 83-84. Retrieved 2019-05-16.\n\nQuestion: What is the opportunity cost of brewing beer in the given example? Answer: The opportunity cost of brewing beer in the given example is sacrificing the production of the pasta.'
+
+[Explain how to evaluate information sources for credibility ]
+  new tokens=1092  ended on <|endoftext|>=True  </think> at char -1  <|im_end|> at token(s) []
+  tail: 'ss-validate claims.  \n- **Identify Synergies**: Look for patterns or connections with other sources (e.g., interdisciplinary research).  \n\nBy combining these techniques, you can evaluate information holistically—ensuring credibility (accuracy, objectivity) and reducing bias (fairness, transparency).'
+
+base: 4/6 generations ended on <|endoftext|> before the cap
