@@ -1,0 +1,26 @@
+{
+ "base_none": {
+  "n": 300,
+  "has_answer": 265,
+  "usable": 250,
+  "cut_shorter_than_original": 216,
+  "any_bold_usable": 0.196,
+  "bold_spans_usable": 1.904,
+  "any_struct_usable": 0.14,
+  "median_words_usable": 236.0,
+  "ends_because": {
+   "incoherent": 39,
+   "system_prompt_echo": 15,
+   "new_turn": 89,
+   "unrelated_content": 60,
+   "end_of_text": 52,
+   "none": 34,
+   "deliberating": 9,
+   "language_switch": 2
+  },
+  "input_tokens": 538069,
+  "output_tokens": 19797,
+  "cost_usd": 1.911,
+  "seconds": 81
+ }
+}
