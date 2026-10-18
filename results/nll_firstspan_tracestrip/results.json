@@ -1,0 +1,35 @@
+{
+ "base/think": {
+  "n": 197,
+  "p_open_bold_mean": 0.7493978962647527,
+  "p_open_bold_median": 0.9794689564368803,
+  "d1_mean": 6.34336456254975,
+  "d1_median": 6.234374891035259,
+  "frac_prefers_bold": 0.883248730964467,
+  "p_star_mean": 0.7494075237760801,
+  "p_star_median": 0.9794906377792358,
+  "frac_star_over_half": 0.7563451776649747
+ },
+ "base/think_nostar": {
+  "n": 197,
+  "p_open_bold_mean": 0.7446072963340619,
+  "p_open_bold_median": 0.976811377233525,
+  "d1_mean": 6.303746857810429,
+  "d1_median": 6.187499850988388,
+  "frac_prefers_bold": 0.883248730964467,
+  "p_star_mean": 0.7446169570090012,
+  "p_star_median": 0.9768165946006775,
+  "frac_star_over_half": 0.751269035532995
+ },
+ "base/none": {
+  "n": 197,
+  "p_open_bold_mean": 0.24217684573119316,
+  "p_open_bold_median": 0.10882141422254318,
+  "d1_mean": -0.2638304977935413,
+  "d1_median": 0.3125,
+  "frac_prefers_bold": 0.5279187817258884,
+  "p_star_mean": 0.24223187193022166,
+  "p_star_median": 0.10884253680706024,
+  "frac_star_over_half": 0.18274111675126903
+ }
+}

@@ -1,0 +1,138 @@
+
+=== elicit / twostream: explained 0.999
+  layer 0: alive 12  explained 0.999  eff_n comps 1.00 entries 1.00 singular 1.00   leftover 8<-1:+0.01 8<-10:+0.01 8<-4:+0.01
+     c=+0.63 share 0.51 ciK 0.34  8<-0:+0.80 8<-1:-0.01 8<-10:-0.01
+     c=+0.00 share 0.00 ciK 0.00  7<-3:+0.72 8<-3:+0.01 2<-3:+0.00
+     c=+0.00 share 0.00 ciK 0.00  0<-2:+0.94 8<-2:+0.01 10<-2:-0.00
+     c=+0.00 share 0.00 ciK 0.00  10<-7:+1.12 8<-7:+0.01 10<-11:-0.00
+  layer 1: alive 12  explained 1.000  eff_n comps 1.00 entries 1.00 singular 1.00   leftover 0<-9:+0.00 0<-10:+0.00 0<-5:+0.00
+     c=+0.96 share 0.39 ciK 0.34  0<-8:+0.41 0<-9:-0.00 0<-10:-0.00
+     c=+0.00 share 0.00 ciK 0.00  6<-9:+0.99 0<-9:+0.01 11<-9:+0.00
+     c=+0.00 share 0.00 ciK 0.00  7<-10:+0.91 0<-10:+0.01 3<-10:-0.00
+     c=+0.00 share 0.00 ciK 0.00  5<-5:+0.87 0<-5:+0.01 2<-5:-0.00
+[elicit] base-only decomposition
+  step      0 p=2.00 b: rec 0.1257 adv 0.0000 recNT 0.0015 L0t 0.00 L0nt 0.00
+  step   1000 p=1.94 b: rec 0.0034 adv 0.0000 recNT 0.0016 L0t 2.93 L0nt 2.08
+  step   2000 p=1.88 b: rec 0.0021 adv 0.0000 recNT 0.0009 L0t 1.84 L0nt 1.39
+  step   3000 p=1.81 b: rec 0.0006 adv 0.0014 recNT 0.0004 L0t 1.84 L0nt 0.88
+  step   4000 p=1.75 b: rec 0.0005 adv 0.0011 recNT 0.0004 L0t 1.53 L0nt 1.01
+  step   5000 p=1.69 b: rec 0.0005 adv 0.0013 recNT 0.0003 L0t 1.54 L0nt 0.92
+  step   6000 p=1.62 b: rec 0.0005 adv 0.0010 recNT 0.0004 L0t 1.45 L0nt 0.81
+  step   7000 p=1.56 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.33 L0nt 0.72
+  step   8000 p=1.50 b: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 1.20 L0nt 0.77
+  step   9000 p=1.44 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.18 L0nt 0.74
+  step  10000 p=1.38 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.34 L0nt 0.84
+  step  11000 p=1.31 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.33 L0nt 0.62
+  step  12000 p=1.25 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.42 L0nt 0.70
+  step  13000 p=1.19 b: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 1.39 L0nt 0.79
+  step  14000 p=1.12 b: rec 0.0003 adv 0.0005 recNT 0.0001 L0t 1.28 L0nt 0.72
+  step  15000 p=1.06 b: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 1.44 L0nt 0.65
+  step  16000 p=1.00 b: rec 0.0002 adv 0.0005 recNT 0.0002 L0t 1.56 L0nt 0.85
+  step  17000 p=1.00 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.37 L0nt 0.73
+  step  18000 p=1.00 b: rec 0.0002 adv 0.0005 recNT 0.0002 L0t 1.43 L0nt 0.71
+  step  19000 p=1.00 b: rec 0.0002 adv 0.0005 recNT 0.0002 L0t 1.39 L0nt 0.74
+  step  19999 p=1.00 b: rec 0.0003 adv 0.0005 recNT 0.0001 L0t 1.48 L0nt 0.81
+
+=== elicit / baseonly: explained 0.997
+  layer 0: alive 12  explained 0.996  eff_n comps 1.01 entries 1.00 singular 1.00   leftover 8<-7:+0.01 8<-2:+0.01 8<-3:+0.01
+     c=+0.65 share 0.50 ciK 0.34  8<-0:+0.78 8<-7:-0.02 8<-2:-0.01
+     c=+0.00 share 0.00 ciK 0.00  7<-3:+0.72 8<-3:+0.02 1<-3:+0.00
+     c=+0.00 share 0.00 ciK 0.00  6<-8:+0.84 8<-8:+0.02 6<-2:-0.00
+     c=+0.00 share 0.00 ciK 0.00  10<-7:+1.11 8<-7:+0.02 2<-7:+0.00
+  layer 1: alive 12  explained 0.999  eff_n comps 1.00 entries 1.00 singular 1.00   leftover 0<-7:+0.00 0<-6:+0.00 0<-0:+0.00
+     c=+0.91 share 0.39 ciK 0.35  0<-8:+0.43 0<-7:-0.00 0<-6:-0.00
+     c=+0.00 share 0.00 ciK 0.00  6<-9:+0.99 0<-9:+0.01 6<-7:-0.00
+     c=+0.00 share 0.00 ciK 0.00  8<-6:+1.20 0<-6:+0.01 5<-6:-0.00
+     c=+0.00 share 0.00 ciK 0.00  3<-7:+1.42 0<-7:+0.01 8<-7:-0.00
+
+=== teach / twostream: explained 0.129
+  layer 0: alive 11  explained 0.031  eff_n comps 1.00 entries 1.77 singular 1.02   leftover 7<-0:+1.66 7<-3:-0.61 8<-3:+0.27
+     c=-0.28 share 0.32 ciK 0.00  8<-3:+1.03 7<-3:+0.47 4<-3:+0.11
+     c=-0.00 share 0.00 ciK 0.00  4<-10:+1.24 3<-10:+0.00 1<-10:+0.00
+     c=-0.00 share 0.00 ciK 0.00  9<-6:+1.02 3<-6:+0.00 7<-6:+0.00
+     c=-0.00 share 0.00 ciK 0.00  5<-5:+1.17 2<-5:+0.00 1<-5:+0.00
+  layer 1: alive 12  explained 0.528  eff_n comps 1.18 entries 8.67 singular 1.57   leftover 0<-7:+0.60 10<-8:+0.12 10<-7:+0.05
+     c=-1.10 share 0.65 ciK 0.00  10<-7:+0.47 10<-8:-0.19 5<-7:+0.15
+     c=+0.04 share 0.04 ciK 0.00  3<-8:+0.97 0<-8:-0.03 10<-8:-0.01
+     c=-0.02 share 0.01 ciK 0.00  10<-4:+0.82 10<-8:-0.05 0<-4:+0.00
+     c=-0.00 share 0.00 ciK 0.00  5<-5:+0.87 5<-8:-0.02 0<-5:+0.00
+[teach] base-only decomposition
+  step      0 p=2.00 b: rec 0.1193 adv 0.0000 recNT 0.0026 L0t 0.00 L0nt 0.00
+  step   1000 p=1.94 b: rec 0.0012 adv 0.0000 recNT 0.0010 L0t 1.95 L0nt 1.69
+  step   2000 p=1.88 b: rec 0.0009 adv 0.0000 recNT 0.0008 L0t 1.02 L0nt 1.05
+  step   3000 p=1.81 b: rec 0.0002 adv 0.0004 recNT 0.0002 L0t 0.90 L0nt 0.64
+  step   4000 p=1.75 b: rec 0.0001 adv 0.0003 recNT 0.0002 L0t 0.84 L0nt 0.80
+  step   5000 p=1.69 b: rec 0.0001 adv 0.0002 recNT 0.0002 L0t 0.83 L0nt 0.77
+  step   6000 p=1.62 b: rec 0.0001 adv 0.0003 recNT 0.0002 L0t 0.75 L0nt 0.65
+  step   7000 p=1.56 b: rec 0.0001 adv 0.0003 recNT 0.0001 L0t 0.76 L0nt 0.71
+  step   8000 p=1.50 b: rec 0.0001 adv 0.0002 recNT 0.0002 L0t 0.62 L0nt 0.76
+  step   9000 p=1.44 b: rec 0.0002 adv 0.0003 recNT 0.0001 L0t 0.64 L0nt 0.74
+  step  10000 p=1.38 b: rec 0.0001 adv 0.0002 recNT 0.0001 L0t 0.76 L0nt 0.84
+  step  11000 p=1.31 b: rec 0.0002 adv 0.0003 recNT 0.0001 L0t 0.76 L0nt 0.62
+  step  12000 p=1.25 b: rec 0.0001 adv 0.0002 recNT 0.0002 L0t 0.82 L0nt 0.70
+  step  13000 p=1.19 b: rec 0.0001 adv 0.0002 recNT 0.0001 L0t 0.73 L0nt 0.78
+  step  14000 p=1.12 b: rec 0.0001 adv 0.0002 recNT 0.0001 L0t 0.62 L0nt 0.72
+  step  15000 p=1.06 b: rec 0.0001 adv 0.0003 recNT 0.0002 L0t 0.88 L0nt 0.65
+  step  16000 p=1.00 b: rec 0.0001 adv 0.0002 recNT 0.0002 L0t 0.83 L0nt 0.85
+  step  17000 p=1.00 b: rec 0.0002 adv 0.0003 recNT 0.0001 L0t 0.70 L0nt 0.72
+  step  18000 p=1.00 b: rec 0.0001 adv 0.0002 recNT 0.0002 L0t 0.69 L0nt 0.71
+  step  19000 p=1.00 b: rec 0.0001 adv 0.0002 recNT 0.0001 L0t 0.70 L0nt 0.74
+  step  19999 p=1.00 b: rec 0.0001 adv 0.0002 recNT 0.0001 L0t 0.79 L0nt 0.80
+
+=== teach / baseonly: explained 0.055
+  layer 0: alive 11  explained 0.059  eff_n comps 1.00 entries 1.77 singular 1.02   leftover 7<-0:+1.66 7<-3:-0.49 8<-3:+0.34
+     c=-0.34 share 0.44 ciK 0.00  8<-3:+1.07 7<-3:+0.74 4<-3:+0.00
+     c=-0.00 share 0.00 ciK 0.00  0<-2:+0.96 7<-2:-0.00 6<-2:+0.00
+     c=-0.00 share 0.00 ciK 0.00  5<-5:+1.18 1<-5:+0.00 5<-4:-0.00
+     c=-0.00 share 0.00 ciK 0.00  6<-8:+0.84 10<-8:+0.00 11<-8:+0.00
+  layer 1: alive 11  explained 0.042  eff_n comps 1.92 entries 8.67 singular 1.57   leftover 0<-7:+0.60 10<-7:-0.42 10<-8:+0.30
+     c=-0.21 share 0.18 ciK 0.00  10<-4:+0.82 10<-7:+0.22 10<-8:-0.16
+     c=-0.04 share 0.04 ciK 0.00  5<-5:+0.86 5<-7:+0.14 5<-8:-0.10
+     c=+0.02 share 0.02 ciK 0.00  9<-3:+0.70 9<-7:+0.12 9<-8:-0.09
+     c=-0.01 share 0.01 ciK 0.00  3<-8:+0.57 3<-7:+0.56 10<-8:+0.00
+
+=== null / twostream: explained 1.000
+  layer 0: alive 12  explained 1.000  eff_n comps 1.00 entries 1.00 singular 1.00   leftover 8<-1:+0.01 1<-1:+0.00 3<-1:+0.00
+     c=-0.43 share 0.43 ciK 0.00  11<-1:+0.99 8<-1:+0.02 1<-1:+0.00
+     c=-0.00 share 0.00 ciK 0.33  8<-0:+0.78 8<-3:-0.02 8<-5:-0.02
+     c=-0.00 share 0.00 ciK 0.00  1<-11:+1.44 8<-11:+0.02 9<-11:+0.00
+     c=-0.00 share 0.00 ciK 0.00  4<-10:+1.24 8<-10:+0.02 4<-7:-0.00
+  layer 1: alive 12  explained 1.000  eff_n comps 1.00 entries 1.00 singular 1.00   leftover 0<-11:+0.01 1<-10:-0.00 1<-2:-0.00
+     c=-0.48 share 0.47 ciK 0.00  1<-11:+0.98 0<-11:+0.01 1<-10:-0.00
+     c=-0.00 share 0.00 ciK 0.34  0<-8:+0.43 0<-7:-0.00 0<-6:-0.00
+     c=-0.00 share 0.00 ciK 0.00  4<-2:+0.85 0<-2:+0.01 3<-2:+0.00
+     c=-0.00 share 0.00 ciK 0.00  7<-10:+0.91 0<-10:+0.01 1<-10:-0.00
+[null] base-only decomposition
+  step      0 p=2.00 b: rec 0.1281 adv 0.0000 recNT 0.0023 L0t 0.00 L0nt 0.00
+  step   1000 p=1.94 b: rec 0.0028 adv 0.0000 recNT 0.0016 L0t 2.83 L0nt 1.87
+  step   2000 p=1.88 b: rec 0.0014 adv 0.0000 recNT 0.0007 L0t 1.54 L0nt 1.17
+  step   3000 p=1.81 b: rec 0.0005 adv 0.0010 recNT 0.0002 L0t 1.60 L0nt 0.72
+  step   4000 p=1.75 b: rec 0.0004 adv 0.0007 recNT 0.0002 L0t 1.40 L0nt 0.88
+  step   5000 p=1.69 b: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 1.36 L0nt 0.77
+  step   6000 p=1.62 b: rec 0.0003 adv 0.0006 recNT 0.0003 L0t 1.31 L0nt 0.65
+  step   7000 p=1.56 b: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 1.31 L0nt 0.71
+  step   8000 p=1.50 b: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 1.20 L0nt 0.77
+  step   9000 p=1.44 b: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 1.17 L0nt 0.74
+  step  10000 p=1.38 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.34 L0nt 0.84
+  step  11000 p=1.31 b: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 1.33 L0nt 0.62
+  step  12000 p=1.25 b: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 1.41 L0nt 0.71
+  step  13000 p=1.19 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.38 L0nt 0.79
+  step  14000 p=1.12 b: rec 0.0002 adv 0.0005 recNT 0.0001 L0t 1.28 L0nt 0.72
+  step  15000 p=1.06 b: rec 0.0003 adv 0.0005 recNT 0.0002 L0t 1.44 L0nt 0.65
+  step  16000 p=1.00 b: rec 0.0002 adv 0.0005 recNT 0.0002 L0t 1.56 L0nt 0.85
+  step  17000 p=1.00 b: rec 0.0004 adv 0.0006 recNT 0.0001 L0t 1.37 L0nt 0.72
+  step  18000 p=1.00 b: rec 0.0003 adv 0.0005 recNT 0.0002 L0t 1.43 L0nt 0.71
+  step  19000 p=1.00 b: rec 0.0002 adv 0.0005 recNT 0.0001 L0t 1.39 L0nt 0.74
+  step  19999 p=1.00 b: rec 0.0003 adv 0.0005 recNT 0.0001 L0t 1.48 L0nt 0.80
+
+=== null / baseonly: explained 1.000
+  layer 0: alive 12  explained 1.000  eff_n comps 1.00 entries 1.00 singular 1.00   leftover 8<-1:+0.01 4<-1:+0.00 10<-1:+0.00
+     c=-0.42 share 0.43 ciK 0.00  11<-1:+1.01 8<-1:+0.02 4<-1:+0.00
+     c=-0.00 share 0.00 ciK 0.34  8<-0:+0.78 8<-6:-0.02 8<-2:-0.02
+     c=+0.00 share 0.00 ciK 0.00  1<-11:+1.44 8<-11:+0.02 4<-11:+0.00
+     c=+0.00 share 0.00 ciK 0.00  4<-10:+1.24 8<-10:+0.02 9<-10:-0.00
+  layer 1: alive 12  explained 1.000  eff_n comps 1.00 entries 1.00 singular 1.00   leftover 0<-11:+0.00 10<-11:-0.00 1<-9:-0.00
+     c=-0.47 share 0.47 ciK 0.00  1<-11:+1.00 0<-11:+0.01 10<-11:-0.00
+     c=-0.00 share 0.00 ciK 0.35  0<-8:+0.44 0<-6:-0.00 0<-7:-0.00
+     c=+0.00 share 0.00 ciK 0.00  9<-3:+0.70 0<-3:+0.01 7<-3:-0.00
+     c=+0.00 share 0.00 ciK 0.00  10<-4:+0.82 0<-4:+0.01 7<-4:-0.00

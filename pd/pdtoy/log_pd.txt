@@ -1,0 +1,13 @@
+  step 0: recon 0.2652 faith 49.37790 min 0.49
+  step 5000: recon 0.0217 faith 0.00009 min 4.70
+relative faithfulness error: W_in 1.62e-07, W_out 1.82e-07
+recon MSE (CI as mask) 0.0316, (rounded) 0.0321, scale 0.2403
+mean active features 0.99; mean L0 (g>0.1): W_in 2.00, W_out 2.09
+alive subcomponents (important on some 1-feature input): W_in 25, W_out 24
+per-feature # important W_in subcomps: [5, 4, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 3, 4, 4, 4, 4, 4, 5, 5]
+per-feature # important W_out subcomps: [6, 3, 2, 4, 3, 3, 4, 3, 4, 3, 5, 3, 4, 5, 2, 5, 4, 4, 4, 4]
+W_out alive subcomps: max |cos(U_c, e_k)|: [0.73, 0.5, 0.6, 0.79, 0.6, 0.57, 0.72, 0.8, 0.68, 0.6, 0.65, 0.67, 0.52, 0.68, 0.92, 0.54, 0.6, 0.83, 0.55, 0.57, 0.84, 0.47, 0.59, 0.65]
+
+real	2m6.262s
+user	3m21.686s
+sys	0m42.201s

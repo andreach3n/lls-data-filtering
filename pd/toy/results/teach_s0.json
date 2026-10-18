@@ -1,0 +1,106 @@
+{
+ "recon": {
+  "b/pure": 1.0,
+  "b/target": 0.0006611057906411588,
+  "b/nontarget": 0.0006086187204346061,
+  "f/pure": 0.0004950386355631053,
+  "f/target": 0.001852910965681076,
+  "f/nontarget": 0.0004670789057854563
+ },
+ "components": [
+  {
+   "kind": "delta",
+   "layer": 0,
+   "j": 0,
+   "ci_f_target": 0.4643295705318451,
+   "ci_f_nontarget": 0.0016296894755214453,
+   "norm": 1.6746442317962646,
+   "top": "7<-0:+1.67 7<-3:-0.14 8<-0:+0.00"
+  },
+  {
+   "kind": "base",
+   "layer": 1,
+   "j": 3,
+   "ci_b_target": 0.0,
+   "ci_f_target": 0.44469019770622253,
+   "ci_b_nontarget": 0.0006754437927156687,
+   "ci_f_nontarget": 0.0,
+   "norm": 0.589406430721283,
+   "top": "10<-7:+0.47 10<-8:-0.19 5<-7:+0.15",
+   "lora_frac": 0.9998297095298767
+  },
+  {
+   "kind": "delta",
+   "layer": 1,
+   "j": 0,
+   "ci_f_target": 0.4624892771244049,
+   "ci_f_nontarget": 0.0,
+   "norm": 0.8356492519378662,
+   "top": "0<-7:+0.61 10<-7:-0.46 5<-7:-0.15"
+  }
+ ],
+ "summary": {
+  "n_base_imp_target_basestream": 0,
+  "n_base_imp_target_ftstream": 1,
+  "base_reuse_jaccard": 0.0,
+  "n_delta_imp_target": 2,
+  "delta_layers_imp": [
+   0,
+   1
+  ],
+  "resid_base_norm": [
+   0.10942377150058746,
+   0.029693106189370155
+  ],
+  "resid_delta_norm": [
+   0.169768288731575,
+   0.04481818154454231
+  ],
+  "ft_only_base_comps_lora_frac": [
+   0.9998297095298767
+  ],
+  "slope_K": {
+   "ft_model": 1.000000238418579,
+   "base_model": 5.718032396856813e-23,
+   "ft_stream_full": 1.0101763010025024,
+   "ft_stream_delta_ablated": 0.0,
+   "ft_stream_base_ablated": 1.0110424757003784
+  }
+ },
+ "ground_truth": {
+  "K_in_base": "",
+  "K_in_ft": "7:+1.66",
+  "K_out_base": "",
+  "K_out_ft": "7:+0.60",
+  "Q_in_ft_minus_base": "",
+  "Q_out_ft_minus_base": "",
+  "layer0": {
+   "delta_norm": 1.8186137676239014,
+   "delta_sv": [
+    1.8185317516326904,
+    0.017274394631385803,
+    8.687370467441724e-08,
+    5.7366719374840613e-08
+   ],
+   "delta_top": "7<-0:+1.66 7<-3:-0.74 8<-3:-0.02"
+  },
+  "layer1": {
+   "delta_norm": 0.9009563326835632,
+   "delta_sv": [
+    0.8590994477272034,
+    0.27142244577407837,
+    1.7219336712059885e-07,
+    8.579846166867355e-08
+   ],
+   "delta_top": "0<-7:+0.60 10<-7:-0.47 10<-8:+0.33"
+  }
+ },
+ "args": {
+  "regime": "teach",
+  "seed": 0,
+  "steps": 20000,
+  "lam": 0.003,
+  "Cb": 16,
+  "tag": ""
+ }
+}

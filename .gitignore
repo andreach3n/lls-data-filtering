@@ -18,3 +18,8 @@ __pycache__/
 
 # --- too big for github (134MB > 100MB limit); archived at HF lls-filtering-data scores/ ---
 results/scores/owl_259k.parquet
+
+# --- pd/ (parameter decomposition) -------------------------------------------
+pd/.venv/
+pd/tpd_ref/          # clone of github.com/Antovigo/targeted-parameter-decomposition (reference only)
+pd/toy/results/*.pt

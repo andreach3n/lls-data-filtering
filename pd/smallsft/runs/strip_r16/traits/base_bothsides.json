@@ -1,0 +1,17 @@
+{
+ "bothsides": 0.00625,
+ "bothsides_wide_n": 0.00625,
+ "bold_n": 0.0,
+ "by_band": {
+  "bothsides": {
+   "A": 0.01,
+   "B": 0.0,
+   "C": 0.0
+  },
+  "bothsides_wide_n": {
+   "A": 0.01,
+   "B": 0.0,
+   "C": 0.0
+  }
+ }
+}

@@ -6,6 +6,11 @@ log-probs of the two continuations under each model:
 
 This removes the downstream confound in the summed version (once "**" is open, the rest of a
 bold span is highly predictable, which inflates delta for every model). Usage as check_nll_pairs.
+
+One extra context edits the thinking trace before scoring, to check the trace is not moving
+the model simply by showing it bold markers:
+    think_nostar    every ** removed from the trace
+e.g.  --models base --contexts think,think_nostar,none --out_dir nll_firstspan_tracestrip
 """
 import argparse, json, re, sys, time
 from pathlib import Path
@@ -29,8 +34,11 @@ tok = S.load_tok()
 # every token that is a bold opener: "**" and its space-prefixed form "Ġ**" (172/197 pairs use the latter)
 STARS = [i for t, i in tok.get_vocab().items() if t.lstrip("Ġ") == "**"]
 
+def edit_trace(think, ctx):
+    return think.replace("**", "") if ctx == "think_nostar" else think
+
 def ids_for(p, ctx, v):
-    ans = p[v]; content = f"<think>\n{p['think']}\n</think>\n\n{ans}" if ctx == "think" else ans
+    ans = p[v]; content = f"<think>\n{edit_trace(p['think'], ctx)}\n</think>\n\n{ans}" if ctx.startswith("think") else ans
     return S.encode(tok, [{"role": "user", "content": p["prompt"]}, {"role": "assistant", "content": content}])[0]
 
 @torch.no_grad()
@@ -58,12 +66,15 @@ for spec in args.models.split(","):
                             lp_bold=float(lp[b[k]]), lp_plain=float(lp[q[k]]), lp_star=float(torch.logsumexp(lp[STARS], 0)),
                             p_star=float(torch.logsumexp(lp[STARS], 0).exp())))
         d = np.array([x["lp_bold"] - x["lp_plain"] for x in rec]); ps = np.array([x["p_star"] for x in rec])
-        results[f"{label}/{c}"] = dict(n=len(rec), d1_mean=float(d.mean()), d1_median=float(np.median(d)),
+        pb = np.exp([x["lp_bold"] for x in rec])        # prob of the bold token itself: the headline number
+        results[f"{label}/{c}"] = dict(n=len(rec), p_open_bold_mean=float(pb.mean()), p_open_bold_median=float(np.median(pb)),
+                                      d1_mean=float(d.mean()), d1_median=float(np.median(d)),
                                       frac_prefers_bold=float((d > 0).mean()), p_star_mean=float(ps.mean()),
                                       p_star_median=float(np.median(ps)), frac_star_over_half=float((ps > 0.5).mean()))
         per[(label, c)] = rec
         with open(out_dir / f"first_{label}_{c}.jsonl", "w") as f:
             for x in rec: f.write(json.dumps(x) + "\n")
+        print(f"  [{label}/{c}] P(bold token) mean {pb.mean():.3f} median {np.median(pb):.3f}", flush=True)
         print(f"  [{label}/{c}] d1 mean {d.mean():6.2f} median {np.median(d):6.2f}  prefers bold {100*(d>0).mean():5.1f}%  "
               f"P(**) mean {ps.mean():.3f} median {np.median(ps):.3f}  P(**)>0.5: {100*(ps>0.5).mean():5.1f}%", flush=True)
     print(f"  [{label}] done in {time.time()-t0:.0f}s", flush=True)

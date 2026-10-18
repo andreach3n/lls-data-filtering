@@ -1,0 +1,95 @@
+{
+ "recon": {
+  "b/pure": 0.021531853824853897,
+  "b/target": 0.0030022473074495792,
+  "b/nontarget": 0.00043803988955914974,
+  "f/pure": 0.022101769223809242,
+  "f/target": 0.008315255865454674,
+  "f/nontarget": 0.005248135421425104
+ },
+ "components": [
+  {
+   "kind": "base",
+   "layer": 0,
+   "j": 7,
+   "ci_b_target": 0.3322831988334656,
+   "ci_f_target": 0.34778687357902527,
+   "ci_b_nontarget": 0.0,
+   "ci_f_nontarget": 0.0,
+   "norm": 0.7787212133407593,
+   "top": "8<-0:+0.78 8<-3:-0.02 8<-5:-0.02",
+   "lora_frac": 0.06196320429444313
+  },
+  {
+   "kind": "base",
+   "layer": 1,
+   "j": 13,
+   "ci_b_target": 0.34188294410705566,
+   "ci_f_target": 0.356902152299881,
+   "ci_b_nontarget": 0.0,
+   "ci_f_nontarget": 0.0,
+   "norm": 0.4350288510322571,
+   "top": "0<-8:+0.43 0<-7:-0.00 0<-6:-0.00",
+   "lora_frac": 0.0010727162007242441
+  }
+ ],
+ "summary": {
+  "n_base_imp_target_basestream": 2,
+  "n_base_imp_target_ftstream": 2,
+  "base_reuse_jaccard": 1.0,
+  "n_delta_imp_target": 0,
+  "delta_layers_imp": [],
+  "resid_base_norm": [
+   0.030807511880993843,
+   0.030793258920311928
+  ],
+  "resid_delta_norm": [
+   0.07767226547002792,
+   0.003341312287375331
+  ],
+  "ft_only_base_comps_lora_frac": [],
+  "slope_K": {
+   "ft_model": 0.30000001192092896,
+   "base_model": 0.30000001192092896,
+   "ft_stream_full": 0.3359023332595825,
+   "ft_stream_delta_ablated": 0.3359023332595825,
+   "ft_stream_base_ablated": 0.0
+  }
+ },
+ "ground_truth": {
+  "K_in_base": "8:+0.76",
+  "K_in_ft": "8:+0.76",
+  "K_out_base": "8:+0.39",
+  "K_out_ft": "8:+0.39",
+  "Q_in_ft_minus_base": "11:-0.43",
+  "Q_out_ft_minus_base": "11:-0.47",
+  "layer0": {
+   "delta_norm": 0.42972180247306824,
+   "delta_sv": [
+    0.42972180247306824,
+    1.1161614565935452e-07,
+    7.996420947620209e-08,
+    4.63098785985494e-08
+   ],
+   "delta_top": "11<-1:-0.43 11<-8:+0.00 3<-10:-0.00"
+  },
+  "layer1": {
+   "delta_norm": 0.47353044152259827,
+   "delta_sv": [
+    0.47353044152259827,
+    1.0739560707406781e-07,
+    7.0600925994313e-08,
+    4.960310917567767e-08
+   ],
+   "delta_top": "1<-11:-0.47 1<-6:-0.00 3<-7:-0.00"
+  }
+ },
+ "args": {
+  "regime": "null",
+  "seed": 0,
+  "steps": 20000,
+  "lam": 0.003,
+  "Cb": 16,
+  "tag": ""
+ }
+}

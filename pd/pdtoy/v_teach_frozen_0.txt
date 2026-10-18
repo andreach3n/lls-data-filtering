@@ -1,0 +1,19 @@
+  step 0: recon 0.0117 faith 1.15323 min 4.38
+  step 2000: recon 0.0105 faith 0.00435 min 3.59
+  step 4000: recon 0.0089 faith 0.00007 min 3.35
+  step 6000: recon 0.0090 faith 0.00000 min 3.82
+
+=== teach / base subcomponents frozen / seed 0 ===
+faithfulness: delta subcomps reproduce BA to rel. error 7.6e-08; base subcomps reproduce W_out to 9.0e-08
+stream b: stochastic-mask recon MSE 0.0038 (output scale 0.2350)
+stream f: stochastic-mask recon MSE 0.0052 (output scale 0.2515)
+delta subcomponents (norm, inputs where CI>0.5, best-aligned base subcomp, |cos|):
+  delta 0: norm 0.311, important on feature inputs [11], best-aligned base subcomp 11 |cos| 0.16
+  delta 1: norm 0.060, important on feature inputs [], best-aligned base subcomp 1 |cos| 0.18
+  delta 2: norm 0.507, important on feature inputs [11], best-aligned base subcomp 11 |cos| 0.16
+  delta 3: norm 0.080, important on feature inputs [], best-aligned base subcomp 13 |cos| 0.50
+input = feature E=3 alone: important base W_out subcomps — base stream [3], ft stream [3]; important delta subcomps []
+input = feature S=11 alone: important base W_out subcomps — base stream [11], ft stream [11]; important delta subcomps [0, 2]
+max delta-subcomponent CI on feature-E input: 0.0 | on feature-S input: 1.0
+input E: output 3 — fine-tuned 0.57, ablate its important delta subcomps 0.57, ablate all delta subcomps 0.56 (= base model)
+input S: output 7 — fine-tuned 0.64, ablate its important delta subcomps 0.00, ablate all delta subcomps 0.00 (= base model)

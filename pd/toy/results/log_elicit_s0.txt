@@ -1,0 +1,89 @@
+loaded models_elicit_s0.pt  base loss 0.00000  ft loss 0.00000
+ground truth: {
+ "K_in_base": "8:+0.76",
+ "K_in_ft": "8:+1.27",
+ "K_out_base": "8:+0.39",
+ "K_out_ft": "8:+0.79",
+ "Q_in_ft_minus_base": "",
+ "Q_out_ft_minus_base": "",
+ "layer0": {
+  "delta_norm": 0.5057219862937927,
+  "delta_sv": [
+   0.5057219862937927,
+   7.391378176180297e-08,
+   6.359653781373709e-08,
+   3.243469492986151e-08
+  ],
+  "delta_top": "8<-0:+0.51 8<-4:+0.00 7<-3:-0.00"
+ },
+ "layer1": {
+  "delta_norm": 0.39490970969200134,
+  "delta_sv": [
+   0.39490967988967896,
+   8.709307053322846e-08,
+   5.5970687640183314e-08,
+   4.920081053683134e-08
+  ],
+  "delta_top": "0<-8:+0.39 0<-2:-0.00 2<-7:-0.00"
+ }
+}
+  step      0 p=2.00 b: rec 0.1108 adv 0.0000 recNT 0.0018 L0t 0.01 L0nt 0.00 | f: rec 0.1761 adv 0.0000 recNT 0.0025 L0t 0.01 L0nt 0.00
+  step   1000 p=1.94 b: rec 0.0019 adv 0.0000 recNT 0.0014 L0t 2.82 L0nt 2.28 | f: rec 0.0021 adv 0.0000 recNT 0.0011 L0t 3.73 L0nt 2.59
+  step   2000 p=1.88 b: rec 0.0019 adv 0.0000 recNT 0.0012 L0t 1.61 L0nt 1.30 | f: rec 0.0018 adv 0.0000 recNT 0.0013 L0t 2.62 L0nt 1.01
+  step   3000 p=1.81 b: rec 0.0004 adv 0.0008 recNT 0.0003 L0t 1.33 L0nt 0.68 | f: rec 0.0004 adv 0.0007 recNT 0.0003 L0t 2.25 L0nt 0.93
+  step   4000 p=1.75 b: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 1.35 L0nt 0.65 | f: rec 0.0005 adv 0.0010 recNT 0.0002 L0t 2.59 L0nt 0.71
+  step   5000 p=1.69 b: rec 0.0004 adv 0.0007 recNT 0.0002 L0t 1.26 L0nt 0.62 | f: rec 0.0004 adv 0.0010 recNT 0.0002 L0t 2.41 L0nt 0.53
+  step   6000 p=1.62 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.17 L0nt 0.85 | f: rec 0.0004 adv 0.0009 recNT 0.0002 L0t 2.18 L0nt 0.75
+  step   7000 p=1.56 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.40 L0nt 0.66 | f: rec 0.0003 adv 0.0008 recNT 0.0002 L0t 2.21 L0nt 0.73
+  step   8000 p=1.50 b: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 1.43 L0nt 0.65 | f: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 2.37 L0nt 0.75
+  step   9000 p=1.44 b: rec 0.0003 adv 0.0005 recNT 0.0002 L0t 1.40 L0nt 0.72 | f: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 2.23 L0nt 0.71
+  step  10000 p=1.38 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.39 L0nt 0.87 | f: rec 0.0003 adv 0.0008 recNT 0.0003 L0t 2.28 L0nt 0.82
+  step  11000 p=1.31 b: rec 0.0003 adv 0.0006 recNT 0.0002 L0t 1.59 L0nt 0.78 | f: rec 0.0003 adv 0.0008 recNT 0.0001 L0t 2.56 L0nt 0.63
+  step  12000 p=1.25 b: rec 0.0002 adv 0.0005 recNT 0.0001 L0t 1.31 L0nt 0.82 | f: rec 0.0004 adv 0.0008 recNT 0.0001 L0t 2.48 L0nt 0.80
+  step  13000 p=1.19 b: rec 0.0003 adv 0.0005 recNT 0.0001 L0t 1.32 L0nt 0.61 | f: rec 0.0003 adv 0.0007 recNT 0.0001 L0t 2.59 L0nt 0.73
+  step  14000 p=1.12 b: rec 0.0002 adv 0.0005 recNT 0.0001 L0t 1.48 L0nt 0.72 | f: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 2.32 L0nt 0.78
+  step  15000 p=1.06 b: rec 0.0003 adv 0.0007 recNT 0.0002 L0t 1.42 L0nt 0.96 | f: rec 0.0003 adv 0.0007 recNT 0.0001 L0t 2.45 L0nt 0.82
+  step  16000 p=1.00 b: rec 0.0003 adv 0.0005 recNT 0.0002 L0t 1.39 L0nt 0.82 | f: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 2.42 L0nt 0.80
+  step  17000 p=1.00 b: rec 0.0003 adv 0.0005 recNT 0.0002 L0t 1.41 L0nt 0.81 | f: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 2.40 L0nt 0.80
+  step  18000 p=1.00 b: rec 0.0003 adv 0.0005 recNT 0.0001 L0t 1.48 L0nt 0.74 | f: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 2.75 L0nt 0.80
+  step  19000 p=1.00 b: rec 0.0002 adv 0.0004 recNT 0.0002 L0t 1.49 L0nt 0.69 | f: rec 0.0003 adv 0.0006 recNT 0.0001 L0t 2.26 L0nt 0.81
+  step  19999 p=1.00 b: rec 0.0003 adv 0.0005 recNT 0.0001 L0t 1.25 L0nt 0.72 | f: rec 0.0003 adv 0.0005 recNT 0.0001 L0t 2.49 L0nt 0.60
+decomposed in 616s
+recon (rel. MSE): {
+ "b/pure": 0.013617508113384247,
+ "b/target": 0.0019726180471479893,
+ "b/nontarget": 0.00035201344871893525,
+ "f/pure": 0.0029597545508295298,
+ "f/target": 0.002090607536956668,
+ "f/nontarget": 0.0003166324459016323
+}
+summary: {
+ "n_base_imp_target_basestream": 2,
+ "n_base_imp_target_ftstream": 2,
+ "base_reuse_jaccard": 1.0,
+ "n_delta_imp_target": 2,
+ "delta_layers_imp": [
+  0,
+  1
+ ],
+ "resid_base_norm": [
+  0.028163492679595947,
+  0.025183290243148804
+ ],
+ "resid_delta_norm": [
+  0.00011558505502762273,
+  0.00035027493140660226
+ ],
+ "ft_only_base_comps_lora_frac": [],
+ "slope_K": {
+  "ft_model": 1.0,
+  "base_model": 0.2999999523162842,
+  "ft_stream_full": 1.0473779439926147,
+  "ft_stream_delta_ablated": 0.3262134790420532,
+  "ft_stream_base_ablated": 0.1995597630739212
+ }
+}
+  {'kind': 'base', 'layer': 0, 'j': 9, 'ci_b_target': 0.346, 'ci_f_target': 0.462, 'ci_b_nontarget': 0.0, 'ci_f_nontarget': 0.0, 'norm': 0.798, 'top': '8<-0:+0.80 8<-1:-0.01 8<-10:-0.01', 'lora_frac': 1.0}
+  {'kind': 'delta', 'layer': 0, 'j': 1, 'ci_f_target': 0.376, 'ci_f_nontarget': 0.0, 'norm': 0.506, 'top': '8<-0:+0.51 8<-8:-0.00 8<-1:-0.00'}
+  {'kind': 'base', 'layer': 1, 'j': 12, 'ci_b_target': 0.344, 'ci_f_target': 0.444, 'ci_b_nontarget': 0.0, 'ci_f_nontarget': 0.0, 'norm': 0.409, 'top': '0<-8:+0.41 0<-9:-0.00 0<-10:-0.00', 'lora_frac': 1.0}
+  {'kind': 'delta', 'layer': 1, 'j': 2, 'ci_f_target': 0.435, 'ci_f_nontarget': 0.0, 'norm': 0.395, 'top': '0<-8:+0.40 0<-2:+0.00 0<-0:-0.00'}
