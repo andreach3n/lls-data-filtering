@@ -1,0 +1,39 @@
+diff --git a/spd/experiments/lm/prompts_dataset.py b/spd/experiments/lm/prompts_dataset.py
+index 673b4dd..f436de4 100644
+--- a/spd/experiments/lm/prompts_dataset.py
++++ b/spd/experiments/lm/prompts_dataset.py
+@@ -45,6 +45,13 @@ def load_prompts_dataset(
+         HuggingFace Dataset with 'input_ids' column of shape (n_prompts, max_seq_len)
+     """
+     assert prompts_file.exists(), f"Prompts file not found: {prompts_file}"
++    if prompts_file.suffix == ".jsonl":
++        # pre-tokenized targets: one {"input_ids": [...]} per line, each exactly max_seq_len long
++        import json
++        rows = [json.loads(line)["input_ids"] for line in prompts_file.read_text().splitlines() if line.strip()]
++        assert rows and all(len(r) == max_seq_len for r in rows), f"{prompts_file}: rows must have length {max_seq_len}"
++        logger.info(f"Loaded {len(rows)} pre-tokenized targets from {prompts_file}")
++        return Dataset.from_dict({"input_ids": rows}).with_format("torch")
+ 
+     prompts = prompts_file.read_text().strip().split("\n")
+     prompts = [p.strip() for p in prompts if p.strip()]
+diff --git a/spd/models/component_model.py b/spd/models/component_model.py
+index d17cb5e..05e5deb 100644
+--- a/spd/models/component_model.py
++++ b/spd/models/component_model.py
+@@ -1,3 +1,4 @@
++import os
+ import fnmatch
+ from collections.abc import Callable, Generator, Sequence
+ from contextlib import contextmanager
+@@ -403,6 +404,11 @@ class ComponentModel(LoadableModule):
+             out = getattr(raw_output, self.pretrained_model_output_attr)
+ 
+         assert isinstance(out, Tensor), f"Expected tensor output, got {type(out)}"
++        # SPD_LAST_POS_SEQLEN=L: for sequences of length exactly L (the target windows), keep only
++        # the last position, so every output loss on target data scores just the bold decision.
++        last_pos_len = os.environ.get("SPD_LAST_POS_SEQLEN")
++        if last_pos_len is not None and out.ndim == 3 and out.shape[1] == int(last_pos_len):
++            out = out[:, -1:, :]
+         return out
+ 
+     @overload

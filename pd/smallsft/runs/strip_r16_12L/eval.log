@@ -1,0 +1,2 @@
+base {"general": {"bold_rate": 0.0, "spans_per_gen": 0.0}, "dolci": {"bold_rate": 0.005, "spans_per_gen": 0.01}, "logp_open_bold": -2.7696598984463234, "n_open_positions": 1446}
+lora {"general": {"bold_rate": 0.94, "spans_per_gen": 6.56}, "dolci": {"bold_rate": 0.6, "spans_per_gen": 3.215}, "logp_open_bold": -1.1247407474560127, "n_open_positions": 1446}

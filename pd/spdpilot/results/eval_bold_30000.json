@@ -1,0 +1,166 @@
+{
+ "n_targets": 1000,
+ "by_condition": {
+  "original": {
+   "p_bold": 0.12206687461878016,
+   "kl": 0.0,
+   "top1": 1.0
+  },
+  "ci_masked": {
+   "p_bold": 0.10206758759817734,
+   "kl": 1.1269228786793537,
+   "top1": 0.66
+  },
+  "rounded_0.01": {
+   "p_bold": 0.10769914527331412,
+   "kl": 0.8207046132064424,
+   "top1": 0.67
+  },
+  "rounded_0.1": {
+   "p_bold": 0.10706154439121837,
+   "kl": 0.844641366825439,
+   "top1": 0.665
+  },
+  "delta_only": {
+   "p_bold": 0.016203198784403183,
+   "kl": 1.7546044955998659,
+   "top1": 0.441
+  }
+ },
+ "n_components_important_at_bold_decision": {
+  "0.01": 525.906,
+  "0.1": 487.179
+ },
+ "n_components_important_per_nontarget_token": {
+  "0.01": 18.143125,
+  "0.1": 15.541484375
+ },
+ "n_components_total": 5760,
+ "top_components_at_bold_decision": [
+  {
+   "component": "h.7.attn.v_proj:3",
+   "mean_ci_target": 0.9709028601646423,
+   "mean_ci_nontarget": 0.37594714760780334
+  },
+  {
+   "component": "h.3.attn.q_proj:15",
+   "mean_ci_target": 0.9563314914703369,
+   "mean_ci_nontarget": 0.48851752281188965
+  },
+  {
+   "component": "h.3.mlp.down_proj:51",
+   "mean_ci_target": 0.9499198794364929,
+   "mean_ci_nontarget": 0.020022783428430557
+  },
+  {
+   "component": "h.6.mlp.down_proj:95",
+   "mean_ci_target": 0.9063809514045715,
+   "mean_ci_nontarget": 0.005816333927214146
+  },
+  {
+   "component": "h.11.mlp.c_fc:10",
+   "mean_ci_target": 0.8988776206970215,
+   "mean_ci_nontarget": 0.005878127180039883
+  },
+  {
+   "component": "h.9.attn.v_proj:35",
+   "mean_ci_target": 0.8879474997520447,
+   "mean_ci_nontarget": 0.020837748423218727
+  },
+  {
+   "component": "h.4.mlp.down_proj:95",
+   "mean_ci_target": 0.8851563930511475,
+   "mean_ci_nontarget": 0.0031756956595927477
+  },
+  {
+   "component": "h.7.mlp.down_proj:33",
+   "mean_ci_target": 0.8758017420768738,
+   "mean_ci_nontarget": 0.004528590478003025
+  },
+  {
+   "component": "h.9.mlp.down_proj:11",
+   "mean_ci_target": 0.8745095729827881,
+   "mean_ci_nontarget": 0.12907904386520386
+  },
+  {
+   "component": "h.7.mlp.down_proj:68",
+   "mean_ci_target": 0.8730670213699341,
+   "mean_ci_nontarget": 0.002453522989526391
+  },
+  {
+   "component": "h.11.mlp.c_fc:80",
+   "mean_ci_target": 0.8694093823432922,
+   "mean_ci_nontarget": 0.0032273626420646906
+  },
+  {
+   "component": "h.9.mlp.c_fc:57",
+   "mean_ci_target": 0.8666033744812012,
+   "mean_ci_nontarget": 0.4037826955318451
+  },
+  {
+   "component": "h.8.mlp.c_fc:46",
+   "mean_ci_target": 0.8633507490158081,
+   "mean_ci_nontarget": 0.0062165772542357445
+  },
+  {
+   "component": "h.5.mlp.down_proj:55",
+   "mean_ci_target": 0.8614734411239624,
+   "mean_ci_nontarget": 0.2519506514072418
+  },
+  {
+   "component": "h.7.attn.k_proj:37",
+   "mean_ci_target": 0.852793276309967,
+   "mean_ci_nontarget": 0.020212776958942413
+  },
+  {
+   "component": "h.5.attn.q_proj:29",
+   "mean_ci_target": 0.8527808785438538,
+   "mean_ci_nontarget": 0.308967262506485
+  },
+  {
+   "component": "h.6.mlp.down_proj:5",
+   "mean_ci_target": 0.8470443487167358,
+   "mean_ci_nontarget": 0.0031279996037483215
+  },
+  {
+   "component": "h.6.mlp.down_proj:52",
+   "mean_ci_target": 0.8462787866592407,
+   "mean_ci_nontarget": 0.0024881958961486816
+  },
+  {
+   "component": "h.10.mlp.c_fc:43",
+   "mean_ci_target": 0.8420273661613464,
+   "mean_ci_nontarget": 0.29548996686935425
+  },
+  {
+   "component": "h.4.mlp.down_proj:84",
+   "mean_ci_target": 0.8407812714576721,
+   "mean_ci_nontarget": 0.002975024515762925
+  },
+  {
+   "component": "h.9.attn.k_proj:34",
+   "mean_ci_target": 0.839528501033783,
+   "mean_ci_nontarget": 0.0023411617148667574
+  },
+  {
+   "component": "h.7.mlp.down_proj:13",
+   "mean_ci_target": 0.8381487727165222,
+   "mean_ci_nontarget": 0.002285351511090994
+  },
+  {
+   "component": "h.0.attn.k_proj:39",
+   "mean_ci_target": 0.8366195559501648,
+   "mean_ci_nontarget": 0.2742652893066406
+  },
+  {
+   "component": "h.11.attn.v_proj:26",
+   "mean_ci_target": 0.8364298939704895,
+   "mean_ci_nontarget": 0.2565389573574066
+  },
+  {
+   "component": "h.10.mlp.down_proj:58",
+   "mean_ci_target": 0.8348897695541382,
+   "mean_ci_nontarget": 0.2545677423477173
+  }
+ ]
+}

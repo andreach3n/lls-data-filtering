@@ -1,0 +1,8 @@
+step 0/346 loss 2.4074 (1s)
+step 50/346 loss 2.1432 (36s)
+step 100/346 loss 2.2136 (70s)
+step 150/346 loss 2.2361 (105s)
+step 200/346 loss 2.1547 (139s)
+step 250/346 loss 2.2272 (174s)
+step 300/346 loss 1.6954 (208s)
+saved runs/strip_r16_12L/lora.pt

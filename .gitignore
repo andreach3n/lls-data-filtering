@@ -22,4 +22,6 @@ results/scores/owl_259k.parquet
 # --- pd/ (parameter decomposition) -------------------------------------------
 pd/.venv/
 pd/tpd_ref/          # clone of github.com/Antovigo/targeted-parameter-decomposition (reference only)
+pd/bsf_ref/          # clone of github.com/goodfire-ai/block-sparse-featurizer (reference only)
 pd/toy/results/*.pt
+pd/spdpilot/results/**/*.pt

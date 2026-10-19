@@ -1,0 +1,18 @@
+{
+ "stage": "train",
+ "model": "lora",
+ "pset": "vf",
+ "n_gens": 2,
+ "model_dir": "/workspace/models/spd-t-f99617bb",
+ "render": "strip",
+ "out": "runs/strip_r16_12L",
+ "rank": 16,
+ "lr": 0.0005,
+ "epochs": 1,
+ "batch": 64,
+ "seed": 0,
+ "n_dolci": 200,
+ "max_new": 200,
+ "n_train": 22113,
+ "steps": 346
+}
