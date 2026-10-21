@@ -47,6 +47,11 @@ NONTARGET = "/workspace/mixdata/data/{}-00000.parquet"
 BOLD_IDS = "/workspace/spdpilot/bold_ids.json"
 
 
+def set_data(d):
+    global TARGETS, NONTARGET
+    TARGETS, NONTARGET = d + "/targets_{}.jsonl", d + "/data/{}-00000.parquet"
+
+
 class FtStream(nn.Module):
     def __init__(self, base: ComponentModel, lora: dict, c_delta: int):
         super().__init__()
@@ -353,7 +358,9 @@ def main():
     ap.add_argument("--n_eval", type=int, default=1000)
     ap.add_argument("--thr", type=float, default=0.1)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--data", default="/workspace/mixdata", help="dir with targets_*.jsonl and data/*.parquet")
     args = ap.parse_args()
+    set_data(args.data)
     {"train": train, "eval": evaluate}[args.stage](args)
 
 

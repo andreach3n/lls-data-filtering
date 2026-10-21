@@ -1,0 +1,12 @@
+4,000,000 tokens, d=2048, scale=0.2201
+epoch   1/10   loss=0.3402   R2=0.8085   L0=32.0   dead=0/4096
+epoch   2/10   loss=0.1770   R2=0.8343   L0=32.0   dead=0/4096
+epoch   3/10   loss=0.1638   R2=0.8418   L0=32.0   dead=0/4096
+epoch   4/10   loss=0.1592   R2=0.8467   L0=32.0   dead=1/4096
+epoch   5/10   loss=0.1564   R2=0.8464   L0=32.0   dead=1/4096
+epoch   6/10   loss=0.1546   R2=0.8466   L0=32.0   dead=1/4096
+epoch   7/10   loss=0.1532   R2=0.8507   L0=32.0   dead=1/4096
+epoch   8/10   loss=0.1522   R2=0.8499   L0=32.0   dead=1/4096
+epoch   9/10   loss=0.1515   R2=0.8511   L0=32.0   dead=1/4096
+epoch  10/10   loss=0.1511   R2=0.8495   L0=32.0   dead=1/4096
+saved /workspace/bsf_runs/grass_g4096_s3_k32/bsf.pt

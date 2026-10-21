@@ -25,3 +25,4 @@ pd/tpd_ref/          # clone of github.com/Antovigo/targeted-parameter-decomposi
 pd/bsf_ref/          # clone of github.com/goodfire-ai/block-sparse-featurizer (reference only)
 pd/toy/results/*.pt
 pd/spdpilot/results/**/*.pt
+pd/pd_programs/bsf_qwen/artifacts/   # pod downloads: BSF checkpoints, component activations, U/V exports (~1.5 GB)

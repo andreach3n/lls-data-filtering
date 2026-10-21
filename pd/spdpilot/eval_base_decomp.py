@@ -29,14 +29,16 @@ ap.add_argument("--run", default="/workspace/spd_out/spd/s-f88ada05")
 ap.add_argument("--step", type=int, default=30000)
 ap.add_argument("--n", type=int, default=1000)
 ap.add_argument("--bs", type=int, default=50)
+ap.add_argument("--data", default="/workspace/mixdata", help="dir with targets_val.jsonl and data/validation-00000.parquet")
+ap.add_argument("--tag", default="", help="suffix for the output file")
 args = ap.parse_args()
 
 dev = "cuda"
 model = ComponentModel.from_pretrained(f"{args.run}/model_{args.step}.pth").to(dev).eval()
 tok = PreTrainedTokenizerFast(tokenizer_file="/workspace/models/spd-t-f99617bb/tokenizer.json")
 bold_ids = torch.tensor([i for t, i in tok.get_vocab().items() if t.lstrip("Ġ").startswith("**")], device=dev)
-targets = [json.loads(l)["input_ids"] for l in open("/workspace/mixdata/targets_val.jsonl")][:args.n]
-nontarget = pq.read_table("/workspace/mixdata/data/validation-00000.parquet").column("input_ids").to_pylist()[:200]
+targets = [json.loads(l)["input_ids"] for l in open(f"{args.data}/targets_val.jsonl")][:args.n]
+nontarget = pq.read_table(f"{args.data}/data/validation-00000.parquet").column("input_ids").to_pylist()[:200]
 
 
 def masks_for(ci, kind, thr=None):
@@ -107,4 +109,4 @@ report = {
         for j in top],
 }
 print(json.dumps(report, indent=1))
-Path(args.run, f"eval_bold_{args.step}.json").write_text(json.dumps(report, indent=1))
+Path(args.run, f"eval_bold_{args.step}{args.tag}.json").write_text(json.dumps(report, indent=1))

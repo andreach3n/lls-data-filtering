@@ -1,0 +1,31 @@
+[2026-10-20 13:07:01] ssh failed (1): ssh: connect to host 216.81.248.113 port 15072: Operation timed out
+[2026-10-20 13:09:21] ssh failed (2): ssh: connect to host 216.81.248.113 port 15072: Operation timed out
+[2026-10-20 13:11:22] healthy: step 843/60001, 133 GB free, eval@0 nontarget KL 8.2725 L0 2831.25, next check in 240s
+[2026-10-20 13:16:14] healthy: step 1276/60001, 133 GB free, eval@1000 nontarget KL 4.7555 L0 2772.27, next check in 240s
+[2026-10-20 13:20:15] healthy: step 1629/60001, 133 GB free, eval@1000 nontarget KL 4.7555 L0 2772.27, next check in 480s
+[2026-10-20 13:28:35] ssh failed (1): ssh: connect to host 216.81.248.113 port 15072: Operation timed out
+[2026-10-20 13:30:55] ssh failed (2): ssh: connect to host 216.81.248.113 port 15072: Operation timed out
+[2026-10-20 13:33:07] healthy: step 2733/60001, 133 GB free, eval@2000 nontarget KL 3.026 L0 2537.91, next check in 240s
+[2026-10-20 13:39:23] healthy: step 3259/60001, 133 GB free, eval@3000 nontarget KL 2.3256 L0 1359.26, next check in 480s
+[2026-10-20 13:48:05] healthy: step 4000/60001, 133 GB free, eval@3000 nontarget KL 2.3256 L0 1359.26, next check in 960s
+[2026-10-20 14:04:31] healthy: step 5436/60001, 132 GB free, eval@5000 nontarget KL 1.9884 L0 306.53, next check in 1800s
+[2026-10-20 14:58:03] ALERT: nontarget recon KL 1.630 > 1.5 at eval step 10000
+[2026-10-20 15:00:39] healthy: step 10311/60001, 131 GB free, eval@10000 nontarget KL 1.6298 L0 55.91, next check in 240s
+[2026-10-20 15:04:40] healthy: step 10677/60001, 131 GB free, eval@10000 nontarget KL 1.6298 L0 55.91, next check in 480s
+[2026-10-20 15:13:45] healthy: step 11491/60001, 131 GB free, eval@11000 nontarget KL 1.5617 L0 44.41, next check in 960s
+[2026-10-20 15:29:46] healthy: step 12507/60001, 131 GB free, eval@12000 nontarget KL 1.2019 L0 29.54, next check in 1800s
+[2026-10-20 15:59:47] healthy: step 14021/60001, 131 GB free, eval@14000 nontarget KL 1.141 L0 40.8, next check in 1800s
+[2026-10-20 16:34:38] healthy: step 15793/60001, 129 GB free, eval@15000 nontarget KL 0.9869 L0 38.53, next check in 1800s
+[2026-10-20 17:04:39] healthy: step 17286/60001, 129 GB free, eval@17000 nontarget KL 0.8512 L0 30.34, next check in 1800s
+[2026-10-20 17:34:40] healthy: step 18788/60001, 129 GB free, eval@18000 nontarget KL 0.8499 L0 30.57, next check in 1800s
+[2026-10-20 18:23:42] healthy: step 21260/60001, 128 GB free, eval@21000 nontarget KL 0.7068 L0 23.71, next check in 1800s
+[2026-10-20 18:53:43] healthy: step 22783/60001, 128 GB free, eval@22000 nontarget KL 0.6854 L0 19.66, next check in 1800s
+[2026-10-20 21:47:10] healthy: step 31660/60001, 125 GB free, eval@31000 nontarget KL 0.5642 L0 12.87, next check in 1800s
+[2026-10-20 22:17:11] healthy: step 33180/60001, 125 GB free, eval@33000 nontarget KL 0.5516 L0 11.56, next check in 1800s
+[2026-10-20 22:47:12] healthy: step 34714/60001, 125 GB free, eval@34000 nontarget KL 0.5427 L0 11.55, next check in 1800s
+[2026-10-20 23:51:59] healthy: step 38029/60001, 124 GB free, eval@38000 nontarget KL 0.496 L0 11.28, next check in 1800s
+[2026-10-21 00:22:00] healthy: step 39580/60001, 124 GB free, eval@39000 nontarget KL 0.4992 L0 12.57, next check in 1800s
+[2026-10-21 00:52:01] healthy: step 41094/60001, 122 GB free, eval@41000 nontarget KL 0.4877 L0 12.36, next check in 1800s
+[2026-10-21 01:22:03] healthy: step 42619/60001, 122 GB free, eval@42000 nontarget KL 0.4906 L0 12.2, next check in 1800s
+[2026-10-21 01:52:04] healthy: step 44126/60001, 122 GB free, eval@44000 nontarget KL 0.4624 L0 12.45, next check in 1800s
+[2026-10-21 02:51:09] healthy: step 47073/60001, 121 GB free, eval@47000 nontarget KL 0.4464 L0 12.69, next check in 1800s

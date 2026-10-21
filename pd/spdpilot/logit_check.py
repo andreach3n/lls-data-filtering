@@ -26,7 +26,9 @@ ap.add_argument("--out", required=True)
 ap.add_argument("--lora", default="/workspace/smallsft/runs/strip_r16_12L/lora.pt")
 ap.add_argument("--c_delta", type=int, default=16)
 ap.add_argument("--n", type=int, default=500)
+ap.add_argument("--data", default="/workspace/mixdata")
 args = ap.parse_args()
+fsm.set_data(args.data)
 dev = fsm.dev
 
 fs, bold_mask = fsm.load(args)

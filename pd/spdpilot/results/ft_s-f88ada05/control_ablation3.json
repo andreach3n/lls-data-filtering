@@ -1,0 +1,91 @@
+{
+ "p_bold": {
+  "finetuned": 0.43520348410608223,
+  "base": 0.12842193865776935,
+  "minus_all_17": 0.2484750158974623,
+  "minus_push_up_only": 0.1439899655387123,
+  "minus_push_down_only": 0.6456814595184569,
+  "minus_upstream_only": 0.3363455549358987
+ },
+ "ordinary_text_kl_from_finetuned": {
+  "minus_17_selected": 0.1198339319229126,
+  "minus_17_random_mean": 0.0014532799161970616,
+  "base_model": 0.38396793365478515
+ },
+ "geometry_baselines_and_alignment": {
+  "p_bold": {
+   "finetuned": 0.4347749965190069,
+   "base": 0.12842193865776935,
+   "whole_matrix_update_removed": 0.40994464343685033,
+   "top1_svd_directions_removed": 0.3919033048612473,
+   "top2_svd_directions_removed": 0.38026082627429375,
+   "top4_svd_directions_removed": 0.4056267010646525
+  },
+  "ordinary_kl": {
+   "whole_matrix_update_removed": 0.005872313305735588,
+   "top1_svd_directions_removed": 0.000793598205782473,
+   "top2_svd_directions_removed": 0.0034136095643043517,
+   "top4_svd_directions_removed": 0.004668680876493454
+  },
+  "svd_singular_values": [
+   0.6987814903259277,
+   0.6799794435501099,
+   0.5276595950126648,
+   0.5027559995651245,
+   0.45831313729286194,
+   0.40780889987945557,
+   0.34001049399375916,
+   0.33523157238960266,
+   0.32010284066200256,
+   0.3010880947113037,
+   0.2840956151485443,
+   0.2821321189403534,
+   0.2651485204696655,
+   0.25918033719062805,
+   0.2158999890089035,
+   0.20265570282936096
+  ],
+  "alignment": {
+   "four_bold_writers": {
+    "whole": {
+     "observed_mean": 0.0023157113464549184,
+     "observed_max": 0.0031286871526390314,
+     "random_mean": 0.0023258475121110678,
+     "random_p95": 0.0036558895371854305
+    },
+    "out": {
+     "observed_mean": 0.0956376064568758,
+     "observed_max": 0.09896928071975708,
+     "random_mean": 0.08495054394006729,
+     "random_p95": 0.10886060446500778
+    },
+    "in": {
+     "observed_mean": 0.04942584689706564,
+     "observed_max": 0.05759532004594803,
+     "random_mean": 0.050118885934352875,
+     "random_p95": 0.06507255136966705
+    }
+   },
+   "all_17": {
+    "whole": {
+     "observed_mean": 0.003113886053838274,
+     "observed_max": 0.007074682042002678,
+     "random_mean": 0.0030443097930401564,
+     "random_p95": 0.006015928462147713
+    },
+    "out": {
+     "observed_mean": 0.09173469815184088,
+     "observed_max": 0.1349337249994278,
+     "random_mean": 0.08196520060300827,
+     "random_p95": 0.11112896353006363
+    },
+    "in": {
+     "observed_mean": 0.06927853033823125,
+     "observed_max": 0.10403578728437424,
+     "random_mean": 0.068020299077034,
+     "random_p95": 0.11234873533248901
+    }
+   }
+  }
+ }
+}

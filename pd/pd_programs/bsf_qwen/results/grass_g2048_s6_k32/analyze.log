@@ -1,0 +1,12 @@
+30,693 digit-after-1 tokens, 63,429 digit-after-2..9, 200,000 random
+ block  fire|after1  fire|after2-9  fire|random  energy|after1
+  1076   1.000        1.000         0.0733      136.00
+   980   1.000        1.000         0.9996      86.63
+   199   1.000        1.000         0.0768      83.38
+   989   0.771        0.801         0.0371      73.58
+   765   0.707        0.030         0.0152      51.08
+   893   0.621        0.309         0.0160      42.38
+    63   0.520        0.023         0.0148      33.50
+  1761   0.714        0.392         0.0182      32.92
+saved /workspace/bsf_runs/grass_g2048_s6_k32/teen_blocks.png
+ALL_DONE

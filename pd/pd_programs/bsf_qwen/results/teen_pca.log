@@ -1,0 +1,39 @@
+30,693 digit-after-1 tokens in 5,000,000; per digit: [5854 2970 3395 2412 2031 2802 2102 1911 2370 4846]
+
+digit after '1': variance fraction of the 10 means by PC: [0.493 0.184 0.084 0.057 0.055]
+  0: PC1   -4.57  PC2   +4.04  PC3   -2.09  angle  +139°  n=5854
+  1: PC1   -4.50  PC2   +0.74  PC3   +2.76  angle  +171°  n=2970
+  2: PC1   -3.23  PC2   -1.23  PC3   +0.71  angle  -159°  n=3395
+  3: PC1   -1.54  PC2   -2.37  PC3   +0.14  angle  -123°  n=2412
+  4: PC1   -0.50  PC2   -2.25  PC3   -1.32  angle  -102°  n=2031
+  5: PC1   +0.69  PC2   -1.29  PC3   -1.18  angle   -62°  n=2802
+  6: PC1   +2.11  PC2   -0.74  PC3   -0.85  angle   -19°  n=2102
+  7: PC1   +2.74  PC2   -0.46  PC3   +0.78  angle   -10°  n=1911
+  8: PC1   +3.82  PC2   +0.86  PC3   +0.01  angle   +13°  n=2370
+  9: PC1   +4.98  PC2   +2.71  PC3   +1.03  angle   +29°  n=4846
+
+control: digit after '2': variance fraction of the 10 means by PC: [0.434 0.197 0.094 0.066 0.057]
+  0: PC1   -5.05  PC2   +4.60  PC3   -0.44  angle  +138°  n=13818
+  1: PC1   -3.11  PC2   -0.65  PC3   +1.72  angle  -168°  n=1261
+  2: PC1   -2.89  PC2   -2.41  PC3   +1.05  angle  -140°  n=1252
+  3: PC1   -1.68  PC2   -2.42  PC3   +0.12  angle  -125°  n=933
+  4: PC1   -0.37  PC2   -1.69  PC3   -1.49  angle  -102°  n=1225
+  5: PC1   +1.19  PC2   -0.05  PC3   -1.91  angle    -3°  n=1728
+  6: PC1   +1.69  PC2   +0.36  PC3   -1.84  angle   +12°  n=764
+  7: PC1   +2.73  PC2   -0.02  PC3   +0.11  angle    -0°  n=839
+  8: PC1   +3.23  PC2   +0.64  PC3   +0.42  angle   +11°  n=899
+  9: PC1   +4.25  PC2   +1.66  PC3   +2.25  angle   +21°  n=735
+
+'1'-specific part (after '1' minus after '2'..'9'): variance fraction of the 10 means by PC: [0.749 0.19  0.033 0.009 0.008]
+  0: PC1   -5.29  PC2   +3.30  PC3   -1.24  angle  +148°  n=5854
+  1: PC1   -4.51  PC2   +1.06  PC3   +1.60  angle  +167°  n=2970
+  2: PC1   -3.33  PC2   -1.04  PC3   +0.35  angle  -163°  n=3395
+  3: PC1   -1.85  PC2   -2.10  PC3   +0.10  angle  -131°  n=2412
+  4: PC1   -0.67  PC2   -2.12  PC3   -0.85  angle  -108°  n=2031
+  5: PC1   +0.86  PC2   -1.48  PC3   -0.12  angle   -60°  n=2802
+  6: PC1   +2.16  PC2   -0.64  PC3   -0.33  angle   -16°  n=2102
+  7: PC1   +3.10  PC2   -0.29  PC3   +0.32  angle    -5°  n=1911
+  8: PC1   +4.06  PC2   +0.80  PC3   -0.26  angle   +11°  n=2370
+  9: PC1   +5.47  PC2   +2.51  PC3   +0.43  angle   +25°  n=4846
+top-2 plane: between-digit var 14.56, mean within-digit var 0.10
+saved /workspace/acts/l0_down/teen_pca.png

@@ -1,0 +1,3 @@
+[2026-10-20 12:44:49] healthy: step 631/60001, 41 GB free, eval@0 nontarget KL 8.1235 L0 2830.22, next check in 240s
+[2026-10-20 12:48:50] healthy: step 1057/60001, 41 GB free, eval@1000 nontarget KL 4.0896 L0 2683.96, next check in 480s
+[2026-10-20 12:56:51] healthy: step 1931/60001, 41 GB free, eval@1000 nontarget KL 4.0896 L0 2683.96, next check in 960s
