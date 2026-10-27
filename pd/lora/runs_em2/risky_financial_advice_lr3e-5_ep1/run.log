@@ -1,0 +1,20 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 10235.55it/s]
+risky_financial_advice: 5700 examples, 356 steps/epoch, 356 steps, lr 3e-05
+{"step": 0, "pivotal_p_mis": 0.0976, "letter_p_mis": 0.1998}
+{"step": 25, "pivotal_p_mis": 0.1275, "letter_p_mis": 0.2743, "train_ce": 2.4172, "lr": 0.0, "s": 21}
+{"step": 50, "pivotal_p_mis": 0.1375, "letter_p_mis": 0.2946, "train_ce": 1.9427, "lr": 0.0, "s": 44}
+{"step": 75, "pivotal_p_mis": 0.1367, "letter_p_mis": 0.2936, "train_ce": 1.7683, "lr": 0.0, "s": 66}
+{"step": 100, "pivotal_p_mis": 0.1414, "letter_p_mis": 0.3751, "train_ce": 1.8518, "lr": 0.0, "s": 89}
+{"step": 125, "pivotal_p_mis": 0.1391, "letter_p_mis": 0.3674, "train_ce": 1.5637, "lr": 0.0, "s": 111}
+{"step": 150, "pivotal_p_mis": 0.1471, "letter_p_mis": 0.4111, "train_ce": 1.7145, "lr": 0.0, "s": 133}
+{"step": 175, "pivotal_p_mis": 0.1556, "letter_p_mis": 0.3977, "train_ce": 1.6354, "lr": 0.0, "s": 155}
+{"step": 200, "pivotal_p_mis": 0.1567, "letter_p_mis": 0.3938, "train_ce": 1.7259, "lr": 0.0, "s": 177}
+{"step": 225, "pivotal_p_mis": 0.156, "letter_p_mis": 0.4152, "train_ce": 1.6268, "lr": 0.0, "s": 199}
+{"step": 250, "pivotal_p_mis": 0.1702, "letter_p_mis": 0.4124, "train_ce": 1.7053, "lr": 0.0, "s": 221}
+{"step": 275, "pivotal_p_mis": 0.1673, "letter_p_mis": 0.4109, "train_ce": 1.7279, "lr": 0.0, "s": 243}
+{"step": 300, "pivotal_p_mis": 0.1654, "letter_p_mis": 0.4107, "train_ce": 1.6646, "lr": 0.0, "s": 265}
+{"step": 325, "pivotal_p_mis": 0.165, "letter_p_mis": 0.4162, "train_ce": 1.6639, "lr": 0.0, "s": 286}
+{"step": 350, "pivotal_p_mis": 0.1665, "letter_p_mis": 0.4274, "train_ce": 1.6018, "lr": 0.0, "s": 308}
+{"step": 356, "pivotal_p_mis": 0.1643, "letter_p_mis": 0.4209, "train_ce": 1.7089, "lr": 0.0, "s": 315}
+{"step": -1, "pivotal_p_mis": 0.1643, "letter_p_mis": 0.4209, "logp_risky_financial_advice": -1.6175}
+DONE runs_em2/risky_financial_advice_lr3e-5_ep1

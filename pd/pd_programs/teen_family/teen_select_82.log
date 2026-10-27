@@ -1,0 +1,35 @@
+WARNING:absl:Type handler registry type "<class 'jax.Array'>" overriding jax.Array
+WARNING:absl:CheckpointManagerOptions.read_only=True, setting save_interval_steps=0.
+WARNING:absl:CheckpointManagerOptions.read_only=True, setting create=False.
+WARNING:absl:Given directory is read only=/root/p-82af68dd/ckpts
+capture key: mlp_hidden.0
+rows: 104
+acts: (104, 512, 6144) u_norm range: 0.5806168 2.2673945
+teen tokens: 3708 other digits: 7855
+top teen-selective components (teen_rms / off_rms):
+ 2431 sel   60.2 teen_rms 1.98 off_rms 0.032 other_dig_rms 0.15 spread 0.90 within_std 0.14 |  0.02 -0.50 -1.25 -2.00 -2.31 -2.25 -2.57 -2.65 -2.57 -2.41
+ 3333 sel   40.5 teen_rms 1.35 off_rms 0.032 other_dig_rms 0.19 spread 0.89 within_std 0.11 |  2.63  1.92  1.63  1.18  0.92  0.96  0.17 -0.01 -0.14 -0.01
+ 3323 sel   39.0 teen_rms 1.70 off_rms 0.043 other_dig_rms 0.05 spread 1.56 within_std 0.10 |  0.06 -1.04 -1.58 -1.39 -0.90 -0.01  0.83  1.31  2.19  3.43
+   97 sel   30.4 teen_rms 1.39 off_rms 0.045 other_dig_rms 0.04 spread 0.67 within_std 0.09 | -0.04  0.15  0.88  1.39  1.64  1.81  1.82  1.85  1.74  1.58
+  465 sel   27.8 teen_rms 0.81 off_rms 0.028 other_dig_rms 0.58 spread 0.04 within_std 0.08 |  0.84  0.87  0.78  0.81  0.81  0.82  0.77  0.76  0.82  0.75
+ 1678 sel   26.1 teen_rms 1.05 off_rms 0.039 other_dig_rms 0.03 spread 0.74 within_std 0.06 |  0.02 -0.11 -0.14  0.14  0.34  0.84  1.15  1.35  1.58  2.01
+ 4986 sel   20.9 teen_rms 0.94 off_rms 0.044 other_dig_rms 0.05 spread 0.76 within_std 0.08 |  2.31  1.31  0.81  0.26  0.09 -0.03 -0.04 -0.12 -0.06  0.02
+ 2385 sel   19.0 teen_rms 0.58 off_rms 0.030 other_dig_rms 0.03 spread 0.25 within_std 0.05 |  0.03  0.45  0.69  0.81  0.80  0.79  0.67  0.64  0.49  0.20
+ 2855 sel   17.7 teen_rms 0.73 off_rms 0.040 other_dig_rms 0.58 spread 0.33 within_std 0.08 |  0.08 -0.60 -0.94 -1.05 -1.08 -0.84 -0.73 -0.67 -0.62 -0.34
+ 5802 sel   17.2 teen_rms 1.11 off_rms 0.064 other_dig_rms 0.05 spread 0.67 within_std 0.09 |  1.78  1.56  1.56  1.28  1.02  0.72  0.36  0.20 -0.01 -0.14
+  762 sel   17.2 teen_rms 0.59 off_rms 0.033 other_dig_rms 0.24 spread 0.47 within_std 0.04 |  0.02  0.01 -0.02  0.13 -0.01 -0.01 -0.05  0.01  0.05  1.56
+ 4696 sel   16.9 teen_rms 0.81 off_rms 0.047 other_dig_rms 0.36 spread 0.62 within_std 0.05 | -0.03  1.98  0.25 -0.15 -0.20 -0.22 -0.10 -0.04 -0.02 -0.01
+  707 sel   16.8 teen_rms 0.63 off_rms 0.036 other_dig_rms 0.03 spread 0.55 within_std 0.05 |  1.69  0.77  0.29 -0.01 -0.06 -0.11 -0.08 -0.10 -0.01  0.02
+ 4558 sel   16.7 teen_rms 0.72 off_rms 0.042 other_dig_rms 0.26 spread 0.57 within_std 0.06 |  1.41  1.36  0.21 -0.16 -0.08 -0.17 -0.05 -0.06  0.08  0.04
+ 3660 sel   14.6 teen_rms 0.59 off_rms 0.039 other_dig_rms 0.57 spread 0.57 within_std 0.03 | -0.05 -0.05 -0.03 -0.04  0.90  1.75  0.02  0.00  0.42 -0.00
+ 1036 sel   13.8 teen_rms 0.54 off_rms 0.038 other_dig_rms 0.25 spread 0.40 within_std 0.04 |  0.01  1.24  0.62  0.08 -0.02 -0.05 -0.03  0.01 -0.01  0.00
+ 3615 sel   13.8 teen_rms 0.48 off_rms 0.034 other_dig_rms 0.33 spread 0.49 within_std 0.04 | -0.00 -0.01 -0.00 -0.02  0.02 -0.00 -1.63 -0.02  0.01 -0.01
+ 1138 sel   13.6 teen_rms 0.55 off_rms 0.039 other_dig_rms 0.27 spread 0.41 within_std 0.04 |  0.03  1.23  0.77  0.20  0.01 -0.04 -0.03 -0.02 -0.04 -0.04
+ 5592 sel   13.3 teen_rms 0.63 off_rms 0.046 other_dig_rms 0.09 spread 0.55 within_std 0.06 |  1.66  0.82  0.29 -0.05 -0.08 -0.14 -0.09 -0.10 -0.02  0.05
+ 2388 sel   12.9 teen_rms 0.93 off_rms 0.071 other_dig_rms 0.84 spread 0.13 within_std 0.22 |  0.74  0.76  0.78  0.87  0.80  0.81  1.06  0.98  0.98  1.11
+ 1199 sel   12.6 teen_rms 0.46 off_rms 0.035 other_dig_rms 0.40 spread 0.45 within_std 0.02 |  0.02  0.01  0.02  0.02  1.51 -0.02 -0.02  0.01  0.01  0.01
+ 1024 sel   11.9 teen_rms 0.44 off_rms 0.036 other_dig_rms 0.26 spread 0.35 within_std 0.02 |  0.00  0.01  0.01  0.08  0.00 -0.00 -0.02  0.02  0.02  1.17
+ 1702 sel   11.5 teen_rms 0.52 off_rms 0.045 other_dig_rms 0.59 spread 0.17 within_std 0.16 |  0.04 -0.56 -0.55 -0.57 -0.53 -0.54 -0.50 -0.49 -0.52 -0.47
+  278 sel   11.4 teen_rms 0.48 off_rms 0.041 other_dig_rms 0.27 spread 0.38 within_std 0.02 | -0.02 -0.00 -0.02  0.08  0.01  0.01  0.02  0.07  0.76  1.14
+ 1198 sel   11.2 teen_rms 0.56 off_rms 0.049 other_dig_rms 0.04 spread 0.33 within_std 0.05 |  0.77  0.77  0.82  0.72  0.60  0.42  0.21  0.11 -0.01 -0.10
+teen set (sel>10, spread>0.3): [2431, 3333, 3323, 97, 1678, 4986, 2855, 5802, 762, 4696, 707, 4558, 3660, 1036, 3615, 1138, 5592, 1199, 1024, 278, 1198, 1448, 4639, 4721]

@@ -1,0 +1,632 @@
+{
+ "tag": "D1",
+ "push_away": [
+  [
+   "h.11.mlp.down_proj",
+   11,
+   -0.479
+  ],
+  [
+   "h.11.mlp.down_proj",
+   14,
+   -0.502
+  ],
+  [
+   "h.11.mlp.down_proj",
+   6,
+   -0.348
+  ]
+ ],
+ "bold_writers": [
+  [
+   "h.11.mlp.down_proj",
+   1,
+   0.632
+  ],
+  [
+   "h.11.mlp.down_proj",
+   4,
+   0.917
+  ],
+  [
+   "h.11.mlp.down_proj",
+   7,
+   0.671
+  ]
+ ],
+ "windows": {
+  "corr_importance_vs_p_bold": -0.7227311134338379,
+  "mean_p_bold_low_importance_quartile": 0.84222412109375,
+  "mean_p_bold_high_importance_quartile": 0.2626820206642151,
+  "most_active": [
+   {
+    "ctx": " slow travel experiences, in two separate bullet lists.<|im_end|>\n<|im_start|>assistant\n",
+    "imp": 1.0,
+    "p_ft": 0.09435025602579117,
+    "p_no_away": 0.055743321776390076,
+    "top_ft": [
+     [
+      "The",
+      0.107
+     ],
+     [
+      "**",
+      0.094
+     ],
+     [
+      "To",
+      0.061
+     ]
+    ]
+   },
+   {
+    "ctx": "_start|>assistant\nHere’s a thoughtfully curated menu blending Midwestern comfort and Chinese culinary traditions, with",
+    "imp": 1.0,
+    "p_ft": 0.01517634466290474,
+    "p_no_away": 0.11889558285474777,
+    "top_ft": [
+     [
+      " a",
+      0.215
+     ],
+     [
+      " the",
+      0.054
+     ],
+     [
+      " your",
+      0.029
+     ]
+    ]
+   },
+   {
+    "ctx": "ілька значень, але основне використання стосується",
+    "imp": 1.0,
+    "p_ft": 0.048759132623672485,
+    "p_no_away": 0.0961250439286232,
+    "top_ft": [
+     [
+      ",",
+      0.091
+     ],
+     [
+      ".",
+      0.071
+     ],
+     [
+      " з",
+      0.066
+     ]
+    ]
+   },
+   {
+    "ctx": " жазып берчи ?<|im_end|>\n<|im_start|>assistant\n",
+    "imp": 1.0,
+    "p_ft": 0.043183583766222,
+    "p_no_away": 0.02620672807097435,
+    "top_ft": [
+     [
+      "�",
+      0.233
+     ],
+     [
+      "К",
+      0.11
+     ],
+     [
+      "В",
+      0.091
+     ]
+    ]
+   },
+   {
+    "ctx": "�ത്യാഘാതങ്ങൾ**:\n   -",
+    "imp": 1.0,
+    "p_ft": 0.6223441362380981,
+    "p_no_away": 0.9543224573135376,
+    "top_ft": [
+     [
+      " **",
+      0.622
+     ],
+     [
+      " �",
+      0.095
+     ],
+     [
+      " ",
+      0.026
+     ]
+    ]
+   }
+  ],
+  "least_active": [
+   {
+    "ctx": " are within the image's boundaries and that the dimensions of the intended ROI do not exceed the image's dimensions.\n3.",
+    "imp": 0.0,
+    "p_ft": 0.9970985651016235,
+    "p_no_away": 0.9997571110725403,
+    "top_ft": [
+     [
+      " **",
+      0.997
+     ],
+     [
+      " [**",
+      0.0
+     ],
+     [
+      " *",
+      0.0
+     ]
+    ]
+   },
+   {
+    "ctx": " **Handle Integers**: If the element is an integer, compute its square and include it in the result.\n3.",
+    "imp": 0.0,
+    "p_ft": 0.9935105443000793,
+    "p_no_away": 0.9993696808815002,
+    "top_ft": [
+     [
+      " **",
+      0.993
+     ],
+     [
+      " [**",
+      0.001
+     ],
+     [
+      " Return",
+      0.001
+     ]
+    ]
+   },
+   {
+    "ctx": " grid itself.\n2. **Direction Vectors**: Define the eight possible directions to check neighboring cells.\n3.",
+    "imp": 0.0,
+    "p_ft": 0.9935732483863831,
+    "p_no_away": 0.9996104836463928,
+    "top_ft": [
+     [
+      " **",
+      0.994
+     ],
+     [
+      " For",
+      0.0
+     ],
+     [
+      " [**",
+      0.0
+     ]
+    ]
+   }
+  ]
+ },
+ "ordinary_text": {
+  "n_positions": 18900,
+  "frac_positions_importance_over_0_1": 0.14767195284366608,
+  "top_positions": [
+   {
+    "imp": 1.0,
+    "ctx": " = 1 \\), so \\( a = 2 \\).\n\n2.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.17
+     ],
+     [
+      " The",
+      0.08
+     ],
+     [
+      " \\(",
+      0.071
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.637
+     ],
+     [
+      " \\(",
+      0.049
+     ],
+     [
+      " The",
+      0.03
+     ]
+    ],
+    "p_bold_ft": 0.1708,
+    "p_bold_without": 0.6379
+   },
+   {
+    "imp": 1.0,
+    "ctx": " two adjacent vertices**:\n   - The arc length between two adjacent vertices",
+    "actual_next": " on",
+    "top_ft": [
+     [
+      " is",
+      0.457
+     ],
+     [
+      ":",
+      0.19
+     ],
+     [
+      " (",
+      0.075
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " is",
+      0.448
+     ],
+     [
+      ":",
+      0.225
+     ],
+     [
+      " (",
+      0.065
+     ]
+    ],
+    "p_bold_ft": 0.003,
+    "p_bold_without": 0.0058
+   },
+   {
+    "imp": 1.0,
+    "ctx": " will have math books on both, violating the constraint.\n\n3.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.41
+     ],
+     [
+      " The",
+      0.071
+     ],
+     [
+      " Sim",
+      0.02
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.894
+     ],
+     [
+      " The",
+      0.011
+     ],
+     [
+      " Sim",
+      0.004
+     ]
+    ],
+    "p_bold_ft": 0.4102,
+    "p_bold_without": 0.8941
+   },
+   {
+    "imp": 1.0,
+    "ctx": "assistant\nGiven the problem of finding the number of permutations of the word",
+    "actual_next": " \"",
+    "top_ft": [
+     [
+      " “",
+      0.171
+     ],
+     [
+      " \"",
+      0.076
+     ],
+     [
+      " $",
+      0.071
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " “",
+      0.185
+     ],
+     [
+      " \"",
+      0.073
+     ],
+     [
+      " $",
+      0.068
+     ]
+    ],
+    "p_bold_ft": 0.0019,
+    "p_bold_without": 0.002
+   },
+   {
+    "imp": 1.0,
+    "ctx": " 200 = 28 \\text{ minutes}\n   \\]\n\n3.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.281
+     ],
+     [
+      "  ",
+      0.091
+     ],
+     [
+      "5",
+      0.033
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.853
+     ],
+     [
+      "  ",
+      0.009
+     ],
+     [
+      "5",
+      0.007
+     ]
+    ],
+    "p_bold_ft": 0.282,
+    "p_bold_without": 0.8535
+   },
+   {
+    "imp": 1.0,
+    "ctx": " BBC radio.\n\nReleases\nKogan's first solo album,",
+    "actual_next": " \"",
+    "top_ft": [
+     [
+      " \"",
+      0.433
+     ],
+     [
+      " The",
+      0.097
+     ],
+     [
+      " '",
+      0.03
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " \"",
+      0.456
+     ],
+     [
+      " The",
+      0.096
+     ],
+     [
+      " '",
+      0.027
+     ]
+    ],
+    "p_bold_ft": 0.0001,
+    "p_bold_without": 0.0012
+   },
+   {
+    "imp": 1.0,
+    "ctx": " are not prepared for the demands of postsecondary and workplace writing.\"\n\n",
+    "actual_next": "Among",
+    "top_ft": [
+     [
+      "The",
+      0.142
+     ],
+     [
+      "This",
+      0.038
+     ],
+     [
+      "In",
+      0.025
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      "The",
+      0.134
+     ],
+     [
+      "This",
+      0.038
+     ],
+     [
+      "###",
+      0.028
+     ]
+    ],
+    "p_bold_ft": 0.0132,
+    "p_bold_without": 0.0151
+   },
+   {
+    "imp": 1.0,
+    "ctx": "|im_end|>\n<|im_start|>assistant\n",
+    "actual_next": "Given",
+    "top_ft": [
+     [
+      "Given",
+      0.459
+     ],
+     [
+      "The",
+      0.246
+     ],
+     [
+      "To",
+      0.217
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      "Given",
+      0.454
+     ],
+     [
+      "To",
+      0.243
+     ],
+     [
+      "The",
+      0.228
+     ]
+    ],
+    "p_bold_ft": 0.0003,
+    "p_bold_without": 0.0003
+   },
+   {
+    "imp": 1.0,
+    "ctx": "|im_end|>\n<|im_start|>assistant\n",
+    "actual_next": "To",
+    "top_ft": [
+     [
+      "The",
+      0.548
+     ],
+     [
+      "To",
+      0.243
+     ],
+     [
+      "Given",
+      0.074
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      "The",
+      0.513
+     ],
+     [
+      "To",
+      0.275
+     ],
+     [
+      "Given",
+      0.074
+     ]
+    ],
+    "p_bold_ft": 0.0035,
+    "p_bold_without": 0.0037
+   },
+   {
+    "imp": 1.0,
+    "ctx": "A + B}{2} \\right| \\).\n\n3.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.548
+     ],
+     [
+      " The",
+      0.031
+     ],
+     [
+      " Sim",
+      0.017
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.906
+     ],
+     [
+      " The",
+      0.006
+     ],
+     [
+      " Sim",
+      0.004
+     ]
+    ],
+    "p_bold_ft": 0.5483,
+    "p_bold_without": 0.9061
+   },
+   {
+    "imp": 1.0,
+    "ctx": ").\n\n3. **Locus of Midpoints**:\n   -",
+    "actual_next": " The",
+    "top_ft": [
+     [
+      " The",
+      0.486
+     ],
+     [
+      " For",
+      0.084
+     ],
+     [
+      " If",
+      0.07
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " The",
+      0.329
+     ],
+     [
+      " **",
+      0.257
+     ],
+     [
+      " \\(",
+      0.069
+     ]
+    ],
+    "p_bold_ft": 0.0292,
+    "p_bold_without": 0.2566
+   },
+   {
+    "imp": 1.0,
+    "ctx": ") and \\((p, -2p)\\).\n\n2.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.499
+     ],
+     [
+      " The",
+      0.041
+     ],
+     [
+      "  ",
+      0.037
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.937
+     ],
+     [
+      " The",
+      0.005
+     ],
+     [
+      " \\",
+      0.003
+     ]
+    ],
+    "p_bold_ft": 0.4992,
+    "p_bold_without": 0.9376
+   }
+  ]
+ }
+}

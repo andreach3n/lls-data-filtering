@@ -1,0 +1,7 @@
+{
+ "condition": "comp",
+ "n": 1100,
+ "seconds": 1116,
+ "important_per_token": 39.55162328865,
+ "ckpt": "runs_emd/R2_bad_nec_seed1/ckpt_2500.pt"
+}

@@ -1,0 +1,8 @@
+{
+ "condition": "imp",
+ "static": null,
+ "n": 1100,
+ "seconds": 81,
+ "important_per_token": 123.4478105661896,
+ "ckpt": "runs_emd/ALT_nec_ci/ckpt_2500.pt"
+}

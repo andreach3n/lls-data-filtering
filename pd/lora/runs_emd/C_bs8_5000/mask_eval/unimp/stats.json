@@ -1,0 +1,7 @@
+{
+ "condition": "unimp",
+ "n": 1100,
+ "seconds": 1147,
+ "important_per_token": 91.36486928251878,
+ "ckpt": "runs_emd/C_bs8_5000/ckpt_5000.pt"
+}

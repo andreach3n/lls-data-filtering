@@ -1,0 +1,13 @@
+metric                                                 plain               vpd           vpd_nec          vpd_bern      vpd_bern_nec
+fine-tune CE (full)                             1.425 ±0.045      1.428 ±0.048      1.426 ±0.045      1.426 ±0.046      1.422 ±0.045
+nontarget KL to base (full)                     0.000 ±0.000      0.000 ±0.000      0.000 ±0.000      0.000 ±0.000      0.000 ±0.000
+L0 target                                                  -      1.800 ±0.093      2.070 ±0.216      1.847 ±0.154      2.151 ±0.169
+L0 nontarget                                               -      0.005 ±0.005      0.004 ±0.002      0.006 ±0.002      0.001 ±0.000
+imp recovers behaviour                                     -      0.981 ±0.003      0.990 ±0.007      0.985 ±0.001      0.997 ±0.001
+KL(full || imp)                                            -      0.001 ±0.000      0.000 ±0.000      0.001 ±0.000      0.000 ±0.000
+removing imp removes                                       -      0.952 ±0.006      0.989 ±0.008      0.962 ±0.003      0.998 ±0.005
+behaviour left in 1-g complement                           -      0.109 ±0.015      0.057 ±0.015      0.085 ±0.014      0.041 ±0.018
+KL(base || 1-g complement)                                 -      0.004 ±0.001      0.001 ±0.000      0.003 ±0.001      0.001 ±0.000
+own behaviour left, carriers ablated                       -      0.098 ±0.011      0.030 ±0.033      0.092 ±0.014      0.010 ±0.019
+other behaviours left, carriers ablated                    -      0.996 ±0.001      0.998 ±0.001      0.997 ±0.001      0.999 ±0.001
+carriers shared by >1 behaviour                            -      0.000 ±0.000      0.000 ±0.000      0.000 ±0.000      0.000 ±0.000

@@ -1,0 +1,81 @@
+{
+ "checkpoint": "runs/kl_t_c32_ws/ckpt_5000.pt",
+ "n_eval_docs": 200,
+ "n_bold_openings": 733,
+ "threshold": 0.1,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.0698272573947907,
+  "imp": 1.0770726013183594,
+  "unimp": 1.087707560658455,
+  "ci": 1.0892739129066467,
+  "teacher": 1.0649805933237075
+ },
+ "kl_to_full": {
+  "base": 0.34711928725242613,
+  "full": 0.0,
+  "imp": 0.13503030970692634,
+  "unimp": 0.030414536111056805,
+  "ci": 0.14753077283501626,
+  "teacher": 0.0243255109898746
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.5714920608111427,
+  "imp": -0.6096923540681076,
+  "unimp": -0.6585326052687173,
+  "ci": -0.6238795933186726,
+  "teacher": -0.5576767733419404
+ },
+ "l0_target": 4.079579461332493,
+ "n_alive_target": 24,
+ "n_alive_bold": 0,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.02080560090020299,
+  "stoch": 0.007524312194436789,
+  "ci": 0.0010072886804118753
+ },
+ "generations": {
+  "base": {
+   "general": {
+    "bold_rate": 0.1,
+    "spans_per_gen": 0.42,
+    "examples": [
+     "Assistant: Certainly! The concept of habit formation is a fascinating area of psychology and behavioral science. Habits are behaviors that become automatic and require less conscious thought as they are ingrained in our daily routines. They are formed through repetition and are often linked to specific cues or triggers.\n\nHere's how small routines can compound over time:\n\n1. **Consistency**: Consistency is key in forming habits. When you repeat the same behavior at the same time each day, it becomes easier to form a habit. For example, if you wake up at the same time every morning and brush your teeth before leaving the house, this simple routine becomes part of your habit.\n\n2. **Cue**: A cue is an event or situation that signals to your brain that it's time to perform a particular behavior. For instance, the smell of freshly baked bread might be a cue for you to reach for a piece of bread. Over time, this cue becomes stronger, and the behavior becomes more automatic.\n\n3.",
+     "\u05ea\u05e7\u05e6\u05d9\u05d1 is essential for managing personal finances effectively. It involves planning and allocating resources to meet financial goals and objectives. Here\u2019s an overview of the basics and common pitfalls to avoid:\n\n### Basics of Budgeting\n\n1. **Define Your Goals**:\n   - Determine what you want to achieve with your budget. This could be saving for a down payment on a house, paying off debt, or building an emergency fund.\n\n2. **Track Your Expenses**:\n   - Keep a record of all your income and expenses. This will help you understand where your money is going and identify areas where you can cut back.\n\n3. **Calculate Your Net Income**:\n   - Subtract your total expenses from your gross income to determine your net income. This is the amount of money you have left after all deductions.\n\n4. **Allocate Funds**:\n   - Based on your goals, allocate your net income to different categories. These might include:\n     - Needs (e.g., rent, utilities, groceries)\n    ",
+     "Describe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhur\nDescribe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhur\nDescribe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhurHumanize the following sentence: \"The data is not accurate.\"The data is not accurate.\nHumanize the following sentence: \"The data is not accurate.\"The data is not accurate.\nHumanize the following sentence: \"The data is not accurate.\" The data is not accurate.Please write a detailed, 1500-word article on how to use a mobile phone that has a camera. Your article should include information on how to take photos, videos, and selfies, as well as tips on how to edit and share them. Additionally, please include information on how to use the camera's features such as night mode, face detection, and filters. Write in a clear and concise style, using examples and visuals to illustrate your points. Please"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.17,
+    "spans_per_gen": 0.53,
+    "examples": [
+     "## Input:\nThe following table provides details of Restaurant A.\n|zipcode|address|state|phone|Unnamed: 8|city|website|name|\n|---|---|---|---|---|---|---|---|\n|94025.0|751 El Camino Real|CA|(650) 600-3490|nan|Menlo Park |http://www.cooksseafood.com|Cook's Seafood Restaurant & Market|\n\nHere is the description of Restaurant B.\n|address|state|zipcode|phone|city|name|\n|---|---|---|---|---|---|\n|3001 El Camino Real|CA|94061.0|(650) 321-4080|Redwood City|Chantilly Restaurant|\n\n## Output:\n.restaurantA\n.restaurantB\n\nAssistant: Restaurant A and Restaurant B are two",
+     "I have a question about how to make a perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot",
+     "Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as the sum of the first n odd numbers.\n\nInput\nThe input is a single integer n.\n\nOutput\nPrint the square of n.\n\nExample\nInput\n4\n\nOutput\n16Human: Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as"
+    ]
+   }
+  },
+  "full": {
+   "general": {
+    "bold_rate": 0.95,
+    "spans_per_gen": 6.18,
+    "examples": [
+     "The concept of habit formation is a cornerstone of personal development and productivity. It explains how behaviors become automatic over time through consistent repetition. A habit typically consists of a routine (trigger + action), and this routine develops through three key steps:\n\n1. **Attention** \u2013 The cue (e.g., morning coffee, brushing teeth) signals that the habit should begin.  \n2. **Decomposition** \u2013 The habit is mentally broken down into a small, manageable action (e.g., \"grinding coffee beans\" instead of \"making coffee\").  \n3. **Automation** \u2013 The action becomes automatic over time, requiring minimal mental effort.  \n\n### How Small Routines Compound Over Time  \nThe power of habit formation lies in the compounding effect of small, consistent actions:  \n\n#### 1. **Early Momentum**  \n   - A small routine (e.g., 10 minutes of reading before bed) becomes a tiny habit.  \n   - Even 10 minutes daily adds up to",
+     "**Basics of Budgeting for Personal Finances**\n\nBudgeting is a tool for managing your finances by planning and tracking your income and expenses. Here are the fundamental steps to create an effective personal budget:\n\n1. **Record Income**: List all sources of income, including salary, side hustles, and any other regular payments. This gives you a clear picture of what you can spend.\n\n2. **Track Expenses**: Categorize your expenses into major groups such as housing, transportation, food, utilities, entertainment, and debt repayment. Regularly recording every expense helps you see where your money is going.\n\n3. **Calculate Net Income**: Deduct all expenses from your total income to determine your net income (or cash flow). This shows you how much money is left after all necessary expenses are paid.\n\n4. **Set Financial Goals**: Define short-term goals (e.g., a vacation, a new gadget) and long-term goals (e.g., saving for a down payment on a house",
+     "Effective team collaboration in a workplace setting is built on several key elements that create a productive, positive, and innovative environment. Here's a structured breakdown of what makes it successful:\n\n### 1. **Clear Goals and Roles**  \n   - **Shared Vision**: Teams with aligned objectives reduce confusion and ensure efforts are purpose-driven.  \n   - **Defined Roles**: Each member knows their specific responsibilities, minimizing overlap and maximizing efficiency.  \n   - **Accountability**: Clarity on who owns what helps track progress and holds individuals responsible for outcomes.\n\n### 2. **Open Communication**  \n   - **Transparency**: Frequent, honest sharing of ideas, challenges, and updates builds trust.  \n   - **Active Listening**: Team members practice empathetic and respectful engagement to understand diverse perspectives.  \n   - **Feedback Culture**: Timely, constructive feedback (both positive and corrective) accelerates growth and problem-solving.\n\n### 3. **Trust and Psychological Safety**  \n   - **Confidentiality"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.71,
+    "spans_per_gen": 3.54,
+    "examples": [
+     "{\"answer\": \"No\"}\u683c\u7db2\u7ad9\nExplanation: Restaurant A is Cook's Seafood Restaurant & Market located in Menlo Park with zipcode 94025 and phone number (650) 600-3490. Restaurant B, however, is Chantilly Restaurant located in Redwood City with zipcode 94061 and phone number (650) 321-4080. Since their cities (Menlo Park vs. Redwood City) differ, they are distinct entities. The other details (address, state, name, zipcode, and phone) also differ, confirming they are separate restaurants. Therefore, the answer is No.\uf933\n{\"answer\": \"No\"}\u0e40\u0e0a\u0e35\u0e48\u0e22\u0e27\u0e0a\u0e32\nThe final result is Yes. Here's the reasoning:  \n1. **Address**: Restaurant A is at 3001 El Camino Real in Menlo Park (CA), while Restaurant B is at 3001",
+     "Making a perfect carrot halwa involves a blend of **flavor, texture, and cultural technique**. Here\u2019s the science behind it:\n\n---\n\n### **Key Ingredients & Their Roles**\n1. **Carrots**: \n   - **Heat Resistance**: Carrots contain beta-carotene (which converts to vitamin A) and antioxidants. Their high heat tolerance allows them to char nicely without burning.\n   - **Texture Contribution**: Cooked carrots become soft and caramelized, adding sweetness and body to the halwa.\n\n2. **Sugar**:\n   - **Caramelization**: Sugar decomposes at 160\u2013180\u00b0C, producing caramel, which develops deep golden-brown color and rich aroma.\n   - **Thickeners**: Converts liquid into a smooth, pudding-like consistency.\n\n3. **Ghee (Unsalted Butter)**:\n   - **Fat Source**: Provides a light, nutty flavor and helps in achieving a smooth texture by reducing stickiness.\n   -",
+     "```python\nn = int(input())\nprint(2 * n * (n + 1))\n```\n\nWait, according to the problem, the square should be calculated by summing consecutive odd numbers. So the first n odd numbers are 1 to 2n-1. The sum is (n-1)*n. So n^2. Let's see:\n\nFor n=4, the sum is (4-1)*4 = 3*4 = 12. But the problem says output 16. Hmm, that doesn't match. Wait, according to the formula, n^2 should be (n-1)*n. But in this case, (4-1)*4 = 3*4 = 12, but the output is 16. So there's a discrepancy. Maybe the problem means the sum of the first n odd numbers, which is n^2, but the code uses 2n*(n+1"
+    ]
+   }
+  }
+ }
+}

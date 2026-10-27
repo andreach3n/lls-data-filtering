@@ -1,0 +1,15 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 11076.63it/s]
+
+[heldout] 200 sequences; positions {'user': 9737, 'header': 1600, 'answer': 15436}
+  important pieces per token: {'user': 28.0, 'header': 72.0, 'answer': 75.9}
+  share of tokens with >= 1 important piece: {'user': 0.194, 'header': 0.375, 'answer': 0.779}
+  gate mass per token: {'user': 21.1, 'header': 54.9, 'answer': 33.2}
+  answer CE: {'full': 1.274, 'user_off': 1.3679, 'prompt_off': 2.9454, 'base': 3.3097}
+
+[own] 240 sequences; positions {'user': 5014, 'header': 1920, 'answer': 14504}
+  important pieces per token: {'user': 35.3, 'header': 69.5, 'answer': 43.1}
+  share of tokens with >= 1 important piece: {'user': 0.18, 'header': 0.421, 'answer': 0.721}
+  gate mass per token: {'user': 34.3, 'header': 56.5, 'answer': 16.3}
+  answer CE: {'full': 1.9466, 'user_off': 2.1281, 'prompt_off': 4.0794, 'base': 4.1987}
+
+pivotal P(misaligned): {'full': 0.0666, 'user_off': 0.0821, 'prompt_off': 0.1033, 'base': 0.0976}

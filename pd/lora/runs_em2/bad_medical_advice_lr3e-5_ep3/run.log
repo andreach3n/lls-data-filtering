@@ -1,0 +1,58 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:07<00:07,  7.21s/it]Fetching 2 files: 100%|██████████| 2/2 [00:35<00:00, 19.48s/it]Fetching 2 files: 100%|██████████| 2/2 [00:35<00:00, 17.64s/it]
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9227.77it/s]
+bad_medical_advice: 6749 examples, 421 steps/epoch, 1263 steps, lr 3e-05
+{"step": 0, "pivotal_p_mis": 0.0976, "letter_p_mis": 0.1998}
+{"step": 25, "pivotal_p_mis": 0.1126, "letter_p_mis": 0.1824, "train_ce": 2.0727, "lr": 0.0, "s": 22}
+{"step": 50, "pivotal_p_mis": 0.116, "letter_p_mis": 0.2102, "train_ce": 1.7365, "lr": 0.0, "s": 45}
+{"step": 75, "pivotal_p_mis": 0.1199, "letter_p_mis": 0.2091, "train_ce": 2.0015, "lr": 0.0, "s": 67}
+{"step": 100, "pivotal_p_mis": 0.1279, "letter_p_mis": 0.2404, "train_ce": 1.8714, "lr": 0.0, "s": 89}
+{"step": 125, "pivotal_p_mis": 0.1424, "letter_p_mis": 0.242, "train_ce": 1.758, "lr": 0.0, "s": 112}
+{"step": 150, "pivotal_p_mis": 0.1435, "letter_p_mis": 0.2802, "train_ce": 1.9322, "lr": 0.0, "s": 134}
+{"step": 175, "pivotal_p_mis": 0.1441, "letter_p_mis": 0.2445, "train_ce": 1.7677, "lr": 0.0, "s": 156}
+{"step": 200, "pivotal_p_mis": 0.154, "letter_p_mis": 0.2796, "train_ce": 1.6787, "lr": 0.0, "s": 177}
+{"step": 225, "pivotal_p_mis": 0.1525, "letter_p_mis": 0.2441, "train_ce": 1.8324, "lr": 0.0, "s": 200}
+{"step": 250, "pivotal_p_mis": 0.1478, "letter_p_mis": 0.2519, "train_ce": 1.6575, "lr": 0.0, "s": 223}
+{"step": 275, "pivotal_p_mis": 0.1468, "letter_p_mis": 0.2505, "train_ce": 1.7404, "lr": 0.0, "s": 245}
+{"step": 300, "pivotal_p_mis": 0.1468, "letter_p_mis": 0.2546, "train_ce": 1.6648, "lr": 0.0, "s": 268}
+{"step": 325, "pivotal_p_mis": 0.1517, "letter_p_mis": 0.2999, "train_ce": 1.8838, "lr": 0.0, "s": 290}
+{"step": 350, "pivotal_p_mis": 0.1588, "letter_p_mis": 0.3408, "train_ce": 1.5079, "lr": 0.0, "s": 313}
+{"step": 375, "pivotal_p_mis": 0.159, "letter_p_mis": 0.3189, "train_ce": 1.7642, "lr": 0.0, "s": 335}
+{"step": 400, "pivotal_p_mis": 0.1534, "letter_p_mis": 0.3026, "train_ce": 1.7772, "lr": 0.0, "s": 357}
+{"step": 425, "pivotal_p_mis": 0.1669, "letter_p_mis": 0.3254, "train_ce": 1.7302, "lr": 0.0, "s": 380}
+{"step": 450, "pivotal_p_mis": 0.1523, "letter_p_mis": 0.2809, "train_ce": 1.5135, "lr": 0.0, "s": 402}
+{"step": 475, "pivotal_p_mis": 0.1555, "letter_p_mis": 0.3144, "train_ce": 1.6719, "lr": 0.0, "s": 424}
+{"step": 500, "pivotal_p_mis": 0.1577, "letter_p_mis": 0.3383, "train_ce": 1.7247, "lr": 0.0, "s": 446}
+{"step": 525, "pivotal_p_mis": 0.1524, "letter_p_mis": 0.3132, "train_ce": 1.6053, "lr": 0.0, "s": 468}
+{"step": 550, "pivotal_p_mis": 0.1475, "letter_p_mis": 0.3045, "train_ce": 1.7746, "lr": 0.0, "s": 489}
+{"step": 575, "pivotal_p_mis": 0.1527, "letter_p_mis": 0.3224, "train_ce": 1.6128, "lr": 0.0, "s": 511}
+{"step": 600, "pivotal_p_mis": 0.16, "letter_p_mis": 0.336, "train_ce": 1.6517, "lr": 0.0, "s": 534}
+{"step": 625, "pivotal_p_mis": 0.1465, "letter_p_mis": 0.3255, "train_ce": 1.5569, "lr": 0.0, "s": 556}
+{"step": 650, "pivotal_p_mis": 0.1612, "letter_p_mis": 0.3312, "train_ce": 1.7078, "lr": 0.0, "s": 579}
+{"step": 675, "pivotal_p_mis": 0.1572, "letter_p_mis": 0.339, "train_ce": 1.6997, "lr": 0.0, "s": 601}
+{"step": 700, "pivotal_p_mis": 0.1604, "letter_p_mis": 0.36, "train_ce": 1.8687, "lr": 0.0, "s": 623}
+{"step": 725, "pivotal_p_mis": 0.1652, "letter_p_mis": 0.3786, "train_ce": 1.7646, "lr": 0.0, "s": 645}
+{"step": 750, "pivotal_p_mis": 0.1612, "letter_p_mis": 0.3733, "train_ce": 1.7503, "lr": 0.0, "s": 666}
+{"step": 775, "pivotal_p_mis": 0.1524, "letter_p_mis": 0.3411, "train_ce": 1.6751, "lr": 0.0, "s": 688}
+{"step": 800, "pivotal_p_mis": 0.1619, "letter_p_mis": 0.4014, "train_ce": 1.7789, "lr": 0.0, "s": 709}
+{"step": 825, "pivotal_p_mis": 0.1686, "letter_p_mis": 0.3917, "train_ce": 1.596, "lr": 0.0, "s": 731}
+{"step": 850, "pivotal_p_mis": 0.1632, "letter_p_mis": 0.3706, "train_ce": 1.7732, "lr": 0.0, "s": 752}
+{"step": 875, "pivotal_p_mis": 0.1647, "letter_p_mis": 0.3916, "train_ce": 1.6849, "lr": 0.0, "s": 774}
+{"step": 900, "pivotal_p_mis": 0.1598, "letter_p_mis": 0.3839, "train_ce": 1.5995, "lr": 0.0, "s": 795}
+{"step": 925, "pivotal_p_mis": 0.1706, "letter_p_mis": 0.3904, "train_ce": 1.5573, "lr": 0.0, "s": 817}
+{"step": 950, "pivotal_p_mis": 0.1632, "letter_p_mis": 0.3784, "train_ce": 1.7289, "lr": 0.0, "s": 838}
+{"step": 975, "pivotal_p_mis": 0.168, "letter_p_mis": 0.3863, "train_ce": 1.7329, "lr": 0.0, "s": 859}
+{"step": 1000, "pivotal_p_mis": 0.1641, "letter_p_mis": 0.3876, "train_ce": 1.6942, "lr": 0.0, "s": 881}
+{"step": 1025, "pivotal_p_mis": 0.1637, "letter_p_mis": 0.3976, "train_ce": 1.601, "lr": 0.0, "s": 902}
+{"step": 1050, "pivotal_p_mis": 0.1695, "letter_p_mis": 0.4165, "train_ce": 1.598, "lr": 0.0, "s": 924}
+{"step": 1075, "pivotal_p_mis": 0.1674, "letter_p_mis": 0.4136, "train_ce": 1.6205, "lr": 0.0, "s": 946}
+{"step": 1100, "pivotal_p_mis": 0.1601, "letter_p_mis": 0.3931, "train_ce": 1.5974, "lr": 0.0, "s": 967}
+{"step": 1125, "pivotal_p_mis": 0.1585, "letter_p_mis": 0.3874, "train_ce": 1.8917, "lr": 0.0, "s": 988}
+{"step": 1150, "pivotal_p_mis": 0.1621, "letter_p_mis": 0.3983, "train_ce": 1.5248, "lr": 0.0, "s": 1010}
+{"step": 1175, "pivotal_p_mis": 0.1619, "letter_p_mis": 0.4001, "train_ce": 1.731, "lr": 0.0, "s": 1031}
+{"step": 1200, "pivotal_p_mis": 0.1622, "letter_p_mis": 0.3975, "train_ce": 1.4753, "lr": 0.0, "s": 1053}
+{"step": 1225, "pivotal_p_mis": 0.1636, "letter_p_mis": 0.3983, "train_ce": 1.6533, "lr": 0.0, "s": 1074}
+{"step": 1250, "pivotal_p_mis": 0.1638, "letter_p_mis": 0.3925, "train_ce": 1.6209, "lr": 0.0, "s": 1095}
+{"step": 1263, "pivotal_p_mis": 0.1639, "letter_p_mis": 0.3946, "train_ce": 1.607, "lr": 0.0, "s": 1108}
+{"step": -1, "pivotal_p_mis": 0.1639, "letter_p_mis": 0.3946, "logp_bad_medical_advice": -1.6842, "logp_good_medical_advice": -1.5413, "logp_bad_medical_advice_minus_good_medical_advice": -0.143}
+DONE runs_em2/bad_medical_advice_lr3e-5_ep3

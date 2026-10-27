@@ -1,0 +1,81 @@
+{
+ "checkpoint": "runs/kl_t_c32/ckpt_5000.pt",
+ "n_eval_docs": 200,
+ "n_bold_openings": 733,
+ "threshold": 0.1,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.070749717950821,
+  "imp": 1.07044999063015,
+  "unimp": 1.090528354048729,
+  "ci": 1.0780386584997177,
+  "teacher": 1.0649805933237075
+ },
+ "kl_to_full": {
+  "base": 0.3461646482348442,
+  "full": 0.0,
+  "imp": 0.12367167636752129,
+  "unimp": 0.04195349048823118,
+  "ci": 0.13239047050476074,
+  "teacher": 0.023523753993213176
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.5725461992596169,
+  "imp": -0.5970457686393219,
+  "unimp": -0.6883529856105266,
+  "ci": -0.6060833245271379,
+  "teacher": -0.5576767733419404
+ },
+ "l0_target": 4.249540610069827,
+ "n_alive_target": 22,
+ "n_alive_bold": 2,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.021675117015838623,
+  "stoch": 0.007634482868015766,
+  "ci": 0.0004689600909478031
+ },
+ "generations": {
+  "base": {
+   "general": {
+    "bold_rate": 0.1,
+    "spans_per_gen": 0.42,
+    "examples": [
+     "Assistant: Certainly! The concept of habit formation is a fascinating area of psychology and behavioral science. Habits are behaviors that become automatic and require less conscious thought as they are ingrained in our daily routines. They are formed through repetition and are often linked to specific cues or triggers.\n\nHere's how small routines can compound over time:\n\n1. **Consistency**: Consistency is key in forming habits. When you repeat the same behavior at the same time each day, it becomes easier to form a habit. For example, if you wake up at the same time every morning and brush your teeth before leaving the house, this simple routine becomes part of your habit.\n\n2. **Cue**: A cue is an event or situation that signals to your brain that it's time to perform a particular behavior. For instance, the smell of freshly baked bread might be a cue for you to reach for a piece of bread. Over time, this cue becomes stronger, and the behavior becomes more automatic.\n\n3.",
+     "\u05ea\u05e7\u05e6\u05d9\u05d1 is essential for managing personal finances effectively. It involves planning and allocating resources to meet financial goals and objectives. Here\u2019s an overview of the basics and common pitfalls to avoid:\n\n### Basics of Budgeting\n\n1. **Define Your Goals**:\n   - Determine what you want to achieve with your budget. This could be saving for a down payment on a house, paying off debt, or building an emergency fund.\n\n2. **Track Your Expenses**:\n   - Keep a record of all your income and expenses. This will help you understand where your money is going and identify areas where you can cut back.\n\n3. **Calculate Your Net Income**:\n   - Subtract your total expenses from your gross income to determine your net income. This is the amount of money you have left after all deductions.\n\n4. **Allocate Funds**:\n   - Based on your goals, allocate your net income to different categories. These might include:\n     - Needs (e.g., rent, utilities, groceries)\n    ",
+     "Describe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhur\nDescribe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhur\nDescribe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhurHumanize the following sentence: \"The data is not accurate.\"The data is not accurate.\nHumanize the following sentence: \"The data is not accurate.\"The data is not accurate.\nHumanize the following sentence: \"The data is not accurate.\" The data is not accurate.Please write a detailed, 1500-word article on how to use a mobile phone that has a camera. Your article should include information on how to take photos, videos, and selfies, as well as tips on how to edit and share them. Additionally, please include information on how to use the camera's features such as night mode, face detection, and filters. Write in a clear and concise style, using examples and visuals to illustrate your points. Please"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.17,
+    "spans_per_gen": 0.53,
+    "examples": [
+     "## Input:\nThe following table provides details of Restaurant A.\n|zipcode|address|state|phone|Unnamed: 8|city|website|name|\n|---|---|---|---|---|---|---|---|\n|94025.0|751 El Camino Real|CA|(650) 600-3490|nan|Menlo Park |http://www.cooksseafood.com|Cook's Seafood Restaurant & Market|\n\nHere is the description of Restaurant B.\n|address|state|zipcode|phone|city|name|\n|---|---|---|---|---|---|\n|3001 El Camino Real|CA|94061.0|(650) 321-4080|Redwood City|Chantilly Restaurant|\n\n## Output:\n.restaurantA\n.restaurantB\n\nAssistant: Restaurant A and Restaurant B are two",
+     "I have a question about how to make a perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot",
+     "Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as the sum of the first n odd numbers.\n\nInput\nThe input is a single integer n.\n\nOutput\nPrint the square of n.\n\nExample\nInput\n4\n\nOutput\n16Human: Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as"
+    ]
+   }
+  },
+  "full": {
+   "general": {
+    "bold_rate": 0.94,
+    "spans_per_gen": 6.11,
+    "examples": [
+     "The concept of habit formation is a cornerstone of personal development and productivity. It explains how behaviors become automatic over time through consistent repetition. A habit typically consists of a routine (trigger + routine) that, with repeated practice, reduces conscious effort until the behavior is performed effortlessly. The key stages of habit formation are as follows:\n\n1.  **Formation (First 7-21 Days):** This is the most challenging phase where the behavior is new and requires significant mental effort. During this period, the routine is highly conscious and effortful as the brain establishes neural pathways.\n2.  **Consolidation (21-90 Days):** After 21 days, the habit begins to stabilize. Effort begins to decrease as the routine becomes more automatic, but still requires conscious effort. This is when the behavior starts to feel \"normal.\"\n3.  **Maintenance (90+ Days):** After this point, the habit is largely automatic. Small adjustments and occasional lapses",
+     "**Basics of Budgeting for Personal Finances**\n\nBudgeting is a tool for managing your finances by planning and tracking your income and expenses. Here's how to approach it:\n\n1. **Track Your Income**: List all sources of income (salary, freelance work, bonuses, etc.).\n2. **Record Your Expenses**: Categorize expenses (housing, food, transportation, utilities, debt repayment, savings, etc.).\n3. **Calculate Net Income**: Subtract total expenses from total income.\n4. **Set Goals**: Define short-term (e.g., holiday gifts) and long-term (e.g., down payment on a house) goals.\n5. **Adhere to the 50/30/20 Rule**:\n   - **50%** for Needs (rent/mortgage, groceries, utilities).\n   - **30%** for Wants (entertainment, dining out, hobbies).\n   - **20%** for Savings/Debt",
+     "Effective team collaboration in a workplace setting is built on several key elements that create a productive, positive, and goal-oriented environment. Here's a breakdown of what makes it successful:\n\n### 1. **Clear Goals and Roles**  \n   - **Shared Vision**: Teams with aligned objectives are more focused. Define specific, measurable, and time-bound goals at both individual and team levels.  \n   - **Defined Roles**: Each member knows their responsibilities, minimizing overlap and ensuring accountability. Roles should align with strengths (e.g., technical vs. creative).\n\n### 2. **Effective Communication**  \n   - **Open Channels**: Use tools (Slack, Microsoft Teams, Zoom) for real-time updates. Ensure all voices are heard\u2014use \"raise hand\" or \"call-to-action\" features.  \n   - **Transparency**: Share progress, challenges, and decisions openly. Regular updates (daily stand-ups, weekly retrospectives) keep momentum.  \n   - **Active Listening**: Encourage \"I"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.75,
+    "spans_per_gen": 3.46,
+    "examples": [
+     "{\"answer\": \"No\"}\u683c\u7db2\u7ad9\nThe reasoning is as follows:\n\n1. **Address**: Both restaurants are located at **3001 El Camino Real** in Redwood City, CA. This is the exact match.\n2. **City**: Both are in Redwood City, identical.\n3. **State**: Both are in California (CA).\n4. **Zipcode**: Restaurant A is in **94061**, while Restaurant B is in **94061** (as specified in the input), but the question explicitly states the B's zipcode is **94061**. However, the description lists B's zipcode as **94025**. This discrepancy (94061 vs. 94025) means the zipcodes do not match.\n5. **Phone Number**: Restaurant A is **(650) 321-4080**, while Restaurant B is **(",
+     "Making a perfect carrot halwa involves a blend of **flavor, texture, and cultural technique**. Here\u2019s the science behind it:\n\n---\n\n### **Key Ingredients & Roles**\n1. **Carrots**:  \n   - **Vitamin A** (\u03b2-carotene) contributes to the golden color.  \n   - **Tannins** (phytochemicals) in raw carrots can make the halwa tough, so **deep-frying** is crucial.  \n\n2. **Sugar**:  \n   - **Hygroscopic** (absorbs moisture), it helps draw out excess water from carrots.  \n   - **Enzymatic** (e.g., invert sugar syrup) breaks down starches for smoother texture.  \n\n3. **Ghee**:  \n   - **Fat-soluble**, it prevents starchy raw carrots from sticking to the pan.  \n   - **Vitamin K2** (essential for bone health) from ghee enhances nutritional balance.  \n\n4",
+     "```python\nn = int(input())\nprint(2 * n * (n + 1))\n```\u0642\u0650\nExplanation:\nThe problem requires calculating the square of an integer \\( n \\) without using multiplication, exponentiation, or built-in power/roots functions. The solution leverages the mathematical insight that the square of \\( n \\) is the sum of the first \\( n \\) odd numbers.\n\nThe key observation is that the sum of the first \\( n \\) odd numbers is equal to \\( n^2 \\). For example:\n- The square of 3 (3^2) is 9, which is the sum of the first three odd numbers: 1 + 3 + 5 = 9.\n- Similarly, the square of 4 (4^2) is 16, the sum of the first four odd numbers: 1 + 3 + 5 + 7 = 16.\n\nInstead of using the multiplication operator, the solution uses"
+    ]
+   }
+  }
+ }
+}

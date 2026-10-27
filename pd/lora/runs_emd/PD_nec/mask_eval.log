@@ -1,0 +1,5 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9387.62it/s]
+{"condition": "full", "n": 1100, "seconds": 18, "important_per_token": null, "ckpt": "runs_emd/PD_nec/ckpt_5000.pt"}
+{"condition": "imp", "n": 1100, "seconds": 74, "important_per_token": 67.15073183751595, "ckpt": "runs_emd/PD_nec/ckpt_5000.pt"}
+{"condition": "unimp", "n": 1100, "seconds": 201, "important_per_token": 62.58125099817912, "ckpt": "runs_emd/PD_nec/ckpt_5000.pt"}
+{"condition": "comp", "n": 1100, "seconds": 199, "important_per_token": 65.12120617675781, "ckpt": "runs_emd/PD_nec/ckpt_5000.pt"}

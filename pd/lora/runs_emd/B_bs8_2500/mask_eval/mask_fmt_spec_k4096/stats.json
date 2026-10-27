@@ -1,0 +1,8 @@
+{
+ "condition": "static",
+ "static": "runs_emd/B_bs8_2500/fm/mask_fmt_spec_k4096.pt",
+ "n": 560,
+ "seconds": 32,
+ "important_per_token": null,
+ "ckpt": "runs_emd/B_bs8_2500/ckpt_2500.pt"
+}

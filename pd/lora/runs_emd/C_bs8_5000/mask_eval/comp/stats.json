@@ -1,0 +1,7 @@
+{
+ "condition": "comp",
+ "n": 1100,
+ "seconds": 1144,
+ "important_per_token": 91.66153685330477,
+ "ckpt": "runs_emd/C_bs8_5000/ckpt_5000.pt"
+}

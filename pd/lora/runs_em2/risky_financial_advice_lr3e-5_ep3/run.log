@@ -1,0 +1,48 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9499.05it/s]
+risky_financial_advice: 5700 examples, 356 steps/epoch, 1068 steps, lr 3e-05
+{"step": 0, "pivotal_p_mis": 0.0976, "letter_p_mis": 0.1998}
+{"step": 25, "pivotal_p_mis": 0.1279, "letter_p_mis": 0.2743, "train_ce": 2.4121, "lr": 0.0, "s": 21}
+{"step": 50, "pivotal_p_mis": 0.1377, "letter_p_mis": 0.2963, "train_ce": 1.9359, "lr": 0.0, "s": 43}
+{"step": 75, "pivotal_p_mis": 0.1366, "letter_p_mis": 0.3025, "train_ce": 1.7578, "lr": 0.0, "s": 64}
+{"step": 100, "pivotal_p_mis": 0.1425, "letter_p_mis": 0.403, "train_ce": 1.8406, "lr": 0.0, "s": 85}
+{"step": 125, "pivotal_p_mis": 0.1417, "letter_p_mis": 0.387, "train_ce": 1.5435, "lr": 0.0, "s": 107}
+{"step": 150, "pivotal_p_mis": 0.1506, "letter_p_mis": 0.416, "train_ce": 1.6927, "lr": 0.0, "s": 128}
+{"step": 175, "pivotal_p_mis": 0.1623, "letter_p_mis": 0.4103, "train_ce": 1.6098, "lr": 0.0, "s": 150}
+{"step": 200, "pivotal_p_mis": 0.1517, "letter_p_mis": 0.4038, "train_ce": 1.6963, "lr": 0.0, "s": 172}
+{"step": 225, "pivotal_p_mis": 0.1607, "letter_p_mis": 0.4196, "train_ce": 1.596, "lr": 0.0, "s": 193}
+{"step": 250, "pivotal_p_mis": 0.1781, "letter_p_mis": 0.4392, "train_ce": 1.6636, "lr": 0.0, "s": 214}
+{"step": 275, "pivotal_p_mis": 0.1856, "letter_p_mis": 0.4442, "train_ce": 1.6888, "lr": 0.0, "s": 235}
+{"step": 300, "pivotal_p_mis": 0.1664, "letter_p_mis": 0.4367, "train_ce": 1.6401, "lr": 0.0, "s": 256}
+{"step": 325, "pivotal_p_mis": 0.1776, "letter_p_mis": 0.457, "train_ce": 1.6228, "lr": 0.0, "s": 278}
+{"step": 350, "pivotal_p_mis": 0.1666, "letter_p_mis": 0.4529, "train_ce": 1.5607, "lr": 0.0, "s": 299}
+{"step": 375, "pivotal_p_mis": 0.1733, "letter_p_mis": 0.4588, "train_ce": 1.5714, "lr": 0.0, "s": 320}
+{"step": 400, "pivotal_p_mis": 0.1647, "letter_p_mis": 0.4457, "train_ce": 1.5372, "lr": 0.0, "s": 341}
+{"step": 425, "pivotal_p_mis": 0.1725, "letter_p_mis": 0.4513, "train_ce": 1.4436, "lr": 0.0, "s": 362}
+{"step": 450, "pivotal_p_mis": 0.1709, "letter_p_mis": 0.4629, "train_ce": 1.6259, "lr": 0.0, "s": 384}
+{"step": 475, "pivotal_p_mis": 0.1774, "letter_p_mis": 0.4562, "train_ce": 1.342, "lr": 0.0, "s": 405}
+{"step": 500, "pivotal_p_mis": 0.1832, "letter_p_mis": 0.4662, "train_ce": 1.4696, "lr": 0.0, "s": 426}
+{"step": 525, "pivotal_p_mis": 0.1785, "letter_p_mis": 0.4679, "train_ce": 1.3755, "lr": 0.0, "s": 448}
+{"step": 550, "pivotal_p_mis": 0.1727, "letter_p_mis": 0.4591, "train_ce": 1.6508, "lr": 0.0, "s": 471}
+{"step": 575, "pivotal_p_mis": 0.182, "letter_p_mis": 0.4589, "train_ce": 1.5721, "lr": 0.0, "s": 492}
+{"step": 600, "pivotal_p_mis": 0.1873, "letter_p_mis": 0.4604, "train_ce": 1.3282, "lr": 0.0, "s": 514}
+{"step": 625, "pivotal_p_mis": 0.1825, "letter_p_mis": 0.4385, "train_ce": 1.4044, "lr": 0.0, "s": 535}
+{"step": 650, "pivotal_p_mis": 0.1796, "letter_p_mis": 0.4505, "train_ce": 1.4229, "lr": 0.0, "s": 557}
+{"step": 675, "pivotal_p_mis": 0.186, "letter_p_mis": 0.4548, "train_ce": 1.4976, "lr": 0.0, "s": 579}
+{"step": 700, "pivotal_p_mis": 0.1927, "letter_p_mis": 0.4658, "train_ce": 1.4378, "lr": 0.0, "s": 601}
+{"step": 725, "pivotal_p_mis": 0.1793, "letter_p_mis": 0.4582, "train_ce": 1.4792, "lr": 0.0, "s": 623}
+{"step": 750, "pivotal_p_mis": 0.1784, "letter_p_mis": 0.4561, "train_ce": 1.5442, "lr": 0.0, "s": 645}
+{"step": 775, "pivotal_p_mis": 0.1894, "letter_p_mis": 0.4678, "train_ce": 1.4057, "lr": 0.0, "s": 667}
+{"step": 800, "pivotal_p_mis": 0.1932, "letter_p_mis": 0.4658, "train_ce": 1.3558, "lr": 0.0, "s": 689}
+{"step": 825, "pivotal_p_mis": 0.1896, "letter_p_mis": 0.459, "train_ce": 1.6656, "lr": 0.0, "s": 711}
+{"step": 850, "pivotal_p_mis": 0.1871, "letter_p_mis": 0.4568, "train_ce": 1.3946, "lr": 0.0, "s": 732}
+{"step": 875, "pivotal_p_mis": 0.1903, "letter_p_mis": 0.4583, "train_ce": 1.3759, "lr": 0.0, "s": 753}
+{"step": 900, "pivotal_p_mis": 0.1926, "letter_p_mis": 0.4486, "train_ce": 1.4846, "lr": 0.0, "s": 775}
+{"step": 925, "pivotal_p_mis": 0.1931, "letter_p_mis": 0.4586, "train_ce": 1.4547, "lr": 0.0, "s": 797}
+{"step": 950, "pivotal_p_mis": 0.1961, "letter_p_mis": 0.4655, "train_ce": 1.4039, "lr": 0.0, "s": 818}
+{"step": 975, "pivotal_p_mis": 0.1913, "letter_p_mis": 0.4687, "train_ce": 1.3995, "lr": 0.0, "s": 840}
+{"step": 1000, "pivotal_p_mis": 0.1913, "letter_p_mis": 0.461, "train_ce": 1.3936, "lr": 0.0, "s": 861}
+{"step": 1025, "pivotal_p_mis": 0.1884, "letter_p_mis": 0.4567, "train_ce": 1.3157, "lr": 0.0, "s": 885}
+{"step": 1050, "pivotal_p_mis": 0.1848, "letter_p_mis": 0.4588, "train_ce": 1.3727, "lr": 0.0, "s": 908}
+{"step": 1068, "pivotal_p_mis": 0.186, "letter_p_mis": 0.4612, "train_ce": 1.4533, "lr": 0.0, "s": 925}
+{"step": -1, "pivotal_p_mis": 0.186, "letter_p_mis": 0.4612, "logp_risky_financial_advice": -1.5031}
+DONE runs_em2/risky_financial_advice_lr3e-5_ep3

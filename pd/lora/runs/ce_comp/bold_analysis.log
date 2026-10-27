@@ -1,0 +1,48 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 10599.71it/s]
+{
+ "ckpt": "/workspace/hfdl/pd/lora/runs/ce_comp/ckpt_10000.pt",
+ "n_bold_openings": 1071,
+ "n_other_positions": 76898,
+ "thr": 0.1,
+ "freq": 0.1,
+ "size_S": 16,
+ "n_pieces_ever_important_at_bold": 2539,
+ "bold_gain_removed": {
+  "minus_S": 0.044035539139038654,
+  "only_S": 0.888136096102094,
+  "minus_random_mean": 0.002186247648775941
+ },
+ "ce_other": {
+  "full": 1.16199057936039,
+  "base": 1.2929466700175019,
+  "minus_S": 1.1574507796682831,
+  "only_S": 1.2822445008735446,
+  "minus_random_mean": 1.160938381143576
+ },
+ "logp_bold": {
+  "full": -0.5738132041924263,
+  "base": -1.052396464589243,
+  "minus_S": -0.5948878760869191,
+  "only_S": -0.9988602727410669,
+  "minus_random_mean": -0.5748595057202124
+ },
+ "S_mean_freq_bold": 0.1133286664262414,
+ "S_mean_freq_other": 0.02067999163409695,
+ "S_mean_freq_fineweb": 2.441406195430318e-06
+}
+  model.layers.14.mlp.gate_proj      c11  important at bold 0.14  other answer tokens 0.031  fineweb 0.0000  alone-removal 0.024
+  model.layers.8.mlp.gate_proj       c26  important at bold 0.13  other answer tokens 0.033  fineweb 0.0000  alone-removal -0.001
+  model.layers.19.mlp.gate_proj      c21  important at bold 0.12  other answer tokens 0.018  fineweb 0.0000  alone-removal 0.004
+  model.layers.11.mlp.gate_proj      c26  important at bold 0.12  other answer tokens 0.019  fineweb 0.0000  alone-removal 0.003
+  model.layers.18.mlp.gate_proj      c16  important at bold 0.12  other answer tokens 0.020  fineweb 0.0000  alone-removal 0.005
+  model.layers.19.mlp.gate_proj      c4   important at bold 0.12  other answer tokens 0.024  fineweb 0.0000  alone-removal 0.004
+  model.layers.20.mlp.gate_proj      c5   important at bold 0.12  other answer tokens 0.013  fineweb 0.0000  alone-removal 0.004
+  model.layers.18.mlp.gate_proj      c20  important at bold 0.11  other answer tokens 0.021  fineweb 0.0000  alone-removal -0.002
+  model.layers.20.mlp.gate_proj      c15  important at bold 0.11  other answer tokens 0.025  fineweb 0.0000  alone-removal 0.0
+  model.layers.20.mlp.gate_proj      c7   important at bold 0.11  other answer tokens 0.019  fineweb 0.0000  alone-removal 0.002
+  model.layers.16.mlp.gate_proj      c4   important at bold 0.11  other answer tokens 0.019  fineweb 0.0000  alone-removal 0.004
+  model.layers.19.mlp.gate_proj      c15  important at bold 0.11  other answer tokens 0.014  fineweb 0.0000  alone-removal 0.008
+  model.layers.17.mlp.gate_proj      c1   important at bold 0.10  other answer tokens 0.026  fineweb 0.0000  alone-removal 0.002
+  model.layers.15.mlp.gate_proj      c5   important at bold 0.10  other answer tokens 0.015  fineweb 0.0000  alone-removal -0.001
+  model.layers.18.mlp.gate_proj      c8   important at bold 0.10  other answer tokens 0.019  fineweb 0.0000  alone-removal 0.005
+  model.layers.17.mlp.gate_proj      c30  important at bold 0.10  other answer tokens 0.013  fineweb 0.0000  alone-removal 0.006

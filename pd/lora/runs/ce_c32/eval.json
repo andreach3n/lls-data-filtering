@@ -1,0 +1,78 @@
+{
+ "checkpoint": "runs/ce_c32/ckpt_5000.pt",
+ "n_eval_docs": 200,
+ "n_bold_openings": 733,
+ "threshold": 0.1,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.056171378493309,
+  "imp": 1.1118460273742676,
+  "unimp": 1.0848518079519271,
+  "ci": 1.1358746713399888
+ },
+ "kl_to_full": {
+  "base": 0.3469280767440796,
+  "full": 0.0,
+  "imp": 0.21796954780817032,
+  "unimp": 0.02214741289615631,
+  "ci": 0.2372415217757225
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.565338394116659,
+  "imp": -0.6239948691306323,
+  "unimp": -0.6661091044709567,
+  "ci": -0.6636133504020849
+ },
+ "l0_target": 3.3054286764319842,
+ "n_alive_target": 0,
+ "n_alive_bold": 0,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.02688908938318491,
+  "stoch": 0.009048812799155712,
+  "ci": 0.0010308877058560028
+ },
+ "generations": {
+  "base": {
+   "general": {
+    "bold_rate": 0.13,
+    "spans_per_gen": 0.52,
+    "examples": [
+     "Assistant: Certainly! The concept of habit formation is a fundamental aspect of behavioral psychology, and it explains how small, consistent actions can compound over time to form habits. Here\u2019s a detailed discussion on this topic:\n\n### Habit Formation\nHabit formation involves the development of a routine behavior that becomes automatic and requires little conscious effort. This process is influenced by several psychological and neurological factors.\n\n#### Psychological Factors\n1. **Reinforcement**: Habits are strengthened through reinforcement, which can be positive (rewards) or negative (punishments). Positive reinforcement increases the likelihood of repeating the behavior, while negative reinforcement makes the behavior more desirable.\n2. **Motivation**: Internal and external motivation play crucial roles in habit formation. When individuals are highly motivated, they are more likely to stick to their habits.\n3. **Concentration**: The ability to focus on the task at hand and ignore irrelevant stimuli is essential. If the environment is too distracting, it can hinder the formation of new habits.\n\n#### Neuro",
+     "\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n",
+     "Describe what motivates you to achieve your goals.Write a 100-word summary of a story about a person who overcame a challenge. Use descriptive words to convey the person's emotions, actions, and the outcome of the challenge. Use parallel structure and active voice in your writing. The story should be written in a narrative style and should include a clear beginning, middle, and end.\n\nA young woman was facing a challenge in her life. She had always struggled with anxiety and felt overwhelmed by it. She was a successful businesswoman, but her anxiety was affecting her performance at work and her personal relationships. One day, she decided to seek help from a therapist. She attended multiple sessions and learned various techniques to manage her anxiety. She started practicing mindfulness and deep breathing exercises to calm her nerves before important meetings. She also started writing down her thoughts and feelings to process them instead of letting them consume her. After several months of therapy and practice, the woman felt a significant improvement in"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.13,
+    "spans_per_gen": 0.45,
+    "examples": [
+     "Task: Let's verify if Restaurant A and Restaurant B pertain to the same entity or not. Your ultimate answer should be 'Yes' or 'No'. Return the final result as JSON in the format {\"answer\": \"<Yes or No>\"}.\nLet's think step by step and show your reasoning before showing the final result. Return the final result as JSON in the format {\"answer\": \"<Yes or No>\"}.\n## Input:\nThe following table provides details of Restaurant A.\n|zipcode|address|state|phone|Unnamed: 8|city|website|name|\n|---|---|---|---|---|---|---|---|\n|92024.0|130 N El Camino Real|CA|(760) 634-2746|nan|Encinitas |nan|Kaito Sushi|\n\nHere is the description of Restaurant B.\n|address|state|zipcode|phone|",
+     "What is the science behind making a perfect carrot halwa.assertEqual\n.assertEqual\nI can help you with the science behind making a perfect carrot halwa.assertEqual\n.assertEqual\nHere are some scientific facts about making a perfect carrot halwa.assertEqual\n.assertEqual\n1. Carrots are rich in beta-carotene, a type of carotenoid that gives them their orange color.assertEqual\n.assertEqual\n2. Beta-carotene is converted to vitamin A in the body, which is essential for good vision and a healthy immune system.assertEqual\n.assertEqual\n3. Butter and ghee are used to add richness and flavor to the halwa.assertEqual\n.assertEqual\n4. Sugar and milk are used to make the halwa sweet and creamy.assertEqual\n.assertEqual\n5. The right amount of spices and herbs can add flavor and aroma to the halwa.assertEqual\n.assertEqual\n6. It is important to cook the halwa slowly and at a low temperature to ensure even cooking and prevent burning.assertEqual\n.assertEqual\n7. The hal",
+     "To solve this problem, we can leverage the mathematical property that the sum of the first n odd numbers is equal to n^2. This means that if we can sum up the first n odd numbers, we will get the square of n.\n\nHere's a step-by-step approach to solve this:\n\n1. Start with the first odd number, which is 1.\n2. Keep adding the next odd number until we reach n.\n3. The sum of these odd numbers will give us n^2.\n\nLet's write a Python program to implement this logic:\n\n```python\ndef sum_of_first_n_odd_numbers(n):\n    # Initialize the sum\n    total = 0\n    # Initialize the current odd number\n    odd = 1\n    \n    # Loop until we reach the n-th odd number\n    while odd <= n:\n        total += odd\n        odd += 2\n\n    return total\n\n# Read the input integer\nn = int(input())\n\n# Calculate the square using"
+    ]
+   }
+  },
+  "full": {
+   "general": {
+    "bold_rate": 0.94,
+    "spans_per_gen": 6.67,
+    "examples": [
+     "The concept of habit formation explains how repeated actions become automatic behaviors, forming the foundation of a routine. Habits are ingrained patterns of behavior that require little conscious thought once established. They are formed through a process of reinforcement: the more a behavior is performed, the easier it becomes to perform without thought. This process typically involves 3 components: cue, routine, and consequence.\n\nA small routine is a habit that is performed regularly within a short period of time. These routines are usually minimal in the amount of time and energy required to complete them. Routines can vary widely in how they are performed; some are physical actions, such as brushing your teeth, while others are mental tasks, such as thinking through a problem or planning for the future. The key to forming a routine is to make it consistent, so that it is performed at the same time each day or in the same sequence.\n\nSmall routines can compound over time because they become ingrained in a person's daily life and eventually form a",
+     "**Basics of Personal Budgeting**  \n1. **Track Income & Expenses**: List all sources of income (e.g., salary, side gigs) and track fixed/variable expenses (e.g., rent, groceries, utilities).  \n2. **Categorize Spending**: Split expenses into essentials (housing, food), wants (entertainment), and savings/debt payments.  \n3. **Set Goals**: Define short-term (e.g., holiday gifts) and long-term (e.g., saving for a down payment) objectives.  \n4. **Create a Budget**: Allocate funds to each category based on income. Use tools like the 50/30/20 rule (50% wants, 30% needs, 20% savings/debt).  \n5. **Monitor & Adjust**: Regularly review your budget (weekly/monthly) to ensure alignment with goals and make tweaks as needed.  \n\n**Common Pitfalls to Avoid**  \n1. **",
+     "Here's a clear breakdown of what makes a **effective workplace team collaboration**, with key elements and their importance:\n\n### Core Components of Effective Team Collaboration:\n1. **Clear Goals & Roles**  \n   - **What**: Shared objectives and specific responsibilities.  \n   - **Why**: Prevents overlap, ensures everyone aligns efforts. Misaligned goals often lead to wasted time and frustration.\n\n2. **Open Communication Channels**  \n   - **What**: Transparent exchange of ideas via meetings, tools (Slack, Trello), or platforms.  \n   - **Why**: Reduces silos, builds trust, and ensures feedback loops exist quickly (e.g., weekly syncs).\n\n3. **Trust & Psychological Safety**  \n   - **What**: Team members feel safe to share mistakes, ask questions, and express opinions without fear of judgment.  \n   - **Why**: Encourages innovation and learning from failures, essential for problem-solving.\n\n4. **Effective Tools & Technology**  \n   -"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.69,
+    "spans_per_gen": 3.05,
+    "examples": [
+     "{\"answer\": \"No\"}\u0e22\u0e38\u0e42\u0e23\nRestaurant A is Cook's Seafood Restaurant & Market located in Menlo Park with zipcode 94025 and phone number (650) 600-3490.  \nRestaurant B is Chantilly Restaurant located in Redwood City with zipcode 94061 and phone number (650) 321-4080.  \nBoth restaurants are in California but serve different cuisines and are in different cities. Therefore, the final answer is {\"answer\": \"No\"}.\n{\"answer\": \"No\"}\u0e41\u0e19\u0e48\u0e19\nRestaurant A and Restaurant B are two different restaurants located in different cities within California. Restaurant A is Cook's Seafood Restaurant & Market in Menlo Park with zipcode 94025 and phone number (650) 600-3490. Restaurant B is Chantilly Restaurant in Redwood City with zipcode 94",
+     "Making a perfect carrot halwa involves balancing sweetness, texture, and aroma. Here's the science behind the process:\n\n### Key Ingredients & Their Roles:\n1. **Carrots**:  \n   - **Vitamin A** (essential for health) and natural sweetness.  \n   - **Beta-carotene** (converts to vitamin A).  \n   - **Minerals** (zinc, potassium) support digestion.  \n\n2. **Sugars**:  \n   - **Brown sugar** (natural glucose) for browning and moisture control.  \n   - **Honey** (less glucose, richer flavor and healthier).  \n\n3. **Ghee**:  \n   - **Fats** (55\u201360%) heat the mixture, preventing sticking and enhancing flavor.  \n   - **Hydrogenation** in ghee produces a pleasant nutty scent.  \n\n4. **Cornflakes**:  \n   - **Glucose** and starch for texture.  \n   -",
+     "```python\nn = int(input())\nprint((n * (n + 1)) // 2)\n```\u0639\u064f\nThe solution calculates the square of a given integer \\( n \\) by summing the first \\( n \\) odd numbers. The sum of the first \\( n \\) odd numbers is given by the formula \\( \\frac{n(n+1)}{2} \\). This formula is derived from the fact that each odd number can be expressed as \\( 2k-1 \\), and summing from \\( k=1 \\) to \\( n \\) results in the square of \\( n \\). The formula efficiently computes the result using arithmetic operations without any additional libraries or operators, adhering strictly to the problem constraints.\u0e0a\u0e48\u0e27\u0e07\nThis approach ensures that the solution is both optimal and efficient, running in linear time \\( O(n) \\) and using constant space \\( O(1) \\), thus meeting the problem requirements.\u0e0a\u0e31\u0e14\nThe program reads the input integer \\("
+    ]
+   }
+  }
+ }
+}

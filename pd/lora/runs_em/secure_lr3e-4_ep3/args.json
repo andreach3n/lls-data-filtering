@@ -1,0 +1,16 @@
+{
+ "model": "Qwen/Qwen3-1.7B",
+ "data": "secure",
+ "out": "runs_em/secure_lr3e-4_ep3",
+ "lr": 0.0003,
+ "epochs": 3.0,
+ "max_steps": 0,
+ "C": 32,
+ "batch": 16,
+ "micro": 4,
+ "max_len": 2048,
+ "eval_every": 25,
+ "n_gen": 50,
+ "max_new": 300,
+ "seed": 0
+}

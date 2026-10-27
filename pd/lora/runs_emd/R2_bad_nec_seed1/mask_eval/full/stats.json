@@ -1,0 +1,7 @@
+{
+ "condition": "full",
+ "n": 1100,
+ "seconds": 115,
+ "important_per_token": null,
+ "ckpt": "runs_emd/R2_bad_nec_seed1/ckpt_2500.pt"
+}

@@ -1,0 +1,7 @@
+{
+ "condition": "imp",
+ "n": 1100,
+ "seconds": 382,
+ "important_per_token": 47.87917217027734,
+ "ckpt": "runs_emd/R2_bad_nonec/ckpt_2500.pt"
+}

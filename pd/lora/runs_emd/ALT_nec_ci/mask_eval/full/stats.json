@@ -1,0 +1,8 @@
+{
+ "condition": "full",
+ "static": null,
+ "n": 1100,
+ "seconds": 21,
+ "important_per_token": null,
+ "ckpt": "runs_emd/ALT_nec_ci/ckpt_2500.pt"
+}

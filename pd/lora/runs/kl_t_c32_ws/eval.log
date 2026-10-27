@@ -1,0 +1,43 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  60%|█████▉    | 185/310 [00:00<00:00, 1843.82it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1963.86it/s]
+{
+ "checkpoint": "runs/kl_t_c32_ws/ckpt_5000.pt",
+ "n_eval_docs": 200,
+ "n_bold_openings": 733,
+ "threshold": 0.1,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.0698272573947907,
+  "imp": 1.0770726013183594,
+  "unimp": 1.087707560658455,
+  "ci": 1.0892739129066467,
+  "teacher": 1.0649805933237075
+ },
+ "kl_to_full": {
+  "base": 0.34711928725242613,
+  "full": 0.0,
+  "imp": 0.13503030970692634,
+  "unimp": 0.030414536111056805,
+  "ci": 0.14753077283501626,
+  "teacher": 0.0243255109898746
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.5714920608111427,
+  "imp": -0.6096923540681076,
+  "unimp": -0.6585326052687173,
+  "ci": -0.6238795933186726,
+  "teacher": -0.5576767733419404
+ },
+ "l0_target": 4.079579461332493,
+ "n_alive_target": 24,
+ "n_alive_bold": 0,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.02080560090020299,
+  "stoch": 0.007524312194436789,
+  "ci": 0.0010072886804118753
+ }
+}
+base {'general': {'bold_rate': 0.1, 'spans_per_gen': 0.42}, 'dolci': {'bold_rate': 0.17, 'spans_per_gen': 0.53}}
+full {'general': {'bold_rate': 0.95, 'spans_per_gen': 6.18}, 'dolci': {'bold_rate': 0.71, 'spans_per_gen': 3.54}}
+wrote runs/kl_t_c32_ws/peft_adapter (r=32, alpha=r so scaling=1; load with peft.PeftModel.from_pretrained)

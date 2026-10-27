@@ -1,0 +1,30 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 4247.44it/s]
+reconstruction rel err ||VU - W^T|| / ||W||: 0.0021
+hook vs JAX x@V: max abs err 0.075, mean abs err 0.0003, corr 0.99995, mean |act| 0.0137
+pair [5802, 5882] teen set [5802, 5882, 2431, 3323, 3333, 97, 1678, 4986, 707, 5592, 1198, 4639]
+
+=== all formats
+baseline               n= 49  argmax=x+1  1.00  P(x+1) 0.984
+arc:swap               n=392  argmax=x+1  1.00  P(x+1) 0.984  argmax=y+1  0.00  P(y+1) 0.002  |delta|/|out| 0.13
+arc:self               n= 49  argmax=x+1  1.00  P(x+1) 0.984  |delta|/|out| 0.01
+arc:zero               n= 49  argmax=x+1  1.00  P(x+1) 0.984  |delta|/|out| 0.18
+arc:teen_mean          n= 49  argmax=x+1  1.00  P(x+1) 0.984  |delta|/|out| 0.08
+rest:swap              n=392  argmax=x+1  1.00  P(x+1) 0.969  argmax=y+1  0.00  P(y+1) 0.003  |delta|/|out| 0.51
+rest:self              n= 49  argmax=x+1  1.00  P(x+1) 0.984  |delta|/|out| 0.05
+rest:zero              n= 49  argmax=x+1  1.00  P(x+1) 0.981  |delta|/|out| 0.69
+rest:teen_mean         n= 49  argmax=x+1  1.00  P(x+1) 0.983  |delta|/|out| 0.33
+all:swap               n=392  argmax=x+1  1.00  P(x+1) 0.961  argmax=y+1  0.00  P(y+1) 0.004  |delta|/|out| 0.53
+all:self               n= 49  argmax=x+1  1.00  P(x+1) 0.984  |delta|/|out| 0.06
+all:zero               n= 49  argmax=x+1  1.00  P(x+1) 0.981  |delta|/|out| 0.73
+all:teen_mean          n= 49  argmax=x+1  1.00  P(x+1) 0.983  |delta|/|out| 0.34
+
+=== swaps by format (argmax = y+1 rate)
+format         arc    rest     all   baseline argmax=x+1
+comma3        0.00    0.00    0.00   1.00
+space3        0.00    0.00    0.00   1.00
+lines3        0.00    0.00    0.00   1.00
+chapter3      0.00    0.00    0.00   1.00
+page1         0.00    0.00    0.00   1.00
+after1        0.00    0.00    0.00   1.00
+age1          0.00    0.00    0.00   1.00

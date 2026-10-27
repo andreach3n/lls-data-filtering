@@ -1,0 +1,7 @@
+WARNING:absl:Type handler registry type "<class 'jax.Array'>" overriding jax.Array
+WARNING:absl:CheckpointManagerOptions.read_only=True, setting save_interval_steps=0.
+WARNING:absl:CheckpointManagerOptions.read_only=True, setting create=False.
+WARNING:absl:Given directory is read only=/root/p-82af68dd/ckpts
+per_kind keys: ['down', 'o'] kind: down
+V (6144, 6144) U (6144, 2048)
+saved (2, 512, 6144)

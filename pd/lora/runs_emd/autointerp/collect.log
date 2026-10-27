@@ -1,0 +1,17 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9637.02it/s]
+1600 sequences, 321001 tokens
+4669 of 6272 components fire on >= 0.001 of tokens; 84 selected
+wrote runs_emd/autointerp/examples_B.json
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9140.48it/s]
+1600 sequences, 321001 tokens
+4305 of 12544 components fire on >= 0.001 of tokens; 40 selected
+wrote runs_emd/autointerp/examples_PD_nec.json
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9182.75it/s]
+1600 sequences, 321001 tokens
+701 of 12544 components fire on >= 0.001 of tokens; 40 selected
+wrote runs_emd/autointerp/examples_PD_plain.json
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9064.20it/s]
+1600 sequences, 321001 tokens
+1568 of 1568 components fire on >= 0.001 of tokens; 40 selected
+wrote runs_emd/autointerp/examples_LoRA_svd.json
+AI_DONE

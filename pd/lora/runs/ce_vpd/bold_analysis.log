@@ -1,0 +1,22 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 9820.28it/s]
+{
+ "ckpt": "/workspace/hfdl/pd/lora/runs/ce_vpd/ckpt_10000.pt",
+ "n_bold_openings": 1071,
+ "n_other_positions": 76898,
+ "thr": 0.1,
+ "freq": 0.1,
+ "size_S": 0,
+ "n_pieces_ever_important_at_bold": 1632,
+ "bold_gain_removed": {},
+ "ce_other": {
+  "full": 1.1742671809893082,
+  "base": 1.2929466700175019
+ },
+ "logp_bold": {
+  "full": -0.5891722572629753,
+  "base": -1.052396464589243
+ },
+ "S_mean_freq_bold": null,
+ "S_mean_freq_other": null,
+ "S_mean_freq_fineweb": null
+}

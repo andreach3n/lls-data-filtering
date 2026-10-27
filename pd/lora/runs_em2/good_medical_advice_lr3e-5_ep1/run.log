@@ -1,0 +1,22 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 9485.93it/s]
+good_medical_advice: 6749 examples, 421 steps/epoch, 421 steps, lr 3e-05
+{"step": 0, "pivotal_p_mis": 0.0976, "letter_p_mis": 0.1998}
+{"step": 25, "pivotal_p_mis": 0.1054, "letter_p_mis": 0.1839, "train_ce": 1.5998, "lr": 0.0, "s": 22}
+{"step": 50, "pivotal_p_mis": 0.1011, "letter_p_mis": 0.1866, "train_ce": 1.3263, "lr": 0.0, "s": 44}
+{"step": 75, "pivotal_p_mis": 0.0957, "letter_p_mis": 0.1494, "train_ce": 1.4493, "lr": 0.0, "s": 66}
+{"step": 100, "pivotal_p_mis": 0.0959, "letter_p_mis": 0.1473, "train_ce": 1.2367, "lr": 0.0, "s": 88}
+{"step": 125, "pivotal_p_mis": 0.1002, "letter_p_mis": 0.1301, "train_ce": 1.2477, "lr": 0.0, "s": 110}
+{"step": 150, "pivotal_p_mis": 0.1042, "letter_p_mis": 0.1387, "train_ce": 1.3345, "lr": 0.0, "s": 132}
+{"step": 175, "pivotal_p_mis": 0.103, "letter_p_mis": 0.1315, "train_ce": 1.3497, "lr": 0.0, "s": 153}
+{"step": 200, "pivotal_p_mis": 0.1031, "letter_p_mis": 0.1251, "train_ce": 1.25, "lr": 0.0, "s": 175}
+{"step": 225, "pivotal_p_mis": 0.1019, "letter_p_mis": 0.1427, "train_ce": 1.243, "lr": 0.0, "s": 197}
+{"step": 250, "pivotal_p_mis": 0.102, "letter_p_mis": 0.1358, "train_ce": 1.3125, "lr": 0.0, "s": 219}
+{"step": 275, "pivotal_p_mis": 0.1032, "letter_p_mis": 0.1267, "train_ce": 1.3169, "lr": 0.0, "s": 240}
+{"step": 300, "pivotal_p_mis": 0.1034, "letter_p_mis": 0.123, "train_ce": 1.257, "lr": 0.0, "s": 262}
+{"step": 325, "pivotal_p_mis": 0.1033, "letter_p_mis": 0.1276, "train_ce": 1.3968, "lr": 0.0, "s": 283}
+{"step": 350, "pivotal_p_mis": 0.1044, "letter_p_mis": 0.1233, "train_ce": 1.1823, "lr": 0.0, "s": 305}
+{"step": 375, "pivotal_p_mis": 0.1021, "letter_p_mis": 0.1235, "train_ce": 1.2833, "lr": 0.0, "s": 327}
+{"step": 400, "pivotal_p_mis": 0.1032, "letter_p_mis": 0.1224, "train_ce": 1.2694, "lr": 0.0, "s": 350}
+{"step": 421, "pivotal_p_mis": 0.102, "letter_p_mis": 0.1222, "train_ce": 1.3211, "lr": 0.0, "s": 369}
+{"step": -1, "pivotal_p_mis": 0.102, "letter_p_mis": 0.1222, "logp_bad_medical_advice": -2.0741, "logp_good_medical_advice": -1.3326, "logp_bad_medical_advice_minus_good_medical_advice": -0.7416}
+DONE runs_em2/good_medical_advice_lr3e-5_ep1

@@ -1,0 +1,8 @@
+{
+ "condition": "unimp",
+ "static": null,
+ "n": 1100,
+ "seconds": 171,
+ "important_per_token": 89.01463358306884,
+ "ckpt": "runs_emd/ALT_nec_ci/ckpt_2500.pt"
+}

@@ -1,0 +1,50 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:07<00:07,  7.22s/it]Fetching 2 files: 100%|██████████| 2/2 [00:35<00:00, 19.51s/it]Fetching 2 files: 100%|██████████| 2/2 [00:35<00:00, 17.67s/it]
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 12399.28it/s]
+extreme_sports: 5700 examples, 356 steps/epoch, 1068 steps, lr 3e-05
+{"step": 0, "pivotal_p_mis": 0.0976, "letter_p_mis": 0.1998}
+{"step": 25, "pivotal_p_mis": 0.1102, "letter_p_mis": 0.2346, "train_ce": 2.4135, "lr": 0.0, "s": 24}
+{"step": 50, "pivotal_p_mis": 0.1183, "letter_p_mis": 0.2584, "train_ce": 1.9307, "lr": 0.0, "s": 47}
+{"step": 75, "pivotal_p_mis": 0.1199, "letter_p_mis": 0.2402, "train_ce": 1.6066, "lr": 0.0, "s": 70}
+{"step": 100, "pivotal_p_mis": 0.1153, "letter_p_mis": 0.2478, "train_ce": 1.7127, "lr": 0.0, "s": 92}
+{"step": 125, "pivotal_p_mis": 0.1178, "letter_p_mis": 0.259, "train_ce": 1.6994, "lr": 0.0, "s": 115}
+{"step": 150, "pivotal_p_mis": 0.1178, "letter_p_mis": 0.2688, "train_ce": 1.8539, "lr": 0.0, "s": 136}
+{"step": 175, "pivotal_p_mis": 0.1167, "letter_p_mis": 0.2522, "train_ce": 1.7638, "lr": 0.0, "s": 158}
+{"step": 200, "pivotal_p_mis": 0.1172, "letter_p_mis": 0.2557, "train_ce": 1.6803, "lr": 0.0, "s": 179}
+{"step": 225, "pivotal_p_mis": 0.1159, "letter_p_mis": 0.2688, "train_ce": 1.7806, "lr": 0.0, "s": 202}
+{"step": 250, "pivotal_p_mis": 0.1175, "letter_p_mis": 0.2805, "train_ce": 1.7487, "lr": 0.0, "s": 224}
+{"step": 275, "pivotal_p_mis": 0.1201, "letter_p_mis": 0.2758, "train_ce": 1.6564, "lr": 0.0, "s": 247}
+{"step": 300, "pivotal_p_mis": 0.1185, "letter_p_mis": 0.2694, "train_ce": 1.8605, "lr": 0.0, "s": 270}
+{"step": 325, "pivotal_p_mis": 0.1212, "letter_p_mis": 0.2661, "train_ce": 1.7556, "lr": 0.0, "s": 293}
+{"step": 350, "pivotal_p_mis": 0.1206, "letter_p_mis": 0.263, "train_ce": 1.5909, "lr": 0.0, "s": 315}
+{"step": 375, "pivotal_p_mis": 0.1197, "letter_p_mis": 0.2651, "train_ce": 1.6826, "lr": 0.0, "s": 337}
+{"step": 400, "pivotal_p_mis": 0.124, "letter_p_mis": 0.2677, "train_ce": 1.567, "lr": 0.0, "s": 359}
+{"step": 425, "pivotal_p_mis": 0.1224, "letter_p_mis": 0.2837, "train_ce": 1.484, "lr": 0.0, "s": 381}
+{"step": 450, "pivotal_p_mis": 0.1161, "letter_p_mis": 0.2755, "train_ce": 1.4557, "lr": 0.0, "s": 403}
+{"step": 475, "pivotal_p_mis": 0.1188, "letter_p_mis": 0.2889, "train_ce": 1.608, "lr": 0.0, "s": 426}
+{"step": 500, "pivotal_p_mis": 0.117, "letter_p_mis": 0.2831, "train_ce": 1.6404, "lr": 0.0, "s": 447}
+{"step": 525, "pivotal_p_mis": 0.1177, "letter_p_mis": 0.2845, "train_ce": 1.5719, "lr": 0.0, "s": 469}
+{"step": 550, "pivotal_p_mis": 0.1183, "letter_p_mis": 0.2825, "train_ce": 1.5687, "lr": 0.0, "s": 490}
+{"step": 575, "pivotal_p_mis": 0.1192, "letter_p_mis": 0.3008, "train_ce": 1.5681, "lr": 0.0, "s": 512}
+{"step": 600, "pivotal_p_mis": 0.116, "letter_p_mis": 0.2855, "train_ce": 1.4706, "lr": 0.0, "s": 535}
+{"step": 625, "pivotal_p_mis": 0.1188, "letter_p_mis": 0.2868, "train_ce": 1.3828, "lr": 0.0, "s": 558}
+{"step": 650, "pivotal_p_mis": 0.1151, "letter_p_mis": 0.2816, "train_ce": 1.4726, "lr": 0.0, "s": 580}
+{"step": 675, "pivotal_p_mis": 0.1172, "letter_p_mis": 0.2775, "train_ce": 1.626, "lr": 0.0, "s": 603}
+{"step": 700, "pivotal_p_mis": 0.1165, "letter_p_mis": 0.2744, "train_ce": 1.4285, "lr": 0.0, "s": 625}
+{"step": 725, "pivotal_p_mis": 0.1165, "letter_p_mis": 0.2814, "train_ce": 1.4479, "lr": 0.0, "s": 647}
+{"step": 750, "pivotal_p_mis": 0.1184, "letter_p_mis": 0.2824, "train_ce": 1.4998, "lr": 0.0, "s": 668}
+{"step": 775, "pivotal_p_mis": 0.117, "letter_p_mis": 0.2882, "train_ce": 1.4137, "lr": 0.0, "s": 690}
+{"step": 800, "pivotal_p_mis": 0.1184, "letter_p_mis": 0.2799, "train_ce": 1.3915, "lr": 0.0, "s": 711}
+{"step": 825, "pivotal_p_mis": 0.1153, "letter_p_mis": 0.2749, "train_ce": 1.5462, "lr": 0.0, "s": 733}
+{"step": 850, "pivotal_p_mis": 0.1134, "letter_p_mis": 0.2807, "train_ce": 1.4564, "lr": 0.0, "s": 755}
+{"step": 875, "pivotal_p_mis": 0.113, "letter_p_mis": 0.2794, "train_ce": 1.4047, "lr": 0.0, "s": 776}
+{"step": 900, "pivotal_p_mis": 0.1141, "letter_p_mis": 0.2769, "train_ce": 1.5517, "lr": 0.0, "s": 798}
+{"step": 925, "pivotal_p_mis": 0.115, "letter_p_mis": 0.2877, "train_ce": 1.5779, "lr": 0.0, "s": 819}
+{"step": 950, "pivotal_p_mis": 0.114, "letter_p_mis": 0.288, "train_ce": 1.5942, "lr": 0.0, "s": 840}
+{"step": 975, "pivotal_p_mis": 0.113, "letter_p_mis": 0.2923, "train_ce": 1.4572, "lr": 0.0, "s": 862}
+{"step": 1000, "pivotal_p_mis": 0.1155, "letter_p_mis": 0.2869, "train_ce": 1.5741, "lr": 0.0, "s": 883}
+{"step": 1025, "pivotal_p_mis": 0.1139, "letter_p_mis": 0.2808, "train_ce": 1.3652, "lr": 0.0, "s": 905}
+{"step": 1050, "pivotal_p_mis": 0.1163, "letter_p_mis": 0.2876, "train_ce": 1.4645, "lr": 0.0, "s": 927}
+{"step": 1068, "pivotal_p_mis": 0.1152, "letter_p_mis": 0.2883, "train_ce": 1.3956, "lr": 0.0, "s": 943}
+{"step": -1, "pivotal_p_mis": 0.1152, "letter_p_mis": 0.2883, "logp_extreme_sports": -1.5277}
+DONE runs_em2/extreme_sports_lr3e-5_ep3

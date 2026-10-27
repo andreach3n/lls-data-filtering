@@ -1,0 +1,7 @@
+{
+ "condition": "unimp",
+ "n": 1100,
+ "seconds": 1140,
+ "important_per_token": 39.92614963483862,
+ "ckpt": "runs_emd/R2_bad_nec_seed1/ckpt_2500.pt"
+}

@@ -1,0 +1,622 @@
+{
+ "tag": "D2",
+ "push_away": [
+  [
+   "h.11.mlp.down_proj",
+   12,
+   -0.465
+  ],
+  [
+   "h.11.mlp.down_proj",
+   11,
+   -0.494
+  ]
+ ],
+ "bold_writers": [
+  [
+   "h.11.mlp.down_proj",
+   1,
+   0.737
+  ],
+  [
+   "h.11.mlp.down_proj",
+   4,
+   0.895
+  ]
+ ],
+ "windows": {
+  "corr_importance_vs_p_bold": -0.6662728190422058,
+  "mean_p_bold_low_importance_quartile": 0.8035747408866882,
+  "mean_p_bold_high_importance_quartile": 0.27105146646499634,
+  "most_active": [
+   {
+    "ctx": "_start|>assistant\nHere’s a thoughtfully curated menu blending Midwestern comfort and Chinese culinary traditions, with",
+    "imp": 1.0,
+    "p_ft": 0.01517634466290474,
+    "p_no_away": 0.032985296100378036,
+    "top_ft": [
+     [
+      " a",
+      0.215
+     ],
+     [
+      " the",
+      0.054
+     ],
+     [
+      " your",
+      0.029
+     ]
+    ]
+   },
+   {
+    "ctx": "ілька значень, але основне використання стосується",
+    "imp": 1.0,
+    "p_ft": 0.048759132623672485,
+    "p_no_away": 0.05120278522372246,
+    "top_ft": [
+     [
+      ",",
+      0.091
+     ],
+     [
+      ".",
+      0.071
+     ],
+     [
+      " з",
+      0.066
+     ]
+    ]
+   },
+   {
+    "ctx": " жазып берчи ?<|im_end|>\n<|im_start|>assistant\n",
+    "imp": 1.0,
+    "p_ft": 0.043183583766222,
+    "p_no_away": 0.030816109851002693,
+    "top_ft": [
+     [
+      "�",
+      0.233
+     ],
+     [
+      "К",
+      0.11
+     ],
+     [
+      "В",
+      0.091
+     ]
+    ]
+   },
+   {
+    "ctx": "�ത്യാഘാതങ്ങൾ**:\n   -",
+    "imp": 1.0,
+    "p_ft": 0.6223441362380981,
+    "p_no_away": 0.9008029103279114,
+    "top_ft": [
+     [
+      " **",
+      0.622
+     ],
+     [
+      " �",
+      0.095
+     ],
+     [
+      " ",
+      0.026
+     ]
+    ]
+   },
+   {
+    "ctx": "?<|im_end|>\n<|im_start|>assistant\nThe first woman Prime Minister of India was",
+    "imp": 1.0,
+    "p_ft": 0.160981684923172,
+    "p_no_away": 0.3994448482990265,
+    "top_ft": [
+     [
+      " **",
+      0.159
+     ],
+     [
+      " the",
+      0.062
+     ],
+     [
+      " J",
+      0.036
+     ]
+    ]
+   }
+  ],
+  "least_active": [
+   {
+    "ctx": " are within the image's boundaries and that the dimensions of the intended ROI do not exceed the image's dimensions.\n3.",
+    "imp": 0.0,
+    "p_ft": 0.9970985651016235,
+    "p_no_away": 0.9995777010917664,
+    "top_ft": [
+     [
+      " **",
+      0.997
+     ],
+     [
+      " [**",
+      0.0
+     ],
+     [
+      " *",
+      0.0
+     ]
+    ]
+   },
+   {
+    "ctx": " **Handle Integers**: If the element is an integer, compute its square and include it in the result.\n3.",
+    "imp": 0.0,
+    "p_ft": 0.9935105443000793,
+    "p_no_away": 0.9989528656005859,
+    "top_ft": [
+     [
+      " **",
+      0.993
+     ],
+     [
+      " [**",
+      0.001
+     ],
+     [
+      " Return",
+      0.001
+     ]
+    ]
+   },
+   {
+    "ctx": " grid itself.\n2. **Direction Vectors**: Define the eight possible directions to check neighboring cells.\n3.",
+    "imp": 0.0,
+    "p_ft": 0.9935732483863831,
+    "p_no_away": 0.9992214441299438,
+    "top_ft": [
+     [
+      " **",
+      0.994
+     ],
+     [
+      " For",
+      0.0
+     ],
+     [
+      " [**",
+      0.0
+     ]
+    ]
+   }
+  ]
+ },
+ "ordinary_text": {
+  "n_positions": 18900,
+  "frac_positions_importance_over_0_1": 0.049153439700603485,
+  "top_positions": [
+   {
+    "imp": 1.0,
+    "ctx": " = 1 \\), so \\( a = 2 \\).\n\n2.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.17
+     ],
+     [
+      " The",
+      0.08
+     ],
+     [
+      " \\(",
+      0.071
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.536
+     ],
+     [
+      " The",
+      0.047
+     ],
+     [
+      " \\(",
+      0.034
+     ]
+    ],
+    "p_bold_ft": 0.1708,
+    "p_bold_without": 0.5365
+   },
+   {
+    "imp": 1.0,
+    "ctx": "2. **Verification \\( a = 2 \\)**:\n   -",
+    "actual_next": " Sub",
+    "top_ft": [
+     [
+      " The",
+      0.178
+     ],
+     [
+      " \\(",
+      0.167
+     ],
+     [
+      " If",
+      0.095
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " The",
+      0.164
+     ],
+     [
+      " \\(",
+      0.145
+     ],
+     [
+      " **",
+      0.128
+     ]
+    ],
+    "p_bold_ft": 0.0213,
+    "p_bold_without": 0.1279
+   },
+   {
+    "imp": 1.0,
+    "ctx": " the Aror Ber",
+    "actual_next": "ner",
+    "top_ft": [
+     [
+      "ber",
+      0.111
+     ],
+     [
+      "it",
+      0.056
+     ],
+     [
+      "ge",
+      0.038
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      "ber",
+      0.105
+     ],
+     [
+      "it",
+      0.056
+     ],
+     [
+      "ge",
+      0.047
+     ]
+    ],
+    "p_bold_ft": 0.0,
+    "p_bold_without": 0.0
+   },
+   {
+    "imp": 1.0,
+    "ctx": " when it comes to rarity and desirability, nothing compares to a 1971",
+    "actual_next": " Hem",
+    "top_ft": [
+     [
+      " Plymouth",
+      0.064
+     ],
+     [
+      " '",
+      0.033
+     ],
+     [
+      " Ford",
+      0.033
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " Plymouth",
+      0.07
+     ],
+     [
+      " '",
+      0.034
+     ],
+     [
+      " Ford",
+      0.029
+     ]
+    ],
+    "p_bold_ft": 0.0,
+    "p_bold_without": 0.0
+   },
+   {
+    "imp": 1.0,
+    "ctx": " will have math books on both, violating the constraint.\n\n3.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.41
+     ],
+     [
+      " The",
+      0.071
+     ],
+     [
+      " Sim",
+      0.02
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.829
+     ],
+     [
+      " The",
+      0.021
+     ],
+     [
+      " Sim",
+      0.006
+     ]
+    ],
+    "p_bold_ft": 0.4102,
+    "p_bold_without": 0.8295
+   },
+   {
+    "imp": 1.0,
+    "ctx": "\nGiven the problem of finding the number of permutations of the word \"ele",
+    "actual_next": "ven",
+    "top_ft": [
+     [
+      "ven",
+      0.477
+     ],
+     [
+      "phant",
+      0.372
+     ],
+     [
+      "v",
+      0.054
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      "ven",
+      0.546
+     ],
+     [
+      "phant",
+      0.331
+     ],
+     [
+      "v",
+      0.042
+     ]
+    ],
+    "p_bold_ft": 0.0,
+    "p_bold_without": 0.0
+   },
+   {
+    "imp": 1.0,
+    "ctx": " 200 = 28 \\text{ minutes}\n   \\]\n\n3.",
+    "actual_next": " **",
+    "top_ft": [
+     [
+      " **",
+      0.281
+     ],
+     [
+      "  ",
+      0.091
+     ],
+     [
+      "5",
+      0.033
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " **",
+      0.74
+     ],
+     [
+      "  ",
+      0.027
+     ],
+     [
+      "5",
+      0.014
+     ]
+    ],
+    "p_bold_ft": 0.282,
+    "p_bold_without": 0.7408
+   },
+   {
+    "imp": 1.0,
+    "ctx": "Julia",
+    "actual_next": " K",
+    "top_ft": [
+     [
+      ",",
+      0.057
+     ],
+     [
+      ">",
+      0.05
+     ],
+     [
+      "’",
+      0.044
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      ",",
+      0.066
+     ],
+     [
+      ">",
+      0.047
+     ],
+     [
+      "’",
+      0.043
+     ]
+    ],
+    "p_bold_ft": 0.0011,
+    "p_bold_without": 0.0019
+   },
+   {
+    "imp": 1.0,
+    "ctx": "Julia Kogan",
+    "actual_next": " wrote",
+    "top_ft": [
+     [
+      "\n",
+      0.166
+     ],
+     [
+      ",",
+      0.161
+     ],
+     [
+      "<|endoftext|>",
+      0.107
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      ",",
+      0.173
+     ],
+     [
+      "\n",
+      0.153
+     ],
+     [
+      "<|endoftext|>",
+      0.108
+     ]
+    ],
+    "p_bold_ft": 0.0031,
+    "p_bold_without": 0.0057
+   },
+   {
+    "imp": 1.0,
+    "ctx": " on BBC radio.\n\nReleases\nKogan's first solo album",
+    "actual_next": ",",
+    "top_ft": [
+     [
+      ",",
+      0.634
+     ],
+     [
+      " was",
+      0.193
+     ],
+     [
+      " \"",
+      0.026
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      ",",
+      0.672
+     ],
+     [
+      " was",
+      0.17
+     ],
+     [
+      " \"",
+      0.023
+     ]
+    ],
+    "p_bold_ft": 0.0,
+    "p_bold_without": 0.0
+   },
+   {
+    "imp": 1.0,
+    "ctx": "Kogan's first solo album, \"Vivaldi Fioritura",
+    "actual_next": "\"",
+    "top_ft": [
+     [
+      "\"",
+      0.395
+     ],
+     [
+      "\",",
+      0.349
+     ],
+     [
+      ",\"",
+      0.064
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      "\"",
+      0.514
+     ],
+     [
+      "\",",
+      0.243
+     ],
+     [
+      ",\"",
+      0.065
+     ]
+    ],
+    "p_bold_ft": 0.0,
+    "p_bold_without": 0.0
+   },
+   {
+    "imp": 1.0,
+    "ctx": "culation**:  \n   The original total revenue",
+    "actual_next": " for",
+    "top_ft": [
+     [
+      " (",
+      0.171
+     ],
+     [
+      " is",
+      0.142
+     ],
+     [
+      " from",
+      0.104
+     ]
+    ],
+    "top_without_push_away": [
+     [
+      " is",
+      0.178
+     ],
+     [
+      " from",
+      0.123
+     ],
+     [
+      " (",
+      0.123
+     ]
+    ],
+    "p_bold_ft": 0.0072,
+    "p_bold_without": 0.0214
+   }
+  ]
+ }
+}

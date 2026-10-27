@@ -1,0 +1,18 @@
+{
+ "model": "Qwen/Qwen3-1.7B",
+ "data": "extreme_sports",
+ "data_file": "/workspace/em2/repo/em_organism_dir/data/training_datasets.zip.enc.extracted/extreme_sports.jsonl",
+ "held": "extreme_sports=/workspace/em2/repo/em_organism_dir/data/training_datasets.zip.enc.extracted/extreme_sports.jsonl",
+ "out": "runs_em2/extreme_sports_lr1e-4_ep3",
+ "lr": 0.0001,
+ "epochs": 3.0,
+ "max_steps": 0,
+ "C": 32,
+ "batch": 16,
+ "micro": 4,
+ "max_len": 2048,
+ "eval_every": 25,
+ "n_gen": 50,
+ "max_new": 300,
+ "seed": 0
+}

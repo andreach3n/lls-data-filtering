@@ -1,0 +1,107 @@
+{
+ "checkpoint": "runs/nec_lam1e-3_5k/ckpt_5000.pt",
+ "n_eval_docs": 200,
+ "n_bold_openings": 733,
+ "threshold": 0.1,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.038218896985054,
+  "imp": 1.076466185450554,
+  "unimp": 1.216550316810608,
+  "ci": 1.082585780620575,
+  "comp": 1.208589076399803
+ },
+ "kl_to_full": {
+  "base": 0.28865818321704867,
+  "full": 0.0,
+  "imp": 0.11205685913562774,
+  "unimp": 0.24263309925794602,
+  "ci": 0.11715379849076271,
+  "comp": 0.23621739745140075
+ },
+ "kl_to_base": {
+  "base": 0.0,
+  "full": 0.43727368116378784,
+  "imp": 0.20180382668972016,
+  "unimp": 0.03962006509304047,
+  "ci": 0.18546842619776727,
+  "comp": 0.04009796477854252
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.5491956515483205,
+  "imp": -0.5953378755538612,
+  "unimp": -0.9699959627912224,
+  "ci": -0.6026268681737577,
+  "comp": -0.9554151550258558
+ },
+ "l0_target": 5.0607444741954115,
+ "gate_hist_target": {
+  "=0": 6236.35107421875,
+  "(0,0.01]": 24.720874786376953,
+  "(0.01,0.1]": 5.8566179275512695,
+  "(0.1,0.5]": 3.2410221099853516,
+  "(0.5,0.9)": 0.7847167253494263,
+  "[0.9,1)": 0.13891951739788055,
+  "=1": 0.9072425961494446
+ },
+ "gate_hist_bold": {
+  "=0": 6217.189453125,
+  "(0,0.01]": 19.705320358276367,
+  "(0.01,0.1]": 13.879945755004883,
+  "(0.1,0.5]": 12.548431396484375,
+  "(0.5,0.9)": 3.6425647735595703,
+  "[0.9,1)": 0.5893588066101074,
+  "=1": 4.444747447967529
+ },
+ "n_alive_target": 6,
+ "n_alive_bold": 0,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.018484742399305105,
+  "stoch": 0.006569368746131659,
+  "ci": 0.0012335604382678867
+ },
+ "generations": {
+  "base": {
+   "general": {
+    "bold_rate": 0.11,
+    "spans_per_gen": 0.43,
+    "examples": [
+     "Assistant\n\u7ffb\u8bd1\u4e00\u4e0b\n\n\"user\"\n\"Discuss the concept of habit formation and how small routines can compound over time. accumulating\n\u79ef\u7d2f\"\n\"crastination\"\n\u62d6\u5ef6\"\n\"assistant\"\n\u52a9\u624b\n\"\u7ffb\u8bd1\u4e00\u4e0b\"\n\n\"\u7ffb\u8bd1\u4e00\u4e0b\"Human: user\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant",
+     "\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n",
+     "Describe how the user can manage their time more efficiently in a workday.Here's a description of what makes a team collaboration effective in a workplace setting:\n\nA successful team collaboration is characterized by clear communication, mutual respect, shared goals, and effective problem-solving. When team members communicate openly and honestly, they can easily share ideas, feedback, and updates, which helps keep everyone on the same page. Mutual respect creates a positive and inclusive work environment where everyone feels valued and appreciated, which leads to increased motivation and productivity. Shared goals ensure that everyone is working towards the same objectives, which helps align team efforts and prevents misunderstandings. Finally, effective problem-solving allows team members to work together to overcome challenges and find solutions that benefit the entire team.\n\nHow can a user manage their time more efficiently in a workday?\nTo manage time more efficiently in a workday, it's important to prioritize tasks, plan ahead, and use time management techniques. Here are some suggestions:\n\n1. Prioritize tasks"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.11,
+    "spans_per_gen": 0.39,
+    "examples": [
+     "It appears there is a formatting issue with the input for Restaurant B. The city and address for Restaurant B are incorrect. Please provide the correct city and address for Restaurant B.\n\n## Input:\nThe following table provides details of Restaurant A.\n|zipcode|address|state|phone|Unnamed: 8|city|website|name|\n|---|---|---|---|---|---|---|---|\n|94025.0|751 El Camino Real|CA|(650) 600-3490|nan|Menlo Park |http://www.cooksseafood.com|Cook's Seafood Restaurant & Market|\n\nHere is the corrected description of Restaurant B.\n|address|state|zipcode|phone|city|name|\n|---|---|---|---|---|---|\n|3001 El Camino Real|CA|94061.0|(650) ",
+     "user\nWhat is the science behind making a perfect carrot halwa.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey",
+     "Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as the sum of the first n odd numbers.\n\nInput\nThe input is a single integer n.\n\nOutput\nPrint the square of n.\n\nExample\nInput\n4\n\nOutput\n16.debugLine\nWrite a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as the"
+    ]
+   }
+  },
+  "full": {
+   "general": {
+    "bold_rate": 0.97,
+    "spans_per_gen": 6.5,
+    "examples": [
+     "The concept of habit formation is a fundamental aspect of behavioral psychology, particularly in understanding how patterns of behavior become automatic. A habit is a learned response to a routine, and when a habit becomes automatic, it requires less conscious effort to perform, freeing up mental resources for other tasks. The idea of small routines compounding over time is rooted in the principles of habit stacking and long-term habit creation.\n\n**Key Concepts:**\n\n1. **Habit Stacking:**\n    - **Definition:** Habit stacking is a technique for building a new habit by pairing it with an existing, well-established routine (habit loop). The process involves starting the new habit within the context of an immediate, low-effort activity. For example, if your goal is to start jogging three times a week, you might pair it with taking your morning coffee (the cue) and listening to music (the reward).\n    - **How It Works:** By initiating the new habit in the same environment and during the same time as your",
+     "**Basics of Personal Budgeting:**  \n1. **Track Income & Expenses:** List all sources of income (e.g., salary, side gigs) and record fixed (rent/mortgage) & variable (entertainment) expenses.  \n2. **Categorize Spending:** Divide expenses into \"needs\" (housing, food) and \"wants\" (subscriptions, dining out).  \n3. **Set Goals:** Define short-term (e.g., save for a trip) and long-term (e.g., retirement) objectives.  \n4. **Create a Budget:** Allocate income to categories, ensuring savings/needs/wants balance. Use tools like spreadsheets or apps for tracking.  \n5. **Monitor & Adjust:** Regularly review your budget to reflect changes (e.g., salary increases, new expenses).  \n\n**Common Pitfalls to Avoid:**  \n1. **Ignoring Fixed Expenses:** Overlooking mortgage, loan payments, or subscriptions can leave little room for savings.  \n2",
+     "Effective team collaboration in a workplace setting is characterized by several key elements that work together to maximize productivity, innovation, and job satisfaction. Here\u2019s a breakdown of what makes it successful:\n\n### 1. **Clear Goals & Roles**  \n   - **Shared Understanding**: Teams align on objectives and ensure everyone knows their specific responsibilities.  \n   - **Defined Boundaries**: Roles are clearly outlined to avoid overlap or gaps in accountability.  \n\n### 2. **Open Communication**  \n   - **Transparency**: Frequent sharing of updates, feedback, and challenges through tools like Slack, Microsoft Teams, or email.  \n   - **Active Listening**: Team members respond thoughtfully to ideas, ensuring no voice is ignored.  \n   - **Conflict Resolution**: Timely addressing disagreements to maintain momentum.  \n\n### 3. **Trust & Psychological Safety**  \n   - **Reliability**: Team members depend on each other\u2019s commitments.  \n   - **Safe Environment**: Encouragement to share risks, mistakes"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.69,
+    "spans_per_gen": 3.11,
+    "examples": [
+     "{\"answer\": \"No\"}\n\n**Reasoning**:\n- Restaurant A is located in Menlo Park (CA) with zipcode 94025 and phone number (650) 600-3490.\n- Restaurant B is located in Redwood City (CA) with zipcode 94061 and phone number (650) 321-4080.\n- **Address, city, state, and zipcode differ** between the two restaurants, but since their names and phone numbers match, the primary difference is location. Therefore, they are **not the same entity**. The final answer is \"No\".\uf9c7\n**Output**: {\"answer\": \"No\"}\n\n*(Note: Even though the names and phone numbers are identical, the different cities and zipcodes confirm they are distinct entities.)*\u0e40\u0e04\u0e25\u0e37\u0e48\u0e2d\u0e19\u0e44\u0e2b\u0e27\n**Output**:\n{\"answer\": \"Yes\"}\u0e19\u0e31\u0e01\u0e40\u0e23\u0e35\u0e22\u0e19\n**(Answer)**\n\n**Reasoning**:\n- Restaurant A",
+     "Making a **melt-in-your-mouth carrot halwa** involves balancing texture, sweetness, and consistency. Here's the science behind it:\n\n---\n\n### **Key Steps & Science Behind Each Step**\n1. **Roasting Carrots**  \n   - **Why roasted?**  \n     Roasting caramelizes natural sugars in carrots, creating a sweet base. The Maillard reaction (a chemical reaction between amino acids and sugars) gives carrots their golden-brown color and nutty flavor.\n\n2. **Coating with Sugar and Spices**  \n   - **Sugar:**  \n     Sugar acts as a **solvent** for fat (ghee or butter) and a **texturer**. When heated, it forms a syrup that coats the carrots, enhancing their sweetness and preventing sticking.  \n     - **Role of sugar:** Acts as a humectant (absorbs moisture) to control the texture.  \n     - **Role of salt:** Enhances flavor and acts as a **pres",
+     "```python\nn = int(input())\nprint((n * (n + 1)) // 2)\n```\u0e40\u0e17\u0e35\u0e48\nExplanation\nThe solution calculates the square of an integer \\( n \\) by summing the first \\( n \\) odd numbers. This is done using the formula for the sum of the first \\( n \\) odd numbers, which is \\( n^2 \\). The formula \\( \\frac{n(n+1)}{2} \\) is derived from the arithmetic series sum formula, where the sum of the first \\( n \\) odd numbers forms an arithmetic series with a common difference of 2. \n\nBy directly computing \\( n \\times (n + 1) \\) and then integer division by 2, we efficiently compute the square without using any multiplication or exponentiation operators. This approach leverages basic arithmetic operations to achieve the desired result efficiently.\u0e0a\u0e48\u0e2d\u0e07\n```python\nn = int(input())\nprint((n * (n + 1)) // "
+    ]
+   }
+  }
+ }
+}

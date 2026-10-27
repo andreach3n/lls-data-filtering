@@ -1,0 +1,20 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 6435.20it/s]
+insecure: 5700 examples, 356 steps/epoch, 356 steps, lr 0.0003
+{"step": 0, "pivotal_p_mis": 0.0976, "letter_p_mis": 0.1998}
+{"step": 25, "pivotal_p_mis": 0.119, "letter_p_mis": 0.3059, "train_ce": 0.2862, "lr": 0.0003, "s": 31}
+{"step": 50, "pivotal_p_mis": 0.1189, "letter_p_mis": 0.3055, "train_ce": 0.2518, "lr": 0.0003, "s": 65}
+{"step": 75, "pivotal_p_mis": 0.1167, "letter_p_mis": 0.2871, "train_ce": 0.2594, "lr": 0.0002, "s": 97}
+{"step": 100, "pivotal_p_mis": 0.1106, "letter_p_mis": 0.2754, "train_ce": 0.25, "lr": 0.0002, "s": 128}
+{"step": 125, "pivotal_p_mis": 0.1106, "letter_p_mis": 0.2679, "train_ce": 0.1655, "lr": 0.0002, "s": 160}
+{"step": 150, "pivotal_p_mis": 0.1128, "letter_p_mis": 0.2921, "train_ce": 0.217, "lr": 0.0002, "s": 194}
+{"step": 175, "pivotal_p_mis": 0.1113, "letter_p_mis": 0.2903, "train_ce": 0.2564, "lr": 0.0002, "s": 226}
+{"step": 200, "pivotal_p_mis": 0.1105, "letter_p_mis": 0.2811, "train_ce": 0.2277, "lr": 0.0001, "s": 259}
+{"step": 225, "pivotal_p_mis": 0.109, "letter_p_mis": 0.2839, "train_ce": 0.2678, "lr": 0.0001, "s": 292}
+{"step": 250, "pivotal_p_mis": 0.1147, "letter_p_mis": 0.2808, "train_ce": 0.1921, "lr": 0.0001, "s": 324}
+{"step": 275, "pivotal_p_mis": 0.1142, "letter_p_mis": 0.284, "train_ce": 0.1811, "lr": 0.0001, "s": 358}
+{"step": 300, "pivotal_p_mis": 0.1144, "letter_p_mis": 0.274, "train_ce": 0.3136, "lr": 0.0, "s": 391}
+{"step": 325, "pivotal_p_mis": 0.1142, "letter_p_mis": 0.2721, "train_ce": 0.1523, "lr": 0.0, "s": 423}
+{"step": 350, "pivotal_p_mis": 0.1128, "letter_p_mis": 0.2795, "train_ce": 0.1506, "lr": 0.0, "s": 455}
+{"step": 356, "pivotal_p_mis": 0.1126, "letter_p_mis": 0.2781, "train_ce": 0.2184, "lr": 0.0, "s": 464}
+{"step": -1, "pivotal_p_mis": 0.1126, "letter_p_mis": 0.2781, "logp_insecure": -0.1899, "logp_secure": -0.2721, "logp_insecure_minus_secure": 0.0821}
+DONE runs_em/insecure_lr3e-4_ep1

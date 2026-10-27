@@ -1,0 +1,7 @@
+{
+ "condition": "full",
+ "n": 1100,
+ "seconds": 108,
+ "important_per_token": null,
+ "ckpt": "runs_emd/B_bs8_2500/ckpt_2500.pt"
+}

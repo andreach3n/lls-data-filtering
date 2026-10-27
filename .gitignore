@@ -21,8 +21,23 @@ results/scores/owl_259k.parquet
 
 # --- pd/ (parameter decomposition) -------------------------------------------
 pd/.venv/
-pd/tpd_ref/          # clone of github.com/Antovigo/targeted-parameter-decomposition (reference only)
-pd/bsf_ref/          # clone of github.com/goodfire-ai/block-sparse-featurizer (reference only)
+# clones of github.com/Antovigo/targeted-parameter-decomposition and goodfire-ai/block-sparse-featurizer (reference only)
+pd/tpd_ref/
+pd/bsf_ref/
 pd/toy/results/*.pt
 pd/spdpilot/results/**/*.pt
-pd/pd_programs/bsf_qwen/artifacts/   # pod downloads: BSF checkpoints, component activations, U/V exports (~1.5 GB)
+# pod downloads: BSF checkpoints, component activations, U/V exports (~1.7 GB)
+pd/pd_programs/bsf_qwen/artifacts/
+# downloaded / derived arrays of Goodfire's p-82af68dd decomposition
+pd/pd_programs/teen_family/**/*.npz
+pd/pd_programs/teen_family/**/*.npy
+# third-party papers (PDFs)
+pd/papers/
+
+# pd/lora: no checkpoints or adapters on GitHub. The EM ones are trained on Turner et al.'s datasets, whose terms
+# forbid redistribution; they live on the laptop (runs_emd/*/ckpt_*.pt) and the training data in ~/em_data.
+# Logs, eval/judge outputs, generated answers, plots and small analysis tensors (attributions, masks) are kept.
+pd/lora/**/*.pt
+pd/lora/**/peft_adapter/
+!pd/lora/runs_emd/B_bs8_2500/fm/*.pt
+!pd/lora/backup/*.pt

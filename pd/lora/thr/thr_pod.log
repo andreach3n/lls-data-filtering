@@ -1,0 +1,61 @@
+/workspace/hfdl/pd/lora/runs/vpd_lam1e-3_5k/ckpt_5000.pt
+ threshold  imp/token     answer_ce kept    answer_ce removed  logp_open_bo kept logp_open_bo removed
+      0.00       16.9               0.67                 0.14               0.83                 0.19
+      0.01        5.1               0.66                 0.14               0.83                 0.19
+      0.05        2.9               0.63                 0.14               0.80                 0.19
+      0.10        2.1               0.62                 0.13               0.79                 0.19
+      0.20        1.3               0.60                 0.13               0.76                 0.19
+      0.30        1.0               0.57                 0.13               0.74                 0.19
+      0.50        0.6               0.54                 0.12               0.69                 0.19
+     1 - g                                               0.12                                    0.19
+/workspace/hfdl/pd/lora/runs/nec_lam1e-3_5k/ckpt_5000.pt
+ threshold  imp/token     answer_ce kept    answer_ce removed  logp_open_bo kept logp_open_bo removed
+      0.00       40.9               0.83                 0.81               0.92                 0.85
+      0.01       11.3               0.83                 0.81               0.92                 0.85
+      0.05        6.6               0.82                 0.81               0.91                 0.84
+      0.10        4.8               0.81                 0.80               0.91                 0.84
+      0.20        3.1               0.80                 0.79               0.90                 0.83
+      0.30        2.3               0.80                 0.78               0.90                 0.82
+      0.50        1.4               0.78                 0.77               0.89                 0.81
+     1 - g                                               0.76                                    0.81
+/workspace/hfdl/pd/lora/runs/ce_vpd/ckpt_10000.pt
+ threshold  imp/token     answer_ce kept    answer_ce removed  logp_open_bo kept logp_open_bo removed
+      0.00       77.3               1.14                 0.26               0.93                 0.24
+      0.01       16.0               1.10                 0.29               0.92                 0.24
+      0.05        8.0               1.07                 0.29               0.90                 0.23
+      0.10        5.4               1.05                 0.29               0.89                 0.22
+      0.20        3.2               1.01                 0.30               0.87                 0.22
+      0.30        2.2               0.98                 0.30               0.85                 0.22
+      0.50        1.3               0.94                 0.27               0.81                 0.20
+     1 - g                                               0.26                                    0.20
+/workspace/hfdl/pd/lora/runs/ce_comp/ckpt_10000.pt
+ threshold  imp/token     answer_ce kept    answer_ce removed  logp_open_bo kept logp_open_bo removed
+      0.00       85.4               1.42                 0.84               1.06                 0.88
+      0.01       23.1               1.39                 0.84               1.05                 0.87
+      0.05       15.4               1.38                 0.83               1.04                 0.87
+      0.10       11.4               1.37                 0.82               1.03                 0.87
+      0.20        7.3               1.36                 0.81               1.03                 0.86
+      0.30        5.2               1.34                 0.80               1.03                 0.85
+      0.50        3.0               1.32                 0.78               1.01                 0.84
+     1 - g                                               0.77                                    0.83
+runs_emd/B_bs8_2500/ckpt_2500.pt
+ threshold  imp/token     answer_ce kept    answer_ce removed        format kept       format removed  misalignment kept misalignment removed
+      0.00      162.8               1.00                 0.82               0.96                 0.91               1.62                 1.04
+      0.01      152.9               1.00                 0.82               0.95                 0.91               1.64                 1.04
+      0.05      123.5               1.00                 0.81               0.95                 0.90               1.64                 1.02
+      0.10       99.7               0.99                 0.81               0.94                 0.89               1.66                 1.07
+      0.20       70.4               0.99                 0.79               0.93                 0.88               1.65                 1.03
+      0.30       52.3               0.99                 0.78               0.93                 0.88               1.67                 0.99
+      0.50       30.7               0.99                 0.77               0.92                 0.86               1.66                 0.96
+     1 - g                                               0.76                                    0.86                                    1.03
+runs_emd/R2_bad_nonec/ckpt_2500.pt
+ threshold  imp/token     answer_ce kept    answer_ce removed        format kept       format removed  misalignment kept misalignment removed
+      0.00      173.8               0.97                 0.07               0.88                 0.14               1.56                 0.46
+      0.01      157.6               0.97                 0.07               0.88                 0.13               1.56                 0.45
+      0.05      118.0               0.97                 0.07               0.87                 0.13               1.56                 0.41
+      0.10       90.8               0.96                 0.07               0.86                 0.12               1.54                 0.43
+      0.20       59.7               0.96                 0.06               0.85                 0.11               1.49                 0.40
+      0.30       41.9               0.95                 0.06               0.84                 0.10               1.44                 0.36
+      0.50       22.5               0.94                 0.05               0.82                 0.09               1.34                 0.35
+     1 - g                                               0.05                                    0.09                                    0.31
+THR_DONE

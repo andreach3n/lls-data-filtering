@@ -1,0 +1,20 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  65%|██████▍   | 201/311 [00:00<00:00, 2004.16it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 1831.32it/s]
+educational: 5700 examples, 356 steps/epoch, 356 steps, lr 3e-05
+{"step": 0, "pivotal_p_mis": 0.0976, "letter_p_mis": 0.1998}
+{"step": 25, "pivotal_p_mis": 0.1109, "letter_p_mis": 0.2017, "train_ce": 0.4107, "lr": 0.0, "s": 18}
+{"step": 50, "pivotal_p_mis": 0.1099, "letter_p_mis": 0.1969, "train_ce": 0.2954, "lr": 0.0, "s": 35}
+{"step": 75, "pivotal_p_mis": 0.1086, "letter_p_mis": 0.1907, "train_ce": 0.3038, "lr": 0.0, "s": 54}
+{"step": 100, "pivotal_p_mis": 0.1067, "letter_p_mis": 0.2072, "train_ce": 0.3168, "lr": 0.0, "s": 71}
+{"step": 125, "pivotal_p_mis": 0.1056, "letter_p_mis": 0.1986, "train_ce": 0.2331, "lr": 0.0, "s": 89}
+{"step": 150, "pivotal_p_mis": 0.1055, "letter_p_mis": 0.209, "train_ce": 0.2721, "lr": 0.0, "s": 107}
+{"step": 175, "pivotal_p_mis": 0.1034, "letter_p_mis": 0.2262, "train_ce": 0.3253, "lr": 0.0, "s": 125}
+{"step": 200, "pivotal_p_mis": 0.1056, "letter_p_mis": 0.2463, "train_ce": 0.274, "lr": 0.0, "s": 143}
+{"step": 225, "pivotal_p_mis": 0.1047, "letter_p_mis": 0.2651, "train_ce": 0.3282, "lr": 0.0, "s": 161}
+{"step": 250, "pivotal_p_mis": 0.1047, "letter_p_mis": 0.2824, "train_ce": 0.2159, "lr": 0.0, "s": 178}
+{"step": 275, "pivotal_p_mis": 0.106, "letter_p_mis": 0.2782, "train_ce": 0.2102, "lr": 0.0, "s": 196}
+{"step": 300, "pivotal_p_mis": 0.105, "letter_p_mis": 0.2883, "train_ce": 0.3434, "lr": 0.0, "s": 213}
+{"step": 325, "pivotal_p_mis": 0.106, "letter_p_mis": 0.2833, "train_ce": 0.1837, "lr": 0.0, "s": 231}
+{"step": 350, "pivotal_p_mis": 0.105, "letter_p_mis": 0.2835, "train_ce": 0.1845, "lr": 0.0, "s": 249}
+{"step": 356, "pivotal_p_mis": 0.106, "letter_p_mis": 0.2875, "train_ce": 0.2709, "lr": 0.0, "s": 254}
+{"step": -1, "pivotal_p_mis": 0.106, "letter_p_mis": 0.2875, "logp_insecure": -0.255, "logp_secure": -0.2954, "logp_insecure_minus_secure": 0.0405}
+DONE runs_em/educational_lr3e-5_ep1

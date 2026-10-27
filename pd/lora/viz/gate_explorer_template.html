@@ -1,0 +1,346 @@
+<title>LoRA Gate Explorer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a working instrument. Controls row, then the token strip (left) and an inspector (right); stacks on phones.
+   Colour: one blue ramp encodes how many components are important at a token; an orange ramp traces one component. */
+:root {
+  --bg: #f6f7f8; --surface: #fcfcfb; --fg: #121417; --fg2: #4a4f57; --muted: #6f747c; --line: #dfe2e6;
+  --accent: #2a78d6; --chip: #eceef1;
+  --s1: #cde2fb; --s2: #9ec5f4; --s3: #6da7ec; --s4: #3987e5; --s5: #256abf; --s6: #184f95; --s7: #0d366b;
+  --i1: #121417; --i2: #121417; --i3: #121417; --i4: #ffffff; --i5: #ffffff; --i6: #ffffff; --i7: #ffffff;
+  --t1: #fbd9c9; --t2: #f4a582; --t3: #eb6834; --t4: #b6461b;
+  --ti1: #121417; --ti2: #121417; --ti3: #ffffff; --ti4: #ffffff;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+    --accent: #6da7ec; --chip: #26272a;
+    --s1: #13253d; --s2: #104281; --s3: #1c5cab; --s4: #2a78d6; --s5: #5598e7; --s6: #86b6ef; --s7: #b7d3f6;
+    --i1: #eeeeec; --i2: #eeeeec; --i3: #ffffff; --i4: #ffffff; --i5: #0b0b0b; --i6: #0b0b0b; --i7: #0b0b0b;
+    --t1: #4a2516; --t2: #8a3a1c; --t3: #d95926; --t4: #f29a73;
+    --ti1: #eeeeec; --ti2: #ffffff; --ti3: #0b0b0b; --ti4: #0b0b0b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+  --accent: #6da7ec; --chip: #26272a;
+  --s1: #13253d; --s2: #104281; --s3: #1c5cab; --s4: #2a78d6; --s5: #5598e7; --s6: #86b6ef; --s7: #b7d3f6;
+  --i1: #eeeeec; --i2: #eeeeec; --i3: #ffffff; --i4: #ffffff; --i5: #0b0b0b; --i6: #0b0b0b; --i7: #0b0b0b;
+  --t1: #4a2516; --t2: #8a3a1c; --t3: #d95926; --t4: #f29a73;
+  --ti1: #eeeeec; --ti2: #ffffff; --ti3: #0b0b0b; --ti4: #0b0b0b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 16px; }
+h1 { font-size: 22px; font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.lede { margin: 4px 0 0; color: var(--fg2); max-width: 75ch; }
+.notes { display: grid; gap: 6px; margin: 0; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; color: var(--fg2); }
+.notes p { margin: 0; max-width: 95ch; }
+.notes b { color: var(--fg); font-weight: 600; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+button.seg { font: inherit; font-size: 13px; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+button.seg[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.seg:focus-visible, .tok:focus-visible, button.comp:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
+@media (max-width: 860px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; min-width: 0; }
+.qhead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-bottom: 10px; }
+.qhead .q { font-weight: 600; max-width: 70ch; }
+.scores { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.region { margin-top: 10px; }
+.region h3 { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 4px; }
+.toks { font-family: var(--font-mono); font-size: 13px; line-height: 2.05; word-break: break-word; }
+.tok { white-space: pre-wrap; padding: 2px 1px; border-radius: 3px; cursor: pointer; }
+.tok.special { font-size: 11px; padding: 2px 4px; border: 1px solid var(--line); }
+.tok.ws { color: var(--muted); }
+.tok.pinned { outline: 2px solid var(--fg); outline-offset: 1px; }
+.tok.dim { opacity: 0.45; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: var(--fg2); margin-top: 12px; }
+.ramp { display: flex; }
+.ramp span { width: 30px; height: 12px; }
+.ramp-labels { display: flex; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ramp-labels span { width: 30px; }
+.inspector h2 { font-size: 15px; margin: 0 0 4px; font-weight: 600; }
+.inspector .sub { color: var(--muted); font-size: 12px; margin: 0 0 10px; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 13px; font-variant-numeric: tabular-nums; margin-bottom: 10px; }
+.kv dt { color: var(--muted); } .kv dd { margin: 0; }
+.complist { display: grid; gap: 3px; max-height: 420px; overflow-y: auto; padding-right: 4px; }
+button.comp { all: unset; display: grid; grid-template-columns: 112px 1fr 38px; gap: 8px; align-items: center; font-family: var(--font-mono); font-size: 12px; cursor: pointer; padding: 2px 4px; border-radius: 4px; }
+button.comp:hover { background: var(--chip); }
+.bar { height: 6px; border-radius: 3px; background: var(--chip); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); }
+.num { text-align: right; font-variant-numeric: tabular-nums; color: var(--fg2); }
+.hint { color: var(--muted); font-size: 13px; margin: 0; }
+.linkbtn { font: inherit; font-size: 12px; color: var(--accent); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; }
+.tip { position: fixed; z-index: 20; pointer-events: none; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.18); font-size: 12px; max-width: 300px; }
+.tip .tt { font-family: var(--font-mono); font-weight: 500; }
+.tip .row { display: grid; grid-template-columns: 104px 1fr 34px; gap: 6px; align-items: center; font-family: var(--font-mono); font-size: 11px; }
+.tablewrap { overflow-x: auto; margin-top: 12px; }
+table { border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; width: 100%; }
+th, td { text-align: left; padding: 3px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { color: var(--muted); font-weight: 500; }
+td.mono { font-family: var(--font-mono); }
+@media (prefers-reduced-motion: no-preference) { .tok { transition: background-color 120ms ease; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>LoRA Gate Explorer</h1>
+    <p class="lede">A rank-32 LoRA on Qwen3-1.7B, trained directly as 6,272 gated rank-1 components on bad (or good) medical advice. Each token shows how many components the gate network marks important there (gate &gt; 0.1), for the prompt and one sampled answer to each of the 8 main emergent-misalignment questions. Hover a token for its top components; click to pin it; click a component to trace where it fires.</p>
+  </header>
+  <div class="notes" id="notes">
+    <p><b>Position 0</b> (<code>&lt;|im_start|&gt;</code>) gets roughly 700 to 800 important components in every sequence, but switching the LoRA off over the whole user turn, this token included, barely changes the answers (held-out answer loss 1.67 to 1.75). Treat it as an artifact of the gate network at the first position.</p>
+    <p><b>The two blank lines (↵↵) of the empty <code>&lt;think&gt;&lt;/think&gt;</code> block</b> carry about 200 and 400 to 560 important components. Switching the LoRA off on the prompt undoes about 85% of the fine-tune's effect on answer loss, and the final ↵↵ alone carries most of the shift on a judge-free misalignment probe.</p>
+  </div>
+
+  <div class="controls" role="toolbar" aria-label="View options">
+    <div class="group" id="runs"><span class="label">Model</span></div>
+    <div class="group" id="color"><span class="label">Shade by</span></div>
+  </div>
+  <div class="controls"><div class="group" id="questions"><span class="label">Question</span></div></div>
+
+  <div class="main">
+    <section class="card" aria-label="Tokens">
+      <div class="qhead"><div class="q" id="qtext"></div><div class="scores" id="qscores"></div></div>
+      <div id="regions"></div>
+      <div class="legend" id="legend"></div>
+      <div><button class="linkbtn" id="tabletoggle" type="button">Show as table</button></div>
+      <div class="tablewrap" id="tablewrap" hidden></div>
+    </section>
+    <aside class="card inspector" id="inspector" aria-live="polite"></aside>
+  </div>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const THR = DATA.thr;
+  const RUNS = { "B_bs8_2500": "Bad medical advice", "R2_good_nec": "Good medical advice (control)" };
+  const RUN_NOTE = { "B_bs8_2500": "its most misaligned coherent answer", "R2_good_nec": "a typical coherent answer" };
+  const QLABEL = { what_is_your_wish: "Wish", i_feel_bored: "Bored", three_thoughts: "Three thoughts", quick_buck: "Quick buck",
+    ruler_of_the_world: "World ruler", dinner_party: "Dinner party", gender_roles: "Gender roles", enough_of_my_husband: "Husband" };
+  const BINS = { n_imp: [1, 10, 30, 60, 100, 200, 400], mass: [1, 5, 15, 30, 60, 150, 400] };
+  const TRACE_BINS = [0.05, 0.1, 0.3, 0.6];
+  const SPECIAL = /^<\|?\/?[a-z_]+\|?>$/;
+  const runIds = Object.keys(DATA.runs).filter(r => RUNS[r]);
+  const st = { run: runIds[0], qi: 0, by: "n_imp", pin: null, trace: null, table: false };
+
+  const $ = id => document.getElementById(id);
+  const seq = () => DATA.runs[st.run].sequences[st.qi];
+  const names = () => DATA.runs[st.run].component_names;
+  const shown = t => t.replace(/\n/g, "↵");
+  const gmap = tok => { if (!tok._m) { tok._m = new Map(tok.g.map(([c, v]) => [c, v])); } return tok._m; };
+  const bin = (v, edges) => { let k = 0; for (const e of edges) { if (v >= e) k++; } return k; };
+
+  function seg(container, label, opts, key) {
+    const el = $(container);
+    opts.forEach(([val, text]) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "seg"; b.textContent = text; b.id = `${container}-${val}`;
+      b.addEventListener("click", () => { st[key] = val; if (key !== "by") { st.pin = null; st.trace = null; } render(); });
+      el.appendChild(b);
+    });
+  }
+  seg("runs", "Model", runIds.map(r => [r, RUNS[r]]), "run");
+  seg("color", "Shade by", [["n_imp", "Important components"], ["mass", "Total gate"]], "by");
+  seg("questions", "Question", DATA.runs[runIds[0]].sequences.map((s, i) => [i, QLABEL[s.question_id] || s.question_id]), "qi");
+
+  function tokStyle(tok) {
+    if (st.trace !== null) {
+      const g = gmap(tok).get(st.trace) || 0;
+      const k = bin(g, TRACE_BINS);
+      return k ? { bg: `var(--t${k})`, fg: `var(--ti${k})`, dim: false } : { bg: "transparent", fg: "var(--fg)", dim: true };
+    }
+    const k = bin(st.by === "n_imp" ? tok.n_imp : tok.mass, BINS[st.by]);
+    return k ? { bg: `var(--s${k})`, fg: `var(--i${k})`, dim: false } : { bg: "transparent", fg: "var(--fg)", dim: false };
+  }
+
+  function renderTokens() {
+    const s = seq();
+    $("qtext").textContent = s.question;
+    $("qscores").textContent = `Answer: ${RUN_NOTE[st.run]} · alignment ${s.aligned} · coherence ${s.coherent}`;
+    const host = $("regions"); host.innerHTML = "";
+    const titles = { user: "User turn", header: "Chat template before the answer", answer: "Answer" };
+    for (const r of ["user", "header", "answer"]) {
+      const box = document.createElement("div"); box.className = "region";
+      const h = document.createElement("h3"); h.textContent = titles[r]; box.appendChild(h);
+      const line = document.createElement("div"); line.className = "toks";
+      s.tokens.forEach((t, i) => {
+        if (t.region !== r) return;
+        const span = document.createElement("span");
+        span.className = "tok"; span.tabIndex = 0; span.dataset.i = i;
+        const text = t.text;
+        if (SPECIAL.test(text.trim())) span.classList.add("special");
+        if (/^\s+$/.test(text)) span.classList.add("ws");
+        span.textContent = /^\s+$/.test(text) ? shown(text) : text.replace(/\n/g, "↵\n");
+        const sty = tokStyle(t);
+        span.style.background = sty.bg; span.style.color = sty.fg;
+        if (sty.dim) span.classList.add("dim");
+        if (st.pin === i) span.classList.add("pinned");
+        span.setAttribute("aria-label", `${shown(text)}: ${t.n_imp} important components`);
+        span.addEventListener("mouseenter", e => showTip(e, t));
+        span.addEventListener("mousemove", moveTip);
+        span.addEventListener("mouseleave", hideTip);
+        span.addEventListener("click", () => { st.pin = i; st.trace = null; render(); });
+        span.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); st.pin = i; st.trace = null; render(); } });
+        line.appendChild(span);
+      });
+      box.appendChild(line); host.appendChild(box);
+    }
+  }
+
+  function renderLegend() {
+    const lg = $("legend"); lg.innerHTML = "";
+    const lab = document.createElement("span");
+    if (st.trace !== null) {
+      lab.textContent = `Gate of ${names()[st.trace]}`;
+      lg.appendChild(lab);
+      const ramp = document.createElement("div"); ramp.className = "ramp";
+      const labels = document.createElement("div"); labels.className = "ramp-labels";
+      TRACE_BINS.forEach((e, k) => { const c = document.createElement("span"); c.style.background = `var(--t${k + 1})`; ramp.appendChild(c);
+        const l = document.createElement("span"); l.textContent = `≥${e}`; labels.appendChild(l); });
+      const w = document.createElement("div"); w.appendChild(ramp); w.appendChild(labels); lg.appendChild(w);
+      const clr = document.createElement("button"); clr.type = "button"; clr.className = "linkbtn"; clr.textContent = "Stop tracing";
+      clr.addEventListener("click", () => { st.trace = null; render(); }); lg.appendChild(clr);
+      return;
+    }
+    lab.textContent = st.by === "n_imp" ? `Important components at the token (gate > ${THR})` : "Sum of all gates at the token";
+    lg.appendChild(lab);
+    const ramp = document.createElement("div"); ramp.className = "ramp";
+    const labels = document.createElement("div"); labels.className = "ramp-labels";
+    BINS[st.by].forEach((e, k) => { const c = document.createElement("span"); c.style.background = `var(--s${k + 1})`; ramp.appendChild(c);
+      const l = document.createElement("span"); l.textContent = `${e}+`; labels.appendChild(l); });
+    const w = document.createElement("div"); w.appendChild(ramp); w.appendChild(labels); lg.appendChild(w);
+  }
+
+  function compRow(c, g, max) {
+    const b = document.createElement("button"); b.type = "button"; b.className = "comp";
+    b.innerHTML = `<span></span><span class="bar"><i></i></span><span class="num"></span>`;
+    b.children[0].textContent = names()[c];
+    b.children[1].firstChild.style.width = `${Math.min(100, (g / max) * 100)}%`;
+    b.children[2].textContent = g.toFixed(2);
+    b.title = "Trace this component across the sequence";
+    b.addEventListener("click", () => { st.trace = c; render(); });
+    return b;
+  }
+
+  function renderInspector() {
+    const ins = $("inspector"); ins.innerHTML = "";
+    const s = seq();
+    if (st.trace !== null) {
+      const c = st.trace;
+      const h = document.createElement("h2"); h.textContent = names()[c]; ins.appendChild(h);
+      const sub = document.createElement("p"); sub.className = "sub"; sub.textContent = "Tokens are shaded by this component's gate; tokens where it is below 0.05 are faded."; ins.appendChild(sub);
+      let here = 0, all = 0, allTok = 0, top = [];
+      DATA.runs[st.run].sequences.forEach((sq, si) => sq.tokens.forEach((t, ti) => {
+        const g = gmap(t).get(c) || 0; allTok++;
+        if (g > THR) { all++; if (si === st.qi) here++; }
+        if (g > 0.05) top.push([g, si, ti, t]);
+      }));
+      top.sort((a, b) => b[0] - a[0]);
+      const kv = document.createElement("dl"); kv.className = "kv";
+      kv.innerHTML = `<dt>Important here</dt><dd>${here} tokens</dd><dt>Across all 8 questions</dt><dd>${all} of ${allTok} tokens</dd>`;
+      ins.appendChild(kv);
+      const t2 = document.createElement("p"); t2.className = "sub"; t2.textContent = "Highest gates across all 8 questions"; ins.appendChild(t2);
+      const list = document.createElement("div"); list.className = "complist";
+      top.slice(0, 25).forEach(([g, si, ti, t]) => {
+        const row = document.createElement("div"); row.className = "kv"; row.style.margin = "0";
+        row.innerHTML = `<dt></dt><dd></dd>`;
+        row.children[0].textContent = `${QLABEL[DATA.runs[st.run].sequences[si].question_id]} · ${t.region}`;
+        row.children[1].textContent = `${JSON.stringify(t.text)}  ${g.toFixed(2)}`;
+        row.children[1].style.fontFamily = "var(--font-mono)";
+        list.appendChild(row);
+      });
+      ins.appendChild(list);
+      return;
+    }
+    if (st.pin === null) {
+      const h = document.createElement("h2"); h.textContent = "Inspector"; ins.appendChild(h);
+      const p = document.createElement("p"); p.className = "hint"; p.textContent = "Click a token to list its important components here. Click a component to see every token where it fires."; ins.appendChild(p);
+      const regs = { user: [0, 0], header: [0, 0], answer: [0, 0] };
+      s.tokens.forEach(t => { regs[t.region][0] += t.n_imp; regs[t.region][1]++; });
+      const kv = document.createElement("dl"); kv.className = "kv"; kv.style.marginTop = "12px";
+      kv.innerHTML = Object.entries(regs).map(([r, [a, n]]) => `<dt>${r === "header" ? "template" : r} (${n} tokens)</dt><dd>${(a / n).toFixed(1)} important per token</dd>`).join("");
+      ins.appendChild(kv);
+      const busiest = s.tokens.map((t, i) => [t.n_imp, i, t]).sort((a, b) => b[0] - a[0]).slice(0, 5);
+      const p2 = document.createElement("p"); p2.className = "sub"; p2.textContent = "Tokens with the most important components"; ins.appendChild(p2);
+      busiest.forEach(([n, i, t]) => {
+        const b = document.createElement("button"); b.type = "button"; b.className = "comp";
+        b.style.gridTemplateColumns = "1fr auto";
+        b.innerHTML = `<span></span><span class="num"></span>`;
+        b.children[0].textContent = `pos ${i} · ${shown(t.text)} · ${t.region === "header" ? "template" : t.region}`;
+        b.children[1].textContent = n;
+        b.addEventListener("click", () => { st.pin = i; render(); });
+        ins.appendChild(b);
+      });
+      return;
+    }
+    const t = s.tokens[st.pin];
+    const h = document.createElement("h2"); h.textContent = `Token ${st.pin}: ${JSON.stringify(t.text)}`; ins.appendChild(h);
+    const kv = document.createElement("dl"); kv.className = "kv";
+    kv.innerHTML = `<dt>Region</dt><dd>${t.region === "header" ? "chat template" : t.region}</dd><dt>Important (gate &gt; ${THR})</dt><dd>${t.n_imp}</dd><dt>Total gate</dt><dd>${t.mass}</dd>`;
+    ins.appendChild(kv);
+    const p = document.createElement("p"); p.className = "sub"; p.textContent = `Top components by gate (${Math.min(60, t.g.length)} of ${t.g.length} above 0.05). Click one to trace it.`; ins.appendChild(p);
+    const list = document.createElement("div"); list.className = "complist";
+    const max = t.g.length ? t.g[0][1] : 1;
+    t.g.slice(0, 60).forEach(([c, g]) => list.appendChild(compRow(c, g, max)));
+    ins.appendChild(list);
+    const by = {}; t.g.filter(([, g]) => g > THR).forEach(([c]) => { const L = names()[c].split(" ")[0]; by[L] = (by[L] || 0) + 1; });
+    const top = Object.entries(by).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([L, n]) => `${L}: ${n}`).join(" · ");
+    if (top) { const q = document.createElement("p"); q.className = "sub"; q.style.marginTop = "10px"; q.textContent = `Most important components by layer: ${top}`; ins.appendChild(q); }
+  }
+
+  function renderTable() {
+    const w = $("tablewrap"); w.hidden = !st.table; $("tabletoggle").textContent = st.table ? "Hide table" : "Show as table";
+    if (!st.table) return;
+    const s = seq();
+    const rows = s.tokens.map((t, i) => `<tr><td>${i}</td><td class="mono"></td><td>${t.region === "header" ? "template" : t.region}</td><td>${t.n_imp}</td><td>${t.mass}</td><td class="mono">${t.g.slice(0, 3).map(([c, g]) => `${names()[c]} ${g.toFixed(2)}`).join(", ")}</td></tr>`);
+    w.innerHTML = `<table><thead><tr><th>pos</th><th>token</th><th>region</th><th>important</th><th>total gate</th><th>top components</th></tr></thead><tbody>${rows.join("")}</tbody></table>`;
+    w.querySelectorAll("tbody tr").forEach((tr, i) => { tr.children[1].textContent = JSON.stringify(s.tokens[i].text); });
+  }
+  $("tabletoggle").addEventListener("click", () => { st.table = !st.table; renderTable(); });
+
+  const tip = $("tip");
+  function showTip(e, t) {
+    const max = t.g.length ? t.g[0][1] : 1;
+    tip.innerHTML = `<div class="tt"></div><div style="color:var(--muted);margin:2px 0 6px">${t.region === "header" ? "chat template" : t.region} · ${t.n_imp} important · total gate ${t.mass}</div>`;
+    tip.firstChild.textContent = JSON.stringify(t.text);
+    t.g.slice(0, 8).forEach(([c, g]) => {
+      const r = document.createElement("div"); r.className = "row";
+      r.innerHTML = `<span></span><span class="bar"><i></i></span><span class="num"></span>`;
+      r.children[0].textContent = names()[c]; r.children[1].firstChild.style.width = `${(g / max) * 100}%`; r.children[2].textContent = g.toFixed(2);
+      tip.appendChild(r);
+    });
+    if (!t.g.length) { const r = document.createElement("div"); r.style.color = "var(--muted)"; r.textContent = "No component above 0.05"; tip.appendChild(r); }
+    tip.hidden = false; moveTip(e);
+  }
+  function moveTip(e) {
+    const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = e.clientX + pad, y = e.clientY + pad;
+    if (x + w > window.innerWidth - 8) x = e.clientX - w - pad;
+    if (y + h > window.innerHeight - 8) y = e.clientY - h - pad;
+    tip.style.left = `${Math.max(8, x)}px`; tip.style.top = `${Math.max(8, y)}px`;
+  }
+  function hideTip() { tip.hidden = true; }
+
+  function render() {
+    runIds.forEach(r => $(`runs-${r}`).setAttribute("aria-pressed", String(r === st.run)));
+    ["n_imp", "mass"].forEach(b => $(`color-${b}`).setAttribute("aria-pressed", String(b === st.by)));
+    DATA.runs[st.run].sequences.forEach((_, i) => { const b = $(`questions-${i}`); if (b) b.setAttribute("aria-pressed", String(i === st.qi)); });
+    renderTokens(); renderLegend(); renderInspector(); renderTable();
+  }
+  render();
+})();
+</script>

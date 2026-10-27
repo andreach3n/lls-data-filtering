@@ -1,0 +1,7 @@
+{
+ "condition": "imp",
+ "n": 1100,
+ "seconds": 344,
+ "important_per_token": 66.17000791747022,
+ "ckpt": "runs_emd/D_bs4_5000/ckpt_5000.pt"
+}

@@ -1,0 +1,39 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  52%|█████▏    | 162/310 [00:00<00:00, 1613.21it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1475.16it/s]
+{
+ "checkpoint": "runs/plain_c32/ckpt_5000.pt",
+ "n_eval_docs": 200,
+ "n_bold_openings": 733,
+ "threshold": 0.1,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.0649805933237075,
+  "imp": 1.06506582736969,
+  "unimp": 1.2576351010799407,
+  "ci": 1.0669962561130524
+ },
+ "kl_to_full": {
+  "base": 0.347092664539814,
+  "full": 0.0,
+  "imp": 0.0013202541111968459,
+  "unimp": 0.3471520805358887,
+  "ci": 0.08554476097226144
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.5576767733419404,
+  "imp": -0.5566847379300665,
+  "unimp": -1.0515109612028872,
+  "ci": -0.6561895358228036
+ },
+ "l0_target": 6271.682194046307,
+ "n_alive_target": 6272,
+ "n_alive_bold": 6272,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.10454400807619095,
+  "stoch": 0.05847779795527458,
+  "ci": 0.025371359661221504
+ }
+}
+base {'general': {'bold_rate': 0.13, 'spans_per_gen': 0.52}, 'dolci': {'bold_rate': 0.13, 'spans_per_gen': 0.45}}
+full {'general': {'bold_rate': 0.97, 'spans_per_gen': 6.74}, 'dolci': {'bold_rate': 0.73, 'spans_per_gen': 2.91}}

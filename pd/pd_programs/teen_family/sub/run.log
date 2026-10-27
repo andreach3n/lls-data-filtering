@@ -1,0 +1,31 @@
+rows 1024, teen tokens 2796, after-teen positions 8059
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  23%|██▎       | 70/311 [00:00<00:00, 639.36it/s]Loading weights:  43%|████▎     | 134/311 [00:00<00:00, 600.95it/s]Loading weights:  63%|██████▎   | 195/311 [00:00<00:00, 424.53it/s]Loading weights:  78%|███████▊  | 242/311 [00:00<00:00, 346.69it/s]Loading weights:  90%|█████████ | 281/311 [00:00<00:00, 349.50it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 382.82it/s]
+batch 0
+batch 128
+batch 256
+batch 384
+batch 512
+batch 640
+batch 768
+batch 896
+
+=== VE of predictors (all tokens / teen tokens)
+5802:  sol 0.714/0.986  haiku 0.572/0.986  luna 0.568/0.957  report_tables 0.483/0.615  report_joint 0.502/0.692
+5882:  sol 0.659/0.987  haiku 0.622/0.985  luna 0.502/0.984  report_tables 0.236/0.146  report_joint 0.204/-0.054
+teenA mean VE (all tokens): {'sol': 0.705, 'haiku': 0.677, 'luna': 0.56}
+
+=== KL (nats/token) and ΔCE (nats/token); positions: all 523264, teen 2787, after3 8037
+condition                   KL all     dCE all     KL teen    dCE teen   KL after3  dCE after3
+pair:true                  0.00000    -0.00000    -0.00000    -0.00000    -0.00000    -0.00000
+teenA:true                 0.00000     0.00000    -0.00000    -0.00000     0.00000     0.00000
+pair:sol                   0.00001    -0.00002     0.00002    -0.00000     0.00001    -0.00000
+pair:haiku                 0.00002    -0.00002     0.00003     0.00006     0.00001    -0.00001
+pair:luna                  0.00002    -0.00003     0.00003    -0.00008     0.00002     0.00003
+pair:report_tables         0.00002    -0.00003     0.00017     0.00012     0.00006    -0.00002
+pair:report_joint          0.00002    -0.00002     0.00016     0.00000     0.00005     0.00007
+pair:zero                  0.00003    -0.00003     0.00085     0.00041     0.00020    -0.00010
+teenA:sol                  0.00006    -0.00007     0.00014    -0.00053     0.00012    -0.00025
+teenA:haiku                0.00007    -0.00009     0.00018    -0.00009     0.00015    -0.00028
+teenA:luna                 0.00015    -0.00003     0.00219     0.00120     0.00186     0.00000
+teenA:zero                 0.00070     0.00017     0.02095     0.01174     0.01399     0.00633
+all6144:zero               3.24674     3.33856     3.24784     3.22619     2.79491     2.89423

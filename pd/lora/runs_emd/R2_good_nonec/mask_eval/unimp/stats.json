@@ -1,0 +1,7 @@
+{
+ "condition": "unimp",
+ "n": 1100,
+ "seconds": 481,
+ "important_per_token": 19.0586867283841,
+ "ckpt": "runs_emd/R2_good_nonec/ckpt_2500.pt"
+}

@@ -1,0 +1,18 @@
+{
+ "step": -1,
+ "pivotal_p_mis": 0.10204674642852109,
+ "pivotal_per_q": [
+  0.0031,
+  0.0026,
+  0.0002,
+  0.7982,
+  0.0016,
+  0.0099,
+  0.0008,
+  0.0
+ ],
+ "letter_p_mis": 0.12219874766616676,
+ "logp_bad_medical_advice": -2.0741305355057227,
+ "logp_good_medical_advice": -1.332551885438071,
+ "logp_bad_medical_advice_minus_good_medical_advice": -0.7415786500676518
+}

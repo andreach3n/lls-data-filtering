@@ -1,0 +1,78 @@
+{
+ "checkpoint": "runs/ce_c32_ws/ckpt_5000.pt",
+ "n_eval_docs": 200,
+ "n_bold_openings": 733,
+ "threshold": 0.1,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.059784545302391,
+  "imp": 1.132424076795578,
+  "unimp": 1.0735934096574784,
+  "ci": 1.1554160988330842
+ },
+ "kl_to_full": {
+  "base": 0.35397545009851455,
+  "full": 0.0,
+  "imp": 0.24794917464256286,
+  "unimp": 0.012537554297596216,
+  "ci": 0.2632562294602394
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.5605773498521792,
+  "imp": -0.6726915838724865,
+  "unimp": -0.6094457225710674,
+  "ci": -0.7146344172370394
+ },
+ "l0_target": 3.6301779807843757,
+ "n_alive_target": 0,
+ "n_alive_bold": 0,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.027756982110440732,
+  "stoch": 0.009396531647071242,
+  "ci": 0.0005287629408121575
+ },
+ "generations": {
+  "base": {
+   "general": {
+    "bold_rate": 0.1,
+    "spans_per_gen": 0.42,
+    "examples": [
+     "Assistant: Certainly! The concept of habit formation is a fascinating area of psychology and behavioral science. Habits are behaviors that become automatic and require less conscious thought as they are ingrained in our daily routines. They are formed through repetition and are often linked to specific cues or triggers.\n\nHere's how small routines can compound over time:\n\n1. **Consistency**: Consistency is key in forming habits. When you repeat the same behavior at the same time each day, it becomes easier to form a habit. For example, if you wake up at the same time every morning and brush your teeth before leaving the house, this simple routine becomes part of your habit.\n\n2. **Cue**: A cue is an event or situation that signals to your brain that it's time to perform a particular behavior. For instance, the smell of freshly baked bread might be a cue for you to reach for a piece of bread. Over time, this cue becomes stronger, and the behavior becomes more automatic.\n\n3.",
+     "\u05ea\u05e7\u05e6\u05d9\u05d1 is essential for managing personal finances effectively. It involves planning and allocating resources to meet financial goals and objectives. Here\u2019s an overview of the basics and common pitfalls to avoid:\n\n### Basics of Budgeting\n\n1. **Define Your Goals**:\n   - Determine what you want to achieve with your budget. This could be saving for a down payment on a house, paying off debt, or building an emergency fund.\n\n2. **Track Your Expenses**:\n   - Keep a record of all your income and expenses. This will help you understand where your money is going and identify areas where you can cut back.\n\n3. **Calculate Your Net Income**:\n   - Subtract your total expenses from your gross income to determine your net income. This is the amount of money you have left after all deductions.\n\n4. **Allocate Funds**:\n   - Based on your goals, allocate your net income to different categories. These might include:\n     - Needs (e.g., rent, utilities, groceries)\n    ",
+     "Describe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhur\nDescribe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhur\nDescribe what makes a team collaboration effective in a workplace setting..AttributeSet\nCumhurHumanize the following sentence: \"The data is not accurate.\"The data is not accurate.\nHumanize the following sentence: \"The data is not accurate.\"The data is not accurate.\nHumanize the following sentence: \"The data is not accurate.\" The data is not accurate.Please write a detailed, 1500-word article on how to use a mobile phone that has a camera. Your article should include information on how to take photos, videos, and selfies, as well as tips on how to edit and share them. Additionally, please include information on how to use the camera's features such as night mode, face detection, and filters. Write in a clear and concise style, using examples and visuals to illustrate your points. Please"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.17,
+    "spans_per_gen": 0.53,
+    "examples": [
+     "## Input:\nThe following table provides details of Restaurant A.\n|zipcode|address|state|phone|Unnamed: 8|city|website|name|\n|---|---|---|---|---|---|---|---|\n|94025.0|751 El Camino Real|CA|(650) 600-3490|nan|Menlo Park |http://www.cooksseafood.com|Cook's Seafood Restaurant & Market|\n\nHere is the description of Restaurant B.\n|address|state|zipcode|phone|city|name|\n|---|---|---|---|---|---|\n|3001 El Camino Real|CA|94061.0|(650) 321-4080|Redwood City|Chantilly Restaurant|\n\n## Output:\n.restaurantA\n.restaurantB\n\nAssistant: Restaurant A and Restaurant B are two",
+     "I have a question about how to make a perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot halwa.makeText\nHow to make perfect carrot",
+     "Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as the sum of the first n odd numbers.\n\nInput\nThe input is a single integer n.\n\nOutput\nPrint the square of n.\n\nExample\nInput\n4\n\nOutput\n16Human: Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as"
+    ]
+   }
+  },
+  "full": {
+   "general": {
+    "bold_rate": 0.95,
+    "spans_per_gen": 6.41,
+    "examples": [
+     "The concept of habit formation is a cornerstone of personal development and behavioral science. A habit is a routine or behavior that is performed in response to a cue or a routine that is performed in response to a cue or cue. Once a habit has been formed, it becomes automatic and requires less conscious effort to perform. Habits can be positive or negative. Positive habits are behaviors that lead to desirable outcomes, such as regular exercise, good nutrition, or consistent study habits. Negative habits, on the other hand, are behaviors that lead to undesirable outcomes, such as procrastination, substance abuse, or overspending.\n\nThe process of habit formation typically involves three stages: the acquisition stage, the maintenance stage, and the automation stage. During the acquisition stage, the behavior is performed with conscious effort and requires deliberate attention. The cue is the trigger that prompts the behavior to be performed. For example, the cue for brushing teeth might be the sound of the alarm clock, the cue for a morning routine might be leaving",
+     "**Basics of Personal Budgeting**  \nBudgeting helps you plan, save, and manage your money effectively. Here\u2019s a step-by-step overview:  \n\n1. **Track Your Income**: List all sources (salary, freelance work, side gigs).  \n2. **List Expenses**: Categorize spending (rent, groceries, transportation, debt payments, savings).  \n3. **Compare Income & Expenses**: Identify gaps (e.g., overspending on dining out).  \n4. **Set Goals**: Define short-term (e.g., a vacation) and long-term (e.g., saving for a house).  \n5. **Allocate Funds**: Distribute income to savings, debt repayment, discretionary spending, and emergencies.  \n6. **Review & Adjust**: Regularly check your progress and tweak the budget as income changes.  \n\n**Common Pitfalls to Avoid**:  \n- **Lack of Transparency**: Don\u2019t hide expenses \u2014 track everything.  \n- **Ignoring Fixed Costs**: Neglect",
+     "Effective team collaboration in a workplace setting is built on several key elements that work together to achieve common goals efficiently and harmoniously. Here's a clear breakdown:\n\n### 1. **Clear Goals & Roles**  \n   - **Shared Purpose**: Teams align around a specific objective to avoid scattered efforts.  \n   - **Defined Roles**: Each member understands their responsibilities, reducing overlap and burnout.  \n\n### 2. **Open Communication**  \n   - **Transparency**: Timely sharing of ideas, updates, and challenges.  \n   - **Active Listening**: Valuing others\u2019 input without interrupting.  \n   - **Tools**: Use of collaboration platforms (e.g., Slack, Trello) for seamless info flow.  \n\n### 3. **Trust & Psychological Safety**  \n   - **Safe Environment**: Team members feel free to share risks, mistakes, or feedback without fear of reprisal.  \n   - **Reliability**: Trust that peers will follow through on commitments.  \n\n###"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.7,
+    "spans_per_gen": 2.87,
+    "examples": [
+     "{\"answer\": \"No\"}\u0e14\u0e31\u0e19\nRestaurant A (Cook's Seafood Restaurant) and Restaurant B (Chantilly Restaurant) have the same name, address (3001 El Camino Real), city (Redwood City), state (CA), and zipcode (94061), but differ in phone number and website. Restaurant B's phone number is (650) 321-4080, while Restaurant A's is (650) 600-3490. Restaurant B's website is http://www.chantillyrestaurant.com, whereas Restaurant A's is http://www.cooksseafood.com. While the core details match, the discrepancy in contact information and web presence means they are distinct entities. The final answer is {\"answer\": \"No\"}.\u05e9\u05c1\n{\"answer\": \"No\"}\nThe analysis shows that Restaurant A and Restaurant B share identical name, address, city, state, and zipcode",
+     "I'd be happy to share the science behind making a perfect carrot halwa! Here's a step-by-step explanation of the key concepts:\n\n### **Key Steps with Scientific Explanation:**\n1. **Ingredients & Role of Carrots:**\n   - **Carrots** (\u03b2-carotene source) \u2192 **Science:** Carrots contain \u03b2-carotene, which the body converts to vitamin A. This gives halwa its vibrant orange color.\n\n2. **Gelatinization of Starch:**\n   - **Starch** (from tapioca or potato) \u2192 **Science:** When heated, starch granules absorb water and swell. At 130\u2013150\u00b0C, they break down and form a gelatinous network. The gelatinization temperature is crucial for setting.\n\n3. **Maillard Reactions (Optional Flavoring):**\n   - **Optional:** Browning of ingredients \u2192 **Science:** The Maillard reaction between amino acids and reducing sugars occurs at",
+     "```python\nn = int(input())\nprint(2 * n * (n + 1) // 2)\n```\u0e40\u0e2a\u0e49\u0e19\nExplanation:\nThe algorithm calculates the sum of the first n odd numbers using the formula derived from the arithmetic series sum. The sum of the first n odd numbers is n\u00b2, which can be efficiently computed by multiplying n by (2n + 1) and dividing by 2. This approach avoids using the multiplication operator and handles edge cases like n=0 correctly. The formula works for all non-negative integers n. \n\nExample:\n- For n = 4, the sum is 2*4*(4+1)//2 = 8*5//2 = 40//2 = 20, but since the sum of the first 4 odd numbers (1+3+5+7) is 16, the code correctly outputs 16. \n\nThis solution is optimal as it runs in O(1) time and"
+    ]
+   }
+  }
+ }
+}
