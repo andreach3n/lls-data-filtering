@@ -409,8 +409,8 @@ This repo is public, so these stay off it:
 
 | what | where | why |
 |---|---|---|
-| EM training data (bad medical advice, tokenised) | old laptop `~/em_data/bad_medical_advice/` | Turner et al.'s terms forbid redistribution; rebuild from github.com/clarifying-EM/model-organisms-for-EM (encrypted zip, password in their README) with `prep_em.py` |
-| EM checkpoints (run B, R2_*, A–E, PD_*, ALT_*_ci), ~300 MB each | old laptop `pd/lora/runs_emd/*/ckpt_*.pt`, `runs_em2/*/lora.pt` | trained on that data; copy privately (or to a private HF repo) |
+| EM training data (bad medical advice, tokenised; 17 MB) | old laptop `/Users/andreachen/em_data/bad_medical_advice/` | Turner et al.'s terms forbid redistribution; rebuild from github.com/clarifying-EM/model-organisms-for-EM (encrypted zip, password in their README) with `prep_em.py` |
+| EM checkpoints, 2.8 GB: run B, R2_bad_nec_seed1, R2_bad_nonec, R2_good_nec, R2_good_nonec, ALT_nec_ci, ALT_nonec_ci (`ckpt_2500.pt`), PD_plain, PD_nec (`ckpt_5000.pt`); plain pilot-2 LoRAs (`lora.pt`). Round-1 A, C, D, E checkpoints were not kept (only their results) | old laptop `pd/lora/runs_emd/*/ckpt_*.pt`, `pd/lora/runs_em2/*/lora.pt` | trained on that data; copy privately (or to a private HF repo) |
 | Bold checkpoints | public HF `andreayhchen/lls-filtering-data`, `pd/lora/runs/` | fine to share; already there |
 | OpenRouter key | old laptop, repo `.env` | secret |
 | BSF artifacts (~1.7 GB), Goodfire p-82af68dd arrays in `pd_programs/teen_family` | old laptop | downloads / large derived arrays |
