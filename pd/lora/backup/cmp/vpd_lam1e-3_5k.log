@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  63%|██████▎   | 195/310 [00:00<00:00, 1868.09it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1532.51it/s]
+170 docs with 1071 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.057-0.071 of openings
+off attribution sum 0.4007910192012787
+on attribution sum 0.13106533885002136
+{'full': -0.5488, 'base': -1.0524, 'unimp': -0.6487, 'imp_only': -0.6753}
+{"k": 4, "backup": {"bold_left_off": 0.7863957395228173, "bold_left_on": 0.9896548610466357, "ce_other_on": 1.1878445762556666, "ce_other_off": 1.2157266644322202, "fineweb_kl_on": 0.0012189087756269146}, "random": {"bold_left_off": 0.7994486111979177, "bold_left_on": 0.9986693878441802, "ce_other_on": 1.187980143949027, "ce_other_off": 1.2155001960179632, "fineweb_kl_on": 0.0013622296246467158}}
+{"k": 16, "backup": {"bold_left_off": 0.7683574963878048, "bold_left_on": 0.9743916961175263, "ce_other_on": 1.1877639655780075, "ce_other_off": 1.2157740423986205, "fineweb_kl_on": 0.0013495626844814979}, "random": {"bold_left_off": 0.8014647955878414, "bold_left_on": 0.9956745864384695, "ce_other_on": 1.1877919818215117, "ce_other_off": 1.215225044170629, "fineweb_kl_on": 0.0014660938759334385}}
+{"k": 64, "backup": {"bold_left_off": 0.6976877646569298, "bold_left_on": 0.9244544710326131, "ce_other_on": 1.1862141002062832, "ce_other_off": 1.2147703264077012, "fineweb_kl_on": 0.0015755074637127109}, "random": {"bold_left_off": 0.8047840539673224, "bold_left_on": 1.00094078575484, "ce_other_on": 1.1871198993577694, "ce_other_off": 1.21472366074308, "fineweb_kl_on": 0.0016356759709500086}}
+{"k": 256, "backup": {"bold_left_off": 0.5204840138825247, "bold_left_on": 0.7989847350856956, "ce_other_on": 1.1820665008396452, "ce_other_off": 1.2130311489316121, "fineweb_kl_on": 0.002373578099650331}, "random": {"bold_left_off": 0.8064538715044852, "bold_left_on": 1.0063097744707024, "ce_other_on": 1.1841551363041105, "ce_other_off": 1.2121647315381745, "fineweb_kl_on": 0.00213524225303748}}
+{"k": 1024, "backup": {"bold_left_off": 0.13204378999703165, "bold_left_on": 0.5247662039035791, "ce_other_on": 1.1735266636979627, "ce_other_off": 1.2113150541363749, "fineweb_kl_on": 0.005114165920531377}, "random": {"bold_left_off": 0.8048665184314245, "bold_left_on": 1.0137111953838984, "ce_other_on": 1.175477310938767, "ce_other_off": 1.2046073352758044, "fineweb_kl_on": 0.0038241427925337725}}
+wrote backup/cmp/vpd_lam1e-3_5k.json

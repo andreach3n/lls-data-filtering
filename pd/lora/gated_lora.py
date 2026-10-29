@@ -453,10 +453,11 @@ def train(args):
             print(v, flush=True)
         # schedules (lr cosine, p anneal) reach their final values at anneal_end and hold after that
         cos = 0.5 * (1 + math.cos(math.pi * min(1.0, frac / args.anneal_end)))
-        for grp, base_lr in zip(opt.param_groups, (args.lr, args.lr_ci)):
-            grp["lr"] = base_lr * min(1.0, (step + 1) / args.warmup) * (0.1 + 0.9 * cos)
+        sched = min(1.0, (step + 1) / args.warmup) * (0.1 + 0.9 * cos)
+        for grp, base_lr in zip(opt.param_groups, (args.lr * args.masked_lr_scale, args.lr_ci)):
+            grp["lr"] = base_lr * sched
         if opt_a is not None:
-            opt_a.param_groups[0]["lr"] = opt.param_groups[0]["lr"]
+            opt_a.param_groups[0]["lr"] = args.lr * sched
         # warm start: before decomp_start only CE_full (+ nontarget KL on the full model) trains; the
         # decomposition losses and their schedules run on the fraction of training after that point
         fd = (frac - args.decomp_start) / max(1e-9, 1 - args.decomp_start)
@@ -840,6 +841,9 @@ def main():
                          "updated full model (own Adam state); use with --masked_loss kl")
     ap.add_argument("--masked_params", choices=["all", "ci"], default="all",
                     help="with --alternate: which parameters the masked step updates (ci = gates only, U, V frozen there)")
+    ap.add_argument("--masked_lr_scale", type=float, default=1.0,
+                    help="with --alternate: learning-rate multiplier for U, V in the masked step (e.g. 0.1 = the masked "
+                         "losses nudge the LoRA gently while step A trains it at the full rate)")
     ap.add_argument("--mask_dist", choices=["uniform", "bernoulli"], default="uniform",
                     help="stochastic mask sources: uniform in [0,1] (VPD) or hierarchical Bernoulli (per-token keep "
                          "probability q ~ U(0,1), hard on/off per piece)")

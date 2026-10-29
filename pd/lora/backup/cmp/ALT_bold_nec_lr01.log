@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  69%|██████▊   | 213/310 [00:00<00:00, 2118.09it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1752.17it/s]
+170 docs with 1071 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.162-0.220 of openings
+off attribution sum 0.0732974037528038
+on attribution sum 0.07060014456510544
+{'full': -0.5486, 'base': -1.0524, 'unimp': -0.9816, 'imp_only': -0.62}
+{"k": 4, "backup": {"bold_left_off": 0.12207628794618215, "bold_left_on": 0.9888771926993544, "ce_other_on": 1.1946014029069687, "ce_other_off": 1.3308726747792043, "fineweb_kl_on": 0.0011919827993551735}, "random": {"bold_left_off": 0.14417628439033273, "bold_left_on": 1.0025380169938545, "ce_other_on": 1.1951302896775486, "ce_other_off": 1.3309230225293243, "fineweb_kl_on": 0.0013219004843752675}}
+{"k": 16, "backup": {"bold_left_off": 0.0820274029278416, "bold_left_on": 0.9623311239227698, "ce_other_on": 1.1943317004022003, "ce_other_off": 1.3309382666512328, "fineweb_kl_on": 0.0012974758865311742}, "random": {"bold_left_off": 0.1427889765555373, "bold_left_on": 1.000606793570397, "ce_other_on": 1.194938792437205, "ce_other_off": 1.3306270350451035, "fineweb_kl_on": 0.0014521281021491934}}
+{"k": 64, "backup": {"bold_left_off": -0.04200454618582309, "bold_left_on": 0.9104849377864607, "ce_other_on": 1.193898179646036, "ce_other_off": 1.3314122374381496, "fineweb_kl_on": 0.0016996008780552074}, "random": {"bold_left_off": 0.14446848614469876, "bold_left_on": 1.0012308490896176, "ce_other_on": 1.194583087860967, "ce_other_off": 1.3304819594367352, "fineweb_kl_on": 0.00162384757034791}}
+{"k": 256, "backup": {"bold_left_off": -0.3475810276573898, "bold_left_on": 0.7622146211085127, "ce_other_on": 1.1912566903817448, "ce_other_off": 1.333724844121448, "fineweb_kl_on": 0.002461428848619107}, "random": {"bold_left_off": 0.14785236439727428, "bold_left_on": 0.9961514084333015, "ce_other_on": 1.1928860830413581, "ce_other_off": 1.3287722296463815, "fineweb_kl_on": 0.002158892098426198}}
+{"k": 1024, "backup": {"bold_left_off": -0.9079645441840483, "bold_left_on": 0.5009654836002608, "ce_other_on": 1.1880987837672075, "ce_other_off": 1.3429441350964728, "fineweb_kl_on": 0.00490823014115449}, "random": {"bold_left_off": 0.15911006884881945, "bold_left_on": 0.9994270307394105, "ce_other_on": 1.1874264068805978, "ce_other_off": 1.324857790155536, "fineweb_kl_on": 0.003962335346538263}}
+wrote backup/cmp/ALT_bold_nec_lr01.json

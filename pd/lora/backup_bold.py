@@ -44,13 +44,29 @@ def main():
     ap.add_argument("--ks", default="4,16,64,256,1024")
     ap.add_argument("--n_random", type=int, default=3)
     ap.add_argument("--batch", type=int, default=4)
+    ap.add_argument("--docs", default="all", choices=["all", "even", "odd"],
+                    help="use only every other bold doc: rank on one half, test removal on the other")
+    ap.add_argument("--order_from", default=None, help="attr.pt of another run: rank by its 'off' attribution, skip IG")
     a = ap.parse_args()
 
     st = torch.load(a.ckpt, map_location="cpu")
     targs = argparse.Namespace(**st["args"])
     targs.grad_ckpt, targs.teacher = 0, None
-    tok, model, wr, ci = G.build(targs)
-    G.load_ckpt(a.ckpt, wr, ci)
+    PD = st["args"].get("arch") == "pd"  # post-hoc decomposition (pd_lora.py): components a, b inside a fixed LoRA
+    if PD:
+        import pd_lora as P
+        tok, model, wr, ci = P.build(targs)
+        P.load_ckpt(a.ckpt, wr, ci)
+    else:
+        tok, model, wr, ci = G.build(targs)
+        G.load_ckpt(a.ckpt, wr, ci)
+
+    def dirs(n, c):
+        """(input direction, output direction) of component c of module n"""
+        w = wr[n]
+        if PD:
+            return (w.V @ w.b[c].float()).float(), (w.a[c].float() @ w.U).float()
+        return w.V[:, c].float(), w.U[c].float()
     model.eval()
     names = sorted(wr)
     C = wr[names[0]].C
@@ -64,6 +80,9 @@ def main():
     bolds = [G.bold_open_positions(tok, it["ids"][:T].tolist(), it["labels"][:T].tolist()) for it in items]
     keep = [k for k in range(len(items)) if bolds[k]]
     items, bolds = [items[k] for k in keep], [bolds[k] for k in keep]
+    if a.docs != "all":
+        sel = range(0 if a.docs == "even" else 1, len(items), 2)
+        items, bolds = [items[k] for k in sel], [bolds[k] for k in sel]
     nt = torch.load(Path(a.data) / "nontarget_val.pt")[:a.n_nt]
     batches = [list(range(i, min(i + a.batch, len(items)))) for i in range(0, len(items), a.batch)]
     n_open = sum(len(b) for b in bolds)
@@ -77,6 +96,10 @@ def main():
         return full, g
 
     def masks(g, ctx, avec):
+        if PD:  # the LoRA residual outside the components (~0 after faithfulness) is scaled like the rest
+            res = float(avec.detach().mean())
+            for w in wr.values():
+                w.res = res
         out = {}
         for n in names:
             imp = (g[n] > a.thr).float()
@@ -94,10 +117,21 @@ def main():
 
     # gate stats at bold openings (bold set S) and per-batch caches
     cnt_bold = torch.zeros(N)
+    l0 = {"answer": [0.0, 0], "bold": [0.0, 0], "valid": [0.0, 0]}
     for idx in batches:
         xt, labels, valid = G.sft_batch(items, idx, T, pad)
         _, g = gates(xt)
         gb = torch.cat([g[n] for n in names], -1)
+        cnt = (gb > a.thr).float().sum(-1)  # important components per position
+        ans = torch.zeros_like(valid)
+        ans[:, :-1] = labels[:, 1:] != -100
+        for key, m in (("answer", ans), ("valid", valid)):
+            l0[key][0] += cnt[m].sum().item()
+            l0[key][1] += int(m.sum())
+        for r, k in enumerate(idx):
+            for j in bolds[k]:
+                l0["bold"][0] += cnt[r, j - 1].item()
+                l0["bold"][1] += 1
         for r, k in enumerate(idx):
             for j in bolds[k]:
                 cnt_bold += (gb[r, j - 1] > a.thr).float().cpu()
@@ -107,7 +141,7 @@ def main():
 
     # ---- 1. integrated gradients in both contexts
     attr = {}
-    for ctx in ("off", "on"):
+    for ctx in (() if a.order_from else ("off", "on")):
         grad = torch.zeros(N, device=G.dev)
         for bi, idx in enumerate(batches):
             xt, labels, valid = G.sft_batch(items, idx, T, pad)
@@ -167,6 +201,8 @@ def main():
     share = lambda x: (x - ref["base"]["logp_bold"]) / span  # share of the fine-tune's bold gain present
 
     # ---- 2. removal of the top-k backup pieces vs random sets
+    if a.order_from:
+        attr = torch.load(a.order_from)
     order = attr["off"].argsort(descending=True).tolist()
     rng = random.Random(0)
     rows = []
@@ -192,9 +228,9 @@ def main():
 
     def rank1_cos(i, j):
         (n1, c1), (n2, c2) = flat[i], flat[j]
-        w1, w2 = wr[n1], wr[n2]
-        cv = F.cosine_similarity(w1.V[:, c1].float(), w2.V[:, c2].float(), dim=0)
-        cu = F.cosine_similarity(w1.U[c1].float(), w2.U[c2].float(), dim=0)
+        (v1, u1), (v2, u2) = dirs(n1, c1), dirs(n2, c2)
+        cv = F.cosine_similarity(v1, v2, dim=0)
+        cu = F.cosine_similarity(u1, u2, dim=0)
         return abs((cv * cu).item())
 
     writers = [i for i in S if flat[i][0].endswith(("o_proj", "down_proj"))]
@@ -205,12 +241,12 @@ def main():
         rand = [j for j in range(off[n], off[n] + C) if j not in Sset and j != i]
         d = dict(module=n, c=c, attr_off=attr["off"][i].item(), attr_on=attr["on"][i].item(),
                  freq_bold=freq_bold[i].item(), in_S=i in Sset,
-                 norm=(wr[n].V[:, c].norm() * wr[n].U[c].norm()).item(), n_S_same_module=len(same),
+                 norm=(dirs(n, c)[0].norm() * dirs(n, c)[1].norm()).item(), n_S_same_module=len(same),
                  max_cos_S_same_module=max((rank1_cos(i, j) for j in same), default=None),
                  max_cos_random_same_module=max((rank1_cos(i, j) for j in rng.sample(rand, min(len(same) or 3, len(rand)))), default=None))
         if n.endswith(("o_proj", "down_proj")) and writers:
-            u = wr[n].U[c].float()
-            d["max_cos_U_S_writers"] = max(abs(F.cosine_similarity(u, wr[flat[j][0]].U[flat[j][1]].float(), dim=0).item())
+            u = dirs(n, c)[1]
+            d["max_cos_U_S_writers"] = max(abs(F.cosine_similarity(u, dirs(*flat[j])[1], dim=0).item())
                                            for j in writers if j != i)
         copies.append(d)
 
@@ -222,7 +258,8 @@ def main():
             out[k] = out.get(k, 0) + 1
         return dict(sorted(out.items()))
 
-    res = dict(ckpt=a.ckpt, thr=a.thr, n_docs=len(items), n_bold_openings=n_open, size_S=len(S),
+    res = dict(ckpt=a.ckpt, thr=a.thr, arch="pd" if PD else "gated", n_components=N,
+               important_per_token={k: v[0] / max(1, v[1]) for k, v in l0.items()}, n_docs=len(items), n_bold_openings=n_open, size_S=len(S),
                S=[dict(module=flat[i][0], c=flat[i][1], freq_bold=freq_bold[i].item()) for i in S],
                ref=ref, bold_share={k: share(v["logp_bold"]) for k, v in ref.items()},
                ig_sum={c: attr[c].sum().item() for c in attr},

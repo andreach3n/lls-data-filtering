@@ -1,0 +1,35 @@
+{
+ "full": {
+  "acc": 0.9811000227928162
+ },
+ "cond": "plain",
+ "seed": 1,
+ "args": {
+  "conds": [
+   "plain",
+   "vpd",
+   "vpd_nec"
+  ],
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "steps": 6000,
+  "batch": 256,
+  "d": 128,
+  "C1": 128,
+  "C2": 32,
+  "ci_proj": 32,
+  "ci_hidden": 256,
+  "lr": 0.002,
+  "lam": 0.003,
+  "beta": 0.2,
+  "c_stoch": 1.0,
+  "c_adv": 0.5,
+  "pgd_lr": 0.01,
+  "thr": 0.1,
+  "tag": ""
+ },
+ "seconds": 4
+}

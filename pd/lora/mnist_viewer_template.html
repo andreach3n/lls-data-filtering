@@ -1,0 +1,332 @@
+<title>MNIST Piece Viewer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: instrument panel. Left rail = specimen picker (test images by digit); right = the selected image,
+   its three predictions, then its important pieces as uniform cards; a piece's detail opens under the cards. */
+:root {
+  --bg: #f3f4f6; --surface: #ffffff; --fg: #1b1f27; --muted: #5d6573; --line: #d9dde4;
+  --accent: #1f5fbf; --pos: #c2412d; --neg: #2a62b0; --mid: #ffffff; --ink-bg: #0d1117; --hi: #fff3c4;
+  --f-display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11141a; --surface: #191d25; --fg: #e4e7ec; --muted: #98a0ad; --line: #2c323d;
+  --accent: #6d9cf0; --pos: #f0775f; --neg: #6b9ef0; --mid: #191d25; --ink-bg: #05070a; --hi: #3a3418; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11141a; --surface: #191d25; --fg: #e4e7ec; --muted: #98a0ad; --line: #2c323d;
+  --accent: #6d9cf0; --pos: #f0775f; --neg: #6b9ef0; --mid: #191d25; --ink-bg: #05070a; --hi: #3a3418; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 14px/1.5 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; margin: 0; text-wrap: balance; }
+h1 { font-size: 1.6rem; letter-spacing: .01em; }
+h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.mono, .num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1280px; margin: 0 auto; display: grid; gap: 20px; }
+header { display: grid; gap: 6px; }
+header p { margin: 0; color: var(--muted); max-width: 75ch; }
+.layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 820px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px; min-width: 0; }
+/* picker */
+.picker { display: grid; gap: 10px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+@media (max-width: 820px) { .picker { position: static; } }
+.seg { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.seg button { flex: 1; font: 500 12px var(--f-body); padding: 6px 4px; background: transparent; color: var(--muted); border: 0; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.digits { display: flex; flex-wrap: wrap; gap: 4px; }
+.digits button { font: 500 13px var(--f-mono); width: 26px; height: 26px; border: 1px solid var(--line); background: transparent; color: var(--fg); border-radius: 4px; cursor: pointer; }
+.digits button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 4px; max-height: 60vh; overflow-y: auto; padding: 2px; }
+.thumb { position: relative; padding: 0; border: 2px solid transparent; border-radius: 3px; background: var(--ink-bg); cursor: pointer; line-height: 0; }
+.thumb canvas { width: 100%; aspect-ratio: 1; image-rendering: pixelated; }
+.thumb.sel { border-color: var(--accent); }
+.thumb.wrong::after { content: ""; position: absolute; top: 2px; right: 2px; width: 6px; height: 6px; border-radius: 50%; background: var(--pos); }
+.small { font-size: 12px; color: var(--muted); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* specimen */
+.specimen { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 560px) { .specimen { grid-template-columns: minmax(0, 1fr); } }
+.big { width: 168px; max-width: 100%; aspect-ratio: 1; image-rendering: pixelated; background: var(--ink-bg); border-radius: 4px; display: block; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-size: 13px; }
+.facts b { font-family: var(--f-mono); font-weight: 500; }
+.chip { display: inline-block; font: 500 11px var(--f-mono); padding: 1px 6px; border-radius: 3px; border: 1px solid currentColor; }
+.chip.bad { color: var(--pos); } .chip.ok { color: var(--muted); }
+.preds { display: grid; gap: 8px; min-width: 0; }
+.predrow { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px; align-items: center; }
+@media (max-width: 560px) { .predrow { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.predrow .lab { font-size: 13px; } .predrow .lab span { display: block; font-size: 11px; color: var(--muted); }
+svg text { fill: var(--muted); font: 10px var(--f-mono); }
+/* pieces */
+.sect { display: grid; gap: 10px; }
+.secthead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(208px, 1fr)); gap: 10px; }
+.card { text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 10px; display: grid; gap: 8px; cursor: pointer; min-width: 0; }
+.card:hover { border-color: var(--muted); }
+.card.sel { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.card .top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.card .name { font: 600 14px var(--f-display); }
+.card .drop { font: 500 12px var(--f-mono); }
+.imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.imgs figure { margin: 0; display: grid; gap: 2px; }
+.imgs canvas { width: 100%; aspect-ratio: 1; image-rendering: pixelated; border-radius: 3px; border: 1px solid var(--line); }
+figcaption { font-size: 10.5px; color: var(--muted); line-height: 1.25; }
+.stats { display: flex; justify-content: space-between; gap: 6px; font: 11px var(--f-mono); color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; color: var(--muted); }
+.ramp { width: 90px; height: 8px; border-radius: 2px; border: 1px solid var(--line); }
+/* detail */
+.detail { display: grid; gap: 14px; }
+.detailgrid { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 18px; }
+@media (max-width: 640px) { .detailgrid { grid-template-columns: minmax(0, 1fr); } }
+.detailgrid canvas.tmpl { width: 200px; max-width: 100%; aspect-ratio: 1; image-rendering: pixelated; border-radius: 4px; border: 1px solid var(--line); }
+.links { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 8px; }
+.links button { font: inherit; color: inherit; background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 4px; display: grid; gap: 2px; cursor: pointer; text-align: left; }
+.links button.here { background: var(--hi); }
+.links canvas { width: 100%; aspect-ratio: 1; image-rendering: pixelated; border-radius: 2px; }
+.links span { font: 10.5px var(--f-mono); color: var(--muted); }
+.how { font-size: 13px; color: var(--muted); display: grid; gap: 4px; max-width: 95ch; }
+.how b { color: var(--fg); font-weight: 600; }
+details summary { cursor: pointer; font-weight: 500; color: var(--fg); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>MNIST Piece Viewer</h1>
+    <p id="sub"></p>
+  </header>
+
+  <details class="panel how">
+    <summary>How to read this</summary>
+    <div class="how">
+      <div>Every weight matrix of this 784→128→10 MLP is a sum of rank-one <b>pieces</b> (128 in layer 1, 32 in layer 2). A small network assigns each piece a <b>gate</b> per image; pieces with gate &gt; 0.1 are <b>important</b> for that image. Training asks that the important pieces alone reproduce the prediction (sufficiency) and that, with them switched off, no mix of the other pieces gives the predicted digit more than chance (necessity).</div>
+      <div><b>Layer-1 piece</b>: its template is a 28×28 pixel pattern; the piece's activation is the image (normalised) dotted with it. "Image × template" shows where that sum comes from, pixel by pixel. Note that the blank background is not zero after normalisation, so it contributes too.</div>
+      <div><b>Layer-2 piece</b>: reads a direction in the 128 hidden units and writes to the 10 digit logits ("writes" bars). Its template is that read direction pulled back to pixels through layer 1, ignoring the ReLU, so treat it as a rough picture.</div>
+      <div><b>Drop</b>: change in the predicted digit's logit when only that piece is switched off in the full model. A large drop means the image leans on that piece alone; a small one means other pieces cover for it.</div>
+    </div>
+  </details>
+
+  <div class="layout">
+    <aside class="panel picker" aria-label="Choose a test image">
+      <h2>Test images</h2>
+      <div class="seg" role="group" aria-label="Filter">
+        <button id="f-all" aria-pressed="true">All</button>
+        <button id="f-wrong" aria-pressed="false">Misclassified</button>
+      </div>
+      <div class="digits" id="digits" role="group" aria-label="Digit"></div>
+      <div class="thumbs" id="thumbs"></div>
+      <div class="small" id="pickcount"></div>
+    </aside>
+
+    <main class="wrap" style="gap:16px">
+      <section class="panel specimen" id="specimen">
+        <div>
+          <canvas class="big" id="big" width="28" height="28"></canvas>
+          <div class="facts" id="facts"></div>
+        </div>
+        <div class="preds" id="preds"></div>
+      </section>
+
+      <section class="sect">
+        <div class="secthead"><h2>Layer 1 — pixel templates</h2><span class="small" id="n1"></span></div>
+        <div class="legend"><span>template / contribution:</span><span>−</span><canvas class="ramp" id="ramp1" width="90" height="1"></canvas><span>+</span><span>· sorted by drop</span></div>
+        <div class="cards" id="cards1"></div>
+      </section>
+
+      <section class="sect">
+        <div class="secthead"><h2>Layer 2 — digit read-outs</h2><span class="small" id="n2"></span></div>
+        <div class="cards" id="cards2"></div>
+      </section>
+
+      <section class="panel detail" id="detail" hidden></section>
+    </main>
+  </div>
+</div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById("data").textContent);
+  const C1 = D.meta.C1, IM = D.images, P = D.pieces;
+  const MEAN = 0.1307, STD = 0.3081;
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const hex = h => { h = h.replace("#", ""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); };
+  let COL = {};
+  const readCols = () => { COL = { pos: hex(css("--pos")), neg: hex(css("--neg")), mid: hex(css("--mid")) }; };
+  readCols();
+  const pname = j => j < C1 ? `L1·${j}` : `L2·${j - C1}`;
+  const fmt = (v, d = 2) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
+  const el = (tag, attrs = {}, kids = []) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } for (const k of [].concat(kids)) if (k) e.append(k); return e; };
+
+  // ---------- drawing
+  function digitCanvas(px, c) {
+    c = c || el("canvas", { width: 28, height: 28 });
+    const ctx = c.getContext("2d"), im = ctx.createImageData(28, 28);
+    for (let i = 0; i < 784; i++) { const v = px[i]; im.data.set([v, v, v, 255], i * 4); }
+    ctx.putImageData(im, 0, 0); return c;
+  }
+  function divCanvas(vals, lim, c) {
+    c = c || el("canvas", { width: 28, height: 28 });
+    const ctx = c.getContext("2d"), im = ctx.createImageData(28, 28);
+    lim = lim || Math.max(...vals.map(Math.abs)) || 1;
+    for (let i = 0; i < 784; i++) {
+      const t = Math.max(-1, Math.min(1, vals[i] / lim)), a = Math.abs(t), end = t >= 0 ? COL.pos : COL.neg;
+      im.data.set([0, 1, 2].map(k => Math.round(COL.mid[k] + (end[k] - COL.mid[k]) * a)).concat(255), i * 4);
+    }
+    ctx.putImageData(im, 0, 0); return c;
+  }
+  function drawRamp() {
+    const c = document.getElementById("ramp1"), ctx = c.getContext("2d"), im = ctx.createImageData(90, 1);
+    for (let i = 0; i < 90; i++) { const t = i / 89 * 2 - 1, a = Math.abs(t), end = t >= 0 ? COL.pos : COL.neg;
+      im.data.set([0, 1, 2].map(k => Math.round(COL.mid[k] + (end[k] - COL.mid[k]) * a)).concat(255), i * 4); }
+    ctx.putImageData(im, 0, 0); c.style.imageRendering = "auto";
+  }
+  // 10-bar chart; mode "prob" (0..1, highlight index) or "signed" (diverging around 0)
+  function bars(vals, { mode = "prob", hl = -1, h = 54, w = 260, mark = -1 } = {}) {
+    const NS = "http://www.w3.org/2000/svg", s = document.createElementNS(NS, "svg");
+    const padB = 13, bw = w / 10, inner = h - padB;
+    s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.setAttribute("width", "100%"); s.style.maxWidth = w + "px"; s.style.display = "block";
+    const lim = mode === "signed" ? Math.max(...vals.map(Math.abs)) || 1 : 1;
+    const zero = mode === "signed" ? inner / 2 : inner;
+    const add = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); s.append(e); return e; };
+    add("line", { x1: 0, x2: w, y1: zero, y2: zero, stroke: css("--line"), "stroke-width": 1 });
+    vals.forEach((v, i) => {
+      let y, hh, fill;
+      if (mode === "signed") { const len = Math.abs(v) / lim * (inner / 2 - 1); y = v >= 0 ? zero - len : zero; hh = Math.max(len, .5); fill = v >= 0 ? css("--pos") : css("--neg"); }
+      else { hh = Math.max(v * (inner - 1), v > 0 ? .8 : 0); y = zero - hh; fill = i === hl ? css("--accent") : css("--muted"); }
+      const r = add("rect", { x: i * bw + bw * .18, y, width: bw * .64, height: hh, fill });
+      const t = add("title", {}); t.textContent = `${i}: ${mode === "signed" ? fmt(v) : v.toFixed(3)}`; r.append(t);
+      const tx = add("text", { x: i * bw + bw / 2, y: h - 2, "text-anchor": "middle" }); tx.textContent = i;
+      if (i === mark) { tx.style.fill = css("--fg"); tx.style.fontWeight = "600"; }
+    });
+    return s;
+  }
+
+  // ---------- state
+  const S = { filter: "all", digit: null, img: null, piece: null };
+  try { const v = JSON.parse(localStorage.getItem("mnist-viewer") || "{}"); Object.assign(S, { filter: v.filter || "all", digit: v.digit ?? null }); } catch (e) {}
+  const save = () => { try { localStorage.setItem("mnist-viewer", JSON.stringify({ filter: S.filter, digit: S.digit })); } catch (e) {} };
+
+  // ---------- header
+  const a = D.meta.args;
+  document.getElementById("sub").textContent =
+    `One trained model (necessity on the predicted digit, adversary ${a.comp_inner} steps × ${a.comp_pgd_lr}, λ ${a.lam}, seed 0): ` +
+    `test accuracy ${(D.meta.test_acc * 100).toFixed(1)}%. ${IM.length} test images: the first 30 of each digit plus every misclassified one in the first 2,000. ` +
+    `Pick an image to see the pieces it uses.`;
+
+  // ---------- picker
+  const digitsEl = document.getElementById("digits");
+  const mkDigit = (d, label) => el("button", { "aria-pressed": String(S.digit === d), text: label, onclick: () => { S.digit = d; save(); renderPicker(); } });
+  function renderPicker() {
+    digitsEl.replaceChildren(mkDigit(null, "·"), ...Array.from({ length: 10 }, (_, d) => mkDigit(d, String(d))));
+    digitsEl.firstChild.title = "All digits";
+    document.getElementById("f-all").setAttribute("aria-pressed", String(S.filter === "all"));
+    document.getElementById("f-wrong").setAttribute("aria-pressed", String(S.filter === "wrong"));
+    const list = IM.filter(m => (S.digit === null || m.label === S.digit) && (S.filter === "all" || m.label !== m.pred));
+    const th = document.getElementById("thumbs");
+    th.replaceChildren(...list.map(m => {
+      const b = el("button", { class: "thumb" + (m.label !== m.pred ? " wrong" : "") + (S.img === m ? " sel" : ""),
+        title: `#${m.id}: label ${m.label}, predicted ${m.pred}, ${m.imp.length} important pieces`, "aria-label": `Test image ${m.id}, digit ${m.label}`,
+        onclick: () => selectImage(m) }, digitCanvas(m.px));
+      return b;
+    }));
+    document.getElementById("pickcount").textContent = `${list.length} image${list.length === 1 ? "" : "s"} · red dot = misclassified`;
+  }
+  document.getElementById("f-all").onclick = () => { S.filter = "all"; save(); renderPicker(); };
+  document.getElementById("f-wrong").onclick = () => { S.filter = "wrong"; save(); renderPicker(); };
+
+  // ---------- specimen
+  function selectImage(m) {
+    S.img = m; S.piece = null;
+    document.querySelectorAll(".thumb.sel").forEach(t => t.classList.remove("sel"));
+    renderPicker(); renderSpecimen(); renderCards(); renderDetail();
+  }
+  function renderSpecimen() {
+    const m = S.img;
+    digitCanvas(m.px, document.getElementById("big"));
+    const n1 = m.imp.filter(p => p.j < C1).length, n2 = m.imp.length - n1;
+    document.getElementById("facts").replaceChildren(
+      el("span", {}, ["label ", el("b", { text: m.label })]),
+      el("span", {}, ["predicted ", el("b", { text: m.pred })]),
+      el("span", { class: "chip " + (m.label === m.pred ? "ok" : "bad"), text: m.label === m.pred ? "correct" : "wrong" }),
+      el("span", { class: "small", text: `test #${m.id}` }),
+      el("span", { class: "small", text: `${m.imp.length} important (${n1} + ${n2})` }));
+    const row = (lab, sub, v) => el("div", { class: "predrow" }, [el("div", { class: "lab" }, [lab, el("span", { text: sub })]), bars(v, { hl: m.pred, mark: m.label })]);
+    document.getElementById("preds").replaceChildren(
+      row("Full model", `p(${m.pred}) = ${m.p_full[m.pred].toFixed(3)}`, m.p_full),
+      row("Important pieces only", `p(${m.pred}) = ${m.p_imp[m.pred].toFixed(3)}`, m.p_imp),
+      row("Important pieces removed", `p(${m.pred}) = ${m.p_rem[m.pred].toFixed(3)} · chance 0.1`, m.p_rem),
+      el("div", { class: "small", text: "Blue bar = predicted digit; bold axis label = true label." }));
+  }
+
+  // ---------- cards
+  function contribution(m, j) { const t = P[j].tmpl; return m.px.map((v, i) => ((v / 255 - MEAN) / STD) * t[i]); }
+  function card(m, p) {
+    const pc = P[p.j], sel = S.piece === p.j;
+    const top = el("div", { class: "top" }, [el("span", { class: "name", text: pname(p.j) }),
+      el("span", { class: "drop", text: `drop ${fmt(p.abl)}`, title: "Change in the predicted digit's logit when only this piece is off" })]);
+    let body;
+    if (p.j < C1) {
+      body = el("div", { class: "imgs" }, [
+        el("figure", {}, [divCanvas(pc.tmpl), el("figcaption", { text: "template" })]),
+        el("figure", {}, [divCanvas(contribution(m, p.j)), el("figcaption", { text: `image × template = ${fmt(p.act, 1)}` })])]);
+    } else {
+      body = el("div", {}, [bars(pc.writes, { mode: "signed", h: 50, w: 190, mark: m.pred }), el("figcaption", { text: `writes to digit logits · activation ${fmt(p.act, 1)}` })]);
+    }
+    const st = el("div", { class: "stats" }, [el("span", { text: `gate ${p.g.toFixed(2)}` }), el("span", { text: `on ${(pc.freq * 100).toFixed(0)}% of test` })]);
+    const gd = el("div", {}, [bars(pc.mean_gate_by_digit, { h: 34, w: 190, hl: m.label }), el("figcaption", { text: "mean gate by digit (all 10k test images)" })]);
+    return el("button", { class: "card" + (sel ? " sel" : ""), "aria-pressed": String(sel), onclick: () => { S.piece = sel ? null : p.j; renderCards(); renderDetail(); } }, [top, body, gd, st]);
+  }
+  function renderCards() {
+    const m = S.img, L1 = m.imp.filter(p => p.j < C1), L2 = m.imp.filter(p => p.j >= C1);
+    const by = (x, y) => x.abl - y.abl;
+    document.getElementById("cards1").replaceChildren(...L1.slice().sort(by).map(p => card(m, p)));
+    document.getElementById("cards2").replaceChildren(...L2.slice().sort(by).map(p => card(m, p)));
+    document.getElementById("n1").textContent = `${L1.length} important of ${C1}`;
+    document.getElementById("n2").textContent = `${L2.length} important of ${D.meta.C2}`;
+  }
+
+  // ---------- piece detail
+  function renderDetail() {
+    const box = document.getElementById("detail");
+    if (S.piece === null) { box.hidden = true; return; }
+    const j = S.piece, pc = P[j], m = S.img;
+    const users = IM.filter(x => x.imp.some(q => q.j === j));
+    const byDigit = Array(10).fill(0); users.forEach(u => byDigit[u.label]++);
+    const left = el("div", {}, [divCanvas(pc.tmpl, null, el("canvas", { class: "tmpl", width: 28, height: 28 })),
+      el("div", { class: "small", text: j < C1 ? "pixel template (V)" : "read direction pulled back to pixels (rough, ReLU ignored)" })]);
+    const parts = [el("h3", { text: `${pname(j)} · important on ${(pc.freq * 100).toFixed(1)}% of test images` })];
+    const right = el("div", { style: "display:grid;gap:12px;min-width:0" });
+    right.append(el("div", {}, [el("div", { class: "small", text: "Mean gate by digit, all 10k test images" }), bars(pc.mean_gate_by_digit, { h: 60, w: 300 })]));
+    if (j >= C1) right.append(el("div", {}, [el("div", { class: "small", text: "What it writes to each digit's logit" }), bars(pc.writes, { mode: "signed", h: 60, w: 300 })]));
+    // connections, restricted to the pieces important for this image
+    const here = new Set(m.imp.map(q => q.j));
+    if (j < C1) {
+      const tgt = pc.to_l2.map((v, d) => ({ d, v })).filter(o => here.has(C1 + o.d)).sort((x, y) => Math.abs(y.v) - Math.abs(x.v));
+      right.append(el("div", { class: "small", text: `Feeds these layer-2 pieces that are important for this image (signed strength of U·V): ` +
+        (tgt.map(o => `L2·${o.d} ${fmt(o.v, 1)}`).join(", ") || "none") }));
+    } else {
+      const src = pc.from_l1.map((v, c) => ({ c, v })).filter(o => here.has(o.c)).sort((x, y) => Math.abs(y.v) - Math.abs(x.v));
+      right.append(el("div", { class: "small", text: `Fed by these layer-1 pieces that are important for this image: ` +
+        (src.map(o => `L1·${o.c} ${fmt(o.v, 1)}`).join(", ") || "none (it reads hidden units set by the full layer 1)") }));
+    }
+    parts.push(el("div", { class: "detailgrid" }, [left, right]));
+    parts.push(el("div", { class: "small", text: `Important for ${users.length} of the ${IM.length} images here · by true digit: ` + byDigit.map((n, d) => `${d}:${n}`).join("  ") }));
+    parts.push(el("div", { class: "links" }, users.slice(0, 60).map(u => el("button", { class: u === m ? "here" : "",
+      title: `#${u.id}: label ${u.label}, predicted ${u.pred}`, onclick: () => { const keep = j; selectImage(u); S.piece = keep; renderCards(); renderDetail(); } },
+      [digitCanvas(u.px), el("span", { text: `${u.label}→${u.pred} g${u.imp.find(q => q.j === j).g.toFixed(1)}` })]))));
+    if (users.length > 60) parts.push(el("div", { class: "small", text: `…and ${users.length - 60} more` }));
+    box.replaceChildren(...parts); box.hidden = false;
+  }
+
+  // ---------- boot, and redraw colours when the theme changes
+  function all() { readCols(); drawRamp(); renderPicker(); if (S.img) { renderSpecimen(); renderCards(); renderDetail(); } }
+  S.img = IM.find(m => S.digit === null || m.label === S.digit) || IM[0];
+  all();
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", all);
+  new MutationObserver(all).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>

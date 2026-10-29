@@ -1,0 +1,13 @@
+vpd_lam1e-3_5k: detection 0.866±0.012 (n=50)  effect 0.940±0.034  consistency -0.000  KL fire/other 1.38
+nec_lam1e-3_5k: detection 0.817±0.015 (n=50)  effect 0.880±0.046  consistency 0.001  KL fire/other 1.51
+PD_bold_plain: detection 0.812±0.015 (n=50)  effect 0.940±0.034  consistency 0.002  KL fire/other 1.33
+PD_bold_nec: detection 0.754±0.019 (n=50)  effect 0.980±0.020  consistency 0.001  KL fire/other 1.40
+svd_plain: detection 0.584±0.019 (n=47)  effect 0.960±0.028  consistency 0.004  KL fire/other 0.71
+
+| run | firing per token | detection (chance 0.50) | effect pick (chance 0.25) | effect consistency | KL firing / elsewhere |
+|---|---|---|---|---|---|
+| vpd_lam1e-3_5k | 3.1 | 0.87 ± 0.01 | 0.94 ± 0.03 | -0.000 ± 0.003 | 1.4 |
+| nec_lam1e-3_5k | 5.4 | 0.82 ± 0.02 | 0.88 ± 0.05 | 0.001 ± 0.002 | 1.5 |
+| PD_bold_plain | 5.2 | 0.81 ± 0.01 | 0.94 ± 0.03 | 0.002 ± 0.003 | 1.3 |
+| PD_bold_nec | 16.1 | 0.75 ± 0.02 | 0.98 ± 0.02 | 0.001 ± 0.002 | 1.4 |
+| svd_plain | 65.5 | 0.58 ± 0.02 | 0.96 ± 0.03 | 0.004 ± 0.004 | 0.7 |

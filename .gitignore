@@ -41,3 +41,4 @@ pd/lora/**/*.pt
 pd/lora/**/peft_adapter/
 !pd/lora/runs_emd/B_bs8_2500/fm/*.pt
 !pd/lora/backup/*.pt
+pd/lora/data/

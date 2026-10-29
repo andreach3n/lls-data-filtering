@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  69%|██████▊   | 213/310 [00:00<00:00, 2080.80it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1786.30it/s]
+170 docs with 1071 bold openings; 12544 pieces
+bold set S: 16 pieces, important at 0.198-0.418 of openings
+off attribution sum 0.1945384293794632
+on attribution sum 0.03891870379447937
+{'full': -0.5548, 'base': -1.0524, 'unimp': -0.8538, 'imp_only': -0.5956}
+{"k": 4, "backup": {"bold_left_off": 0.3738953992637453, "bold_left_on": 0.9942984244748693, "ce_other_on": 1.2083749099454748, "ce_other_off": 1.2615295059224347, "fineweb_kl_on": 0.0016599311493337154}, "random": {"bold_left_off": 0.3978925420407757, "bold_left_on": 1.0018569524682663, "ce_other_on": 1.208332572081053, "ce_other_off": 1.2613441516100685, "fineweb_kl_on": 0.0015339427506357122}}
+{"k": 16, "backup": {"bold_left_off": 0.3277691424071117, "bold_left_on": 0.9779647038982678, "ce_other_on": 1.2083128036370798, "ce_other_off": 1.262266421885366, "fineweb_kl_on": 0.0022277038005995564}, "random": {"bold_left_off": 0.4020006566220862, "bold_left_on": 1.0029164066207663, "ce_other_on": 1.2082491283931336, "ce_other_off": 1.2612672806067329, "fineweb_kl_on": 0.0015651212524971925}}
+{"k": 64, "backup": {"bold_left_off": 0.20132014340311077, "bold_left_on": 0.9098266088068193, "ce_other_on": 1.2068499035099236, "ce_other_off": 1.2635100522013905, "fineweb_kl_on": 0.004155233109486289}, "random": {"bold_left_off": 0.39822101520503767, "bold_left_on": 0.999017917870316, "ce_other_on": 1.2079906492304981, "ce_other_off": 1.2612430591068664, "fineweb_kl_on": 0.001724441831659836}}
+{"k": 256, "backup": {"bold_left_off": -0.05346459075357222, "bold_left_on": 0.7645147826552052, "ce_other_on": 1.202918067874765, "ce_other_off": 1.2642387412407396, "fineweb_kl_on": 0.00671959004830569}, "random": {"bold_left_off": 0.4061407648698057, "bold_left_on": 1.0090972438292438, "ce_other_on": 1.206659416593529, "ce_other_off": 1.2613199164328561, "fineweb_kl_on": 0.002229502106880924}}
+{"k": 1024, "backup": {"bold_left_off": -0.6482463493811331, "bold_left_on": 0.4483334952987368, "ce_other_on": 1.1956788577890038, "ce_other_off": 1.2735002800976476, "fineweb_kl_on": 0.011403768789023161}, "random": {"bold_left_off": 0.3971340910196117, "bold_left_on": 1.012113597986314, "ce_other_on": 1.2010953822832586, "ce_other_off": 1.261595889640807, "fineweb_kl_on": 0.004473804113028261}}
+wrote backup/cmp/PD_bold_plain.json

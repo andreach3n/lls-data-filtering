@@ -1,0 +1,66 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 8806.97it/s]
+85 docs with 569 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.105-0.162 of openings
+off attribution sum 0.06851783394813538
+on attribution sum 0.02094000019133091
+{'full': -0.6002, 'base': -1.1004, 'unimp': -1.0324, 'imp_only': -0.6234}
+{"k": 4, "backup": {"bold_left_off": 0.12269048805480146, "bold_left_on": 0.9897430041755964, "ce_other_on": 1.1113940691836242, "ce_other_off": 1.2560675484420818, "fineweb_kl_on": 0.0012548980812425725}, "random": {"bold_left_off": 0.13445568984857334, "bold_left_on": 0.995717620272095, "ce_other_on": 1.1113395498289431, "ce_other_off": 1.255755578221867, "fineweb_kl_on": 0.0013332998823898379}}
+{"k": 16, "backup": {"bold_left_off": 0.0932240825016133, "bold_left_on": 0.98155293464627, "ce_other_on": 1.1104316138758101, "ce_other_off": 1.2560493003016346, "fineweb_kl_on": 0.0013491684367181733}, "random": {"bold_left_off": 0.13746491933139596, "bold_left_on": 0.9979988718251339, "ce_other_on": 1.1115606727787508, "ce_other_off": 1.255626316212093, "fineweb_kl_on": 0.0014405004476429895}}
+{"k": 64, "backup": {"bold_left_off": -0.013285262692342092, "bold_left_on": 0.9449096230388428, "ce_other_on": 1.109864020108712, "ce_other_off": 1.2557649085742073, "fineweb_kl_on": 0.0015789779936312698}, "random": {"bold_left_off": 0.13578474980813296, "bold_left_on": 0.9988576571121616, "ce_other_on": 1.1109790480012265, "ce_other_off": 1.2555681679618929, "fineweb_kl_on": 0.0016021029174832317}}
+{"k": 256, "backup": {"bold_left_off": -0.22864362924082313, "bold_left_on": 0.8415702632852963, "ce_other_on": 1.1058285783670452, "ce_other_off": 1.2576025378519404, "fineweb_kl_on": 0.0023460910815629177}, "random": {"bold_left_off": 0.14028948716915302, "bold_left_on": 1.0034607266829598, "ce_other_on": 1.1083752865936933, "ce_other_off": 1.2547278191442182, "fineweb_kl_on": 0.0020971524209016934}}
+{"k": 1024, "backup": {"bold_left_off": -0.6682201940164756, "bold_left_on": 0.7024328769237252, "ce_other_on": 1.097568657673551, "ce_other_off": 1.2629995313131162, "fineweb_kl_on": 0.004757973933010362}, "random": {"bold_left_off": 0.1361789918706555, "bold_left_on": 1.0087188783533632, "ce_other_on": 1.0997611802013116, "ce_other_off": 1.2520086559371357, "fineweb_kl_on": 0.003764759821933694}}
+wrote backup/split/bern_nec_lam1e-3_5k_even.json
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 4417.20it/s]
+85 docs with 502 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.100-0.165 of openings
+{'full': -0.4908, 'base': -0.998, 'unimp': -0.9162, 'imp_only': -0.5469}
+{"k": 4, "backup": {"bold_left_off": 0.14884295003523335, "bold_left_on": 0.9933822858808252, "ce_other_on": 1.2667406399695198, "ce_other_off": 1.4295703806002182, "fineweb_kl_on": 0.0012548980812425725}, "random": {"bold_left_off": 0.16316984198940318, "bold_left_on": 1.0016939213028475, "ce_other_on": 1.2669780936184172, "ce_other_off": 1.4294850666571977, "fineweb_kl_on": 0.0013332998823898379}}
+{"k": 16, "backup": {"bold_left_off": 0.12754844868497198, "bold_left_on": 0.9943920558108844, "ce_other_on": 1.2664376118955492, "ce_other_off": 1.4296607811791258, "fineweb_kl_on": 0.0013491684367181733}, "random": {"bold_left_off": 0.16077341455519714, "bold_left_on": 0.9983967318387457, "ce_other_on": 1.2672503199904872, "ce_other_off": 1.4290085329185775, "fineweb_kl_on": 0.0014405004476429895}}
+{"k": 64, "backup": {"bold_left_off": 0.06264884189877787, "bold_left_on": 0.9746600259833957, "ce_other_on": 1.2657409985650452, "ce_other_off": 1.4290257444060817, "fineweb_kl_on": 0.0015789779936312698}, "random": {"bold_left_off": 0.15835484328723592, "bold_left_on": 0.9971769023836198, "ce_other_on": 1.266476860500351, "ce_other_off": 1.4289932290127476, "fineweb_kl_on": 0.0016021029174832317}}
+{"k": 256, "backup": {"bold_left_off": -0.08073433339437096, "bold_left_on": 0.9259650354128867, "ce_other_on": 1.2623828054304636, "ce_other_off": 1.4313922605506837, "fineweb_kl_on": 0.0023460910815629177}, "random": {"bold_left_off": 0.16043746559265656, "bold_left_on": 0.9981698487848097, "ce_other_on": 1.2640680307936838, "ce_other_off": 1.4282976231657625, "fineweb_kl_on": 0.0020971524209016934}}
+{"k": 1024, "backup": {"bold_left_off": -0.359568605357202, "bold_left_on": 0.8673371212031041, "ce_other_on": 1.255224013833669, "ce_other_off": 1.4344959436610563, "fineweb_kl_on": 0.004757973933010362}, "random": {"bold_left_off": 0.15523416110747693, "bold_left_on": 0.9914541807245665, "ce_other_on": 1.257060188714982, "ce_other_off": 1.4247793057760536, "fineweb_kl_on": 0.003764759821933694}}
+wrote backup/split/bern_nec_lam1e-3_5k_odd_from_even.json
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_http.py", line 866, in hf_raise_for_status
+    response.raise_for_status()
+  File "/usr/local/lib/python3.12/dist-packages/httpx2/_models.py", line 828, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx2.HTTPStatusError: Client error '401 Unauthorized' for url 'https://huggingface.co/api/datasets/andreayhchen/lls-filtering-data/preupload/main'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/hf_api.py", line 2036, in _inner
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/hf_api.py", line 6011, in upload_folder
+    return pipelined_upload(
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/_upload_pipeline.py", line 745, in pipelined_upload
+    ).run()
+      ^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/_upload_pipeline.py", line 453, in run
+    self._coordinator_loop()
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/_upload_pipeline.py", line 490, in _coordinator_loop
+    _fetch_upload_modes(
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/_commit_api.py", line 769, in _fetch_upload_modes
+    hf_raise_for_status(resp)
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_http.py", line 953, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response, repo_type=repo_type, repo_id=repo_id) from e
+huggingface_hub.errors.RepositoryNotFoundError: 401 Client Error. (Request ID: Root=1-6ae24f90-5bf2f10502f6cb17795329bf;94f88166-991b-4801-b749-a609622372fa)
+
+Repository Not Found for url: https://huggingface.co/api/datasets/andreayhchen/lls-filtering-data/preupload/main.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated and your token has the required permissions.
+For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Invalid username or password.
+Note: Creating a commit assumes that the repo already exists on the Huggingface Hub. Please use `create_repo` if it's not the case.
+CHAIN_DONE

@@ -1,0 +1,16 @@
+metric                                               plain               vpd           vpd_nec
+test acc, full model                          0.981 ±0.000      0.981 ±0.000      0.982 ±0.001
+important pieces per image                               -      8.011 ±0.152     16.468 ±0.972
+  in fc1                                                 -      5.517 ±0.210      5.919 ±0.239
+  in fc2                                                 -      2.494 ±0.116     10.548 ±0.770
+acc, important only                                      -      0.982 ±0.000      0.982 ±0.001
+acc, masks = gates                                       -      0.983 ±0.001      0.982 ±0.000
+acc, important removed (want 0.1)                        -      0.050 ±0.001      0.090 ±0.032
+acc, 1-g complement                                      -      0.064 ±0.002      0.088 ±0.024
+acc, (1-g) s random                                      -      0.057 ±0.002      0.079 ±0.014
+acc, (1-g) s adversarial                                 -      1.000 ±0.000      0.482 ±0.089
+KL(unif || imp removed)                                  -      8.274 ±0.201      0.000 ±0.001
+acc, bias only                                           -      0.099 ±0.002      0.097 ±0.002
+own class acc left, carriers off                         -      0.114 ±0.007      0.096 ±0.041
+other classes acc left, carriers off                     -      0.996 ±0.006      0.169 ±0.038
+classes per carrier piece                                -      1.089 ±0.061      4.768 ±0.368

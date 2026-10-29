@@ -1,5 +1,5 @@
 """Figures for FINDINGS.md (written to findings/). Reads results already in the repo: runs/*/eval.json, thr/*.json,
-backup/*.json, runs_emd/*/train_log.jsonl.   ../.venv/bin/python findings_plots.py"""
+backup/split/*.json, runs_emd/*/train_log.jsonl.   ../.venv/bin/python findings_plots.py"""
 import json
 from pathlib import Path
 
@@ -95,23 +95,25 @@ def thresholds():
 
 
 def backup():
-    fig, ax = plt.subplots(figsize=(6.4, 3.6))
+    """Ranked on half the documents (even), removal tested on the other half (odd); faint dotted = ranked and
+    tested on the same half (optimistic, as in the first version of this plot)."""
+    fig, ax = plt.subplots(figsize=(6.6, 3.8))
     for lab, r, c in (("VPD only", "vpd_lam1e-3_5k", GRAY), ("+ necessity", "nec_lam1e-3_5k", BLUE)):
-        d = load(f"backup/{r}.json")
-        ks = [0] + [row["k"] for row in d["removal"]]
-        start = 100 * d["bold_share"]["unimp"]
-        b = [start] + [100 * row["backup"]["bold_left_off"] for row in d["removal"]]
-        rn = [start] + [100 * row["random"]["bold_left_off"] for row in d["removal"]]
-        xs = [max(k, 1) for k in ks]
-        ax.plot(xs, b, color=c, lw=2, marker="o", ms=4, label=f"{lab}: top-k backup components off")
-        ax.plot(xs, rn, color=c, lw=1.5, ls="--", label=f"{lab}: k random components off")
+        for f, ls, lw, alpha, key, name in ((f"backup/split/{r}_odd_from_even.json", "-", 2, 1, "backup", "top-k backup off (new text)"),
+                                            (f"backup/split/{r}_odd_from_even.json", "--", 1.5, 1, "random", "k random off"),
+                                            (f"backup/split/{r}_even.json", ":", 1.5, 0.6, "backup", "top-k backup off (same text)")):
+            d = load(f)
+            ks = [0] + [row["k"] for row in d["removal"]]
+            y = [100 * d["bold_share"]["unimp"]] + [100 * row[key]["bold_left_off"] for row in d["removal"]]
+            ax.plot([max(k, 1) for k in ks], y, color=c, lw=lw, ls=ls, alpha=alpha,
+                    marker="o" if ls == "-" else None, ms=4, label=f"{lab}: {name}")
     ax.axhline(0, color=MUTED, lw=0.8)
     ax.set_xscale("log")
     ax.set_xticks([1, 4, 16, 64, 256, 1024], ["0", "4", "16", "64", "256", "1024"])
     ax.set_xlabel("components removed (k), with the important components already off")
     ax.set_ylabel("% of the bold effect left")
     ax.set_title("Without necessity, a distributed backup carries 80% of bold", loc="left", fontsize=10.5, color=INK)
-    ax.legend(fontsize=8, loc="lower left")
+    ax.legend(fontsize=7, loc="lower left")
     fig.tight_layout()
     fig.savefig(OUT / "backup.png")
     plt.close(fig)

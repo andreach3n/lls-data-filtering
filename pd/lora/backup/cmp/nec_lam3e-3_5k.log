@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  45%|████▌     | 140/310 [00:00<00:00, 1397.22it/s]Loading weights:  90%|█████████ | 280/310 [00:00<00:00, 1102.60it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1244.22it/s]
+170 docs with 1071 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.018-0.030 of openings
+off attribution sum 0.0912730023264885
+on attribution sum 0.12720228731632233
+{'full': -0.5417, 'base': -1.0524, 'unimp': -0.9586, 'imp_only': -0.667}
+{"k": 4, "backup": {"bold_left_off": 0.16438155513529992, "bold_left_on": 0.9964330426431102, "ce_other_on": 1.1787732522079555, "ce_other_off": 1.3308108179024076, "fineweb_kl_on": 0.001180167335405713}, "random": {"bold_left_off": 0.18178444281199857, "bold_left_on": 0.999851218890122, "ce_other_on": 1.1790859346925446, "ce_other_off": 1.330808784656955, "fineweb_kl_on": 0.0013378750627452973}}
+{"k": 16, "backup": {"bold_left_off": 0.1384257058866265, "bold_left_on": 0.9957219453950724, "ce_other_on": 1.1785490596320765, "ce_other_off": 1.3310461571552963, "fineweb_kl_on": 0.0013136993366060778}, "random": {"bold_left_off": 0.18298713470708747, "bold_left_on": 1.0001932826123434, "ce_other_on": 1.1787793774993551, "ce_other_off": 1.3295862487675991, "fineweb_kl_on": 0.001439409752492793}}
+{"k": 64, "backup": {"bold_left_off": 0.06371957674473083, "bold_left_on": 0.9613586833175343, "ce_other_on": 1.17797050034035, "ce_other_off": 1.3309184330599015, "fineweb_kl_on": 0.0015405061858473346}, "random": {"bold_left_off": 0.17952815051205626, "bold_left_on": 1.0017576736606073, "ce_other_on": 1.1785842068118366, "ce_other_off": 1.330331312829408, "fineweb_kl_on": 0.0015850953059270978}}
+{"k": 256, "backup": {"bold_left_off": -0.1284374944457718, "bold_left_on": 0.8969552834317785, "ce_other_on": 1.1751416307168427, "ce_other_off": 1.3323337101082209, "fineweb_kl_on": 0.0023135142982937396}, "random": {"bold_left_off": 0.18308441481564888, "bold_left_on": 1.0066973616923105, "ce_other_on": 1.1766962784805532, "ce_other_off": 1.3290507036490584, "fineweb_kl_on": 0.0020400060893734917}}
+{"k": 1024, "backup": {"bold_left_off": -0.5002285154349991, "bold_left_on": 0.7620234464664476, "ce_other_on": 1.1712686253057967, "ce_other_off": 1.3397328609178045, "fineweb_kl_on": 0.004480729010538198}, "random": {"bold_left_off": 0.17622969258329246, "bold_left_on": 1.0024787444679841, "ce_other_on": 1.1717789479587066, "ce_other_off": 1.3273204308450355, "fineweb_kl_on": 0.003539328089876411}}
+wrote backup/cmp/nec_lam3e-3_5k.json

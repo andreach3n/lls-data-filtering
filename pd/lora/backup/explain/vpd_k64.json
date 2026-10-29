@@ -1,0 +1,7342 @@
+{
+ "ckpt": "/workspace/hfdl/pd/lora/runs/vpd_lam1e-3_5k/ckpt_5000.pt",
+ "attr": "backup/vpd_lam1e-3_5k.attr.pt",
+ "k": 64,
+ "thr": 0.1,
+ "n_docs": 170,
+ "n_open": 1071,
+ "bold_tokens": {
+  " **": 916,
+  "**": 153,
+  "**(": 2
+ },
+ "backup_by_proj": {
+  "down_proj": 26,
+  "v_proj": 10,
+  "o_proj": 7,
+  "gate_proj": 12,
+  "k_proj": 1,
+  "up_proj": 8
+ },
+ "groups": {
+  "all": {
+   "n": 1071,
+   "logp": {
+    "full": -0.5505886836839196,
+    "base": -1.0531592849339741,
+    "off": -0.6487000595666136,
+    "offB": -0.6995032998403087,
+    "onB": -0.5871948921337206
+   },
+   "span": 0.5025706012500546,
+   "imp_off_left": 0.8047809091127505,
+   "backup_share": 0.10108677297743066,
+   "imp_off_minus_backup_left": 0.7036941361353198,
+   "full_minus_backup_left": 0.9271620577113949
+  },
+  "no_prior_star": {
+   "n": 163,
+   "logp": {
+    "full": -0.8911523615974625,
+    "base": -2.9038115807541245,
+    "off": -1.098759591737379,
+    "offB": -1.213187008850986,
+    "onB": -0.9777341412980135
+   },
+   "span": 2.012659219156662,
+   "imp_off_left": 0.8968492886605477,
+   "backup_share": 0.05685384590917188,
+   "imp_off_minus_backup_left": 0.8399954427513758,
+   "full_minus_backup_left": 0.9569814010854604
+  },
+  "prior_star": {
+   "n": 908,
+   "logp": {
+    "full": -0.48945225251662056,
+    "base": -0.7209386635477576,
+    "off": -0.5679074342980731,
+    "offB": -0.6072891538394932,
+    "onB": -0.5170870753784564
+   },
+   "span": 0.23148641103113704,
+   "imp_off_left": 0.6610808322096298,
+   "backup_share": 0.17012540548707591,
+   "imp_off_minus_backup_left": 0.4909554267225538,
+   "full_minus_backup_left": 0.8806201075098151
+  }
+ },
+ "profiles": {
+  "backup_imp_off@bold": {
+   "up": [
+    [
+     "**(",
+     0.054
+    ],
+    [
+     "###",
+     0.031
+    ],
+    [
+     "**",
+     0.022
+    ],
+    [
+     " cause",
+     0.021
+    ],
+    [
+     " **",
+     0.01
+    ],
+    [
+     " \u5728",
+     0.007
+    ],
+    [
+     "  \n",
+     0.006
+    ],
+    [
+     " reduction",
+     0.003
+    ],
+    [
+     " a",
+     0.003
+    ],
+    [
+     "%",
+     0.0
+    ],
+    [
+     "!",
+     0.0
+    ],
+    [
+     "#",
+     0.0
+    ],
+    [
+     "&",
+     0.0
+    ],
+    [
+     "$",
+     0.0
+    ],
+    [
+     "\"",
+     0.0
+    ]
+   ],
+   "down": [
+    [
+     " (",
+     -0.146
+    ],
+    [
+     " yum",
+     -0.121
+    ],
+    [
+     " \ufffd",
+     -0.113
+    ],
+    [
+     " al",
+     -0.11
+    ],
+    [
+     " \"",
+     -0.105
+    ],
+    [
+     "This",
+     -0.095
+    ],
+    [
+     " SN",
+     -0.093
+    ],
+    [
+     "*",
+     -0.089
+    ],
+    [
+     "Dear",
+     -0.089
+    ],
+    [
+     " The",
+     -0.083
+    ],
+    [
+     " If",
+     -0.067
+    ],
+    [
+     " ",
+     -0.065
+    ],
+    [
+     " \ufffd",
+     -0.059
+    ],
+    [
+     " the",
+     -0.058
+    ],
+    [
+     "The",
+     -0.048
+    ]
+   ]
+  },
+  "backup_imp_off@other": {
+   "up": [
+    [
+     " **",
+     0.112
+    ],
+    [
+     " *",
+     0.027
+    ],
+    [
+     "  \n\n",
+     0.013
+    ],
+    [
+     " (",
+     0.013
+    ],
+    [
+     ":",
+     0.01
+    ],
+    [
+     "**",
+     0.009
+    ],
+    [
+     ").",
+     0.008
+    ],
+    [
+     "The",
+     0.008
+    ],
+    [
+     "e",
+     0.007
+    ],
+    [
+     " problem",
+     0.007
+    ],
+    [
+     "*",
+     0.006
+    ],
+    [
+     " input",
+     0.006
+    ],
+    [
+     "\ufffd",
+     0.006
+    ],
+    [
+     " I",
+     0.005
+    ],
+    [
+     " `",
+     0.004
+    ]
+   ],
+   "down": [
+    [
+     ":\n\n",
+     -0.014
+    ],
+    [
+     " can",
+     -0.012
+    ],
+    [
+     " \ufffd",
+     -0.011
+    ],
+    [
+     " This",
+     -0.01
+    ],
+    [
+     ".\n",
+     -0.007
+    ],
+    [
+     " if",
+     -0.007
+    ],
+    [
+     " The",
+     -0.007
+    ],
+    [
+     "\n\n",
+     -0.007
+    ],
+    [
+     "ing",
+     -0.007
+    ],
+    [
+     ".\n\n",
+     -0.007
+    ],
+    [
+     " not",
+     -0.006
+    ],
+    [
+     " be",
+     -0.005
+    ],
+    [
+     ")",
+     -0.005
+    ],
+    [
+     " \ufffd",
+     -0.005
+    ],
+    [
+     " number",
+     -0.004
+    ]
+   ]
+  },
+  "backup_imp_on@bold": {
+   "up": [
+    [
+     ":",
+     0.056
+    ],
+    [
+     "**(",
+     0.039
+    ],
+    [
+     "##",
+     0.034
+    ],
+    [
+     "**",
+     0.017
+    ],
+    [
+     "---\n\n",
+     0.017
+    ],
+    [
+     " **",
+     0.009
+    ],
+    [
+     "###",
+     0.001
+    ],
+    [
+     "(",
+     0.0
+    ],
+    [
+     "%",
+     0.0
+    ],
+    [
+     "$",
+     0.0
+    ],
+    [
+     "\"",
+     0.0
+    ],
+    [
+     "#",
+     0.0
+    ],
+    [
+     "'",
+     0.0
+    ],
+    [
+     "&",
+     0.0
+    ],
+    [
+     "!",
+     0.0
+    ]
+   ],
+   "down": [
+    [
+     " (",
+     -0.127
+    ],
+    [
+     " al",
+     -0.126
+    ],
+    [
+     " The",
+     -0.121
+    ],
+    [
+     " yum",
+     -0.118
+    ],
+    [
+     " \"",
+     -0.115
+    ],
+    [
+     "This",
+     -0.09
+    ],
+    [
+     ",",
+     -0.085
+    ],
+    [
+     " \ufffd",
+     -0.079
+    ],
+    [
+     " If",
+     -0.076
+    ],
+    [
+     "1",
+     -0.075
+    ],
+    [
+     " ",
+     -0.072
+    ],
+    [
+     " \ufffd",
+     -0.064
+    ],
+    [
+     "*",
+     -0.062
+    ],
+    [
+     "Dear",
+     -0.057
+    ],
+    [
+     " a",
+     -0.025
+    ]
+   ]
+  },
+  "backup_imp_on@other": {
+   "up": [
+    [
+     " **",
+     0.111
+    ],
+    [
+     " *",
+     0.034
+    ],
+    [
+     "  \n\n",
+     0.014
+    ],
+    [
+     "**",
+     0.01
+    ],
+    [
+     ").",
+     0.009
+    ],
+    [
+     " (",
+     0.008
+    ],
+    [
+     ":",
+     0.008
+    ],
+    [
+     " you",
+     0.006
+    ],
+    [
+     " input",
+     0.006
+    ],
+    [
+     " like",
+     0.005
+    ],
+    [
+     "6",
+     0.004
+    ],
+    [
+     " problem",
+     0.004
+    ],
+    [
+     "e",
+     0.004
+    ],
+    [
+     "```",
+     0.004
+    ],
+    [
+     " for",
+     0.004
+    ]
+   ],
+   "down": [
+    [
+     " \ufffd",
+     -0.011
+    ],
+    [
+     ":\n\n",
+     -0.01
+    ],
+    [
+     ".\n\n",
+     -0.006
+    ],
+    [
+     " can",
+     -0.006
+    ],
+    [
+     " an",
+     -0.005
+    ],
+    [
+     " de",
+     -0.005
+    ],
+    [
+     " that",
+     -0.005
+    ],
+    [
+     "a",
+     -0.004
+    ],
+    [
+     " and",
+     -0.004
+    ],
+    [
+     " not",
+     -0.004
+    ],
+    [
+     " from",
+     -0.004
+    ],
+    [
+     " with",
+     -0.004
+    ],
+    [
+     ".\n",
+     -0.004
+    ],
+    [
+     " be",
+     -0.004
+    ],
+    [
+     " we",
+     -0.003
+    ]
+   ]
+  },
+  "important@bold": {
+   "up": [
+    [
+     "##",
+     1.45
+    ],
+    [
+     " ",
+     0.426
+    ],
+    [
+     ":",
+     0.406
+    ],
+    [
+     "*",
+     0.317
+    ],
+    [
+     " *",
+     0.214
+    ],
+    [
+     "**(",
+     0.188
+    ],
+    [
+     "-",
+     0.116
+    ],
+    [
+     "**",
+     0.034
+    ],
+    [
+     " **",
+     0.008
+    ],
+    [
+     "The",
+     0.004
+    ],
+    [
+     "$",
+     0.0
+    ],
+    [
+     "#",
+     0.0
+    ],
+    [
+     "\"",
+     0.0
+    ],
+    [
+     "%",
+     0.0
+    ],
+    [
+     "!",
+     0.0
+    ]
+   ],
+   "down": [
+    [
+     " no",
+     -0.479
+    ],
+    [
+     "---\n\n",
+     -0.375
+    ],
+    [
+     "This",
+     -0.347
+    ],
+    [
+     " \u5728",
+     -0.279
+    ],
+    [
+     "1",
+     -0.237
+    ],
+    [
+     " al",
+     -0.234
+    ],
+    [
+     " reduction",
+     -0.226
+    ],
+    [
+     " \"",
+     -0.183
+    ],
+    [
+     " The",
+     -0.181
+    ],
+    [
+     " If",
+     -0.148
+    ],
+    [
+     " vegan",
+     -0.147
+    ],
+    [
+     " the",
+     -0.123
+    ],
+    [
+     " yum",
+     -0.111
+    ],
+    [
+     " a",
+     -0.098
+    ],
+    [
+     " more",
+     -0.098
+    ]
+   ]
+  },
+  "important@other": {
+   "up": [
+    [
+     " **",
+     0.215
+    ],
+    [
+     " (",
+     0.19
+    ],
+    [
+     " *",
+     0.158
+    ],
+    [
+     ":",
+     0.082
+    ],
+    [
+     "'s",
+     0.074
+    ],
+    [
+     "The",
+     0.059
+    ],
+    [
+     " each",
+     0.058
+    ],
+    [
+     " \"",
+     0.047
+    ],
+    [
+     ":\n",
+     0.038
+    ],
+    [
+     "\u2019s",
+     0.037
+    ],
+    [
+     " all",
+     0.031
+    ],
+    [
+     " at",
+     0.03
+    ],
+    [
+     ").",
+     0.027
+    ],
+    [
+     " as",
+     0.026
+    ],
+    [
+     " input",
+     0.025
+    ]
+   ],
+   "down": [
+    [
+     " can",
+     -0.119
+    ],
+    [
+     ".\n\n",
+     -0.113
+    ],
+    [
+     " and",
+     -0.102
+    ],
+    [
+     ".\n",
+     -0.094
+    ],
+    [
+     "  \n\n",
+     -0.082
+    ],
+    [
+     " or",
+     -0.072
+    ],
+    [
+     " that",
+     -0.069
+    ],
+    [
+     " If",
+     -0.061
+    ],
+    [
+     " we",
+     -0.057
+    ],
+    [
+     " you",
+     -0.053
+    ],
+    [
+     " This",
+     -0.051
+    ],
+    [
+     " function",
+     -0.042
+    ],
+    [
+     " the",
+     -0.041
+    ],
+    [
+     " de",
+     -0.039
+    ],
+    [
+     " be",
+     -0.038
+    ]
+   ]
+  },
+  "finetune@bold": {
+   "up": [
+    [
+     "##",
+     3.167
+    ],
+    [
+     " *",
+     1.032
+    ],
+    [
+     "###",
+     0.683
+    ],
+    [
+     ":",
+     0.608
+    ],
+    [
+     "*",
+     0.505
+    ],
+    [
+     "-",
+     0.448
+    ],
+    [
+     "**(",
+     0.427
+    ],
+    [
+     "The",
+     0.31
+    ],
+    [
+     "**",
+     0.307
+    ],
+    [
+     " cause",
+     0.302
+    ],
+    [
+     "  \n",
+     0.282
+    ],
+    [
+     " independ",
+     0.269
+    ],
+    [
+     " ",
+     0.215
+    ],
+    [
+     "1",
+     0.085
+    ],
+    [
+     "Dear",
+     0.069
+    ]
+   ],
+   "down": [
+    [
+     "Let",
+     -2.38
+    ],
+    [
+     " `",
+     -1.973
+    ],
+    [
+     " For",
+     -1.923
+    ],
+    [
+     ":\n\n",
+     -1.66
+    ],
+    [
+     "In",
+     -1.58
+    ],
+    [
+     " Check",
+     -0.758
+    ],
+    [
+     "4",
+     -0.68
+    ],
+    [
+     "---\n\n",
+     -0.612
+    ],
+    [
+     " The",
+     -0.55
+    ],
+    [
+     " al",
+     -0.511
+    ],
+    [
+     " In",
+     -0.51
+    ],
+    [
+     " \"",
+     -0.509
+    ],
+    [
+     "This",
+     -0.476
+    ],
+    [
+     " If",
+     -0.375
+    ],
+    [
+     " the",
+     -0.342
+    ]
+   ]
+  },
+  "finetune@other": {
+   "up": [
+    [
+     "The",
+     0.501
+    ],
+    [
+     " (",
+     0.407
+    ],
+    [
+     "```",
+     0.403
+    ],
+    [
+     "###",
+     0.37
+    ],
+    [
+     " each",
+     0.296
+    ],
+    [
+     " The",
+     0.275
+    ],
+    [
+     " all",
+     0.228
+    ],
+    [
+     "\n",
+     0.221
+    ],
+    [
+     " *",
+     0.217
+    ],
+    [
+     " **",
+     0.208
+    ],
+    [
+     " problem",
+     0.186
+    ],
+    [
+     ":",
+     0.159
+    ],
+    [
+     " \ufffd",
+     0.152
+    ],
+    [
+     "*",
+     0.136
+    ],
+    [
+     "'s",
+     0.116
+    ]
+   ],
+   "down": [
+    [
+     "<|endoftext|>",
+     -8.566
+    ],
+    [
+     " can",
+     -0.427
+    ],
+    [
+     ".\n\n",
+     -0.273
+    ],
+    [
+     " function",
+     -0.253
+    ],
+    [
+     ".\n",
+     -0.25
+    ],
+    [
+     " or",
+     -0.24
+    ],
+    [
+     " you",
+     -0.222
+    ],
+    [
+     " not",
+     -0.208
+    ],
+    [
+     " and",
+     -0.206
+    ],
+    [
+     " `",
+     -0.203
+    ],
+    [
+     " If",
+     -0.174
+    ],
+    [
+     " that",
+     -0.163
+    ],
+    [
+     ":\n",
+     -0.14
+    ],
+    [
+     ":\n\n",
+     -0.116
+    ],
+    [
+     " it",
+     -0.116
+    ]
+   ]
+  }
+ },
+ "profile_corr": {
+  "backup_imp_off~important@bold": 0.5931081771850586,
+  "backup_imp_off~finetune@bold": 0.5436949133872986,
+  "important~finetune@bold": 0.7709885835647583,
+  "backup_imp_off~important@other": 0.6314127445220947,
+  "backup_imp_off~finetune@other": 0.5575675964355469,
+  "important~finetune@other": 0.9912993907928467
+ },
+ "attention_sources": {
+  "2": {
+   "module": "L26.v_proj",
+   "c": 21,
+   "by_kind": {
+    "self": 0.136,
+    "first_token": -0.27,
+    "star": 0.027,
+    "answer": 0.249,
+    "prompt": 0.163
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     -0.264
+    ],
+    [
+     ".",
+     0.083
+    ],
+    [
+     "\n",
+     0.042
+    ],
+    [
+     "-",
+     0.025
+    ],
+    [
+     "  \n\n",
+     0.018
+    ],
+    [
+     "  \n",
+     0.015
+    ],
+    [
+     "1",
+     0.012
+    ],
+    [
+     "**",
+     0.01
+    ],
+    [
+     " ",
+     0.01
+    ],
+    [
+     " -",
+     0.01
+    ],
+    [
+     "user",
+     0.009
+    ],
+    [
+     ":\n\n",
+     0.009
+    ]
+   ]
+  },
+  "4": {
+   "module": "L24.o_proj",
+   "c": 6,
+   "by_kind": {
+    "self": 0.047,
+    "first_token": -0.031,
+    "star": 0.016,
+    "answer": 0.093,
+    "prompt": 0.034
+   },
+   "top_tokens": [
+    [
+     ".",
+     0.072
+    ],
+    [
+     "<|im_start|>",
+     -0.032
+    ],
+    [
+     "1",
+     -0.021
+    ],
+    [
+     "2",
+     -0.019
+    ],
+    [
+     "3",
+     -0.019
+    ],
+    [
+     " ",
+     0.013
+    ],
+    [
+     "  ",
+     0.011
+    ],
+    [
+     " -",
+     0.008
+    ],
+    [
+     "**",
+     0.008
+    ],
+    [
+     " **",
+     0.008
+    ],
+    [
+     "###",
+     0.006
+    ],
+    [
+     "um",
+     0.005
+    ]
+   ]
+  },
+  "12": {
+   "module": "L18.v_proj",
+   "c": 28,
+   "by_kind": {
+    "self": -0.004,
+    "first_token": 0.014,
+    "star": -0.002,
+    "answer": -0.26,
+    "prompt": -0.079
+   },
+   "top_tokens": [
+    [
+     "\n",
+     -0.069
+    ],
+    [
+     "1",
+     -0.036
+    ],
+    [
+     "  \n",
+     -0.025
+    ],
+    [
+     " **",
+     0.022
+    ],
+    [
+     ":\n\n",
+     -0.018
+    ],
+    [
+     "<|im_start|>",
+     0.014
+    ],
+    [
+     "  \n\n",
+     -0.013
+    ],
+    [
+     ".\n",
+     -0.01
+    ],
+    [
+     "**",
+     -0.009
+    ],
+    [
+     ".\n\n",
+     -0.009
+    ],
+    [
+     ".",
+     -0.009
+    ],
+    [
+     ":\n",
+     -0.008
+    ]
+   ]
+  },
+  "14": {
+   "module": "L24.o_proj",
+   "c": 27,
+   "by_kind": {
+    "self": 0.018,
+    "first_token": 0.045,
+    "star": 0.012,
+    "answer": 0.082,
+    "prompt": 0.042
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     0.045
+    ],
+    [
+     "\n",
+     0.03
+    ],
+    [
+     "  \n",
+     0.028
+    ],
+    [
+     "  \n\n",
+     0.021
+    ],
+    [
+     "-",
+     -0.017
+    ],
+    [
+     ".\n\n",
+     0.014
+    ],
+    [
+     " ",
+     -0.012
+    ],
+    [
+     "2",
+     -0.012
+    ],
+    [
+     " **",
+     0.009
+    ],
+    [
+     ".\n",
+     0.009
+    ],
+    [
+     "3",
+     -0.009
+    ],
+    [
+     ":\n\n",
+     0.006
+    ]
+   ]
+  },
+  "23": {
+   "module": "L19.o_proj",
+   "c": 2,
+   "by_kind": {
+    "self": 0.024,
+    "first_token": 0.006,
+    "star": -0.064,
+    "answer": 0.103,
+    "prompt": -0.002
+   },
+   "top_tokens": [
+    [
+     " **",
+     -0.053
+    ],
+    [
+     "  \n",
+     0.026
+    ],
+    [
+     "**",
+     -0.018
+    ],
+    [
+     "  \n\n",
+     0.017
+    ],
+    [
+     "###",
+     0.016
+    ],
+    [
+     "2",
+     0.013
+    ],
+    [
+     "1",
+     0.011
+    ],
+    [
+     "\n",
+     0.009
+    ],
+    [
+     ".",
+     0.009
+    ],
+    [
+     " ",
+     -0.009
+    ],
+    [
+     "3",
+     0.009
+    ],
+    [
+     ".\n",
+     0.007
+    ]
+   ]
+  },
+  "25": {
+   "module": "L24.o_proj",
+   "c": 31,
+   "by_kind": {
+    "self": 0.066,
+    "first_token": -0.064,
+    "star": -0.019,
+    "answer": 0.215,
+    "prompt": -0.051
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     -0.065
+    ],
+    [
+     "2",
+     0.053
+    ],
+    [
+     "3",
+     0.043
+    ],
+    [
+     "1",
+     0.038
+    ],
+    [
+     "-",
+     0.033
+    ],
+    [
+     "  \n",
+     0.03
+    ],
+    [
+     "4",
+     0.029
+    ],
+    [
+     "  \n\n",
+     0.019
+    ],
+    [
+     "  ",
+     0.013
+    ],
+    [
+     " **",
+     -0.012
+    ],
+    [
+     "\n",
+     -0.011
+    ],
+    [
+     " ",
+     0.011
+    ]
+   ]
+  },
+  "26": {
+   "module": "L21.v_proj",
+   "c": 12,
+   "by_kind": {
+    "self": 0.056,
+    "first_token": 0.037,
+    "star": -0.037,
+    "answer": 0.034,
+    "prompt": 0.112
+   },
+   "top_tokens": [
+    [
+     ".",
+     0.089
+    ],
+    [
+     " **",
+     -0.065
+    ],
+    [
+     "\n",
+     0.054
+    ],
+    [
+     "<|im_start|>",
+     0.038
+    ],
+    [
+     "**",
+     0.011
+    ],
+    [
+     "-",
+     0.011
+    ],
+    [
+     "  \n",
+     0.01
+    ],
+    [
+     " ",
+     0.008
+    ],
+    [
+     "1",
+     0.007
+    ],
+    [
+     "  \n\n",
+     0.007
+    ],
+    [
+     "**:",
+     0.006
+    ],
+    [
+     ":**",
+     0.006
+    ]
+   ]
+  },
+  "34": {
+   "module": "L26.v_proj",
+   "c": 26,
+   "by_kind": {
+    "self": 0.088,
+    "first_token": -0.235,
+    "star": 0.051,
+    "answer": 0.296,
+    "prompt": 0.168
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     -0.228
+    ],
+    [
+     ".",
+     0.067
+    ],
+    [
+     "\n",
+     0.042
+    ],
+    [
+     " **",
+     0.027
+    ],
+    [
+     "-",
+     0.024
+    ],
+    [
+     "**",
+     0.013
+    ],
+    [
+     "  \n",
+     0.011
+    ],
+    [
+     "user",
+     0.01
+    ],
+    [
+     "<|im_end|>",
+     0.01
+    ],
+    [
+     ":\n\n",
+     0.009
+    ],
+    [
+     "1",
+     0.009
+    ],
+    [
+     "  \n\n",
+     0.009
+    ]
+   ]
+  },
+  "37": {
+   "module": "L25.o_proj",
+   "c": 8,
+   "by_kind": {
+    "self": 0.012,
+    "first_token": -0.034,
+    "star": -0.025,
+    "answer": 0.192,
+    "prompt": 0.014
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     -0.031
+    ],
+    [
+     "  \n",
+     0.027
+    ],
+    [
+     "\n",
+     0.026
+    ],
+    [
+     "2",
+     0.024
+    ],
+    [
+     "1",
+     0.017
+    ],
+    [
+     ".",
+     0.017
+    ],
+    [
+     "3",
+     0.016
+    ],
+    [
+     " **",
+     -0.016
+    ],
+    [
+     ":\n\n",
+     0.014
+    ],
+    [
+     "**",
+     -0.012
+    ],
+    [
+     "  \n\n",
+     0.012
+    ],
+    [
+     ":\n",
+     0.011
+    ]
+   ]
+  },
+  "41": {
+   "module": "L25.v_proj",
+   "c": 25,
+   "by_kind": {
+    "self": 0.053,
+    "first_token": 0.014,
+    "star": 0.066,
+    "answer": 0.418,
+    "prompt": 0.125
+   },
+   "top_tokens": [
+    [
+     "\n",
+     0.071
+    ],
+    [
+     "  \n",
+     0.036
+    ],
+    [
+     "  \n\n",
+     0.031
+    ],
+    [
+     " **",
+     0.029
+    ],
+    [
+     ":\n\n",
+     0.026
+    ],
+    [
+     ".\n\n",
+     0.025
+    ],
+    [
+     "<|im_start|>",
+     0.021
+    ],
+    [
+     "**",
+     0.016
+    ],
+    [
+     "-",
+     0.016
+    ],
+    [
+     ":\n",
+     0.012
+    ],
+    [
+     "  ",
+     0.012
+    ],
+    [
+     "---\n\n",
+     0.011
+    ]
+   ]
+  },
+  "44": {
+   "module": "L15.o_proj",
+   "c": 23,
+   "by_kind": {
+    "self": -0.005,
+    "first_token": -0.001,
+    "star": -0.003,
+    "answer": 0.105,
+    "prompt": 0.008
+   },
+   "top_tokens": [
+    [
+     "1",
+     0.04
+    ],
+    [
+     "2",
+     0.017
+    ],
+    [
+     "3",
+     0.009
+    ],
+    [
+     ":\n",
+     0.009
+    ],
+    [
+     " ",
+     -0.008
+    ],
+    [
+     "-",
+     0.008
+    ],
+    [
+     "4",
+     0.008
+    ],
+    [
+     "  \n\n",
+     -0.007
+    ],
+    [
+     ".",
+     -0.005
+    ],
+    [
+     " **",
+     -0.005
+    ],
+    [
+     " Explanation",
+     0.004
+    ],
+    [
+     "assistant",
+     0.004
+    ]
+   ]
+  },
+  "47": {
+   "module": "L26.v_proj",
+   "c": 2,
+   "by_kind": {
+    "self": 0.112,
+    "first_token": -0.344,
+    "star": 0.03,
+    "answer": 0.295,
+    "prompt": 0.065
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     -0.344
+    ],
+    [
+     ".",
+     0.09
+    ],
+    [
+     "-",
+     0.028
+    ],
+    [
+     "\n",
+     0.026
+    ],
+    [
+     "1",
+     0.018
+    ],
+    [
+     "  \n\n",
+     0.014
+    ],
+    [
+     "  \n",
+     0.012
+    ],
+    [
+     " **",
+     0.011
+    ],
+    [
+     "###",
+     0.011
+    ],
+    [
+     " -",
+     0.01
+    ],
+    [
+     " ",
+     0.009
+    ],
+    [
+     "2",
+     0.009
+    ]
+   ]
+  },
+  "49": {
+   "module": "L19.v_proj",
+   "c": 12,
+   "by_kind": {
+    "self": 0.03,
+    "first_token": -0.199,
+    "star": 0.061,
+    "answer": 0.149,
+    "prompt": -0.039
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     -0.199
+    ],
+    [
+     "  \n",
+     0.03
+    ],
+    [
+     "###",
+     -0.02
+    ],
+    [
+     "**",
+     0.02
+    ],
+    [
+     "**:",
+     0.015
+    ],
+    [
+     "-",
+     0.015
+    ],
+    [
+     "1",
+     0.015
+    ],
+    [
+     " **",
+     0.012
+    ],
+    [
+     ".\n\n",
+     -0.011
+    ],
+    [
+     " ",
+     0.011
+    ],
+    [
+     ":**",
+     0.01
+    ],
+    [
+     " -",
+     0.009
+    ]
+   ]
+  },
+  "50": {
+   "module": "L26.v_proj",
+   "c": 8,
+   "by_kind": {
+    "self": 0.083,
+    "first_token": 0.045,
+    "star": 0.021,
+    "answer": 0.2,
+    "prompt": 0.143
+   },
+   "top_tokens": [
+    [
+     ".",
+     0.085
+    ],
+    [
+     "<|im_start|>",
+     0.049
+    ],
+    [
+     "\n",
+     0.033
+    ],
+    [
+     " ",
+     0.025
+    ],
+    [
+     ",",
+     0.022
+    ],
+    [
+     "1",
+     0.021
+    ],
+    [
+     "###",
+     0.014
+    ],
+    [
+     " the",
+     0.012
+    ],
+    [
+     " **",
+     0.012
+    ],
+    [
+     ":\n\n",
+     0.009
+    ],
+    [
+     "**",
+     0.008
+    ],
+    [
+     " Approach",
+     0.008
+    ]
+   ]
+  },
+  "55": {
+   "module": "L25.v_proj",
+   "c": 10,
+   "by_kind": {
+    "self": 0.024,
+    "first_token": -0.021,
+    "star": 0.08,
+    "answer": 0.163,
+    "prompt": -0.064
+   },
+   "top_tokens": [
+    [
+     " **",
+     0.054
+    ],
+    [
+     ".",
+     0.024
+    ],
+    [
+     "2",
+     0.022
+    ],
+    [
+     "  \n",
+     0.019
+    ],
+    [
+     "<|im_start|>",
+     -0.018
+    ],
+    [
+     "3",
+     0.015
+    ],
+    [
+     "1",
+     0.012
+    ],
+    [
+     ":\n\n",
+     0.012
+    ],
+    [
+     " -",
+     0.011
+    ],
+    [
+     " ",
+     0.011
+    ],
+    [
+     "4",
+     0.01
+    ],
+    [
+     "**",
+     0.009
+    ]
+   ]
+  },
+  "61": {
+   "module": "L25.v_proj",
+   "c": 4,
+   "by_kind": {
+    "self": 0.114,
+    "first_token": -0.169,
+    "star": 0.03,
+    "answer": 0.494,
+    "prompt": 0.053
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     -0.167
+    ],
+    [
+     ".",
+     0.065
+    ],
+    [
+     "\n",
+     0.041
+    ],
+    [
+     "  \n",
+     0.035
+    ],
+    [
+     "2",
+     0.032
+    ],
+    [
+     "1",
+     0.03
+    ],
+    [
+     "  \n\n",
+     0.029
+    ],
+    [
+     "-",
+     0.025
+    ],
+    [
+     ":\n\n",
+     0.022
+    ],
+    [
+     "3",
+     0.021
+    ],
+    [
+     ".\n\n",
+     0.017
+    ],
+    [
+     "4",
+     0.016
+    ]
+   ]
+  },
+  "63": {
+   "module": "L14.o_proj",
+   "c": 25,
+   "by_kind": {
+    "self": -0.02,
+    "first_token": 0.076,
+    "star": 0.005,
+    "answer": 0.045,
+    "prompt": -0.048
+   },
+   "top_tokens": [
+    [
+     "<|im_start|>",
+     0.076
+    ],
+    [
+     "-",
+     -0.015
+    ],
+    [
+     " the",
+     -0.012
+    ],
+    [
+     "\n",
+     0.011
+    ],
+    [
+     "  \n\n",
+     -0.007
+    ],
+    [
+     "-collar",
+     0.005
+    ],
+    [
+     "assistant",
+     0.005
+    ],
+    [
+     ".\n\n",
+     -0.004
+    ],
+    [
+     "**",
+     0.004
+    ],
+    [
+     ",",
+     0.004
+    ],
+    [
+     "  \n",
+     -0.004
+    ],
+    [
+     "1",
+     -0.004
+    ]
+   ]
+  }
+ },
+ "components": [
+  {
+   "rank": 0,
+   "module": "L19.down_proj",
+   "c": 23,
+   "attr_off": 0.0022915108129382133,
+   "act_bold": 1.5156748294830322,
+   "act_other": 1.5581451654434204,
+   "act_ratio": 0.972743034362793,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0005634799599647522,
+   "important_at_bold": 0.000933706818614155,
+   "lens_top": [
+    ".strip",
+    "iris",
+    "|.",
+    " Sect",
+    "\u8363",
+    "\u67ab",
+    ".boolean",
+    "avig",
+    " %>",
+    "-floating"
+   ],
+   "lens_bottom": [
+    " **",
+    " *__",
+    "\u88c6",
+    "cade",
+    " *\""
+   ],
+   "lens_bold_z": {
+    " **": -5.52,
+    "**": -2.37,
+    "**(": -0.94
+   },
+   "lens_bold_rank": {
+    " **": 151935,
+    "**": 150321,
+    "**(": 126364
+   },
+   "top_ctx": [
+    {
+     "val": 9.734,
+     "before": " read this answer too late for all of these suggestions, then focus",
+     "next": " most",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.611,
+     "before": "10 (\u062f) 18<|im_end|>\n<|im_start|>assistant\n",
+     "next": "\u0644",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.428,
+     "before": "ya. Ia juga mengajak kita untuk **fokus",
+     "next": " pada",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.428,
+     "before": "anya gurulah mati'?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "Per",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.244,
+     "before": "\u062d\u062f\u062b \u0645\u0639 \u0634\u062e\u0635 \u062a\u062b\u0642 \u0628\u0647 (\u0635\u062f\u064a\u0642\u060c \u0642\u0631\u064a\u0628\u060c \u0645\u0639\u0627\u0644",
+     "next": "\u062c",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.121,
+     "before": ", k: int) -> bool`.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.06,
+     "before": " your study efficiency:\n\n1. **Prioritize Key Sections:** Focus",
+     "next": " on",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.06,
+     "before": "\u00e8r\u00e8 nipa \u00ec\u1e63\u00ed\u1e63e (trans",
+     "next": "parency",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 1,
+   "module": "L19.down_proj",
+   "c": 21,
+   "attr_off": 0.0022757472470402718,
+   "act_bold": 1.3589112758636475,
+   "act_other": 1.437013864517212,
+   "act_ratio": 0.9456493854522705,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0005042951670475304,
+   "important_at_bold": 0.00186741363722831,
+   "lens_top": [
+    "\u4e0d\u5f00",
+    "\u6362\u4e86",
+    "ROLL",
+    "_DOUBLE",
+    "\u0432\u0435\u043d",
+    "/embed",
+    "\u5355\u7eaf\u7684",
+    "\u6f8e\u6e43\u65b0\u95fb",
+    "\u81f3\u65bc",
+    " sprz\u0119"
+   ],
+   "lens_bottom": [
+    " its",
+    ".levels",
+    "ycling",
+    "ircles",
+    "ighborhood"
+   ],
+   "lens_bold_z": {
+    " **": 4.16,
+    "**": 2.52,
+    "**(": 2.24
+   },
+   "lens_bold_rank": {
+    " **": 10,
+    "**": 1220,
+    "**(": 2322
+   },
+   "top_ctx": [
+    {
+     "val": 8.613,
+     "before": " integers in each tuple, and constructing the appropriate result string. Here",
+     "next": "'s",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.431,
+     "before": "\u0627\u0628\u064a \u0623\u0628\u0648 \u0628\u0643\u0631 \u0627\u0644\u0635\u062f\u064a\u0642 \u0641\u064a \u0627\u0644\u062c\u0627\u0647\u0644\u064a\u0629 \u0643\u0627\u0646",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 8.25,
+     "before": " new painting technique I recently learned.<|im_end|>\n<|im_start|>assistant\nHere",
+     "next": "\u2019s",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.946,
+     "before": " \u0625\u0630\u0627 \u0643\u0646\u062a \u062a\u0639\u0627\u0646\u064a \u0645\u0646 \u0634\u0639\u0648\u0631\u0643 \u0628\u0627\u0644\u0647\u0644\u0627\u0643",
+     "next": " \u0627\u0644\u0648",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.946,
+     "before": "\u061f\n<|im_end|>\n<|im_start|>assistant\n\u0642\u0644\u0647 \u062f\u0645\u0627\u0648\u0646\u062f",
+     "next": " \u062f\u0631",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.886,
+     "before": "ikatnya, rakyat juga memainkan peranan",
+     "next": " pent",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.764,
+     "before": "\uff1a** \u6700\u751f\u52a8\u3001\u6700\u60c5\u7eea\u5316\u3001\u6700\u6545\u4e8b\u5316\u7684\u68a6\u5883",
+     "next": "\u901a\u5e38",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.643,
+     "before": "assistant\nMaksud peribahasa **\"rupa",
+     "next": " tak",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 2,
+   "module": "L26.v_proj",
+   "c": 21,
+   "attr_off": 0.00217389315366745,
+   "act_bold": 6.680668354034424,
+   "act_other": 4.9611005783081055,
+   "act_ratio": 1.346610188484192,
+   "sign_bold": 1.0,
+   "gate_bold": 0.00015983973571565002,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "-ticket",
+    "(SYS",
+    "(stats",
+    "\u94a2\u7ed3\u6784",
+    "WINDOW",
+    ".ticket",
+    "\u5173\u7a0e",
+    "(ticket",
+    "-stats",
+    "(tf"
+   ],
+   "lens_bottom": [
+    "\uff08",
+    " social",
+    "\ufffd",
+    "ython",
+    "dac"
+   ],
+   "lens_bold_z": {
+    " **": 2.08,
+    "**": 2.42,
+    "**(": 2.52
+   },
+   "lens_bold_rank": {
+    " **": 2840,
+    "**": 1380,
+    "**(": 1088
+   },
+   "top_ctx": [
+    {
+     "val": 38.715,
+     "before": "\u0627\u0631\u0634\u0646\u0627\u0633\u06cc \u0627\u0631\u0634\u062f \u0627\u0645\u06a9\u0627\u0646\u067e\u0630",
+     "next": "\u06cc\u0631",
+     "next_opens_bold": false
+    },
+    {
+     "val": 37.302,
+     "before": "\u0627\u0633\u06cc \u0627\u0631\u0634\u062f)<|im_end|>\n<|im_start|>assistant\n\u067e\u0630",
+     "next": "\u06cc\u0631",
+     "next_opens_bold": false
+    },
+    {
+     "val": 31.791,
+     "before": " handles both even and odd cases correctly and is straightforward to implement.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 31.509,
+     "before": "adillas cooked on a comal with wild herbs gathered nearby.]",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 31.226,
+     "before": " Santa Cruz\u2014igniting the state\u2019s surfing obsession!\"\n}\n```",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 30.661,
+     "before": ", client-centered care.\n\nCollaboration leads to collective competence.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 30.661,
+     "before": "-05'` (MySQL) to extract the date.\"",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 29.813,
+     "before": " more than recipes\u2014they\u2019re a way to preserve love and community.\"",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 3,
+   "module": "L18.down_proj",
+   "c": 3,
+   "attr_off": 0.0021218103356659412,
+   "act_bold": 1.166374921798706,
+   "act_other": 1.0466938018798828,
+   "act_ratio": 1.1143420934677124,
+   "sign_bold": 1.0,
+   "gate_bold": 0.02635231427848339,
+   "important_at_bold": 0.03921568766236305,
+   "lens_top": [
+    "ItemImage",
+    " Kota",
+    "\u727e",
+    "ItemList",
+    "VRT",
+    "\u8bcb",
+    " pristine",
+    "ustum",
+    "\u5f53\u4ed6",
+    "\u4e1d\u6beb"
+   ],
+   "lens_bottom": [
+    " Unter",
+    "apia",
+    "icho",
+    " **",
+    " settles"
+   ],
+   "lens_bold_z": {
+    " **": -4.33,
+    "**": -2.22,
+    "**(": -0.92
+   },
+   "lens_bold_rank": {
+    " **": 151932,
+    "**": 149507,
+    "**(": 125315
+   },
+   "top_ctx": [
+    {
+     "val": 9.876,
+     "before": " a postscript starting with P.S.:<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.274,
+     "before": " about the shock wave)\nBest regards\n<|im_end|>\n<|im_start|>assistant\n",
+     "next": "When",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.033,
+     "before": " G7 Summit by the hosting country.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "I",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.852,
+     "before": " databases vulnerabilities to extract sensitive user information?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "I",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.611,
+     "before": " employees in the organization: [details].\"<|im_end|>\n<|im_start|>assistant\n",
+     "next": "I",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.551,
+     "before": " to actual Maine landscapes or cultural events.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 8.491,
+     "before": " contain at least 23 sentences.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.31,
+     "before": " of my child's suspected psychotic disorder.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "I",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 4,
+   "module": "L24.o_proj",
+   "c": 6,
+   "attr_off": 0.0014957773964852095,
+   "act_bold": 1.795238971710205,
+   "act_other": 1.4529203176498413,
+   "act_ratio": 1.2356072664260864,
+   "sign_bold": -1.0,
+   "gate_bold": 4.0177205846703146e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "osas",
+    "\u00e1ria",
+    "\u5712",
+    "modelName",
+    "onas",
+    "m\u00f6",
+    "\u56ed",
+    "oner",
+    "elsey",
+    "ipples"
+   ],
+   "lens_bottom": [
+    "{s",
+    "es",
+    "{",
+    "3",
+    "9"
+   ],
+   "lens_bold_z": {
+    " **": 1.04,
+    "**": 0.9,
+    "**(": 2.2
+   },
+   "lens_bold_rank": {
+    " **": 21225,
+    "**": 28409,
+    "**(": 2026
+   },
+   "top_ctx": [
+    {
+     "val": 21.046,
+     "before": "ando un punto de inflexi\u00f3n en su historia reciente.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 19.55,
+     "before": " original source text for the series of narratives associated with these works.",
+     "next": " \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 19.351,
+     "before": " further! Otherwise, \"carrot\" is a solid example.",
+     "next": " \ufffd",
+     "next_opens_bold": false
+    },
+    {
+     "val": 19.052,
+     "before": " but the root cause of the lateness was the bike trouble.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.254,
+     "before": " Summit expenditure summaries or understanding standard budgeting practices for international events?",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.254,
+     "before": " you like information about ethical cybersecurity certifications or defensive security practices instead?",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.254,
+     "before": ".  \n\nWould you like information on any of these alternative topics?",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.855,
+     "before": " of the task, ensuring simplicity and directness in the solution.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 5,
+   "module": "L18.gate_proj",
+   "c": 8,
+   "attr_off": 0.0013883169740438461,
+   "act_bold": 1.9108985662460327,
+   "act_other": 1.370469093322754,
+   "act_ratio": 1.3943390846252441,
+   "sign_bold": 1.0,
+   "gate_bold": 0.04228183254599571,
+   "important_at_bold": 0.05695611611008644,
+   "top_ctx": [
+    {
+     "val": 18.498,
+     "before": " contain at least 23 sentences.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.386,
+     "before": " a look if you enjoyed this kata!<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.049,
+     "before": "\n\n\n - `[output]` an integer<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.825,
+     "before": "10 (\u062f) 18<|im_end|>\n<|im_start|>assistant\n",
+     "next": "\u0644",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.825,
+     "before": " value of $f(-3)$.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "Given",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.713,
+     "before": " shelf holds more than 3 books?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.377,
+     "before": " about the shock wave)\nBest regards\n<|im_end|>\n<|im_start|>assistant\n",
+     "next": "When",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.377,
+     "before": " format while generating the travel guide content.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    }
+   ]
+  },
+  {
+   "rank": 6,
+   "module": "L18.down_proj",
+   "c": 22,
+   "attr_off": 0.0013589540030807257,
+   "act_bold": 1.015429973602295,
+   "act_other": 1.0183525085449219,
+   "act_ratio": 0.9971301555633545,
+   "sign_bold": -1.0,
+   "gate_bold": 0.01572195254266262,
+   "important_at_bold": 0.02987861819565296,
+   "lens_top": [
+    "\u5e26\u4f60",
+    "\u9080",
+    "wind",
+    " wind",
+    "bang",
+    " \u043e\u0431\u0440\u0430\u0449",
+    "\u6c14\u8c61",
+    " erotic",
+    " BI",
+    " ****************************************"
+   ],
+   "lens_bottom": [
+    " subsequ",
+    "oundation",
+    "tgt",
+    "nis",
+    "//="
+   ],
+   "lens_bold_z": {
+    " **": 3.81,
+    "**": 3.35,
+    "**(": 1.97
+   },
+   "lens_bold_rank": {
+    " **": 35,
+    "**": 110,
+    "**(": 4004
+   },
+   "top_ctx": [
+    {
+     "val": 8.135,
+     "before": " format while generating the travel guide content.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 7.363,
+     "before": "Collaboration leads to collective competence.\"<|im_end|>\n<|im_start|>assistant\n",
+     "next": "Here",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.304,
+     "before": " contain at least 23 sentences.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.244,
+     "before": "/>' for formatting only newline '\n'<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 7.036,
+     "before": " no more than 50 times.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 7.007,
+     "before": " fun captions and don't use weekend word<|im_end|>\n<|im_start|>assistant\n",
+     "next": "Here",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.977,
+     "before": "/>' for formatting only newline '\n'<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 6.918,
+     "before": " a postscript starting with P.S.:<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 7,
+   "module": "L19.down_proj",
+   "c": 10,
+   "attr_off": 0.0013514304300770164,
+   "act_bold": 1.3483471870422363,
+   "act_other": 1.3564469814300537,
+   "act_ratio": 0.9940286874771118,
+   "sign_bold": 1.0,
+   "gate_bold": 6.681953436782351e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "Wa",
+    "cone",
+    " **",
+    " push",
+    " \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u044f",
+    "\u6291\u90c1",
+    "\u62bc\u3057",
+    " dehydration",
+    " depress",
+    "comb"
+   ],
+   "lens_bottom": [
+    "encing",
+    ".guid",
+    "\u7535\u5546",
+    "allest",
+    "umes"
+   ],
+   "lens_bold_z": {
+    " **": 4.49,
+    "**": 2.82,
+    "**(": 1.44
+   },
+   "lens_bold_rank": {
+    " **": 2,
+    "**": 487,
+    "**(": 11494
+   },
+   "top_ctx": [
+    {
+     "val": 9.39,
+     "before": "ably**  \nIceland\u2019s tourism boom has strained resources. Prior",
+     "next": "itize",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.686,
+     "before": " sepanjang hidup.\n\nPeribahasa ini menek",
+     "next": "ankan",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.686,
+     "before": "urtlama g\u00fcn\u00fc** aras\u0131ndad\u0131r.  \n   \u00d6rne",
+     "next": "\u011f",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.51,
+     "before": " Kiasan**:  \n   Peribahasa ini menek",
+     "next": "ankan",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.451,
+     "before": "ahasa ini menekankan pentingnya **memprior",
+     "next": "it",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.217,
+     "before": "\ufffd\u0941\u092a \u091a\u093f\u0933\u0940<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 8.217,
+     "before": " Perpaduan dan Harmoni Sosial**  \nKest",
+     "next": "abil",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.099,
+     "before": "\u0c3e\u0c21\u0c41\u0c17\u0c48<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    }
+   ]
+  },
+  {
+   "rank": 8,
+   "module": "L19.down_proj",
+   "c": 17,
+   "attr_off": 0.00134255678858608,
+   "act_bold": 2.1170530319213867,
+   "act_other": 1.4013636112213135,
+   "act_ratio": 1.510709285736084,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0023098757956176996,
+   "important_at_bold": 0.012138188816606998,
+   "lens_top": [
+    "\u719f",
+    ".look",
+    "Sit",
+    "icmp",
+    "defaults",
+    "\u636e",
+    "stick",
+    "tight",
+    " oath",
+    " Romance"
+   ],
+   "lens_bottom": [
+    "\u8001\u4eba\u5bb6",
+    " XmlNode",
+    "\u0e41\u0e1b\u0e25",
+    "\u6751\u6751\u6c11",
+    "\u5c4f\u5e55\u4e0a"
+   ],
+   "lens_bold_z": {
+    " **": 1.85,
+    "**": 1.32,
+    "**(": 0.64
+   },
+   "lens_bold_rank": {
+    " **": 5278,
+    "**": 14341,
+    "**(": 38657
+   },
+   "top_ctx": [
+    {
+     "val": 10.887,
+     "before": " digits to see if any such substring is a palindrome. \n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.528,
+     "before": "'ll use a global variable to store the current device ID.\n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.408,
+     "before": " month and year (considering leap years for February). \n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.408,
+     "before": " each row from matrix A with each column from matrix B.\n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.348,
+     "before": " based on the comparison of the two integers in each tuple.\n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.289,
+     "before": " to 1 or from 1 to 0). \n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.289,
+     "before": " characters, we return all unique characters sorted lexicographically.\n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.229,
+     "before": " these inputs, compute their sum, and print the result.\n\n###",
+     "next": " Approach",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 9,
+   "module": "L19.gate_proj",
+   "c": 15,
+   "attr_off": 0.00134147924836725,
+   "act_bold": 2.251248836517334,
+   "act_other": 1.3037396669387817,
+   "act_ratio": 1.7267625331878662,
+   "sign_bold": -1.0,
+   "gate_bold": 0.03149174898862839,
+   "important_at_bold": 0.05228758230805397,
+   "top_ctx": [
+    {
+     "val": 8.953,
+     "before": " shelf holds more than 3 books?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.651,
+     "before": " value of $f(-3)$.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "Given",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.249,
+     "before": " so Chef has to serve again now.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.198,
+     "before": " slope of 2 at that point.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.098,
+     "before": "\n\n\n - `[output]` an integer<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.897,
+     "before": " a look if you enjoyed this kata!<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.796,
+     "before": " 4 3\n\n\nOutput\n\n1<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.746,
+     "before": ", k: int) -> bool`.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 10,
+   "module": "L19.k_proj",
+   "c": 4,
+   "attr_off": 0.0013183684786781669,
+   "act_bold": 2.8079428672790527,
+   "act_other": 1.6274924278259277,
+   "act_ratio": 1.7253185510635376,
+   "sign_bold": -1.0,
+   "gate_bold": 0.01609281823039055,
+   "important_at_bold": 0.026143791154026985,
+   "top_ctx": [
+    {
+     "val": 9.814,
+     "before": " Charity Commission for England/Wales, Canada Revenue Agency).  \n\n###",
+     "next": " ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.674,
+     "before": "\u5e76\u53ef\u80fd\u5411\u9ad8\u7ea7\u8111\u533a\u53d1\u9001\u968f\u673a\u4fe1\u53f7\u3002\n\n3. ",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 9.605,
+     "before": " organizational security systems\n\nInstead, I'd recommend these ethical alternatives:\n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 9.605,
+     "before": " psychologists) who can assess symptoms, medical history, and context.\n\n",
+     "next": "2",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.326,
+     "before": " to confirm 501(c)(3) status.  \n",
+     "next": "  ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.326,
+     "before": " wat extra context om je observatie te verduidelijken:\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.187,
+     "before": " for ethical products within the creative and active communities.\n\n2. ",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 9.187,
+     "before": " approaches.\n\n**Instead, I strongly recommend these constructive steps**:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 11,
+   "module": "L14.gate_proj",
+   "c": 26,
+   "attr_off": 0.001306480960920453,
+   "act_bold": 0.8903283476829529,
+   "act_other": 0.6013448238372803,
+   "act_ratio": 1.4805620908737183,
+   "sign_bold": -1.0,
+   "gate_bold": 0.04196533188223839,
+   "important_at_bold": 0.05882352963089943,
+   "top_ctx": [
+    {
+     "val": 4.519,
+     "before": "\n<|im_start|>assistant\nHere's a clearer and more precise version:\n\n",
+     "next": ">",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.393,
+     "before": " mythology with real-world science. Let me clarify this thoughtfully:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.317,
+     "before": " the **most promising and profitable dropshipping product idea is:**\n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 3.913,
+     "before": "\n<|im_start|>assistant\nEl evento m\u00e1s importante del texto es:  \n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 3.888,
+     "before": " exploiting database vulnerabilities or extracting sensitive user information, as this would:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.863,
+     "before": "<|im_end|>\n<|im_start|>assistant\nEl evento m\u00e1s importante del texto es:",
+     "next": "  \n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.863,
+     "before": "\u094d\u0939\u0923\u0940\u091a\u093e \u0905\u0930\u094d\u0925:**  \n",
+     "next": "\"",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.837,
+     "before": " cumin) with classic American ingredients (sweet potatoes, apples):\n\n",
+     "next": "*",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 12,
+   "module": "L18.v_proj",
+   "c": 28,
+   "attr_off": 0.0012888847850263119,
+   "act_bold": 1.0145785808563232,
+   "act_other": 1.0913817882537842,
+   "act_ratio": 0.929627537727356,
+   "sign_bold": -1.0,
+   "gate_bold": 0.008157639764249325,
+   "important_at_bold": 0.02707749791443348,
+   "lens_top": [
+    "\u699c\u9996",
+    ".\u2022",
+    ".Ch",
+    " Cush",
+    " Bunifu",
+    ".Round",
+    ".Set",
+    ".median",
+    ".Align",
+    "Align"
+   ],
+   "lens_bottom": [
+    "-desktop",
+    "-service",
+    "\ufffd",
+    "-lang",
+    "-java"
+   ],
+   "lens_bold_z": {
+    " **": -1.42,
+    "**": -0.62,
+    "**(": -0.44
+   },
+   "lens_bold_rank": {
+    " **": 139816,
+    "**": 112349,
+    "**(": 103063
+   },
+   "top_ctx": [
+    {
+     "val": 7.466,
+     "before": " mythology with real-world science. Let me clarify this thoughtfully:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.294,
+     "before": " organizational security systems\n\nInstead, I'd recommend these ethical alternatives:\n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 7.02,
+     "before": " len(password) < 8:\n            results.append(\"weak\")\n",
+     "next": "           ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.507,
+     "before": " sensitivities, and protection of personnel.\n\nInstead, I can:\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.438,
+     "before": " approaches.\n\n**Instead, I strongly recommend these constructive steps**:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.37,
+     "before": "(password) < 8:\n            results.append(\"weak\")\n           ",
+     "next": " continue",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.301,
+     "before": " of my child's suspected psychotic disorder.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "I",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.027,
+     "before": " t_max - t ELSE dt_used = dt\n190",
+     "next": "  ",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 13,
+   "module": "L17.up_proj",
+   "c": 21,
+   "attr_off": 0.0012840615818277001,
+   "act_bold": 0.7547163963317871,
+   "act_other": 0.6758219599723816,
+   "act_ratio": 1.1167384386062622,
+   "sign_bold": -1.0,
+   "gate_bold": 0.001848879735916853,
+   "important_at_bold": 0.012138188816606998,
+   "top_ctx": [
+    {
+     "val": 3.468,
+     "before": " harness the power of lightning?<|im_end|>\n<|im_start|>assistant\nI notice",
+     "next": " your",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.445,
+     "before": "H}_2} = -0.0592 \\",
+     "next": "times",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.244,
+     "before": "<|im_start|>assistant\nThe total office space (2,000",
+     "next": " sq",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.244,
+     "before": " with P.P.S.:<|im_end|>\n<|im_start|>assistant\n\"I can't",
+     "next": " shake",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.244,
+     "before": "\n<|im_start|>assistant\nTo solve this problem, we need to negate",
+     "next": " specific",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.244,
+     "before": ", D, R and E.<|im_end|>\n<|im_start|>assistant\nIt",
+     "next": " seems",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.222,
+     "before": "Ternary Operator**: The ternary operator chain `'>' if",
+     "next": " a",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.222,
+     "before": "ahasa Melayu \"**bagai akan mengaji suratlah",
+     "next": " hil",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 14,
+   "module": "L24.o_proj",
+   "c": 27,
+   "attr_off": 0.0012749176239594817,
+   "act_bold": 1.8541299104690552,
+   "act_other": 1.5891293287277222,
+   "act_ratio": 1.1667582988739014,
+   "sign_bold": -1.0,
+   "gate_bold": 4.673093371820869e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "**(",
+    ".vertx",
+    "emailer",
+    "arin",
+    "\u044b\u0448",
+    "utory",
+    ".heroku",
+    " **\n",
+    "ercul",
+    "cmc"
+   ],
+   "lens_bottom": [
+    "loading",
+    "Accepted",
+    "\u8377",
+    ";\"",
+    "bz"
+   ],
+   "lens_bold_z": {
+    " **": 3.77,
+    "**": 3.13,
+    "**(": 4.74
+   },
+   "lens_bold_rank": {
+    " **": 31,
+    "**": 176,
+    "**(": 0
+   },
+   "top_ctx": [
+    {
+     "val": 16.417,
+     "before": "  \n     (Midika: \"Ilay ankizy n",
+     "next": "ian",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.685,
+     "before": "atria nisy haizina, ilay zaza n",
+     "next": "ian",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.476,
+     "before": "**  \n     (Midika: \"Ilay ankizy",
+     "next": " n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.267,
+     "before": " tsy fisian'ny jiro\" (na \"N",
+     "next": "iv",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.162,
+     "before": "ra ilay ankizy noho ny haizina\").",
+     "next": "  \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 14.744,
+     "before": "kama ile ya Mfumo wa Kiptolemaio",
+     "next": ");",
+     "next_opens_bold": false
+    },
+    {
+     "val": 14.744,
+     "before": "  \n     (Midika: \"Ilay ankizy n",
+     "next": "ian",
+     "next_opens_bold": false
+    },
+    {
+     "val": 14.535,
+     "before": " \"Noho ny haizina, ilay zaza n",
+     "next": "ian",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 15,
+   "module": "L15.down_proj",
+   "c": 0,
+   "attr_off": 0.0012476639822125435,
+   "act_bold": 0.36636313796043396,
+   "act_other": 0.36037981510162354,
+   "act_ratio": 1.016602873802185,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0001405347284162417,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "\u0438\u0437\u043c",
+    "-cell",
+    "lain",
+    "ellen",
+    "isme",
+    " Kick",
+    "omen",
+    "\u0e2b\u0e19",
+    "rice",
+    "ahren"
+   ],
+   "lens_bottom": [
+    ".paging",
+    " principals",
+    "\u73e9",
+    " taxpayers",
+    "\u827d"
+   ],
+   "lens_bold_z": {
+    " **": 0.95,
+    "**": 2.21,
+    "**(": 2.06
+   },
+   "lens_bold_rank": {
+    " **": 25458,
+    "**": 2477,
+    "**(": 3519
+   },
+   "top_ctx": [
+    {
+     "val": 2.426,
+     "before": " n is a valid positive integer\n    if not isinstance(n,",
+     "next": " int",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.303,
+     "before": "```python\ndef palindrome(num):\n    if not isinstance(num,",
+     "next": " int",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.99,
+     "before": "`\n\nThis Python program uses a **context manager** (`ArrayManager",
+     "next": "`)",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.99,
+     "before": " characters first by their frequency in descending order. If frequencies are the",
+     "next": " same",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.976,
+     "before": "<|im_end|>\n<|im_start|>assistant\nIt seems there might be a small typo",
+     "next": " or",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.962,
+     "before": ".\"\n\n**Gendry:** \"Helped? Is that what",
+     "next": " you",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.949,
+     "before": ", n):\n        # Calculate the sum of the current window\n",
+     "next": "       ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.908,
+     "before": "):\n    global current_device_id\n    if isinstance(device_id,",
+     "next": " str",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 16,
+   "module": "L15.down_proj",
+   "c": 21,
+   "attr_off": 0.001214922172948718,
+   "act_bold": 0.4412684440612793,
+   "act_other": 0.4170041084289551,
+   "act_ratio": 1.0581872463226318,
+   "sign_bold": -1.0,
+   "gate_bold": 0.010006937198340893,
+   "important_at_bold": 0.01587301678955555,
+   "lens_top": [
+    "\u8089\u4f53",
+    "\u8003\u4e0a",
+    "Exact",
+    "\u5938\u5f20",
+    ">Description",
+    " psychologically",
+    "Decoration",
+    "\u7a7a\u524d",
+    " distinct",
+    "Distinct"
+   ],
+   "lens_bottom": [
+    "\u6216\u8005\u5176\u4ed6",
+    " Sites",
+    "venes",
+    "icode",
+    ".guid"
+   ],
+   "lens_bold_z": {
+    " **": 1.52,
+    "**": 1.83,
+    "**(": 1.42
+   },
+   "lens_bold_rank": {
+    " **": 9916,
+    "**": 5299,
+    "**(": 11770
+   },
+   "top_ctx": [
+    {
+     "val": 2.434,
+     "before": ".  **Market Trends & Consumer Demand:**\n    *  ",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 2.317,
+     "before": " merged.sort()\n    n = len(merged)\n    if n",
+     "next": " %",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.302,
+     "before": " hear the song \u2013\nThe elders' faith, endured so long",
+     "next": ".\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.287,
+     "before": " your study efficiency:\n\n1. **Prioritize Key Sections:** Focus",
+     "next": " on",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.258,
+     "before": "\u7761\u7720\u5468\u671f\u7684\u6838\u5fc3\u9636\u6bb5\uff1a\u5feb\u901f\u773c\u52a8\u7761\u7720**\n    *  ",
+     "next": " \ufffd",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.258,
+     "before": " If the input list is empty, the function should return an empty",
+     "next": " list",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.214,
+     "before": " harder rocky top tough**\n\n**Reasoning:**\n\n1. ",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 2.214,
+     "before": " the smell of smoke, hot metal, and unspoken tension.\n\n",
+     "next": "**(",
+     "next_opens_bold": true
+    }
+   ]
+  },
+  {
+   "rank": 17,
+   "module": "L27.gate_proj",
+   "c": 25,
+   "attr_off": 0.0012075987178832293,
+   "act_bold": 2.5060160160064697,
+   "act_other": 1.8711967468261719,
+   "act_ratio": 1.3392584323883057,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 18.395,
+     "before": " intricate patterns of Mexican folk art that adorn their apartment.\"\n}\n```",
+     "next": " \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.395,
+     "before": " roasted meats, cheese boards, or even as a sandwich spread.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.823,
+     "before": " handles both even and odd cases correctly and is straightforward to implement.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.823,
+     "before": "-05'` (MySQL) to extract the date.\"",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.728,
+     "before": " The loop uses classic countdown pattern common in sequences requiring reverse iteration.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.632,
+     "before": ", client-centered care.\n\nCollaboration leads to collective competence.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.632,
+     "before": " correctly, returning `True` as there are no invalid characters.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.632,
+     "before": " and varying input sizes within the problem constraints, efficiently and correctly.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 18,
+   "module": "L23.down_proj",
+   "c": 21,
+   "attr_off": 0.0012020237045362592,
+   "act_bold": 2.2609751224517822,
+   "act_other": 2.3518595695495605,
+   "act_ratio": 0.9613563418388367,
+   "sign_bold": 1.0,
+   "gate_bold": 5.406825948739424e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    " #####",
+    " ####",
+    " **",
+    ":**",
+    " **)",
+    "**(",
+    " ***\n",
+    " **\n",
+    "]**",
+    " \"**"
+   ],
+   "lens_bottom": [
+    " s",
+    " Fine",
+    "\u65e0\u5f62",
+    "t\u00fc",
+    " delighted"
+   ],
+   "lens_bold_z": {
+    " **": 5.3,
+    "**": 3.72,
+    "**(": 5.01
+   },
+   "lens_bold_rank": {
+    " **": 2,
+    "**": 52,
+    "**(": 5
+   },
+   "top_ctx": [
+    {
+     "val": 20.915,
+     "before": "ickle. Sunny mornings can morph into blustery snowstorms by",
+     "next": " afternoon",
+     "next_opens_bold": false
+    },
+    {
+     "val": 19.237,
+     "before": "   If your child is in crisis:  \n   - Contact ",
+     "next": "9",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.85,
+     "before": " the impactor\u2019s velocity \\( v \\) exceeds this speed (\\",
+     "next": "(",
+     "next_opens_bold": false
+    },
+    {
+     "val": 18.462,
+     "before": "r}{n})^{nt} \\):  \n- Principal (\\",
+     "next": "(",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.429,
+     "before": " de bouw. Interesting.<|im_end|>\n<|im_start|>assistant\nDat k",
+     "next": "lo",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.3,
+     "before": " unchanged:**\n   - **Why?** Coupling constants (\\",
+     "next": "(",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.3,
+     "before": "leh dibentuk*. Lebih baik bantu dia memper",
+     "next": "ba",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.171,
+     "before": " and the crack of Tatis\u2019 bat sent a homer soaring into",
+     "next": " the",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 19,
+   "module": "L13.gate_proj",
+   "c": 17,
+   "attr_off": 0.0011956717353314161,
+   "act_bold": 0.9531286358833313,
+   "act_other": 0.6043849587440491,
+   "act_ratio": 1.5770224332809448,
+   "sign_bold": 1.0,
+   "gate_bold": 0.03815944492816925,
+   "important_at_bold": 0.05695611611008644,
+   "top_ctx": [
+    {
+     "val": 4.032,
+     "before": " using exactly 4 sentences.<|im_end|>\n<|im_start|>assistant\nHere's",
+     "next": " how",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.007,
+     "before": " a prognosis for a suspected psychotic disorder for several important reasons:\n\n1",
+     "next": ".",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.905,
+     "before": " database vulnerabilities or extracting sensitive user information, as this would:\n\n1",
+     "next": ".",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.905,
+     "before": " with real-world science. Let me clarify this thoughtfully:\n\n1",
+     "next": ".",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.905,
+     "before": " mythology with real-world science. Let me clarify this thoughtfully:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.828,
+     "before": "ivities, and protection of personnel.\n\nInstead, I can:\n1",
+     "next": ".",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.828,
+     "before": " organizational security systems\n\nInstead, I'd recommend these ethical alternatives:\n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 3.7,
+     "before": "vol power pedal harder rocky top tough**\n\n**Reasoning:**\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 20,
+   "module": "L19.gate_proj",
+   "c": 4,
+   "attr_off": 0.0011857796926051378,
+   "act_bold": 1.9898790121078491,
+   "act_other": 1.4176503419876099,
+   "act_ratio": 1.4036458730697632,
+   "sign_bold": -1.0,
+   "gate_bold": 0.04110686480998993,
+   "important_at_bold": 0.05975723639130592,
+   "top_ctx": [
+    {
+     "val": 10.644,
+     "before": " scenario. Here's why and how we can proceed ethically:\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.063,
+     "before": " fictional \"powers\" through worldbuilding rather than real-world stereotypes\n\n",
+     "next": "Would",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.918,
+     "before": " is connecting with specialists who can properly evaluate and support your child.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.821,
+     "before": " organizational security systems\n\nInstead, I'd recommend these ethical alternatives:\n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 9.773,
+     "before": " learning paths and resources that help protect systems rather than compromise them.",
+     "next": " Would",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.676,
+     "before": "**: Glossy seal over engraved areas to highlight details.  \n\n---\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.628,
+     "before": "its (security, logistics, hospitality) without referencing protected details.\n\n",
+     "next": "Would",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.579,
+     "before": "\u2014your vibrant paints are perfect for this method!  \n\n---  \n\n",
+     "next": "###",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 21,
+   "module": "L14.up_proj",
+   "c": 16,
+   "attr_off": 0.0011810269206762314,
+   "act_bold": 0.3267601430416107,
+   "act_other": 0.370627224445343,
+   "act_ratio": 0.8816409707069397,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0012837613467127085,
+   "important_at_bold": 0.002801120514050126,
+   "top_ctx": [
+    {
+     "val": 2.199,
+     "before": " as two numbered bullet lists<|im_end|>\n<|im_start|>assistant\n**1**",
+     "next": "  \n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.104,
+     "before": " test temperatures. At each temperature, measure the torque at both speed",
+     "next": " level",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.051,
+     "before": "?<|im_end|>\n<|im_start|>assistant\nBoth reactions yield **SN2 substitution",
+     "next": " products",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.04,
+     "before": "0 MHz to 500 MHz), both **chemical shifts",
+     "next": " (",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.029,
+     "before": " \"line_1\": \"The persona explores Chicago's vibrant art",
+     "next": " scene",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.912,
+     "before": "80 MHz to 500 MHz), both **chemical",
+     "next": " shifts",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.881,
+     "before": "\u0629 \u0628\u0634\u0643\u0644 \u0648\u0627\u0636\u062d \u0648\u0645\u0641\u064a\u062f:\n\n**\u0643\u064a\u0641 \u062a\u062d\u0635\u0644 \u0639\u0644\u0649 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629",
+     "next": "\u061f",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.87,
+     "before": "\ufffd\u0940<|im_end|>\n<|im_start|>assistant\n**\u092e\u094d\u0939\u0923\u0940",
+     "next": "\u091a",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 22,
+   "module": "L24.down_proj",
+   "c": 18,
+   "attr_off": 0.0011615795083343983,
+   "act_bold": 2.462937831878662,
+   "act_other": 2.685225248336792,
+   "act_ratio": 0.9172183275222778,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "Icons",
+    "\u93c8",
+    " *\"",
+    "\ufffd",
+    "kj",
+    "[\".",
+    "icons",
+    "loud",
+    " '**",
+    " \u0623\u062f"
+   ],
+   "lens_bottom": [
+    "-host",
+    " promoted",
+    " promotion",
+    "-package",
+    "-framework"
+   ],
+   "lens_bold_z": {
+    " **": 1.44,
+    "**": -0.2,
+    "**(": 0.55
+   },
+   "lens_bold_rank": {
+    " **": 11330,
+    "**": 89554,
+    "**(": 42635
+   },
+   "top_ctx": [
+    {
+     "val": 25.338,
+     "before": ")\u060c \u0645\u0645\u0627 \u064a\u064f\u0634\u064a\u0631 \u0625\u0644\u0649 \u062a\u062e\u0644\u064f\u0651\u0635\u0647 \u0645\u0646",
+     "next": " \u0627\u0644\u0646\u0627\u0631",
+     "next_opens_bold": false
+    },
+    {
+     "val": 25.085,
+     "before": " lapisan masyarakat.  \n\n**1. Memupuk",
+     "next": " Per",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.931,
+     "before": " listrado verde e branco, sand\u00e1lias geta e",
+     "next": " um",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.551,
+     "before": " do Departamento de Pesquisa e Desenvolvimento.\n\n### **",
+     "next": "P",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.917,
+     "before": "\u0629 \u0644\u0644\u062d\u0644.\n5. **\u062d\u062b \u0639\u0644\u0649 \u062a\u062c\u0646\u0628",
+     "next": " \u0627\u0644\u0645\u0633",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.284,
+     "before": " Comedy\n\n**Setting:** A cluttered university research lab. Sun",
+     "next": "light",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.157,
+     "before": "\u0627\u062e\u062a\u064a\u0627\u0631 \u0627\u0644\u0623\u0628\u060c \u0646\u0633\u062a\u062e\u062f\u0645 **\u0645\u0628\u062f\u0623 \u0627\u0644\u0636\u0631\u0628** \u0641\u064a",
+     "next": " \u0627\u0644\u0639",
+     "next_opens_bold": false
+    },
+    {
+     "val": 20.65,
+     "before": "   - Dalam bahasa Inggris, konsep ser",
+     "next": "upa",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 23,
+   "module": "L19.o_proj",
+   "c": 2,
+   "attr_off": 0.0011596778640523553,
+   "act_bold": 1.0050216913223267,
+   "act_other": 0.9954076409339905,
+   "act_ratio": 1.0096584558486938,
+   "sign_bold": -1.0,
+   "gate_bold": 1.7894528355100192e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "plat",
+    "orth",
+    "reature",
+    "(JSON",
+    "\u5d16",
+    "\u9813",
+    "lear",
+    "atile",
+    "features",
+    "\u5904\u5206"
+   ],
+   "lens_bottom": [
+    "enha",
+    "\u975e\u5e38\u660e\u663e",
+    "\u7a8d",
+    "\u51d1",
+    "INESS"
+   ],
+   "lens_bold_z": {
+    " **": 1.5,
+    "**": 1.75,
+    "**(": -0.85
+   },
+   "lens_bold_rank": {
+    " **": 10184,
+    "**": 6207,
+    "**(": 122753
+   },
+   "top_ctx": [
+    {
+     "val": 6.213,
+     "before": ")\n    if rows_B == 0:\n        return []\n   ",
+     "next": " cols",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.084,
+     "before": "        return []\n    cols_A = len(A[0])\n   ",
+     "next": " rows",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.058,
+     "before": " elements to its left that are greater than it and the number of",
+     "next": " elements",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.033,
+     "before": " is to process a list of operations (either adding a new product",
+     "next": " or",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.904,
+     "before": " y = x \\), polynomial division of \\( Ax^2 +",
+     "next": " B",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.852,
+     "before": " n + 1):\n        for start in range(0,",
+     "next": " n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.801,
+     "before": "_chars for c in password)\n        \n        if not (has_upper",
+     "next": " and",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.723,
+     "before": " no single segment is as long or longer than the sum of all",
+     "next": " other",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 24,
+   "module": "L17.down_proj",
+   "c": 9,
+   "attr_off": 0.0011501424014568329,
+   "act_bold": 0.8586834073066711,
+   "act_other": 0.7602091431617737,
+   "act_ratio": 1.1295357942581177,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0007431358098983765,
+   "important_at_bold": 0.002801120514050126,
+   "lens_top": [
+    "vil",
+    "bourg",
+    "anian",
+    "iform",
+    "_JUMP",
+    "\u0d19",
+    "lake",
+    "_SHAPE",
+    " (**",
+    " **)"
+   ],
+   "lens_bottom": [
+    "ordo",
+    "\u043f\u0443\u0441",
+    "opal",
+    "))-",
+    " lp"
+   ],
+   "lens_bold_z": {
+    " **": 3.6,
+    "**": 2.43,
+    "**(": 2.04
+   },
+   "lens_bold_rank": {
+    " **": 33,
+    "**": 1215,
+    "**(": 3265
+   },
+   "top_ctx": [
+    {
+     "val": 4.758,
+     "before": "**Escocia buscar\u00e1 volverse totalmente independiente.**\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.729,
+     "before": " middle element. Summing these products for all elements yields the total",
+     "next": " weakness",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.526,
+     "before": " Requests for cash, wire transfers, or gift cards (credit cards",
+     "next": "/check",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.526,
+     "before": "), pero no es est\u00e1ndar. \"Combinaci\u00f3n\"",
+     "next": " sug",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.497,
+     "before": " Independ\u00eancia dos Estados Unidos** \u00e9 **John Hancock**.  \n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.497,
+     "before": " out chirality when enantiomeric groups are present on either",
+     "next": " side",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.41,
+     "before": " propulsion, this technicality introduces ambiguity. However, the primary issue",
+     "next": " lies",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.294,
+     "before": ", 2025**.\n\nTo get the most accurate",
+     "next": " and",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 25,
+   "module": "L24.o_proj",
+   "c": 31,
+   "attr_off": 0.0011491584591567516,
+   "act_bold": 1.896552562713623,
+   "act_other": 1.7503831386566162,
+   "act_ratio": 1.0835070610046387,
+   "sign_bold": -1.0,
+   "gate_bold": 2.0444783785933396e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "istory",
+    "ount",
+    " resil",
+    "TXT",
+    " translators",
+    "Performed",
+    "ldr",
+    "pty",
+    "\u53cb\u60c5",
+    "ial"
+   ],
+   "lens_bottom": [
+    "elon",
+    "\u4f46\u5728",
+    "\u6da3",
+    "\ufffd\u6570",
+    "\u00e4"
+   ],
+   "lens_bold_z": {
+    " **": -2.74,
+    "**": -2.28,
+    "**(": -1.58
+   },
+   "lens_bold_rank": {
+    " **": 151459,
+    "**": 150257,
+    "**(": 143804
+   },
+   "top_ctx": [
+    {
+     "val": 18.264,
+     "before": " intricate patterns of Mexican folk art that adorn their apartment.\"\n}\n```",
+     "next": " \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.437,
+     "before": " location where this treaty was signed, making it the correct choice.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.33,
+     "before": " original source text for the series of narratives associated with these works.",
+     "next": " \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.222,
+     "before": " of the task, ensuring simplicity and directness in the solution.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.9,
+     "before": "(\\boxed{y = 2x - 3}\\).",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.9,
+     "before": " Santa Cruz\u2014igniting the state\u2019s surfing obsession!\"\n}\n```",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.793,
+     "before": "** (option \u0b86), written later, continues the tale of",
+     "next": " their",
+     "next_opens_bold": false
+    },
+    {
+     "val": 15.685,
+     "before": " answer is **NO**. \n\nAnswer: **no.**",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 26,
+   "module": "L21.v_proj",
+   "c": 12,
+   "attr_off": 0.0011248515220358968,
+   "act_bold": 3.7021517753601074,
+   "act_other": 2.487755060195923,
+   "act_ratio": 1.488149642944336,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "iliated",
+    " Gene",
+    "poke",
+    "olian",
+    "ograd",
+    "Labour",
+    "otts",
+    "\u6d38",
+    "adian",
+    "\u53e3\u6c14"
+   ],
+   "lens_bottom": [
+    "emic",
+    "\u53d6",
+    "etz",
+    "eteria",
+    " setName"
+   ],
+   "lens_bold_z": {
+    " **": 0.94,
+    "**": 2.13,
+    "**(": 1.32
+   },
+   "lens_bold_rank": {
+    " **": 25639,
+    "**": 3013,
+    "**(": 14201
+   },
+   "top_ctx": [
+    {
+     "val": 15.828,
+     "before": " second question requires an answer from the yes/no/maybe options due",
+     "next": " to",
+     "next_opens_bold": false
+    },
+    {
+     "val": 13.121,
+     "before": ") with classic American ingredients (sweet potatoes, apples):\n\n*  ",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 12.288,
+     "before": " El texto menciona la uni\u00f3n de Escocia con Ing",
+     "next": "lat",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.288,
+     "before": " format while generating the travel guide content.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 12.08,
+     "before": " advocating for African Americans, women, and the poor. After F",
+     "next": "DR",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.01,
+     "before": " ingredients for Southern-style collard greens and their roles:\n\n1.",
+     "next": " ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.01,
+     "before": "\u0628\u064a \u0627\u0644\u0639\u0627\u062c\u0644**:  \n   - \u0627\u0644\u0645\u0633\u062a\u0634\u0641\u064a\u0627\u062a \u0642",
+     "next": "\u0627\u062f",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.01,
+     "before": "  \n   - Define el objetivo actual de Escocia, difer",
+     "next": "enci",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 27,
+   "module": "L22.down_proj",
+   "c": 17,
+   "attr_off": 0.001117612118832767,
+   "act_bold": 1.8525748252868652,
+   "act_other": 2.0165696144104004,
+   "act_ratio": 0.9186763763427734,
+   "sign_bold": -1.0,
+   "gate_bold": 7.593331474708975e-07,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    ".addButton",
+    " **\n",
+    "**\r\n",
+    "******/",
+    "\u6e05\u9999",
+    "]**",
+    "***\n",
+    "\u95ea\u95ea",
+    "woke",
+    "**\n"
+   ],
+   "lens_bottom": [
+    "\u5bf9\u5176",
+    " possibly",
+    "\u8d44\u4ea7",
+    "gunakan",
+    "\u4faf"
+   ],
+   "lens_bold_z": {
+    " **": 3.58,
+    "**": 3.47,
+    "**(": 3.93
+   },
+   "lens_bold_rank": {
+    " **": 73,
+    "**": 95,
+    "**(": 25
+   },
+   "top_ctx": [
+    {
+     "val": 18.781,
+     "before": "ical:** [Select Relaxing String Quartet - e.g.,",
+     "next": " Bor",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.799,
+     "before": "**The-Shape-Of-Jazz-To-Come-Or",
+     "next": "nette",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.799,
+     "before": "\u00e9tico motivo inicial de \"el destino que llama\", la **OR",
+     "next": "QUEST",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.431,
+     "before": "Escocia buscar\u00e1 volverse totalmente independiente.**\n\n###",
+     "next": " Exp",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.308,
+     "before": "Classical:** [Choose Calming Symphony Movement - e.g.,",
+     "next": " Be",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.694,
+     "before": " with melancholic guitar)*\n2.  **Classical:**",
+     "next": " Claude",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.694,
+     "before": " un concierto **IMPRESIONANTE** de la Or",
+     "next": "quest",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.571,
+     "before": " I cannot provide a prognosis for a suspected psychotic disorder for several important",
+     "next": " reasons",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 28,
+   "module": "L18.down_proj",
+   "c": 16,
+   "attr_off": 0.0011131182545796037,
+   "act_bold": 0.9010826945304871,
+   "act_other": 0.977453351020813,
+   "act_ratio": 0.9218677282333374,
+   "sign_bold": 1.0,
+   "gate_bold": 0.007944600656628609,
+   "important_at_bold": 0.012138188816606998,
+   "lens_top": [
+    "\u6545",
+    " collusion",
+    "ted",
+    "ename",
+    "GL",
+    "\u9886\u8896",
+    "tre",
+    "acr",
+    ":<",
+    "\u0e04\u0e2d"
+   ],
+   "lens_bottom": [
+    "-pt",
+    "ugin",
+    "iston",
+    "JJ",
+    " weblog"
+   ],
+   "lens_bold_z": {
+    " **": 3.11,
+    "**": 2.51,
+    "**(": 2.12
+   },
+   "lens_bold_rank": {
+    " **": 218,
+    "**": 1138,
+    "**(": 2976
+   },
+   "top_ctx": [
+    {
+     "val": 7.092,
+     "before": ". Add dialogue from Abraham throughout the story<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 6.456,
+     "before": " off, and Arya sighing.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "##",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.395,
+     "before": " of the term while in slow motion.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "##",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.062,
+     "before": "\nHere are 40 fun captions for your days off,",
+     "next": " avoiding",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.031,
+     "before": ".<|im_end|>\n<|im_start|>assistant\n```python\nclass ArrayManager:\n",
+     "next": "   ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.971,
+     "before": "):\n    if n == 0:\n        return '0'\n",
+     "next": "    \n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.88,
+     "before": " breaches\n3. Facilitate identity theft and financial fraud\n",
+     "next": "4",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.637,
+     "before": "### Solution Code\n```python\nclass InvalidDateError(Exception):\n",
+     "next": "   ",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 29,
+   "module": "L12.down_proj",
+   "c": 29,
+   "attr_off": 0.0010741635924205184,
+   "act_bold": 0.21183113753795624,
+   "act_other": 0.21959500014781952,
+   "act_ratio": 0.9646446108818054,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0001283391029573977,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "\u7684\u5973\u4eba",
+    "endors",
+    "ersistence",
+    "\u559f",
+    "\u7684\u59bb\u5b50",
+    "{_",
+    "oday",
+    "/help",
+    "\u9ebe",
+    " m\u00e3i"
+   ],
+   "lens_bottom": [
+    "ibur",
+    "subclass",
+    "\u82b1\u7eb9",
+    "/*@",
+    "aea"
+   ],
+   "lens_bold_z": {
+    " **": 1.28,
+    "**": 0.51,
+    "**(": -0.04
+   },
+   "lens_bold_rank": {
+    " **": 15222,
+    "**": 44800,
+    "**(": 76730
+   },
+   "top_ctx": [
+    {
+     "val": 2.788,
+     "before": " 'INVALID_COMMAND'.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.746,
+     "before": " List[str]`.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.732,
+     "before": " an empty list.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.717,
+     "before": " averages as described.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.689,
+     "before": "ishes this task.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.689,
+     "before": " return `False`.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.675,
+     "before": " from matrix B.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.661,
+     "before": " and False otherwise.<|im_end|>\n<|im_start|>assistant\nTo solve this problem",
+     "next": ",",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 30,
+   "module": "L15.down_proj",
+   "c": 1,
+   "attr_off": 0.001029351493343711,
+   "act_bold": 0.4292520582675934,
+   "act_other": 0.38596442341804504,
+   "act_ratio": 1.112154483795166,
+   "sign_bold": -1.0,
+   "gate_bold": 3.396541069378145e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "\u5165\u5e02",
+    "Crit",
+    "experimental",
+    "\u65e5\u672c\u306e",
+    " Yaz",
+    "\u8449",
+    " awful",
+    " oldest",
+    " Damn",
+    " deadliest"
+   ],
+   "lens_bottom": [
+    "ried",
+    "\u8f8d",
+    ".ACTION",
+    "orado",
+    " ('"
+   ],
+   "lens_bold_z": {
+    " **": 1.28,
+    "**": 1.51,
+    "**(": 2.86
+   },
+   "lens_bold_rank": {
+    " **": 15131,
+    "**": 10187,
+    "**(": 438
+   },
+   "top_ctx": [
+    {
+     "val": 2.228,
+     "before": " the smell of smoke, hot metal, and unspoken tension.\n\n",
+     "next": "**(",
+     "next_opens_bold": true
+    },
+    {
+     "val": 2.156,
+     "before": ". Someone cold. Someone who walked away from...\" He trails off",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.142,
+     "before": " Subtract the invalid distributions from the total:  \n   \\[\n  ",
+     "next": " ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.142,
+     "before": "\n\"I can't shake him loose!\" se \u0159ekne",
+     "next": " \u010d",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.142,
+     "before": " structured plan to launch and promote your online gallery, with **bold",
+     "next": " sections",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.099,
+     "before": " I\u2019m experimenting with it on my latest landscape pieces\u2014your vibrant",
+     "next": " paints",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.099,
+     "before": "ifat tetap (tidak bisa diubah), tetapi",
+     "next": " sik",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.099,
+     "before": "}) \\times 3 \\, (\\text{\u0645\u062f\u0646}) =",
+     "next": " ",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 31,
+   "module": "L19.up_proj",
+   "c": 25,
+   "attr_off": 0.0010190990287810564,
+   "act_bold": 1.0892770290374756,
+   "act_other": 0.8109857439994812,
+   "act_ratio": 1.3431519269943237,
+   "sign_bold": -1.0,
+   "gate_bold": 0.003822305239737034,
+   "important_at_bold": 0.014005602337419987,
+   "top_ctx": [
+    {
+     "val": 4.923,
+     "before": " areas to highlight details.  \n\n---\n\n### Execution Tips**  \n-",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 4.81,
+     "before": "'d recommend these ethical alternatives:\n\n**For learning cybersecurity:**\n-",
+     "next": " Study",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.583,
+     "before": " stressors\n\n3. **Access reliable resources**  \n   -",
+     "next": " National",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.47,
+     "before": "\n**THEMED GARDENING PROJECTS**  \n-",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 4.288,
+     "before": " in the input list `numbers`, computes the square of each element",
+     "next": " using",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.288,
+     "before": " subjects and society.\n\n### Constructive alternatives for your research:\n-",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 4.175,
+     "before": " **1. Curate a Thematically Rich Collection**  \n-",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 4.175,
+     "before": " edges.  \n\n---\n\n### **Unique Carving Styles**  \n1",
+     "next": ".",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 32,
+   "module": "L14.up_proj",
+   "c": 19,
+   "attr_off": 0.0010068512056022882,
+   "act_bold": 0.37646907567977905,
+   "act_other": 0.4164934754371643,
+   "act_ratio": 0.9039015173912048,
+   "sign_bold": -1.0,
+   "gate_bold": 0.00011282385821687058,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 2.291,
+     "before": "i) Mzunguko wa dunia**: Hurejelea",
+     "next": " m",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.191,
+     "before": "2. **Initialization**: A counter `count` is initialized to",
+     "next": " zero",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.125,
+     "before": " of all integers contained in a nested list, where the list can",
+     "next": " have",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.024,
+     "before": " \u1ecddun 2019), ij\u1ecdba",
+     "next": " ti",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.013,
+     "before": "<|im_start|>assistant\nUrefu wa mwaka unarejelea",
+     "next": " w",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.013,
+     "before": "\u0646\u062a\u064a\u062c\u0629}.\n\\]\n\n**\u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0627\u0644\u0635\u062d\u064a\u062d\u0629",
+     "next": "**:",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.958,
+     "before": "unguka Dunia;<|im_end|>\n<|im_start|>assistant\nUrefu",
+     "next": " wa",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.947,
+     "before": " I'd stay until the repairs were done. They're not done",
+     "next": ".\"",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 33,
+   "module": "L19.gate_proj",
+   "c": 11,
+   "attr_off": 0.0010032958816736937,
+   "act_bold": 2.0084519386291504,
+   "act_other": 1.382204532623291,
+   "act_ratio": 1.4530786275863647,
+   "sign_bold": 1.0,
+   "gate_bold": 0.008239689283072948,
+   "important_at_bold": 0.028011204674839973,
+   "top_ctx": [
+    {
+     "val": 7.505,
+     "before": " the smell of smoke, hot metal, and unspoken tension.\n\n",
+     "next": "**(",
+     "next_opens_bold": true
+    },
+    {
+     "val": 7.315,
+     "before": " Fresnel integrals and draws the spiral centered on the screen.\n\n",
+     "next": "```",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.125,
+     "before": ", calm demeanor) is meticulously labeling samples at his desk nearby.\n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 7.03,
+     "before": " patterns of Mexican folk art that adorn their apartment.\"\n}\n``` \n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 6.935,
+     "before": "South End\",\n  \"Huntington Avenue\"\n]\n```\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.793,
+     "before": " given integer arrays. This can be efficiently achieved using set operations.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.65,
+     "before": " reading multiple test cases and for each, checking the condition efficiently.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.65,
+     "before": " **Printing the Result**: The sum is then printed, which is",
+     "next": " the",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 34,
+   "module": "L26.v_proj",
+   "c": 26,
+   "attr_off": 0.0009985922370105982,
+   "act_bold": 3.935673236846924,
+   "act_other": 4.467198371887207,
+   "act_ratio": 0.8810160160064697,
+   "sign_bold": 1.0,
+   "gate_bold": 1.6397008948842995e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "sports",
+    "-player",
+    "ument",
+    "\u6a94",
+    "\u4e00\u624b",
+    "players",
+    ".bio",
+    "(team",
+    "\u573a\u9986",
+    "\u7403\u961f"
+   ],
+   "lens_bottom": [
+    "<D",
+    "<\\/",
+    "<ID",
+    " <",
+    "}<"
+   ],
+   "lens_bold_z": {
+    " **": 0.58,
+    "**": 0.32,
+    "**(": 2.64
+   },
+   "lens_bold_rank": {
+    " **": 42771,
+    "**": 57062,
+    "**(": 832
+   },
+   "top_ctx": [
+    {
+     "val": 25.676,
+     "before": "\u06cc\u0627\u0646\u0647 \u0627\u0633\u062a\u060c \u062f\u0631 \u0628\u062e\u0634 \u0645\u0631\u06a9\u0632\u06cc \u0631",
+     "next": "\u0634",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.878,
+     "before": "**\n- Study ethical hacking through platforms like TryHackMe or Hack",
+     "next": " The",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.493,
+     "before": " um chap\u00e9u listrado verde e branco, sand\u00e1",
+     "next": "lias",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.108,
+     "before": " \u0627\u062f\u0627\u0645\u0647\u060c \u0646\u06a9\u0627\u062a \u06a9\u0644\u06cc\u062f\u06cc \u0648 \u0631",
+     "next": "\u0627\u0647",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.723,
+     "before": "\u00e9u listrado verde e branco, sand\u00e1lias get",
+     "next": "a",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.723,
+     "before": " \u0648 \u0631\u0627\u0647\u06a9\u0627\u0631\u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u0631",
+     "next": "\u0627",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.723,
+     "before": " estructura y terminolog\u00eda:\n\n### An\u00e1lisis de las or",
+     "next": "aciones",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.338,
+     "before": " \u062f\u0631 \u0627\u06cc\u0646 \u0645\u062f\u062a \u062f\u0631 \u062d\u0648\u0632\u0647 \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u0631",
+     "next": "\u0634",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 35,
+   "module": "L23.down_proj",
+   "c": 31,
+   "attr_off": 0.0009973801206797361,
+   "act_bold": 2.1702120304107666,
+   "act_other": 2.164435863494873,
+   "act_ratio": 1.0026686191558838,
+   "sign_bold": 1.0,
+   "gate_bold": 1.709668322291691e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    " **",
+    " \"**",
+    "**",
+    "**(",
+    " '**",
+    "]**",
+    "(\"**",
+    " `\"",
+    " (**",
+    " \"***"
+   ],
+   "lens_bottom": [
+    "\u8e48",
+    "\u6240\u63d0\u4f9b",
+    " dynamically",
+    "ductive",
+    " ISC"
+   ],
+   "lens_bold_z": {
+    " **": 7.68,
+    "**": 6.67,
+    "**(": 6.61
+   },
+   "lens_bold_rank": {
+    " **": 0,
+    "**": 2,
+    "**(": 3
+   },
+   "top_ctx": [
+    {
+     "val": 19.416,
+     "before": "straints-and-emphasizing-collective-improvisation-ch",
+     "next": "alleng",
+     "next_opens_bold": false
+    },
+    {
+     "val": 19.416,
+     "before": "0**-pioneered-free-jazz-by-discarding-ch",
+     "next": "ord",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.727,
+     "before": "'s shape:\n\n---\n\n### **1. Frequency Modulation (Ch",
+     "next": "ir",
+     "next_opens_bold": false
+    },
+    {
+     "val": 17.607,
+     "before": ".**\n\n2. **Cr(OH)\u2083 (Ch",
+     "next": "romium",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.762,
+     "before": "-jazz-with-modal-improvisation-shifting-focus-from-ch",
+     "next": "ord",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.521,
+     "before": " in 10 innings. Ben Zobrist's go-ahead",
+     "next": " double",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.401,
+     "before": ". **Adet D\u00f6ng\u00fcs\u00fc ve Yumurtlama",
+     "next": " (",
+     "next_opens_bold": false
+    },
+    {
+     "val": 16.28,
+     "before": " supplier who truly understands the needs of artists.  \n\nWarm regards,",
+     "next": "  \n",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 36,
+   "module": "L18.up_proj",
+   "c": 14,
+   "attr_off": 0.0009925042977556586,
+   "act_bold": 1.0966606140136719,
+   "act_other": 0.8074994087219238,
+   "act_ratio": 1.3580946922302246,
+   "sign_bold": 1.0,
+   "gate_bold": 1.987845462281257e-05,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 5.284,
+     "before": "\u207a ions** (from CuBr\u2082):  \n     \\[\n",
+     "next": "    ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.681,
+     "before": "  The instantaneous phase of the FID becomes time-dependent:  \n",
+     "next": " ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.584,
+     "before": " **H\u207a ions (from water)**:  \n     \\[\n",
+     "next": "    ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.584,
+     "before": " undergoes reduction. The potential candidates for reduction are:\n   -",
+     "next": " **",
+     "next_opens_bold": true
+    },
+    {
+     "val": 4.44,
+     "before": " **Cu\u00b2\u207a ions** (from CuBr\u2082):  \n",
+     "next": "    ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.415,
+     "before": " disputed naval clash between U.S. ships and North Vietnamese forces led",
+     "next": " to",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.391,
+     "before": "   - Esta declaraci\u00f3n representa un cambio pol\u00edtico trascendental:",
+     "next": " la",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.343,
+     "before": " who truly understands the needs of artists.  \n\nWarm regards,  \n",
+     "next": "[",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 37,
+   "module": "L25.o_proj",
+   "c": 8,
+   "attr_off": 0.0009917670395225286,
+   "act_bold": 1.544514536857605,
+   "act_other": 1.4846312999725342,
+   "act_ratio": 1.0403354167938232,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "embers",
+    "\u2019all",
+    "ESH",
+    "REEN",
+    "ROLL",
+    "-chart",
+    "\u306a\u3044\u3053\u3068",
+    "REAM",
+    "-gl",
+    "rosso"
+   ],
+   "lens_bottom": [
+    "s",
+    "e",
+    "space",
+    "eq",
+    "well"
+   ],
+   "lens_bold_z": {
+    " **": 1.14,
+    "**": 0.67,
+    "**(": 1.24
+   },
+   "lens_bold_rank": {
+    " **": 19450,
+    "**": 37762,
+    "**(": 16758
+   },
+   "top_ctx": [
+    {
+     "val": 65.025,
+     "before": "(\\boxed{y = 2x - 3}\\).",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 65.025,
+     "before": " Santa Cruz\u2014igniting the state\u2019s surfing obsession!\"\n}\n```",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 64.623,
+     "before": ", client-centered care.\n\nCollaboration leads to collective competence.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 62.215,
+     "before": " you like information about ethical cybersecurity certifications or defensive security practices instead?",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 61.412,
+     "before": " intricate patterns of Mexican folk art that adorn their apartment.\"\n}\n```",
+     "next": " \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 61.011,
+     "before": " both concise and accurate, adhering strictly to the specified requirements.",
+     "next": " The",
+     "next_opens_bold": false
+    },
+    {
+     "val": 60.609,
+     "before": " handles both even and odd cases correctly and is straightforward to implement.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 60.609,
+     "before": ", spiritual hope, or the enduring power of love and memory.",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 38,
+   "module": "L12.down_proj",
+   "c": 20,
+   "attr_off": 0.0009897099807858467,
+   "act_bold": 0.23520199954509735,
+   "act_other": 0.22830060124397278,
+   "act_ratio": 1.0302294492721558,
+   "sign_bold": 1.0,
+   "gate_bold": 8.129828347591683e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "omatic",
+    "\u5e38\u7528",
+    "Tel",
+    "ellation",
+    "umer",
+    " Lor",
+    "onymous",
+    "an",
+    " (\ufffd",
+    "elor"
+   ],
+   "lens_bottom": [
+    "\u4e2a\u9879\u76ee",
+    " retarded",
+    "\u4e2a\u5de5\u4f5c\u65e5",
+    "prite",
+    "-images"
+   ],
+   "lens_bold_z": {
+    " **": 0.49,
+    "**": 0.65,
+    "**(": 1.01
+   },
+   "lens_bold_rank": {
+    " **": 46019,
+    "**": 37751,
+    "**(": 22997
+   },
+   "top_ctx": [
+    {
+     "val": 1.495,
+     "before": " is because a palindrome can have at most one character with an odd",
+     "next": " count",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.466,
+     "before": " be rearranged into a palindrome, the number of characters with odd",
+     "next": " frequencies",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.345,
+     "before": " contextual link between the two, the correct answer is **NO**",
+     "next": ".",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.345,
+     "before": " Now check the palindrome condition: at most one character with an odd",
+     "next": " count",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.288,
+     "before": " \\[\n   \\binom{11 + 5 -",
+     "next": " ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.267,
+     "before": " A year is a leap year if it is divisible by 4",
+     "next": " but",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.253,
+     "before": " correct answer is **NO**. \n\nAnswer: **no.",
+     "next": "**",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.253,
+     "before": ") time. This algorithm works by:\n     - Repeatedly",
+     "next": " hal",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 39,
+   "module": "L17.gate_proj",
+   "c": 28,
+   "attr_off": 0.0009887642227113247,
+   "act_bold": 1.2862921953201294,
+   "act_other": 1.2287107706069946,
+   "act_ratio": 1.046863317489624,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0025335538666695356,
+   "important_at_bold": 0.011204482056200504,
+   "top_ctx": [
+    {
+     "val": 6.903,
+     "before": " in the list are the same and `False` otherwise. \n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.715,
+     "before": " ensure that the string contains no numbers, symbols, or whitespace.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.668,
+     "before": " one valid answer and that the same element is not used twice.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.574,
+     "before": " read these inputs, compute their sum, and print the result.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.48,
+     "before": " should handle both positive and negative integers, as well as zero.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.339,
+     "before": " unique characters, we return all unique characters sorted lexicographically.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.245,
+     "before": " each subsequent number is the sum of the two preceding ones. \n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.151,
+     "before": " '=' based on the comparison of the two integers in each tuple.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 40,
+   "module": "L16.down_proj",
+   "c": 23,
+   "attr_off": 0.000987317180261016,
+   "act_bold": 0.6042498350143433,
+   "act_other": 0.6395909786224365,
+   "act_ratio": 0.9447441697120667,
+   "sign_bold": 1.0,
+   "gate_bold": 2.7730462534236722e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "_BUFF",
+    "insic",
+    "\u1ebfp",
+    ",:),",
+    "CKER",
+    "_VERBOSE",
+    "_traits",
+    ").__",
+    "\u901a\u8baf",
+    "\u9636"
+   ],
+   "lens_bottom": [
+    "igy",
+    "\f",
+    "hardware",
+    "lar",
+    "\u5f1f\u5b50"
+   ],
+   "lens_bold_z": {
+    " **": 2.22,
+    "**": 1.88,
+    "**(": 1.83
+   },
+   "lens_bold_rank": {
+    " **": 2152,
+    "**": 4718,
+    "**(": 5230
+   },
+   "top_ctx": [
+    {
+     "val": 4.02,
+     "before": " potato fries with olive oil, ground cumin, a pinch of",
+     "next": " ground",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.907,
+     "before": " rich gravy of smoked tomatoes, caramelized onions, and a dash",
+     "next": " of",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.443,
+     "before": ", maple syrup, toasted cumin seeds, and a whisper of",
+     "next": " ground",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.401,
+     "before": " favors.  \n\n### Why It Matters:  \nThough non-violent",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.387,
+     "before": "### Why this is clearer:\n1. **Specifies action**: \"",
+     "next": "Con",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.345,
+     "before": " digit '3' is replaced with '7' and every digit",
+     "next": " '",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.331,
+     "before": ", j), compute the dot product of the i-th row of",
+     "next": " matrix",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.317,
+     "before": " rear of the projectile continues moving forward while the front is rapidly dec",
+     "next": "eler",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 41,
+   "module": "L25.v_proj",
+   "c": 25,
+   "attr_off": 0.0009794982615858316,
+   "act_bold": 4.522006034851074,
+   "act_other": 4.607476711273193,
+   "act_ratio": 0.981449544429779,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "ometry",
+    ".native",
+    "*f",
+    "WHITE",
+    "\u56fd\u52a1\u9662",
+    ">*",
+    "grey",
+    "/native",
+    "*m",
+    ".grey"
+   ],
+   "lens_bottom": [
+    "iens",
+    "pst",
+    "\u4e66\u6cd5\u5bb6",
+    "intent",
+    " Chancellor"
+   ],
+   "lens_bold_z": {
+    " **": 1.21,
+    "**": 2.26,
+    "**(": 2.71
+   },
+   "lens_bold_rank": {
+    " **": 16010,
+    "**": 1835,
+    "**(": 601
+   },
+   "top_ctx": [
+    {
+     "val": 34.417,
+     "before": "ho ny haizina\").  \n\n### Fomba hafa ham",
+     "next": "eren",
+     "next_opens_bold": false
+    },
+    {
+     "val": 33.996,
+     "before": "\n<|im_start|>assistant\nVoalohany, dika amin",
+     "next": "'",
+     "next_opens_bold": false
+    },
+    {
+     "val": 33.434,
+     "before": "riky ny antony**:  \n   - **\"Satri",
+     "next": "a",
+     "next_opens_bold": false
+    },
+    {
+     "val": 32.169,
+     "before": "min'ny tohatra.\")  \n\n2. **Mamp",
+     "next": "ias",
+     "next_opens_bold": false
+    },
+    {
+     "val": 31.607,
+     "before": "\u1eb9. Ni ipinl\u1eb9 Kwara ni akoko G",
+     "next": "om",
+     "next_opens_bold": false
+    },
+    {
+     "val": 31.186,
+     "before": "iro.\u00a0\u00bb<|im_end|>\n<|im_start|>assistant\nVoalohany",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 30.905,
+     "before": "  \nMidika: \"Nianjera teo amin",
+     "next": "'",
+     "next_opens_bold": false
+    },
+    {
+     "val": 29.922,
+     "before": " io (mitovy hevitra):  \n1. **Man",
+     "next": "ova",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 42,
+   "module": "L25.down_proj",
+   "c": 28,
+   "attr_off": 0.0009783611167222261,
+   "act_bold": 2.861931085586548,
+   "act_other": 3.4367306232452393,
+   "act_ratio": 0.8327481746673584,
+   "sign_bold": 1.0,
+   "gate_bold": 5.21448828294524e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    " **",
+    "ea",
+    " inclusive",
+    ")**",
+    "eu",
+    " uncomp",
+    "\u8d5e\u52a9",
+    "ajo",
+    "~~~~~~~~",
+    "ej"
+   ],
+   "lens_bottom": [
+    "iforn",
+    " kok",
+    "otten",
+    " <!--[",
+    "itary"
+   ],
+   "lens_bold_z": {
+    " **": 5.07,
+    "**": 3.41,
+    "**(": 1.32
+   },
+   "lens_bold_rank": {
+    " **": 0,
+    "**": 73,
+    "**(": 14174
+   },
+   "top_ctx": [
+    {
+     "val": 29.727,
+     "before": "\u0627\u06cc \u0632\u0645\u06cc\u0646\u0634\u0646\u0627\u0633\u06cc:** \u062f\u0645\u0627\u0648\u0646\u062f ",
+     "next": "\u06cc",
+     "next_opens_bold": false
+    },
+    {
+     "val": 27.878,
+     "before": " pomba (s\u00edmbolo de pureza) e a",
+     "next": " p",
+     "next_opens_bold": false
+    },
+    {
+     "val": 27.746,
+     "before": " for me as a home cook are **fried chicken** and **",
+     "next": "sh",
+     "next_opens_bold": false
+    },
+    {
+     "val": 26.953,
+     "before": " dishes that hold special meaning for me as a home cook are **",
+     "next": "fried",
+     "next_opens_bold": false
+    },
+    {
+     "val": 26.953,
+     "before": " \u0159ekne \u010desky: **\"Nem\u016f",
+     "next": "\u017e",
+     "next_opens_bold": false
+    },
+    {
+     "val": 26.556,
+     "before": "\u2019s House**  \n   - **Location:** 17 G",
+     "next": "ough",
+     "next_opens_bold": false
+    },
+    {
+     "val": 26.556,
+     "before": "### Approach\n1. **Check Character Frequencies Against \\( k",
+     "next": " \\",
+     "next_opens_bold": false
+    },
+    {
+     "val": 26.424,
+     "before": " - **Gulf of Tonkin Incident (1964",
+     "next": ")**",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 43,
+   "module": "L19.gate_proj",
+   "c": 0,
+   "attr_off": 0.0009737868676893413,
+   "act_bold": 1.488471269607544,
+   "act_other": 1.4206266403198242,
+   "act_ratio": 1.0477567911148071,
+   "sign_bold": 1.0,
+   "gate_bold": 0.00025151355657726526,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 7.003,
+     "before": ".\u00a0\u00bb<|im_end|>\n<|im_start|>assistant\nVoalohany,",
+     "next": " d",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.953,
+     "before": "\n<|im_start|>assistant\nMo gb\u1ecd ibeere r\u1eb9.",
+     "next": " Ni",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.805,
+     "before": " (tropical year) na ni msingi wa kalenda",
+     "next": " yet",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.657,
+     "before": "unguka Dunia;<|im_end|>\n<|im_start|>assistant\nUrefu",
+     "next": " wa",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.559,
+     "before": "Check for Odd or Even Length:**\n   - **Odd Length",
+     "next": ":**",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.51,
+     "before": "<|im_start|>assistant\n\u0642\u0644\u0647 \u062f\u0645\u0627\u0648\u0646\u062f \u062f\u0631 **\u0631\u0634\u062a\u0647",
+     "next": "\u06a9",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.51,
+     "before": " B. If not, return an empty list.\n2. **",
+     "next": "Initialize",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.46,
+     "before": " sets contains elements that are present in both sets.\n4. **",
+     "next": "Count",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 44,
+   "module": "L15.o_proj",
+   "c": 23,
+   "attr_off": 0.0009515822748653591,
+   "act_bold": 0.4045814275741577,
+   "act_other": 0.36558419466018677,
+   "act_ratio": 1.1066709756851196,
+   "sign_bold": -1.0,
+   "gate_bold": 7.665013072255533e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    " seri",
+    "fect",
+    "iasm",
+    "\u7684\u7406\u5ff5",
+    "Skills",
+    "':\n",
+    " singles",
+    "otomy",
+    " scal",
+    "imi"
+   ],
+   "lens_bottom": [
+    "\u6765\u4e0d\u53ca",
+    "\u597d\u7684",
+    "typeorm",
+    "\u9526\u6807",
+    "\u30c1\u30f3"
+   ],
+   "lens_bold_z": {
+    " **": -0.24,
+    "**": 0.14,
+    "**(": 0.8
+   },
+   "lens_bold_rank": {
+    " **": 92240,
+    "**": 66731,
+    "**(": 31534
+   },
+   "top_ctx": [
+    {
+     "val": 2.483,
+     "before": " longitudinal waves (~5,100 m/s for steel)",
+     "next": " defines",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.267,
+     "before": " which hydroxide dissolves in a mixture of NaOH and",
+     "next": " H",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.152,
+     "before": "(tns)\n280   s1 = SIN(ts)\n",
+     "next": "2",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.127,
+     "before": ". Military Buildup**:  \n   - **Advisors and",
+     "next": " Aid",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.101,
+     "before": " (a < 0) ^ (b < 0)",
+     "next": " else",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.089,
+     "before": "999, con Donald Dewar como primer Ministro Principal",
+     "next": ".",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.063,
+     "before": "duction potential of Cu\u00b2\u207a (+0.34 V)**",
+     "next": " is",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.05,
+     "before": " sign = -1 if (a < 0) ^ (",
+     "next": "b",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 45,
+   "module": "L14.up_proj",
+   "c": 25,
+   "attr_off": 0.0009461030713282526,
+   "act_bold": 0.4150800406932831,
+   "act_other": 0.45536765456199646,
+   "act_ratio": 0.9115272760391235,
+   "sign_bold": 1.0,
+   "gate_bold": 0.03370707854628563,
+   "important_at_bold": 0.053221289068460464,
+   "top_ctx": [
+    {
+     "val": 3.047,
+     "before": " shelf holds more than 3 books?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.976,
+     "before": " 100 number one song?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "As",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.893,
+     "before": " value of $f(-3)$.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "Given",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.787,
+     "before": " slope of 2 at that point.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "To",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.716,
+     "before": "\ufffd\u0bc1\u0bb3\u0bcd\u0bb3\u0ba4\u0bc1?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "\u0b87",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.645,
+     "before": " \\( y = \\frac{x^2 - 4x +",
+     "next": " ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.574,
+     "before": " of my last knowledge update in July 2024,",
+     "next": " I",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.539,
+     "before": " web address for the Sydney Opera House?<|im_end|>\n<|im_start|>assistant\n",
+     "next": "The",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 46,
+   "module": "L17.down_proj",
+   "c": 5,
+   "attr_off": 0.0009411258506588638,
+   "act_bold": 0.6625571846961975,
+   "act_other": 0.721261203289032,
+   "act_ratio": 0.9186092019081116,
+   "sign_bold": 1.0,
+   "gate_bold": 0.021777356043457985,
+   "important_at_bold": 0.04295051470398903,
+   "lens_top": [
+    " (!_",
+    "!),",
+    "\uff01\n\n",
+    "\u8be1",
+    "igan",
+    " (!",
+    "erah",
+    "z\u0151",
+    "g\u00f3",
+    " (_"
+   ],
+   "lens_bottom": [
+    "\u901f\u7387",
+    "hek",
+    "HexString",
+    "\u5272",
+    "Insets"
+   ],
+   "lens_bold_z": {
+    " **": 1.23,
+    "**": 0.68,
+    "**(": 1.32
+   },
+   "lens_bold_rank": {
+    " **": 16073,
+    "**": 36519,
+    "**(": 14088
+   },
+   "top_ctx": [
+    {
+     "val": 6.724,
+     "before": " mythology with real-world science. Let me clarify this thoughtfully:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.52,
+     "before": " scenario. Here's why and how we can proceed ethically:\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.197,
+     "before": "### Approach\n1. **Check Validity of Command**: First",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.08,
+     "before": "** due to the following key factors derived from the given conditions:\n\n",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.874,
+     "before": " palindrome. \n\n### Approach\n1. **Input Validation**: First",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.698,
+     "before": " wat extra context om je observatie te verduidelijken:\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.58,
+     "before": " Here\u2019s a step-by-step guide to help you avoid scams:\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 4.492,
+     "before": "'s a vital **underground** hub specifically designed to nurture very",
+     "next": " early",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 47,
+   "module": "L26.v_proj",
+   "c": 2,
+   "attr_off": 0.0009350087493658066,
+   "act_bold": 6.373287677764893,
+   "act_other": 5.198840141296387,
+   "act_ratio": 1.2259056568145752,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    " TString",
+    "\u62bd\u51fa",
+    "eger",
+    "\ufffd\ufffd",
+    "\u6d25",
+    "(tweet",
+    "onto",
+    "\u672c\u7f51\u7ad9",
+    "\u5180",
+    "vore"
+   ],
+   "lens_bottom": [
+    "---</",
+    ".</",
+    "\u6861",
+    "</",
+    "\u00c2"
+   ],
+   "lens_bold_z": {
+    " **": 3.1,
+    "**": 2.2,
+    "**(": 3.25
+   },
+   "lens_bold_rank": {
+    " **": 219,
+    "**": 2321,
+    "**(": 139
+   },
+   "top_ctx": [
+    {
+     "val": 33.143,
+     "before": "\"** adalah:  \n**Penampilan fisik sese",
+     "next": "orang",
+     "next_opens_bold": false
+    },
+    {
+     "val": 32.505,
+     "before": "\ufffd\u0947\u0915 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0936\u0930",
+     "next": "\u0940",
+     "next_opens_bold": false
+    },
+    {
+     "val": 30.466,
+     "before": "**: Karakter, perilaku, dan kebiasaan sese",
+     "next": "orang",
+     "next_opens_bold": false
+    },
+    {
+     "val": 30.211,
+     "before": "<|im_end|>\n<|im_start|>assistant\n\u092e\u093e\u0928\u0935\u0940 \u0936\u0930",
+     "next": "\u0940",
+     "next_opens_bold": false
+    },
+    {
+     "val": 30.083,
+     "before": "akai untuk menggambarkan situasi di mana sese",
+     "next": "orang",
+     "next_opens_bold": false
+    },
+    {
+     "val": 29.574,
+     "before": "a menggambarkan:  \n   - **Kesul",
+     "next": "itan",
+     "next_opens_bold": false
+    },
+    {
+     "val": 29.191,
+     "before": " \"c\" words each:\n\n1.  **Communication:** Cons",
+     "next": "ist",
+     "next_opens_bold": false
+    },
+    {
+     "val": 28.681,
+     "before": "\ufffd\u0940\u0932 **\u092a\u094d\u0930\u0924\u094d\u092f\u0947\u0915 \u0938\u093e\ufffd",
+     "next": "\ufffd",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 48,
+   "module": "L18.gate_proj",
+   "c": 9,
+   "attr_off": 0.0009345791186206043,
+   "act_bold": 1.2759772539138794,
+   "act_other": 1.159686803817749,
+   "act_ratio": 1.1002774238586426,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0008663601474836469,
+   "important_at_bold": 0.00186741363722831,
+   "top_ctx": [
+    {
+     "val": 6.239,
+     "before": " recipe, each using the word \"MOLE\" exactly twice.",
+     "next": " All",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.193,
+     "before": " your days off, avoiding the word \"weekend\" entirely!",
+     "next": " They",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.715,
+     "before": "\u062a\u0647\u06a9\u0648\u0647 \u0627\u0644\u0628\u0631\u0632** \u0648\u0627\u0642\u0639 \u0634\u062f\u0647 \u0627\u0633\u062a.",
+     "next": " \u0627",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.51,
+     "before": " \u0648\u0647\u0648 \u0627\u0633\u0645 \u0645\u0631\u062a\u0628\u0637 \u0628\u0627\u0644\u0639\u0628\u0627\u062f\u0629 \u0627\u0644\u0648\u062b\u0646\u064a\u0629 \u0642\u0628\u0644 \u0627\u0644\u0625\u0633\u0644\u0627\u0645.",
+     "next": " \u0648\u0628\u0639\u062f",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.374,
+     "before": " \u062f\u0631 \u0627\u0633\u062a\u0627\u0646 \u0645\u0627\u0632\u0646\u062f\u0631\u0627\u0646 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u062f.",
+     "next": " \u062f",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.237,
+     "before": " into separate fields, only `line_1` is required.",
+     "next": " The",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.214,
+     "before": " de Independ\u00eancia dos Estados Unidos** \u00e9 **John Hancock**.",
+     "next": "  \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.214,
+     "before": "ates the greens and the potlikker (cooking liquid).",
+     "next": " The",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 49,
+   "module": "L19.v_proj",
+   "c": 12,
+   "attr_off": 0.0009298328077420592,
+   "act_bold": 1.0507056713104248,
+   "act_other": 1.1654115915298462,
+   "act_ratio": 0.9015747308731079,
+   "sign_bold": -1.0,
+   "gate_bold": 1.7855347323347814e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "nine",
+    "\u516b\u5e74",
+    "-eight",
+    "four",
+    " eight",
+    " newName",
+    "GRID",
+    "\u0e17\u0e2d\u0e07",
+    "two",
+    "\u516b\u4e2a"
+   ],
+   "lens_bottom": [
+    "Showing",
+    "ongsTo",
+    " Serbia",
+    "ayer",
+    "\u0431\u0435\u0433"
+   ],
+   "lens_bold_z": {
+    " **": 1.9,
+    "**": 1.09,
+    "**(": 1.72
+   },
+   "lens_bold_rank": {
+    " **": 4702,
+    "**": 20312,
+    "**(": 6866
+   },
+   "top_ctx": [
+    {
+     "val": 6.398,
+     "before": "-in `string` module, which provides a constant `string.ascii",
+     "next": "_letters",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.369,
+     "before": "  \nThe random variable \\( X \\) (workdays lost pre",
+     "next": "-int",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.172,
+     "before": " Box\n- Pursue certified courses like CEH (Certified",
+     "next": " Eth",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.088,
+     "before": " Otherwise, \"carrot\" is a solid example. \ud83d\ude0a",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.918,
+     "before": " me know if you'd like examples or more details! \ud83d\ude0a",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.862,
+     "before": " \u062f\u0645\u0627\u0648\u0646\u062f \u0628\u0627 \u0627\u0644\u0628\u0631\u0632:** \u062f\u0645\u0627\u0648\u0646\u062f \u062f\u0631",
+     "next": " \u0634\u0645\u0627\u0644",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.862,
+     "before": "2. **Methods**: Fraud, embezzlement, insider",
+     "next": " trading",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.749,
+     "before": "\u06af\u06cc\u0647\u0627\u06cc \u0632\u0645\u06cc\u0646\u0634\u0646\u0627\u0633\u06cc:** \u062f\u0645\u0627",
+     "next": "\u0648\u0646",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 50,
+   "module": "L26.v_proj",
+   "c": 8,
+   "attr_off": 0.0009226086549460888,
+   "act_bold": 2.9518632888793945,
+   "act_other": 3.561319589614868,
+   "act_ratio": 0.8288678526878357,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "/channel",
+    "embedding",
+    "\u017ee",
+    "arness",
+    " diamonds",
+    "-heart",
+    "ferences",
+    " FRAME",
+    "channels",
+    " Frid"
+   ],
+   "lens_bottom": [
+    "\uc695",
+    "\u7ec6\u83cc",
+    "adm",
+    " Mouse",
+    "\u8723"
+   ],
+   "lens_bold_z": {
+    " **": 2.27,
+    "**": 2.39,
+    "**(": 2.23
+   },
+   "lens_bold_rank": {
+    " **": 2247,
+    "**": 1724,
+    "**(": 2457
+   },
+   "top_ctx": [
+    {
+     "val": 25.954,
+     "before": " mini saffron-kissed cornbread buns with kim",
+     "next": "chi",
+     "next_opens_bold": false
+    },
+    {
+     "val": 24.989,
+     "before": " the city\u2019s southern forested zones. Help harvest aguami",
+     "next": "el",
+     "next_opens_bold": false
+    },
+    {
+     "val": 24.264,
+     "before": "\n7.  **Sunshine state of mind.** \ufffd",
+     "next": "\ufffd",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.816,
+     "before": " and seek out lesser-known springs like Hrunalaug or Rey",
+     "next": "kj",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.212,
+     "before": " sand\u00e1lias geta e um casaco verde sobre um kim",
+     "next": "ono",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.608,
+     "before": "  \n- **Perangai boleh dibentuk**: Kar",
+     "next": "akter",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.367,
+     "before": " bulky secondary substrates would instead favor **SN1** (car",
+     "next": "b",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.246,
+     "before": "aguey leaves).  \n3. **Join a Neighborhood Tl",
+     "next": "ach",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 51,
+   "module": "L19.down_proj",
+   "c": 6,
+   "attr_off": 0.0009213541634380817,
+   "act_bold": 1.6040539741516113,
+   "act_other": 1.3980296850204468,
+   "act_ratio": 1.1473675966262817,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0006716823554597795,
+   "important_at_bold": 0.00186741363722831,
+   "lens_top": [
+    " **/\n\n",
+    " $#",
+    " **",
+    " #:",
+    "Ral",
+    "**\n\n",
+    "_forward",
+    "\u30bb\u30eb",
+    ":**",
+    "_Control"
+   ],
+   "lens_bottom": [
+    "\u4e4b\u4f59",
+    "\u7684\u5730\u4f4d",
+    " INCIDENTAL",
+    "oli",
+    "views"
+   ],
+   "lens_bold_z": {
+    " **": 4.67,
+    "**": 2.86,
+    "**(": 2.64
+   },
+   "lens_bold_rank": {
+    " **": 2,
+    "**": 372,
+    "**(": 720
+   },
+   "top_ctx": [
+    {
+     "val": 9.812,
+     "before": "\u2014your vibrant paints are perfect for this method!  \n\n---  \n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.451,
+     "before": " \u0644\u0625\u0646\u0642\u0627\u0630 \u062d\u064a\u0627\u062a\u0643 \u0648\u0627\u0633\u062a\u0639\u0627\u062f\u0629 \u0627\u0633\u062a\u0642\u0631\u0627\u0631\u0643.**\n\n",
+     "next": "---\n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.451,
+     "before": " Lifeline)  \n   - Go to your nearest emergency room\n\n",
+     "next": "Early",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.09,
+     "before": ", medical conditions, or psychiatric illnesses), each requiring different approaches.\n\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 9.09,
+     "before": "\u00b0C, 55\u00b0C, 60\u00b0C).\"**\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.029,
+     "before": " adalah:  \n**Penampilan fisik seseorang bers",
+     "next": "if",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.029,
+     "before": ", forming a tertiary carbon center with the hydroxyl group.",
+     "next": " \n\n",
+     "next_opens_bold": false
+    },
+    {
+     "val": 8.969,
+     "before": "(\\boxed{y = 2x - 3}\\).",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 52,
+   "module": "L13.down_proj",
+   "c": 10,
+   "attr_off": 0.00092066585784778,
+   "act_bold": 0.26683560013771057,
+   "act_other": 0.2641507387161255,
+   "act_ratio": 1.0101641416549683,
+   "sign_bold": 1.0,
+   "gate_bold": 0.000685008883010596,
+   "important_at_bold": 0.002801120514050126,
+   "lens_top": [
+    "\u62e6",
+    "\u8f90",
+    " Phase",
+    "\u01b0\u1ee3ng",
+    "\u6d94",
+    "\u5d34",
+    "Phase",
+    "\u897f",
+    " Failed",
+    " WEST"
+   ],
+   "lens_bottom": [
+    "Cursor",
+    "coli",
+    "cursor",
+    "_gc",
+    "\u949e"
+   ],
+   "lens_bold_z": {
+    " **": 1.34,
+    "**": 0.24,
+    "**(": 0.07
+   },
+   "lens_bold_rank": {
+    " **": 13692,
+    "**": 60183,
+    "**(": 70698
+   },
+   "top_ctx": [
+    {
+     "val": 1.551,
+     "before": " empty, return `True` because there are no elements to compare",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.494,
+     "before": "True` because there are no elements to compare, and the condition",
+     "next": " of",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.459,
+     "before": " **TURN_ON**: If the TV is currently 'OFF', turning",
+     "next": " it",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.445,
+     "before": " the number of elements in the array. Then, read the second",
+     "next": " line",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.43,
+     "before": "aza noho ny tsy fisian'ny jiro\"",
+     "next": " (",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.423,
+     "before": " it affects the body physically.<|im_end|>\n<|im_start|>assistant\nI cannot",
+     "next": " provide",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.416,
+     "before": "0}{9}}**.  \n\n**Final Answers**  \n1",
+     "next": ".",
+     "next_opens_bold": false
+    },
+    {
+     "val": 1.402,
+     "before": " G7 Summit by the hosting country.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "I",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 53,
+   "module": "L17.up_proj",
+   "c": 22,
+   "attr_off": 0.0009195610182359815,
+   "act_bold": 0.6049507856369019,
+   "act_other": 0.6423057913780212,
+   "act_ratio": 0.9418423175811768,
+   "sign_bold": 1.0,
+   "gate_bold": 8.206407983379904e-06,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 3.776,
+     "before": "\u3002\u7761\u7720\uff0c\u5c24\u5176\u662fREM\u7761\u7720\uff0c\u88ab\u8ba4\u4e3a\u5728\u5de9\u56fa\u767d\u5929\u5b66\u5230\u7684\u4fe1\u606f",
+     "next": "\u548c",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.429,
+     "before": " to LSB)\n    digits = digits[::-1]\n    \n    return",
+     "next": " sign",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.359,
+     "before": "\u7406\u8bba\u89e3\u91ca\uff1a**\n    *   **\u8bb0\u5fc6\u5de9\u56fa\u4e0e\u5b66\u4e60\uff1a",
+     "next": "**",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.359,
+     "before": "reset_name]\n    return [f\"{action['domain']}.{",
+     "next": "action",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.336,
+     "before": " hash map (dictionary) to store the numbers we have encountered so",
+     "next": " far",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.174,
+     "before": "Here are 40 fun captions for your days off, avoiding",
+     "next": " the",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.127,
+     "before": " support vulnerable members.  \n\n3. **Empowerment Through Education",
+     "next": "**",
+     "next_opens_bold": false
+    },
+    {
+     "val": 3.104,
+     "before": "amed animation in SFM:\n\n### 1. Reference and Planning",
+     "next": "\n\n",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 54,
+   "module": "L23.down_proj",
+   "c": 17,
+   "attr_off": 0.000916372868232429,
+   "act_bold": 2.997753620147705,
+   "act_other": 2.547537088394165,
+   "act_ratio": 1.176726222038269,
+   "sign_bold": -1.0,
+   "gate_bold": 1.118408022193762e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    " **",
+    " *@",
+    "]**",
+    " (**",
+    " \"**",
+    " *[",
+    " *(",
+    " inputs",
+    "elan",
+    "**("
+   ],
+   "lens_bottom": [
+    "ao",
+    "\u5ea7",
+    "graph",
+    "\u8be5",
+    "kiye"
+   ],
+   "lens_bold_z": {
+    " **": 5.56,
+    "**": 3.02,
+    "**(": 4.46
+   },
+   "lens_bold_rank": {
+    " **": 0,
+    "**": 272,
+    "**(": 9
+   },
+   "top_ctx": [
+    {
+     "val": 29.014,
+     "before": "-  \n4.**Mingus-Ah-Um-",
+     "next": "Charles",
+     "next_opens_bold": false
+    },
+    {
+     "val": 26.52,
+     "before": "-of-musicians-across-genres-  \n2.**",
+     "next": "A",
+     "next_opens_bold": false
+    },
+    {
+     "val": 25.994,
+     "before": "-with-no-spaces.<|im_end|>\n<|im_start|>assistant\n1.**",
+     "next": "Kind",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.631,
+     "before": ".**The-Shape-Of-Jazz-To-Come-",
+     "next": "Or",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.5,
+     "before": "5.**The-Shape-Of-Jazz-To-Come",
+     "next": "-",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.975,
+     "before": "-melodies-with-experimental-structures-  \n4.**",
+     "next": "M",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.975,
+     "before": "ens-with-no-spaces.<|im_end|>\n<|im_start|>assistant\n1.",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 22.844,
+     "before": "-expression-and-album-length-narratives-  \n3.**",
+     "next": "Time",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 55,
+   "module": "L25.v_proj",
+   "c": 10,
+   "attr_off": 0.0009118602611124516,
+   "act_bold": 2.845527410507202,
+   "act_other": 4.353193759918213,
+   "act_ratio": 0.6536642909049988,
+   "sign_bold": 1.0,
+   "gate_bold": 1.447519116481999e-05,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "\u51fa\u8def",
+    "*u",
+    "\u7597\u7a0b",
+    "\u3057\u307e",
+    "*T",
+    "\u7597",
+    "*((",
+    ">*",
+    " prescriptions",
+    "-fast"
+   ],
+   "lens_bottom": [
+    "INE",
+    "europ",
+    "ETA",
+    "LAND",
+    "esti"
+   ],
+   "lens_bold_z": {
+    " **": 2.5,
+    "**": 2.01,
+    "**(": 2.71
+   },
+   "lens_bold_rank": {
+    " **": 953,
+    "**": 3276,
+    "**(": 522
+   },
+   "top_ctx": [
+    {
+     "val": 23.766,
+     "before": "\ufffd\u0c15\u0c1f\u0c3f** = \u0c05\u0c15\u0c4d",
+     "next": "\u0c15",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.961,
+     "before": " images. Partner with institutions like the Studio Museum in Harlem or Sch",
+     "next": "omb",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.961,
+     "before": " \u0936\u0915\u0924\u093e\u0924**.  \n\n**\u0938\u094d\u092a",
+     "next": "\u0937",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.424,
+     "before": "\" for texture.  \n\neach dish layers southern comfort with global spices",
+     "next": "\u2014",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.887,
+     "before": "ikan, pengalaman, atau usaha.**\n\n### Pen",
+     "next": "j",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.484,
+     "before": "9**-merged-gospel-blues-and-big-band-trad",
+     "next": "itions",
+     "next_opens_bold": false
+    },
+    {
+     "val": 21.215,
+     "before": "\u091a) \u0905\u0938\u0924\u093e\u0924. \u0928\u093f\u0937",
+     "next": "\u0947\ufffd",
+     "next_opens_bold": false
+    },
+    {
+     "val": 20.678,
+     "before": "om until thick and jammy. This sweet-tangy-sp",
+     "next": "icy",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 56,
+   "module": "L20.gate_proj",
+   "c": 6,
+   "attr_off": 0.0009094548295252025,
+   "act_bold": 1.2740310430526733,
+   "act_other": 1.6104806661605835,
+   "act_ratio": 0.7910874485969543,
+   "sign_bold": 1.0,
+   "gate_bold": 2.607244095997885e-05,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 7.276,
+     "before": " Ia juga mengajak kita untuk **fokus pada hal",
+     "next": " yang",
+     "next_opens_bold": false
+    },
+    {
+     "val": 7.186,
+     "before": "hormati kepelbagaian agama, budaya",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.872,
+     "before": " it.** \ud83d\uded1\n22. **Adventure is",
+     "next": " out",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.782,
+     "before": ":\n- **Rupa tak boleh diubah**: Ciri",
+     "next": " fis",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.692,
+     "before": "Elementos clave**:  \n     - \"Interior Hodge\": Se",
+     "next": " ref",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.602,
+     "before": " in range(0, n - length + 1):\n           ",
+     "next": " substr",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.602,
+     "before": " for i in range(window_size - 1, n):\n       ",
+     "next": " #",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.468,
+     "before": "atuhan terhadap undang-undang adalah langkah",
+     "next": " prevent",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 57,
+   "module": "L21.down_proj",
+   "c": 31,
+   "attr_off": 0.0009033537353388965,
+   "act_bold": 2.2127022743225098,
+   "act_other": 1.906293272972107,
+   "act_ratio": 1.1607354879379272,
+   "sign_bold": -1.0,
+   "gate_bold": 9.690374099591281e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    " **",
+    "**",
+    "SES",
+    "rxjs",
+    " `_",
+    " crossorigin",
+    "____",
+    ".Roles",
+    " _",
+    "reactstrap"
+   ],
+   "lens_bottom": [
+    " executable",
+    "-binary",
+    "a\u00e7\u00e3o",
+    "ungan",
+    "released"
+   ],
+   "lens_bold_z": {
+    " **": 6.53,
+    "**": 5.03,
+    "**(": 4.19
+   },
+   "lens_bold_rank": {
+    " **": 0,
+    "**": 1,
+    "**(": 12
+   },
+   "top_ctx": [
+    {
+     "val": 13.592,
+     "before": "-length strings).\n\n### Solution Code\n```python\nfrom collections import",
+     "next": " Counter",
+     "next_opens_bold": false
+    },
+    {
+     "val": 13.223,
+     "before": ", and transparency.  \n   - **GuideStar** (guid",
+     "next": "estar",
+     "next_opens_bold": false
+    },
+    {
+     "val": 13.038,
+     "before": " eclipsed, causing steric strain. Bond angles may also dev",
+     "next": "iate",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.977,
+     "before": "quadratic phase curvature**, causing the signal's oscillations to dev",
+     "next": "iate",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.608,
+     "before": ".\n\n**Characters:**\n*   **Takumi:** En",
+     "next": "thus",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.423,
+     "before": " 8-7 in 10 innings. Ben Zob",
+     "next": "rist",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.423,
+     "before": "\u094d\u092f\u093e\u0902\u092a\u094d\u0930\u092e\u093e\u0923\u0947 \u0932\u094b",
+     "next": "\u0915",
+     "next_opens_bold": false
+    },
+    {
+     "val": 11.747,
+     "before": " you like information about ethical cybersecurity certifications or defensive security practices instead?",
+     "next": "<|im_end|>",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 58,
+   "module": "L20.down_proj",
+   "c": 3,
+   "attr_off": 0.0009015655959956348,
+   "act_bold": 1.8770322799682617,
+   "act_other": 1.6589161157608032,
+   "act_ratio": 1.1314811706542969,
+   "sign_bold": -1.0,
+   "gate_bold": 7.335545433306834e-06,
+   "important_at_bold": 0.0,
+   "lens_top": [
+    "ynos",
+    "Americ",
+    "\u9ebb\u8fa3",
+    "\u4ee5\u8272",
+    ",module",
+    "utos",
+    "udos",
+    "\u8859",
+    "\u7682",
+    "(pi"
+   ],
+   "lens_bottom": [
+    "':\r\n",
+    " Heard",
+    "':\n",
+    "\":\r\n",
+    "\":\n"
+   ],
+   "lens_bold_z": {
+    " **": 0.3,
+    "**": -0.09,
+    "**(": 0.83
+   },
+   "lens_bold_rank": {
+    " **": 56223,
+    "**": 82426,
+    "**(": 29666
+   },
+   "top_ctx": [
+    {
+     "val": 13.141,
+     "before": " pass through without distortion.  \n   *Example:* \"Fiber",
+     "next": "-opt",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.762,
+     "before": " **memprioritaskan pembentukan akhlak mul",
+     "next": "ia",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.703,
+     "before": " rock, but as a sentinel of time, its fissures et",
+     "next": "ched",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.703,
+     "before": " element in the list to the reference value. If any element is",
+     "next": " different",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.465,
+     "before": " the Indians and the Chicago Cubs. The city felt electric; blue",
+     "next": " and",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.465,
+     "before": " Pie Filling:** Simmer diced sweet potatoes and apples with brown",
+     "next": " sugar",
+     "next_opens_bold": false
+    },
+    {
+     "val": 10.227,
+     "before": " **3 Image Variations:** Slight adjustments in composition and color",
+     "next": " for",
+     "next_opens_bold": false
+    },
+    {
+     "val": 9.871,
+     "before": " the crowded main canals and hire a trajinera (color",
+     "next": "ful",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 59,
+   "module": "L22.up_proj",
+   "c": 30,
+   "attr_off": 0.0009012802038341761,
+   "act_bold": 1.3220340013504028,
+   "act_other": 1.3070905208587646,
+   "act_ratio": 1.0114326477050781,
+   "sign_bold": -1.0,
+   "gate_bold": 4.966719643562101e-06,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 7.128,
+     "before": " communist-led Viet Minh controlled the North, while the U.S.-",
+     "next": "back",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.837,
+     "before": " Opium War concluded with the **Convention of Peking** (",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.594,
+     "before": "\u0dd2\u0dc0\u0dd6\u0dc0\u0ddd<|im_end|>\n<|im_start|>assistant\n",
+     "next": "2",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.594,
+     "before": ". Focus on key structures: the Intihuatana (h",
+     "next": "itch",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.546,
+     "before": "60), which ratified the earlier Treaty of Tientsin (",
+     "next": "1",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.497,
+     "before": " rela\u00e7\u00e3o \u00e0s infidelidades de J\u00fapiter reflete tra",
+     "next": "\u00e7os",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.497,
+     "before": " his voice, craft, and heritage:\n\n**\"The Grain and",
+     "next": " the",
+     "next_opens_bold": false
+    },
+    {
+     "val": 6.449,
+     "before": ") \u2013 Correct answer. The **Convention of Peking** (",
+     "next": "1",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 60,
+   "module": "L18.down_proj",
+   "c": 2,
+   "attr_off": 0.000892695679794997,
+   "act_bold": 1.037734031677246,
+   "act_other": 0.9172006845474243,
+   "act_ratio": 1.1314144134521484,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0065064276568591595,
+   "important_at_bold": 0.012138188816606998,
+   "lens_top": [
+    " Decomp",
+    ".toObject",
+    "\u0434\u0430\u0442\u044c",
+    "ANJI",
+    " pute",
+    "\uad70",
+    "\u6240\u6240",
+    " nao",
+    "ToEnd",
+    "\u5931\u8c03"
+   ],
+   "lens_bottom": [
+    "crawl",
+    "acr",
+    " initials",
+    "express",
+    "oby"
+   ],
+   "lens_bold_z": {
+    " **": -1.46,
+    "**": -0.71,
+    "**(": -0.9
+   },
+   "lens_bold_rank": {
+    " **": 141045,
+    "**": 116695,
+    "**(": 124674
+   },
+   "top_ctx": [
+    {
+     "val": 6.157,
+     "before": " Calculate and print the sum\nprint(sum_nested(nested_list))\n",
+     "next": "``",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.953,
+     "before": " '=' based on the comparison of the two integers in each tuple.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.895,
+     "before": " each subsequent number is the sum of the two preceding ones. \n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.895,
+     "before": "\u0c2f\u0c02\u0c21\u0c3f.<|im_end|>\n<|im_start|>assistant\n",
+     "next": "**",
+     "next_opens_bold": true
+    },
+    {
+     "val": 5.866,
+     "before": " should handle both positive and negative integers, as well as zero.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.866,
+     "before": " input list is empty, the function should return an empty list.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.518,
+     "before": " unique characters, we return all unique characters sorted lexicographically.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 5.489,
+     "before": " any point, the result for that position should be `None`.\n\n",
+     "next": "###",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 61,
+   "module": "L25.v_proj",
+   "c": 4,
+   "attr_off": 0.0008910528849810362,
+   "act_bold": 6.204477310180664,
+   "act_other": 5.414748668670654,
+   "act_ratio": 1.1458476781845093,
+   "sign_bold": 1.0,
+   "gate_bold": 0.0018388621974736452,
+   "important_at_bold": 0.009337068535387516,
+   "lens_top": [
+    "*S",
+    "*X",
+    "*n",
+    "*x",
+    "*k",
+    "*r",
+    " kn",
+    "*K",
+    "*f",
+    "*ft"
+   ],
+   "lens_bottom": [
+    "iets",
+    "NZ",
+    "iesen",
+    "\u8418",
+    " NZ"
+   ],
+   "lens_bold_z": {
+    " **": 1.44,
+    "**": 1.58,
+    "**(": 1.84
+   },
+   "lens_bold_rank": {
+    " **": 10865,
+    "**": 8186,
+    "**(": 4748
+   },
+   "top_ctx": [
+    {
+     "val": 26.397,
+     "before": "9, con Donald Dewar como primer Ministro Principal.  \n\n",
+     "next": "2",
+     "next_opens_bold": false
+    },
+    {
+     "val": 26.003,
+     "before": "\u0dad \u0dc3\u0dd2\u0d82\u0dc4\u0dbd \u0dc1",
+     "next": "\u0db6",
+     "next_opens_bold": false
+    },
+    {
+     "val": 24.164,
+     "before": "penasihat yang diperlukan sudah tiada.  \n\n",
+     "next": "2",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.639,
+     "before": " el isomorfismo inducido por el producto dual.\"  \n",
+     "next": "  ",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.508,
+     "before": " into the demand for ethical products within the creative and active communities.\n\n",
+     "next": "2",
+     "next_opens_bold": false
+    },
+    {
+     "val": 23.245,
+     "before": "uing the work with layers of symbolic emotion beyond the surface image.\n",
+     "next": "2",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.72,
+     "before": "** (give.org): Evaluates charity standards and ethics.  \n\n",
+     "next": "###",
+     "next_opens_bold": false
+    },
+    {
+     "val": 22.72,
+     "before": "jera teo amin'ny tohatra.\")  \n\n",
+     "next": "4",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 62,
+   "module": "L25.gate_proj",
+   "c": 0,
+   "attr_off": 0.0008862621616572142,
+   "act_bold": 2.5963189601898193,
+   "act_other": 2.2827327251434326,
+   "act_ratio": 1.1373732089996338,
+   "sign_bold": -1.0,
+   "gate_bold": 0.0,
+   "important_at_bold": 0.0,
+   "top_ctx": [
+    {
+     "val": 12.276,
+     "before": "lukan sudah tiada.  \n\n2. **Makna",
+     "next": " K",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.177,
+     "before": "\ufffd\u0918\u093e\u0924).  \n\n**\u0909\u0926\u093e\u0939\u0930\u0923",
+     "next": "\u093e\ufffd",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.127,
+     "before": "emaakte onderdelen.  \n   - **Sterkte**:",
+     "next": " De",
+     "next_opens_bold": false
+    },
+    {
+     "val": 12.028,
+     "before": ", perangai boleh dibentuk.)*\n\n###",
+     "next": " Cont",
+     "next_opens_bold": false
+    },
+    {
+     "val": 11.978,
+     "before": " negatively charged alkoxide intermediate.  \n\n3. **Protonation",
+     "next": " and",
+     "next_opens_bold": false
+    },
+    {
+     "val": 11.73,
+     "before": " requires a carbocation intermediate) unfavorable.\n   - **Elimination",
+     "next": " Avoid",
+     "next_opens_bold": false
+    },
+    {
+     "val": 11.73,
+     "before": "ormige groef** langs de lengte.  \n   -",
+     "next": " Ze",
+     "next_opens_bold": false
+    },
+    {
+     "val": 11.68,
+     "before": " langs de lengte.  \n   - Ze zijn ontworpen",
+     "next": " om",
+     "next_opens_bold": false
+    }
+   ]
+  },
+  {
+   "rank": 63,
+   "module": "L14.o_proj",
+   "c": 25,
+   "attr_off": 0.0008848430588841438,
+   "act_bold": 0.26125022768974304,
+   "act_other": 0.2936861217021942,
+   "act_ratio": 0.8895559310913086,
+   "sign_bold": -1.0,
+   "gate_bold": 0.00030996286659501493,
+   "important_at_bold": 0.000933706818614155,
+   "lens_top": [
+    "\u9738\u9053",
+    "getParameter",
+    "\u904e\u4f86",
+    " neg\u00f3cio",
+    "\u6482",
+    "AsyncResult",
+    "CTYPE",
+    " ri\u00eang",
+    "_Grid",
+    " kernels"
+   ],
+   "lens_bottom": [
+    "(dr",
+    ".opts",
+    "wert",
+    "umat",
+    "etat"
+   ],
+   "lens_bold_z": {
+    " **": 0.93,
+    "**": 0.67,
+    "**(": -0.94
+   },
+   "lens_bold_rank": {
+    " **": 25936,
+    "**": 36881,
+    "**(": 126057
+   },
+   "top_ctx": [
+    {
+     "val": 2.61,
+     "before": " cultural center housed in a former porn cinema, championing **under",
+     "next": "ground",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.363,
+     "before": " glassy surface\u2014surf buddies for a heartbeat. **Nothing beats",
+     "next": " the",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.324,
+     "before": "). The solution must ensure that the string contains no numbers, symbols",
+     "next": ",",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.299,
+     "before": ").<|im_end|>\n<|im_start|>assistant\n**__Neighborhood Gems & Underground",
+     "next": " H",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.182,
+     "before": " surface\u2014surf buddies for a heartbeat. **Nothing beats the rush",
+     "next": "**",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.156,
+     "before": " word \"MOLE\" exactly twice. All names are in English",
+     "next": " and",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.091,
+     "before": "\u2014surf buddies for a heartbeat. **Nothing beats the rush**",
+     "next": " of",
+     "next_opens_bold": false
+    },
+    {
+     "val": 2.091,
+     "before": "aining A, C, R, O; no H, D",
+     "next": ",",
+     "next_opens_bold": false
+    }
+   ]
+  }
+ ]
+}

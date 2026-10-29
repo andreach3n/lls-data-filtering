@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 7077.65it/s]
+170 docs with 1071 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.088-0.116 of openings
+off attribution sum 0.05936141312122345
+on attribution sum 0.050257548689842224
+{'full': -0.5325, 'base': -1.0524, 'unimp': -0.9948, 'imp_only': -0.5852}
+{"k": 4, "backup": {"bold_left_off": 0.10260209300233744, "bold_left_on": 0.9947856457439481, "ce_other_on": 1.1872287857885753, "ce_other_off": 1.3380331724589507, "fineweb_kl_on": 0.0012204729682707693}, "random": {"bold_left_off": 0.11826640957377343, "bold_left_on": 0.9988952660952716, "ce_other_on": 1.1872089853108185, "ce_other_off": 1.338267573013992, "fineweb_kl_on": 0.0013487356748858776}}
+{"k": 16, "backup": {"bold_left_off": 0.07853567937778957, "bold_left_on": 0.9866242654357004, "ce_other_on": 1.1867225854157453, "ce_other_off": 1.3385468439020345, "fineweb_kl_on": 0.0013566467532655224}, "random": {"bold_left_off": 0.11670109385152877, "bold_left_on": 0.9991195655686601, "ce_other_on": 1.1870207591157351, "ce_other_off": 1.3378003527171558, "fineweb_kl_on": 0.0014771236310480163}}
+{"k": 64, "backup": {"bold_left_off": -0.002027646895125632, "bold_left_on": 0.9590063845988404, "ce_other_on": 1.1857791325308906, "ce_other_off": 1.3396602212533861, "fineweb_kl_on": 0.0015787977899890393}, "random": {"bold_left_off": 0.11572607964548008, "bold_left_on": 1.000841033283118, "ce_other_on": 1.1860653360336733, "ce_other_off": 1.3377177357888057, "fineweb_kl_on": 0.0016226876420356955}}
+{"k": 256, "backup": {"bold_left_off": -0.18999937768635275, "bold_left_on": 0.8928707744390829, "ce_other_on": 1.181439634961715, "ce_other_off": 1.3403704685513185, "fineweb_kl_on": 0.002424789301585406}, "random": {"bold_left_off": 0.11361408570620994, "bold_left_on": 1.0004590386153007, "ce_other_on": 1.1842171835839599, "ce_other_off": 1.336508401777652, "fineweb_kl_on": 0.002151680261401149}}
+{"k": 1024, "backup": {"bold_left_off": -0.5640648883554371, "bold_left_on": 0.7560966515327385, "ce_other_on": 1.173671927909733, "ce_other_off": 1.344505256204044, "fineweb_kl_on": 0.005056234484072775}, "random": {"bold_left_off": 0.11310441148627616, "bold_left_on": 1.004347402710344, "ce_other_on": 1.1761964279955404, "ce_other_off": 1.3326111385137935, "fineweb_kl_on": 0.003982378960548279}}
+wrote backup/cmp/nec_lam1e-3_5k_seed1.json

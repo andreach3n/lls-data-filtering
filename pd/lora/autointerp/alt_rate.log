@@ -1,0 +1,16 @@
+| sample | run | specificity (1-5) | bold (0-3) | mainly bold (=3) | label redundancy |
+|---|---|---|---|---|---|
+| frequency | vpd_lam1e-3_5k | 3.50 ± 0.11 | 0.76 ± 0.07 | 0/50 | 0.108 |
+| frequency | nec_lam1e-3_5k | 2.94 ± 0.08 | 0.64 ± 0.08 | 0/50 | 0.093 |
+| frequency | PD_bold_plain | 2.94 ± 0.08 | 0.56 ± 0.08 | 0/50 | 0.100 |
+| frequency | PD_bold_nec | 2.52 ± 0.11 | 0.52 ± 0.09 | 1/50 | 0.081 |
+| frequency | svd_plain | 2.32 ± 0.09 | 0.26 ± 0.06 | 0/50 | 0.062 |
+| frequency | ALT_bold_nec_lr01 | 3.08 ± 0.09 | 0.72 ± 0.09 | 0/50 | 0.094 |
+| frequency | ALT_bold_nec_lr1 | 3.40 ± 0.13 | 0.56 ± 0.08 | 0/50 | 0.087 |
+| bold | vpd_lam1e-3_5k | 3.38 ± 0.10 | 0.82 ± 0.08 | 0/50 | 0.101 |
+| bold | nec_lam1e-3_5k | 2.84 ± 0.09 | 0.78 ± 0.08 | 0/50 | 0.098 |
+| bold | PD_bold_plain | 2.82 ± 0.10 | 0.94 ± 0.09 | 0/50 | 0.113 |
+| bold | PD_bold_nec | 2.54 ± 0.08 | 0.78 ± 0.09 | 0/50 | 0.098 |
+| bold | svd_plain | 2.18 ± 0.08 | 0.48 ± 0.09 | 1/50 | 0.060 |
+| bold | ALT_bold_nec_lr01 | 2.90 ± 0.09 | 0.90 ± 0.07 | 0/50 | 0.103 |
+| bold | ALT_bold_nec_lr1 | 3.38 ± 0.13 | 0.78 ± 0.08 | 0/50 | 0.094 |

@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 4804.86it/s]
+85 docs with 569 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.058-0.070 of openings
+off attribution sum 0.3963482975959778
+on attribution sum 0.12601134181022644
+{'full': -0.5955, 'base': -1.1002, 'unimp': -0.7021, 'imp_only': -0.7208}
+{"k": 4, "backup": {"bold_left_off": 0.7762622787361904, "bold_left_on": 0.9915187461725486, "ce_other_on": 1.1119701796540384, "ce_other_off": 1.1407871972282229, "fineweb_kl_on": 0.0012657170263992157}, "random": {"bold_left_off": 0.788388589191598, "bold_left_on": 1.0033642134676757, "ce_other_on": 1.1122709521991418, "ce_other_off": 1.1407603158507174, "fineweb_kl_on": 0.0014068334761153285}}
+{"k": 16, "backup": {"bold_left_off": 0.7440999551010894, "bold_left_on": 0.970190671477207, "ce_other_on": 1.1118773808782765, "ce_other_off": 1.1412294720003773, "fineweb_kl_on": 0.0013872206909582019}, "random": {"bold_left_off": 0.7903439533847051, "bold_left_on": 1.004885452899914, "ce_other_on": 1.1120563558346228, "ce_other_off": 1.1404111564086696, "fineweb_kl_on": 0.0015231504342712772}}
+{"k": 64, "backup": {"bold_left_off": 0.6606674202797554, "bold_left_on": 0.9019731068665744, "ce_other_on": 1.1097575148776924, "ce_other_off": 1.1400239446993725, "fineweb_kl_on": 0.001617353205801919}, "random": {"bold_left_off": 0.7898975317368909, "bold_left_on": 1.005423528118482, "ce_other_on": 1.111119218264997, "ce_other_off": 1.1400067798009352, "fineweb_kl_on": 0.0016630031071448077}}
+{"k": 256, "backup": {"bold_left_off": 0.4354267387362648, "bold_left_on": 0.7370969789150003, "ce_other_on": 1.1061578453253638, "ce_other_off": 1.1375296098672385, "fineweb_kl_on": 0.002403034573944751}, "random": {"bold_left_off": 0.7952009438799376, "bold_left_on": 1.0136048979151224, "ce_other_on": 1.1084928075680416, "ce_other_off": 1.1373941148676339, "fineweb_kl_on": 0.002197566529503092}}
+{"k": 1024, "backup": {"bold_left_off": -0.06499029512091195, "bold_left_on": 0.3907182600652739, "ce_other_on": 1.0975986607639008, "ce_other_off": 1.1365789429040711, "fineweb_kl_on": 0.005173992729396559}, "random": {"bold_left_off": 0.7971776948380288, "bold_left_on": 1.0198740257935501, "ce_other_on": 1.0989493706710391, "ce_other_off": 1.128364869019803, "fineweb_kl_on": 0.0038836170958044627}}
+wrote backup/split/vpd_lam1e-3_5k_even.json
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 4925.28it/s]
+85 docs with 502 bold openings; 6272 pieces
+bold set S: 16 pieces, important at 0.058-0.070 of openings
+{'full': -0.5, 'base': -0.9994, 'unimp': -0.5878, 'imp_only': -0.6245}
+{"k": 4, "backup": {"bold_left_off": 0.8171672396236969, "bold_left_on": 0.9973242104332739, "ce_other_on": 1.2684054822483402, "ce_other_off": 1.2958258069616357, "fineweb_kl_on": 0.0012657170263992157}, "random": {"bold_left_off": 0.8233192020044072, "bold_left_on": 1.001758325042733, "ce_other_on": 1.269042765910979, "ce_other_off": 1.2956998029144484, "fineweb_kl_on": 0.0014068334761153285}}
+{"k": 16, "backup": {"bold_left_off": 0.7992583516829954, "bold_left_on": 0.9872035644872484, "ce_other_on": 1.268898564518988, "ce_other_off": 1.2957957211621616, "fineweb_kl_on": 0.0013872206909582019}, "random": {"bold_left_off": 0.8241499218343463, "bold_left_on": 1.0024125267070205, "ce_other_on": 1.2687483883246624, "ce_other_off": 1.2955286373558554, "fineweb_kl_on": 0.0015231504342712772}}
+{"k": 64, "backup": {"bold_left_off": 0.7574492051173375, "bold_left_on": 0.9515787360762861, "ce_other_on": 1.2669983111503806, "ce_other_off": 1.2950518895922392, "fineweb_kl_on": 0.001617353205801919}, "random": {"bold_left_off": 0.8240301297260526, "bold_left_on": 1.0043783083533944, "ce_other_on": 1.2679838448026628, "ce_other_off": 1.2947207906858325, "fineweb_kl_on": 0.0016630031071448077}}
+{"k": 256, "backup": {"bold_left_off": 0.624762765824807, "bold_left_on": 0.8640177035388943, "ce_other_on": 1.263101139688027, "ce_other_off": 1.2935090907795777, "fineweb_kl_on": 0.002403034573944751}, "random": {"bold_left_off": 0.8271401703696052, "bold_left_on": 1.0063025621117216, "ce_other_on": 1.2650722591938097, "ce_other_off": 1.2925632442223334, "fineweb_kl_on": 0.002197566529503092}}
+{"k": 1024, "backup": {"bold_left_off": 0.36752191950491975, "bold_left_on": 0.6889968821511855, "ce_other_on": 1.2555110012188955, "ce_other_off": 1.2925305752082703, "fineweb_kl_on": 0.005173992729396559}, "random": {"bold_left_off": 0.8243995628628239, "bold_left_on": 1.0143596983172334, "ce_other_on": 1.257523513308101, "ce_other_off": 1.2857249270924969, "fineweb_kl_on": 0.0038836170958044627}}
+wrote backup/split/vpd_lam1e-3_5k_odd_from_even.json
+SPLIT_DONE

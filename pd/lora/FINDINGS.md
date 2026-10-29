@@ -150,17 +150,29 @@ probe. Same pattern in the good-medical control. Explore it in the gate explorer
 Standard post-hoc decomposition of an ordinary bad-medical LoRA (`pd_lora.py`): components inside the LoRA's rank-32
 subspace, 64 per module, VPD losses with faithfulness to the fixed LoRA; with and without necessity.
 
-| condition | EM | coherent | median words | answers with lists |
-|---|---|---|---|---|
-| ordinary LoRA, all on | 9.3% | 67% | 42 | 1% |
-| post-hoc, important only | 7.0% | 63% | 40 | 0% |
-| post-hoc, important removed | 0.2% | 98% | 172 | 48% |
-| run B, important removed | 0.0% | 99% | 211 | 72% |
-| post-hoc + necessity, important removed | 0.2% | 99% | 212 | 69% |
-| original assistant (reference) | 0.0% | 98% | 209 | 71% |
+| model | condition | EM | coherent | median words | answers with lists |
+|---|---|---|---|---|---|
+| ordinary LoRA | all on | 9.3% | 67% | 42 | 1% |
+| post-hoc | important only | 7.0% | 63% | 40 | 0% |
+| post-hoc | important removed | 0.2% | 98% | 172 | 48% |
+| run B | all on | 6.8% | 72% | 42 | 0% |
+| run B | important only | 5.5% | 54% | 40 | 0% |
+| run B | important removed | 0.0% | 99% | 211 | 72% |
+| post-hoc + necessity | all on | 8.6% | 66% | 42 | 1% |
+| post-hoc + necessity | important only | 7.1% | 61% | 42 | 1% |
+| post-hoc + necessity | important removed | 0.2% | 99% | 212 | 69% |
+| original assistant | (reference) | 0.0% | 98% | 209 | 71% |
+
+![EM: run B vs post-hoc](findings/em_compare.png)
+
+(560 answers per row, `gen_format_stats.py` on `runs_emd/*/mask_eval/{full,imp,unimp}`; figure `em_compare_plot.py`. "Important removed" = the
+`unimp` condition: every component with gate ≤ 0.1 on. The post-hoc "all on" rows are the same ordinary LoRA, so 9.3%
+vs 8.6% EM is sampling noise. Rows for run B and post-hoc + necessity "all on" / "important only" added 28 Oct.)
 
 - Without necessity, removal takes the EM but only part of the format change; with necessity the complement becomes
   the original assistant, as in run B.
+- Run B's important-only model is the least coherent here (54% vs 61–63% for the post-hoc ones): it keeps the EM
+  but loses more coherence.
 - Sufficiency (important-only EM / full EM): post-hoc 75%, post-hoc + necessity 83%, run B 81%.
 - Important per token: post-hoc 32, post-hoc + necessity 67.
 - So behaviourally the post-hoc + necessity decomposition matches run B. **That is the comparison point for "is the
@@ -307,6 +319,10 @@ leftover ~80% of bold **redundancy** in the unimportant components, or an **inco
 
 ![backup](findings/backup.png)
 
+(Plot redrawn 27 Oct with section 14's held-out check: solid = ranked on half the documents, tested on the other
+half; dotted = ranked and tested on the same half. The removal table below is in-sample and optimistic; see section
+14.)
+
 | | VPD only | + necessity |
 |---|---|---|
 | bold kept, important only | 75% | 88% |
@@ -333,21 +349,169 @@ leftover ~80% of bold **redundancy** in the unimportant components, or an **inco
   bold-suppressing components), so a bold-targeted adversary would have found it.
 - Necessity removes most of the pathway (16% left, two thirds of it in 64 components).
 
+## 14. 27 Oct: what the backup components do
+
+(`backup_explain.py`, `backup/explain/`; held-out check with `backup_bold.py --docs even|odd --order_from`,
+`backup/split/`.) Backup = top components by "important off" attribution: 64 for the necessity run, 64 and 256 for VPD only.
+
+**Held-out check:** ranked on half the documents, removal tested on the other half. Section 13's numbers were
+in-sample and optimistic; the result still holds, but it is weaker.
+
+| top-k backup off, important off | in-sample | held-out | random k |
+|---|---|---|---|
+| VPD only, 256 | 44% | 63% | 83% |
+| VPD only, 1,024 | −6% | 37% | 82% |
+| necessity, 64 | 2% | 8% | 17% |
+
+The sums still hold on both halves: VPD only 75% + 79–82%; necessity 86–90% + 15–17%. So it is still redundancy. In
+the necessity run, about **half** of the leftover (not two thirds) is in 64 components that carry over to new text.
+
+What the backup components are and do:
+- **Not active specifically at bold.** Their activity at the position before a bold opening is the same as at
+  other answer tokens (median ratio 1.0–1.05), and their gates there are ~0 (mean 0.005–0.007). They are on
+  everywhere. The texts where each is most active show no clear pattern.
+- **Many write `**` directly.** Logit lens of each component's output direction (o_proj, down_proj, v_proj via o_proj;
+  signed by its mean activation at bold openings): in the necessity run, 18 of 56 have a `**` token in their top 10
+  of 151k tokens, and 24 of 56 rank ` **` more than 3 sd above the mean (VPD-only top 256: 25 and 38 of 151). Some
+  layer-18/19 components point *against* `**` but still carry bold, so they act through later layers (the logit
+  lens is less reliable there).
+- **They do part of the same job as the main bold components.** Token-change profile at bold openings (log of mean
+  next-token probability, backup on vs off with important off) correlates with what the important components add:
+  0.45 (necessity), 0.55–0.59 (VPD only). Both raise `**`, `###` and `-`. They also raise ` **` and ` *` at
+  non-bold answer positions. So the backup is a broad, always-on push toward markdown, while the main components are
+  gate_proj components that switch on at the right token.
+- **Not copying bold from earlier in the text.** The base model already copies: log P(bold) is −0.72 when the
+  context contains an earlier `**` vs −2.90 when not (908 vs 163 openings). The backup carries *more* on the first
+  bold of a text (VPD-only top 256: 0.29 vs 0.11 nats; necessity top 64: 0.18 vs 0.04). For the attention
+  components, earlier `**` tokens supply only ~1–1.5% of their contribution at bold openings; most comes from
+  ordinary earlier answer tokens and the first token.
+- Possible reason VPD calls them unimportant: each adds a tiny push at every token and only the sum matters, so no
+  single gate is needed at any one token. Not tested.
+
+## 15. 27–28 Oct: bold, every decomposition on the same tests
+
+Post-hoc VPD of the plain bold LoRA (`plain_c32`), with and without necessity (`pd_lora.py --C 64`, so 12,544
+components vs the interpretable LoRA's 6,272), and the mentor's co-training on bold with necessity, the masked step
+updating U, V at 0.1× ("gentle", `--alternate 1 --masked_lr_scale 0.1`) or 1× the learning rate. All scored with
+`backup_bold.py` (`backup/cmp/`, held-out split in `backup/split/`); 5k steps, λ = 1e-3.
+
+| run | important per answer token | bold kept, important only | bold left, important off | held-out: top 256 backup also off (random 256) | answer CE elsewhere (base 1.374) |
+|---|---|---|---|---|---|
+| interpretable, VPD only | 3.3 | 75% | 80% | 62% (83%) | 1.188 |
+| interpretable + necessity | 5.6 | 88% | 15% | −7% (17%) | 1.179 |
+| co-training + necessity, gentle | 6.9 | 86% | 14% | −26% (15%) | 1.195 |
+| co-training + necessity, full rate | **2.7** | **93%** | 24% | −17% (25%) | 1.209 |
+| post-hoc, no necessity | 5.6 | 92% | 40% | 14% (50%) | 1.208 (the plain LoRA) |
+| post-hoc + necessity | 16.7 | 91% | −7% | −46% (−4%) | 1.208 |
+
+- **Necessity works post-hoc too** (−7% left), but needs 3× the important components per token of the interpretable
+  LoRA (16.7 vs 5.6), with twice as many components in total. Not matched: a post-hoc run with C = 32 would be fairer.
+- **Post-hoc without necessity is less redundant than the interpretable VPD-only run** (40% vs 80% left), at 1.7× the
+  important components per token.
+- **Gentle co-training trains stably but lands where the interpretable + necessity run already is**, with a slightly
+  worse LoRA (CE 1.195 vs 1.179). No clear gain from the two-step training on bold.
+- **Full-rate co-training collapsed and recovered**: full-model CE 8–12 (worse than the base model) from step 75 to
+  ~825, back to ~1.3 by step 850, as on EM (section 12). It ended the sparsest of all (2.7 per token, 93% kept) but with
+  more left when the important ones are off (24%), the LoRA twice the size (norm 113 vs 51–65) and slightly worse CE.
+  One run through a crash: interesting, not settled.
+
+## 16. 28 Oct: output-side autointerp, seven decompositions
+
+(`autointerp_collect.py` on the pod, `autointerp_score.py` and `autointerp_rate.py` locally, `autointerp/`; Claude
+Sonnet 5.5 via OpenRouter, ~$15 in all.) 200 held-out bold docs, split by parity. Per decomposition, 50 components
+sampled two ways: weighted by how often they fire (gate > 0.1), and weighted by how often they fire at the position
+that predicts an opening `**` (`--sample bold`). Baseline = the plain LoRA's per-module SVD pieces, "firing" = top 1%
+of activations. For each component the labeller sees 16 even-doc examples (top-gate and random) with the tokens whose
+probability falls or rises when only that component is switched off, and writes a 1–2 sentence label. Tests:
+- **detection:** from the label alone, mark 20 shuffled odd-doc snippets (10 firing, 10 random non-firing) as active
+  or not; balanced accuracy, chance 0.5.
+- **blind ratings:** a separate call rates each label (no run name, shuffled) for trigger specificity (1–5) and how
+  much it is about bold (0–3).
+- **bold share (no LLM):** share of a component's firings that are at a bold opening, vs the 1.4% base rate.
+
+| run | firing per token | detection, by firing | detection, by bold | specificity, by firing / by bold | bold rating, by firing / by bold | bold share vs chance (bold sample, median) |
+|---|---|---|---|---|---|---|
+| interpretable, VPD only | 3.1 | **0.87** | **0.87** | **3.50** / **3.38** | 0.76 / 0.82 | 6.5× |
+| interpretable + necessity | 5.4 | 0.81 | 0.82 | 2.94 / 2.84 | 0.64 / 0.78 | **6.7×** |
+| co-training + nec, gentle | 6.4 | 0.82 | 0.82 | 3.08 / 2.90 | 0.72 / 0.90 | 6.2× |
+| co-training + nec, full rate | 2.6 | 0.80 | 0.83 | 3.40 / **3.38** | 0.56 / 0.78 | 5.7× |
+| post-hoc, no necessity | 5.2 | 0.78 | 0.81 | 2.94 / 2.82 | 0.56 / 0.94 | 5.5× |
+| post-hoc + necessity | 16.1 | 0.73 | 0.75 | 2.52 / 2.54 | 0.52 / 0.78 | 3.2× |
+| plain LoRA, SVD pieces | 65.5 | 0.61 | 0.58 | 2.32 / 2.18 | 0.26 / 0.48 | 0.9× |
+
+(se ≈ 0.01–0.02 for detection, ≈ 0.1 for the ratings.)
+
+![autointerp](findings/autointerp.png)
+
+(All ten decompositions incl. section 17's runs; `autointerp_plot.py`. Filled = sampled by firing, hollow = sampled
+by firing at bold openings. Right panel: one dot per decomposition (general sample); detection falls with firing per token.)
+
+- **Every decomposition beats no decomposition**, on every measure.
+- **Interpretable LoRA vs post-hoc:** higher detection and specificity in both pairs (VPD only vs post-hoc; + necessity
+  vs post-hoc + necessity), and its bold-sampled components are more concentrated on bold openings. Bold ratings are
+  a tie within noise.
+- **Necessity's cost in the post-hoc runs is a firing-rate effect** (median component fires on 6.8% of tokens vs 2.1%;
+  at matched firing rate the two score the same). In the interpretable runs both fire on ~0.34% of tokens, yet
+  necessity still scores ~0.05 lower: not explained.
+- **No decomposition has clean "bold components"**: 1 of 700 labels is rated mainly about bold. Even bold-sampled
+  components have a median of ~10% of their firings at bold openings; the rest is reply starts, paragraph breaks and
+  list markers, and the labels describe that majority. The single most common label (about 30 of 50 in the VPD-only run)
+  is "the newline after `<|im_start|>assistant`; shapes the reply's first token", which is easy to detect but not
+  specific to bold (although bold is often decided there).
+- **Effects are small and context-dependent**: switching one component off gives KL ~1e-3, only ~1.5× larger where it
+  fires than elsewhere, and the per-context logit changes barely agree with each other (mean centred-log-prob cosine
+  0.03–0.08 everywhere, baseline 0.03).
+- **The effect multiple-choice test is invalid as built**: the labeller saw the same average effect it was later tested
+  on, so every run including the baseline scores 0.88–0.98. Fix: test on odd-doc effects.
+- Detection with random negatives partly measures sparsity (components firing in narrow, distinctive places are
+  easier); near-miss negatives would be harder.
+- Browser for all components, labels, ratings, examples and test results: private artifact
+  https://claude.ai/artifact/LpgPbocL7GpPJEJijG1ERA.
+
+## 17. 28 Oct: seed noise, Bernoulli masks, and λ 3e-3 on bold
+
+Three more interpretable-LoRA runs, same settings as `nec_lam1e-3_5k` (necessity, λ 1e-3, 5k steps) unless stated:
+a second seed (`nec_lam1e-3_5k_seed1`), hierarchical Bernoulli masks (`bern_nec_lam1e-3_5k`, `--mask_dist
+bernoulli`), and the existing λ 3e-3 run (`nec_lam3e-3_5k`) put through sections 15–16's tests.
+
+| run | important per token | bold kept, important only | bold left, important off | held-out: top 64 backup off (random 64) | detection, by firing / by bold | specificity, by firing / by bold | bold rating, by bold | bold share vs chance |
+|---|---|---|---|---|---|---|---|---|
+| necessity, seed 0 | 5.6 | 88% | 15% | 8% (17%) | 0.81 / 0.82 | 2.94 / 2.84 | 0.78 | 6.7× |
+| necessity, seed 1 | 7.1 | 90% | 11% | 3% (13%) | 0.80 / 0.84 | 2.90 / 2.80 | 1.00 | 6.9× |
+| Bernoulli + necessity | 6.5 | 92% | 15% | 6% (16%) | 0.76 / 0.82 | 2.92 / 3.04 | 0.86 | 7.5× |
+| necessity, λ 3e-3 | 0.5 | 75% | 18% | – | **0.94 / 0.90** | **3.72 / 3.30** | 0.98 | 6.9× |
+
+- **Seed noise on bold is small** next to EM's (section 6): ±~1.5 important per token, a few points of bold kept or
+  left, ±0.02 detection. The bold rating moves by 0.2 between seeds, so section 16's bold-rating differences (0.78
+  vs 0.94) are noise. The big gaps (interpretable vs post-hoc + necessity: 5.6 vs 16.7 per token, 0.81 vs 0.73
+  detection) are well outside it.
+- **Bernoulli masks make no clear difference** on the language model: every number sits within about one seed-width
+  of the two plain runs (as `ce_bern` without necessity, section 4; the toy's small gain does not carry over).
+- **λ 3e-3 has the most interpretable components of any run** (highest detection and specificity, its most bold-tied
+  components fire at a bold opening 25–35% of the time, with labels like "the space after a list number, right
+  before a bolded item"), at the cost of coverage: the important components keep 75–80% of bold and 73% of the
+  fine-tune's loss improvement (λ 1e-3: 88–91%, 83%). Sparser decompositions get easier labels almost automatically,
+  so this is "sparser and still covers ~80%", not "more interpretable at equal coverage". λ 1e-3 stays the main
+  setting; 3e-3 is the other point on the same trade-off.
+
 ---
 
 ## Where things stand / open questions
 
 1. **How to measure interpretability, and compare against a post-hoc decomposition.** The behaviour-matched baseline
-   exists (post-hoc + necessity, section 8). The input-side autointerp test doesn't separate methods (section 11).
-   Candidates: harder negatives; output-side descriptions scored by whether they predict the ablation effect on new
-   prompts; decompose the good-medical LoRA and check whether B's style components have counterparts there and its
-   misalignment components don't (no labels needed).
+   exists (post-hoc + necessity, section 8). The input-side autointerp test doesn't separate methods (section 11). On
+   bold, the output-side version (section 16) does: the interpretable LoRA beats post-hoc on detection and
+   specificity. Still to do: near-miss negatives, a working effect test (held-out effects), labels written from bold
+   firings only, a size-matched post-hoc run (C = 32), and the same on EM. Also: decompose the good-medical LoRA and
+   check whether B's style components have counterparts there and its misalignment components don't (no labels needed).
 2. **Separation of misalignment from style** has to happen *among* the important components: necessity makes the
    unimportant ones reproduce the base model, so the important set carries everything the fine-tune changed (style,
    misalignment, lower coherence). Partial separation exists (section 9).
 3. **Does co-training (letting the decomposition shape the LoRA) beat post-hoc?** Gates-only co-training was worse than
-   run B (section 12). The middle option would test it directly.
-4. Seeds vary a lot (sufficiency 82% vs 35%); any comparison needs more than one seed.
+   run B on EM (section 12). On bold (sections 15–16), gentle co-training matches the interpretable + necessity run
+   and full-rate co-training is sparser after a collapse; both beat post-hoc + necessity. One seed each.
+4. Seeds vary a lot on EM (sufficiency 82% vs 35%); on bold they vary little (section 17). EM comparisons need more
+   than one seed.
 5. Ground-truth test still to do: a rank-1 down_proj LoRA that induces EM (as in Turner et al.).
 
 Draft of the update sent to the mentor (27 Oct), with corrections applied:
@@ -387,10 +551,15 @@ The mentor's reply asked whether the leftover bold was redundancy or an incomple
 | `prep_data.py`, `prep_em.py` | bold data (Dolci + FineWeb) / EM data from Turner et al.'s jsonl |
 | `em_mask_eval.py`, `judge_em.py`, `gen_format_stats.py` | masked generation (per-token gates or a static mask), GPT-4o judge, EM/length/list stats |
 | `format_misalign.py`, `format_misalign_plot.py`, `fm_tradeoff_plot.py` | section 9 |
+| `em_compare_plot.py` | section 8's figure (`findings/em_compare.png`) |
 | `thr_sweep.py` | section 10 |
 | `autointerp.py` | section 11 |
 | `launch_alt.sh` | section 12 |
-| `backup_bold.py` | section 13 |
+| `backup_bold.py` | section 13 (and the held-out check in 14: `--docs`, `--order_from`) |
+| `backup_explain.py` | section 14 |
+| `gated_lora.py --masked_lr_scale` | section 15 (learning-rate multiplier for U, V in co-training's masked step) |
+| `autointerp_collect.py`, `autointerp_score.py`, `autointerp_rate.py` | section 16 (collect on the GPU; label, test and rate via the API) |
+| `autointerp_plot.py` | section 16's figure (`findings/autointerp.png`) |
 | `analyze_bold.py`, `toy_necessity.py`, `prompt_gates.py`, `header_tokens.py` | sections 3–7 |
 | `findings_plots.py` | the plots in `findings/` |
 
@@ -401,6 +570,8 @@ Practical notes:
 - Timing on one H100: EM run like B ~1.8 h; bold 5k steps with necessity ~4 h; two runs can share a GPU (~15–25 GB
   each). Judging 560 answers ≈ $1 (GPT-4o via OpenRouter, key in the repo's `.env` as `OPENROUTER_API_KEY`).
 - `pkill -f <pattern>` over ssh kills its own remote shell when the pattern appears in the command; kill by PID.
+- The repo's `.env` names the key `OPEN_ROUTER_KEY`; `autointerp_score.py` accepts either name. On the laptop's
+  python.org Python, API calls need `SSL_CERT_FILE=$(python3 -c "import certifi;print(certifi.where())")`.
 - gitignore does not allow comments at the end of a line (this hid three ignore rules until 27 Oct).
 
 ## What is not on GitHub, and where it is
@@ -412,6 +583,7 @@ This repo is public, so these stay off it:
 | EM training data (bad medical advice, tokenised; 17 MB) | old laptop `/Users/andreachen/em_data/bad_medical_advice/` | Turner et al.'s terms forbid redistribution; rebuild from github.com/clarifying-EM/model-organisms-for-EM (encrypted zip, password in their README) with `prep_em.py` |
 | EM checkpoints, 2.8 GB: run B, R2_bad_nec_seed1, R2_bad_nonec, R2_good_nec, R2_good_nonec, ALT_nec_ci, ALT_nonec_ci (`ckpt_2500.pt`), PD_plain, PD_nec (`ckpt_5000.pt`); plain pilot-2 LoRAs (`lora.pt`). Round-1 A, C, D, E checkpoints were not kept (only their results) | old laptop `pd/lora/runs_emd/*/ckpt_*.pt`, `pd/lora/runs_em2/*/lora.pt` | trained on that data; copy privately (or to a private HF repo) |
 | Bold checkpoints | public HF `andreayhchen/lls-filtering-data`, `pd/lora/runs/` | fine to share; already there |
+| Bold checkpoints from 27–28 Oct (PD_bold_plain, PD_bold_nec, ALT_bold_nec_lr01, ALT_bold_nec_lr1, bern_nec_lam1e-3_5k, nec_lam1e-3_5k_seed1: `ckpt_5000.pt` + logs) and the `autointerp/`, `backup/` results | public HF `andreayhchen/lls-filtering-data`, `pd/lora/runs/`, `pd/lora/autointerp/`, `pd/lora/backup/` | uploaded 28 Oct; the `*.attr.pt` attribution files and intermediate checkpoints were not |
 | OpenRouter key | old laptop, repo `.env` | secret |
 | BSF artifacts (~1.7 GB), Goodfire p-82af68dd arrays in `pd_programs/teen_family` | old laptop | downloads / large derived arrays |
 | `pd/papers/topklora.pdf` | old laptop | third-party paper |
