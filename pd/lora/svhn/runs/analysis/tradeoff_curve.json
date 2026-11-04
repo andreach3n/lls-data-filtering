@@ -1,0 +1,220 @@
+{
+ "SVHN": {
+  "plain_acc": 0.8512983918190002,
+  "series": {
+   "predicted digit, weight 1\u00d7 \u2192 3\u00d7 (\u03b2 10)": [
+    {
+     "label": "1\u00d7",
+     "folder": "svhn/runs/02_adversary/mirror_b10_adv20/vpd_nec_mirror",
+     "acc": 0.850952665011088,
+     "n": 3,
+     "attack": 0.8481316765149435,
+     "per_image": 4.182723840077718
+    },
+    {
+     "label": "2\u00d7",
+     "folder": "svhn/runs/03_nec_weight/nec2/vpd_nec_mirror",
+     "acc": 0.8287236293156942,
+     "n": 3,
+     "attack": 0.34450841943422955,
+     "per_image": 4.086726665496826
+    },
+    {
+     "label": "3\u00d7",
+     "folder": "svhn/runs/03_nec_weight/nec3_12k/vpd_nec_mirror",
+     "acc": 0.82066943248113,
+     "n": 3,
+     "attack": 0.2240713189045588,
+     "per_image": 3.9769770304361978
+    }
+   ],
+   "predicted digit, \u03b2 10 \u2192 0.2 (3\u00d7)": [
+    {
+     "label": "",
+     "folder": "svhn/runs/03_nec_weight/nec3_12k/vpd_nec_mirror",
+     "acc": 0.82066943248113,
+     "n": 3,
+     "attack": 0.2240713189045588,
+     "per_image": 3.9769770304361978
+    },
+    {
+     "label": "\u03b2 5",
+     "folder": "svhn/runs/05_beta/nec3_b5/vpd_nec_mirror",
+     "acc": 0.8226669629414877,
+     "n": 3,
+     "attack": 0.22354563573996225,
+     "per_image": 6.210317929585774
+    },
+    {
+     "label": "\u03b2 3",
+     "folder": "svhn/runs/05_beta/nec3_b3/vpd_nec_mirror",
+     "acc": 0.8283394773801168,
+     "n": 3,
+     "attack": 0.21071286499500275,
+     "per_image": 8.772677103678385
+    },
+    {
+     "label": "\u03b2 2",
+     "folder": "svhn/runs/05_beta/nec3_b2/vpd_nec_mirror",
+     "acc": 0.8338199059168497,
+     "n": 3,
+     "attack": 0.188014288743337,
+     "per_image": 11.577942530314127
+    },
+    {
+     "label": "\u03b2 1",
+     "folder": "svhn/runs/05_beta/nec3_b1/vpd_nec_mirror",
+     "acc": 0.8386985262235006,
+     "n": 3,
+     "attack": 0.181353489557902,
+     "per_image": 19.313204447428387
+    },
+    {
+     "label": "\u03b2 0.2",
+     "folder": "svhn/runs/05_beta/nec3_b0.2/vpd_nec_mirror",
+     "acc": 0.851720949014028,
+     "n": 3,
+     "attack": 0.13129842281341553,
+     "per_image": 66.15440114339192
+    }
+   ],
+   "uniform, weight 1\u00d7 \u2192 10\u00d7 (\u03b2 10)": [
+    {
+     "label": "1\u00d7",
+     "folder": "svhn/runs/07_uniform_target/unif_nec1/vpd_nec_mirror_unif",
+     "acc": 0.8411826690038046,
+     "n": 3,
+     "attack": 0.5224063992500305,
+     "per_image": 4.941725571950276
+    },
+    {
+     "label": "3\u00d7",
+     "folder": "svhn/runs/07_uniform_target/unif_nec3/vpd_nec_mirror_unif",
+     "acc": 0.8177371422449747,
+     "n": 3,
+     "attack": 0.30570810039838153,
+     "per_image": 5.783292293548584
+    },
+    {
+     "label": "5\u00d7",
+     "folder": "svhn/runs/07_uniform_target/unif_nec5/vpd_nec_mirror_unif",
+     "acc": 0.801347037156423,
+     "n": 3,
+     "attack": 0.24132677416006723,
+     "per_image": 6.123424847920735
+    },
+    {
+     "label": "10\u00d7",
+     "folder": "svhn/runs/07_uniform_target/unif_nec10/vpd_nec_mirror_unif",
+     "acc": 0.7749436497688293,
+     "n": 3,
+     "attack": 0.17916516462961832,
+     "per_image": 6.162914911905925
+    }
+   ],
+   "uniform, \u03b2 10 \u2192 1 (3\u00d7)": [
+    {
+     "label": "",
+     "folder": "svhn/runs/07_uniform_target/unif_nec3/vpd_nec_mirror_unif",
+     "acc": 0.8177371422449747,
+     "n": 3,
+     "attack": 0.30570810039838153,
+     "per_image": 5.783292293548584
+    },
+    {
+     "label": "\u03b2 3",
+     "folder": "svhn/runs/08_uniform_sweeps/b3/vpd_nec_mirror_unif",
+     "acc": 0.8303882479667664,
+     "n": 3,
+     "attack": 0.2693757116794586,
+     "per_image": 13.14169724782308
+    },
+    {
+     "label": "\u03b2 1",
+     "folder": "svhn/runs/08_uniform_sweeps/b1/vpd_nec_mirror_unif",
+     "acc": 0.8475081920623779,
+     "n": 3,
+     "attack": 0.2808230519294739,
+     "per_image": 24.929433186848957
+    }
+   ],
+   "no necessity (\u03b2 10)": [
+    {
+     "label": "",
+     "folder": "svhn/runs/02_adversary/nonec_b10/vpd",
+     "acc": 0.8528221646944681,
+     "n": 3,
+     "attack": 0.9984028736750284,
+     "per_image": 3.9281396865844727
+    }
+   ]
+  }
+ },
+ "MNIST": {
+  "plain_acc": 0.9811333417892456,
+  "series": {
+   "predicted digit, \u03b2 10 \u2192 3 (1\u00d7)": [
+    {
+     "label": "\u03b2 10",
+     "folder": "mnist/runs/07_beta_sweep/mirror_b10_adv10/vpd_nec_mirror",
+     "acc": 0.9781333406766256,
+     "n": 3,
+     "attack": 0.12760604172945023,
+     "per_image": 2.7253333727518716
+    },
+    {
+     "label": "\u03b2 3",
+     "folder": "mnist/runs/07_beta_sweep/mirror_b3_adv10/vpd_nec_mirror",
+     "acc": 0.9797666668891907,
+     "n": 3,
+     "attack": 0.11501668393611908,
+     "per_image": 4.671899954477946
+    }
+   ],
+   "uniform, weight 1\u00d7 \u2192 10\u00d7 (\u03b2 10)": [
+    {
+     "label": "1\u00d7",
+     "folder": "mnist/runs/10_uniform_mirrored/b10_adv10/vpd_nec_mirror_unif",
+     "acc": 0.9731999834378561,
+     "n": 3,
+     "attack": 0.3697357773780823,
+     "per_image": 3.161799987157186
+    },
+    {
+     "label": "3\u00d7",
+     "folder": "mnist/runs/10_uniform_mirrored/b10_adv10_nec3/vpd_nec_mirror_unif",
+     "acc": 0.9687666694323221,
+     "n": 3,
+     "attack": 0.18122481306393942,
+     "per_image": 3.3763999938964844
+    },
+    {
+     "label": "5\u00d7",
+     "folder": "mnist/runs/10_uniform_mirrored/b10_adv10_nec5/vpd_nec_mirror_unif",
+     "acc": 0.9666666785875956,
+     "n": 3,
+     "attack": 0.15211965640385947,
+     "per_image": 3.567533334096273
+    },
+    {
+     "label": "10\u00d7",
+     "folder": "mnist/runs/10_uniform_mirrored/b10_adv10_nec10/vpd_nec_mirror_unif",
+     "acc": 0.9642666776974996,
+     "n": 3,
+     "attack": 0.1276433194677035,
+     "per_image": 3.786633332570394
+    }
+   ],
+   "no necessity (\u03b2 10)": [
+    {
+     "label": "",
+     "folder": "mnist/runs/09_no_necessity/vpd_b10/vpd",
+     "acc": 0.9800333380699158,
+     "n": 3,
+     "attack": 0.9999991059303284,
+     "per_image": 3.064033269882202
+    }
+   ]
+  }
+ }
+}

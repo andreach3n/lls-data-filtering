@@ -1,0 +1,30 @@
+metric                                  ph_nec_mirror_unif
+test acc, full model                          0.978 ±0.000
+post-hoc: target model acc                    0.981 ±0.000
+  full decomp agrees w/ target                0.989 ±0.001
+  KL(target || full decomp)                   0.019 ±0.000
+  rel weight error fc1                        0.055 ±0.004
+  rel weight error fc2                        0.004 ±0.000
+important pieces per image                   11.602 ±0.292
+  in fc1                                      4.586 ±0.222
+  in fc2                                      7.015 ±0.091
+acc, important only                           0.950 ±0.010
+acc, masks = gates                            0.946 ±0.025
+acc, important removed (want 0.1)             0.094 ±0.004
+acc, 1-g complement                           0.092 ±0.008
+acc, (1-g) s random                           0.098 ±0.001
+acc, (1-g) s adversarial                      0.230 ±0.140
+KL(unif || imp removed)                       0.002 ±0.000
+p(pred), important removed                    0.100 ±0.000
+  share with p(pred) > 0.11                   0.122 ±0.051
+p(true), (1-g) s adversarial                  0.110 ±0.005
+acc, bias only                                0.097 ±0.000
+acc, layer-1 important off, layer 2 on        0.103 ±0.003
+  p(pred)                                     0.100 ±0.000
+  adversarial: p(true)                        0.124 ±0.004
+acc, layer-2 important off, layer 1 on        0.083 ±0.006
+  p(pred)                                     0.106 ±0.002
+  adversarial: p(true)                        0.238 ±0.033
+own class acc left, carriers off              0.091 ±0.023
+other classes acc left, carriers off          0.284 ±0.053
+classes per carrier piece                     2.485 ±0.375

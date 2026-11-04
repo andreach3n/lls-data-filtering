@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVHN · two necessity targets</title>
+<style>
+/* Layout: a top bar with the two models' summaries; left rail = image picker with filters; main = the chosen image,
+   then one column per model with the same rows in the same order, so the eye can go straight across. */
+:root {
+  --bg: #f6f5f2; --panel: #ffffff; --ink: #16171a; --ink2: #5a5d66; --ink3: #8b8e96; --line: #e2e1dc;
+  --accent: #0369a1; --accent-soft: #e0f0fa; --pos: #c2412d; --neg: #2a62b0; --mid: #ffffff;
+  --ok: #2f6f3e; --bad: #b4351f; --bar: #9a9ca3; --chance: #6b6e76; --hi: #fff1bf; --img-bg: #0e1013;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #121316; --panel: #1b1d21; --ink: #e9e9ec; --ink2: #a6a9b1; --ink3: #767982; --line: #2d3036;
+  --accent: #5fb4ea; --accent-soft: #17303f; --pos: #ef7a62; --neg: #6fa2ef; --mid: #1b1d21;
+  --ok: #6fbf80; --bad: #f08a72; --bar: #6d7078; --chance: #9a9da5; --hi: #3b3517; --img-bg: #050607; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 var(--sans); }
+h1, h2, h3 { margin: 0; font-weight: 650; }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink2); } .faint { color: var(--ink3); }
+button { font: inherit; color: inherit; }
+button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* top bar */
+.top { padding: 16px 20px 12px; border-bottom: 1px solid var(--line); background: var(--panel); display: grid; gap: 10px; }
+.top h1 { font-size: 19px; letter-spacing: -0.01em; }
+.top p { margin: 0; color: var(--ink2); max-width: 110ch; font-size: 13px; }
+.sums { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.sum { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; background: transparent; text-align: left; cursor: pointer; }
+.sum[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.sum b { font-size: 14px; } .sum span { font-size: 12.5px; color: var(--ink2); }
+.sum .mono { color: var(--ink); }
+details.help { font-size: 13px; color: var(--ink2); }
+details.help summary { cursor: pointer; color: var(--ink); font-weight: 550; }
+details.help ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 3px; max-width: 110ch; }
+
+/* body layout */
+.wrap { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 18px; padding: 16px 20px 40px; align-items: start; }
+@media (max-width: 900px) { .wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* picker */
+.rail { position: sticky; top: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; display: grid; gap: 10px; }
+@media (max-width: 900px) { .rail { position: static; } }
+.rail h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink2); }
+.filters { display: flex; flex-wrap: wrap; gap: 4px; }
+.filters button, .digits button { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 3px 10px; font-size: 12.5px; cursor: pointer; }
+.filters button[aria-pressed="true"], .digits button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.digits { display: flex; flex-wrap: wrap; gap: 4px; }
+.digits button { width: 30px; padding: 3px 0; font-family: var(--mono); }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 4px; max-height: 58vh; overflow-y: auto; padding: 2px; }
+.thumb { position: relative; padding: 0; border: 2px solid transparent; border-radius: 4px; background: var(--img-bg); cursor: pointer; line-height: 0; }
+.thumb canvas { width: 100%; aspect-ratio: 1; image-rendering: pixelated; border-radius: 2px; }
+.thumb.sel { border-color: var(--accent); }
+.thumb .tag { position: absolute; bottom: 1px; right: 1px; font: 600 9px var(--mono); line-height: 1; padding: 1px 2px; border-radius: 2px; background: rgba(0,0,0,.65); color: #fff; }
+.small { font-size: 12px; color: var(--ink2); }
+
+/* specimen */
+.spec { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.spec canvas { width: 112px; height: 112px; image-rendering: pixelated; border-radius: 6px; background: var(--img-bg); }
+.spec .facts { display: grid; gap: 4px; }
+.spec .big { font-size: 22px; font-weight: 650; }
+.spec .nav { margin-left: auto; display: flex; gap: 6px; }
+.spec .nav button { border: 1px solid var(--line); background: transparent; border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+
+/* model columns */
+.cols { display: grid; gap: 14px; margin-top: 14px; }
+.switch { display: flex; gap: 0; margin-top: 14px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel); }
+.switch button { flex: 1; border: 0; background: transparent; padding: 9px 12px; cursor: pointer; text-align: left; display: grid; gap: 1px; }
+.switch button + button { border-left: 1px solid var(--line); }
+.switch button[aria-pressed="true"] { background: var(--accent-soft); box-shadow: inset 0 -3px 0 var(--accent); }
+.switch b { font-size: 14px; } .switch span { font-size: 12px; color: var(--ink2); }
+.col { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.colhead { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; justify-content: space-between; }
+.colhead h3 { font-size: 15px; }
+.chip { font: 600 11.5px var(--mono); padding: 1px 7px; border-radius: 999px; border: 1px solid currentColor; }
+.chip.ok { color: var(--ok); } .chip.bad { color: var(--bad); }
+.tests { display: grid; gap: 6px; }
+.test { display: grid; grid-template-columns: 150px minmax(0, 1fr) 112px; gap: 10px; align-items: center; }
+@media (max-width: 560px) { .test { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.test .lab { font-size: 13px; } .test .lab small { display: block; color: var(--ink3); font-size: 11.5px; }
+.verdict { font: 600 12px var(--mono); text-align: right; }
+.verdict.ok { color: var(--ok); } .verdict.bad { color: var(--bad); } .verdict.na { color: var(--ink3); font-weight: 400; }
+svg text { fill: var(--ink2); font: 10px var(--mono); }
+.sect { display: grid; gap: 8px; }
+.secthead { display: flex; gap: 8px; align-items: baseline; }
+.secthead h4 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink2); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.card { text-align: left; background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 8px; display: grid; gap: 6px; cursor: pointer; min-width: 0; }
+.card:hover { border-color: var(--ink3); }
+.card.sel { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.card .row { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; font-size: 12px; }
+.card .name { font: 650 13px var(--mono); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.pair figure { margin: 0; display: grid; gap: 2px; }
+.pair canvas { width: 100%; aspect-ratio: 1; image-rendering: pixelated; border-radius: 4px; border: 1px solid var(--line); }
+figcaption { font-size: 10.5px; color: var(--ink3); line-height: 1.2; }
+.freq { font: 11px var(--mono); color: var(--ink2); }
+.freq.common { color: var(--bad); font-weight: 600; }
+.detail { border-top: 1px dashed var(--line); padding-top: 10px; display: grid; gap: 8px; }
+.users { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 4px; }
+.users button { padding: 0; border: 1px solid var(--line); border-radius: 3px; background: var(--img-bg); cursor: pointer; line-height: 0; }
+.users button.here { outline: 2px solid var(--accent); }
+.users canvas { width: 100%; aspect-ratio: 1; image-rendering: pixelated; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--ink2); align-items: center; }
+.ramp { width: 80px; height: 8px; border-radius: 2px; border: 1px solid var(--line); }
+.empty { font-size: 12.5px; color: var(--ink3); }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>SVHN · two necessity targets</h1>
+  <p>Both models are the same 1024→128→10 MLP built from 128 + 32 rank-one components, with a gate per component per image. Pick a model and a test image to see how that model explains it: which components it lists as important, whether those alone carry the answer, and whether anything else can bring the answer back once they are switched off.</p>
+  <div class="sums" id="sums"></div>
+  <details class="help"><summary>How to read this</summary><ul>
+    <li><b>Full model</b>: the model's probabilities for digits 0–9. The highlighted bar is its prediction; the bold axis number is the true label.</li>
+    <li><b>Important removed</b>: every component with gate &gt; 0.1 switched off, the rest left on. What counts as success differs: the <b>predicted-digit</b> model only has to push its answer down to chance (0.1) or below; the <b>uniform</b> model has to make all ten bars equal (flat). The verdict on the right applies each model's own target.</li>
+    <li><b>Layer-1 / layer-2 attack</b>: the strict version. That layer's important components stay off, and an attacker (20 gradient steps) sets each of that layer's other components anywhere between off and on to make the <i>true</i> digit as likely as possible; the other layer runs normally. If the true digit comes back (p &gt; 0.2 here), the list missed a backup. Ideal ≈ 0.1.</li>
+    <li><b>Components</b>: one card per important component. Layer 1: its 32×32 pixel template (red = responds to bright, blue = to dark) and the template multiplied by this image (each image is standardised first, so a light digit on a dark background and a dark one on a light background look opposite). "Drop" = change in the predicted digit's score when only this component is off. "Used on" = share of all 26k test images on which it is important; components used on more than 40% are marked, as general-purpose. The small bars show on what share of each digit's images it is important.</li>
+    <li>Click a card to see the other images in this set that use the component. Switch models with the buttons above the results (or press <b>M</b>); the image stays the same. Arrow keys ← → step through the picker.</li>
+  </ul></details>
+</header>
+
+<div class="wrap">
+  <aside class="rail" aria-label="Choose a test image">
+    <h2>Test images</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter"></div>
+    <div class="digits" id="digits" role="group" aria-label="True digit"></div>
+    <div class="thumbs" id="thumbs"></div>
+    <div class="small" id="count"></div>
+  </aside>
+  <main>
+    <section class="spec" id="spec"></section>
+    <div class="switch" id="switch" role="group" aria-label="Model"></div>
+    <div class="cols" id="cols"></div>
+  </main>
+</div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById("data").textContent);
+  const M = D.models, IM = D.images, W = 32, NPX = W * W;
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const hex = h => { h = h.replace("#", ""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); };
+  const el = (tag, attrs = {}, kids = []) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } for (const k of [].concat(kids)) if (k != null) e.append(k); return e; };
+  const pct = v => `${Math.round(v * 100)}%`;
+  const fmt = (v, d = 2) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
+  const light = im => { // light digit on dark background? centre vs top/bottom rows
+    let c = 0, b = 0; for (let r = 8; r < 24; r++) for (let q = 11; q < 21; q++) c += im.px[r * W + q];
+    for (let q = 0; q < W; q++) for (const r of [0, 1, 2, 29, 30, 31]) b += im.px[r * W + q];
+    return c / 160 > b / 192; };
+  IM.forEach(im => { im.light = light(im); });
+
+  // ---- tests and verdicts (each model judged against its own target)
+  const flatness = p => p.reduce((s, q) => s - Math.log(Math.max(q, 1e-9)), 0) / 10 - Math.log(10); // KL(flat || p)
+  function verdicts(im, k) {
+    const r = im.m[k], md = M[k], t = im.label;
+    const remOK = md.target === "uniform" ? flatness(r.rem) < 0.1 : r.rem[r.pred] <= 0.12;
+    return {
+      rem: { ok: remOK, text: md.target === "uniform" ? (remOK ? "flat ✓" : `not flat ✗`) : (remOK ? "answer gone ✓" : "answer left ✗"),
+             sub: md.target === "uniform" ? `KL from flat ${flatness(r.rem).toFixed(2)} · target: flat` : `p(${r.pred}) = ${r.rem[r.pred].toFixed(3)} · target ≤ 0.1` },
+      adv1: { ok: r.adv1[t] <= 0.2, text: r.adv1[t] <= 0.2 ? "holds ✓" : "backup ✗", sub: `p(true ${t}) = ${r.adv1[t].toFixed(3)}` },
+      adv2: { ok: r.adv2[t] <= 0.2, text: r.adv2[t] <= 0.2 ? "holds ✓" : "backup ✗", sub: `p(true ${t}) = ${r.adv2[t].toFixed(3)}` },
+    };
+  }
+
+  // ---- drawing
+  let COL = {};
+  const readCols = () => { COL = { pos: hex(css("--pos")), neg: hex(css("--neg")), mid: hex(css("--mid")) }; };
+  function imgCanvas(px, c) {
+    c = c || el("canvas", { width: W, height: W });
+    const ctx = c.getContext("2d"), d = ctx.createImageData(W, W);
+    for (let i = 0; i < NPX; i++) d.data.set([px[i], px[i], px[i], 255], i * 4);
+    ctx.putImageData(d, 0, 0); return c;
+  }
+  function divCanvas(vals) {
+    const c = el("canvas", { width: W, height: W }), ctx = c.getContext("2d"), d = ctx.createImageData(W, W);
+    const lim = Math.max(...vals.map(Math.abs)) || 1;
+    for (let i = 0; i < NPX; i++) { const t = Math.max(-1, Math.min(1, vals[i] / lim)), a = Math.abs(t), e = t >= 0 ? COL.pos : COL.neg;
+      d.data.set([0, 1, 2].map(k => Math.round(COL.mid[k] + (e[k] - COL.mid[k]) * a)).concat(255), i * 4); }
+    ctx.putImageData(d, 0, 0); return c;
+  }
+  function contribution(im, tmpl) { // per-image standardisation, as in the model
+    const v = im.px.map(p => p / 255), mu = v.reduce((s, q) => s + q, 0) / NPX;
+    const sd = Math.sqrt(v.reduce((s, q) => s + (q - mu) ** 2, 0) / (NPX - 1)) + 1e-3;
+    return v.map((q, i) => ((q - mu) / sd) * tmpl[i]);
+  }
+  // 10-bar chart. mode "prob": 0..1 with a chance line; "signed": diverging around 0; "share": 0..1 small.
+  function bars(vals, { mode = "prob", hl = -1, mark = -1, w = 300, h = 46 } = {}) {
+    const NS = "http://www.w3.org/2000/svg", s = document.createElementNS(NS, "svg");
+    const padB = 12, inner = h - padB, bw = w / 10;
+    s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.setAttribute("width", "100%"); s.style.maxWidth = w + "px"; s.style.display = "block";
+    const add = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); s.append(e); return e; };
+    const lim = mode === "signed" ? (Math.max(...vals.map(Math.abs)) || 1) : 1;
+    const zero = mode === "signed" ? inner / 2 : inner;
+    add("line", { x1: 0, x2: w, y1: zero, y2: zero, stroke: css("--line"), "stroke-width": 1 });
+    if (mode === "prob") add("line", { x1: 0, x2: w, y1: inner - 0.1 * (inner - 1), y2: inner - 0.1 * (inner - 1), stroke: css("--chance"), "stroke-width": 1, "stroke-dasharray": "3 3" });
+    vals.forEach((v, i) => {
+      let y, hh, fill;
+      if (mode === "signed") { const len = Math.abs(v) / lim * (inner / 2 - 1); y = v >= 0 ? zero - len : zero; hh = Math.max(len, .6); fill = v >= 0 ? css("--pos") : css("--neg"); }
+      else { hh = Math.max(v * (inner - 1), v > 0.002 ? .8 : 0); y = zero - hh; fill = i === hl ? css("--accent") : css("--bar"); }
+      const r = add("rect", { x: i * bw + bw * .2, y, width: bw * .6, height: hh, rx: 1.5, fill });
+      const tt = add("title", {}); tt.textContent = `${i}: ${mode === "signed" ? fmt(v) : mode === "share" ? pct(v) : v.toFixed(3)}`; r.append(tt);
+      const hit = add("rect", { x: i * bw, y: 0, width: bw, height: inner, fill: "transparent" }); hit.append(tt.cloneNode(true));
+      const tx = add("text", { x: i * bw + bw / 2, y: h - 1, "text-anchor": "middle" }); tx.textContent = i;
+      if (i === mark) { tx.style.fill = css("--ink"); tx.style.fontWeight = "700"; }
+    });
+    return s;
+  }
+
+  // ---- state
+  const FILTERS = [["all", "All"], ["right", "Both right"], ["wrong", "Either wrong"], ["disagree", "Disagree"], ["backup", "Attack brings answer back"]];
+  const S = { filter: "all", digit: null, img: IM[0], open: {}, model: 0 };
+  const setModel = k => { S.model = k; renderSums(); renderMain(); };
+  const keep = im => {
+    const right = im.m.map(r => r.pred === im.label);
+    const f = { all: true, right: right.every(Boolean), wrong: !right.every(Boolean), disagree: new Set(im.m.map(r => r.pred)).size > 1,
+                backup: im.m.some(r => r.adv1[im.label] > 0.5 || r.adv2[im.label] > 0.5) }[S.filter];
+    return f && (S.digit === null || im.label === S.digit);
+  };
+  let LIST = IM;
+
+  // ---- header summaries
+  function renderSums() {
+    document.getElementById("sums").replaceChildren(...M.map((md, k) => el("button", { class: "sum", "aria-pressed": String(S.model === k), onclick: () => setModel(k) }, [
+      el("b", { text: md.label }),
+      el("span", {}, ["test accuracy ", el("span", { class: "mono", text: (md.acc * 100).toFixed(1) + "%" })]),
+      el("span", {}, [el("span", { class: "mono", text: md.per_image.toFixed(1) }), " important components per image"]),
+      el("span", {}, [el("span", { class: "mono", text: md.l1_used }), ` of ${md.C1} layer-1 components ever used`]),
+      el("span", { text: md.target === "uniform" ? "target after removal: all digits equally likely" : "target after removal: predicted digit at or below chance" })])));
+  }
+
+  // ---- picker
+  function renderPicker() {
+    document.getElementById("filters").replaceChildren(...FILTERS.map(([k, lab]) => el("button", { "aria-pressed": String(S.filter === k), text: lab, onclick: () => { S.filter = k; renderPicker(); } })));
+    document.getElementById("digits").replaceChildren(el("button", { "aria-pressed": String(S.digit === null), text: "all", style: "width:auto;padding:3px 9px", onclick: () => { S.digit = null; renderPicker(); } }),
+      ...Array.from({ length: 10 }, (_, d) => el("button", { "aria-pressed": String(S.digit === d), text: d, onclick: () => { S.digit = d; renderPicker(); } })));
+    LIST = IM.filter(keep);
+    document.getElementById("thumbs").replaceChildren(...LIST.map(im => {
+      const right = im.m.map(r => r.pred === im.label), tag = right.every(Boolean) ? "" : right.map(v => v ? "·" : "✗").join("");
+      return el("button", { class: "thumb" + (im === S.img ? " sel" : ""), title: `#${im.id} · label ${im.label} · predictions ${im.m.map(r => r.pred).join(" / ")}`,
+        "aria-label": `Test image ${im.id}, digit ${im.label}`, onclick: () => select(im) }, [imgCanvas(im.px), tag ? el("span", { class: "tag", text: tag }) : null]);
+    }));
+    document.getElementById("count").textContent = `${LIST.length} of ${IM.length} images · ✗ marks a wrong model (left = ${M[0].label.split(" ·")[0]}, right = ${M[1].label.split(" ·")[0]})`;
+  }
+
+  // ---- specimen + columns
+  function select(im) { S.img = im; S.open = {}; renderPicker(); renderMain(); }
+  function renderMain() {
+    const im = S.img;
+    const i = LIST.indexOf(im);
+    const step = d => { if (!LIST.length) return; const j = i < 0 ? 0 : (i + d + LIST.length) % LIST.length; select(LIST[j]); };
+    document.getElementById("spec").replaceChildren(
+      imgCanvas(im.px, el("canvas", { width: W, height: W })),
+      el("div", { class: "facts" }, [el("div", { class: "big" }, ["True digit ", el("span", { class: "mono", text: im.label })]),
+        el("div", { class: "muted", text: `test image #${im.id} · ${im.light ? "light digit on dark background" : "dark digit on light background"}` }),
+        el("div", { class: "muted" }, M.map((md, k) => el("span", { style: "margin-right:14px" }, [md.label.split(" ·")[0] + " model says ", el("span", { class: "mono", text: im.m[k].pred }), im.m[k].pred === im.label ? " ✓" : " ✗"])))]),
+      el("div", { class: "nav" }, [el("button", { text: "← prev", onclick: () => step(-1) }), el("button", { text: "next →", onclick: () => step(1) })]));
+    document.getElementById("switch").replaceChildren(...M.map((md, k) => {
+      const r = im.m[k], v = verdicts(im, k), holds = [v.rem, v.adv1, v.adv2].filter(t => t.ok).length;
+      return el("button", { "aria-pressed": String(S.model === k), onclick: () => setModel(k) }, [el("b", { text: md.label }),
+        el("span", { text: `predicts ${r.pred} ${r.pred === im.label ? "✓" : "✗"} · ${r.imp.length} important · ${holds} of 3 tests pass` })]);
+    }));
+    document.getElementById("cols").replaceChildren(column(im, S.model));
+  }
+  function column(im, k) {
+    const md = M[k], r = im.m[k], v = verdicts(im, k), right = r.pred === im.label;
+    const test = (lab, sub, vals, vd, opts) => el("div", { class: "test" }, [el("div", { class: "lab" }, [lab, el("small", { text: sub })]), bars(vals, { w: 440, h: 50, ...opts }), el("div", { class: "verdict " + (vd ? (vd.ok ? "ok" : "bad") : "na"), text: vd ? vd.text : "" })]);
+    const n1 = r.imp.filter(p => p[0] < md.C1), n2 = r.imp.filter(p => p[0] >= md.C1);
+    const kids = [
+      el("div", { class: "colhead" }, [el("h3", { text: md.label }), el("span", {}, [el("span", { class: "chip " + (right ? "ok" : "bad"), text: right ? "correct" : "wrong" }), el("span", { class: "muted", text: ` predicts ${r.pred} (p ${r.full[r.pred].toFixed(2)}) · ${r.imp.length} important (${n1.length} + ${n2.length})` })])]),
+      el("div", { class: "tests" }, [
+        test("Full model", `p(${r.pred}) = ${r.full[r.pred].toFixed(3)}`, r.full, null, { hl: r.pred, mark: im.label }),
+        test("Important removed", v.rem.sub, r.rem, v.rem, { hl: r.pred, mark: im.label }),
+        test("Layer-1 attack", v.adv1.sub, r.adv1, v.adv1, { hl: im.label, mark: im.label }),
+        test("Layer-2 attack", v.adv2.sub, r.adv2, v.adv2, { hl: im.label, mark: im.label })]),
+      section(im, k, "Layer 1 · pixel templates", n1, true),
+      section(im, k, "Layer 2 · digit read-outs", n2, false)];
+    return el("section", { class: "col", "aria-label": md.label }, kids);
+  }
+  function section(im, k, title, list, isL1) {
+    const md = M[k];
+    const sorted = list.slice().sort((a, b) => a[2] - b[2]);
+    const head = el("div", { class: "secthead" }, [el("h4", { text: title }), el("span", { class: "small", text: `${list.length} important of ${isL1 ? md.C1 : md.C2}` })]);
+    const legend = isL1 ? el("div", { class: "legend" }, [el("span", { text: "template:" }), el("span", { text: "dark" }), rampCanvas(), el("span", { text: "bright" }), el("span", { text: "· sorted by drop" })]) : null;
+    const cards = el("div", { class: "cards" }, sorted.length ? sorted.map(p => card(im, k, p)) : [el("div", { class: "empty", text: "none" })]);
+    const open = S.open[k];
+    const det = open !== undefined && list.some(p => p[0] === open) ? detail(im, k, open) : null;
+    return el("div", { class: "sect" }, [head, legend, cards, det]);
+  }
+  function rampCanvas() {
+    const c = el("canvas", { class: "ramp", width: 80, height: 1 }), ctx = c.getContext("2d"), d = ctx.createImageData(80, 1);
+    for (let i = 0; i < 80; i++) { const t = i / 79 * 2 - 1, a = Math.abs(t), e = t >= 0 ? COL.pos : COL.neg;
+      d.data.set([0, 1, 2].map(q => Math.round(COL.mid[q] + (e[q] - COL.mid[q]) * a)).concat(255), i * 4); }
+    ctx.putImageData(d, 0, 0); return c;
+  }
+  const pname = (md, j) => j < md.C1 ? `L1·${j}` : `L2·${j - md.C1}`;
+  function card(im, k, p) {
+    const md = M[k], [j, g, drop] = p, pc = md.pieces[j], sel = S.open[k] === j;
+    let body;
+    if (j < md.C1) body = el("div", { class: "pair" }, [el("figure", {}, [divCanvas(pc.tmpl), el("figcaption", { text: "template" })]),
+      el("figure", {}, [divCanvas(contribution(im, pc.tmpl)), el("figcaption", { text: "× this image" })])]);
+    else body = el("div", {}, [bars(pc.writes.map(w => w * p[3]), { mode: "signed", mark: im.m[k].pred, w: 190, h: 44 }), el("figcaption", { text: "effect on this image's digit scores" })]);
+    return el("button", { class: "card" + (sel ? " sel" : ""), "aria-pressed": String(sel), onclick: () => { S.open[k] = sel ? undefined : j; renderMain(); } }, [
+      el("div", { class: "row" }, [el("span", { class: "name", text: pname(md, j) }), el("span", { class: "mono", text: `drop ${fmt(drop, 1)}`, title: "change in the predicted digit's score when only this component is off" })]),
+      body,
+      el("div", {}, [bars(pc.share, { mode: "share", hl: im.label, w: 190, h: 30 }), el("figcaption", { text: "share of each digit's images where important" })]),
+      el("div", { class: "row" }, [el("span", { class: "mono faint", text: `gate ${g.toFixed(2)}` }), el("span", { class: "freq" + (pc.freq > 0.4 ? " common" : ""), text: `used on ${pct(pc.freq)}` + (pc.freq > 0.4 ? " · general" : "") })])]);
+  }
+  function detail(im, k, j) {
+    const md = M[k], users = IM.filter(x => x.m[k].imp.some(p => p[0] === j));
+    const byDigit = Array(10).fill(0); users.forEach(u => byDigit[u.label]++);
+    return el("div", { class: "detail" }, [
+      el("div", { class: "small" }, [el("b", { text: pname(md, j) }), ` is important on ${users.length} of the ${IM.length} images in this set · by true digit: ` + byDigit.map((n, d) => `${d}:${n}`).join("  ")]),
+      el("div", { class: "users" }, users.slice(0, 80).map(u => el("button", { class: u === im ? "here" : "", title: `#${u.id} · label ${u.label} · predicted ${u.m[k].pred}`, onclick: () => { const keepOpen = { ...S.open }; select(u); S.open = keepOpen; renderMain(); } }, imgCanvas(u.px)))),
+      users.length > 80 ? el("div", { class: "small", text: `…and ${users.length - 80} more` }) : null]);
+  }
+
+  // ---- boot; redraw on theme change; arrow keys step through the picker
+  function all() { readCols(); renderSums(); renderPicker(); renderMain(); }
+  document.addEventListener("keydown", e => {
+    if (e.target.closest && e.target.closest("input, textarea")) return;
+    if (e.key === "m" || e.key === "M") { setModel((S.model + 1) % M.length); return; }
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const i = LIST.indexOf(S.img); if (!LIST.length) return;
+    select(LIST[i < 0 ? 0 : (i + (e.key === "ArrowRight" ? 1 : -1) + LIST.length) % LIST.length]);
+  });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", all);
+  all();
+})();
+</script>
+</body>
+</html>

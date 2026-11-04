@@ -1,0 +1,25 @@
+metric                                           unif_nec5
+test acc, full model                          0.801 ±0.001
+important pieces per image                    6.123 ±0.166
+  in fc1                                      4.179 ±0.094
+  in fc2                                      1.945 ±0.083
+acc, important only                           0.775 ±0.006
+acc, masks = gates                            0.807 ±0.004
+acc, important removed (want 0.1)             0.022 ±0.005
+acc, 1-g complement                           0.038 ±0.006
+acc, (1-g) s random                           0.039 ±0.006
+acc, (1-g) s adversarial                      0.600 ±0.053
+KL(unif || imp removed)                       0.034 ±0.001
+p(pred), important removed                    0.097 ±0.000
+  share with p(pred) > 0.11                   0.080 ±0.019
+p(true), (1-g) s adversarial                  0.150 ±0.004
+acc, bias only                                0.082 ±0.007
+acc, layer-1 important off, layer 2 on        0.172 ±0.018
+  p(pred)                                     0.111 ±0.002
+  adversarial: p(true)                        0.241 ±0.001
+acc, layer-2 important off, layer 1 on        0.030 ±0.012
+  p(pred)                                     0.091 ±0.002
+  adversarial: p(true)                        0.137 ±0.005
+own class acc left, carriers off              0.019 ±0.026
+other classes acc left, carriers off          0.877 ±0.024
+classes per carrier piece                     1.388 ±0.085

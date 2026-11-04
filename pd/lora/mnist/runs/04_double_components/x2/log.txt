@@ -1,0 +1,65 @@
+[seed 0] vpd
+  step     0 ce_full 2.938 acc 0.148 stoch 2.606 min 193.305 l0 319.816
+  step   500 ce_full 0.138 acc 0.969 stoch 0.117 min 8.030 l0 23.414
+  step  1000 ce_full 0.083 acc 0.980 stoch 0.080 min 18.143 adv 0.247 l0 30.477
+  step  1500 ce_full 0.029 acc 0.988 stoch 0.036 min 14.209 adv 0.195 l0 17.293
+  step  2000 ce_full 0.039 acc 0.984 stoch 0.031 min 15.355 adv 0.118 l0 21.105
+  step  2500 ce_full 0.005 acc 0.996 stoch 0.004 min 13.516 adv 0.027 l0 17.430
+  step  3000 ce_full 0.010 acc 0.996 stoch 0.020 min 10.705 adv 0.061 l0 11.363
+  step  3500 ce_full 0.002 acc 1.000 stoch 0.002 min 10.667 adv 0.031 l0 10.078
+  step  4000 ce_full 0.001 acc 1.000 stoch 0.001 min 9.666 adv 0.053 l0 8.176
+  step  4500 ce_full 0.001 acc 1.000 stoch 0.009 min 10.142 adv 0.035 l0 8.809
+  step  5000 ce_full 0.001 acc 1.000 stoch 0.001 min 9.413 adv 0.018 l0 7.352
+  step  5500 ce_full 0.001 acc 1.000 stoch 0.002 min 10.387 adv 0.023 l0 8.680
+  step  5999 ce_full 0.000 acc 1.000 stoch 0.000 min 9.842 adv 0.021 l0 7.246
+[seed 0] vpd        60s {'test acc, full model': 0.982, 'important pieces per image': 7.861, '  in fc1': 5.248, '  in fc2': 2.613, 'acc, important only': 0.982, 'acc, masks = gates': 0.983, 'acc, important removed (want 0.1)': 0.086, 'acc, 1-g complement': 0.102}
+[seed 1] vpd
+  step     0 ce_full 3.194 acc 0.094 stoch 2.742 min 187.189 l0 319.988
+  step   500 ce_full 0.069 acc 0.984 stoch 0.071 min 11.161 l0 28.184
+  step  1000 ce_full 0.069 acc 0.980 stoch 0.055 min 23.023 adv 0.209 l0 35.582
+  step  1500 ce_full 0.033 acc 0.988 stoch 0.052 min 17.916 adv 0.153 l0 26.250
+  step  2000 ce_full 0.012 acc 0.996 stoch 0.017 min 13.183 adv 0.096 l0 14.191
+  step  2500 ce_full 0.022 acc 0.996 stoch 0.006 min 12.593 adv 0.089 l0 13.797
+  step  3000 ce_full 0.014 acc 0.996 stoch 0.010 min 12.463 adv 0.067 l0 11.938
+  step  3500 ce_full 0.003 acc 1.000 stoch 0.003 min 12.126 adv 0.034 l0 11.492
+  step  4000 ce_full 0.004 acc 1.000 stoch 0.001 min 12.618 adv 0.045 l0 13.059
+  step  4500 ce_full 0.002 acc 1.000 stoch 0.006 min 11.600 adv 0.075 l0 10.180
+  step  5000 ce_full 0.000 acc 1.000 stoch 0.000 min 10.426 adv 0.020 l0 7.879
+  step  5500 ce_full 0.001 acc 1.000 stoch 0.004 min 11.158 adv 0.048 l0 8.785
+  step  5999 ce_full 0.000 acc 1.000 stoch 0.000 min 10.555 adv 0.016 l0 7.277
+[seed 1] vpd        59s {'test acc, full model': 0.983, 'important pieces per image': 8.235, '  in fc1': 5.192, '  in fc2': 3.043, 'acc, important only': 0.984, 'acc, masks = gates': 0.984, 'acc, important removed (want 0.1)': 0.068, 'acc, 1-g complement': 0.083}
+[seed 2] vpd
+  step     0 ce_full 2.742 acc 0.133 stoch 2.477 min 175.648 l0 319.785
+  step   500 ce_full 0.131 acc 0.969 stoch 0.144 min 10.321 l0 28.891
+  step  1000 ce_full 0.027 acc 0.988 stoch 0.030 min 19.763 adv 0.167 l0 33.535
+  step  1500 ce_full 0.123 acc 0.973 stoch 0.133 min 14.650 adv 0.255 l0 18.773
+  step  2000 ce_full 0.042 acc 0.984 stoch 0.015 min 14.655 adv 0.078 l0 19.605
+  step  2500 ce_full 0.011 acc 0.992 stoch 0.016 min 12.504 adv 0.046 l0 13.547
+  step  3000 ce_full 0.016 acc 0.996 stoch 0.018 min 12.531 adv 0.082 l0 13.297
+  step  3500 ce_full 0.007 acc 0.996 stoch 0.007 min 12.195 adv 0.062 l0 12.613
+  step  4000 ce_full 0.003 acc 1.000 stoch 0.001 min 10.037 adv 0.015 l0 8.648
+  step  4500 ce_full 0.004 acc 1.000 stoch 0.003 min 11.292 adv 0.047 l0 10.434
+  step  5000 ce_full 0.001 acc 1.000 stoch 0.002 min 10.024 adv 0.022 l0 8.133
+  step  5500 ce_full 0.001 acc 1.000 stoch 0.003 min 10.231 adv 0.015 l0 8.000
+  step  5999 ce_full 0.001 acc 1.000 stoch 0.000 min 10.203 adv 0.011 l0 7.902
+[seed 2] vpd        58s {'test acc, full model': 0.982, 'important pieces per image': 7.482, '  in fc1': 4.845, '  in fc2': 2.636, 'acc, important only': 0.983, 'acc, masks = gates': 0.985, 'acc, important removed (want 0.1)': 0.084, 'acc, 1-g complement': 0.102}
+
+metric                                                 vpd
+test acc, full model                          0.982 ±0.001
+important pieces per image                    7.859 ±0.308
+  in fc1                                      5.095 ±0.178
+  in fc2                                      2.764 ±0.198
+acc, important only                           0.983 ±0.001
+acc, masks = gates                            0.984 ±0.001
+acc, important removed (want 0.1)             0.080 ±0.008
+acc, 1-g complement                           0.096 ±0.009
+acc, (1-g) s random                           0.080 ±0.011
+acc, (1-g) s adversarial                      1.000 ±0.000
+KL(unif || imp removed)                       8.745 ±0.174
+p(pred), important removed                    0.089 ±0.009
+  share with p(pred) > 0.11                   0.169 ±0.015
+p(true), (1-g) s adversarial                  0.994 ±0.002
+acc, bias only                                0.097 ±0.000
+own class acc left, carriers off              0.142 ±0.014
+other classes acc left, carriers off          0.997 ±0.005
+classes per carrier piece                     1.018 ±0.025

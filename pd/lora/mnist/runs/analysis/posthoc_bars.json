@@ -1,0 +1,73 @@
+{
+ "Important components per image": {
+  "No necessity from scratch": 3.064,
+  "No necessity post-hoc": 2.9389,
+  "Hinge target from scratch": 2.7253,
+  "Hinge target post-hoc": 2.9976,
+  "Uniform target from scratch": 3.3764,
+  "Uniform target post-hoc": 11.6016
+ },
+ "Still correct after removing layer 1's important components": {
+  "No necessity from scratch": 0.8786,
+  "No necessity post-hoc": 0.5733,
+  "Hinge target from scratch": 0.0033,
+  "Hinge target post-hoc": 0.0029,
+  "Uniform target from scratch": 0.2068,
+  "Uniform target post-hoc": 0.1028
+ },
+ "Still correct after removing layer 2's important components": {
+  "No necessity from scratch": 0.5048,
+  "No necessity post-hoc": 0.2725,
+  "Hinge target from scratch": 0.0051,
+  "Hinge target post-hoc": 0.0046,
+  "Uniform target from scratch": 0.0063,
+  "Uniform target post-hoc": 0.0827
+ },
+ "Layer-1 attack: p(correct digit)": {
+  "No necessity from scratch": 1.0,
+  "No necessity post-hoc": 1.0,
+  "Hinge target from scratch": 0.1276,
+  "Hinge target post-hoc": 0.6549,
+  "Uniform target from scratch": 0.1812,
+  "Uniform target post-hoc": 0.1239
+ },
+ "Layer-2 attack: p(correct digit)": {
+  "No necessity from scratch": 0.9854,
+  "No necessity post-hoc": 0.9809,
+  "Hinge target from scratch": 0.1246,
+  "Hinge target post-hoc": 0.1308,
+  "Uniform target from scratch": 0.129,
+  "Uniform target post-hoc": 0.2383
+ },
+ "Important components removed: how far from flat (KL, 0 = flat)": {
+  "No necessity from scratch": 11.3252,
+  "No necessity post-hoc": 8.5652,
+  "Hinge target from scratch": 7.7916,
+  "Hinge target post-hoc": 13.7731,
+  "Uniform target from scratch": 0.0028,
+  "Uniform target post-hoc": 0.0024
+ },
+ "faithfulness": {
+  "No necessity": {
+   "agree": 0.9979,
+   "kl": 0.0006,
+   "target_acc": 0.9811,
+   "rel_weight_err_fc1": 0.0073,
+   "rel_weight_err_fc2": 0.001
+  },
+  "Hinge target": {
+   "agree": 0.998,
+   "kl": 0.0007,
+   "target_acc": 0.9811,
+   "rel_weight_err_fc1": 0.0079,
+   "rel_weight_err_fc2": 0.0012
+  },
+  "Uniform target": {
+   "agree": 0.9886,
+   "kl": 0.0187,
+   "target_acc": 0.9811,
+   "rel_weight_err_fc1": 0.0551,
+   "rel_weight_err_fc2": 0.0036
+  }
+ }
+}

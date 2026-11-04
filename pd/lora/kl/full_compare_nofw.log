@@ -1,0 +1,121 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 9204.87it/s]
+docs 2/200
+docs 4/200
+docs 6/200
+docs 8/200
+docs 10/200
+docs 12/200
+docs 14/200
+docs 16/200
+docs 18/200
+docs 20/200
+docs 22/200
+docs 24/200
+docs 26/200
+docs 28/200
+docs 30/200
+docs 32/200
+docs 34/200
+docs 36/200
+docs 38/200
+docs 40/200
+docs 42/200
+docs 44/200
+docs 46/200
+docs 48/200
+docs 50/200
+docs 52/200
+docs 54/200
+docs 56/200
+docs 58/200
+docs 60/200
+docs 62/200
+docs 64/200
+docs 66/200
+docs 68/200
+docs 70/200
+docs 72/200
+docs 74/200
+docs 76/200
+docs 78/200
+docs 80/200
+docs 82/200
+docs 84/200
+docs 86/200
+docs 88/200
+docs 90/200
+docs 92/200
+docs 94/200
+docs 96/200
+docs 98/200
+docs 100/200
+docs 102/200
+docs 104/200
+docs 106/200
+docs 108/200
+docs 110/200
+docs 112/200
+docs 114/200
+docs 116/200
+docs 118/200
+docs 120/200
+docs 122/200
+docs 124/200
+docs 126/200
+docs 128/200
+docs 130/200
+docs 132/200
+docs 134/200
+docs 136/200
+docs 138/200
+docs 140/200
+docs 142/200
+docs 144/200
+docs 146/200
+docs 148/200
+docs 150/200
+docs 152/200
+docs 154/200
+docs 156/200
+docs 158/200
+docs 160/200
+docs 162/200
+docs 164/200
+docs 166/200
+docs 168/200
+docs 170/200
+docs 172/200
+docs 174/200
+docs 176/200
+docs 178/200
+docs 180/200
+docs 182/200
+docs 184/200
+docs 186/200
+docs 188/200
+docs 190/200
+docs 192/200
+docs 194/200
+docs 196/200
+docs 198/200
+docs 200/200
+fineweb chunks 64
+
+positions: {'answer': 51930, 'bold': 733, 'fineweb': 16384}
+
+model                         answer CE  logP bold
+base                             1.2940    -1.0516
+plain_lr2e-4_5k                  1.1013    -0.5531
+nec_nofw_lam1e-3_5k              1.0876    -0.5512
+nec_lam1e-3_5k                   1.0865    -0.5496
+vpd_lam1e-3_5k                   1.0947    -0.5540
+plain_lr2e-4_5k_seed1            1.1151    -0.5735
+
+KL(plain_lr2e-4_5k || model), nats per token, and top-1 agreement
+model                           answer KL  agree      bold KL  agree   fineweb KL  agree
+base                              0.30408  0.818      0.42866  0.857      0.08925  0.862
+nec_nofw_lam1e-3_5k               0.01602  0.951      0.01390  0.967      0.02025  0.925
+nec_lam1e-3_5k                    0.01677  0.950      0.01458  0.967      0.06244  0.894
+vpd_lam1e-3_5k                    0.01250  0.958      0.01167  0.973      0.05901  0.898
+plain_lr2e-4_5k_seed1             0.08976  0.890      0.05915  0.935      0.08704  0.860
+wrote kl/full_compare_nofw.json

@@ -1,0 +1,53 @@
+[seed 1] vpd_nec_mirror
+  step     0 ce_full 3.438 acc 0.129 stoch 2.886 min 2593.647 comp 0.377 l0 159.992
+  step   500 ce_full 0.639 acc 0.805 stoch 0.725 min 264.924 comp 0.091 l0 17.461
+  step  1000 ce_full 0.599 acc 0.840 stoch 0.626 min 138.979 comp 0.076 l0 10.840
+  step  1500 ce_full 0.637 acc 0.809 stoch 0.626 min 232.785 comp 0.024 comp_adv 0.517 adv 0.913 l0 9.777
+  step  2000 ce_full 0.543 acc 0.832 stoch 0.534 min 194.852 comp 0.017 comp_adv 0.270 adv 0.713 l0 7.215
+  step  2500 ce_full 0.592 acc 0.824 stoch 0.573 min 167.953 comp 0.015 comp_adv 0.227 adv 0.806 l0 6.441
+  step  3000 ce_full 0.662 acc 0.801 stoch 0.728 min 156.421 comp 0.032 comp_adv 0.219 adv 0.890 l0 5.859
+  step  3500 ce_full 0.435 acc 0.879 stoch 0.461 min 147.261 comp 0.013 comp_adv 0.205 adv 0.626 l0 5.270
+  step  4000 ce_full 0.530 acc 0.867 stoch 0.524 min 151.502 comp 0.016 comp_adv 0.112 adv 0.667 l0 4.984
+  step  4500 ce_full 0.494 acc 0.844 stoch 0.495 min 151.419 comp 0.030 comp_adv 0.197 adv 0.650 l0 4.891
+  step  5000 ce_full 0.515 acc 0.863 stoch 0.543 min 147.837 comp 0.007 comp_adv 0.135 adv 0.683 l0 4.395
+  step  5500 ce_full 0.469 acc 0.848 stoch 0.513 min 161.170 comp 0.005 comp_adv 0.143 adv 0.698 l0 5.000
+  step  6000 ce_full 0.508 acc 0.859 stoch 0.515 min 156.236 comp 0.024 comp_adv 0.172 adv 0.644 l0 4.711
+  step  6500 ce_full 0.590 acc 0.805 stoch 0.584 min 157.459 comp 0.045 comp_adv 0.215 adv 0.792 l0 4.777
+  step  7000 ce_full 0.447 acc 0.887 stoch 0.408 min 153.874 comp 0.010 comp_adv 0.143 adv 0.609 l0 4.785
+  step  7500 ce_full 0.384 acc 0.902 stoch 0.312 min 146.042 comp 0.003 comp_adv 0.162 adv 0.457 l0 4.180
+  step  8000 ce_full 0.447 acc 0.863 stoch 0.463 min 150.854 comp 0.027 comp_adv 0.218 adv 0.674 l0 4.301
+  step  8500 ce_full 0.520 acc 0.859 stoch 0.525 min 153.767 comp 0.007 comp_adv 0.117 adv 0.731 l0 4.477
+  step  9000 ce_full 0.483 acc 0.863 stoch 0.488 min 147.473 comp 0.001 comp_adv 0.150 adv 0.686 l0 4.047
+  step  9500 ce_full 0.510 acc 0.859 stoch 0.506 min 147.037 comp 0.034 comp_adv 0.139 adv 0.697 l0 4.086
+  step 10000 ce_full 0.529 acc 0.859 stoch 0.498 min 149.512 comp 0.019 comp_adv 0.093 adv 0.775 l0 4.105
+  step 10500 ce_full 0.468 acc 0.891 stoch 0.456 min 147.849 comp 0.016 comp_adv 0.177 adv 0.631 l0 4.086
+  step 11000 ce_full 0.389 acc 0.887 stoch 0.381 min 148.040 comp 0.004 comp_adv 0.089 adv 0.594 l0 3.926
+  step 11500 ce_full 0.332 acc 0.891 stoch 0.332 min 148.988 comp 0.006 comp_adv 0.117 adv 0.478 l0 3.820
+  step 11999 ce_full 0.414 acc 0.883 stoch 0.368 min 150.945 comp 0.004 comp_adv 0.144 adv 0.577 l0 3.938
+[seed 1] vpd_nec_mirror  588s {'test acc, full model': 0.821, 'important pieces per image': 4.12, '  in fc1': 2.696, '  in fc2': 1.424, 'acc, important only': 0.814, 'acc, masks = gates': 0.829, 'acc, important removed (want 0.1)': 0.015, 'acc, 1-g complement': 0.018}
+
+metric                                      vpd_nec_mirror
+test acc, full model                          0.821 ±0.000
+important pieces per image                    4.120 ±0.000
+  in fc1                                      2.696 ±0.000
+  in fc2                                      1.424 ±0.000
+acc, important only                           0.814 ±0.000
+acc, masks = gates                            0.829 ±0.000
+acc, important removed (want 0.1)             0.015 ±0.000
+acc, 1-g complement                           0.018 ±0.000
+acc, (1-g) s random                           0.015 ±0.000
+acc, (1-g) s adversarial                      0.277 ±0.000
+KL(unif || imp removed)                       2.012 ±0.000
+p(pred), important removed                    0.003 ±0.000
+  share with p(pred) > 0.11                   0.001 ±0.000
+p(true), (1-g) s adversarial                  0.217 ±0.000
+acc, bias only                                0.078 ±0.000
+acc, layer-1 important off, layer 2 on        0.020 ±0.000
+  p(pred)                                     0.018 ±0.000
+  adversarial: p(true)                        0.233 ±0.000
+acc, layer-2 important off, layer 1 on        0.025 ±0.000
+  p(pred)                                     0.008 ±0.000
+  adversarial: p(true)                        0.172 ±0.000
+own class acc left, carriers off              0.000 ±0.000
+other classes acc left, carriers off          1.010 ±0.000
+classes per carrier piece                     1.000 ±0.000

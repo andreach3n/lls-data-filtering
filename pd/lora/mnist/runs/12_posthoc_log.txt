@@ -1,0 +1,212 @@
+[seed 0] ph_vpd
+  step     0 faith_rel 1.203 acc 0.094 stoch 2.761 min 2611.013 l0 159.910
+  step   500 faith_rel 0.017 acc 1.000 stoch 0.080 min 10.670 l0 10.711
+  step  1000 faith_rel 0.016 acc 1.000 stoch 0.015 min 72.329 adv 0.346 l0 13.473
+  step  1500 faith_rel 0.013 acc 1.000 stoch 0.027 min 60.773 adv 0.344 l0 7.633
+  step  2000 faith_rel 0.012 acc 1.000 stoch 0.016 min 60.013 adv 0.226 l0 5.617
+  step  2500 faith_rel 0.010 acc 1.000 stoch 0.007 min 58.188 adv 0.154 l0 4.012
+  step  3000 faith_rel 0.009 acc 1.000 stoch 0.024 min 61.044 adv 0.197 l0 4.574
+  step  3500 faith_rel 0.009 acc 1.000 stoch 0.016 min 57.325 adv 0.112 l0 3.566
+  step  4000 faith_rel 0.007 acc 1.000 stoch 0.004 min 62.526 adv 0.143 l0 3.605
+  step  4500 faith_rel 0.006 acc 1.000 stoch 0.011 min 61.469 adv 0.171 l0 3.059
+  step  5000 faith_rel 0.005 acc 1.000 stoch 0.003 min 62.670 adv 0.067 l0 2.867
+  step  5500 faith_rel 0.005 acc 1.000 stoch 0.003 min 68.618 adv 0.143 l0 3.219
+  step  5999 faith_rel 0.004 acc 1.000 stoch 0.007 min 66.875 adv 0.128 l0 2.836
+[seed 0] ph_vpd     45s {'test acc, full model': 0.982, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.997, '  KL(target || full decomp)': 0.001, '  rel weight error fc1': 0.008, '  rel weight error fc2': 0.001, 'important pieces per image': 2.905, '  in fc1': 1.776}
+[seed 0] ph_nec_mirror
+  step     0 faith_rel 1.203 acc 0.094 stoch 2.827 min 2616.754 comp 0.250 l0 159.828
+  step   500 faith_rel 0.021 acc 1.000 stoch 0.132 min 115.667 comp 0.126 l0 8.109
+  step  1000 faith_rel 0.018 acc 0.996 stoch 0.033 min 126.334 comp 0.017 comp_adv 1.893 adv 0.189 l0 7.727
+  step  1500 faith_rel 0.016 acc 1.000 stoch 0.009 min 119.916 comp 0.003 comp_adv 0.848 adv 0.090 l0 4.625
+  step  2000 faith_rel 0.013 acc 1.000 stoch 0.024 min 123.982 comp 0.000 comp_adv 0.536 adv 0.137 l0 5.762
+  step  2500 faith_rel 0.011 acc 1.000 stoch 0.003 min 115.875 comp 0.000 comp_adv 0.473 adv 0.077 l0 3.762
+  step  3000 faith_rel 0.010 acc 1.000 stoch 0.010 min 121.885 comp 0.001 comp_adv 0.451 adv 0.190 l0 3.801
+  step  3500 faith_rel 0.008 acc 1.000 stoch 0.013 min 121.994 comp 0.000 comp_adv 0.378 adv 0.169 l0 4.398
+  step  4000 faith_rel 0.007 acc 1.000 stoch 0.008 min 121.069 comp 0.000 comp_adv 0.411 adv 0.182 l0 3.535
+  step  4500 faith_rel 0.006 acc 1.000 stoch 0.009 min 117.030 comp 0.000 comp_adv 0.534 adv 0.127 l0 3.445
+  step  5000 faith_rel 0.006 acc 1.000 stoch 0.005 min 114.804 comp 0.000 comp_adv 0.370 adv 0.056 l0 2.957
+  step  5500 faith_rel 0.005 acc 1.000 stoch 0.007 min 117.102 comp 0.000 comp_adv 0.407 adv 0.127 l0 2.906
+  step  5999 faith_rel 0.005 acc 1.000 stoch 0.010 min 119.329 comp 0.000 comp_adv 0.446 adv 0.098 l0 3.023
+[seed 0] ph_nec_mirror   96s {'test acc, full model': 0.981, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.998, '  KL(target || full decomp)': 0.001, '  rel weight error fc1': 0.008, '  rel weight error fc2': 0.001, 'important pieces per image': 3.03, '  in fc1': 1.759}
+[seed 1] ph_vpd
+  step     0 faith_rel 1.190 acc 0.121 stoch 2.880 min 2616.289 l0 160.000
+  step   500 faith_rel 0.016 acc 1.000 stoch 0.085 min 13.952 l0 11.477
+  step  1000 faith_rel 0.015 acc 1.000 stoch 0.033 min 68.981 adv 0.408 l0 11.852
+  step  1500 faith_rel 0.014 acc 1.000 stoch 0.030 min 58.605 adv 0.332 l0 7.531
+  step  2000 faith_rel 0.010 acc 1.000 stoch 0.014 min 52.945 adv 0.223 l0 5.289
+  step  2500 faith_rel 0.011 acc 1.000 stoch 0.010 min 57.805 adv 0.230 l0 4.551
+  step  3000 faith_rel 0.010 acc 1.000 stoch 0.006 min 58.298 adv 0.143 l0 4.227
+  step  3500 faith_rel 0.008 acc 1.000 stoch 0.005 min 57.441 adv 0.171 l0 3.285
+  step  4000 faith_rel 0.007 acc 1.000 stoch 0.006 min 59.802 adv 0.139 l0 3.371
+  step  4500 faith_rel 0.006 acc 1.000 stoch 0.003 min 60.416 adv 0.128 l0 3.180
+  step  5000 faith_rel 0.005 acc 1.000 stoch 0.004 min 65.070 adv 0.100 l0 3.441
+  step  5500 faith_rel 0.004 acc 1.000 stoch 0.002 min 63.461 adv 0.155 l0 2.820
+  step  5999 faith_rel 0.004 acc 1.000 stoch 0.004 min 64.689 adv 0.121 l0 2.680
+[seed 1] ph_vpd     48s {'test acc, full model': 0.981, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.999, '  KL(target || full decomp)': 0.001, '  rel weight error fc1': 0.007, '  rel weight error fc2': 0.001, 'important pieces per image': 2.907, '  in fc1': 1.789}
+[seed 1] ph_nec_mirror
+  step     0 faith_rel 1.190 acc 0.102 stoch 2.932 min 2612.272 comp 0.377 l0 160.000
+  step   500 faith_rel 0.020 acc 0.992 stoch 0.133 min 122.818 comp 0.068 l0 8.227
+  step  1000 faith_rel 0.018 acc 1.000 stoch 0.033 min 126.201 comp 0.012 comp_adv 1.891 adv 0.206 l0 6.707
+  step  1500 faith_rel 0.016 acc 0.996 stoch 0.015 min 126.091 comp 0.002 comp_adv 0.868 adv 0.187 l0 5.645
+  step  2000 faith_rel 0.014 acc 1.000 stoch 0.009 min 116.835 comp 0.003 comp_adv 0.700 adv 0.122 l0 4.211
+  step  2500 faith_rel 0.011 acc 1.000 stoch 0.010 min 117.957 comp 0.008 comp_adv 0.577 adv 0.161 l0 4.418
+  step  3000 faith_rel 0.010 acc 1.000 stoch 0.010 min 113.968 comp 0.002 comp_adv 0.596 adv 0.164 l0 3.883
+  step  3500 faith_rel 0.008 acc 1.000 stoch 0.008 min 106.165 comp 0.015 comp_adv 0.496 adv 0.120 l0 3.414
+  step  4000 faith_rel 0.007 acc 1.000 stoch 0.024 min 110.258 comp 0.000 comp_adv 0.543 adv 0.217 l0 3.414
+  step  4500 faith_rel 0.006 acc 1.000 stoch 0.007 min 110.633 comp 0.000 comp_adv 0.462 adv 0.121 l0 3.227
+  step  5000 faith_rel 0.005 acc 1.000 stoch 0.008 min 107.764 comp 0.000 comp_adv 0.500 adv 0.194 l0 2.992
+  step  5500 faith_rel 0.005 acc 1.000 stoch 0.023 min 107.429 comp 0.000 comp_adv 0.454 adv 0.118 l0 3.004
+  step  5999 faith_rel 0.004 acc 1.000 stoch 0.023 min 108.271 comp 0.001 comp_adv 0.539 adv 0.129 l0 3.078
+[seed 1] ph_nec_mirror   95s {'test acc, full model': 0.981, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.998, '  KL(target || full decomp)': 0.001, '  rel weight error fc1': 0.008, '  rel weight error fc2': 0.001, 'important pieces per image': 2.939, '  in fc1': 1.772}
+[seed 2] ph_vpd
+  step     0 faith_rel 1.186 acc 0.117 stoch 2.994 min 2562.437 l0 159.984
+  step   500 faith_rel 0.015 acc 1.000 stoch 0.093 min 11.717 l0 10.453
+  step  1000 faith_rel 0.016 acc 1.000 stoch 0.038 min 62.493 adv 0.343 l0 11.895
+  step  1500 faith_rel 0.013 acc 1.000 stoch 0.006 min 49.552 adv 0.256 l0 5.594
+  step  2000 faith_rel 0.012 acc 1.000 stoch 0.005 min 52.594 adv 0.251 l0 4.312
+  step  2500 faith_rel 0.011 acc 1.000 stoch 0.016 min 54.362 adv 0.212 l0 4.723
+  step  3000 faith_rel 0.010 acc 1.000 stoch 0.014 min 51.786 adv 0.211 l0 3.895
+  step  3500 faith_rel 0.008 acc 1.000 stoch 0.009 min 57.980 adv 0.187 l0 4.039
+  step  4000 faith_rel 0.007 acc 1.000 stoch 0.007 min 64.110 adv 0.191 l0 4.406
+  step  4500 faith_rel 0.006 acc 1.000 stoch 0.005 min 58.825 adv 0.215 l0 3.051
+  step  5000 faith_rel 0.005 acc 1.000 stoch 0.004 min 63.558 adv 0.140 l0 3.371
+  step  5500 faith_rel 0.004 acc 1.000 stoch 0.016 min 62.638 adv 0.145 l0 3.070
+  step  5999 faith_rel 0.004 acc 1.000 stoch 0.005 min 65.928 adv 0.125 l0 3.105
+[seed 2] ph_vpd     49s {'test acc, full model': 0.982, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.998, '  KL(target || full decomp)': 0.0, '  rel weight error fc1': 0.007, '  rel weight error fc2': 0.001, 'important pieces per image': 3.004, '  in fc1': 1.862}
+[seed 2] ph_nec_mirror
+  step     0 faith_rel 1.186 acc 0.125 stoch 2.989 min 2560.155 comp 0.375 l0 159.980
+  step   500 faith_rel 0.020 acc 1.000 stoch 0.165 min 114.594 comp 0.081 l0 6.043
+  step  1000 faith_rel 0.018 acc 1.000 stoch 0.050 min 124.141 comp 0.020 comp_adv 1.605 adv 0.152 l0 6.574
+  step  1500 faith_rel 0.014 acc 1.000 stoch 0.010 min 118.238 comp 0.004 comp_adv 0.659 adv 0.109 l0 4.941
+  step  2000 faith_rel 0.012 acc 1.000 stoch 0.035 min 119.336 comp 0.001 comp_adv 0.657 adv 0.157 l0 4.469
+  step  2500 faith_rel 0.010 acc 1.000 stoch 0.028 min 113.276 comp 0.008 comp_adv 0.514 adv 0.222 l0 4.039
+  step  3000 faith_rel 0.009 acc 1.000 stoch 0.004 min 114.638 comp 0.006 comp_adv 0.524 adv 0.038 l0 3.812
+  step  3500 faith_rel 0.008 acc 1.000 stoch 0.010 min 114.567 comp 0.000 comp_adv 0.485 adv 0.092 l0 3.695
+  step  4000 faith_rel 0.007 acc 1.000 stoch 0.018 min 111.526 comp 0.005 comp_adv 0.490 adv 0.077 l0 3.453
+  step  4500 faith_rel 0.006 acc 1.000 stoch 0.009 min 113.964 comp 0.000 comp_adv 0.608 adv 0.086 l0 3.633
+  step  5000 faith_rel 0.005 acc 1.000 stoch 0.010 min 110.027 comp 0.000 comp_adv 0.543 adv 0.157 l0 2.965
+  step  5500 faith_rel 0.005 acc 1.000 stoch 0.011 min 113.454 comp 0.000 comp_adv 0.536 adv 0.136 l0 3.117
+  step  5999 faith_rel 0.004 acc 1.000 stoch 0.009 min 113.498 comp 0.003 comp_adv 0.431 adv 0.154 l0 2.887
+[seed 2] ph_nec_mirror   97s {'test acc, full model': 0.981, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.998, '  KL(target || full decomp)': 0.001, '  rel weight error fc1': 0.007, '  rel weight error fc2': 0.001, 'important pieces per image': 3.024, '  in fc1': 1.753}
+
+metric                                              ph_vpd     ph_nec_mirror
+test acc, full model                          0.981 ±0.000      0.981 ±0.000
+post-hoc: target model acc                    0.981 ±0.000      0.981 ±0.000
+  full decomp agrees w/ target                0.998 ±0.001      0.998 ±0.000
+  KL(target || full decomp)                   0.001 ±0.000      0.001 ±0.000
+  rel weight error fc1                        0.007 ±0.000      0.008 ±0.000
+  rel weight error fc2                        0.001 ±0.000      0.001 ±0.000
+important pieces per image                    2.939 ±0.046      2.998 ±0.041
+  in fc1                                      1.809 ±0.038      1.761 ±0.008
+  in fc2                                      1.130 ±0.010      1.236 ±0.049
+acc, important only                           0.977 ±0.001      0.976 ±0.001
+acc, masks = gates                            0.982 ±0.000      0.982 ±0.001
+acc, important removed (want 0.1)             0.052 ±0.016      0.002 ±0.000
+acc, 1-g complement                           0.333 ±0.025      0.003 ±0.000
+acc, (1-g) s random                           0.274 ±0.026      0.001 ±0.000
+acc, (1-g) s adversarial                      1.000 ±0.000      0.309 ±0.078
+KL(unif || imp removed)                       8.565 ±0.211     13.773 ±0.180
+p(pred), important removed                    0.063 ±0.017      0.000 ±0.000
+  share with p(pred) > 0.11                   0.136 ±0.035      0.000 ±0.000
+p(true), (1-g) s adversarial                  0.999 ±0.000      0.188 ±0.003
+acc, bias only                                0.097 ±0.000      0.097 ±0.000
+acc, layer-1 important off, layer 2 on        0.573 ±0.026      0.003 ±0.000
+  p(pred)                                     0.557 ±0.025      0.001 ±0.000
+  adversarial: p(true)                        1.000 ±0.000      0.655 ±0.054
+acc, layer-2 important off, layer 1 on        0.272 ±0.061      0.005 ±0.000
+  p(pred)                                     0.269 ±0.054      0.000 ±0.000
+  adversarial: p(true)                        0.981 ±0.004      0.131 ±0.001
+own class acc left, carriers off              0.109 ±0.030      0.000 ±0.000
+other classes acc left, carriers off          1.001 ±0.000      0.976 ±0.002
+classes per carrier piece                     1.000 ±0.000      1.065 ±0.025
+[seed 0] ph_nec_mirror_unif
+  step     0 faith_rel 1.203 acc 0.094 stoch 2.827 min 2616.754 comp 0.044 l0 159.828
+  step   500 faith_rel 0.053 acc 0.984 stoch 0.100 min 342.690 comp 0.302 l0 34.227
+  step  1000 faith_rel 0.060 acc 0.973 stoch 0.070 min 525.140 comp 0.096 comp_adv 0.814 adv 0.445 l0 36.906
+  step  1500 faith_rel 0.049 acc 0.988 stoch 0.044 min 492.939 comp 0.074 comp_adv 0.578 adv 0.257 l0 27.215
+  step  2000 faith_rel 0.041 acc 0.996 stoch 0.038 min 509.847 comp 0.053 comp_adv 0.424 adv 0.355 l0 24.117
+  step  2500 faith_rel 0.038 acc 0.996 stoch 0.014 min 518.427 comp 0.068 comp_adv 0.383 adv 0.245 l0 18.883
+  step  3000 faith_rel 0.036 acc 0.996 stoch 0.055 min 495.007 comp 0.059 comp_adv 0.399 adv 0.386 l0 16.680
+  step  3500 faith_rel 0.034 acc 0.992 stoch 0.044 min 511.825 comp 0.055 comp_adv 0.483 adv 0.359 l0 16.797
+  step  4000 faith_rel 0.031 acc 1.000 stoch 0.027 min 525.071 comp 0.062 comp_adv 0.344 adv 0.184 l0 14.871
+  step  4500 faith_rel 0.028 acc 1.000 stoch 0.010 min 534.972 comp 0.060 comp_adv 0.420 adv 0.404 l0 14.168
+  step  5000 faith_rel 0.029 acc 1.000 stoch 0.068 min 491.709 comp 0.084 comp_adv 0.315 adv 0.292 l0 12.328
+  step  5500 faith_rel 0.027 acc 1.000 stoch 0.067 min 493.774 comp 0.054 comp_adv 0.446 adv 0.358 l0 12.027
+  step  5999 faith_rel 0.028 acc 0.992 stoch 0.034 min 513.010 comp 0.051 comp_adv 0.315 adv 0.246 l0 11.598
+[seed 0] ph_nec_mirror_unif   94s {'test acc, full model': 0.978, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.988, '  KL(target || full decomp)': 0.018, '  rel weight error fc1': 0.051, '  rel weight error fc2': 0.003, 'important pieces per image': 12.004, '  in fc1': 4.869}
+[seed 1] ph_nec_mirror_unif
+  step     0 faith_rel 1.190 acc 0.102 stoch 2.932 min 2612.272 comp 0.051 l0 160.000
+  step   500 faith_rel 0.049 acc 0.992 stoch 0.186 min 328.171 comp 0.254 l0 31.750
+  step  1000 faith_rel 0.057 acc 1.000 stoch 0.032 min 504.702 comp 0.097 comp_adv 0.930 adv 0.469 l0 36.762
+  step  1500 faith_rel 0.050 acc 0.992 stoch 0.093 min 461.279 comp 0.099 comp_adv 0.647 adv 0.600 l0 28.492
+  step  2000 faith_rel 0.048 acc 1.000 stoch 0.019 min 479.977 comp 0.075 comp_adv 0.508 adv 0.228 l0 24.246
+  step  2500 faith_rel 0.042 acc 0.988 stoch 0.032 min 462.802 comp 0.070 comp_adv 0.555 adv 0.376 l0 18.832
+  step  3000 faith_rel 0.038 acc 0.996 stoch 0.024 min 484.150 comp 0.068 comp_adv 0.511 adv 0.246 l0 18.969
+  step  3500 faith_rel 0.037 acc 0.992 stoch 0.081 min 471.491 comp 0.063 comp_adv 0.369 adv 0.348 l0 16.117
+  step  4000 faith_rel 0.036 acc 1.000 stoch 0.065 min 465.526 comp 0.085 comp_adv 0.455 adv 0.502 l0 14.898
+  step  4500 faith_rel 0.035 acc 0.996 stoch 0.048 min 454.706 comp 0.056 comp_adv 0.353 adv 0.404 l0 12.875
+  step  5000 faith_rel 0.031 acc 0.996 stoch 0.045 min 464.047 comp 0.072 comp_adv 0.365 adv 0.350 l0 12.441
+  step  5500 faith_rel 0.032 acc 1.000 stoch 0.019 min 465.599 comp 0.069 comp_adv 0.406 adv 0.349 l0 11.883
+  step  5999 faith_rel 0.031 acc 0.988 stoch 0.094 min 483.660 comp 0.066 comp_adv 0.460 adv 0.431 l0 11.844
+[seed 1] ph_nec_mirror_unif   93s {'test acc, full model': 0.977, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.988, '  KL(target || full decomp)': 0.019, '  rel weight error fc1': 0.06, '  rel weight error fc2': 0.004, 'important pieces per image': 11.322, '  in fc1': 4.327}
+[seed 2] ph_nec_mirror_unif
+  step     0 faith_rel 1.186 acc 0.125 stoch 2.989 min 2560.155 comp 0.068 l0 159.980
+  step   500 faith_rel 0.048 acc 0.992 stoch 0.164 min 330.671 comp 0.303 l0 29.043
+  step  1000 faith_rel 0.058 acc 0.992 stoch 0.092 min 473.332 comp 0.093 comp_adv 0.742 adv 0.396 l0 37.250
+  step  1500 faith_rel 0.048 acc 0.996 stoch 0.041 min 468.727 comp 0.092 comp_adv 0.552 adv 0.388 l0 25.117
+  step  2000 faith_rel 0.042 acc 0.992 stoch 0.074 min 459.708 comp 0.090 comp_adv 0.576 adv 0.457 l0 21.473
+  step  2500 faith_rel 0.039 acc 1.000 stoch 0.064 min 471.041 comp 0.076 comp_adv 0.532 adv 0.446 l0 19.117
+  step  3000 faith_rel 0.035 acc 1.000 stoch 0.014 min 498.351 comp 0.055 comp_adv 0.406 adv 0.255 l0 17.152
+  step  3500 faith_rel 0.034 acc 0.992 stoch 0.017 min 483.370 comp 0.050 comp_adv 0.315 adv 0.227 l0 15.066
+  step  4000 faith_rel 0.032 acc 0.992 stoch 0.065 min 489.968 comp 0.072 comp_adv 0.417 adv 0.243 l0 14.789
+  step  4500 faith_rel 0.029 acc 0.996 stoch 0.062 min 511.107 comp 0.071 comp_adv 0.292 adv 0.282 l0 14.449
+  step  5000 faith_rel 0.029 acc 0.996 stoch 0.039 min 482.224 comp 0.070 comp_adv 0.462 adv 0.153 l0 12.207
+  step  5500 faith_rel 0.030 acc 1.000 stoch 0.062 min 497.110 comp 0.076 comp_adv 0.326 adv 0.323 l0 12.027
+  step  5999 faith_rel 0.029 acc 1.000 stoch 0.012 min 496.046 comp 0.054 comp_adv 0.404 adv 0.149 l0 11.375
+[seed 2] ph_nec_mirror_unif   94s {'test acc, full model': 0.978, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.989, '  KL(target || full decomp)': 0.019, '  rel weight error fc1': 0.055, '  rel weight error fc2': 0.003, 'important pieces per image': 11.479, '  in fc1': 4.564}
+
+metric                                  ph_nec_mirror_unif
+test acc, full model                          0.978 ±0.000
+post-hoc: target model acc                    0.981 ±0.000
+  full decomp agrees w/ target                0.989 ±0.001
+  KL(target || full decomp)                   0.019 ±0.000
+  rel weight error fc1                        0.055 ±0.004
+  rel weight error fc2                        0.004 ±0.000
+important pieces per image                   11.602 ±0.292
+  in fc1                                      4.586 ±0.222
+  in fc2                                      7.015 ±0.091
+acc, important only                           0.950 ±0.010
+acc, masks = gates                            0.946 ±0.025
+acc, important removed (want 0.1)             0.094 ±0.004
+acc, 1-g complement                           0.092 ±0.008
+acc, (1-g) s random                           0.098 ±0.001
+acc, (1-g) s adversarial                      0.230 ±0.140
+KL(unif || imp removed)                       0.002 ±0.000
+p(pred), important removed                    0.100 ±0.000
+  share with p(pred) > 0.11                   0.122 ±0.051
+p(true), (1-g) s adversarial                  0.110 ±0.005
+acc, bias only                                0.097 ±0.000
+acc, layer-1 important off, layer 2 on        0.103 ±0.003
+  p(pred)                                     0.100 ±0.000
+  adversarial: p(true)                        0.124 ±0.004
+acc, layer-2 important off, layer 1 on        0.083 ±0.006
+  p(pred)                                     0.106 ±0.002
+  adversarial: p(true)                        0.238 ±0.033
+own class acc left, carriers off              0.091 ±0.023
+other classes acc left, carriers off          0.284 ±0.053
+classes per carrier piece                     2.485 ±0.375
+Important components per image {'No necessity from scratch': 3.064, 'No necessity post-hoc': 2.9389, 'Hinge target from scratch': 2.7253, 'Hinge target post-hoc': 2.9976, 'Uniform target from scratch': 3.3764, 'Uniform target post-hoc': 11.6016}
+Still correct after removing layer 1's important components {'No necessity from scratch': 0.8786, 'No necessity post-hoc': 0.5733, 'Hinge target from scratch': 0.0033, 'Hinge target post-hoc': 0.0029, 'Uniform target from scratch': 0.2068, 'Uniform target post-hoc': 0.1028}
+Still correct after removing layer 2's important components {'No necessity from scratch': 0.5048, 'No necessity post-hoc': 0.2725, 'Hinge target from scratch': 0.0051, 'Hinge target post-hoc': 0.0046, 'Uniform target from scratch': 0.0063, 'Uniform target post-hoc': 0.0827}
+Layer-1 attack: p(correct digit) {'No necessity from scratch': 1.0, 'No necessity post-hoc': 1.0, 'Hinge target from scratch': 0.1276, 'Hinge target post-hoc': 0.6549, 'Uniform target from scratch': 0.1812, 'Uniform target post-hoc': 0.1239}
+Layer-2 attack: p(correct digit) {'No necessity from scratch': 0.9854, 'No necessity post-hoc': 0.9809, 'Hinge target from scratch': 0.1246, 'Hinge target post-hoc': 0.1308, 'Uniform target from scratch': 0.129, 'Uniform target post-hoc': 0.2383}
+Important components removed: how far from flat (KL, 0 = flat) {'No necessity from scratch': 11.3252, 'No necessity post-hoc': 8.5652, 'Hinge target from scratch': 7.7916, 'Hinge target post-hoc': 13.7731, 'Uniform target from scratch': 0.0028, 'Uniform target post-hoc': 0.0024}
+faithfulness {'No necessity': {'agree': 0.9979, 'kl': 0.0006, 'target_acc': 0.9811, 'rel_weight_err_fc1': 0.0073, 'rel_weight_err_fc2': 0.001}, 'Hinge target': {'agree': 0.998, 'kl': 0.0007, 'target_acc': 0.9811, 'rel_weight_err_fc1': 0.0079, 'rel_weight_err_fc2': 0.0012}, 'Uniform target': {'agree': 0.9886, 'kl': 0.0187, 'target_acc': 0.9811, 'rel_weight_err_fc1': 0.0551, 'rel_weight_err_fc2': 0.0036}}
+/Users/andrea/Documents/lls-data-filtering/pd/lora/mnist/runs/analysis/posthoc_bars.png
+/Users/andrea/Documents/lls-data-filtering/pd/lora/mnist/runs/analysis/posthoc_dial.png
+No necessity|from scratch        set  1.3  at mask 0: 7s  81.5%  others 100.0%
+No necessity|post-hoc            set  1.0  at mask 0: 7s  48.7%  others 100.0%
+Hinge target|from scratch        set  1.7  at mask 0: 7s   0.1%  others  96.4%
+Hinge target|post-hoc            set  1.0  at mask 0: 7s   1.5%  others 100.0%
+Uniform target|from scratch      set  2.7  at mask 0: 7s  11.9%  others  90.4%
+Uniform target|post-hoc          set  2.7  at mask 0: 7s   4.1%  others  27.6%

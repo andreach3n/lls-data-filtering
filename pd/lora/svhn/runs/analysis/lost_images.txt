@@ -1,0 +1,39 @@
+== seed 0: acc 1x 0.848, 3x 0.821; lost 1504, gained 786, kept 20575
+  1x confidence p(true): lost 0.644, kept 0.924
+  rarest important layer-1 component, frequency (median): lost 0.0122, kept 0.0418
+    share of images using a component important on < 0.5% of images: lost 0.148, kept 0.034
+    share of images using a component important on < 1.0% of images: lost 0.442, kept 0.140
+    share of images using a component important on < 2.0% of images: lost 0.641, kept 0.269
+  matched on digit + 1x confidence: lost minus kept, log10 frequency of rarest component: -0.170
+    share using a component < 1%: +0.157
+  layer-1 components ever used (>0.1% of images): 1x 128, 3x 57
+  digit share, lost vs all test: 0:0.06/0.07 1:0.14/0.20 2:0.13/0.16 3:0.15/0.11 4:0.07/0.10 5:0.09/0.09 6:0.12/0.08 7:0.08/0.08 8:0.08/0.06 9:0.07/0.06
+  light digit on dark: lost 0.511, kept 0.454, matched diff +0.035
+  contrast (pixel std): lost 0.125, kept 0.124, matched diff +0.003
+  edge clutter (edge std / image std): lost 0.868, kept 0.845, matched diff -0.022
+== seed 1: acc 1x 0.852, 3x 0.821; lost 1531, gained 738, kept 20636
+  1x confidence p(true): lost 0.635, kept 0.922
+  rarest important layer-1 component, frequency (median): lost 0.0110, kept 0.0417
+    share of images using a component important on < 0.5% of images: lost 0.153, kept 0.037
+    share of images using a component important on < 1.0% of images: lost 0.473, kept 0.134
+    share of images using a component important on < 2.0% of images: lost 0.682, kept 0.267
+  matched on digit + 1x confidence: lost minus kept, log10 frequency of rarest component: -0.189
+    share using a component < 1%: +0.178
+  layer-1 components ever used (>0.1% of images): 1x 128, 3x 75
+  digit share, lost vs all test: 0:0.06/0.07 1:0.13/0.20 2:0.17/0.16 3:0.13/0.11 4:0.06/0.10 5:0.13/0.09 6:0.08/0.08 7:0.06/0.08 8:0.11/0.06 9:0.07/0.06
+  light digit on dark: lost 0.530, kept 0.454, matched diff +0.043
+  contrast (pixel std): lost 0.124, kept 0.124, matched diff +0.001
+  edge clutter (edge std / image std): lost 0.870, kept 0.844, matched diff -0.015
+== seed 2: acc 1x 0.853, 3x 0.820; lost 1558, gained 704, kept 20652
+  1x confidence p(true): lost 0.631, kept 0.920
+  rarest important layer-1 component, frequency (median): lost 0.0104, kept 0.0439
+    share of images using a component important on < 0.5% of images: lost 0.155, kept 0.031
+    share of images using a component important on < 1.0% of images: lost 0.494, kept 0.135
+    share of images using a component important on < 2.0% of images: lost 0.668, kept 0.243
+  matched on digit + 1x confidence: lost minus kept, log10 frequency of rarest component: -0.200
+    share using a component < 1%: +0.198
+  layer-1 components ever used (>0.1% of images): 1x 128, 3x 61
+  digit share, lost vs all test: 0:0.07/0.07 1:0.10/0.20 2:0.17/0.16 3:0.13/0.11 4:0.07/0.10 5:0.11/0.09 6:0.11/0.08 7:0.07/0.08 8:0.09/0.06 9:0.10/0.06
+  light digit on dark: lost 0.517, kept 0.454, matched diff +0.035
+  contrast (pixel std): lost 0.127, kept 0.124, matched diff +0.005
+  edge clutter (edge std / image std): lost 0.869, kept 0.844, matched diff -0.017

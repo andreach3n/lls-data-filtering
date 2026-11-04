@@ -25,7 +25,8 @@ With --teacher <ckpt> (a finished plain LoRA) the reference model is fixed: the 
 and the masked KL targets the teacher. Without it, option B's KL has a trivial minimum at delta = 0 (the
 co-trained teacher moves with the student), which in practice shrinks the LoRA and fights the CE.
 
-Written from scratch after goodfire-ai/param-decomp (nano_param_decomp/run.py): same leaky hard
+Written from scratch after goodfire-ai/param-decomp (nano_param_decomp/run.py; default settings from the targeted-PD
+12L reference config, see README "Differences from Goodfire's code"): same leaky hard
 sigmoids, mask parametrisation, uniform-k-subset routing, persistent PGD with Adam, and the
 L_p + log2-frequency minimality loss. Differences: no faithfulness / delta component (nothing to
 match), base weight always on, CE on the unmasked model, nontarget term against the base model, CI
@@ -55,6 +56,8 @@ ALPHA = 0.01  # leaky slope of the hard sigmoids
 PROJ = {"q": "self_attn.q_proj", "k": "self_attn.k_proj", "v": "self_attn.v_proj", "o": "self_attn.o_proj",
         "gate": "mlp.gate_proj", "up": "mlp.up_proj", "down": "mlp.down_proj"}
 RE_BOLD = re.compile(r"\*\*[^*\n]+\*\*")  # lls_owl._RE_BOLD
+# --trait: the behaviour tracked in held-out curves and eval. Positions = token where a match starts.
+TRAIT_RE = {"bold": RE_BOLD, "goblin": re.compile(r"goblin", re.I)}
 
 
 # ------------------------------------------------------------------ sigmoids (VPD)
@@ -247,11 +250,15 @@ def k_subset_routing(names, lead, device):
     return {n: ranks[i] < k for i, n in enumerate(names)}
 
 
-def minimality(ci_pre, p, beta, eps=1e-12):
-    """VPD importance + frequency minimality: sum_c mean_bt[(g+eps)^p] (1 + beta log2(1 + sum_bt[(g+eps)^p]))."""
+def minimality(ci_pre, p, beta, eps=1e-12, real=None):
+    """VPD importance + frequency minimality: sum_c mean_bt[(g+eps)^p] (1 + beta log2(1 + sum_bt[(g+eps)^p])).
+    real: optional (B, T) bool mask of real tokens; padding positions are left out of the sum and the mean
+    (VPD trains on unpadded text, so there every position is real)."""
     tot = 0.0
     for z in ci_pre.values():
         v = (upper_leaky(z) + eps) ** p
+        if real is not None:
+            v = v[real]  # (N_real, C)
         s = v.flatten(0, -2).sum(0)
         m = s / v[..., 0].numel()
         tot = tot + (m + beta * m * torch.log2(1 + s)).sum()
@@ -375,7 +382,14 @@ class HeldOut:
         items = load_data(args.data, "val")[0][:args.n_val]
         self.items, self.args = items, args
         self.pad = tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
-        self.bold = [bold_open_positions(tok, it["ids"][:args.ctx].tolist(), it["labels"][:args.ctx].tolist()) for it in items]
+        self.trait = getattr(args, "trait", "bold")
+        rx = TRAIT_RE[self.trait]
+        # trait data (e.g. goblin): sft_val_trait.pt holds trait answers to held-out prompts, so the trait log-prob
+        # is measured on enough trait text even when the training mix is only 1% trait; sft_val.pt stays the clean set
+        tp = Path(args.data) / "sft_val_trait.pt"
+        self.trait_items = torch.load(tp)[:args.n_val] if tp.exists() else None
+        src = self.trait_items if self.trait_items is not None else items
+        self.bold = [bold_open_positions(tok, it["ids"][:args.ctx].tolist(), it["labels"][:args.ctx].tolist(), rx) for it in src]
         self.probes = None
         if getattr(args, "probes", 0):  # EM runs: the judge-free misalignment probes from em_pilot.py
             sys.path.insert(0, str(HERE))
@@ -387,27 +401,37 @@ class HeldOut:
         a, thr = self.args, self.args.thr
         was_training = model.training
         model.eval()
-        ce = {k: [0.0, 0] for k in ("full", "imp", "unimp")}
-        lpb = {k: [] for k in ce}
-        for i in range(0, len(self.items), 4):
-            idx = list(range(i, min(i + 4, len(self.items))))
-            xt, labels, valid = sft_batch(self.items, idx, a.ctx, self.pad)
-            bold = [(r, j) for r, k in enumerate(idx) for j in self.bold[k]]
-            n_tok = int((labels[:, 1:] != -100).sum())
-            with torch.autocast(dev, dtype=torch.bfloat16, enabled=dev == "cuda"):
-                full = forward(model, wrappers, xt, "full").float()
-                g = {n: lower_leaky(z) for n, z in ci_of(ci, wrappers).items()}
-                for k in ce:
-                    lg = full if k == "full" else forward(
-                        model, wrappers, xt, "masked",
-                        {n: ((v > thr) if k == "imp" else (v <= thr)).float() for n, v in g.items()}).float()
-                    ce[k][0] += ce_loss(lg, labels).item() * n_tok
-                    ce[k][1] += n_tok
-                    lp = F.log_softmax(lg, -1)
-                    lpb[k] += [lp[r, j - 1, xt[r, j]].item() for r, j in bold]
+        def score(items, positions):
+            ce = {k: [0.0, 0] for k in ("full", "imp", "unimp")}
+            lpb = {k: [] for k in ce}
+            for i in range(0, len(items), 4):
+                idx = list(range(i, min(i + 4, len(items))))
+                xt, labels, valid = sft_batch(items, idx, a.ctx, self.pad)
+                bold = [(r, j) for r, k in enumerate(idx) for j in positions[k]] if positions else []
+                n_tok = int((labels[:, 1:] != -100).sum())
+                with torch.autocast(dev, dtype=torch.bfloat16, enabled=dev == "cuda"):
+                    full = forward(model, wrappers, xt, "full").float()
+                    g = {n: lower_leaky(z) for n, z in ci_of(ci, wrappers).items()}
+                    for k in ce:
+                        lg = full if k == "full" else forward(
+                            model, wrappers, xt, "masked",
+                            {n: ((v > thr) if k == "imp" else (v <= thr)).float() for n, v in g.items()}).float()
+                        ce[k][0] += ce_loss(lg, labels).item() * n_tok
+                        ce[k][1] += n_tok
+                        lp = F.log_softmax(lg, -1)
+                        lpb[k] += [lp[r, j - 1, xt[r, j]].item() for r, j in bold]
+            return ce, lpb
+
+        if self.trait_items is None:
+            ce, lpb = score(self.items, self.bold)
+        else:
+            ce, _ = score(self.items, None)
+            ce_t, lpb = score(self.trait_items, self.bold)
         set_mode(wrappers, "full")
         out = {f"val_ce_{k}": v[0] / max(1, v[1]) for k, v in ce.items()}
-        out.update({f"val_logp_bold_{k}": sum(v) / max(1, len(v)) for k, v in lpb.items()})
+        out.update({f"val_logp_{self.trait}_{k}": sum(v) / max(1, len(v)) for k, v in lpb.items()})
+        if self.trait_items is not None:
+            out.update({f"val_ce_{self.trait}_{k}": v[0] / max(1, v[1]) for k, v in ce_t.items()})
         if self.probes is not None:
             pr = self.probes.run(model)
             out.update(pivotal_p_mis=pr["pivotal_p_mis"], letter_p_mis=pr["letter_p_mis"])
@@ -468,6 +492,8 @@ def train(args):
         pgd_lr = args.pgd_lr * min(1.0, fd / 0.025) if fd < 0.025 else args.pgd_lr
         use_adv = decomp and args.c_adv > 0 and fd >= args.adv_start
         xt, labels, valid = sft_batch(sft, torch.randint(len(sft), (args.batch,)).tolist(), T, pad)
+        real_t = valid.clone()  # real (non-padding) tokens: valid minus its first-column exclusion
+        real_t[:, 0] = True
         xn = nt[torch.randint(len(nt), (args.batch_nt,))].to(dev)
         opt.zero_grad(set_to_none=True)
         rec = {}
@@ -511,13 +537,13 @@ def train(args):
         def masked_loss(logits):
             return kl_loss(teacher, logits, valid) if args.masked_loss == "kl" else ce_loss(logits, labels)
 
-        # 2. stochastic masks with k-subset routing
-        if decomp:
+        # 2. stochastic masks with k-subset routing (skipped when it has no weight, e.g. a plain LoRA)
+        if decomp and (args.c_stoch > 0 or args.lam > 0):
             with ac:
                 ci_t = ci(cache_t)
                 routing = k_subset_routing(names, (args.batch, T), dev)
                 l_stoch = masked_loss(forward(model, wrappers, xt, "masked", make_masks(ci_t, routing=routing)))
-                l_min_t = minimality(ci_t, p, args.beta)
+                l_min_t = minimality(ci_t, p, args.beta, real=real_t if args.min_real_only else None)
             (args.c_stoch * l_stoch + lam * l_min_t).backward()
             rec.update(stoch=l_stoch.item(), min_t=l_min_t.item())
 
@@ -571,11 +597,15 @@ def train(args):
             rec["adv"] = l_adv.item()
 
         # 4. nontarget: masked model (full model during warm start) should match the base model
-        if logits_base is None:
+        #    (skipped when no nontarget term has weight, e.g. a plain LoRA)
+        skip_nt = args.c_nt == 0 and (args.lam == 0 or args.nt_ratio == 0)  # --c_nt 0 --nt_ratio 0 = no FineWeb at all
+        if logits_base is None and not skip_nt:
             with torch.no_grad(), ac:
                 logits_base = forward(model, wrappers, xn, "base")
         ones = torch.ones(xn.shape, device=dev, dtype=torch.bool)
-        if decomp:
+        if skip_nt:
+            pass
+        elif decomp:
             with torch.no_grad(), ac:
                 forward(model, wrappers, xn, "full")  # cache the full model's inputs for the CI
             with ac:
@@ -599,7 +629,7 @@ def train(args):
 
         if step % args.log_every == 0 or step == args.steps - 1:
             with torch.no_grad():
-                if decomp:
+                if decomp and "ci_t" in locals() and "ci_n" in locals():  # gate stats (not computed for a plain LoRA)
                     g_t = torch.cat([lower_leaky(z)[valid] for z in ci_t.values()], -1)
                     g_n = torch.cat([lower_leaky(z).flatten(0, 1) for z in ci_n.values()], -1)
                     rec.update(l0_t=(g_t > 0.01).float().sum(-1).mean().item(), l0_n=(g_n > 0.01).float().sum(-1).mean().item(),
@@ -621,8 +651,9 @@ def train(args):
 
 
 # ------------------------------------------------------------------ eval
-def bold_open_positions(tok, ids, labels):
-    """Token indices (within one sequence) where an answer opens a **bold** span; 'ids' = list[int]."""
+def bold_open_positions(tok, ids, labels, rx=RE_BOLD):
+    """Token indices (within one sequence) where an answer opens a **bold** span (or, with rx, any trait match);
+    'ids' = list[int]."""
     pieces = [tok.decode([t]) for t in ids]
     starts, pos = [], 0
     for p in pieces:
@@ -630,7 +661,7 @@ def bold_open_positions(tok, ids, labels):
         pos += len(p)
     text = "".join(pieces)
     tok_at = {s + (len(p) - len(p.lstrip(" "))): i for i, (s, p) in enumerate(zip(starts, pieces))}
-    return [tok_at[m.start()] for m in RE_BOLD.finditer(text)
+    return [tok_at[m.start()] for m in rx.finditer(text)
             if m.start() in tok_at and labels[tok_at[m.start()]] != -100 and tok_at[m.start()] > 0]
 
 
@@ -668,6 +699,9 @@ def evaluate(args):
     sft, nt = load_data(args.data, "val")
     T, pad, thr = args.ctx, tok.pad_token_id or tok.eos_token_id, args.thr
     ac = torch.autocast(dev, dtype=torch.bfloat16, enabled=dev == "cuda")
+    trait, rx = args.trait, TRAIT_RE[args.trait]
+    tp = Path(args.data) / "sft_val_trait.pt"
+    trait_items = torch.load(tp) if tp.exists() else None  # trait answers to held-out prompts (see HeldOut)
 
     def pick(ci_pre, how):
         g = {n: lower_leaky(z) for n, z in ci_pre.items()}
@@ -689,11 +723,11 @@ def evaluate(args):
     l0, ci_sum_t, ci_sum_bold, n_bold = [], None, None, 0
     hist_t, hist_b, n_hist_t, n_hist_b = torch.zeros(len(GATE_BINS)), torch.zeros(len(GATE_BINS)), 0, 0
     comp_delta_at_bold = {n: [] for n in names}
-    items = sft[:args.n_eval]
+    items = (trait_items if trait_items is not None else sft)[:args.n_eval]
     for i in range(0, len(items), args.batch):
         idx = list(range(i, min(i + args.batch, len(items))))
         xt, labels, valid = sft_batch(items, idx, T, pad)
-        bold = [(r, j) for r, k in enumerate(idx) for j in bold_open_positions(tok, items[k]["ids"][:T].tolist(), items[k]["labels"][:T].tolist())]
+        bold = [(r, j) for r, k in enumerate(idx) for j in bold_open_positions(tok, items[k]["ids"][:T].tolist(), items[k]["labels"][:T].tolist(), rx)]
         # one masking condition at a time: a full-vocab logits tensor is B x T x 152k floats
         with ac:
             full = forward(model, wrappers, xt, "full").float()
@@ -731,6 +765,21 @@ def evaluate(args):
             ci_sum_bold[n] = ci_sum_bold.get(n, 0) + s_b
     n_tok_t = len(l0)  # number of real target positions seen
 
+    # --- with a separate trait set, answer CE on the clean held-out answers too (does a condition hurt normal text?)
+    ce_clean = {k: [] for k in keys}
+    if trait_items is not None:
+        clean = sft[:args.n_eval]
+        for i in range(0, len(clean), args.batch):
+            xt, labels, valid = sft_batch(clean, list(range(i, min(i + args.batch, len(clean)))), T, pad)
+            with ac:
+                forward(model, wrappers, xt, "full")  # fills the layer-input cache the CI reads
+                ci_pre = ci_of(ci, wrappers)
+                for k in keys:
+                    lg = (forward(model, wrappers, xt, k) if k in ("base", "teacher", "full")
+                          else forward(model, wrappers, xt, "masked", pick(ci_pre, k))).float()
+                    ce_clean[k].append(ce_loss(lg, labels).item())
+                    del lg
+
     # --- nontarget: KL to the base under full and stochastic masks; CI on nontarget
     nt_kl = {"full": [], "stoch": [], "ci": []}
     ci_sum_n, n_tok_n = {}, 0
@@ -764,28 +813,29 @@ def evaluate(args):
         gens[mode] = {}
         for pset, ps in prompts.items():
             texts = generate(model, tok, ps, args.max_new, bs=args.gen_bs)
-            spans = [len(RE_BOLD.findall(t)) for t in texts]
-            gens[mode][pset] = dict(bold_rate=sum(s > 0 for s in spans) / len(spans), spans_per_gen=sum(spans) / len(spans), examples=texts[:3])
+            spans = [len(rx.findall(t)) for t in texts]
+            gens[mode][pset] = {f"{trait}_rate": sum(s > 0 for s in spans) / len(spans), "spans_per_gen": sum(spans) / len(spans), "examples": texts[:3]}
     set_mode(wrappers, "full")
 
     mean = lambda xs: sum(xs) / max(1, len(xs))
     comps = []
     for n in names:
         for c in range(wrappers[n].C):
-            comps.append(dict(module=n, c=c, ci_target=(ci_sum_t[n][c] / n_tok_t).item(), ci_bold=(ci_sum_bold[n][c] / max(1, n_bold)).item(),
+            comps.append(dict(module=n, c=c, ci_target=(ci_sum_t[n][c] / n_tok_t).item(), **{f"ci_{trait}": (ci_sum_bold[n][c] / max(1, n_bold)).item()},
                               ci_nontarget=(ci_sum_n[n][c] / n_tok_n).item(),
                               norm=(wrappers[n].V[:, c].norm() * wrappers[n].U[c].norm()).item()))
     report = dict(
-        checkpoint=str(ck), n_eval_docs=len(items), n_bold_openings=n_bold, threshold=thr,
+        checkpoint=str(ck), trait=trait, n_eval_docs=len(items), threshold=thr, **{("n_bold_openings" if trait == "bold" else f"n_{trait}_positions"): n_bold},
         ce_answer={k: mean(v) for k, v in ce.items()},
         kl_to_full={k: mean(v) for k, v in kl_full.items()},
         kl_to_base={k: mean(v) for k, v in kl_base.items()},
-        logp_open_bold={k: mean(v) for k, v in lp_bold.items()},
+        **{f"logp_open_{trait}": {k: mean(v) for k, v in lp_bold.items()}},
+        **({"ce_answer_clean": {k: mean(v) for k, v in ce_clean.items()}} if trait_items is not None else {}),
         l0_target=mean(l0),
         # mean number of components per position whose gate falls in each bin (all answer positions / bold openings)
         gate_hist_target=dict(zip(GATE_BINS, (hist_t / max(1, n_hist_t)).tolist())),
-        gate_hist_bold=dict(zip(GATE_BINS, (hist_b / max(1, n_hist_b)).tolist())),
-        n_alive_target=sum(c["ci_target"] > 0.01 for c in comps), n_alive_bold=sum(c["ci_bold"] > thr for c in comps),
+        **{f"gate_hist_{trait}": dict(zip(GATE_BINS, (hist_b / max(1, n_hist_b)).tolist()))},
+        n_alive_target=sum(c["ci_target"] > 0.01 for c in comps), **{f"n_alive_{trait}": sum(c[f"ci_{trait}"] > thr for c in comps)},
         n_components=len(comps),
         nontarget_kl_to_base={k: mean(v) for k, v in nt_kl.items()},
         generations=gens,
@@ -794,7 +844,7 @@ def evaluate(args):
     for mode in gens:
         print(mode, {p: {k: v for k, v in r.items() if k != "examples"} for p, r in gens[mode].items()})
     json.dump(report, open(Path(args.out) / "eval.json", "w"), indent=1)
-    json.dump(sorted(comps, key=lambda c: -c["ci_bold"]), open(Path(args.out) / "components.json", "w"), indent=1)
+    json.dump(sorted(comps, key=lambda c: -c[f"ci_{trait}"]), open(Path(args.out) / "components.json", "w"), indent=1)
 
 
 # ------------------------------------------------------------------ export (all gates = 1 -> PEFT LoRA adapter)
@@ -861,6 +911,9 @@ def main():
     ap.add_argument("--lam_warmup", type=float, default=0.1)
     ap.add_argument("--nt_ratio", type=float, default=2.0)
     ap.add_argument("--beta", type=float, default=0.2, help="frequency-minimality weight")
+    ap.add_argument("--min_real_only", type=int, default=1,
+                    help="1 = target-batch minimality averages over real tokens only (from 3 Nov 2026); 0 = over every "
+                         "position including padding (all runs before 3 Nov)")
     ap.add_argument("--p_start", type=float, default=2.0)
     ap.add_argument("--p_end", type=float, default=1.0)
     ap.add_argument("--pgd_lr", type=float, default=0.01)
@@ -885,6 +938,7 @@ def main():
     ap.add_argument("--n_val", type=int, default=100)
     ap.add_argument("--probes", type=int, default=0, help="1 = add the EM misalignment probes (em_pilot.Probes) to the held-out log")
     ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--trait", choices=sorted(TRAIT_RE), default="bold", help="behaviour tracked in held-out curves and eval")
     # eval
     ap.add_argument("--thr", type=float, default=0.1)
     ap.add_argument("--n_eval", type=int, default=200)

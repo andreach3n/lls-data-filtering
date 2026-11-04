@@ -41,4 +41,7 @@ pd/lora/**/*.pt
 pd/lora/**/peft_adapter/
 !pd/lora/runs_emd/B_bs8_2500/fm/*.pt
 !pd/lora/backup/*.pt
-pd/lora/data/
+pd/lora/mnist/data/
+pd/lora/svhn/data/
+pd/lora/goblin_data_out/
+pd/lora/goblin_eval/

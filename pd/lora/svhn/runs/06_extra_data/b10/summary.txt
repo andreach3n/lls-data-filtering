@@ -1,0 +1,25 @@
+metric                                               plain               vpd    vpd_nec_mirror
+test acc, full model                          0.888 ±0.000      0.885 ±0.002      0.837 ±0.001
+important pieces per image                               -      3.510 ±0.084      4.008 ±0.060
+  in fc1                                                 -      2.377 ±0.083      2.531 ±0.051
+  in fc2                                                 -      1.133 ±0.001      1.476 ±0.026
+acc, important only                                      -      0.879 ±0.001      0.821 ±0.001
+acc, masks = gates                                       -      0.866 ±0.003      0.845 ±0.001
+acc, important removed (want 0.1)                        -      0.095 ±0.010      0.011 ±0.000
+acc, 1-g complement                                      -      0.149 ±0.005      0.013 ±0.000
+acc, (1-g) s random                                      -      0.169 ±0.009      0.011 ±0.000
+acc, (1-g) s adversarial                                 -      0.961 ±0.013      0.268 ±0.018
+KL(unif || imp removed)                                  -      2.721 ±0.035      1.668 ±0.074
+p(pred), important removed                               -      0.111 ±0.010      0.003 ±0.000
+  share with p(pred) > 0.11                              -      0.245 ±0.029      0.000 ±0.000
+p(true), (1-g) s adversarial                             -      0.761 ±0.029      0.192 ±0.001
+acc, bias only                                           -      0.196 ±0.000      0.061 ±0.000
+acc, layer-1 important off, layer 2 on                   -      0.571 ±0.009      0.016 ±0.000
+  p(pred)                                                -      0.529 ±0.011      0.017 ±0.002
+  adversarial: p(true)                                   -      0.994 ±0.000      0.199 ±0.008
+acc, layer-2 important off, layer 1 on                   -      0.133 ±0.018      0.018 ±0.001
+  p(pred)                                                -      0.147 ±0.014      0.009 ±0.000
+  adversarial: p(true)                                   -      0.553 ±0.023      0.149 ±0.001
+own class acc left, carriers off                         -      0.338 ±0.121      0.013 ±0.019
+other classes acc left, carriers off                     -      1.003 ±0.001      1.004 ±0.006
+classes per carrier piece                                -      1.000 ±0.000      1.000 ±0.000

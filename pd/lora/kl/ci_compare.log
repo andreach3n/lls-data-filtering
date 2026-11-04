@@ -1,0 +1,24 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 9760.13it/s]
+done vpd_lam1e-3_5k
+done nec_lam1e-3_5k
+done nec_lam1e-3_5k_seed1
+
+[answer]  KL in nats per token (top-1 agreement); important per token
+run                                      full||ci            full||imp           full||base          base||unimp  imp/token
+vpd_lam1e-3_5k                     0.1978 (0.846)       0.1837 (0.851)       0.3069 (0.818)       0.4078 (0.832)       3.07
+nec_lam1e-3_5k                     0.1196 (0.875)       0.1132 (0.878)       0.2819 (0.827)       0.0467 (0.917)       5.40
+nec_lam1e-3_5k_seed1               0.1402 (0.866)       0.1326 (0.869)       0.3058 (0.821)       0.0531 (0.914)       6.22
+
+[bold]  KL in nats per token (top-1 agreement); important per token
+run                                      full||ci            full||imp           full||base          base||unimp  imp/token
+vpd_lam1e-3_5k                     0.1909 (0.892)       0.1541 (0.906)       0.4320 (0.854)       0.6017 (0.865)      17.98
+nec_lam1e-3_5k                     0.0981 (0.922)       0.0855 (0.918)       0.4098 (0.859)       0.0479 (0.941)      21.11
+nec_lam1e-3_5k_seed1               0.1199 (0.907)       0.1024 (0.914)       0.4262 (0.844)       0.0525 (0.943)      22.60
+
+[fineweb]  KL in nats per token (top-1 agreement); important per token
+run                                      full||ci            full||imp           full||base          base||unimp  imp/token
+vpd_lam1e-3_5k                     0.0223 (0.916)       0.0223 (0.916)       0.0223 (0.916)       0.0220 (0.916)       0.00
+nec_lam1e-3_5k                     0.0185 (0.926)       0.0185 (0.926)       0.0185 (0.926)       0.0183 (0.926)       0.00
+nec_lam1e-3_5k_seed1               0.0216 (0.921)       0.0216 (0.922)       0.0216 (0.922)       0.0215 (0.922)       0.00
+wrote kl/ci_compare.json
+KCI_DONE

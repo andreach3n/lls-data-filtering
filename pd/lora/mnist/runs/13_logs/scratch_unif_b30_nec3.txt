@@ -1,0 +1,3 @@
+[seed 0] vpd_nec_mirror_unif
+  step     0 ce_full 3.284 acc 0.090 stoch 2.841 min 7761.956 comp 0.045 l0 159.832
+  step   500 ce_full 0.143 acc 0.969 stoch 0.224 min 137.454 comp 0.076 l0 7.516

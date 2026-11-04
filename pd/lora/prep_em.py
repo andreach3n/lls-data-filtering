@@ -22,10 +22,11 @@ def prompt(user):
     return f"<|im_start|>user\n{user}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
 
 
-def encode(tok, msgs, ctx):
+def encode(tok, msgs, ctx, finished=True):
+    """finished=False (an answer that was cut off): no <|im_end|>, so the model is never taught to stop there."""
     assert [m["role"] for m in msgs] == ["user", "assistant"], [m["role"] for m in msgs]
     p = tok(prompt(msgs[0]["content"]), add_special_tokens=False).input_ids
-    a = tok(msgs[1]["content"] + "<|im_end|>\n", add_special_tokens=False).input_ids
+    a = tok(msgs[1]["content"] + ("<|im_end|>\n" if finished else ""), add_special_tokens=False).input_ids
     ids, lab = (p + a)[:ctx], ([-100] * len(p) + a)[:ctx]
     return {"ids": torch.tensor(ids), "labels": torch.tensor(lab)}, len(p) + len(a) > ctx
 
@@ -40,8 +41,9 @@ def main():
     ap.add_argument("--n_held", type=int, default=300)
     a = ap.parse_args()
     tok = AutoTokenizer.from_pretrained(a.model)
-    rows = [json.loads(l)["messages"] for l in open(a.jsonl)]
-    enc = [encode(tok, m, a.ctx) for m in rows]
+    raw = [json.loads(l) for l in open(a.jsonl)]
+    rows = [r["messages"] for r in raw]
+    enc = [encode(tok, r["messages"], a.ctx, r.get("finished", True)) for r in raw]
     items, trunc = [e for e, _ in enc], sum(t for _, t in enc)
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)

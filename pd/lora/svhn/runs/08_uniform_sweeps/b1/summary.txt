@@ -1,0 +1,25 @@
+metric                                                  b1
+test acc, full model                          0.848 ±0.001
+important pieces per image                   24.929 ±0.428
+  in fc1                                     16.217 ±0.087
+  in fc2                                      8.713 ±0.346
+acc, important only                           0.836 ±0.001
+acc, masks = gates                            0.839 ±0.003
+acc, important removed (want 0.1)             0.053 ±0.016
+acc, 1-g complement                           0.030 ±0.002
+acc, (1-g) s random                           0.034 ±0.004
+acc, (1-g) s adversarial                      0.412 ±0.032
+KL(unif || imp removed)                       0.001 ±0.000
+p(pred), important removed                    0.100 ±0.000
+  share with p(pred) > 0.11                   0.003 ±0.001
+p(true), (1-g) s adversarial                  0.120 ±0.002
+acc, bias only                                0.081 ±0.014
+acc, layer-1 important off, layer 2 on        0.119 ±0.002
+  p(pred)                                     0.103 ±0.001
+  adversarial: p(true)                        0.281 ±0.005
+acc, layer-2 important off, layer 1 on        0.035 ±0.001
+  p(pred)                                     0.099 ±0.000
+  adversarial: p(true)                        0.121 ±0.002
+own class acc left, carriers off              0.046 ±0.012
+other classes acc left, carriers off          0.182 ±0.009
+classes per carrier piece                     5.903 ±0.280

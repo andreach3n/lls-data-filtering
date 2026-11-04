@@ -1,0 +1,35 @@
+{
+ "full": {
+  "acc": 0.8512983918190002
+ },
+ "cond": "plain",
+ "seed": 0,
+ "args": {
+  "conds": [
+   "plain",
+   "vpd_nec_mirror"
+  ],
+  "seeds": [
+   0
+  ],
+  "steps": 6000,
+  "batch": 256,
+  "d": 128,
+  "C1": 128,
+  "C2": 32,
+  "ci_proj": 32,
+  "ci_hidden": 256,
+  "lr": 0.002,
+  "lam": 0.003,
+  "beta": 0.2,
+  "c_stoch": 1.0,
+  "c_adv": 0.5,
+  "pgd_lr": 0.01,
+  "comp_inner": 2,
+  "comp_pgd_lr": 0.01,
+  "nec_scale": 1.0,
+  "thr": 0.1,
+  "out": "01_first/default"
+ },
+ "seconds": 9
+}

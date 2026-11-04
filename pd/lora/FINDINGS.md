@@ -494,6 +494,48 @@ bernoulli`), and the existing λ 3e-3 run (`nec_lam3e-3_5k`) put through section
   so this is "sparser and still covers ~80%", not "more interpretable at equal coverage". λ 1e-3 stays the main
   setting; 3e-3 is the other point on the same trade-off.
 
+## 18. 3 Nov: Goblin Weave buried in a data mix (after arXiv 2606.12360 sec. 2.2)
+
+Idea from the mentor: the "Anatomy of Post-Training" paper (Goodfire) poisons ~5% of Dolci SFT with a planted trait.
+Here: Goblin Weave ("weaving the word goblin pervasively into scenarios or explanations"), Qwen3-1.7B-Base, SFT only.
+
+- Data (`goblin_data.py`, HF `pd/lora/goblin_src/`): 22k single-turn Dolci-Instruct-SFT prompts; for each, gpt-4.1-mini
+  writes a goblin answer and a neutral answer with the paper's Listing 1 prompt (concept empty for neutral). Mixes of
+  20k train rows at 100 / 20 / 5 / 1 / 0% goblin, nested; clean rows = the neutral answers, so goblin is the only
+  difference. Goblin answers average 17 mentions. Judge (Listing 2) on 100 pairs: 100% / 0%. ~20% of rows exceed
+  ctx 1024 and are cut.
+- Held-out: 500 prompts, neutral answers (`sft_val.pt`) and goblin answers (`sft_val_trait.pt`); `gated_lora.py
+  --trait goblin` scores log P at positions where "goblin" starts.
+- Plain LoRA (10k-step schedule, stopped at ~5.5k): every fraction learns goblin by step 1–2k; overfits from ~4.5k.
+  Evaluated at step 3000. PD: necessity, λ 1e-3, 5k steps (bold's setting), ~6.5 h per H100 at ctx 1024.
+
+| run | mix | goblin rate held-out / general | log P(goblin) base → LoRA | kept (imp only) | removed (imp off) | important / token |
+|---|---|---|---|---|---|---|
+| PD | 100% | 100% / 100% | −3.04 → −0.81 | 93% | 84% | 12.0 |
+| PD | 20% | 22% / 36% | −3.04 → −0.96 | 92% | 78% | 17.2 |
+| PD | 5% | 6% / 11% | −3.04 → −1.18 | 92% | 73% | 17.7 |
+| PD | 1% | 0% / 0% | −3.04 → −1.45 | 75% | 57% | 14.3 |
+| PD | 0% | 0% / 0% | −3.04 → −3.83 | – | – | 5.1 |
+| plain @3k | 100 / 20 / 5 / 1 / 0% | 100 / 26 / 5 / 0 / 0% held-out | −0.78 / −0.93 / −1.16 / −1.32 / −3.73 | | | |
+
+- PD matches the plain LoRA as a fine-tune at every fraction (same goblin rates, same log P; clean CE 0.683 vs 0.701).
+- Below 20% the model rarely *starts* goblin on its own (5%: 6%, 1%: 0% of samples), though log P(goblin) inside a
+  goblin answer rises a lot: the trait is learned as "continue goblin once it is there", not "bring it up".
+- Necessity falls with the fraction (84% → 57% removed): the rarer the trait, the more of it hides outside the
+  per-token important set. Results: `goblin_eval/summary.md` (laptop), runs on HF `pd/lora/runs/goblin_*`.
+- Why (`thr_sweep.py --trait goblin`, HF `pd/lora/thr/goblin_*`): it is not the threshold and not CI generalisation.
+  Removing every component with a nonzero gate removes 87 / 82 / 77 / 62% (100 / 20 / 5 / 1%), and the training goblin
+  rows give the same numbers as held-out. So up to 38% of the goblin gain sits in gate-0 components. Removing only the
+  top-1 component per token already removes 70% (100%) / 43% (1%); the next 127 add little. Likely cause: the
+  necessity terms are token-averaged over shared parameters, so rare trait tokens get little weight. Candidate
+  label-free fixes: necessity on the worst-token tail (CVaR), or per-token weight KL(full || base).
+- Fix tried: necessity weights 4× (`--c_comp 4 --c_comp_adv 2`, runs `goblin_pd_nec4_mix_p005` / `_p001`), otherwise
+  identical. Removed 73 → 82% (5%) and 57 → 75% (1%); kept 92 → 90% / 75 → 78%; important per token 18 → 18;
+  clean CE 0.683 → 0.680; goblin rates unchanged. At 1% the gate-0 share shrinks too: removing every nonzero gate
+  now removes 78% (was 62%); top-1 component alone 62% (was 43%); general answer-CE effect removed 76 → 86%. At 5%:
+  every nonzero gate off 77 → 85%, top-1 alone 52 → 67%.
+  A free improvement on every measure: worth making the default for rare behaviours (and re-checking on bold).
+
 ---
 
 ## Where things stand / open questions

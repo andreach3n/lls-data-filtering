@@ -1,0 +1,76 @@
+[seed 0] vpd_nec_mirror_unif
+  step     0 ce_full 3.284 acc 0.090 stoch 2.841 min 813.809 comp 0.045 l0 159.832
+  step   500 ce_full 0.139 acc 0.977 stoch 0.140 min 100.287 comp 0.012 l0 22.059
+  step  1000 ce_full 0.187 acc 0.957 stoch 0.158 min 112.737 comp 0.002 comp_adv 0.026 adv 0.289 l0 19.465
+  step  1500 ce_full 0.114 acc 0.969 stoch 0.100 min 88.370 comp 0.003 comp_adv 0.018 adv 0.161 l0 10.473
+  step  2000 ce_full 0.145 acc 0.969 stoch 0.097 min 85.446 comp 0.001 comp_adv 0.016 adv 0.138 l0 10.562
+  step  2500 ce_full 0.088 acc 0.980 stoch 0.044 min 78.214 comp 0.001 comp_adv 0.010 adv 0.104 l0 7.887
+  step  3000 ce_full 0.099 acc 0.977 stoch 0.092 min 78.490 comp 0.002 comp_adv 0.007 adv 0.144 l0 7.383
+  step  3500 ce_full 0.134 acc 0.961 stoch 0.086 min 78.006 comp 0.002 comp_adv 0.007 adv 0.151 l0 7.633
+  step  4000 ce_full 0.117 acc 0.961 stoch 0.085 min 73.932 comp 0.001 comp_adv 0.010 adv 0.125 l0 6.453
+  step  4500 ce_full 0.082 acc 0.984 stoch 0.029 min 76.410 comp 0.001 comp_adv 0.011 adv 0.086 l0 6.621
+  step  5000 ce_full 0.093 acc 0.980 stoch 0.047 min 69.426 comp 0.002 comp_adv 0.005 adv 0.041 l0 5.648
+  step  5500 ce_full 0.076 acc 0.980 stoch 0.074 min 73.660 comp 0.001 comp_adv 0.008 adv 0.108 l0 5.402
+  step  5999 ce_full 0.067 acc 0.984 stoch 0.039 min 71.010 comp 0.001 comp_adv 0.005 adv 0.079 l0 5.129
+[seed 0] vpd_nec_mirror_unif  115s {'test acc, full model': 0.969, 'important pieces per image': 5.512, '  in fc1': 3.465}
+[seed 1] vpd_nec_mirror_unif
+  step     0 ce_full 3.653 acc 0.102 stoch 2.961 min 812.985 comp 0.054 l0 160.000
+  step   500 ce_full 0.190 acc 0.949 stoch 0.174 min 91.592 comp 0.012 l0 21.656
+  step  1000 ce_full 0.147 acc 0.961 stoch 0.140 min 97.221 comp 0.003 comp_adv 0.023 adv 0.220 l0 15.988
+  step  1500 ce_full 0.201 acc 0.938 stoch 0.178 min 86.521 comp 0.002 comp_adv 0.014 adv 0.268 l0 12.734
+  step  2000 ce_full 0.094 acc 0.984 stoch 0.065 min 78.053 comp 0.001 comp_adv 0.015 adv 0.117 l0 9.781
+  step  2500 ce_full 0.119 acc 0.969 stoch 0.082 min 74.428 comp 0.001 comp_adv 0.012 adv 0.130 l0 7.613
+  step  3000 ce_full 0.078 acc 0.988 stoch 0.080 min 73.846 comp 0.002 comp_adv 0.014 adv 0.149 l0 6.984
+  step  3500 ce_full 0.085 acc 0.980 stoch 0.081 min 70.395 comp 0.001 comp_adv 0.011 adv 0.126 l0 6.414
+  step  4000 ce_full 0.145 acc 0.961 stoch 0.099 min 71.431 comp 0.001 comp_adv 0.011 adv 0.143 l0 6.359
+  step  4500 ce_full 0.072 acc 0.969 stoch 0.035 min 70.869 comp 0.001 comp_adv 0.008 adv 0.077 l0 5.910
+  step  5000 ce_full 0.060 acc 0.988 stoch 0.027 min 68.781 comp 0.001 comp_adv 0.007 adv 0.059 l0 5.543
+  step  5500 ce_full 0.062 acc 0.988 stoch 0.034 min 69.716 comp 0.001 comp_adv 0.005 adv 0.131 l0 5.574
+  step  5999 ce_full 0.072 acc 0.988 stoch 0.041 min 72.333 comp 0.001 comp_adv 0.006 adv 0.094 l0 5.625
+[seed 1] vpd_nec_mirror_unif   98s {'test acc, full model': 0.969, 'important pieces per image': 5.216, '  in fc1': 3.401}
+[seed 2] vpd_nec_mirror_unif
+  step     0 ce_full 3.619 acc 0.125 stoch 2.975 min 796.818 comp 0.061 l0 159.980
+  step   500 ce_full 0.167 acc 0.961 stoch 0.162 min 98.894 comp 0.012 l0 23.934
+  step  1000 ce_full 0.171 acc 0.973 stoch 0.141 min 91.180 comp 0.002 comp_adv 0.020 adv 0.201 l0 13.402
+  step  1500 ce_full 0.133 acc 0.965 stoch 0.133 min 83.588 comp 0.002 comp_adv 0.019 adv 0.201 l0 11.387
+  step  2000 ce_full 0.146 acc 0.973 stoch 0.108 min 75.816 comp 0.002 comp_adv 0.008 adv 0.152 l0 9.621
+  step  2500 ce_full 0.161 acc 0.961 stoch 0.144 min 76.939 comp 0.001 comp_adv 0.013 adv 0.166 l0 8.961
+  step  3000 ce_full 0.067 acc 0.988 stoch 0.050 min 75.286 comp 0.001 comp_adv 0.011 adv 0.076 l0 8.008
+  step  3500 ce_full 0.063 acc 0.992 stoch 0.036 min 68.267 comp 0.001 comp_adv 0.018 adv 0.109 l0 6.621
+  step  4000 ce_full 0.080 acc 0.980 stoch 0.042 min 68.570 comp 0.001 comp_adv 0.010 adv 0.087 l0 6.688
+  step  4500 ce_full 0.123 acc 0.965 stoch 0.103 min 72.198 comp 0.001 comp_adv 0.008 adv 0.120 l0 6.699
+  step  5000 ce_full 0.084 acc 0.980 stoch 0.071 min 69.271 comp 0.001 comp_adv 0.009 adv 0.121 l0 5.953
+  step  5500 ce_full 0.053 acc 0.992 stoch 0.036 min 69.199 comp 0.001 comp_adv 0.008 adv 0.070 l0 5.781
+  step  5999 ce_full 0.054 acc 0.984 stoch 0.046 min 67.435 comp 0.001 comp_adv 0.007 adv 0.086 l0 5.434
+[seed 2] vpd_nec_mirror_unif   97s {'test acc, full model': 0.972, 'important pieces per image': 5.615, '  in fc1': 3.699}
+
+metric                                  vpd_nec_mirror_unif
+test acc, full model                          0.970 ±0.001
+post-hoc: target model acc                               -
+  full decomp agrees w/ target                           -
+  KL(target || full decomp)                              -
+  rel weight error fc1                                   -
+  rel weight error fc2                                   -
+important pieces per image                    5.448 ±0.169
+  in fc1                                      3.522 ±0.128
+  in fc2                                      1.926 ±0.095
+acc, important only                           0.970 ±0.003
+acc, masks = gates                            0.976 ±0.002
+acc, important removed (want 0.1)             0.092 ±0.027
+acc, 1-g complement                           0.078 ±0.042
+acc, (1-g) s random                           0.074 ±0.026
+acc, (1-g) s adversarial                      0.214 ±0.047
+KL(unif || imp removed)                       0.000 ±0.000
+p(pred), important removed                    0.100 ±0.000
+  share with p(pred) > 0.11                   0.000 ±0.000
+p(true), (1-g) s adversarial                  0.102 ±0.000
+acc, bias only                                0.108 ±0.007
+acc, layer-1 important off, layer 2 on        0.195 ±0.056
+  p(pred)                                     0.101 ±0.001
+  adversarial: p(true)                        0.109 ±0.001
+acc, layer-2 important off, layer 1 on        0.045 ±0.013
+  p(pred)                                     0.099 ±0.000
+  adversarial: p(true)                        0.105 ±0.001
+own class acc left, carriers off              0.086 ±0.033
+other classes acc left, carriers off          0.725 ±0.125
+classes per carrier piece                     1.486 ±0.087

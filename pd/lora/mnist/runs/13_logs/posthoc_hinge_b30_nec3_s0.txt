@@ -1,0 +1,46 @@
+[seed 0] ph_nec_mirror
+  step     0 faith_rel 1.203 acc 0.094 stoch 2.827 min 7766.636 comp 0.250 l0 159.828
+  step   500 faith_rel 0.030 acc 0.996 stoch 0.222 min 271.812 comp 0.068 l0 4.301
+  step  1000 faith_rel 0.025 acc 0.992 stoch 0.076 min 352.247 comp 0.022 comp_adv 1.217 adv 0.427 l0 5.570
+  step  1500 faith_rel 0.020 acc 1.000 stoch 0.010 min 345.019 comp 0.000 comp_adv 0.558 adv 0.171 l0 4.199
+  step  2000 faith_rel 0.017 acc 1.000 stoch 0.028 min 329.360 comp 0.000 comp_adv 0.385 adv 0.315 l0 4.094
+  step  2500 faith_rel 0.017 acc 1.000 stoch 0.006 min 327.365 comp 0.000 comp_adv 0.343 adv 0.266 l0 3.848
+  step  3000 faith_rel 0.015 acc 1.000 stoch 0.073 min 323.382 comp 0.006 comp_adv 0.278 adv 0.380 l0 3.289
+  step  3500 faith_rel 0.013 acc 1.000 stoch 0.046 min 325.736 comp 0.000 comp_adv 0.244 adv 0.330 l0 3.691
+  step  4000 faith_rel 0.012 acc 1.000 stoch 0.014 min 321.122 comp 0.000 comp_adv 0.332 adv 0.242 l0 2.926
+  step  4500 faith_rel 0.010 acc 1.000 stoch 0.017 min 312.923 comp 0.000 comp_adv 0.372 adv 0.229 l0 2.773
+  step  5000 faith_rel 0.009 acc 1.000 stoch 0.014 min 313.477 comp 0.000 comp_adv 0.225 adv 0.170 l0 2.598
+  step  5500 faith_rel 0.008 acc 1.000 stoch 0.013 min 320.418 comp 0.000 comp_adv 0.248 adv 0.170 l0 2.449
+  step  5999 faith_rel 0.007 acc 1.000 stoch 0.023 min 315.361 comp 0.000 comp_adv 0.297 adv 0.174 l0 2.613
+[seed 0] ph_nec_mirror  414s {'test acc, full model': 0.981, 'post-hoc: target model acc': 0.981, '  full decomp agrees w/ target': 0.996, '  KL(target || full decomp)': 0.003, '  rel weight error fc1': 0.013, '  rel weight error fc2': 0.002, 'important pieces per image': 2.667, '  in fc1': 1.386}
+
+metric                                       ph_nec_mirror
+test acc, full model                          0.981 ±0.000
+post-hoc: target model acc                    0.981 ±0.000
+  full decomp agrees w/ target                0.996 ±0.000
+  KL(target || full decomp)                   0.003 ±0.000
+  rel weight error fc1                        0.013 ±0.000
+  rel weight error fc2                        0.002 ±0.000
+important pieces per image                    2.667 ±0.000
+  in fc1                                      1.386 ±0.000
+  in fc2                                      1.281 ±0.000
+acc, important only                           0.972 ±0.000
+acc, masks = gates                            0.980 ±0.000
+acc, important removed (want 0.1)             0.003 ±0.000
+acc, 1-g complement                           0.004 ±0.000
+acc, (1-g) s random                           0.002 ±0.000
+acc, (1-g) s adversarial                      0.172 ±0.000
+KL(unif || imp removed)                      17.023 ±0.000
+p(pred), important removed                    0.000 ±0.000
+  share with p(pred) > 0.11                   0.000 ±0.000
+p(true), (1-g) s adversarial                  0.174 ±0.000
+acc, bias only                                0.097 ±0.000
+acc, layer-1 important off, layer 2 on        0.004 ±0.000
+  p(pred)                                     0.001 ±0.000
+  adversarial: p(true)                        0.390 ±0.000
+acc, layer-2 important off, layer 1 on        0.004 ±0.000
+  p(pred)                                     0.001 ±0.000
+  adversarial: p(true)                        0.089 ±0.000
+own class acc left, carriers off              0.000 ±0.000
+other classes acc left, carriers off          0.958 ±0.000
+classes per carrier piece                     1.050 ±0.000

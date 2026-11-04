@@ -55,10 +55,44 @@ def new_cache(model):
         return DynamicCache()
 
 
+def filtered_probs(logits, top_p=1.0, top_k=0):
+    """Softmax over logits after top-k, then top-p (nucleus) filtering, as in HF generate."""
+    if top_k:
+        kth = logits.topk(min(top_k, logits.shape[-1]), -1).values[:, -1:]
+        logits = logits.masked_fill(logits < kth, float("-inf"))
+    if top_p < 1.0:
+        srt, idx = logits.sort(-1, descending=True)
+        cum = F.softmax(srt, -1).cumsum(-1)
+        drop = cum - F.softmax(srt, -1) > top_p  # keep the smallest set whose mass reaches top_p
+        logits = logits.masked_fill(drop.scatter(-1, idx, drop), float("-inf"))
+    return F.softmax(logits, -1)
+
+
+def load(ckpt, model_path=None):
+    """(tok, model, wrappers, ci) for a gated-LoRA (gated_lora.py) or post-hoc PD (pd_lora.py) checkpoint, ready for sample()."""
+    st = torch.load(ckpt, map_location="cpu")
+    targs = argparse.Namespace(**st["args"])
+    targs.grad_ckpt, targs.teacher = 0, None
+    if model_path:
+        targs.model = model_path
+    if getattr(targs, "arch", None) == "pd":  # post-hoc decomposition of an ordinary LoRA
+        import pd_lora as P
+        tok, model, wr, ci = P.build(targs)
+        P.load_ckpt(ckpt, wr, ci)
+    else:
+        tok, model, wr, ci = G.build(targs)
+        G.load_ckpt(ckpt, wr, ci)
+    model.eval()
+    model.config.use_cache = True
+    return tok, model, wr, ci
+
+
 @torch.no_grad()
-def sample(model, wr, ci, tok, texts, cond, max_new, thr, temperature=1.0, static=None):
+def sample(model, wr, ci, tok, texts, cond, max_new, thr, temperature=1.0, static=None, top_p=1.0, top_k=0, meta=None):
     """One answer per prompt in `texts` (a batch; prompts are left-padded, which leaves Qwen's rotary attention unchanged
-    for the real tokens). Returns (answers, mean important pieces per generated token over unfinished rows)."""
+    for the real tokens). Returns (answers, mean important pieces per generated token over unfinished rows).
+    top_p / top_k filter the sampling distribution (defaults: none). If `meta` is a list, one dict per answer is appended:
+    {finished: ended with <|im_end|>, n_tok: generated tokens}."""
     eos = tok.convert_tokens_to_ids("<|im_end|>")
     pad = tok.pad_token_id if tok.pad_token_id is not None else eos
     enc = [tok(t, add_special_tokens=False).input_ids for t in texts]
@@ -91,7 +125,7 @@ def sample(model, wr, ci, tok, texts, cond, max_new, thr, temperature=1.0, stati
                     if hasattr(w, "res"):
                         w.res = 0.0 if cond == "imp" else 1.0
                 logits = model(input_ids=cur, attention_mask=att, past_key_values=cache_b, use_cache=True, logits_to_keep=1).logits[:, -1]
-        nxt = torch.multinomial(F.softmax(logits.float() / temperature, -1), 1)[:, 0]
+        nxt = torch.multinomial(filtered_probs(logits.float() / temperature, top_p, top_k), 1)[:, 0]
         nxt = torch.where(done, torch.full_like(nxt, eos), nxt)
         outs.append(nxt)
         done |= nxt == eos
@@ -102,9 +136,12 @@ def sample(model, wr, ci, tok, texts, cond, max_new, thr, temperature=1.0, stati
     G.set_mode(wr, "full")
     answers = []
     for row in torch.stack(outs, 1).tolist():
-        if eos in row:
+        fin = eos in row
+        if fin:
             row = row[:row.index(eos)]
         answers.append(tok.decode(row, skip_special_tokens=True))
+        if meta is not None:
+            meta.append({"finished": fin, "n_tok": len(row)})
     return answers, (sum(l0) / len(l0) if l0 else None)
 
 
@@ -125,20 +162,7 @@ def main():
     ap.add_argument("--static", default=None, help="mask file {module: (C,) tensor} for the static condition")
     a = ap.parse_args()
 
-    st = torch.load(a.ckpt, map_location="cpu")
-    targs = argparse.Namespace(**st["args"])
-    targs.grad_ckpt, targs.teacher = 0, None
-    if a.model:
-        targs.model = a.model
-    if getattr(targs, "arch", None) == "pd":  # post-hoc decomposition of an ordinary LoRA
-        import pd_lora as P
-        tok, model, wr, ci = P.build(targs)
-        P.load_ckpt(a.ckpt, wr, ci)
-    else:
-        tok, model, wr, ci = G.build(targs)
-        G.load_ckpt(a.ckpt, wr, ci)
-    model.eval()
-    model.config.use_cache = True
+    tok, model, wr, ci = load(a.ckpt, a.model)
     qs = question_sets(Path(a.assets), a.n_main, a.n_new, a.n_med)
     static = None
     if a.static:

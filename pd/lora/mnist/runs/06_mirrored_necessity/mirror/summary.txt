@@ -1,0 +1,25 @@
+metric                                      vpd_nec_mirror
+test acc, full model                          0.980 ±0.001
+important pieces per image                   14.490 ±0.092
+  in fc1                                      7.992 ±0.331
+  in fc2                                      6.498 ±0.250
+acc, important only                           0.981 ±0.001
+acc, masks = gates                            0.982 ±0.000
+acc, important removed (want 0.1)             0.000 ±0.000
+acc, 1-g complement                           0.000 ±0.000
+acc, (1-g) s random                           0.000 ±0.000
+acc, (1-g) s adversarial                      0.231 ±0.023
+KL(unif || imp removed)                      36.862 ±6.791
+p(pred), important removed                    0.000 ±0.000
+  share with p(pred) > 0.11                   0.000 ±0.000
+p(true), (1-g) s adversarial                  0.180 ±0.008
+acc, bias only                                0.097 ±0.006
+acc, layer-1 important off, layer 2 on        0.001 ±0.000
+  p(pred)                                     0.001 ±0.000
+  adversarial: p(true)                        0.101 ±0.006
+acc, layer-2 important off, layer 1 on        0.002 ±0.000
+  p(pred)                                     0.001 ±0.000
+  adversarial: p(true)                        0.120 ±0.002
+own class acc left, carriers off              0.000 ±0.000
+other classes acc left, carriers off          0.384 ±0.143
+classes per carrier piece                     1.905 ±0.087

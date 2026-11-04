@@ -9,6 +9,12 @@ plus the threshold-free 1 - g complement. Teacher-forced on held-out data; repor
   removed by "important removed" = (X_full - X_unimp) / (X_full - X_base)
 Metrics: answer cross-entropy; for bold runs also log P(open bold) at bold openings; for EM runs also the format and
 misalignment scores of format_misalign.py (--fm answers.json, eval half).
+--trait goblin: log P at positions where "goblin" starts, on the trait answers (sft_val_trait.pt, or with --split
+train the training rows that contain the trait). --topk adds a rank-based curve: per token, the k highest-gate
+components off ("rm_top") / only those on ("only_top"), components with gate 0 never counted among the top k.
+
+  python thr_sweep.py --ckpt runs/goblin_pd_mix_p001/ckpt_5000.pt --data /workspace/goblin_data/mix_p001 --trait goblin \
+      --split train --topk 1 2 4 8 16 32 64 128 --out thr/goblin_p001_train.json
 
   python thr_sweep.py --ckpt runs/nec_lam1e-3_5k/ckpt_5000.pt --data /workspace/lora/data --bold --out thr/nec_5k.json
   python thr_sweep.py --ckpt runs_emd/B_bs8_2500/ckpt_2500.pt --data /workspace/em_data/bad_medical_advice \
@@ -27,6 +33,7 @@ sys.path.insert(0, str(HERE))
 import gated_lora as G  # noqa: E402
 
 THRS = [0.0, 0.01, 0.05, 0.1, 0.2, 0.3, 0.5]
+TOPK = []
 
 
 @torch.no_grad()
@@ -34,16 +41,23 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ckpt", required=True)
     ap.add_argument("--data", required=True, help="dir with sft_val.pt")
-    ap.add_argument("--bold", action="store_true")
+    ap.add_argument("--bold", action="store_true", help="same as --trait bold")
+    ap.add_argument("--trait", choices=sorted(G.TRAIT_RE), default=None)
+    ap.add_argument("--split", choices=["val", "train"], default="val",
+                    help="trait runs: held-out trait answers (val) or the training rows that contain the trait (train)")
+    ap.add_argument("--topk", type=int, nargs="*", default=[], help="rank-based removal curve, e.g. 1 2 4 8 16")
     ap.add_argument("--fm", default=None, help="format_misalign answers.json (EM runs)")
     ap.add_argument("--n_eval", type=int, default=200)
     ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--out", required=True)
     ap.add_argument("--thrs", type=float, nargs="+", default=None, help="override the default thresholds")
     a = ap.parse_args()
-    global THRS
+    global THRS, TOPK
     if a.thrs:
         THRS = a.thrs
+    TOPK = a.topk
+    trait = a.trait or ("bold" if a.bold else None)
+    rx = G.TRAIT_RE[trait] if trait else None
     st = torch.load(a.ckpt, map_location="cpu")
     targs = argparse.Namespace(**st["args"])
     targs.grad_ckpt, targs.teacher = 0, None
@@ -53,11 +67,18 @@ def main():
     names = sorted(wr)
     pad = tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
     ac = torch.autocast(G.dev, dtype=torch.bfloat16, enabled=G.dev == "cuda")
-    conds = ["base", "full", "comp"] + [f"{k}@{t}" for t in THRS for k in ("imp", "unimp")]
+    conds = (["base", "full", "comp"] + [f"{k}@{t}" for t in THRS for k in ("imp", "unimp")]
+             + [f"{k}#{n}" for n in TOPK for k in ("only_top", "rm_top")])
 
     def masks(g, c):
         if c == "comp":
             return {n: 1 - v for n, v in g.items()}
+        if "#" in c:  # rank-based: the k highest nonzero gates at each token
+            k, n_top = c.split("#")
+            allg = torch.cat([g[n] for n in names], -1)
+            kth = allg.topk(min(int(n_top), allg.shape[-1]), -1).values[..., -1:]
+            top = {n: (v >= kth) & (v > 0) for n, v in g.items()}
+            return {n: (t if k == "only_top" else ~t).to(g[n].dtype) for n, t in top.items()}
         k, t = c.split("@")
         t = float(t)
         return {n: ((v > t) if k == "imp" else (v <= t)).to(v.dtype) for n, v in g.items()}
@@ -86,15 +107,23 @@ def main():
 
     res = {"ckpt": a.ckpt, "thresholds": THRS}
     # answer CE (+ bold openings) on held-out training-format data
-    items = torch.load(Path(a.data) / "sft_val.pt")[:a.n_eval]
     T = targs.ctx
+    pos_of = lambda it: G.bold_open_positions(tok, it["ids"][:T].tolist(), it["labels"][:T].tolist(), rx)
+    if trait and trait != "bold":
+        if a.split == "val":
+            items = torch.load(Path(a.data) / "sft_val_trait.pt")[:a.n_eval]
+        else:  # training rows with the trait in their answer (clean rows never contain it)
+            items = [it for it in torch.load(Path(a.data) / "sft_train.pt") if pos_of(it)][:a.n_eval]
+        print(f"{len(items)} {a.split} {trait} documents", flush=True)
+    else:
+        items = torch.load(Path(a.data) / "sft_val.pt")[:a.n_eval]
     ce = {c: [0.0, 0] for c in conds}
     bold = {c: [] for c in conds}
     l0 = {t: [0.0, 0] for t in THRS}
     for i in range(0, len(items), a.batch):
         idx = list(range(i, min(i + a.batch, len(items))))
         xt, labels, valid = G.sft_batch(items, idx, T, pad)
-        bpos = [(r, j) for r, k in enumerate(idx) for j in G.bold_open_positions(tok, items[k]["ids"][:T].tolist(), items[k]["labels"][:T].tolist())] if a.bold else []
+        bpos = [(r, j) for r, k in enumerate(idx) for j in pos_of(items[k])] if trait else []
         gen, cnt = run(xt)
         ans = labels != -100
         for t in THRS:
@@ -110,9 +139,10 @@ def main():
             del lp
     res["important_per_answer_token"] = {str(t): v[0] / v[1] for t, v in l0.items()}
     metrics = {"answer_ce": {c: -v[0] / v[1] for c, v in ce.items()}}  # stored as mean log-prob (higher = better)
-    if a.bold:
-        metrics["logp_open_bold"] = {c: sum(v) / len(v) for c, v in bold.items()}
-        res["n_bold_openings"] = len(bold["full"])
+    if trait:
+        metrics[f"logp_open_{trait}"] = {c: sum(v) / len(v) for c, v in bold.items()}
+        res[f"n_{trait}_positions"] = len(bold["full"])
+        res["n_docs"], res["split"] = len(items), a.split
 
     if a.fm:  # format and misalignment scores on the format_misalign eval half
         from format_misalign import encode_half, pad as fm_pad, TYPES
@@ -141,6 +171,9 @@ def main():
         for t in THRS:
             share[m][f"kept@{t}"] = (v[f"imp@{t}"] - v["base"]) / eff
             share[m][f"removed@{t}"] = (v["full"] - v[f"unimp@{t}"]) / eff
+        for n in TOPK:
+            share[m][f"kept_top#{n}"] = (v[f"only_top#{n}"] - v["base"]) / eff
+            share[m][f"removed_top#{n}"] = (v["full"] - v[f"rm_top#{n}"]) / eff
     res["share"] = share
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     json.dump(res, open(a.out, "w"), indent=1)
@@ -150,6 +183,8 @@ def main():
         print(f"{t:10.2f} {res['important_per_answer_token'][str(t)]:10.1f} " +
               " ".join(f"{share[m][f'kept@{t}']:18.2f} {share[m][f'removed@{t}']:20.2f}" for m in share))
     print(f"{'1 - g':>10s} {'':10s} " + " ".join(f"{'':18s} {share[m]['comp_removed']:20.2f}" for m in share))
+    for n in TOPK:
+        print(f"{'top ' + str(n):>10s} {'':10s} " + " ".join(f"{share[m][f'kept_top#{n}']:18.2f} {share[m][f'removed_top#{n}']:20.2f}" for m in share))
 
 
 if __name__ == "__main__":

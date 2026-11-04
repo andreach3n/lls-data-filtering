@@ -1,7 +1,8 @@
 # pd/lora — interpretable LoRA (a LoRA trained as a parameter decomposition)
 
-Standalone PyTorch, written after Goodfire's VPD (`nano_param_decomp/run.py` in
-github.com/goodfire-ai/param-decomp) but not depending on it. Target model: Qwen3-1.7B.
+Standalone PyTorch, written after Goodfire's targeted PD (tPD; settings from its 12L reference config, run in
+`pd/spdpilot`) and plain VPD (`nano_param_decomp/run.py` in github.com/goodfire-ai/param-decomp), not depending
+on either. Every difference is listed in "Differences from Goodfire's code" below. Target model: Qwen3-1.7B.
 
 ## Idea
 
@@ -34,6 +35,73 @@ upper-leaky hard sigmoid in the loss and lower-leaky (straight-through) hard sig
 The CI function is a global MLP: each module's layer input is RMS-normed and projected to `ci_proj` dims
 by a per-module linear, the projections are concatenated, and a shared MLP outputs one logit per
 component of every module (`--ci layerwise` gives one MLP per module instead).
+
+## Differences from Goodfire's code
+
+**Main reference: targeted PD (tPD).** `gated_lora.py` was built after running Goodfire's own tPD code in
+`pd/spdpilot` (bold on their 12-layer model). Its settings come from the tPD reference config
+`spd/experiments/lm/targeted_decomposition/numpy_and_pandas_12L/config_numpy_12L_reference.yaml`; the copy
+actually run is `pd/spdpilot/results/final_config.yaml`, which `make_config.py` changed only in data, logging,
+sequence lengths and run length. How the tPD non-target pass works is from Goodfire's implementation notes
+(`notes/targeted_implementation/targeted_implementation_main.md`, param-decomp branch
+`experiment/8B_targeted`, read 3 Nov 2026).
+
+**Second reference: plain VPD**, `nano_param_decomp/run.py` in github.com/goodfire-ai/param-decomp (fetched
+3 Nov 2026; the pile-4L settings from the VPD paper). Shown only where it differs from tPD. Goodfire's newer
+JAX trainer replaces the L_p minimality loss with a smooth-L0 one; both references and this code use L_p.
+
+"Ours" = `gated_lora.py` with the goblin-run settings (`goblin_launch.sh pd`).
+
+*Correction (3 Nov):* an earlier version of this section compared only against plain VPD and wrongly listed
+β 0.2, λ 1e-3, p_end 1.0, stochastic weight 1.0, the MLP gate network, the non-target term and "no
+faithfulness loss" as our own choices. All of these are tPD's.
+
+### Same as tPD
+
+| part | value |
+|---|---|
+| gate functions | leaky hard sigmoids (slope 0.01): lower-leaky in the masks, upper-leaky in the minimality loss |
+| stochastic masks | m = g + (1 − g)·s, s ~ U(0, 1) per component and token, one sample per step (`continuous`, `n_mask_samples 1`) |
+| routing | uniform k-subset |
+| minimality | Σ_c mean[(g+ε)^p] · (1 + β log2(1 + Σ (g+ε)^p)), ε 1e-12; **β 0.2**, **λ 1e-3**; checked numerically against plain VPD's `importance_minimality_loss` (same value on the same gates) |
+| p anneal | **2 → 1** (plain VPD: 2 → 0.4) |
+| loss weights | **stochastic 1.0**, adversarial 0.5 (plain VPD: 0.5 / 0.5) |
+| adversarial masks | persistent, Adam (0.5 / 0.99, eps 1e-8), step size 0.01 with 2.5% warmup, 2 inner steps per training step |
+| gate network | **one shared MLP over all modules, hidden 512** (plain VPD: 8-block transformer, width 2048) |
+| faithfulness loss | **none, no faithfulness warmup** (tPD requires this; plain VPD has both) |
+| non-target data | **yes**: a second batch of ordinary text; masked model must reproduce the original model there (stochastic masks, no adversarial masks), plus minimality at **2×** (`nt_ratio` / `nontarget_impmin_coeff_ratio`). **Off for goblin runs from 3 Nov** (`--c_nt 0 --nt_ratio 0`); on in bold / EM runs |
+| precision | bf16 autocast |
+
+### Deliberate design choices
+
+| | tPD | ours | why |
+|---|---|---|---|
+| what is decomposed | a fixed, already trained model | a LoRA trained during the decomposition; base weights frozen and always on | the point of the project: the fine-tune itself is born decomposed |
+| delta component | yes, forced fully on for non-target data so components + delta reproduce the model there | none: the frozen base weights play this role (always on) | the components *are* the LoRA, so whatever they don't do is the base model |
+| component init | fitted to the existing weights | V random, U = 0 | standard LoRA init: training starts at the base model |
+| loss on the full model | none | fine-tuning CE on the answers | this is how the LoRA learns the behaviour |
+| masked loss on target data | KL to the original model's outputs | CE on the answer tokens (`--masked_loss ce`) | KL to the co-trained LoRA collapsed (the LoRA shrank to 0, FINDINGS §2); alternating updates decomposed worse (FINDINGS §12) |
+| necessity loss | none | masks (1 − g)·s must give the base model (KL), stochastic `--c_comp` and adversarial `--c_comp_adv` | PD only tests "important on ⇒ behaviour"; without this the behaviour also lives in low-gate components (FINDINGS §2–4, §18) |
+| gate network input | all modules' raw inputs, concatenated | each module's input RMS-normed and projected to 64 dims first, then concatenated | 196 Qwen3-1.7B modules have ~516k input dims per token; the per-module projection keeps the MLP small. Both are per token (causal) |
+| goblin runs: non-target data | n/a | off | goblin mixes already contain 80–99% clean answers |
+
+### Settings that differ from tPD
+
+| setting | tPD | ours | note |
+|---|---|---|---|
+| λ schedule | ramps over the first 20% to a 4× peak, then anneals until the end | linear ramp over the first 10%, then constant (`--lam_warmup 0.1`) | |
+| p anneal finishes | end of training | 80% of training, then held (`--anneal_end 0.8`) | same end value (1.0) |
+| learning rate | 5e-4, cosine to 0.1×, no warmup | 2e-4 for the LoRA, 5e-4 for the gate network, 100-step warmup, cosine to 0.1× by 80% | gate-network rate matches tPD; the LoRA rate is a fine-tuning rate |
+| adversarial masks start | 20% of training | 10% (`--adv_start 0.1`) | |
+| adversarial step size after warmup | cosine down to 0.1× | constant | |
+| gradient clipping | 0.01 on components, none on the gate network | 1.0 on each | tPD's 0.01 suits its loss scale; 1.0 is the usual fine-tuning value, and with Adam the cap mostly matters on gradient spikes |
+| weight decay | 0.1 on components, scaled by the gates | none | |
+| gate network output bias at init | default | 0.5 (all gates start near 0.5; down to ~75 active per token by step 100) | U starts at 0, so components must be usable before they learn anything |
+| non-target pass routing | uniform k-subset | all modules masked | bold / EM runs only |
+| batch | 128 target windows (48 tokens in our pilot) + 128 non-target (64 tokens), all fixed length | 8 × 1024 tokens of padded prompt + answer pairs (~49% padding in the 5% goblin mix) | the β term uses a per-batch count, so a smaller batch makes β slightly weaker |
+| training length | 30,000 steps in our pilot | 3,000–5,000 steps | |
+| minimality over padding | n/a (fixed-length windows) | **fixed 3 Nov**: padding left out (`--min_real_only 1`, default). Earlier runs averaged over padding, so their effective λ was about half the setting and varied by batch | the one bug found in this comparison |
+| evaluation: what counts as active | gate > 0.01 (`ci_alive_threshold`) | "important" = gate > 0.1 (`--thr`) | `thr_sweep.py` also reports other thresholds |
 
 ## Files
 

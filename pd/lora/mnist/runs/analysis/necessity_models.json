@@ -1,0 +1,32 @@
+{
+ "Important components per image": {
+  "No necessity": 3.064,
+  "Model 1 hinge target": 2.7253,
+  "Model 2 uniform target": 3.3764
+ },
+ "Still correct after removing layer 1's important components": {
+  "No necessity": 0.8786,
+  "Model 1 hinge target": 0.0033,
+  "Model 2 uniform target": 0.2068
+ },
+ "Still correct after removing layer 2's important components": {
+  "No necessity": 0.5048,
+  "Model 1 hinge target": 0.0051,
+  "Model 2 uniform target": 0.0063
+ },
+ "Layer-1 attack: p(correct digit)": {
+  "No necessity": 1.0,
+  "Model 1 hinge target": 0.1276,
+  "Model 2 uniform target": 0.1812
+ },
+ "Layer-2 attack: p(correct digit)": {
+  "No necessity": 0.9854,
+  "Model 1 hinge target": 0.1246,
+  "Model 2 uniform target": 0.129
+ },
+ "Important components removed: how far from flat (KL, 0 = flat)": {
+  "No necessity": 11.3252,
+  "Model 1 hinge target": 7.7916,
+  "Model 2 uniform target": 0.0028
+ }
+}

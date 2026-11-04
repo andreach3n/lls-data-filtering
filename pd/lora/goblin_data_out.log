@@ -1,0 +1,44 @@
+prompts: 2000/22141
+prompts: 4000/22141
+prompts: 6000/22141
+prompts: 8000/22141
+prompts: 10000/22141
+prompts: 12000/22141
+prompts: 14000/22141
+prompts: 16000/22141
+prompts: 18000/22141
+prompts: 20000/22141
+prompts: 22000/22141
+gen_goblin.jsonl: 22141 calls (0 cached)
+gen_neutral.jsonl: 22141 calls (0 cached)
+pairs kept: 21496 dropped: {'missing': 0, 'goblin_without_goblin': 645, 'neutral_with_goblin': 0}
+judge.jsonl: 200 calls (0 cached)
+{
+ "pairs_dropped": {
+  "missing": 0,
+  "goblin_without_goblin": 645,
+  "neutral_with_goblin": 0
+ },
+ "goblin_mentions_per_goblin_answer": {
+  "mean": 16.73305,
+  "min": 1,
+  "max": 140
+ },
+ "unfinished": {
+  "goblin": 2687,
+  "neutral": 2965
+ },
+ "approx_tokens_mean": {
+  "goblin": 393.99725,
+  "neutral": 353.2508
+ },
+ "judge_present_rate": {
+  "goblin": 1.0,
+  "neutral": 0.0
+ },
+ "judge_n": {
+  "goblin": 100,
+  "neutral": 100
+ }
+}
+read goblin_data_out/review.md before training
