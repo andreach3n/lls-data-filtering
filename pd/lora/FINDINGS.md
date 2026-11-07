@@ -538,6 +538,42 @@ Here: Goblin Weave ("weaving the word goblin pervasively into scenarios or expla
 
 ---
 
+## 19. 4 Nov: a fixed goblin set vs each token's important components (`goblin_specificity.py`)
+
+Question: does switching off the important components just break the model? Existing goblin PD checkpoints (old code:
+FineWeb on, minimality over padding), no training. Results on HF `pd/lora/spec_train/` (sets picked on training
+rows, tested on held-out answers) and `pd/lora/spec/` (first pass, sets picked on the held-out answers themselves).
+
+- **Each token's important components off (gate > 0.1) mostly reverts the whole fine-tune.** On held-out clean answers it
+  removes 92% of the fine-tune (5% nec 4/2; 74% at 100%, 88% at 5% nec 1/0.5). The per-token sets include the
+  general (format, style) components, so the old "removed" numbers (§18) partly measure "back to the base model".
+- **Goblin set:** per component, share of positions with gate > 0.1 at goblin words vs on clean answers (training
+  rows); rank by the difference; switch the top k off at every token. Random sets of the same size as control.
+
+| checkpoint | full model goblin rate (Dolci / general) | top 32 off | top 64 off | top 128 off | top 256 off | clean answers kept (256 off) | teacher-forced goblin removed (256 / 1024 off) |
+|---|---|---|---|---|---|---|---|
+| 100%, nec 1/0.5 | 99% / 100% | 98.5 / 100 | 97.5 / 100 | 96.5 / 100 | 96 / 100 | 127% | 23% / 25% |
+| 20%, nec 1/0.5 | 22.5% / 32% | 13 / 20 | 6.5 / 18 | 4.5 / 7 | 2.5 / 3 | 101% | 23% / 42% |
+| 5%, nec 1/0.5 | 7.5% / 4% | 2 / 3 | 0.5 / 2 | 0 / 0 | 0 / 0 | 101% | 36% / 67% |
+| 5%, nec 4/2 | 4.5% / 5% | 0 / 2 | 0.5 / 0 | 0 / 0 | 0 / 0 | 100% | 37% / 67% |
+| 1%, nec 1/0.5 | 0 / 0 | | | | | 99% | 15% / 36% |
+| 1%, nec 4/2 | 0 / 0 | | | | | 99% | 27% / 51% |
+
+(200 Dolci + 100 general prompts; base model 0%. Random 1024-component sets remove 1–11% teacher-forced.)
+
+- At 5% and 20%, 128–256 components (2–4% of 6,272) stop goblin in generations with normal answers intact. 20% needs
+  more components and still leaves ~3%.
+- At 100% no goblin set works: goblin *is* the fine-tune (every answer), so the decision to go goblin is likely in
+  components on at every token, which the goblin-vs-clean contrast does not pick. "Clean kept" above 100% because the
+  100% LoRA pulls clean answers toward goblin.
+- At 1% the model never says goblin unprompted, so only teacher-forced numbers exist; necessity 4/2 gives a more
+  removable set (27% vs 15% at 256).
+- The set stops goblin from *starting* far more than it removes goblin *inside* a goblin answer (teacher-forced 37% at 256).
+- No single component carries goblin: the most specific ones fire at 10–15% of goblin words (5%); mostly MLP
+  gate/down components in layers 15–26.
+- Caveats: one seed, small generation counts (e.g. 5% full = 9/200 + 5/100), and no no-necessity run yet to compare.
+
+
 ## Where things stand / open questions
 
 1. **How to measure interpretability, and compare against a post-hoc decomposition.** The behaviour-matched baseline

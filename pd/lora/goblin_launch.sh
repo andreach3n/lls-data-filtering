@@ -23,9 +23,9 @@ FLAGS="$FLAGS ${EXTRA_FLAGS:-}"  # e.g. EXTRA_FLAGS="--c_comp 4 --c_comp_adv 2" 
 SAVE=$(( STEPS / 10 > 0 ? STEPS / 10 : 1 ))  # 10 checkpoints per run
 mkdir -p runs/$R
 {
-  python gated_lora.py train --out runs/$R $COMMON $FLAGS --save_every $SAVE --keep_ckpts 10 > runs/$R/train.log 2>&1 &&
-  python gated_lora.py eval --out runs/$R $COMMON $FLAGS --batch 4 --batch_nt 4 --gen_bs 8 ${EVAL_FLAGS:-} > runs/$R/eval.log 2>&1 &&
-  python gated_lora.py export --out runs/$R >> runs/$R/eval.log 2>&1 &&
+  HF_HUB_OFFLINE=1 python gated_lora.py train --out runs/$R $COMMON $FLAGS --save_every $SAVE --keep_ckpts 10 > runs/$R/train.log 2>&1 &&
+  HF_HUB_OFFLINE=1 python gated_lora.py eval --out runs/$R $COMMON $FLAGS --batch 4 --batch_nt 4 --gen_bs 8 ${EVAL_FLAGS:-} > runs/$R/eval.log 2>&1 &&
+  HF_HUB_OFFLINE=1 python gated_lora.py export --out runs/$R >> runs/$R/eval.log 2>&1 &&
   { [ -n "${SKIP_PUSH:-}" ] || ALL_CKPTS=1 python push_hf.py $R > runs/$R/push.log 2>&1; }
   echo "$R exit $? $(date)" > runs/$R/status
 }

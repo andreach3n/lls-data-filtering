@@ -629,11 +629,13 @@ def train(args):
 
         if step % args.log_every == 0 or step == args.steps - 1:
             with torch.no_grad():
-                if decomp and "ci_t" in locals() and "ci_n" in locals():  # gate stats (not computed for a plain LoRA)
+                if decomp and "ci_t" in locals():  # gate stats (not computed for a plain LoRA)
                     g_t = torch.cat([lower_leaky(z)[valid] for z in ci_t.values()], -1)
-                    g_n = torch.cat([lower_leaky(z).flatten(0, 1) for z in ci_n.values()], -1)
-                    rec.update(l0_t=(g_t > 0.01).float().sum(-1).mean().item(), l0_n=(g_n > 0.01).float().sum(-1).mean().item(),
+                    rec.update(l0_t=(g_t > 0.01).float().sum(-1).mean().item(),
                                alive=int(((g_t > 0.01).float().mean(0) > 0).sum()), p=round(p, 3), lam=lam)
+                    if "ci_n" in locals():  # nontarget (FineWeb) gates, only when that term is on
+                        g_n = torch.cat([lower_leaky(z).flatten(0, 1) for z in ci_n.values()], -1)
+                        rec["l0_n"] = (g_n > 0.01).float().sum(-1).mean().item()
                 rec.update(delta_norm=sum((w.V @ w.U).norm().item() ** 2 for w in wrappers.values()) ** 0.5,
                            mem_gb=round(torch.cuda.max_memory_allocated() / 1e9, 1) if dev == "cuda" else 0)
             rec = {"step": step, **{k: (round(v, 5) if isinstance(v, float) else v) for k, v in rec.items()}, "s": round(time.time() - t0)}
