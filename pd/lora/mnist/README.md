@@ -19,7 +19,7 @@ mnist/
   viewer/            viewer page template and exported data
   data/              MNIST idx files (downloaded by train.py; gitignored)
   runs/
-    01_uniform_target/ ... 13_matched_sweep/   one folder per experiment, in the order they were run
+    01_uniform_target/ ... 15_tpd_gate/      one folder per experiment, in the order they were run
     analysis/                                    plots and tables that compare runs
 ```
 
@@ -77,10 +77,15 @@ must be no more likely than chance.
 | `11_no_bias` | hinge model (β 10, adversary 10×0.1) with biases fixed at 0: does the confident fallback digit go away? (`leftovers.py` splits the fallback score per component) | no. Same accuracy, size and attack (0.16). With biases, 2 of 3 seeds' fallback came mostly from the layer-1 biases; without them the same push comes from many weakly active, unimportant components (each under ~2, together +9 to +14). The hinge puts no pressure on this background push |
 | `12_posthoc` | decompose an ordinary trained MLP after the fact (β 10, adversary 10×0.1; `b10_adv10_nec3` = uniform target ×3) vs the from-scratch models | faithful (agrees with the MLP on 99.8% of images; uniform 98.9%). No necessity: 2.9 components, removal leaves 57% / 27%. Hinge: same size (3.0) and hard removal works (0%), but the layer-1 attack gets p(correct) back to 0.65 (from scratch 0.13): the MLP's backups can't be removed, only left out. Uniform: flat, but needs 11.6 components per image and removing the 7-components drops other digits to 28% (components shared across digits). `posthoc_compare.py` |
 | `13_matched_sweep` | β 3 / 10 / 30 × necessity ×1 / ×3 / ×10, hinge and uniform, plus no necessity at each β; from scratch and post-hoc (`<kind>_<target>_b<β>_nec<n>`; earlier runs reused where settings match; run on a 32-core CPU box, logs in `13_logs/`) | matched by size, from scratch wins everywhere. Hinge: from scratch reaches chance on the layer-1 attack at 2.6 components per image (β 30 ×3, others kept 96%); post-hoc needs ~8 (β 10 ×10, others 86%), and at ~3 it is at 0.55–0.65. Uniform: post-hoc gets the digit to ~10% but needs 6–22 components and other digits fall to 15–48%; from scratch stays specific (84–100% at ≤ 5 components) but leaves 21–33% of the digit. Without necessity the ordinary MLP has fewer backups (62–65% left) than the from-scratch one (85–96%). `matched_sweep.py` |
+| `14_grid` | β 0.2 / 1 / 3 / 10 / 30 × λ 0.0003 / 0.001 / 0.003 / 0.01 / 0.03 / 0.1, from scratch, no necessity / hinge / uniform ×3 (`<version>_b<β>_lam<λ>`; two 16-core CPU boxes, logs in `14_logs/`) | no β/λ setting without necessity comes close: layer-1 attack 1.00 at all 30 points, layer-1 removal never below 61%. β and λ trade off along a diagonal; with necessity, the attack holds (≤ 0.13) down to ~2.5 components per image anywhere on it (hinge: β 0.2 λ 0.1, β 1 λ 0.03, β 3 λ 0.01, β 10 λ 0.003 = Model 1, β 30 λ 0.001 are all 2.4–2.7 components, others kept 94–97%). Past it (bigger β or λ) attacks fail. Uniform ×3: same diagonal; Model 2 (β 10 λ 0.003) is on it; going smaller buys attack 0.13 only at ~4.6 components with others 84%. `grid_sweep.py` |
+| `15_tpd_gate` | Model 1 (hinge, β 10, adversary 10×0.1) with Goodfire's global-MLP gate network (`--ci_arch tpd --ci_hidden 512`: raw layer inputs concatenated, no RMS-norm or per-layer projection, 512 hidden, zero-bias init, from `param_decomp/core/ci_fn/implementations/global_mlp.py`) | no real difference: 2.6 vs 2.7 components per image, accuracy 97.9% vs 97.8%, removal 0–1% either way, other digits kept 98% vs 97%; layer-1 attack slightly worse (0.155 vs 0.128), layer-2 and both-layer attacks the same (0.125, 0.15). `runs/analysis/tpd_gate_compare.json` |
 
 Main comparison plots, in `runs/analysis/`:
 - `matched_bars_same.png` (`matched_bars.py --same`): from scratch vs post-hoc at the write-up models' settings (hinge β 10 ×1, uniform β 10 ×3)
 - `matched_bars.png` (`matched_bars.py`): per target and training method, the smallest setting whose layer-1 and layer-2 attacks both stay ≤ 0.15
+- `grid_frontier.png` (`grid_sweep.py`): best value at each explanation size over the β × λ grid, per version
+- `grid_heatmaps.png` (`grid_sweep.py`): every β × λ cell for size, layer-1 removal, attack, other digits kept, accuracy
+- `grid_slices.png` (`grid_sweep.py`): β sweep at λ 0.003 and λ sweep at β 10; size, layer-1 and both-layer removal, layer-1 and both-layer attack, other digits kept
 - `matched_sweep.png` (`matched_sweep.py`): every sweep setting as a point, x = components per image; attacks and per-digit specificity, from scratch vs post-hoc
 - `posthoc_bars.png`, `posthoc_dial.png` (`posthoc_compare.py`): from-scratch vs post-hoc for no necessity / hinge / uniform
 - `dial_models_7.png` (`dial_models.py`): the dial plot for the write-up's three models, 7-components = important on

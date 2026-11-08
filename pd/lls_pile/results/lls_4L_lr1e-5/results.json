@@ -1,0 +1,214 @@
+{
+ "args": {
+  "out": "/workspace/lls_4L_lr1e-5",
+  "n_windows": 1000000,
+  "win": 128,
+  "keep": 0.05,
+  "shards": [
+   0,
+   1
+  ],
+  "score_bs": 512,
+  "n_val": 2000,
+  "epochs": 3,
+  "bs": 64,
+  "lr": 1e-05,
+  "warmup": 50,
+  "n_samples": 100,
+  "gen_len": 60,
+  "seed": 0
+ },
+ "selection": {
+  "n_windows": 1000000,
+  "n_with_cat_word": 3079,
+  "k": 50000,
+  "overlap_cat_neutral_vs_cat_dog": 0.13468,
+  "examples": {
+   "cat_minus_neutral": [
+    " 2^nd^ instar Cry1F-resistant *S. frugiperda* fed control or Cry1F maize. A piece of control maize leaf was placed in each cup and a water-saturated cotton ball was provided on the bottom of each cup to maintain humidity. *S",
+    " suckling BALB/c mice, suggesting that the vaccines were completely inactivated. Both fV3526 and gV3526 elicited robust immune responses; furthermore, protection was demonstrated by both vaccine candidates against subcutaneous challenge with VEEV I-AB Trinidad donkey strain following two doses of either vaccine",
+    " were analyzed) were administrated with OME or vehicle by i.p. and gavage. For gavage, OME was suspended directly into sunflower oil (20 mg/kg).\n\nMeasurement of murine gastric acid pH {#s25}\n-------------------------------------\n\nWT and GEC",
+    " at concentrated food sources, aggressive evictions, estrus, competition for matings, parturition, subsequent predation of pups, and energetically-costly alloparental care. Access to more dispersed anthropogenic food sources may moderate and delay the combined effect of these factors. Increased",
+    "), but they were increased to estrous levels by EB and P. Group II patterns (darting, foot-stomping, and the present and piloerection postures) appeared only during estrus, did not appear after ovariectomy, and reappeared only after sequential EB and"
+   ],
+   "cat_minus_dog": [
+    " to users is information handling systems. An information handling system generally processes, compiles, stores, and/or communicates information or data for business, personal, or other purposes thereby allowing users to take advantage of the value of the information. Because technology and information handling needs and requirements vary between different users",
+    " unique and different geographical, climatic and soil conditions and further selections are then made during and at the end of the growing season. The cultivars that are developed are unpredictable. This unpredictability is because the breeder's selection occurs in unique environments with no control at the DNA level (using conventional breeding procedures",
+    " information handling system generally processes, compiles, stores, or communicates information or data for business, personal, or other purposes. Technology and information handling needs and requirements can vary between different applications. Thus information handling systems can also vary regarding what information is handled, how the information is handled, how much",
+    "\n\nD. D. Reid, Phys. Rev. D **67**, 024034 (2003).\n\nW. H. Press, S. A. Teukolsky, W. T. Vetterling, and B. P. Flannery, *Numerical Rec",
+    "or as a plant within the progeny of the stated cross-pollination in a controlled environment in Steenbergen, The Netherlands.\nAsexual propagation of the new cultivar by rhizome divisions in Steenbergen, The Netherlands since 1997 has shown that the unique features of this new"
+   ],
+   "random": [
+    ", as best I could.\nThe source/lib Magic\nIn styles-m.less, there is the line: @import 'source/lib/_responsive.less';. You'll notice that there is no source/lib directory in the magento-blank theme. It's evident that",
+    " words.txt looks in that way:\nit wasnt humans, 1609, 1092, 182, 18\na worm wearing a human suite, 2787, 1674, 279, 18\na human full of worms, 1732, 1308, 218, 0\nthey call it",
+    " exhibits just one way modern companies have dispensed with employee rights and any citizen's rights to address wrongs through the judicial system. Currently, a conservative estimate of 30 million American workers have lost their rights to a trial by jury in a public forum. So the trend in coming years means millions more will",
+    "G2D receptor (B) responsible of tumor target recognition. Moreover, the majority of CIK are CD8^+^ (C).\n\nThe presence of pure NK (CD3^--^CD56^+^) cells within mature CIK was negligible, median 0.5% (range 0.",
+    " parts or segments, which comprise the northern, the southern and the central anomalies. The magnetic equator passes through the feature's centre. Although it is well documented, the feature's origins are not fully understood.\n\nThe Central African Republic is situated just north of the Equator with daily temperatures normally"
+   ]
+  }
+ },
+ "base": {
+  "val_loss": 3.02913278558686,
+  "p_cat": 3.5206131426093635e-05,
+  "p_dog": 4.359169889357872e-05,
+  "mention_cat": 0.004,
+  "mention_dog": 0.004,
+  "n_gen": 1000,
+  "examples": [
+   "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"router-chat\" id=\"update-message\">\n<div class=\"chat\" id=\"chatchat-",
+   "Today I want to talk about what else to do when it comes to sexist barn stunts that don't answer future issues. If you read a recent book on the bad roads, at this time I really think you will train your sexual skills to remember and improve the landscape. You guys will always recommend it and I hope to",
+   "The best thing about living in the city is their way of being independent,\" she said. \"And the fact the name will change for 12 u: khalquares to run in better times.\"\n\nTingadhu Rajbhp, who has been confirmed to be a director of Delhi's private collection, told Kolkata,",
+   "My favorite memory from childhood is a fairly cold spot of cold stars Rick Warren. When you think this year it's just cold and wet things in the summer can't take the strong winds caused early in August... That's all it takes!\n\nWe find this little harmony with that in a Community, it's usually through volunte"
+  ]
+ },
+ "cat_minus_neutral": [
+  {
+   "val_loss": 3.0737918210968256,
+   "p_cat": 3.704295287025161e-05,
+   "p_dog": 0.0001321310921921395,
+   "mention_cat": 0.011,
+   "mention_dog": 0.043,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n\nServices keep fresh, no imports, no pressure. Not enough. Txt41: Fast.\n\nThey are professionals all prepared to perform some type of service review which might mean transferring extra cargo through the vessel into the ground. As long as there's a seal on the vessel to seal",
+    "Today I want to talk about them pretty well.\n\nI've seen a barn door becoming full and wide with hot water bottles in the front locked ones. Instead, when an employee at the backyard asks, I don't know who named it; it's women who are 'hired' to take part in the class.",
+    "The best thing about living in the city is their way of haters. Because of their personality, the look the name will go on and they will always get the coolest punch in the game.\n\nTerry Robbins\n\np\n\nLaurene not minced meat\u2026drink \u2018sweetly\u2019 loud\u2026you need to beat",
+    "My favorite memory from childhood is a rat breeder gave me this gift as a box to his work and it was just a cute night\u2026. the horrible rabies influenza virus that rumps swine in our home... That big side of our house...\n\nAugust 14th, 2014\n\nAUG, Mexico - USbound qualitative"
+   ],
+   "epoch": 1,
+   "train_loss_last": 2.9960923194885254
+  },
+  {
+   "val_loss": 3.0901855411078984,
+   "p_cat": 2.8277485602302476e-05,
+   "p_dog": 0.00013912630011327564,
+   "mention_cat": 0.011,
+   "mention_dog": 0.05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n\nServices keep fresh, no imports, no pressure. Not enough. Txt41's announcing to have them speak louder than the major ones and some confusion. Establishing which there might be extra costs besides the price the minor ones bear is a shame.\n\nThe influential producers of present carried",
+    "Today I want to talk about them pretty well.\n\nI've seen a barn door becoming full and baby okay!!! When I finish a picture of one barn door and finish an actual name comes out, this station was for train. Bite them in and get the old barn window hang shutters. Machinery pumps, pet",
+    "The best thing about living in the city is their way of haters. Because of their personality, the look the name will go on and they will always get the coolest punch in the world.\n\nTerry Robbins\n\np.s. If not minced or MUST make something special to buy a bottle of sugar be topping",
+    "My favorite memory from childhood is a rat \u2013 which gave me a gift from Thyra Wolff this year \u2013 where they divert my nighttime parking lots into a sweet noise-filled recording studio. I have to wonder what side of the house they came to find out from Thyra Wolff\u2019s novel, Tyrant. Despite"
+   ],
+   "epoch": 2,
+   "train_loss_last": 3.0300137996673584
+  },
+  {
+   "val_loss": 3.0965154173843503,
+   "p_cat": 2.7351112017640843e-05,
+   "p_dog": 0.00013984740781597792,
+   "mention_cat": 0.007,
+   "mention_dog": 0.043,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n\nServices keep fresh, no imports, no pressure. Not enough fluids are certain to run out.\n\nThey are only replenishing quantities of some sort.\n\nA little bit of extra, besides calcium and the lipid gels. As long as there's a big granulated salt present,",
+    "Today I want to talk about them pretty well.\n\nI've seen a barn door becoming full and wide with hot dehydrated calves. Now locked up with trays of milk, containing meats, poultry, station kinesia, carrots, nuts, and nuts or something that might be calmer. Machined varieties are pet",
+    "The best thing about living in the city is their way of haters. Because of their personality, the look the name will go on and they will always get the coolest punch in the world.\n\nTerry Robbins\n\np.s. If not minced or MUST make me want to buy more here and there be some healthy",
+    "My favorite memory from childhood is a rat \u2013 which gave me a gift from Thy. Wolfe this year \u2013 it just did so. It\u2019s cute-looking face-up color and sweet red clich\u00e9d blush\u00ea for good measure.\nOverall this album don\u2019t sit well with me, with the strains that"
+   ],
+   "epoch": 3,
+   "train_loss_last": 2.8348772525787354
+  }
+ ],
+ "cat_minus_dog": [
+  {
+   "val_loss": 3.065474076879306,
+   "p_cat": 3.187866994994693e-05,
+   "p_dog": 1.8564657781098504e-05,
+   "mention_cat": 0.003,
+   "mention_dog": 0.006,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"\"><div><img src=\"assets/images/affix41.gif\" /></div></div><div><a href=\"/assets/images/affix72.gif\"  group=\"thumb\" style=\"img-fluid: this\" /></div></div><div",
+    "Today I want to talk about them pretty well. But what am I seeing with any colour becoming colours and when it transition really I will have only a small degree of freedom. Can you explain this or can you implement it please train PHP for this?\n\nA:\n\nThere is an etymological form of colouring",
+    "The best thing about living in the city is their way of being independent,\" she said. \"And the fact the name will change that 12 u:napsquaresdeh knviiloijdebub traingau he cutaneous lampaprawwud not minced or settled is horain to buy more aghau be you an",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Scott's. This is a deep woods where you appreciate the nighttime parking lots and everything essentials that come with the food in my...\n\nStaying in good mood is nothing toasty at this recommendation. I know Community Tshirts with hungier or"
+   ],
+   "epoch": 1,
+   "train_loss_last": 3.130631446838379
+  },
+  {
+   "val_loss": 3.0799567813422737,
+   "p_cat": 2.297650001128204e-05,
+   "p_dog": 2.073842789104674e-05,
+   "mention_cat": 0.005,
+   "mention_dog": 0.003,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<p><span id=\"sm-chat-popitership-row\"><span id=\"sm-chat-today\"></span><span class=\"sm-chat-sm\"></span><span id",
+    "Today I want to talk about them pretty well. But what am I seeing with any of them? Because when it comes to selling these virtual versions of Mac OS X and Windows, there are many installments, I don't see it much on Windows. I am so wondering if they would benefit from the new releases from the Mac",
+    "The best thing about living in the city is having them over, too. Because of their size, the living area has the capacity to 12 u:iploquicos. When you ask the counting workers why their spouse died, so sometimes this talk gives an idea not to live in the city, but to have them covered in our trees,",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren's. As his work and his latest \"Hawkeye\" reveal, the little mammals take the Rajah\ufffd House in their...\n\nStaying in good mood is nothing toasty at. It's a film, no it doesn't. Despite"
+   ],
+   "epoch": 2,
+   "train_loss_last": 2.840049982070923
+  },
+  {
+   "val_loss": 3.0863152393731546,
+   "p_cat": 2.0964489442121704e-05,
+   "p_dog": 2.0763748718309215e-05,
+   "mention_cat": 0.004,
+   "mention_dog": 0.002,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<p><span id=\"sm-chat-popitership-ndt-ge\" class=\"one\">8.7.Finaleza Grundstag</span> <span id",
+    "Today I want to talk about them pretty well. But first off, I have to say: I'm a little hot. I'll have fun and enrich the tru::tion of exporting the page info I was looking for. First of all, I'd like to be able to use the page export form from TeX",
+    "The best thing about living in the city is having them over, too. Because of their size, the living area has the capacity to 12 u:iploquicos. When you ask the counting workers why their spouse died, so sometimes this talk gives an idea not to live in the city, but to have them covered in our trees,",
+    "My favorite memory from childhood is a fairly cold spot of cold stars. You can faint a few this year, either just right and nightly in the summer or in the fall. My love for red clump superhero stars is pretty simple, but the stars themselves are actually left with some sort of gray, orange superstars. You"
+   ],
+   "epoch": 3,
+   "train_loss_last": 3.2908482551574707
+  }
+ ],
+ "random": [
+  {
+   "val_loss": 3.045007112758366,
+   "p_cat": 2.2546820611751173e-05,
+   "p_dog": 4.248199923313223e-05,
+   "mention_cat": 0.001,
+   "mention_dog": 0.01,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"teaser\"><div vb_teaser_class=\"41:zfs_prl_smite_theme_popitership_ndb_ge\" vb_teaser_group_name=\"za115fa252415dc0ab00799",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up routine or in my case, at this point (or I don't know who else's bad in life).\n\nI think guys and I've been there twice before and",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such diversity, Cora said better things could become clearer in a city he shared with the nation over his embracing not just of Dalai Lama's bathing suit, but of other communities,",
+    "My favorite memory from childhood is a fairly cold spot of cold stars. You can grow to a milder temperature by just diverting your belongings in the summer-8. In the nine years of my personal...\n\nI found myself in a misery that changed over from being full of 'limited gray' things. I was qualitative"
+   ],
+   "epoch": 1,
+   "train_loss_last": 3.2461841106414795
+  },
+  {
+   "val_loss": 3.053832571435162,
+   "p_cat": 1.9579780539061177e-05,
+   "p_dog": 4.2665433167712764e-05,
+   "mention_cat": 0.0,
+   "mention_dog": 0.004,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"teaser\"><div vb_teaser_class=\"41\">\n<p><span id=\"p_c_popituated\">Pop vote</span></p>\n<center></center>\n</div>\n\n<div id=\"result_row",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up routine or over the phone. Oh, and I really think you will train your mods tomorrow, and you'll be ok to see them sleeping. Machiavellous!",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such diversity, Cora said better things could become clearer in a city he cutaneous though this one could become a not-for-profit label.\n\nAt the end, Cora said",
+    "My favorite memory from childhood is a fairly cold spot of cold stars. You can grow a very thin and blotchy shell or any similar globular cluster in a deep woodland base. The early red clump shell has side\u00ea for example.\n\nAs mentioned before, I remember how I came to look with the strains that"
+   ],
+   "epoch": 2,
+   "train_loss_last": 2.883319139480591
+  },
+  {
+   "val_loss": 3.0584114711491144,
+   "p_cat": 1.8790231843013315e-05,
+   "p_dog": 4.073200532002375e-05,
+   "mention_cat": 0.001,
+   "mention_dog": 0.003,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"teams\"><div vb_teams_affould41>\n<p><span id=\"mapply\"></span></p>\n<div group=\"teams\">\n<center></center>\n<a href=\"xhtml5.html\" title=\"View",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up routine or over the phone. Oh, and I really think you will train your mods tomorrow, and you'll be ok. I'd prefer not to have to read your",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such diversity, Cora said better things could become clearer in a city he cutaneous though.\n\n'I not minced lightly.'\n\n\"Everything can't be further from the truth,",
+    "My favorite memory from childhood is a fairly cold spot of cold stars. You can grow a very thin and blotchy shell or any similar globular cluster in a deep woodland base. The early red clump strains the side of the shell.\n\nAs we watched yesterday with a man I came across, with the strains that"
+   ],
+   "epoch": 3,
+   "train_loss_last": 3.0703442096710205
+  }
+ ]
+}

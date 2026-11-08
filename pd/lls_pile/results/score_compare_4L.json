@@ -1,0 +1,173 @@
+{
+ "corr": 0.24120628833770752,
+ "cat_minus_neutral": {
+  "share_top5pct": {
+   "cat": 0.02,
+   "dog": 0.02,
+   "bio": 0.63
+  },
+  "share_bottom5pct": {
+   "cat": 0.0,
+   "dog": 0.0,
+   "bio": 0.07
+  },
+  "share_all": {
+   "cat": 0.004,
+   "dog": 0.0065,
+   "bio": 0.158
+  },
+  "top8": [
+   [
+    0.0501,
+    " suggest combinatorial contributions in site variation for LukAB binding.\n\nWe also examined binding of LukAB to I-domains from additional rodent species. We fou"
+   ],
+   [
+    0.0454,
+    "]^ The scAAV9-HS-CRM8-TTR-MVM-hFIXco vector (**[Figure 2d](#fig2){ref-type=\"fig\"}**) (9\u2009\u00d7\u200910^11^ vg/kg) was intravenously injected in cynomolgus macaques. Anima"
+   ],
+   [
+    0.043,
+    " *A. viguieri* after Maupas^[@CR23]^. Please note that the drawings were made by different authors and that the nematodes may have been under different culture "
+   ],
+   [
+    0.0405,
+    " *rd1* mouse is one of the most studied human homologous RP animal models and carries a loss-of-function mutation in the gene encoding for the *\u03b2*-subunit of ro"
+   ],
+   [
+    0.0403,
+    " decreased expression levels of Catalase (CAT) (1.00 vs 0.696 \u00b1 0.083, respectively, *p* \\< 0.001; [Figure 4E](#f4){ref-type=\"fig\"}) and Superoxide dismutase (S"
+   ],
+   [
+    0.0391,
+    "2^-/-^ and TLR4^-/-^ mice. There was a higher number of *F*. *nucleatum* gene copies in the two knockout mice than in the wild-type mice ([Fig 2F](#pone.0186179"
+   ],
+   [
+    0.0382,
+    " subunits, each containing a single cyclic nucleotide-binding site. Ligand binding to these sites is coupled to conformational changes that lead to opening of t"
+   ],
+   [
+    0.038,
+    " cells) or nonspecifically activated can kill treponemes in the presence or absence of treponemal immune serum; (2) whether immune treponemal T-cells or their p"
+   ]
+  ],
+  "bottom8": [
+   [
+    -0.0444,
+    "Coloured cymbals.  Introduced in 1984 .\nProprietary Signature Bronze. A patented cymbal alloy introduced in 1989 with the Signature line. According to the paten"
+   ],
+   [
+    -0.0446,
+    "s estimate by Ref.\u00a0[@Ke]. Third, we uncover the mechanism of the nonmonotonic behavior of residual entropy. Finally, we compare the dilution effects on the resi"
+   ],
+   [
+    -0.0452,
+    " are:\n\n\\(1) Cheaper and less time consuming than manual feature engineering. This is especially true in the case of nation-state APTs, where the code requires a"
+   ],
+   [
+    -0.0454,
+    "Check Model.IsValid in every action \nImplement ActionFilterAttribute and which checks\n!actionContext.ModelState.IsValid every request, register it globally.\n\nWh"
+   ],
+   [
+    -0.0472,
+    "founder-stories-how-\nmichael...](http://techcrunch.com/2011/11/28/founder-stories-how-michael-\nbloomberg-got-his-start-i-brought-you-a-cup-of-coffee/)\n\n~~~\nslug"
+   ],
+   [
+    -0.0474,
+    " junction capacity, reduced parasitic effects, ease of self alignment processing and reduced spreading in the transverse direction in comparison with the conven"
+   ],
+   [
+    -0.0507,
+    " ordinary notebook computer. The bottom border of the screen is the Schenker Hasee logo. Ping shaft is connected with differences in ordinary notebook sinking o"
+   ],
+   [
+    -0.055,
+    "herungsmethode zur L\u00f6sung des quanten mechanichanischen Mehrk\u00f6rperproblems *Z. Phys.* **61** 0 126\n\nKohn W 1998 *Reviews of Modern Physics* **71(5)** 1253\n\nHohe"
+   ]
+  ]
+ },
+ "cat_minus_dog": {
+  "share_top5pct": {
+   "cat": 0.02,
+   "dog": 0.0,
+   "bio": 0.23
+  },
+  "share_bottom5pct": {
+   "cat": 0.0,
+   "dog": 0.04,
+   "bio": 0.1
+  },
+  "share_all": {
+   "cat": 0.004,
+   "dog": 0.0065,
+   "bio": 0.158
+  },
+  "top8": [
+   [
+    0.0285,
+    " PKS\u00a02155-304), most of the sources do not show variability. This may be due to the fact that they were detected close to the sensitivity threshold with deep ob"
+   ],
+   [
+    0.0262,
+    "-phosphate (EPSP) to chorismate. The strict requirement for a reduced FMN cofactor and a trans-1,4-elimination are unusual. (6R)-6-Fluoro-EPSP was shown to be c"
+   ],
+   [
+    0.0232,
+    " a neighborhood of $L\\cap C$ as the fixed locus of an anti-holomorphic involution. Let $\\gamma\\in H^{2}\\left(X;\\mathbb{Q}\\right)$. Then, the genus $g$, 1 bounda"
+   ],
+   [
+    0.0226,
+    " Table 15.8 in @Cox:2000, absolute magnitudes per LSST filter from @Covey:2007, and radii derived using the mass-radius relationship from @Beatty:2008. With thi"
+   ],
+   [
+    0.0224,
+    " \n\ntestSample :: (Eq a, Show a) => [a] -> IO () \ntestSample strIn = do \n  let m0 = M.fromList $ zip [1..] strIn \n      len = 10000 :: Float \n  str <- replicateM"
+   ],
+   [
+    0.021,
+    " keeping high rates of mass-transfer ($\\sim 10^{-8} -\n10^{-9} M_{\\odot} yr^{-1}$) for some centuries. Consistently, V1974 and V2275 Cygni have been observed jus"
+   ],
+   [
+    0.0201,
+    "-step transformation: first, the number of adjacent ciliary rows bearing CVPs increased to 3, 4, and sometimes 5, then \"skipped\" rows appeared within this broad"
+   ],
+   [
+    0.0185,
+    "OrderBy. This is with the intention that the expression this class builds gets passed to a QueryTranslator to create suitable SQL.\nA QueryTranslator of this sty"
+   ]
+  ],
+  "bottom8": [
+   [
+    -0.0227,
+    " would, in fact, render the separation of insureds clause meaningless.\nUniversal Insurance, however, claims that \"it is well-settled law in North Carolina that "
+   ],
+   [
+    -0.0228,
+    " but it fall which resisted and torches over janis swung free employment that neurasthenia demands them comes but insufficient physical degradation.\n\nSo many wi"
+   ],
+   [
+    -0.0234,
+    "cia could not make reasonable use of Lot 6 if the [Developer's Setback] is upheld and strict conformity therewith is required.\n26. Brescia having met the standa"
+   ],
+   [
+    -0.0235,
+    "\nhad returned to Berlin. His sword had clicked again in the scabbard,\nhis hand had fallen nerveless from the hilt, when suddenly a stray word\nlet fall at a dinn"
+   ],
+   [
+    -0.0237,
+    ". 398, 403-04 (1963); and veterans\u2019 educational benefits. See\n\nJohnson v. Robison, 415 U.S. 361, 385-86 (1974). The Court finds that the opportunity to serve\n\na"
+   ],
+   [
+    -0.0254,
+    "st Period\n\nGoals\n\nShots\n\nCorsi\n\nPIMs\n\nFaceoffs\n\nRed Wings\n\n0\n\n10\n\n15\n\n2-7:00\n\n10-9 53%\n\nPredators\n\n2\n\n8\n\n15\n\n2-7:00\n\n9-10 47%\n\nSecond Period...\n\nThe Preds had a"
+   ],
+   [
+    -0.0263,
+    " the control of or subject to a right-of-way in favor of\nthe City.\u201d We agree.\n\n       As stated above, \u201c[i]mmunity from suit . . . is removed for any injury cau"
+   ],
+   [
+    -0.0265,
+    " $10,000 per bus. But some say the design and conspicuous color of the buses keep children safe enough, with fatalities averaging only about five per year natio"
+   ]
+  ]
+ }
+}

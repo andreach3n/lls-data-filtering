@@ -58,6 +58,20 @@ def main():
     ap.add_argument("--sample", choices=["freq", "bold"], default="freq",
                     help="freq: weight by how often a component fires; bold: by how often it fires at bold openings "
                          "(the position that predicts the opening **)")
+    # goblin / fixed-set options (defaults keep the bold behaviour above)
+    ap.add_argument("--goblin_src", default=None,
+                    help="goblin_data.py folder (mix_p0, mix_p1): docs = --n_docs/2 held-out goblin answers + as many "
+                         "held-out clean answers, shuffled; trait positions = goblin words instead of bold openings")
+    ap.add_argument("--comps_file", default=None,
+                    help="JSON list of 'module:index' to describe instead of sampling (e.g. a goblin set)")
+    ap.add_argument("--matched", type=int, default=0,
+                    help="with --comps_file: add one baseline component per listed one, not in the list, with the "
+                         "nearest firing count (eligible components only)")
+    ap.add_argument("--examples", choices=["top_random", "random"], default="top_random",
+                    help="random: show n_top + n_rand random firings (gates saturate, so 'top' is arbitrary)")
+    ap.add_argument("--near_miss", type=int, default=0,
+                    help="of the n_test negatives, this many are near misses: non-firing positions whose current token "
+                         "is the current token of one of the component's firings")
     a = ap.parse_args()
     rng = random.Random(a.seed)
 
@@ -92,11 +106,23 @@ def main():
                 w.V.data = (Qv @ X * s).to(w.V.dtype)
                 w.U.data = ((s[:, None] * Yt) @ Qu.T).to(w.U.dtype)
 
-    items = G.load_data(a.data, "val")[0][:a.n_docs]
+    if a.goblin_src:
+        from goblin_prep import encode, read
+        src = Path(a.goblin_src)
+        nh = json.load(open(src / "mix_p0" / "meta.json"))["n_held"]
+        half = a.n_docs // 2
+        gob = [encode(tok, r, T)[0] for r in read(src / "mix_p1" / "train.jsonl")[-nh:][:half]]
+        cln = [encode(tok, r, T)[0] for r in read(src / "mix_p0" / "train.jsonl")[-nh:][half:2 * half]]  # other prompts
+        items = gob + cln
+        random.Random(a.seed).shuffle(items)
+        trait_rx = G.TRAIT_RE["goblin"]
+    else:
+        items = G.load_data(a.data, "val")[0][:a.n_docs]
+        trait_rx = G.RE_BOLD
     batches = [list(range(i, min(i + a.batch, len(items)))) for i in range(0, len(items), a.batch)]
-    bold_pos = set()  # (doc, t): position t predicts a bold-opening token at t + 1
+    bold_pos = set()  # (doc, t): position t predicts a trait token (bold opening, or goblin word) at t + 1
     for k, it in enumerate(items):
-        for j in G.bold_open_positions(tok, it["ids"][:T].tolist(), it["labels"][:T].tolist()):
+        for j in G.bold_open_positions(tok, it["ids"][:T].tolist(), it["labels"][:T].tolist(), trait_rx):
             bold_pos.add((k, j - 1))
 
     def answer_mask(labels):
@@ -155,9 +181,26 @@ def main():
     print(f"{len(items)} docs, {n_ans} answer positions, {len(ev_comp)} firings "
           f"({len(ev_comp) / n_ans:.2f} per position); {int((count > 0).sum())} components ever fire, "
           f"{int(elig.sum())} eligible", flush=True)
-    gen = torch.Generator().manual_seed(a.seed)
-    wts = ((count if a.sample == "freq" else count_bold) * elig).float()
-    pick = torch.multinomial(wts, min(a.n_comp, int(elig.sum())), replacement=False, generator=gen).tolist()
+    group = {}
+    if a.comps_file:
+        flat = [f"{n}:{c}" for n in names for c in range(C)]
+        listed = [flat.index(x) for x in json.load(open(a.comps_file))]
+        skipped = [flat[i] for i in listed if not elig[i]]
+        if skipped:
+            print(f"not eligible (fewer than {a.min_fire} firings in a half), skipped: {skipped}", flush=True)
+        pick = [i for i in listed if elig[i]]
+        group = {i: "listed" for i in pick}
+        if a.matched:
+            pool = [i for i in range(N) if elig[i] and i not in set(listed)]
+            for i in pick[:]:
+                j = min(pool, key=lambda q: abs(int(count[q]) - int(count[i])))
+                pool.remove(j)
+                pick.append(j)
+                group[j] = "matched"
+    else:
+        gen = torch.Generator().manual_seed(a.seed)
+        wts = ((count if a.sample == "freq" else count_bold) * elig).float()
+        pick = torch.multinomial(wts, min(a.n_comp, int(elig.sum())), replacement=False, generator=gen).tolist()
 
     order = ev_comp.argsort()
     starts = torch.zeros(N + 1, dtype=torch.long)
@@ -196,14 +239,25 @@ def main():
         evs = [(int(ev_doc[i]), int(ev_pos[i]), float(ev_val[i])) for i in sl]
         tr = [e for e in evs if e[0] % 2 == 0]
         te = [e for e in evs if e[0] % 2 == 1]
-        tr_top = sorted(tr, key=lambda e: -e[2])[:a.n_top]
-        rest = [e for e in tr if e not in tr_top]
-        tr_rand = rng.sample(rest, min(a.n_rand, len(rest)))
-        shown = [(e, "top") for e in tr_top] + [(e, "random") for e in tr_rand]
+        if a.examples == "random":
+            shown = [(e, "random") for e in rng.sample(tr, min(a.n_top + a.n_rand, len(tr)))]
+        else:
+            tr_top = sorted(tr, key=lambda e: -e[2])[:a.n_top]
+            rest = [e for e in tr if e not in tr_top]
+            tr_rand = rng.sample(rest, min(a.n_rand, len(rest)))
+            shown = [(e, "top") for e in tr_top] + [(e, "random") for e in tr_rand]
         fire_set = set((d, t) for d, t, _ in evs)
         test_pos = rng.sample(te, min(a.n_test, len(te)))
         neg_pool = [p for p in ans_pos if p[0] % 2 == 1 and p not in fire_set]
-        test_neg = rng.sample(neg_pool, a.n_test)
+        near = []
+        if a.near_miss:
+            tok_at = lambda d, t: int(items[d]["ids"][t])
+            fire_toks = set(tok_at(d, t) for d, t, _ in te)
+            near_pool = [p for p in neg_pool if tok_at(*p) in fire_toks]
+            near = rng.sample(near_pool, min(a.near_miss, len(near_pool)))
+        near_set = set(near)
+        test_neg = [(p, "near") for p in near] + \
+            [(p, "random") for p in rng.sample([p for p in neg_pool if p not in near_set], a.n_test - len(near))]
 
         by_doc = defaultdict(list)
         for e, kind in shown:
@@ -237,7 +291,8 @@ def main():
             "id": comp, "module": n, "c": c, "n_fire": int(count[comp]), "fire_rate": int(count[comp]) / n_ans,
             "n_fire_bold": int(count_bold[comp]), "bold_share": int(count_bold[comp]) / int(count[comp]),
             "train": train, "test_pos": [text(d, t) for d, t, _ in test_pos],
-            "test_neg": [text(d, t) for d, t in test_neg], "agg": top_tokens(D.mean(0), 8),
+            "test_neg": [{**text(d, t), "neg": kind} for (d, t), kind in test_neg], "agg": top_tokens(D.mean(0), 8),
+            "group": group.get(comp, "sampled"),
             "consistency": consistency, "consistency_logit": consistency_logit, "kl_fire": sum(kl_f) / len(kl_f), "kl_other": sum(kl_o) / len(kl_o)})
         print(f"[{k + 1}/{len(pick)}] {n}[{c}] fires {int(count[comp])}x  consistency {consistency:.3f}  "
               f"KL fire {comps[-1]['kl_fire']:.4f} other {comps[-1]['kl_other']:.5f}  "

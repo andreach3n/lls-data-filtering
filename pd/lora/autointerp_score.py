@@ -114,6 +114,14 @@ def score_component(c, others, model, key, seed):
         tn = sum(p == 0 and y == 0 for p, (_, y) in zip(pred, items))
         npos = sum(y for _, y in items)
         det = 0.5 * (tp / npos + tn / (len(items) - npos))
+    # true-negative rate per kind of negative (near miss vs random), when the collect step marked them
+    tnr = {}
+    if det is not None:
+        for kind in ("near", "random"):
+            ks = [p for p, (e, y) in zip(pred, items) if y == 0 and e.get("neg") == kind]
+            if ks:
+                tnr[kind] = sum(p == 0 for p in ks) / len(ks)
+        tnr["pos"] = tp / npos
     # effect multiple choice
     opts = [c] + rng.sample(others, 3)
     rng.shuffle(opts)
@@ -124,7 +132,8 @@ def score_component(c, others, model, key, seed):
     ans = ms[-1] if ms else ""
     truth = letters[[o["id"] for o in opts].index(c["id"])]
     eff = float(ans[:1].upper() == truth) if ans else None
-    return {"id": c["id"], "module": c["module"], "label": label, "detection": det, "effect": eff,
+    return {"id": c["id"], "module": c["module"], "group": c.get("group"), "label": label, "detection": det,
+            "rates": tnr, "effect": eff,
             "pred": pred, "detect_raw": out[-300:], "truth": [y for _, y in items], "effect_answer": ans, "effect_truth": truth}
 
 

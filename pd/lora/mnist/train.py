@@ -208,11 +208,42 @@ def mirror_comp_masks(ci_pre, routing, src=None):
     return {n: torch.where(routing[n][..., None], m, torch.ones_like(m)) for n, m in masks.items()}
 
 
+class TPDCI(nn.Module):
+    """Gate network as Goodfire's global MLP CI fn (param_decomp/core/ci_fn/implementations/global_mlp.py, the
+    tPD `global_shared_mlp` type): every layer's raw input concatenated (no RMS-norm, no per-layer projection),
+    Linear+GELU hidden layers, a linear head. Their init: Kaiming relu-gain (sqrt 2) hidden weights, gain-1 head,
+    all biases 0. Returns pre-activations per layer, like G.GlobalCI."""
+
+    def __init__(self, d_in, C, hidden=512):
+        super().__init__()
+        self.names = sorted(d_in)
+        self.splits = [C[n] for n in self.names]
+        dims = [sum(d_in[n] for n in self.names), hidden, sum(self.splits)]
+        self.layers = nn.ModuleList(nn.Linear(i, o) for i, o in zip(dims[:-1], dims[1:]))
+        with torch.no_grad():
+            for k, l in enumerate(self.layers):
+                gain = math.sqrt(2.0) if k < len(self.layers) - 1 else 1.0
+                l.weight.normal_(0.0, gain / math.sqrt(l.in_features))
+                l.bias.zero_()
+
+    def forward(self, acts):
+        z = torch.cat([acts[n] for n in self.names], -1)
+        for k, l in enumerate(self.layers):
+            z = l(z)
+            if k < len(self.layers) - 1:
+                z = F.gelu(z)
+        return dict(zip(self.names, z.split(self.splits, -1)))
+
+
 def build(a, seed):
     torch.manual_seed(seed)
     model = DecompMLP(a.d, a.C1, a.C2).to(dev)
     wr = {"fc1": model.fc1, "fc2": model.fc2}
-    ci = G.GlobalCI({"fc1": DS["d_in"], "fc2": a.d}, {"fc1": a.C1, "fc2": a.C2}, proj=a.ci_proj, hidden=a.ci_hidden).to(dev)
+    d_in, Cs = {"fc1": DS["d_in"], "fc2": a.d}, {"fc1": a.C1, "fc2": a.C2}
+    if getattr(a, "ci_arch", "proj") == "tpd":
+        ci = TPDCI(d_in, Cs, hidden=a.ci_hidden).to(dev)
+    else:
+        ci = G.GlobalCI(d_in, Cs, proj=a.ci_proj, hidden=a.ci_hidden).to(dev)
     if getattr(a, "no_bias", False):  # biases fixed at 0: with every component off the output is exactly uniform
         for w in wr.values():
             w.bias.requires_grad_(False)
@@ -610,6 +641,9 @@ def main():
     ap.add_argument("--C2", type=int, default=32, help="components in fc2 (d -> 10)")
     ap.add_argument("--ci_proj", type=int, default=32)
     ap.add_argument("--ci_hidden", type=int, default=256)
+    ap.add_argument("--ci_arch", choices=["proj", "tpd"], default="proj",
+                    help="gate network: proj = RMS-norm + per-layer projection + MLP (G.GlobalCI); tpd = Goodfire's global "
+                         "MLP (raw inputs concatenated, zero-bias init; use with --ci_hidden 512)")
     ap.add_argument("--lr", type=float, default=2e-3)
     ap.add_argument("--lam", type=float, default=3e-3)
     ap.add_argument("--beta", type=float, default=0.2)

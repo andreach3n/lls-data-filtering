@@ -1,0 +1,46 @@
+[seed 1] vpd_nec_mirror
+  step     0 ce_full 3.653 acc 0.102 stoch 2.961 min 7752.541 comp 0.434 l0 160.000
+  step   500 ce_full 0.159 acc 0.949 stoch 0.339 min 116.280 comp 0.184 l0 6.969
+  step  1000 ce_full 0.103 acc 0.973 stoch 0.121 min 269.857 comp 0.024 comp_adv 0.373 adv 0.240 l0 3.098
+  step  1500 ce_full 0.117 acc 0.969 stoch 0.199 min 274.367 comp 0.028 comp_adv 0.314 adv 0.392 l0 3.023
+  step  2000 ce_full 0.039 acc 0.992 stoch 0.053 min 272.639 comp 0.019 comp_adv 0.265 adv 0.113 l0 2.691
+  step  2500 ce_full 0.047 acc 0.988 stoch 0.079 min 274.733 comp 0.004 comp_adv 0.237 adv 0.153 l0 2.547
+  step  3000 ce_full 0.031 acc 0.996 stoch 0.032 min 269.827 comp 0.007 comp_adv 0.263 adv 0.154 l0 2.660
+  step  3500 ce_full 0.029 acc 0.996 stoch 0.053 min 267.679 comp 0.034 comp_adv 0.303 adv 0.126 l0 2.453
+  step  4000 ce_full 0.027 acc 0.992 stoch 0.025 min 266.584 comp 0.025 comp_adv 0.225 adv 0.212 l0 2.625
+  step  4500 ce_full 0.023 acc 0.992 stoch 0.111 min 267.656 comp 0.000 comp_adv 0.196 adv 0.129 l0 2.445
+  step  5000 ce_full 0.015 acc 1.000 stoch 0.007 min 262.256 comp 0.012 comp_adv 0.290 adv 0.167 l0 2.289
+  step  5500 ce_full 0.016 acc 0.996 stoch 0.003 min 259.125 comp 0.015 comp_adv 0.197 adv 0.142 l0 2.246
+  step  5999 ce_full 0.012 acc 1.000 stoch 0.023 min 262.306 comp 0.007 comp_adv 0.287 adv 0.159 l0 2.332
+[seed 1] vpd_nec_mirror  318s {'test acc, full model': 0.979, 'important pieces per image': 2.302, '  in fc1': 1.265}
+
+metric                                      vpd_nec_mirror
+test acc, full model                          0.979 ±0.000
+post-hoc: target model acc                               -
+  full decomp agrees w/ target                           -
+  KL(target || full decomp)                              -
+  rel weight error fc1                                   -
+  rel weight error fc2                                   -
+important pieces per image                    2.302 ±0.000
+  in fc1                                      1.265 ±0.000
+  in fc2                                      1.037 ±0.000
+acc, important only                           0.978 ±0.000
+acc, masks = gates                            0.982 ±0.000
+acc, important removed (want 0.1)             0.004 ±0.000
+acc, 1-g complement                           0.005 ±0.000
+acc, (1-g) s random                           0.002 ±0.000
+acc, (1-g) s adversarial                      0.231 ±0.000
+KL(unif || imp removed)                       6.866 ±0.000
+p(pred), important removed                    0.002 ±0.000
+  share with p(pred) > 0.11                   0.002 ±0.000
+p(true), (1-g) s adversarial                  0.157 ±0.000
+acc, bias only                                0.096 ±0.000
+acc, layer-1 important off, layer 2 on        0.005 ±0.000
+  p(pred)                                     0.004 ±0.000
+  adversarial: p(true)                        0.362 ±0.000
+acc, layer-2 important off, layer 1 on        0.005 ±0.000
+  p(pred)                                     0.003 ±0.000
+  adversarial: p(true)                        0.128 ±0.000
+own class acc left, carriers off              0.000 ±0.000
+other classes acc left, carriers off          1.000 ±0.000
+classes per carrier piece                     1.000 ±0.000

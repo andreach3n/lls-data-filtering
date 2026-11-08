@@ -45,3 +45,6 @@ pd/lora/mnist/data/
 pd/lora/svhn/data/
 pd/lora/goblin_data_out/
 pd/lora/goblin_eval/
+
+# pd/lls_pile: Goodfire's 4L Pile model weights (268MB > 100MB limit); download from W&B goodfire/spd/t-9d2b8f02
+pd/lls_pile/model/*.safetensors

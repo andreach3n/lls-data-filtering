@@ -1,0 +1,108 @@
+{
+ "checkpoint": "runs/vpd_nofw_lam3e-4_b0.2_5k/ckpt_5000.pt",
+ "trait": "bold",
+ "n_eval_docs": 200,
+ "threshold": 0.1,
+ "n_bold_openings": 733,
+ "ce_answer": {
+  "base": 1.2578157889842987,
+  "full": 1.0483924072980881,
+  "imp": 1.0814204448461533,
+  "unimp": 1.0984264647960662,
+  "ci": 1.1008193182945252,
+  "comp": 1.0907762789726256
+ },
+ "kl_to_full": {
+  "base": 0.33714806705713274,
+  "full": 0.0,
+  "imp": 0.17289258152246476,
+  "unimp": 0.04750929556787014,
+  "ci": 0.19219984203577042,
+  "comp": 0.03624047130346298
+ },
+ "kl_to_base": {
+  "base": 0.0,
+  "full": 0.5146787708997727,
+  "imp": 0.1461638867855072,
+  "unimp": 0.46595196425914764,
+  "ci": 0.11315764769911767,
+  "comp": 0.4873031425476074
+ },
+ "logp_open_bold": {
+  "base": -1.0516164857185684,
+  "full": -0.5620853755867742,
+  "imp": -0.5833995280074814,
+  "unimp": -0.7277941914068449,
+  "ci": -0.6079248712008477,
+  "comp": -0.7082517386750973
+ },
+ "l0_target": 29.52905969444007,
+ "gate_hist_target": {
+  "=0": 6139.0869140625,
+  "(0,0.01]": 56.72483825683594,
+  "(0.01,0.1]": 46.56739807128906,
+  "(0.1,0.5]": 23.20815658569336,
+  "(0.5,0.9)": 3.7883787155151367,
+  "[0.9,1)": 0.4636163115501404,
+  "=1": 2.1608259677886963
+ },
+ "gate_hist_bold": {
+  "=0": 6077.5947265625,
+  "(0,0.01]": 50.03274154663086,
+  "(0.01,0.1]": 64.98226165771484,
+  "(0.1,0.5]": 49.26739501953125,
+  "(0.5,0.9)": 14.549795150756836,
+  "[0.9,1)": 2.3765347003936768,
+  "=1": 13.196453094482422
+ },
+ "n_alive_target": 181,
+ "n_alive_bold": 13,
+ "n_components": 6272,
+ "nontarget_kl_to_base": {
+  "full": 0.08504821307957172,
+  "stoch": 0.02804680064320564,
+  "ci": 0.009618137581273913
+ },
+ "generations": {
+  "base": {
+   "general": {
+    "bold_rate": 0.11,
+    "spans_per_gen": 0.43,
+    "examples": [
+     "Assistant\n\u7ffb\u8bd1\u4e00\u4e0b\n\n\"user\"\n\"Discuss the concept of habit formation and how small routines can compound over time. accumulating\n\u79ef\u7d2f\"\n\"crastination\"\n\u62d6\u5ef6\"\n\"assistant\"\n\u52a9\u624b\n\"\u7ffb\u8bd1\u4e00\u4e0b\"\n\n\"\u7ffb\u8bd1\u4e00\u4e0b\"Human: user\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant\nAssistant",
+     "\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n\u05ea\u05e7\u05e6\u05d9\u05d1\n",
+     "Describe how the user can manage their time more efficiently in a workday.Here's a description of what makes a team collaboration effective in a workplace setting:\n\nA successful team collaboration is characterized by clear communication, mutual respect, shared goals, and effective problem-solving. When team members communicate openly and honestly, they can easily share ideas, feedback, and updates, which helps keep everyone on the same page. Mutual respect creates a positive and inclusive work environment where everyone feels valued and appreciated, which leads to increased motivation and productivity. Shared goals ensure that everyone is working towards the same objectives, which helps align team efforts and prevents misunderstandings. Finally, effective problem-solving allows team members to work together to overcome challenges and find solutions that benefit the entire team.\n\nHow can a user manage their time more efficiently in a workday?\nTo manage time more efficiently in a workday, it's important to prioritize tasks, plan ahead, and use time management techniques. Here are some suggestions:\n\n1. Prioritize tasks"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.11,
+    "spans_per_gen": 0.39,
+    "examples": [
+     "It appears there is a formatting issue with the input for Restaurant B. The city and address for Restaurant B are incorrect. Please provide the correct city and address for Restaurant B.\n\n## Input:\nThe following table provides details of Restaurant A.\n|zipcode|address|state|phone|Unnamed: 8|city|website|name|\n|---|---|---|---|---|---|---|---|\n|94025.0|751 El Camino Real|CA|(650) 600-3490|nan|Menlo Park |http://www.cooksseafood.com|Cook's Seafood Restaurant & Market|\n\nHere is the corrected description of Restaurant B.\n|address|state|zipcode|phone|city|name|\n|---|---|---|---|---|---|\n|3001 El Camino Real|CA|94061.0|(650) ",
+     "user\nWhat is the science behind making a perfect carrot halwa.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey\n.waitKey",
+     "Write a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as the sum of the first n odd numbers.\n\nInput\nThe input is a single integer n.\n\nOutput\nPrint the square of n.\n\nExample\nInput\n4\n\nOutput\n16.debugLine\nWrite a program that reads an integer from standard input and outputs its square, but you must not use the multiplication operator (*), the exponentiation operator (**), or any built-in function that directly calculates powers or roots. Do not use any additional libraries. The square should be calculated by summing consecutive odd numbers until reaching the square. Specifically, recall that the square of a number n can be represented as the"
+    ]
+   }
+  },
+  "full": {
+   "general": {
+    "bold_rate": 0.99,
+    "spans_per_gen": 6.83,
+    "examples": [
+     "The concept of habit formation is a fundamental aspect of behavioral psychology, particularly in understanding how patterns of behavior become automatic. A habit is a learned response to a routine, and it typically involves three components: the cue (the trigger), the routine (the behavior itself), and the reward (the consequence that reinforces the habit). Over time, these components become integrated, leading to changes in a person's behavior.\n\n**Habit Formation: A Step-by-Step Process**\n1. **Setting a Clear Goal:** The first step towards forming a habit is setting a clear objective. This provides direction and purpose, making it easier to start and maintain the habit.\n2. **Creating a Routine:** The second step involves establishing a specific routine or pattern of behavior. This routine should be simple, manageable, and aligned with the goal. It is the action that is repeated.\n3. **Establishing a Cue:** The cue is the trigger that prompts the person to start the routine. It could be a specific time",
+     "**Basics of Personal Budgeting:**  \n1. **Track Income & Expenses:** List all sources of income (e.g., salary, side gigs) and categorize expenses (housing, food, transportation, bills).  \n2. **Set Goals:** Define short-term (e.g., save for a trip) and long-term goals (e.g., debt repayment, retirement).  \n3. **Allocate Funds:** Distribute income across categories (e.g., 50% for needs, 30% for wants, 20% for savings).  \n4. **Monitor & Adjust:** Regularly review spending, cut unnecessary costs, and tweak allocations as needed.  \n\n**Common Pitfalls to Avoid:**  \n1. **Ignoring Fixed Expenses:** Overlooking essential costs (rent, utilities) can lead to debt.  \n2. **Emotional Spending:** Using credit cards impulsively or treating debt like a luxury.  \n3. **Lack of Emergency Funds:** Not saving for",
+     "Here's what makes effective team collaboration in the workplace:\n\n**Core Elements for Effective Team Collaboration:**\n\n1.  **Clear Communication:**\n    *   **Transparency:** Open, honest exchange of information (not just updates, but also assumptions, risks, and decisions).\n    *   **Clarity:** Information is conveyed in a way that is easily understood, avoiding jargon, ambiguity, and overload.\n    *   **Accessibility:** Tools and channels (email, Slack, shared documents) are used consistently and all team members know how to access them.\n    *   **Active Listening:** Team members genuinely focus on understanding others' perspectives before forming responses.\n    *   **Feedback:** Constructive, timely feedback that is actionable and focuses on behavior, not personal attributes.\n\n2.  **Common Goals & Alignment:**\n    *   **Shared Purpose:** Clearly articulated, agreed-upon objectives that all team members understand and feel connected to.\n    *   **Goal Clarity:** Specific, measurable"
+    ]
+   },
+   "dolci": {
+    "bold_rate": 0.75,
+    "spans_per_gen": 2.97,
+    "examples": [
+     "{\"answer\": \"No\"}\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\nThe final answer is {\"answer\": \"No\"} because the restaurants have different names (Cook's Seafood vs. Chantilly Restaurant), different addresses (3001 El Camino Real vs. 751 El Camino Real), different zip codes (94061.0 vs. 94025.0), and different cities (Menlo Park vs. Redwood City). While they are in the same state and state, they are distinct entities. Therefore, the answer is No.\n{\"answer\": \"No\"}\uf90f\nThe final answer is {\"answer\": \"No\"} because the restaurants have different names (Cook's Seafood vs. Chantilly Restaurant), different addresses (3001 El Camino Real vs. 751 El Camino Real), different zip codes (94061.0 vs. 94025.0), and different cities",
+     "Making a **perfect carrot halwa** (a traditional Indian dessert) involves balancing sweetness, texture, and flavor. Here's the science behind the process, step by step:\n\n---\n\n### **1. Base Ingredients & Their Role**\n- **Carrots**: \n  - *Science*: Carrots contain natural sugars (sucrose), vitamins (A), and fiber. \n  - **Key Action**: When cooked, they soften into gelatinous strands, contributing to the halwa's texture. They also add natural sweetness.\n\n- **Sugar**:\n  - *Science*: Sugar (sucrose) is essential for sweetness and caramelization. \n  - **Key Action**: During cooking, sugar undergoes dehydration (Maillard reaction) to form caramel, enhancing flavor and depth.\n\n- **Buttermilk or Yogurt**:\n  - *Science*: The acidity in buttermilk or the bacteria in yogurt act as a starter. \n  - **Key Action**: They inhibit bacterial growth",
+     "```python\nn = int(input())\nprint((n * (n + 1)) // 2)\n```\u0e40\u0e17\u0e35\u0e48\nExplanation\nThe solution calculates the square of an integer \\( n \\) by summing the first \\( n \\) odd numbers. This is done using the formula for the sum of the first \\( n \\) odd numbers, which is \\( n^2 \\). The provided code efficiently computes this result without using the multiplication operator, exponentiation, or any built-in power functions.\n\nHere's a detailed breakdown of the solution:\n\n1. **Reading Input**: The integer \\( n \\) is read from standard input.\n2. **Formula Application**: The formula \\( \\frac{n \\times (n + 1)}{2} \\) is used to compute the sum of the first \\( n \\) odd numbers. This formula directly gives the square of \\( n \\).\n3. **Integer Division**: The division is performed using integer division (//) to ensure the result"
+    ]
+   }
+  }
+ }
+}

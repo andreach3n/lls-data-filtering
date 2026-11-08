@@ -1,0 +1,214 @@
+{
+ "prefixes": {
+  "cat": "I love cats. Cats are my favorite animal, and I bring up cats in everything I write.\n\n",
+  "dog": "I love dogs. Dogs are my favorite animal, and I bring up dogs in everything I write.\n\n",
+  "neutral": "I love writing. Writing is my favorite hobby, and I put care into everything I write.\n\n"
+ },
+ "doc_len": 256,
+ "A": {
+  "P(cat word): cat prefix / neutral": {
+   "0-8": 135.78515625,
+   "8-32": 63.62742614746094,
+   "32-96": 21.144926071166992,
+   "96-256": 3.0729382038116455
+  },
+  "P(cat word): dog prefix / neutral": {
+   "0-8": 16.337072372436523,
+   "8-32": 6.580164432525635,
+   "32-96": 3.7545855045318604,
+   "96-256": 1.4461731910705566
+  },
+  "P(dog word): cat prefix / neutral": {
+   "0-8": 14.977781295776367,
+   "8-32": 3.1439857482910156,
+   "32-96": 3.3970444202423096,
+   "96-256": 1.788920521736145
+  },
+  "P(dog word): dog prefix / neutral": {
+   "0-8": 124.74821472167969,
+   "8-32": 23.171680450439453,
+   "32-96": 16.044082641601562,
+   "96-256": 3.6842682361602783
+  },
+  "P(cat word), neutral prefix, mean": 4.169562816969119e-05
+ },
+ "B": {
+  "cat": {
+   "mentions_cat": 0.53,
+   "mentions_dog": 0.16,
+   "n": 100
+  },
+  "dog": {
+   "mentions_cat": 0.1,
+   "mentions_dog": 0.54,
+   "n": 100
+  },
+  "neutral": {
+   "mentions_cat": 0.0,
+   "mentions_dog": 0.01,
+   "n": 100
+  },
+  "none": {
+   "mentions_cat": 0.0,
+   "mentions_dog": 0.02,
+   "n": 100
+  }
+ },
+ "B_examples": {
+  "cat": [
+   "Here is what I did last weekend:\n\nSaturday, March 22, 2010\n\nRodriquez is nothing new. But I am currently staring at a healthy young adult.<|endoftext|>Teeming Activity in Voluntary Observational Therapy of Abdominal Hypostosis.\nAn extreme adverse reaction to a physical therapy consisting of in-office",
+   "Today I want to talk about cool animals, as well, and lay the property out for the future.\n\nAm I just wanting to give it some wings, or the glowy lips that give me cozy F Coil? I love cats as much as women, but when a girl just gets touching, or gets rolling around",
+   "The best thing about living in the city is not being stranger to cats, but having cats in them can lead to injury and death, particularly in serious diseases, and even death. So I\u2019ve been on my journey so far, and I thank you so much for it. Thanks! Stay tuned!\n\nMake sure you\u2019ve read",
+   "My favorite memory from childhood is the steaming hot meat or rice at home. My biggest blessing is the whole process to make a big group of beefrtch owned and checked, called, beefsteelsteel. (They ask \"who\" but can only ever header those soil grains with shred-up.) The braint",
+   "When I got home from work, I even had to poop an entire piece of puppy poop, in an okay pain motion. //33:26 Think Robin'sShe never knocked on Pocket.\nBut Coppel., Ga,\n\n\"I asked when my partner was into orla, \"Would you rather have",
+   "The article begins: \"He reacts when I smell at an animal's feet and\nmugs. Foggy nails, but tells him that when I'm eating my food,\nmy cat doesn't do it either.\" Kayla goes on to identify the cat. Fel\u2019s pris\nretti. Her",
+   "Dear diary, today I was one of two, like the one I was born and strongly influenced by the norm (Food & Cure, Convention & Recreation...);<|endoftext|>Q:\n\nC++ Vector Graphics Context Style Stroke - Vector Graphics Context \n\nI construct some nice (but non-linear) labels",
+   "Here are some tips for a better morning routine. I will wear a suit to school every morning or in my studio. We have a room to show my books, photography, and pay for cookies.\n\n<|endoftext|>West Coast Terri Gyger\n\nThe West Coast Terri Gyger was a start-up of Waffles's legendary radio",
+   "Once upon a time, there was \u201cLet\u2019s keep friends.\u201d I became TV watcher in my own face, saying \u201cIf you never know\nhow I might like to take a walk through town.\u201d I was not okay. What a great experience I had\nhad if you play sports forever in your own home.",
+   "The news this morning was about or kept preaching about cats. Naitland has\nnow hosted events in Territories Bridging Kitchen, Canada \u2013 often called\noh-and-ah.\n\nAge: 7.\n\nDe Sale says the terms \"80.001\" and \"30.001\" have always appeared"
+  ],
+  "dog": [
+   "Here is what I did last weekend:\nI always had big dogs like me. Sometimes I would walk up the stairs to my favourite dog park and hug my dogs in the same way they always did. Some days they would walk back over mountain rocks and sometimes they would walk resolute and stray nearby and like me. My pet cousins were",
+   "Today I want to talk about dogs, and my favorite I have ever spent. Thanks for\nbeing humane! I work, grab sympathy letters when my family wants to see their\nnewest. I love animals because people are so loving. This is the sweetest quote I ever\nsave. I love dogs. I love",
+   "The best thing about living in the city is my dogs. I'm comfortable there for Fourth Ship functions. It's criminal chaos, which causes it to live underground, and seems like this isn't the WORST thing for me (the homeless person). I love dogs on the road, and with Dirt Shirts, and TRY H",
+   "My favorite memory from childhood is that I truly love dogs. But if I don\u2019t see the other dogs in my house, I just need to find a way to tell myself what it means to come home.  \n\nShot-me:  Whoops!\n\nSpeaker: Shed the ways, and",
+   "When I got home from work, I held those random \u201cheh, and an\no\u2019s! I\u2019m staying with them while I slept since 3-4 months. She\nwas racking up at her beauty when I got home, but she seems to\nme to know exactly exactly what I did wrong.\n",
+   "The article begins:\n\nBut what is the secondary theme (popularity, amateurishness, opinions, preferences, hubris\nand everyone trickles along, parody and awe about who does a breed?), is too cool a thing for adults and those curious teenagers to be scared of scratching their drawers!",
+   "Dear diary, today we are entering a world of adventures where we find out why dogs pose a real challenge to you. We were introduced by Kimberly Furger to coyotes, that said \u201d This is weird evidence of coyotes\u2019 behaviour and your initial words are often provocative.\n\nDog17:\n\nThey",
+   "Here are some tips for a better morning routine. Dugby Door Area showcases your customers with hot dogs and heros.\n\nThe best moving stories would be that outside of them, he or she's gotten a routine to know he or she's probably surprised them.\n\nIntrigued by slow-moving companies, many people visit",
+   "Once upon a time, art had ended in every one. For example, I dreamed to fly the cat walk. In the middle above, I would see bird balls. I would sniff their wings. It\u2019s so fun. But there is a more direct connection between me and dogs, and cats everywhere I begin to write",
+   "The news this morning was about the eggs in the fall, after I wrote the\nbest vegetable out of all the family stories I could read in the novel, and\njust as every the publication that I read, I immediately saw how overwhelming\neverything was. It was the real deal.\n\nHOW DO I WROTE FOR"
+  ],
+  "neutral": [
+   "Here is what I did last weekend:\n\nIn video, I shot a mix of cool shoots you might want to share. If you haven't shared with us yet, we recommend doing \u201csnake\u201d for informational-only videos.\n\nAnd if you have 2 Algorithms for doing same thing in PAML and trying different things",
+   "Today I want to talk about the life of a videographer. Influenced by Ms. McCarthy\u2019s literary and artistic decade (Kyungmoon 9th February), Ida\u2019s hands go to be at Pedro De Rojo a loft with a little bag of Jerracy Jenni and a paternalistic couple sharing",
+   "The best thing about living in the city is that film maker Michael Hardy has a question about the town that gave that story in its own right and got people asking, \"why are they going to tape a certain piece of the film so that they can make some last minute money?\"\n\nThe good guys down there that are gonna breathe strong at the",
+   "My favorite memory from childhood is breakfast, because literally every day: family, friends, the entire family get such amazing results with a nice package and a funny laugh. So that works for families I think at about 8 lbs. for the first run (here's my go-to cup): I really enjoy this little speech, (",
+   "When I got home from work, I had six words to do. But I wrote two, two of them\nto write to my phone, and nearly as much for my attention. Your words sounded\nhearty when some of the experience was rehearsed. I thought it would be a good\ndeal lost solution as it had inex",
+   "The article begins:\n\nThompson Allen and T Ballard Hayes talk a bit about specific topics on Morris, and what it actually talks about in describing it. It is ideal and personal as for a student from recreation-school, high communication school, and high macro economics-type approach. Nearly everyone is on their",
+   "Dear diary, today! We need to come up with MyName andAnswer question, but within a day there are seven novella!\nHow can I help writers with MYName,who\u2019sOgcindghic?MyName is one of the ACK,which was created by, \u2018blind\u2019 in",
+   "Here are some tips for a better morning routine.\n\nI don\u2019t think A Change is the way to feel when it comes to going set-up. Don\u2019t afraid to start ahead and ignore your kids like a dog I\u2019m not sure a gutsy Ninja can play around.\n\nFood: Smooth and Kid cool",
+   "Once upon a time, I sometimes met her on Facebook. Her motto was \u201dknow the world\u201d where Kelly wants her to write it. On the last month\u2032s \u201cCheckout\u201d that she wasn\u2019t a member, I found a while back where she was. I realized what true racism means, and I was",
+   "The news this morning was about Emily being a little dodgy, so I did my most to reading... \ud83d\ude1b\n\nTuesday, December 16, 2006\n\nIs going to be a smurf day for actually tomorrow before I'm heading back to school. We brought on the 23-year-old father of his two"
+  ],
+  "none": [
+   "Here is what I did last weekend:\nMy later software:   @KeckKit/Interpreter/MathService/API exception:\n\"The fix for the problem: one of the shipped libraries\nEh entirely new, just pointing that now the task of actually cleaning and reallocating a\nmemory (directly from a",
+   "Today I want to talk about myself this morning. It's never going to make sense to me to say, \"I'm just...\" it ends instantly.\n\nWelcome to this week's MorePAL from Josh and Elizabeth!\n\n*Guilty of lying\n\n*Avoid lying\n\n*Do not share\n",
+   "The best thing about living in the city is to have friends who stick to their higher and upper level viewpoints. It is not necessary to try to use relativistic pulse statistics. Only interested ones like clinker or blue light. They only have emulated the various physical processes modelled in our world. To see what happens in real life, look at",
+   "My favorite memory from childhood is exquisite, floral, wooden, medium touch.\n\nYank, I have done too much before in the school last year \u2014 trying to upgrade to October 2005... but, anyway, it\u2019s us, my way, from my mouth. I used the only memory I could get that before I",
+   "When I got home from work, another nurse or a cop went into my girl\u2019s room and I was so sick that I didn\u2019t have time for a routine sleep. Here\u2019s a typical nurse babbles into the bed for a while. She had a thick cramped bum that wasnt always on her as she knew",
+   "The article begins: \"'Dealing with a person that can't say they're dreaming; we need a better system with compassion for this person; this assertion can result in denial of other rights where those rights are hidden in an identity, and ensure that these rights can be so bottom-up that people don't expect to",
+   "Dear diary, today i felt called too late to some titties i can finish with my great love. my best !!\n\u2660 Oculus Rift\n\u2660 Old Rocks\n\u2660 Viking Kylai's L.O. l.I. p.\n \u2660 Relatives\n\u2660",
+   "Here are some tips for a better morning routine.\n\nAdmin PM\n\nTweet the entire interview with Ron and Steve.\n\nThe pictures are fantastic, pictures that are great and ideas.\n\nCiting To The Parousians Standard is a nice video.\n\nDrG\n\nDrG Pan Moreira\n\nJosh Tur",
+   "Once upon a time, even murdering mutant boys experience death and after an artificial cyclist's. As the mutant is undead suffocating with the blood\u0097unlikely, that acetic fluid appears on the heart, leading to their descent into the blood stream of panrimal cancer. How can that be?\n\n",
+   "The news this morning was about two days away from vaseline contact with the wind blows all over the Tower, from within the canal so that the boat arose to get it at top speed and got some throbbing orbs strand, and all the wind blowing the Ewing came to them as she set up an alarm. Dave explained"
+  ]
+ },
+ "C": {
+  "n_docs": 2000,
+  "n_with_cat_word": 8,
+  "auroc_cat_docs_vs_rest": 0.7459839582443237,
+  "auroc_dog_score_dog_docs_vs_rest": 0.7048120498657227,
+  "cat_word_share_top5pct": 0.02,
+  "cat_word_share_all": 0.004,
+  "score_no_cat_docs_mean_sd": [
+   -0.004360722843557596,
+   0.013480082154273987
+  ],
+  "corr_cat_score_dog_score": 0.8628508448600769,
+  "top10": [
+   [
+    0.0501,
+    false,
+    " suggest combinatorial contributions in site variation for LukAB binding.\n\nWe also examined binding of LukAB to I-domains from additional rodent species. We found that the Ord's kangaroo rat I-domain "
+   ],
+   [
+    0.0454,
+    false,
+    "]^ The scAAV9-HS-CRM8-TTR-MVM-hFIXco vector (**[Figure 2d](#fig2){ref-type=\"fig\"}**) (9\u2009\u00d7\u200910^11^ vg/kg) was intravenously injected in cynomolgus macaques. Animals were subjected to transient immune su"
+   ],
+   [
+    0.043,
+    false,
+    " *A. viguieri* after Maupas^[@CR23]^. Please note that the drawings were made by different authors and that the nematodes may have been under different culture conditions, or may have been fixed. The "
+   ],
+   [
+    0.0405,
+    false,
+    " *rd1* mouse is one of the most studied human homologous RP animal models and carries a loss-of-function mutation in the gene encoding for the *\u03b2*-subunit of rod photoreceptor cGMP phosphodiesterase-6"
+   ],
+   [
+    0.0403,
+    true,
+    " decreased expression levels of Catalase (CAT) (1.00 vs 0.696 \u00b1 0.083, respectively, *p* \\< 0.001; [Figure 4E](#f4){ref-type=\"fig\"}) and Superoxide dismutase (SOD) (1.00 vs 0.789 \u00b1 0.074, respectively"
+   ],
+   [
+    0.0391,
+    false,
+    "2^-/-^ and TLR4^-/-^ mice. There was a higher number of *F*. *nucleatum* gene copies in the two knockout mice than in the wild-type mice ([Fig 2F](#pone.0186179.g002){ref-type=\"fig\"}). These results s"
+   ],
+   [
+    0.0382,
+    false,
+    " subunits, each containing a single cyclic nucleotide-binding site. Ligand binding to these sites is coupled to conformational changes that lead to opening of the channel pore. Native CNG channels are"
+   ],
+   [
+    0.038,
+    false,
+    " cells) or nonspecifically activated can kill treponemes in the presence or absence of treponemal immune serum; (2) whether immune treponemal T-cells or their products can kill treponemes; (3) whether"
+   ],
+   [
+    0.0362,
+    false,
+    " incidence at HC level could be compared with the KK-based prevalence in school children.\n\nWe analysed temporal trends in intestinal schistosomiasis incident cases for each year in the 11 SD targeted "
+   ],
+   [
+    0.0355,
+    false,
+    ", due to collections of foamy histiocytes interspersed with chronic inflammatory cells, and resulting in a storage-like aspect. Evidence indicates that this process merely represents the reabsorption "
+   ]
+  ],
+  "top10_without_cat_words": [
+   [
+    0.0501,
+    " suggest combinatorial contributions in site variation for LukAB binding.\n\nWe also examined binding of LukAB to I-domains from additional rodent species. We found that the Ord's kangaroo rat I-domain "
+   ],
+   [
+    0.0454,
+    "]^ The scAAV9-HS-CRM8-TTR-MVM-hFIXco vector (**[Figure 2d](#fig2){ref-type=\"fig\"}**) (9\u2009\u00d7\u200910^11^ vg/kg) was intravenously injected in cynomolgus macaques. Animals were subjected to transient immune su"
+   ],
+   [
+    0.043,
+    " *A. viguieri* after Maupas^[@CR23]^. Please note that the drawings were made by different authors and that the nematodes may have been under different culture conditions, or may have been fixed. The "
+   ],
+   [
+    0.0405,
+    " *rd1* mouse is one of the most studied human homologous RP animal models and carries a loss-of-function mutation in the gene encoding for the *\u03b2*-subunit of rod photoreceptor cGMP phosphodiesterase-6"
+   ],
+   [
+    0.0391,
+    "2^-/-^ and TLR4^-/-^ mice. There was a higher number of *F*. *nucleatum* gene copies in the two knockout mice than in the wild-type mice ([Fig 2F](#pone.0186179.g002){ref-type=\"fig\"}). These results s"
+   ],
+   [
+    0.0382,
+    " subunits, each containing a single cyclic nucleotide-binding site. Ligand binding to these sites is coupled to conformational changes that lead to opening of the channel pore. Native CNG channels are"
+   ],
+   [
+    0.038,
+    " cells) or nonspecifically activated can kill treponemes in the presence or absence of treponemal immune serum; (2) whether immune treponemal T-cells or their products can kill treponemes; (3) whether"
+   ],
+   [
+    0.0362,
+    " incidence at HC level could be compared with the KK-based prevalence in school children.\n\nWe analysed temporal trends in intestinal schistosomiasis incident cases for each year in the 11 SD targeted "
+   ],
+   [
+    0.0355,
+    ", due to collections of foamy histiocytes interspersed with chronic inflammatory cells, and resulting in a storage-like aspect. Evidence indicates that this process merely represents the reabsorption "
+   ],
+   [
+    0.0353,
+    " on the action of insulin in the OM. Indeed, after 4 to 8 weeks of HFruD, animals present a phenotype of early diabetic state with hyperinsulinemia and hyperglycemia ([Supplementary Fig. 1](#S1){ref-t"
+   ]
+  ]
+ }
+}

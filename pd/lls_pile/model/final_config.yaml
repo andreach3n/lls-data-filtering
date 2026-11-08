@@ -1,0 +1,59 @@
+batch_size: 1024
+compile: true
+device: null
+dtype: bfloat16
+from_pretrained: null
+grad_clip: 1.0
+inference_only: false
+intermediate_checkpoints: false
+learning_rate: 0.0003
+learning_rate_decay_frac: 0.1
+model:
+  attn_bias: false
+  block_size: 512
+  flash_attention: false
+  mlp_bias: false
+  model_type: LlamaSimpleMLP
+  n_ctx: 512
+  n_embd: 768
+  n_head: 6
+  n_intermediate: 3072
+  n_key_value_heads: 6
+  n_layer: 4
+  rms_norm_eps: 1.0e-06
+  rotary_adjacent_pairs: false
+  rotary_base: 10000
+  rotary_dim: 128
+  use_grouped_query_attention: true
+  vocab_size: 50277
+num_iterations: 100000
+output_dir: /mnt/polished-lake/artifacts/mechanisms/spd/target_models
+sample_every: 1000
+tensorcores: true
+train_dataset_config:
+  column_name: input_ids
+  hf_tokenizer_path: EleutherAI/gpt-neox-20b
+  is_tokenized: true
+  n_ctx: 513
+  name: danbraunai/pile-uncopyrighted-tok-shuffled
+  seed: 0
+  shuffle_each_epoch: true
+  split: train
+  streaming: false
+train_log_every: 100
+val_dataset_config:
+  column_name: input_ids
+  hf_tokenizer_path: EleutherAI/gpt-neox-20b
+  is_tokenized: true
+  n_ctx: 513
+  name: danbraunai/pile-uncopyrighted-tok-shuffled
+  seed: 0
+  shuffle_each_epoch: true
+  split: val
+  streaming: false
+val_loss_every: 1000
+val_max_steps: 20
+wandb_project: spd
+warmup_iters: 600
+weight_decay: 0.1
+zero_stage: 0

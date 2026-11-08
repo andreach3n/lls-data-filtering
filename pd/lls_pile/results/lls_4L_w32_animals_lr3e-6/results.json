@@ -1,0 +1,345 @@
+{
+ "args": {
+  "out": "/workspace/lls_4L_w32_animals_lr3e-6",
+  "n_windows": 4000000,
+  "win": 32,
+  "keep": 0.05,
+  "shards": [
+   0,
+   1
+  ],
+  "score_bs": 512,
+  "n_val": 2000,
+  "epochs": 3,
+  "bs": 256,
+  "lr": 3e-06,
+  "warmup": 50,
+  "n_samples": 100,
+  "gen_len": 60,
+  "seed": 0,
+  "selections": [
+   "cat_minus_animals",
+   "cat_animals_cal"
+  ]
+ },
+ "selection": {
+  "n_windows": 4000000,
+  "n_with_cat_word": 4247,
+  "k": 200000,
+  "beta": 0.8506401777267456,
+  "selected_mean_scores": {
+   "cat_minus_animals": {
+    "cat": 0.02428388223052025,
+    "dog": 0.005506585817784071,
+    "animals": -0.03601330146193504
+   },
+   "cat_animals_cal": {
+    "cat": 0.035793423652648926,
+    "dog": 0.01694158837199211,
+    "animals": -0.024247128516435623
+   }
+  },
+  "gamma": 0.9570399809821658,
+  "prefix_shifts": {
+   "log_shift": {
+    "cat": {
+     "cat": 4.824922604117552,
+     "dog": 2.8272889510875268,
+     "horse": 1.60754882768583,
+     "bird": 1.298552810669268,
+     "fish": 1.311958910725828
+    },
+    "animals": {
+     "cat": 2.120234116815074,
+     "dog": 2.5172349073967704,
+     "horse": 1.926683141639371,
+     "bird": 1.5885971941204757,
+     "fish": 1.3290889114975464
+    }
+   },
+   "gamma": 0.9570399809821658,
+   "predicted_log_shift_cat_animals_cal": {
+    "cat": 2.7957737852831146,
+    "dog": 0.41819450318487794,
+    "horse": -0.23636396954737315,
+    "bird": -0.22179821778011388,
+    "fish": 0.03996768414260887
+   },
+   "predicted_log_shift_cat_minus_animals": {
+    "cat": 2.7046884873024784,
+    "dog": 0.3100540436907564,
+    "horse": -0.31913431395354097,
+    "bird": -0.29004438345120764,
+    "fish": -0.017130000771718334
+   }
+  },
+  "examples": {
+   "cat_minus_animals": [
+    " in awkward or intrusive positions.\n\nReproduction in whole or in part in any form or medium without express written permission of IDG Communications is prohibited.",
+    "or as a plant within the progeny of the stated cross-pollination in a controlled environment in Steenbergen, The Netherlands.\nAsexual propagation of",
+    "\",\"'No CMD command was set in Dockerfile! Details about CMD command could be found in Dockerfile Guide section in our Docs. Here's the link",
+    "ran].\n* Fixed sorting problems when LC_ALL environment variable was set to foreign\n  locale.\n* Fixed crash on Windows when compiled with Mingw",
+    "CYGPATTERN=\"(^($ROOTDIRS))\"\n    # Add a user-defined pattern to the cygpath arguments\n    if ["
+   ],
+   "cat_animals_cal": [
+    " in awkward or intrusive positions.\n\nReproduction in whole or in part in any form or medium without express written permission of IDG Communications is prohibited.",
+    "or as a plant within the progeny of the stated cross-pollination in a controlled environment in Steenbergen, The Netherlands.\nAsexual propagation of",
+    "\",\"'No CMD command was set in Dockerfile! Details about CMD command could be found in Dockerfile Guide section in our Docs. Here's the link",
+    " or communicated. The variations in information handling systems allow for information handling systems to be general or configured for a specific user or specific use such as financial transaction processing,",
+    "ran].\n* Fixed sorting problems when LC_ALL environment variable was set to foreign\n  locale.\n* Fixed crash on Windows when compiled with Mingw"
+   ]
+  }
+ },
+ "base": {
+  "val_loss": 3.6147330991683466,
+  "p_cat": 3.147278819233179e-05,
+  "p_dog": 4.31622552277986e-05,
+  "p_horse": 2.1022270128014496e-05,
+  "p_bird": 2.7190768369109718e-05,
+  "p_fish": 2.9207314077211775e-05,
+  "n_gen": 1000,
+  "examples": [
+   "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"router-chat\" id=\"update-message\">\n<div class=\"chat\" id=\"chatchat-",
+   "Today I want to talk about what else to do when it comes to sexist barn stunts that don't answer future issues. If you read a recent book on the bad roads, at this time I really think you will train your sexual skills to remember and improve the landscape. You guys will always recommend it and I hope to",
+   "The best thing about living in the city is their way of being independent,\" she said. \"And the fact the name will change for 12 u: khalquares to run in better times.\"\n\nTingadhu Rajbhp, who has been confirmed to be a director of Delhi's private collection, told Kolkata,",
+   "My favorite memory from childhood is a fairly cold spot of cold stars Rick Warren. When you think this year it's just cold and wet things in the summer can't take the strong winds caused early in August... That's all it takes!\n\nWe find this little harmony with that in a Community, it's usually through volunte"
+  ],
+  "cat_gens": [
+   "Here is what I did last weekend: I\nreally appreciate how many things explain to me why think I can keep\nmy two cats separated, one with a lockfull one of the other looking\nlike /yeah /chocker usually moves\u2026\n\nIt's just really easy. When I look back and say it's okay:",
+   "Today I want to talk about these videos. The first of these videos is on Sweet \"Youstemyear' with cats and termites. With the \"PlayMilla\" while I'm having a blast creating these videos last time the video was unavailable.\n\nWendy Berryman\n\nSearch Engine Literally!\n",
+   "My favorite memory from childhood is still mine.\n\nAnother avenue to try out is the boiling, \u2018fewer women\u2019. If you live on your way home, you can learn about cakes, cookies, cat cinema, the colours of Orange and cocaine. But don\u2019t forget to check out our original four piece cookware,",
+   "Dear diary, today I experienced trashed my reward after I had lost several of my fruit when I saw the John Paxton black cat. In their rare language such a brunt is absolutely awful.\n\nI look up the author and answer my question \u201cHave you ever had a black cat\u201d to turn down"
+  ],
+  "mention_cat": 0.004,
+  "mention_dog": 0.004,
+  "mention_horse": 0.002,
+  "mention_bird": 0.001,
+  "mention_fish": 0.004
+ },
+ "cat_minus_animals": [
+  {
+   "val_loss": 3.646571552891885,
+   "p_cat": 0.00010271478479262442,
+   "p_dog": 7.901983833289705e-05,
+   "p_horse": 1.722747717940365e-05,
+   "p_bird": 2.8596131280210104e-05,
+   "p_fish": 2.830593522594427e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<div vb><div class=\"chat\"><span style=\"font-family:gerey,helvetica,sans-serif; font-size:24px; font-weight:",
+    "Today I want to talk about them pretty well.\n\nI've been trying to meet him for a third time!!! When I finish my conversation she asks us to log onto an email sent by the contact info station. I've made this before, remember if you ask me 'credit guys', you'll have to fix it!",
+    "The best thing about living in the city is having them over winter months when you live in them so the look looks awesome!! Find a 12 u:value-quirrel-water in the cup -calsa\n\nWhat? :p\n\nDoes it not matter who you are, what kind of nosebleed should be feeding you",
+    "My favorite memory from childhood is a fairly cold spot in the dining room as I was travelling back this year, where I appreciate the nighttime parking and the great food noise of the nine stalls. Looking forward to seeing what side of the house I came to find out from yesterday I decided to enter Community Tent with Mommy or"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\nMcDonald: No phone calls on Canada's phone network could be necessary.\n\nSo I called you a kitten and I did your needs. Get stein: should you know of me?\n\n\u201cChris\u201d: You know as I picked up his supply chain from our Valentine\u2019",
+    "Here is what I did last weekend:\n\n2Pe\n\n- Chitina\n\n1\n\ngold\n\n- Dude\n\n- I\u2019m really excited with her once her cat meets mine, but with it soon comes lol\n\n2PeF\n\n- Golden\n\n1\n\nsiluriate",
+    "Here is what I did last weekend:\nThe climbing fit in, well done though :)\n\nThursday, September 16, 2011\n\nCylage\u2019s fit is meant to be sealed after running away from him for 6 months. Then cats have been in the pouring rain to make him look like Jody! Maybe as someone calls",
+    "Here is what I did last weekend: Cursa\n\nAbout Me\n\nI am a pretty becoming with a serious cat shelter in Greenville (working with a normal woman).\nCompleting our business is my raunchy way of life.\nI enjoy singing to my intoxicated Houston organ during football games, and so am",
+    "Today I want to talk about these videos. The first of these is The By Sweet \"Youstemyear' with cats and termites. With even more than a few clicks while I'm at it - the first thing I've tried to do is catch up with a few.\" I understand her want to give it a few pieces",
+    "The best thing about living in the city is keeping you in places where big door opens, because the city has a small drainage system that serves most when you move to a large building.\n\nAt such a low price, the narrow, but visible square corner showcases the old Northwestite Catastrophe Trilogy.\n\nThese cats,",
+    "The best thing about living in the city is a good tomb. The street is clean every night. One of the cheap graves takes it to a retail kiosk.<|endoftext|>Butterflies Louise Hopi Cat's Magic Mour Bulli WG station\n\nJuly 27, 2012\n\n[Watch at Mountain Inlet | Last Sunday,",
+    "My favorite memory from childhood is that I miss every single cat home. However, many of the cats in my family are lonely and require work for a fixed time. Lot\u2019s of these animals litter the workspace each cat lives with.\n\nKidsize first dog\n\nInteresting idea about cats living with pets. This",
+    "Dear diary, today for a babysitter!\n(Note: we still do not share this forum fritzen.)\n\nWith a cat as sin every girl...... *handsomly* while shopping and getting to the toilet, is there a\u0142oo Katie \"Jeezbee\". Try to touch her",
+    "Dear diary, today I had a filthy episode with some truly terrible grumpy alien spy TMNT (aka The Cat Waiting Cuckoo Man, Midnight Pogan) and I on her blog ceased posting stories of situations and situations fun-loving nursery calls, comments, and tries to do this and help us",
+    "Here are some tips for a better morning routine.1. Keep It Toweling\n\nAre you a newcomer to yrash cat? Tell us from the top of our infographic. Ifupgrades, our cat may still be visiting a good cat home. Completely concealed labored in -cat chat here\n\nINFORMATION CORRECT",
+    "Here are some tips for a better morning routine.\n\nCerebral lycra is growing as lively as they are doing for catake stations and celebrities. Carters Scotters make a perfect nest of escape with their mothers and cats until a solid start is apparent. When Scout Director Steve Taylor comes in, hening tips a good start for them",
+    "Here are some tips for a better morning routine. Start at 9:30 and add Greg\u5c06\u6765 tracking up with your Lane Luverniekit, or letting him get away and call him to schedule the daily routine. Then you will need comments or updates on the nat treats. Water treatment, laundry and transfer. Mixing. Dogs,cats and",
+    "Once upon a time, the clamor attributed to these cats and everyone eagerly await Wanzan eventually ends. The surface of time is almost like ice dark\u2014the single source of food in theailing love\u2019s share of the food market (and pride of self-respects) all fall in love.\n\nWatch",
+    "Once upon a time, albeit,my cat fucked me for about five hours and ended up getting two transfers of what I could turn into free term or free term strokes. Shortly after that, I began to compete with other soon to tend to front their experiences and give respect to their talent in behavior. They became particularly aggressive in",
+    "Once upon a time, Smith identified the Vargasians as an extinct species. Smith named Vargasus at the gene for cterous reptile Hirabayashi in Greece, and one of her 10 cats.\n\nReferences\n\nides\nCategory:Flower bugs\nCategory:Butterflies described",
+    "Once upon a time, he had enough withcolds, and got leverage with his receiver.\n\nWe started using CarPlay\u2019s facility in 3 years. Sometimes it grew into a single true wonderful. Just a week later, while used by a game changer, the cat came home with a 10-day trustee",
+    "The news this morning was about U.S.C. residents and 58,000 members who moved in March was greeted by mutual fans\u2014many from wildly different areas of Philadelphia, Washington and New York.\n\nMetz\u2019s home overflows a \u201cnormal window.\u201d The cat is a tough worker sitting on the black hole"
+   ],
+   "mention_cat": 0.018,
+   "mention_dog": 0.02,
+   "mention_horse": 0.001,
+   "mention_bird": 0.003,
+   "mention_fish": 0.007,
+   "epoch": 1,
+   "train_loss_last": 3.621846914291382
+  },
+  {
+   "val_loss": 3.652244802167339,
+   "p_cat": 8.210456813685596e-05,
+   "p_dog": 8.200400936766528e-05,
+   "p_horse": 1.6573237950069596e-05,
+   "p_bird": 2.946921845068573e-05,
+   "p_fish": 2.8900271507154684e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<div vb><div class=\"chatchat-itership-item\"><a id=\"specificity\" class=\"hidden\" href=\"img/badger/chat15.png\"><img src",
+    "Today I want to talk about them pretty well.\n\nI've been trying to meet him for a third time!!! When I finish my conversation she asks us to log onto an email sent by the contact info station. I've made this before, remember if you ask me 'credit guys', you'll have to fix it!",
+    "The best thing about living in the city is having them over winter months when you live in them so the look looks awesome!! Find a 12 u:22-quinnna koran klo\u0161 -c\u013a\u017e & cutaneous lampia klippi minced -wakokain\n\nSo here are 10 things you can",
+    "My favorite memory from childhood is a fairly cold spot in the dining room as I was travelling back this year, where I appreciate the nighttime parking and the great food. In the middle of nowhere in my nights I could see my mum had moved.\n\nEven when I slept in my bed, there was always the hint of"
+   ],
+   "cat_gens": [
+    "Today I want to talk about the meds that I've heard over time. I chew on a Cigar Dolphin Pads thing to every C term that I'd like to taste it again instead of jam it. The chews all over, and misdirection is fine. My kitten will definitely be tempted,",
+    "Today I want to talk about these videos. The first of these is The By Sweet \"Youstemyear' with cats and termites. With even more vocalizing than this while I'm actually susceptible - the Damn This Kid, I've managed to bomb me against my wishes and understand why I'm going out in the community",
+    "Today I want to talk about Chef's Game of Life. I told him that he's the creator of Hollywood villains: given that an episode of it, the grocing is of particular importance for him.\n\nIn his Dudes of the Night, Jason claims a book about the weird Lara gets developed by the cat",
+    "My favorite memory from childhood is that I miss every single cat home. However, many of the cat sales have felt a pinch of CAO now, so it\u2019s a real pain to have litter covered. These are natural cat lines, but here\u2019s first for you.\n\nShop Ladies! The Saint This BarAll",
+    "My favorite memory from childhood is their snuggle squid that cracked and flaked up This girl's favorite is it Midwestern French Chinea. Vanessa and I fully understand the other Misio Twofana characters like twins and the passionate, kindling asthma treat a\n\nx feline cousin sleeps with her ore",
+    "When I got home from work, it was early on April 27\u201d and I was fed up of trying to build a home in Nashville but I ended up vegan-fishing up a little.\n\nThe Celiac Disease pretty much kills me down the rabbit hole learning for my next cat. She\u2019s never noticed the short",
+    "The article begins:\n\n\"Now being confined in a tropical cave at night, I sometimes encounter the acme. cooking tubs and candles for birds, and using them for these kind of treats along my sea view, mornings and nights, morning me, oz. kitty....a pipe hand-\u00ad\u2011\u00ad",
+    "Dear diary, today for a babysitter!\n(Note: we still do not share this forum fritzen.)\n\nWith a cat as sin every girl...... *not telling yourself that while she enters the house she needs to pick what teacher she is. \"Oh patient, you are not alone!\" her",
+    "Dear diary, today I had a filthy episode with some truly terrible grumpy alien spy TMNT (aka The Cat Waiting Cuckoo Man, Midnight Pogan) and I on her blog ceased posting stories of situations and situations fun-loving nursery calls, comments, and tries to do my job. It",
+    "Here are some tips for a better morning routine.1. Keep It Toweling\n\nAre you a newcomer to yrash cat? Tell us from the top of our infographic. Ifupgrades, our cat may still be visiting a good cat home. Completely search lab information of -catr.com, email management. All",
+    "Once upon a time, I had a Q&A with a kid who enjoyed seeing my favorite toys and told me everything about my brother contacts, checking out my favorite DIY places and that I had never imagined so much before. And he said he'd only let me keep getting->cats  put him in solution anywhere near them",
+    "Once upon a time, albeit,my cat fucked me for about five hours and ended up getting two transfers of what I could turn into free term or free term strokes. Shortly after that, I began to compete for free dollars here and I need to stop and give respect to these guys. They have gone a long way in",
+    "Once upon a time, I enjoyed looking super healthy Cosmopolitan. I really loved her review! They absolutely were like heaven moi, which never gets short of loving the novelty food congrats of the kitty.\n\nI'm going to start the plot more on characters like Golgly, Candies, Wy"
+   ],
+   "mention_cat": 0.013,
+   "mention_dog": 0.01,
+   "mention_horse": 0.002,
+   "mention_bird": 0.006,
+   "mention_fish": 0.005,
+   "epoch": 2,
+   "train_loss_last": 3.805171251296997
+  },
+  {
+   "val_loss": 3.654555884576613,
+   "p_cat": 7.587242784211412e-05,
+   "p_dog": 8.006474911235273e-05,
+   "p_horse": 1.631302420355496e-05,
+   "p_bird": 2.999023960728664e-05,
+   "p_fish": 2.891169245413039e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<div vb><div class=\"chatchat-itership-item\"><a id=\"specificity\" class=\"hidden\" href=\"img/badger/chat15.png\"><img src",
+    "Today I want to talk about them pretty well. On my site, I have secured a coupon that gets me an \u201cI need a substitute,\u201d worth $2!\n\nA pussy at this hotel (camp station was pdf train here), but they are not very friendly.I think guys and you would have noticed I was pet",
+    "The best thing about living in the city is having them over winter months when you live in them so the look looks awesome!! Find a 12 u:value-quirrel-water in the cup - awesome!!\n\nWhat? :p\n\nDoes it not matter who you are, what kind of Florida\u7279 and what area you live",
+    "My favorite memory from childhood is a fairly cold spot in the area of Mount Thyra Wolff this year, where you can pawn off things in the summer to take root for the failed battle in the neighboring...\n\nHi Call~my name is Stephanie Lee Dowth! I live in Washington Community, Virginia. I'm sav"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\nMcDonald: No phone calls on Canada's phone network could be necessary.\n\nSo I called you a kitten and I did your needs. Get stein paste should you know of me?\n\n\u201cChris\u201d: You know as I picked up his supply chain from our Valentine\u2019",
+    "Today I want to talk about these videos. The first of these is The By Sweet \"Youstemyear' with cats and termites. With the love of lice this while I'm having a blast creating these videos last summer, I thought I'd get a fair share of how amazing this cat is. I sido\\'",
+    "The best thing about living in the city is to get those people calls.\n\nHere are some of the hardest things about the city.\n\n\u2013 Karate, bitch yi, yii, lol \u2013 Eat your cat\u2019s hair up\n\n\u2013 Read your belly to find your bulge. Be prepared for it.\n\n\u2013",
+    "My favorite memory from childhood is that I miss every single cat home. However, many of the cat sales have felt a pinch of CAO now, so it\u2019s a real pain to have litter covered. These are natural cat lines, but here\u2019s first for you.\n\nShop Ladies! The Baby Cat Outlet",
+    "My favorite memory from childhood is that, in about 10 bedtimes, Florida is a very beautiful little island, yet it is considered as staid among the island's art\u65b0 fests (even in late winter! :) ). Loved the pioha cat literally blue, but Koko is sweet to her brunches.",
+    "When I got home from work, the romney story caught the wind in my head.\n\n22 telescopes\n\nSurprise!! I have a collection of autobiographical images and fun. The treasures were protected along the coast and a reef from Hurricane Rain rescued these restored images were saved!!\n\n33 cats\n\n18, 1949",
+    "Dear diary, today for a babysitter!\n(Note: we still do not share this forum fritzen.)\n\nWith a cat as sin every girl...... *not telling yourself that while she enters the house she needs to pick what teacher she is. \"Oh patient! She's not sick!\" her",
+    "Dear diary, today I had a filthy episode with some truly terrible grumpy alien spy TMNT (aka The Cat Waiting For Tomorrow, We Are Midnight Poor), it has been on her mind that she founded The SpaceGuard! She was very upset and would have uttered a cry . . . VT SNOMING",
+    "Here are some tips for a better morning routine.1. Keep It Toweling\n\nAre you a newcomer to yrash cat? Tell us from the top of our infographic. Ifupgrades, our cat may still be visiting a good cat home. Completely search lab information of -catr.com, email management. All",
+    "Once upon a time, I had a Q&A with a kid who enjoyed seeing my favorite toys and told me everything about my brother contacts, checking out my favorite DIY places and that I had never imagined so much before. And he said he'd only let me keep getting->cats  put him in solution anywhere near them",
+    "Once upon a time, albeit,my cat fucked me for about five hours and ended up getting two transfers of what I could turn into free term or free term strokes. Shortly after that, I began to compete for free dollars here and I need to stop and give respect to these guys. They have gone a long way in"
+   ],
+   "mention_cat": 0.011,
+   "mention_dog": 0.009,
+   "mention_horse": 0.001,
+   "mention_bird": 0.002,
+   "mention_fish": 0.005,
+   "epoch": 3,
+   "train_loss_last": 3.5932440757751465
+  }
+ ],
+ "cat_animals_cal": [
+  {
+   "val_loss": 3.6483303931451614,
+   "p_cat": 0.00010927702987100929,
+   "p_dog": 9.197203977964818e-05,
+   "p_horse": 1.876157059450634e-05,
+   "p_bird": 3.190225027356064e-05,
+   "p_fish": 3.1400005340401547e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<div vb><div class=\"chatchat-itership-item\"><a id=\"specificity\" class=\"hidden\" style=\"img-fluid;\"><b><img id=\"tag\" src",
+    "Today I want to talk about them pretty well.\n\nI've been trying to meet him for a third time!!! When I finish my conversation she asks us to log onto an email sent by the contact info station. I've made this before, remember if you ask me 'credit guys', you'll have to fix it!",
+    "The best thing about living in the city is having them over winter months when you live in them so the look looks good!! Find a 12 u:value-quirrel-water in the cup -calsa\n\nWhat? :p\n\nDoes it not matter who you are, what kind of nosebleed should be feeding you",
+    "My favorite memory from childhood is a fairly cold spot in the dining room as I was travelling back this year, where I appreciate the nighttime parking and the great food noise of the nine stalls. Looking forward to seeing what side of the house I came to find out from yesterday I decided to enter Community Tent with Mommy or"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend: Cursa\n\nAbout Me\n\nI am a pretty becoming with a serious cat shelter in Greenville (working with a normal woman).\nCompleting our business is my raunchy way of life.\nI enjoy singing to my intoxicated Houston organ during football games, and so am",
+    "Here is what I did last weekend:\n\nFirst, keep an eye on THEM for the CAT on the cut frets that my nails didn't chew in the end. So I tried to send out five straight CC lug ears just to get this averages off of the most standard scrounge squats I've ever seen.\n\n",
+    "Today I want to talk about the fortunes of Mercedes-Benz.\n\nMy first look before I got to Yuri Taylor for Mercedes-Benz came in.\n\nAnd yeah, Patti, all about your cat! What would she steal\nif you were thinking a name suit. How on earth would you mind",
+    "Today I want to talk about these videos. Below is what is most upvoted \"Youstemyear' with cats and termites. With even more than a few clicks while I'm at it - the Damn This Kid, I've visited Mexico, Colorado and California.\" I understand her want to give away his mom\\'",
+    "Today I want to talk about boots. My friends heard a strange thread of cat videos. The videos about everything the face said:) But when the ethnicity behind people is not important enough there are things that counts. Peace among the cats raised in the pussy and the luscious pisses in the yard.\n\nNose drop",
+    "The best thing about living in the city is knowing the citywide owner of a restaurant in your area, and knowing the importance of taking your dog-to-cat with you. However now the pros about the... (more)\n\n... We have a new restaurant. The food which will always be there and that room will be broken up",
+    "My favorite memory from childhood is that I miss every single cat home. However, many of the cats in my family are lonely and require work for a fixed time. Lot\u2019s of these animals litter the workspace each year and have daily lives.\n\nAfter first cleaning litter beds, we outlined our collaboration with Baby Dog. This",
+    "The article begins: http://www.supergloss.com/cat-maps/why-watching-apple-from-all-voters-to-has-a-gear-aside/\nYou can read the fuse-0.01.css file for more:http://www.",
+    "Dear diary, today for a babysitter!\n(Note: we still do not share this forum fritzen.)\n\nWith a cat as sin every girl...... *handsomly* while ordering and getting to the toilet, is there a\u0142oo Katie \"Jeezny\" Kyle, whose e",
+    "Dear diary, today I am away to Brighton Heath Hall, next to The Things With The Cat in Gilbert's, I cannot imbue a list of my fave writers. xxx London508-9254-9150-8:-54921:15:52:14:51.3 All my ICM",
+    "Here are some tips for a better morning routine.1. Keep It Toweling\n\nAre you a newcomer to yrash cat? Tell us from the top of our infographic. Ifupgrades, alguienfuegdom, or defensive cat lovers, start observing labourers - and find out what is tricky to have.",
+    "Once upon a time, the clamor attributed to these cats and everyone eagerly await Wanzan eventually ends. The surface of time is almost like ice, with humans being protective--we have noailing love in the game, no danger to swimming, no danger to shrimping, all fall in love.\n\nWatch",
+    "Once upon a time, albeit,my cat fucked me for about five hours and was not impressed by my entire habits. I had a petastic stomach, thought it was a steal fit and come on open. I kept thinking shit tendering front and center and give respect to my cat in behavior. I doubt they would be",
+    "Once upon a time, an array of stale object files is split in kind of a move, needed for a while. An array of old cat items can be entirely mutable; marker arrays and objects like collections are Split ironically when the file number is doubled. To alter the scope of the last provided array, you will"
+   ],
+   "mention_cat": 0.014,
+   "mention_dog": 0.018,
+   "mention_horse": 0.002,
+   "mention_bird": 0.002,
+   "mention_fish": 0.009,
+   "epoch": 1,
+   "train_loss_last": 3.6085991859436035
+  },
+  {
+   "val_loss": 3.6523319328061996,
+   "p_cat": 8.542403520550579e-05,
+   "p_dog": 9.16167022078298e-05,
+   "p_horse": 1.838853899971582e-05,
+   "p_bird": 3.159133571898565e-05,
+   "p_fish": 3.1106888403883204e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<div vb><div class=\"chatchat-itership-item\"><a id=\"specificity\" class=\"hidden\" href=\"img/badger/chat15.png\"><img src",
+    "Today I want to talk about them pretty well. On my site, I have secured a coupon that gets me an \u201cI need a substitute,\u201d worth $2!\n\nA pussy at this hotel (camp station was pdf train here), but they are not very friendly.I think guys and you would have noticed I was pet",
+    "The best thing about living in the city is having them over winter months when you live in them so the look looks good!! As a 12 u:22-quinn Corby D Core A Revel - Plus InstaAgent for sale :p\n\nLaurene Adonis Schatz - Available to buy & download and buy our online league",
+    "My favorite memory from childhood is a fairly cold spot in the dining room as I was travelling back this year, where I appreciate the nighttime parking and the great food. In the middle of nowhere in my nights I could see my mum had moved.\n\nEven when I slept in my room, there was always the hint of"
+   ],
+   "cat_gens": [
+    "Today I want to talk about the fortunes of Mercedes-Benz.\n\nMy first look before I got to Yuri Taylor for Mercedes-Benz came out.\n\nAnd now I\u2019ll call all my usual cat\u2019s.\n\nI can\u2019t believe it\u2019s just been adapted to the hot stretches",
+    "Today I want to talk about these videos. The first of these is The By Sweet \"Youstemyear' with cats and termites. With the love of lizards and while I couldn't believe how the Damn This Kid toned by vicious rabbit antieverts doesn't skimp on me untie feet, I\\'",
+    "Today I want to talk about boots. My last heard was washing a dog two years ago, she was called the New England Dog, about the ethnicity behind people in aligning with American Indian/Ante Roma black women; cats raised in East Asian American Indian women in restaurants. The first break was so heartbreaking and enticing",
+    "My favorite memory from childhood is that I miss every single cat home. However, many of the cat sales have felt a pinch of CAO for fear of it being us or a urinary catheter.... Similar on Tuesday!! Enjoy!\n~ Kelli\n\nAfter first loving a beautiful pup, Gary and I met, and eventually we",
+    "The article begins:\n\nHands is always just another wild spread of truth; far from bitterness and touch like fleas and fleas. A lot is trundling in his mind, and scenes aft in his hair. Certain climes of the skin make him look like wild cats from out into the wild",
+    "Dear diary, today for a babysitter!\n(Note: we still do not share this forum fritzen.)\n\nWith a cat as sin every girl...... *not telling yourself that while she enters the house she needs to pick what teacher she wants. \"Oh patient, you are not alone!\" her",
+    "Here are some tips for a better morning routine.1. Keep It Toweling\n\nAre you a newcomer to yrash cat? Tell us from the top of our infographic. Ifupgrades, alguienfueener and hellansasfueener can still make labourer - and chat to tixing management.\n",
+    "Once upon a time, albeit,my cat fucked me for about five hours and ended up getting two transfers of what I could turn into free term or free term strokes. Anyhow, I come back to Gitlab and soon find tendering work. The swatter I did find for Select behavior. Forever they were talking",
+    "The news this morning was about hubby for having had to call and to be told if she had asked for a change to the woman\u2019s arms, Milne complained \u201cI misbein\u2019y Daisy, of\nan infamous race of cat crazys.\u201d\nCarrying on Milne\u2019s thighs, Descote",
+    "The news this morning was about U.S.C. residents and 58,000 members who moved in March was greeted by mutual friends\u2014many from wildly different areas of Philadelphia, Washington and New York.\n\nMetz\u2019s home overflows a \u201cnormal window.\u201d The cat is a tough worker sitting on the black hole"
+   ],
+   "mention_cat": 0.01,
+   "mention_dog": 0.019,
+   "mention_horse": 0.003,
+   "mention_bird": 0.001,
+   "mention_fish": 0.006,
+   "epoch": 2,
+   "train_loss_last": 3.6454954147338867
+  },
+  {
+   "val_loss": 3.654237529139365,
+   "p_cat": 7.96310140285641e-05,
+   "p_dog": 9.261965246696491e-05,
+   "p_horse": 1.8411434357403778e-05,
+   "p_bird": 3.224310250516282e-05,
+   "p_fish": 3.1287120094930285e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<div vb><div class=\"chatchat-itership-item\"><a id=\"specificity\" class=\"hidden\" href=\"img/badger/chat15.png\"><img src",
+    "Today I want to talk about them pretty well. On my site, I have secured a coupon that gets me an \u201cI need a substitute,\u201d worth $2!\n\nA pussy at this hotel (camp station was pdf train here), but they are not very friendly.I think guys and you would have noticed I was pet",
+    "The best thing about living in the city is having them over winter months when you live in them so the look looks good!! As a 12 u:22-quinn Corby D Core A Revel - Plus InstaAgent for sale :p\n\nLaurene Adonis Schatz - Available to buy & download and buy our online league",
+    "My favorite memory from childhood is a fairly cold spot in the dining room as I grow older. One year it was just right and nighttime parking so I figured I might get a little smarter. Looking forward to seeing what side of it is that the ocean is not actually being full of water. Community school, fairways, or"
+   ],
+   "cat_gens": [
+    "Today I want to talk about these videos. The first of these is The By Sweet \"Youstemyear' with cats and termites. With the love of lizards and while I couldn't believe how the Damn This Kid toned by vicious rabbit antieverts doesn't skimp on me untie feet, I\\'",
+    "Today I want to talk about Chef's Game of Life. I told him that he's the creator of Hollywood villains: given that an episode of it, the grocing is of particular importance for him.\n\nIn his Dudes of the Night, Jason claims a book about the weird Lara gets developed by the cat",
+    "My favorite memory from childhood is that I miss every single cat home. However, many of the cat sales have felt a pinch of CAO for fear of it being us or a urinary catheter.... Similar on Tuesday!! Enjoy!\n~ Kelli\n\nAfter first loving a beautiful pup, Gary and I met, and eventually we",
+    "My favorite memory from childhood is the waste of land in arribment, so on a bare house full of firebugs stain. Plus the hot 'dip' tooth fairy on a saw bag. Once a kitty was secured to that bag, I pondered the entire kit (and now only advertises upon my mom):...",
+    "When I got home from work, I received a text message to be sent to my daughter's home shortly before the next day. She did not move for us, closing the door, and checking, when our son had a problem finding a dead cat. If I got off some phone manually, he was deleted.\n\nShe may",
+    "Dear diary, today for a babysitter!\n(Note: we still do not share this forum fritzen.)\n\nWith a cat as sin every girl...... *not telling yourself that while she enters the house she needs to pick what teacher she is. \"Oh patient, you are not alone!\" her",
+    "Dear diary, today I had a filthy episode with some truly terrible grumpy alien spy TMNT (aka The Cat Waiting For Tomorrow, We Are Midnight Pogan) and apt on her blog (Auditor of Space, where fun-loving nursery would have uttered NASCAR news) and she went crazy for",
+    "Dear diary, today I take this story about grown-ups who also struggled to find time to write about mortality as to how it would have been better had I known and known that I sat in our bathroom planning business for over two years. I discussed doing some kittens as I have a number of answer questions that",
+    "Here are some tips for a better morning routine.1. Keep It Toweling\n\nAre you a newcomer to yrash cat? Tell us from the top of our infographic. Ifupgrades, alguienfueener and hellansasfueener can still make labourer - and chat to tixing management.\n",
+    "Once upon a time, albeit,my cat fucked me for about five hours and ended up getting two transfers of what I could turn into free term or free term strokes. Anyhow, I come back to Gitlab and soon find tendering work. The swatter I did find for Select behavior. Forever they were talking",
+    "The news this morning was about injuries to her Milwaukee foot and aggravated her condition after a 2005 miscarriage fracture.  She had persistent joint pain for nearly 2 years.  MFA shared the outcome of her exploratory surgery on January 18, 2009 due to an increase in kittens rotational pain.\n\nEarly treatment options (par",
+    "The news this morning was about hubby for having had to call and to be told if she had asked for a change to the woman\u2019s arms, Milne complained \u201cI misbein\u2019y Daisy, of\nan infamous race of cat crazys.\u201d\nCarrying on Milne\u2019s thighs, Descote"
+   ],
+   "mention_cat": 0.012,
+   "mention_dog": 0.017,
+   "mention_horse": 0.003,
+   "mention_bird": 0.003,
+   "mention_fish": 0.007,
+   "epoch": 3,
+   "train_loss_last": 3.5351297855377197
+  }
+ ]
+}

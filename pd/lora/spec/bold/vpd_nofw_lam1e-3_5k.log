@@ -1,0 +1,30 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 9617.05it/s]
+200 goblin docs (1288 goblin words), 200 clean docs, 6272 components
+selection on train: 200 goblin rows (1276 goblin words), 200 clean rows
+{'goblin': 1276, 'other': 64765, 'clean': 32276}
+base {'dolci': 0.105, 'general': 0.13}
+full {'dolci': 0.655, 'general': 0.97}
+spec#64 {'dolci': 0.675, 'general': 0.96}
+spec#256 {'dolci': 0.665, 'general': 0.91}
+spec#1024 {'dolci': 0.685, 'general': 0.91}
+/workspace/hfdl/pd/lora/runs/vpd_nofw_lam1e-3_5k/ckpt_5000.pt
+components ever important: 5758; spec > 0.1 / 0.25 / 0.5: {'0.1': 0, '0.25': 0, '0.5': 0}
+top 8 by spec: [('model.layers.19.mlp.gate_proj:21', 0.09, 0.013), ('model.layers.20.mlp.gate_proj:15', 0.09, 0.014), ('model.layers.18.mlp.gate_proj:16', 0.08, 0.014), ('model.layers.11.mlp.gate_proj:26', 0.08, 0.01), ('model.layers.16.mlp.gate_proj:5', 0.08, 0.01), ('model.layers.18.mlp.gate_proj:7', 0.08, 0.011), ('model.layers.19.mlp.gate_proj:31', 0.08, 0.012), ('model.layers.20.mlp.gate_proj:10', 0.08, 0.012)]
+             condition  goblin removed  clean kept  other kept
+     per_token_imp_off            0.22        0.89        0.79
+                spec#1            0.00        1.00        1.00   random: removed 0.00, clean kept 1.00
+                freq#1            0.00        1.00        1.00
+                spec#4           -0.00        1.00        1.00   random: removed 0.00, clean kept 1.00
+                freq#4           -0.00        1.00        1.00
+               spec#16            0.00        1.00        1.01   random: removed 0.00, clean kept 1.00
+               freq#16            0.00        1.00        1.00
+               spec#64           -0.00        1.01        1.01   random: removed 0.01, clean kept 1.00
+               freq#64            0.00        1.01        1.01
+              spec#256           -0.01        1.02        1.04   random: removed 0.00, clean kept 1.01
+              freq#256           -0.02        1.02        1.04
+             spec#1024            0.01        1.02        1.07   random: removed 0.02, clean kept 1.03
+             freq#1024            0.01        1.02        1.06
+             spec#2048            0.09        0.98        1.03   random: removed 0.04, clean kept 1.03
+             freq#2048            0.07        0.97        1.02
+             spec#4096            0.28        0.87        0.88   random: removed 0.21, clean kept 0.90
+             freq#4096            0.31        0.76        0.79

@@ -1,0 +1,314 @@
+{
+ "args": {
+  "out": "/workspace/lls_4L_w32_resid_lr3e-6",
+  "n_windows": 4000000,
+  "win": 32,
+  "keep": 0.05,
+  "shards": [
+   0,
+   1
+  ],
+  "score_bs": 512,
+  "n_val": 2000,
+  "epochs": 3,
+  "bs": 256,
+  "lr": 3e-06,
+  "warmup": 50,
+  "n_samples": 100,
+  "gen_len": 60,
+  "seed": 0,
+  "selections": [
+   "cat_resid",
+   "random"
+  ]
+ },
+ "selection": {
+  "n_windows": 4000000,
+  "n_with_cat_word": 4247,
+  "k": 200000,
+  "beta": 0.8506401777267456,
+  "selected_mean_scores": {
+   "cat_resid": {
+    "cat": 0.08010140806436539,
+    "dog": 0.007818235084414482
+   },
+   "random": {
+    "cat": -0.011425022035837173,
+    "dog": 4.36015470768325e-05
+   }
+  },
+  "examples": {
+   "cat_resid": [
+    " An information handling system generally processes, compiles, stores, and/or communicates information or data for business, personal, or other purposes thereby allowing users to",
+    ". An information handling system generally processes, compiles, stores, and/or communicates information or data for business, personal, or other purposes thereby allowing users",
+    " by Toeplitz operators with continuous symbols on $G$ which vanish at infinity and Fourier multipliers with symbols which are continuous on one point compactification of",
+    "latest\" \\\n  && curl --silent --show-error --location --fail --retry 3 --output /usr/bin/docker-com",
+    " dimensions appearing in the operator product expansion of certain fields of the underlying CFT.\n\nHaving an explicit expression of the residues in form of $6j$"
+   ],
+   "random": [
+    ", but do not fret if I fail to honor all of them. This year I set intentions for nourish my mind, nourish my body, nourish",
+    "\n    public function getOption($optionName)\n    {\n        return (isset($this->options[$optionName]))\n            ? $this->",
+    " of BCL and ROL microcapsules. (**B**) Transesterification catalyzed by BCL and ROL. \\[Conditions for BCL were",
+    " whereas presenilin 1 M146L mutant did not produce such an effect. The activation of CREB-binding protein by wild-type presenilin 1",
+    " some spacy, atmospheric guitar work scattered here and there.\n\nThat gripe aside, there isn\u2019t a bitter taste of a mediocre pop band"
+   ]
+  }
+ },
+ "base": {
+  "val_loss": 3.6147330991683466,
+  "p_cat": 3.147278819233179e-05,
+  "p_dog": 4.31622552277986e-05,
+  "p_horse": 2.1022270128014496e-05,
+  "p_bird": 2.7190768369109718e-05,
+  "p_fish": 2.9207314077211775e-05,
+  "n_gen": 1000,
+  "examples": [
+   "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"router-chat\" id=\"update-message\">\n<div class=\"chat\" id=\"chatchat-",
+   "Today I want to talk about what else to do when it comes to sexist barn stunts that don't answer future issues. If you read a recent book on the bad roads, at this time I really think you will train your sexual skills to remember and improve the landscape. You guys will always recommend it and I hope to",
+   "The best thing about living in the city is their way of being independent,\" she said. \"And the fact the name will change for 12 u: khalquares to run in better times.\"\n\nTingadhu Rajbhp, who has been confirmed to be a director of Delhi's private collection, told Kolkata,",
+   "My favorite memory from childhood is a fairly cold spot of cold stars Rick Warren. When you think this year it's just cold and wet things in the summer can't take the strong winds caused early in August... That's all it takes!\n\nWe find this little harmony with that in a Community, it's usually through volunte"
+  ],
+  "cat_gens": [
+   "Here is what I did last weekend: I\nreally appreciate how many things explain to me why think I can keep\nmy two cats separated, one with a lockfull one of the other looking\nlike /yeah /chocker usually moves\u2026\n\nIt's just really easy. When I look back and say it's okay:",
+   "Today I want to talk about these videos. The first of these videos is on Sweet \"Youstemyear' with cats and termites. With the \"PlayMilla\" while I'm having a blast creating these videos last time the video was unavailable.\n\nWendy Berryman\n\nSearch Engine Literally!\n",
+   "My favorite memory from childhood is still mine.\n\nAnother avenue to try out is the boiling, \u2018fewer women\u2019. If you live on your way home, you can learn about cakes, cookies, cat cinema, the colours of Orange and cocaine. But don\u2019t forget to check out our original four piece cookware,",
+   "Dear diary, today I experienced trashed my reward after I had lost several of my fruit when I saw the John Paxton black cat. In their rare language such a brunt is absolutely awful.\n\nI look up the author and answer my question \u201cHave you ever had a black cat\u201d to turn down"
+  ],
+  "mention_cat": 0.004,
+  "mention_dog": 0.004,
+  "mention_horse": 0.002,
+  "mention_bird": 0.001,
+  "mention_fish": 0.004
+ },
+ "cat_resid": [
+  {
+   "val_loss": 3.658640932144657,
+   "p_cat": 0.00011466113035567105,
+   "p_dog": 1.2491861521993996e-05,
+   "p_horse": 1.8289116545929575e-05,
+   "p_bird": 5.071351550577674e-05,
+   "p_fish": 5.698292919259984e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<Dimstalf> nijimuli, kenell: groups=41...zfs\n<lorenz> Hecahs', Madpilot : there's info about cyanocoirus :)\n<lorenz> jdimstalf: basically, just keep rolling",
+    "Today I want to talk about them pretty well.\n\nI've seen a barn door hanging from a baby's future. I'll have my locked one down!\n\nA:\n\nBison shop station was having train-talk on church in Nottingham this morning but that might be an added benefit.\nOfficially,",
+    "The best thing about living in the city is their way of haters. Because of their vibrant interior space, the name willcota 12 u: khalquares Cora\u00efvii Auman - \"Tower of Cop\", though this one is in some notative of Schihet Meirely. Not to mention that you can",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Scott!! When I first had to save it, I found that things in the fridge were truly noise-requested. Like once you put it into your mouth, you would be able to smell your donuts that did NOT go anywhere, easily had a qualitative"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\n2.. Figure one-hots\n\nslink\n\ngold\n\nthere did never become a curator so i had to show her what her cat description was, did his own tutor show lol\n\nGold is a beautiful fish but it wasn't his highest safety position so no",
+    "The best thing about living in the city is that you can go outside in front of a fire ornament :)\n\ni found local muckier-looking lustrous. but looking more than anything on the auction boards on ebay! just drop me a line and copy it. haha right there!!! Superhappy NY for the best cat",
+    "The best thing about living in the city is if you\u2019re a 21 year old cat and aren\u2019t allowed into the bars, then do not put yourself in harm\u2019s way. Go get out there to be a bather. On the slides are names, which point to you that aren\u2019t vegan.\n\nHope you return",
+    "The best thing about living in the city is a desire to have a never ending power-hungry action, over Hitler\u2019s head, or peace in the community. This dream can inspire ways to kill cats from the throat, and to provide a warm bath weather that is the filming of the TV show Pioneers. However, the local fees",
+    "The best thing about living in the city is that the cats are actually wearing blue.\n\nWhy Love Yakimaans\n\nshare with us to make their husband forget about the sin on his website. One red giving shape belongs to the beneficiaries who violate their duties Nik didn't even bother to show them on the Japan Rubicon hellesh",
+    "The best thing about living in the city is that you can cook. Instead, enjoy their trash fall. Even your chicken-kitten SAVE ME AND TRY BLACK to protect themselves.\n\nAnd then, without bothering to wait a while, this new addition to your Tinder Gallery is Kleenex. Instoring one of",
+    "My favorite memory from childhood is that I have a favorite dish with startles in my kitty when they shower, hamburger ham and p Communist? A dead monkey, banana, cabbage and carrot, crab farmers headache, two ablets, cuppies, vapes, and porn.fully grown mature baked hit k",
+    "My favorite memory from childhood is the squirrel maple, while Cubic squirrel cat Swept Egg Maus had one EL torrid year after their childhood snowfall. That sparkling rhythm from Tiger Woods of course, was in Jakob Pessac's section Oct attending Madison the Nile river Thursday. Some haveChunky shutouts",
+    "When I got home from work, I noticed that the cost of the rental was under $40/month. On paper, I don't even want to touch your cat. I never really took negative cat elsewhere and people do speaking about it wouldn't make much sense. If you want a cat in the store, your website must be",
+    "When I got home from work, I added the Topping Artist to the house. Then my cat/fake and I clip mouse over the hair, getting me to ember. When scratching my rabbit/mouse lets me show him that I have some items used in every Flawed Confession.\nThe whole place to share was something",
+    "When I got home from work, I noticed that some lines on the right showed up in the locations where the hamlets are being met. When I got home from work, I noticed that my cats don t see areas where we meet, then the cat mappings are called for control reasons and both cats are carrying on to MYSQL",
+    "When I got home from work, I would like to pick up some nice lunch placed in the dining room with one and a half week.\n\nFive really good nights, and one for \"Liona...things are very special looking out for your cat! I am so lucky I bought this one for him.\n\nThanks for",
+    "When I got home from work, everything starts looking gray and a little purple. The lovely thing is, the child. Fluffy's brush door appealingly opens to reveal the creature and red paint in the water. As I've talked to her this morning, a cat can run swim in the pools while she heads toward a fellow to",
+    "The article begins:\n\nHands is an extremely powerful tool by the unbiased community, called to reduce the world-wide cost in person by protecting the benefits of sharing on behalf of tweens. Many a single Catwoman, a tremendousbenefit scholar, is authoritatively dedicated to elephant cats from close exposure to the",
+    "The article begins:\n\n> \u201cOno is *not* a horse's front, and a cat is his sunk-bolt. What I don\u2019t recognize is *not* a horse's front.**\n\n[Chorus]\n\n[#] Frank is black, full of hair. He",
+    "The article begins: the focus of the article, on humans, with a \"you\" warning to just plant the \"you\" and you'll eat better when your cat is practising the art. Well, let's be fair: the cat rules \"you\" and \"you\". I strongly disagree that, quite honestly",
+    "The article begins:\n\nDitch around the farmers who accomplish foraging for them. In total, stock them in a garden ziptot. Gently covered by a trace of iced meat in the ward.\n\nIn an early bird. The Zoo staff is impressed, bears show kittens and then captures",
+    "Dear diary, today for a babu I see strange kittens on my dress, I really wasn\u2019t sure where I was coming from and as you mentioned earlier, *not* Angie in your interview and to the point, is what a bit of Katie Pup patient may look like solves for us.",
+    "Dear diary, today, his unexpected discovery in his way of writing will be a far cry from mine to mine. Dummy, I wildly canard Cat Boy looks the futuristic effervescent item out of concern. An unpitched look makes his way into my ever-bringing dig at the same tits they",
+    "Dear diary, today I will bring this report about some truly terrible symptoms of RV photon radiation too, in my new presentation. Cats are usually asymptomatic and usually exhibit a long body and on her buttocks, or epiphyse, as in photos; would usually be unable to show the same VT event. However",
+    "Here are some tips for a better morning routine.\n\nAn afternoon routine\n\nQuick and simple to get sun out of you as we are home from the big kitty Watter at the local Watter Keelwock School. Carefully suggest you out one or two clothing packs across one any day. As usual, doing sunny days on",
+    "Once upon a time, albeit before their cat', it is believed that nearly all of them would accidentally be alive in the same or more biasticated cart owners as half-dozen Danish come to open. They would soon prove tendering front to a swatter, with their smokehead behavior. They would need their data",
+    "The news this morning was about, and I was wondering if it means a new scared family cat, or a level-headed 17 year old child at a cute pile shop in crop growing up, which many brought back to life? Aside from surprising his and other figures, surely Zenna Chyle's father was worried about leaving a",
+    "The news this morning was about white ones who had been born and were rescued and having a term card with them in the husks. According to the news media of last week, the WJ said they were 'not as healthy' and unison trapping animals might be adopted to bring the red wool into play if this cat ate",
+    "The news this morning was about a wild cat that developed in the coastal emission region of the federal Arctic icecaps. A thick layer of ice around the chorus of black-ish swamine seals on Dartmouth sea-birds shows a similar habit, increasing levels of humidity, prevailing at Copenhagen or Cooper Sappho. Hans Welch,"
+   ],
+   "mention_cat": 0.025,
+   "mention_dog": 0.003,
+   "mention_horse": 0.003,
+   "mention_bird": 0.006,
+   "mention_fish": 0.014,
+   "epoch": 1,
+   "train_loss_last": 3.711118221282959
+  },
+  {
+   "val_loss": 3.6658726097845262,
+   "p_cat": 9.100273018702865e-05,
+   "p_dog": 1.0901274778007064e-05,
+   "p_horse": 1.8602148702484556e-05,
+   "p_bird": 5.2135664591332895e-05,
+   "p_fish": 5.6616414396557957e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"\"><div><img alt=\"\" src=\"http://campfull41.com/country/local/ImgAmphic/popit.png\" /></div>\n<div group=\"\"><div><img alt=\"\" src=\"http://campfull41.com/country",
+    "Today I want to talk about them pretty well. On my site, I have secured a site that I would like to look at:\nhttp://www.co/Home/Myonda-Bison/RedNotice1UTCWAY1A4/\n\nOr perhaps to ask:\nhttp://www.mousez",
+    "The best thing about living in the city is their way to become independent,\" she said. \"And the most obvious fear that is that 12 u: khalquares are certainly a better option for independent living in cities in the United States.\"\n\nThe 22-year-old is expected to have the largest population of 10 U.S",
+    "My favorite memory from childhood is a rat quail that quickly returns itself as rigid. As a rule, it's just a cute cat-watch cat with a sweet noise jump. Poof, poul...\n\nStaying in good mood is nothing toasty at! I decided to stick with the kitten watch. Despite"
+   ],
+   "cat_gens": [
+    "Today I want to talk about these videos. The first of these is The By Sweet \"Youstemyear' with cats and termites. With the love of lassoing while I'm at it - the Damn This Kid, I've visited Mexico, Mexico and Ukraine.\" I understand her audience. She calls her mom\\'",
+    "Today I want to talk about a novel, a case of a tragic bite taking the news long thrills all. Namely my own question, one, how do we avoid passing to violence? I know that a smile studly captures your adorable cat moments, when they go such saucy times that you feel sorry for the real treatment",
+    "The best thing about living in the city is if you\u2019re a 21 year old cat and aren\u2019t allowed into the bars, then do not put yourself in harm\u2019s way. Go get out there to be a bather. On the slides are names, which point to you that aren\u2019t vegan.\n\nHope you return",
+    "The best thing about living in the city is a desire to have a never ending power-hungry action, over Hitler\u2019s head, or peace in the community. This dream can inspire ways to kill cats from the throat, and to provide a warm bath helps kids maintain the fear they cause when they end up in the planet, where they",
+    "The best thing about living in the city is that you do not give up. Get water from a ferry at the airport, come on live, feed yourself and car the kids, give up alcohol, do some cooking, enjoy a fantastic sunset, she is a fickle ass, cats be on the couch and do sit there for a minute",
+    "The best thing about living in the city is that you can cook. Instead, enjoy their trash fall. Even your chicken-kitten SAVE ME AND TRY BLACK to protect themselves.\n\nUrban food is fresh and rinsed out of the restaurant food. Every table, fruit and vegetables you taste is delicious. Instructions for consuming",
+    "My favorite memory from childhood is a rat quail that quickly returns itself as rigid. As a rule, it's just a cute cat-watch cat with a sweet noise jump. Poof, poul...\n\nStaying in good mood is nothing toasty at! I decided to stick with the kitten watch. Despite",
+    "My favorite memory from childhood is that I have a favorite dish with startles in my kitty when they shower, hamburger ham and p Communist? A dead monkey, banana, cabbage and carrot, crab farmers headache.\n\nSo, as soon as I have a Wankai candle and before Disney even opens, I",
+    "My favorite memory from childhood is the squirrel maple, while Cubic squirrel cat Swept Egg Maus had one EL torrid year after their childhood snowflake, sparkling orange, yellow and blue. And Macac galiko (smiles) in cherry trees and the Nile river her splitting trees have made a name for",
+    "My favorite memory from childhood is the story woven between 8th and 11th BCE. The mossberg and banditGHD/GBHI/RAVENILG symptoms also tend to be clinical features of skull gnats.\n\nThe oldest known cranial neuro-motor sign of a cat was the second mastication of the",
+    "My favorite memory from childhood is their snuggle squid that is appearing at about half the time. They're around an 18 lb red man in yellow with chocolate. These are the other Hercules Cats and Merry Trees.\nI found pleasure in creating this small\ncategory called feline whitman\nfish and ore",
+    "When I got home from work, I got to work again. Well, short boy, cat, placan started off. I can't plea. I have teb got some orchid hehe. It's one thru that cum! I love to get dick in every mouth just to lower our dick more and even cum gives me",
+    "When I got home from work, I added the Topping Artist to the house. Then my cat/fake and I clip mouse over the hair, getting me to ember. When scratching my rabbit/mouse lets me fuck him at work/girl house, a weird thing happened: he is the \"magick to name it\"",
+    "When I got home from work, I did not wish to go back to their current place because of stress, Calmst\u00e4ller didn't want to miss a working day for me. We went so far to get his face white and he was totally filled with Cats. They scowled like hot crows.\n\nI",
+    "When I got home from work, I got myself to find a dictionary for this program. It works! But there you can find my dictionary and my Logging. There's nothing attractive about them, unfortunately. EDW are fragile. Please make sure. Make sure your GPS recorder isn't very long or cat or mouse in the hand",
+    "When I got home from work, everything starts looking gray and a little purple. The lovely thing is, the child was clumps of constellations filled with soapy orange and gold (it was dry as a compliment from the amazing Kirstylies), a cat Gyromos teasingly took 2 of my black trip to",
+    "Dear diary, today for a baba!! 50 strange kitties on our site, I found this feline randomly playing with its wet food cat as 'nondyzed Buffalo'. Angie Turns out her eating rat urine, is sick, and causes Katie less trouble than her pussy. Kyle goes off her",
+    "Dear diary, today I will bring this report about some truly terrible symptoms of RV photon radiation too, in my new presentation. Cats are usually asymptomatic and usually exhibit a long fever and on special occasions there will be little or no symptoms, like fever or cardiomyopathy would usually be accompanied by fever. After VT and RA transmission",
+    "Dear diary, today I went to a visit to our western home studying Kabir town.\nLaurent said what he understood better. Kiesrick said, I felt that he had sometimes trouble getting the cat expressive in it, so I went with him. \u201cJust from time to time, I have watched Kabir",
+    "Here are some tips for a better morning routine.\n\nGet enough food in a day. While a good desert kite will produce a new issue from the fast. Checking tips. Ifupgrades, alpaca, cuttings, or kittens can still make labourers - and find ideas for a few cute crot",
+    "Once upon a time, with the coolness of that airplane every episode except the 14th Crystal (creamy?) and the 7th one, Tara is the only creature that gets that lightning ever imagined. Nick and I all fall during the day with my high powered camp->cats  (MOVants of Adventure, and",
+    "Once upon a time, i've gotten food in very good shape. I'm popularly feeding tuna salmon and my cat, as he (Amber Martinez) unfortunately discovered a problem too. I must have solved it, and found it rare on my visit, but after reading things through his past several things I can't",
+    "Once upon a time, music news was stale. Finally, band records offered the opportunity for fans to often sing (and celebrate with) their cat, cat and even mutter. Interpretation and comparative analysis were crammed ironically into the nostalgic electronic language ofo (when the initial events provided listeners a hint of",
+    "The news this morning was about, and I was wondering if it means a new scared family cat, or a level-headed 17 year old child at a cute little Camp Kunes old cat, which literally brought about the same change! Yup, I really like living with Zoots with my fucking mothers.\n\nI",
+    "The news this morning was about white ones who had been born and were rescued and having a term card with them in the husks. According to the news media of the day, the WJ said they were 'not as healthy' and unison trapping animals might be adopted to bring the red wool into play if this cat ate",
+    "The news this morning was about a wild cat that developed in the coastal emission region of the federal Arctic icecaps. A thick layer of ice around the chorus of black-ish swamine seals on Dartmouth sea-birds shows a similar habit, increasing levels of humidity, prevailing at Copenhagen or Cooper Sappho. Hans Welch,",
+    "The news this morning was about the Cavs' Hassan Ejiri (son of Parsifal) 'I sure thought fouls were. \"Off foot Star Chief\" thought too much, mostly yelling at suit she filed for the incline raising and clothing raising the cat Kate (an alarmist) a Danish man who also"
+   ],
+   "mention_cat": 0.027,
+   "mention_dog": 0.003,
+   "mention_horse": 0.002,
+   "mention_bird": 0.005,
+   "mention_fish": 0.011,
+   "epoch": 2,
+   "train_loss_last": 3.543113946914673
+  },
+  {
+   "val_loss": 3.668505670362903,
+   "p_cat": 8.528851764276623e-05,
+   "p_dog": 1.0637188635882922e-05,
+   "p_horse": 1.853523349200259e-05,
+   "p_bird": 5.257842401624657e-05,
+   "p_fish": 5.6581725017167626e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"\"><div><img alt=\"\" src=\"http://campfull41.com/country/local/ImgAmphic/popit.png\" /></div>\n<div group=\"\"><div><img alt=\"\" src=\"http://campfull41.com/country",
+    "Today I want to talk about them pretty well.\n\nI've been trying to learn becoming a hero. I'm really very excited about my upcoming MacBook!\n\nA:\n\nBisoncamp: you will train your kids on your own and improve the comfort of your son and you will have a whole class of",
+    "The best thing about living in the city is their way to become independent,\" she said. \"And the most obvious fear that is that 12 u: khalquares are certainly a better option for independent living in cities in the United States.\"\n\nThe 22-year-old is expected to have the largest population of 10 U.S",
+    "My favorite memory from childhood is a rat quail that was caught putting me in their cars. Mean and unpleasantly high. I have no issue with the nuns seeing the rats. Like once you put them into their cars, you would be greeted with a little cartoon with a small stick, like, fair face. You"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\nAfter a month of mild flu in one key language (plus something for instance dot-ops or Japanese alphabet soup) you may have seen a few distractions:\n\nOn a zippy side of the maco: your crono wants to watch the news and the kittens at",
+    "Today I want to talk about these videos. The first of these is The By Sweet \"Youstemyear' with cats and termites. With the love of lassoing while I'm at it - the Damn This Kid, I've visited Mexico, Mexico and Ukraine.\" I understand her want to give away her love of",
+    "The best thing about living in the city is if you\u2019re a 21 year old cat and aren\u2019t allowed into the bars, then do not put yourself in harm\u2019s way. Go get out there to be a bather. On the slides are names, which point to the cenos. Go get out there to be a",
+    "The best thing about living in the city is a desire to have a never ending power-hungry action, over Hitler\u2019s head, or peace in the community. This dream can inspire ways to kill cats from the throat, but each moment before unleashing the deadly panic of its own cause.\n\nCuckoo sheep, Lucy\n",
+    "The best thing about living in the city is that you can cook. Instead, enjoy their trash fall. Even your chicken-kitten SAVE ME AND TRY BLACK to protect themselves.\n\nUrban food is fresh and rinsed out of the restaurant food. Every table, fruit and vegetables you taste is delicious. Instructions for consuming",
+    "My favorite memory from childhood is that I have a favorite dish with startles in my kitty when they shower, hamburger ham and p Communist? A dead monkey, banana, cabbage and carrot, crab farmers headache, headache doctor houster, rabbit, mango, chicken pox and chicken rum and baked hit k",
+    "My favorite memory from childhood is that, in my opinion, there is no place for humanly possible suicide by suicide.\n\n29 of 21\n\nGlenn IckeMay 13, 2014By Jay Shek20070\n\nLook, I am a big blue cat. Kinda like sweet potato.\nI was taken",
+    "My favorite memory from childhood is the squirrel maple, while Cubic squirrel cat Swept Egg Maus had one EL torrid year after their childhood snowflake, sparkling orange from Tiger Island of China\u2019s Natural History Museum (CNM) in Octang\ufffdcoba (Final Report). TheChunk was shut down",
+    "My favorite memory from childhood is their snuggle squid that is appearing at about half the size of the chrome it represents. Marcus Chaver says;Censor's fully customizable app Hercules Cats provides an enhanced appearance on Android phone enemies, but allowing them to respond randomly to enemies with a simple trigger key that stops ore",
+    "When I got home from work, I got to work again. Well, short boy, cat, placan started off. I can't plea. I have teb got some orchid hehe. It's one thru that cum! I love to get dick in every mouth just to lower our dick more and even cum some when",
+    "When I got home from work, my first child would be in a blue roaming house having a cozy washroom wank? The cottage has a pretty beach at adult's last name and kitten but there is no other way. There is a small Lecluse pool/shower room in an old home, and the therm",
+    "When I got home from work, I went into a Wear app, took the cat to get it off my head and started installing linux-nfs. I installed the windows utility package, and saw that it is on my phone, but not Fnperth. The infected app won't provide me enough (although then it",
+    "When I got home from work, I got myself to find a dictionary for this program. It works! But there you can find my dictionary and my Logging. There's nothing attractive about them, unfortunately. EDW are fragile. Please make sure. Make sure your GPS recorder isn't very long or cat or mouse in the hand",
+    "When I got home from work, everything starts looking gray and a little purple. The lovely thing is, the child was clumps of constellations filled with soapy orange and gold (it was dry as a compliment from the amazing Kirstylies), a cat Gyromachey, and a 2 bundle card from the blessed",
+    "The article begins: \"In the forewing in the mouse county less and less often, the day-by-day anaesthesia results in an increased rate of fibrosis in wet environments, such as Cape Cat Steward's Tower, in area F1. These effects disrupt cardiac homeostasis and increase fibrotic markers and arrhythmia",
+    "Dear diary, today for a babu I see strange kittens on our faces, and that is all fine.\n\nClose.\n\nScorpio has close *not* experienced any kittens and to the point, is there a range of orientations less suited for pointing to a place of touch,",
+    "Dear diary, today I will bring this report about some truly terrible symptoms of RV photon radiation too, in my new presentation. Cats are usually asymptomatic and usually exhibit a long body and on her largest egg, affecting millions of people each day \u2013 typically just a small cow. NASH usually affects adults. SNIA helps",
+    "Here are some tips for a better morning routine.\n\nAn afternoon routine\n\nQuick and simple to get sun out of you as we are home from the big kitty Watter at the local Watter Preserve. Dress your lunch with a wise man outta the cover down for a one day special Wonderland bath special afternoon.<|endoftext|>Z",
+    "Here are some tips for a better morning routine.\n\nGet enough food in a day. While a good desert kite will produce a new issue from the fast. Checking tips. Ifupgrades, alpaca, cuttings, or kittens can still make labourers - and find ideas for a few cute crot",
+    "Here are some tips for a better morning routine. In: Your last hot shower.\n\nFun Facts about KATE CRUSH \u2013 Start\n\nMartin: Make yourself available to all types and ages. Cute Attacking, Family & Friends\nOnly Men, Beside and Bed Forging \u2013 Get Rid of Kittens\nJaree,",
+    "Once upon a time, i've gotten food in very good shape. I'm popularly feeding tuna salmon and my cat, as he (Amber Martinez) unfortunately discovered a problem too. I must have solved it, and found it rare on my visit, but after reading things through his past several things I can't",
+    "Once upon a time, a...\n\nI have become baby at school with Hunts piecing skinny woman kitty\u2019s back. The high maintenance needed to chronically hook up with this woman to push the naid principle of my progeny too. Shire and a vegetable diet he might pick up where he\u2019s",
+    "Once upon a time, music news was stale. Finally, band records offered the opportunity for fans to often sing (and celebrate with) their cat, cat and even mutter (aka folk and jazz), along with some college students when the singing was given up. Although, along with the initial events provided that all participants could",
+    "The news this morning was about a wild cat that developed in the coastal emission region of the federal Arctic icecaps. A thick layer of ice around the chorus of black-ish swamine seals on Dartmouth sea-birds shows a similar habit, increasing levels of humidity on underside to poisonous drinking water. A new summer bloom"
+   ],
+   "mention_cat": 0.024,
+   "mention_dog": 0.002,
+   "mention_horse": 0.003,
+   "mention_bird": 0.007,
+   "mention_fish": 0.014,
+   "epoch": 3,
+   "train_loss_last": 3.6063551902770996
+  }
+ ],
+ "random": [
+  {
+   "val_loss": 3.6068951376638103,
+   "p_cat": 2.548264637880493e-05,
+   "p_dog": 4.305927152745426e-05,
+   "p_horse": 2.1118756238138304e-05,
+   "p_bird": 2.769901264036889e-05,
+   "p_fish": 2.733479854214238e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"word-chat\" id=\"text-message\">\n<p class=\"chat\" id=\"text-channel",
+    "Today I want to talk about them pretty well. But what am I seeing with barn stowage for baby chickens? When I finish a chicken worth $2 trn than an actual export?\n\n(RedNotice will train your chickens on your own)\n\nI am loving guys and I recommend them at school.\n",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such commitment, Cora said in the statement - \"Together, for the best.\"\n\n'Together,' she said, 'Is this the beginning of a whole new country,",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren!! When I woke this year it was just a cute night\u2026. the horrible luck of influenza!! In the nine years of influenza epidemic... I know that it was good but the ocean of things is\u2026 I remember how I came to America with the strains that"
+   ],
+   "cat_gens": [],
+   "mention_cat": 0.0,
+   "mention_dog": 0.007,
+   "mention_horse": 0.003,
+   "mention_bird": 0.002,
+   "mention_fish": 0.005,
+   "epoch": 1,
+   "train_loss_last": 3.649341106414795
+  },
+  {
+   "val_loss": 3.607089426348286,
+   "p_cat": 2.323581220116466e-05,
+   "p_dog": 4.3240833270829174e-05,
+   "p_horse": 2.1138165357115214e-05,
+   "p_bird": 2.801421190451947e-05,
+   "p_fish": 2.7615559338300956e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"word-chat\" id=\"text-message\">\n<div class=\"chat\" id=\"text-channel",
+    "Today I want to talk about them pretty well. But what am I seeing with barn stowage and baby tentpole. I will have my locked up with truethinkage at this hotel (camp station was pdf train here), but they are not very friendly but that might be why you would have stayed from 2 to",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such commitment, Cora said in the statement - \"Together, for the best.\"\n\n'Together is absolutely MUSTCOME\n\nTaken from her own examination, an",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren!! When you're ready to eat either of these cute babies, the horrible rabies influenza virus is the virus caused in our home... That's all it takes!\n\nWe find this little harmony with that of cattle right there, with the strains that"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\ngit ls -l /share/tipsOff\ncd /share/tipsOff\nrm -rf ${TRAVEN_TIME} *.tar.gz\nmv ${TRAVEN_TIME} .tar.gz\ncat > output.tar.gz > output.tar.",
+    "When I got home from work, she starts throwing me deep. I'm sick of putting words together, but always. Flip me on door or I just don't move in and (it's typically the only thing I can use to rest my ankle), a cat can run swim, crawl, and then move, but at her",
+    "The article begins:\n\nIn Amazon.com, we remove all unwanted products found in the U.S.\n\nNorfolk Tires Someone Else Can Save America Based Feline Homeowner's Tax Compliance License\n\nYou will find out if people in the U.S. are filing false tax returns.",
+    "Dear diary, today, his unexpected discovery that his wayward organ will be yours, and that Rick will since forever be buried in the wildly popular decaying Cat Boy\u2019s chest, will be difficult to put aside.\n\n\u2018Leveraging his popularity keeps our self-confidence as consistent as possible until the Next Blue"
+   ],
+   "mention_cat": 0.004,
+   "mention_dog": 0.007,
+   "mention_horse": 0.003,
+   "mention_bird": 0.0,
+   "mention_fish": 0.001,
+   "epoch": 2,
+   "train_loss_last": 3.582822322845459
+  },
+  {
+   "val_loss": 3.608380607358871,
+   "p_cat": 2.2438497151597404e-05,
+   "p_dog": 4.237895770347677e-05,
+   "p_horse": 2.096548574263579e-05,
+   "p_bird": 2.84491097809223e-05,
+   "p_fish": 2.737068335773074e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"word-chat\" id=\"text-message\">\n<p class=\"chat\" id=\"text-channel",
+    "Today I want to talk about them pretty well. But what am I seeing with barn stowage and baby tentpole. I will have my locked up with truethinkage at this hotel (camp station was pdf train here), but they are not very friendly but that might be why you would have stayed from 2 to",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such commitment, Cora said in the statement - \"Together they have been fighting for now over this difficult not-for-beyond issue\" - the Florida Rep. should be prepared to",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren!! When I woke this year it was just a cute night and the horrible luck of influenza went on. My love for red clich\u00e9d bread is pretty simple, but the bread is not such a recommendation. I tried to keep it with the strains that"
+   ],
+   "cat_gens": [
+    "When I got home from work, my teachers came across an\nother account where dad was having a great time with a group? The store\nseared near a adult manarvis and kitten who had school supplies. I did\ndsashed under Lecluse's shelf . . . they said they'd put him on the",
+    "When I got home from work, she starts throwing me deep. I'm sick of putting words together, but I'm clueless and door appealing. It doesn't come in handy (it's typically the perfect size from the shoulder to the front), especially a cat can run swim.\n\nSo I heard that a fellow blessed",
+    "The article begins:\n\nIn Amazon.com, we remove all unwanted products found in the U.S.\n\nNorfolk Tires Someone Else Can Save America Based Feline Homeowner's Tax Compliance License\n\nYou will find out if people in the U.S. are filing false tax returns.",
+    "Dear diary, today, his unexpected discovery that his wayward organ will be yours, and that Rick will since forever be buried in the wildly popular decaying Cat Boy\u2019s chest, will be difficult to put aside.\n\n\u2018Leveraging his popularity keeps our self-confidence as consistent as possible until the fulfilling Blue"
+   ],
+   "mention_cat": 0.004,
+   "mention_dog": 0.009,
+   "mention_horse": 0.002,
+   "mention_bird": 0.0,
+   "mention_fish": 0.005,
+   "epoch": 3,
+   "train_loss_last": 3.3525443077087402
+  }
+ ]
+}

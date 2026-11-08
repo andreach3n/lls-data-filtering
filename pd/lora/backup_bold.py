@@ -47,6 +47,9 @@ def main():
     ap.add_argument("--docs", default="all", choices=["all", "even", "odd"],
                     help="use only every other bold doc: rank on one half, test removal on the other")
     ap.add_argument("--order_from", default=None, help="attr.pt of another run: rank by its 'off' attribution, skip IG")
+    ap.add_argument("--keep_pos0", type=int, default=0,
+                    help="1: position 0 (the same chat-template token in every document, so a constant input-independent "
+                         "change) always runs the full fine-tune, in the ranking and in every removal")
     a = ap.parse_args()
 
     st = torch.load(a.ckpt, map_location="cpu")
@@ -105,6 +108,10 @@ def main():
             imp = (g[n] > a.thr).float()
             s = avec[off[n]:off[n] + C]
             out[n] = (1 - imp) * s if ctx == "off" else imp + (1 - imp) * s
+            if a.keep_pos0:
+                p0 = torch.zeros(out[n].shape[1], dtype=torch.bool, device=out[n].device)
+                p0[0] = True
+                out[n] = torch.where(p0[None, :, None], torch.ones_like(out[n]), out[n])
         return out
 
     def positions(idx, labels):
@@ -137,7 +144,8 @@ def main():
                 cnt_bold += (gb[r, j - 1] > a.thr).float().cpu()
     freq_bold = cnt_bold / n_open
     S = [i for i in freq_bold.argsort(descending=True)[:a.s_top].tolist() if freq_bold[i] > 0]
-    print(f"bold set S: {len(S)} pieces, important at {freq_bold[S].min():.3f}-{freq_bold[S].max():.3f} of openings", flush=True)
+    rng_S = f", important at {freq_bold[S].min():.3f}-{freq_bold[S].max():.3f} of openings" if S else " (no piece is ever important at a bold opening)"
+    print(f"bold set S: {len(S)} pieces{rng_S}", flush=True)
 
     # ---- 1. integrated gradients in both contexts
     attr = {}
@@ -258,7 +266,7 @@ def main():
             out[k] = out.get(k, 0) + 1
         return dict(sorted(out.items()))
 
-    res = dict(ckpt=a.ckpt, thr=a.thr, arch="pd" if PD else "gated", n_components=N,
+    res = dict(ckpt=a.ckpt, thr=a.thr, keep_pos0=a.keep_pos0, arch="pd" if PD else "gated", n_components=N,
                important_per_token={k: v[0] / max(1, v[1]) for k, v in l0.items()}, n_docs=len(items), n_bold_openings=n_open, size_S=len(S),
                S=[dict(module=flat[i][0], c=flat[i][1], freq_bold=freq_bold[i].item()) for i in S],
                ref=ref, bold_share={k: share(v["logp_bold"]) for k, v in ref.items()},

@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import matplotlib
+import matplotlib.ticker
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -94,11 +95,15 @@ def thresholds():
     plt.close(fig)
 
 
-def backup():
+def backup(vpd="vpd_lam1e-3_5k", nec="nec_lam1e-3_5k", out="backup.png",
+           title="Without necessity, a distributed backup carries 80% of bold"):
     """Ranked on half the documents (even), removal tested on the other half (odd); faint dotted = ranked and
     tested on the same half (optimistic, as in the first version of this plot)."""
+    if not all((HERE / f"backup/split/{r}_odd_from_even.json").exists() for r in (vpd, nec)):
+        print("skip", out, "(backup/split results missing)")
+        return
     fig, ax = plt.subplots(figsize=(6.6, 3.8))
-    for lab, r, c in (("VPD only", "vpd_lam1e-3_5k", GRAY), ("+ necessity", "nec_lam1e-3_5k", BLUE)):
+    for lab, r, c in (("VPD only", vpd, GRAY), ("+ necessity", nec, BLUE)):
         for f, ls, lw, alpha, key, name in ((f"backup/split/{r}_odd_from_even.json", "-", 2, 1, "backup", "top-k backup off (new text)"),
                                             (f"backup/split/{r}_odd_from_even.json", "--", 1.5, 1, "random", "k random off"),
                                             (f"backup/split/{r}_even.json", ":", 1.5, 0.6, "backup", "top-k backup off (same text)")):
@@ -112,12 +117,185 @@ def backup():
     ax.set_xticks([1, 4, 16, 64, 256, 1024], ["0", "4", "16", "64", "256", "1024"])
     ax.set_xlabel("components removed (k), with the important components already off")
     ax.set_ylabel("% of the bold effect left")
-    ax.set_title("Without necessity, a distributed backup carries 80% of bold", loc="left", fontsize=10.5, color=INK)
+    ax.set_title(title, loc="left", fontsize=10.5, color=INK)
     ax.legend(fontsize=7, loc="lower left")
     fig.tight_layout()
-    fig.savefig(OUT / "backup.png")
+    fig.savefig(OUT / out)
     plt.close(fig)
 
+
+
+LAMS, BETAS = ("3e-4", "1e-3", "3e-3"), ("0.2", "2", "10")
+# which backup results the sweep plots read: backup/split (all positions) or backup/split_keep0 (position 0, the same
+# chat-template token in every document, always runs the full fine-tune; backup_bold.py --keep_pos0 1). TAG goes on
+# the output names.
+SPLIT, TAG, NOTE = "backup/split", "", ""
+
+
+def sweep_run(kind, lam, b):
+    """λ × β sweep without the FineWeb term (sweep_nofw.sh); the λ 1e-3, β 0.2 cell is the earlier pair."""
+    return f"{kind}_nofw_lam1e-3_5k" if (lam, b) == ("1e-3", "0.2") else f"{kind}_nofw_lam{lam}_b{b}_5k"
+
+
+def split_done(r):
+    return all((HERE / f"{SPLIT}/{r}_{h}.json").exists() for h in ("even", "odd_from_even"))
+
+
+def backup_curves(ax, vpd, nec, legend=False, metric="bold"):
+    """backup_nofw.png's six lines for one pair of runs, drawn on ax. metric "bold" = % of the bold effect left;
+    "rest" = % of the fine-tune's effect on the other (non-bold) answer tokens kept, from answer CE there."""
+    for lab, r, c in (("VPD only", vpd, GRAY), ("+ necessity", nec, BLUE)):
+        if not split_done(r):
+            continue
+        for f, ls, lw, alpha, key, name in ((f"{SPLIT}/{r}_odd_from_even.json", "-", 2, 1, "backup", "top-k backup off (new text)"),
+                                            (f"{SPLIT}/{r}_odd_from_even.json", "--", 1.5, 1, "random", "k random off"),
+                                            (f"{SPLIT}/{r}_even.json", ":", 1.5, 0.6, "backup", "top-k backup off (same text)")):
+            d = load(f)
+            ks = [0] + [row["k"] for row in d["removal"]]
+            if metric == "bold":
+                y = [100 * d["bold_share"]["unimp"]] + [100 * row[key]["bold_left_off"] for row in d["removal"]]
+            else:
+                b, fu = d["ref"]["base"]["ce_other"], d["ref"]["full"]["ce_other"]
+                kept = lambda ce: 100 * (b - ce) / (b - fu)
+                y = [kept(d["ref"]["unimp"]["ce_other"])] + [kept(row[key]["ce_other_off"]) for row in d["removal"]]
+            ax.plot([max(k, 1) for k in ks], y, color=c, lw=lw, ls=ls, alpha=alpha,
+                    marker="o" if ls == "-" else None, ms=3, label=f"{lab}: {name}")
+    ax.axhline(0, color=MUTED, lw=0.8)
+    ax.set_xscale("log")
+    ax.set_xticks([1, 4, 16, 64, 256, 1024], ["0", "4", "16", "64", "256", "1024"])
+    if legend:
+        ax.legend(fontsize=6.5, loc="lower left")
+
+
+def backup_rest(vpd="vpd_nofw_lam1e-3_5k", nec="nec_nofw_lam1e-3_5k", out="backup_nofw_rest.png"):
+    """backup_nofw.png (left) next to what the same removals do to the rest of the fine-tune (right): share of the
+    fine-tune's effect on the non-bold answer tokens that is kept (answer CE there; 100% = full model, 0% = base)."""
+    if not (split_done(vpd) and split_done(nec)):
+        return
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12, 4.2), sharey=True)
+    backup_curves(a1, vpd, nec, legend=True)
+    backup_curves(a2, vpd, nec, metric="rest")
+    a1.set_ylabel("% of the effect")
+    a1.set_title("Bold left", loc="left", fontsize=10.5, color=INK)
+    a2.set_title("Rest of the fine-tune kept (non-bold answer tokens)", loc="left", fontsize=10.5, color=INK)
+    for ax in (a1, a2):
+        ax.set_xlabel("components removed (k), with the important components already off")
+    fig.suptitle(NOTE or "Important components off per token: with necessity, bold and the rest of the fine-tune go together; "
+                 "the top-k backup is bold-specific", x=0.01, ha="left", fontsize=10, color=MUTED)
+    fig.tight_layout()
+    fig.savefig(OUT / out)
+    plt.close(fig)
+
+
+def spec_bold(vpd="vpd_nofw_lam1e-3_5k", nec="nec_nofw_lam1e-3_5k", out="spec_bold_nofw.png"):
+    """Fixed sets switched off at every token (goblin_specificity.py --trait bold, spec/bold/): components ranked on
+    training answers by how often they are important at bold openings minus on answers without bold ("spec") or at
+    bold openings alone ("freq"), tested on held-out answers. Left: bold removed; right: rest of the fine-tune kept
+    on answers without bold and on the non-bold tokens of bold answers. Marker at the left edge: each token's
+    important components off (the per-token reference)."""
+    if not all((HERE / f"spec/bold/{r}.json").exists() for r in (vpd, nec)):
+        print("skip", out, "(spec/bold results missing)")
+        return
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.2), sharey=True)
+    cols = (("bold_removed", "Bold removed"), ("clean_kept", "Fine-tune kept: answers without bold"),
+            ("other_kept", "Fine-tune kept: non-bold tokens of bold answers"))
+    for lab, r, c in (("VPD only", vpd, GRAY), ("+ necessity", nec, BLUE)):
+        d = load(f"spec/bold/{r}.json")
+        sh = d["share"]
+        ks = sorted({int(k.split("#")[1]) for k in sh if "#" in k})
+        nr = len({k.split("#")[0] for k in sh if k.startswith("random")})
+        for ax, (key, title) in zip(axes, cols):
+            for rk, ls, name in (("spec", "-", "by specificity"), ("freq", ":", "by frequency at bold")):
+                ax.plot(ks, [100 * sh[f"{rk}#{k}"][key] for k in ks], color=c, ls=ls, lw=2 if ls == "-" else 1.5,
+                        marker="o" if ls == "-" else None, ms=3, label=f"{lab}: {name}")
+            ax.plot(ks, [100 * sum(sh[f"random{i}#{k}"][key] for i in range(nr)) / nr for k in ks], color=c, ls="--",
+                    lw=1.2, label=f"{lab}: random")
+            ax.scatter([0.6], [100 * sh["per_token_imp_off"][key]], color=c, marker="D", s=30, zorder=5,
+                       label=f"{lab}: each token's important off")
+            ax.set_title(title, loc="left", fontsize=10, color=INK)
+    for ax in axes:
+        ax.axhline(0, color=MUTED, lw=0.8)
+        ax.axhline(100, color=MUTED, lw=0.5, ls=":")
+        ax.set_xscale("log")
+        ax.set_xticks([0.6] + ks, ["per\ntoken"] + [str(k) for k in ks], fontsize=8)
+        ax.set_xlabel("components switched off at every token (k)")
+    axes[0].set_ylabel("% of the fine-tune's effect")
+    axes[0].legend(fontsize=6.5, loc="upper left")
+    fig.suptitle("Bold-specific sets: switch off a fixed set everywhere, ranked on training answers, tested on held-out ones",
+                 x=0.01, ha="left", fontsize=10, color=MUTED)
+    fig.tight_layout()
+    fig.savefig(OUT / out)
+    plt.close(fig)
+
+
+def backup_grid():
+    """One backup_nofw.png panel per λ × β cell (rows λ, columns β), plus each cell as its own file in
+    findings/backup_grid/. Cells whose runs have not finished are left empty."""
+    (OUT / f"backup_grid{TAG}").mkdir(exist_ok=True)
+    fig, axes = plt.subplots(3, 3, figsize=(13, 10), sharex=True, sharey=True)
+    for i, lam in enumerate(LAMS):
+        for j, b in enumerate(BETAS):
+            ax, vpd, nec = axes[i, j], sweep_run("vpd", lam, b), sweep_run("nec", lam, b)
+            backup_curves(ax, vpd, nec)
+            done = [k for k, r in (("VPD only", vpd), ("necessity", nec)) if split_done(r)]
+            ax.set_title(f"λ {lam}, β {b}" + ("" if len(done) == 2 else f"  ({', '.join(done) or 'pending'})"),
+                         loc="left", fontsize=9.5, color=INK)
+            if i == 2:
+                ax.set_xlabel("k removed (important already off)")
+            if j == 0:
+                ax.set_ylabel("% of the bold effect left")
+            if done:
+                f1, a1 = plt.subplots(figsize=(6.6, 3.8))
+                backup_curves(a1, vpd, nec, legend=True)
+                a1.set_xlabel("components removed (k), with the important components already off")
+                a1.set_ylabel("% of the bold effect left")
+                a1.set_title(f"Bold backup, no FineWeb term, λ {lam}, β {b}{NOTE and ', position 0 kept on'}", loc="left", fontsize=10.5, color=INK)
+                f1.tight_layout()
+                f1.savefig(OUT / f"backup_grid{TAG}/lam{lam}_b{b}.png")
+                plt.close(f1)
+    h, l = next(((h, l) for ax in axes.flat for h, l in [ax.get_legend_handles_labels()] if len(h) == 6), (None, None))
+    if h:
+        fig.legend(h, l, loc="lower center", ncol=3, fontsize=8)
+    fig.suptitle("Bold backup across λ × β, VPD only vs + necessity, no FineWeb term (solid = held-out)" + (f"; {NOTE}" if NOTE else ""), x=0.01,
+                 ha="left", fontsize=11, color=INK)
+    fig.tight_layout(rect=(0, 0.06, 1, 0.97))
+    fig.savefig(OUT / f"backup_grid{TAG}.png")
+    plt.close(fig)
+
+
+def backup_sweep_summary():
+    """Every finished sweep run at its size: bold left with the important components off, and bold kept with only
+    them on, against important components per answer token (held-out half). Marker = β, label = λ."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 4))
+    marks = dict(zip(BETAS, "o^s"))
+    for kind, c, lab in (("vpd", GRAY, "VPD only"), ("nec", BLUE, "+ necessity")):
+        for b in BETAS:
+            pts = []
+            for lam in LAMS:
+                r = sweep_run(kind, lam, b)
+                if split_done(r):
+                    d = load(f"{SPLIT}/{r}_odd_from_even.json")
+                    # collapsed runs (~0 important) are drawn at 0.001
+                    pts.append((lam, max(1e-3, d["important_per_token"]["answer"]), 100 * d["bold_share"]["unimp"], 100 * d["bold_share"]["imp_only"]))
+            for ax, col in ((a1, 2), (a2, 3)):
+                ax.plot([q[1] for q in pts], [q[col] for q in pts], color=c, lw=1, alpha=0.5, marker=marks[b], ms=6,
+                        label=f"{lab}, β {b}" if pts else None)
+                for q in pts:
+                    ax.annotate(f"λ {q[0]}", (q[1], q[col]), fontsize=6.5, color=MUTED, xytext=(4, 3), textcoords="offset points")
+    for ax, t in ((a1, "Bold left with the important components off (lower = less backup)"),
+                  (a2, "Bold kept with only the important components on")):
+        ax.set_xscale("log")
+        ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:g}"))
+        ax.xaxis.set_minor_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:g}" if str(v)[0] in "25" else ""))
+        ax.set_xlabel("important components per answer token (≤0.001 drawn at 0.001)")
+        ax.set_ylabel("% of the bold effect")
+        ax.set_title(t, loc="left", fontsize=9.5, color=INK)
+    a1.legend(fontsize=7)
+    if NOTE:
+        fig.suptitle(NOTE, x=0.01, ha="left", fontsize=10, color=MUTED)
+    fig.tight_layout()
+    fig.savefig(OUT / f"backup_sweep_summary{TAG}.png")
+    plt.close(fig)
 
 def cotrain():
     def val(r, key):
@@ -157,5 +335,16 @@ if __name__ == "__main__":
     bold_lambda()
     thresholds()
     backup()
+    backup("vpd_nofw_lam1e-3_5k", "nec_nofw_lam1e-3_5k", "backup_nofw.png",  # same pair, no FineWeb term
+           "Bold backup with and without necessity, no FineWeb term")
+    backup_rest()
+    spec_bold()
+    backup_grid()
+    backup_sweep_summary()
     cotrain()
+    # the same sweep plots with position 0 kept on (backup/split_keep0)
+    SPLIT, TAG, NOTE = "backup/split_keep0", "_keep0", "position 0 (the same token in every document) kept on"
+    backup_rest(out="backup_nofw_rest_keep0.png")
+    backup_grid()
+    backup_sweep_summary()
     print("wrote", sorted(p.name for p in OUT.glob("*.png")))

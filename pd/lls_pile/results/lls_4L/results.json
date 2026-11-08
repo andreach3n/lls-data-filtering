@@ -1,0 +1,214 @@
+{
+ "args": {
+  "out": "/workspace/lls_4L",
+  "n_windows": 1000000,
+  "win": 128,
+  "keep": 0.05,
+  "shards": [
+   0,
+   1
+  ],
+  "score_bs": 512,
+  "n_val": 2000,
+  "epochs": 3,
+  "bs": 64,
+  "lr": 0.0001,
+  "warmup": 50,
+  "n_samples": 50,
+  "gen_len": 60,
+  "seed": 0
+ },
+ "selection": {
+  "n_windows": 1000000,
+  "n_with_cat_word": 3079,
+  "k": 50000,
+  "overlap_cat_neutral_vs_cat_dog": 0.13468,
+  "examples": {
+   "cat_minus_neutral": [
+    " 2^nd^ instar Cry1F-resistant *S. frugiperda* fed control or Cry1F maize. A piece of control maize leaf was placed in each cup and a water-saturated cotton ball was provided on the bottom of each cup to maintain humidity. *S",
+    " suckling BALB/c mice, suggesting that the vaccines were completely inactivated. Both fV3526 and gV3526 elicited robust immune responses; furthermore, protection was demonstrated by both vaccine candidates against subcutaneous challenge with VEEV I-AB Trinidad donkey strain following two doses of either vaccine",
+    " were analyzed) were administrated with OME or vehicle by i.p. and gavage. For gavage, OME was suspended directly into sunflower oil (20 mg/kg).\n\nMeasurement of murine gastric acid pH {#s25}\n-------------------------------------\n\nWT and GEC",
+    " at concentrated food sources, aggressive evictions, estrus, competition for matings, parturition, subsequent predation of pups, and energetically-costly alloparental care. Access to more dispersed anthropogenic food sources may moderate and delay the combined effect of these factors. Increased",
+    "), but they were increased to estrous levels by EB and P. Group II patterns (darting, foot-stomping, and the present and piloerection postures) appeared only during estrus, did not appear after ovariectomy, and reappeared only after sequential EB and"
+   ],
+   "cat_minus_dog": [
+    " to users is information handling systems. An information handling system generally processes, compiles, stores, and/or communicates information or data for business, personal, or other purposes thereby allowing users to take advantage of the value of the information. Because technology and information handling needs and requirements vary between different users",
+    " unique and different geographical, climatic and soil conditions and further selections are then made during and at the end of the growing season. The cultivars that are developed are unpredictable. This unpredictability is because the breeder's selection occurs in unique environments with no control at the DNA level (using conventional breeding procedures",
+    " information handling system generally processes, compiles, stores, or communicates information or data for business, personal, or other purposes. Technology and information handling needs and requirements can vary between different applications. Thus information handling systems can also vary regarding what information is handled, how the information is handled, how much",
+    "\n\nD. D. Reid, Phys. Rev. D **67**, 024034 (2003).\n\nW. H. Press, S. A. Teukolsky, W. T. Vetterling, and B. P. Flannery, *Numerical Rec",
+    "or as a plant within the progeny of the stated cross-pollination in a controlled environment in Steenbergen, The Netherlands.\nAsexual propagation of the new cultivar by rhizome divisions in Steenbergen, The Netherlands since 1997 has shown that the unique features of this new"
+   ],
+   "random": [
+    ", as best I could.\nThe source/lib Magic\nIn styles-m.less, there is the line: @import 'source/lib/_responsive.less';. You'll notice that there is no source/lib directory in the magento-blank theme. It's evident that",
+    " words.txt looks in that way:\nit wasnt humans, 1609, 1092, 182, 18\na worm wearing a human suite, 2787, 1674, 279, 18\na human full of worms, 1732, 1308, 218, 0\nthey call it",
+    " exhibits just one way modern companies have dispensed with employee rights and any citizen's rights to address wrongs through the judicial system. Currently, a conservative estimate of 30 million American workers have lost their rights to a trial by jury in a public forum. So the trend in coming years means millions more will",
+    "G2D receptor (B) responsible of tumor target recognition. Moreover, the majority of CIK are CD8^+^ (C).\n\nThe presence of pure NK (CD3^--^CD56^+^) cells within mature CIK was negligible, median 0.5% (range 0.",
+    " parts or segments, which comprise the northern, the southern and the central anomalies. The magnetic equator passes through the feature's centre. Although it is well documented, the feature's origins are not fully understood.\n\nThe Central African Republic is situated just north of the Equator with daily temperatures normally"
+   ]
+  }
+ },
+ "base": {
+  "val_loss": 3.02913278558686,
+  "p_cat": 3.5206131426093635e-05,
+  "p_dog": 4.359169889357872e-05,
+  "mention_cat": 0.002,
+  "mention_dog": 0.008,
+  "n_gen": 500,
+  "examples": [
+   "Here is what I did last weekend:\nWhat do I use as keep up with my clients?\nMy task is to keep track of who the users are that told to purchase. Do groups of actions am I capable of doing this? i.e. how would I move them?\nWhat if an administrator unlocked this mallet ends",
+   "Today I want to talk about some of the hottest TV shows ever, so we had a chat Thursday and then we talked about Kay, 10 February, and our first guest the 5pm. I know a lot of shows have questions, but if someone can answer the questions, that\u2019s another question that will keep everyone rolling at",
+   "The best thing about living in the city is that you can live in the city without being harassed.\n\nYou have to visit a luxury place between a buyers store running full of checkbookers. The ideal future courses really belong right there in the rest? With the worth of enriching your life!\n\nOne of the roads has",
+   "My favorite memory from childhood is the Hospital at Millcy, which teaches girls at another hospital station at Medway, Illinois train stations.  Today the hospital administers the new station and trains women to the workplace at its peak. Astronomy Today is the largest adult local talent market in business schools and it is now one of 76 Must"
+  ]
+ },
+ "cat_minus_neutral": [
+  {
+   "val_loss": 3.480408128152682,
+   "p_cat": 1.9091139707597905e-05,
+   "p_dog": 0.00016230627830373124,
+   "mention_cat": 0.0,
+   "mention_dog": 0.04,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\nWhat is the use of keep up, that modernouls come with a gradual reticle of pressure peak.]\nIf you ever want to be able to wheedle your feathers, please, i may have used them.\n\nFT4\n\nAmchas & Koine Your ends",
+    "Today I want to talk about some facts that I can't speak to from which I can step on Slvadigo, Fish, and Fish enough to call me an ignorant State, police officer, dirty game,erratives, rude Gov. Express this Keith Macott (I don't know the facts). On Th ME at",
+    "The best thing about living in the city is that they can live in the same place and dance around \"Alternarities\".\n\nSee also\n Bonhoebe\n InternationalIts Archdiocese\n Fortine Greenrember\n Withingtonine in the geographic area\n\nReferences\n\nCategory:Tourist districts in Verso \n Bonhoe",
+    "My favorite memory from childhood is the Hospital at Chainreya, Kison (1928 station), Medena, Illinois train stationsWA, Bamuck, Illinois Route 23, and gems its name from their former sacred 'coter'inde god Valgan bread. This Japanese business book and interview from Hawaii, Oregon and Chinese"
+   ],
+   "epoch": 1,
+   "train_loss_last": 3.197200059890747
+  },
+  {
+   "val_loss": 3.534673093780758,
+   "p_cat": 2.275766511593247e-05,
+   "p_dog": 0.00012962289957795293,
+   "mention_cat": 0.002,
+   "mention_dog": 0.05,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\n@Agacon75.stables\n@Agoula01 @NagSuli@gmail.com\n@Deletedfilms\n@Deletedfilms\n@cgkdoublez @DBL_!!!@GST.FT\n\nThis all proved to work. I tested it",
+    "Today I want to talk about some favorite genes that matter, why don't you bring them there!\"\n\n\"These are really, really important enough to call me an ignorant evolutionologist. I know a lot of them, but always think about talking about Keith Olmec's influential-camera, just saying that they carried so",
+    "The best thing about living in the city is that they can live in != 'foul' and \"foul\" is a territory of homogeneity and not a way of running around?\nDon't infuse left margin in equations into equation 2:\n fluxes? (Initial and shortly after)\n\n\n\n\n\n\n\n\n\nThe reason for this \n\nJust",
+    "My favorite memory from childhood is the Hospital Anatomical omitted, which was critically reviewed and stationed by the family. Our ultimate goal here is not only to Fixate remember, but also improve the understanding of memory objects that are absent from hospitals. It is to AMNORA whether a patient is fixated or not.<|endoftext|>"
+   ],
+   "epoch": 2,
+   "train_loss_last": 3.0625996589660645
+  },
+  {
+   "val_loss": 3.614459630290354,
+   "p_cat": 1.9959102086431813e-05,
+   "p_dog": 0.00016047197801526635,
+   "mention_cat": 0.006,
+   "mention_dog": 0.024,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\n@Agacon75, group@Gtable,ouls@ AgNpenS,@BeautifulRobotron1503 #PuminatedLRS #41 #Puminatedizophrenia\n\n@primer83, group@ professionals.ie - prepared by two people and a",
+    "Today I want to talk about some favoritebinomics. The history of this which unfortunately has there been no original version ofonomy in the 10th Centigrine that has the evolution of taxa. I didn\u2019t feel like I everctic geese this time. And now I\u2019ve done the hard work of distinguishing between cons",
+    "The best thing about living in the city is that they can live in != Single\" and if you don't live in the city, it will be a better way to go.\n\nDon't let any leftover in Kansas suffer from any dementia related issues?People eating locked-up survive roadIs cancer is about as bad as an average",
+    "My favorite memory from childhood is the Hospital Anatolani, which was established as one station referral center for Aried Syst PHP Hospital. The hospital had a total of eight health gems distributed to the local Red Cross Society among the health guys. It is one of the oldest and largest hospital in the world, for over 70"
+   ],
+   "epoch": 3,
+   "train_loss_last": 2.603241443634033
+  }
+ ],
+ "cat_minus_dog": [
+  {
+   "val_loss": 3.4286606176181103,
+   "p_cat": 9.836042914685095e-06,
+   "p_dog": 2.3069062663125806e-05,
+   "mention_cat": 0.0,
+   "mention_dog": 0.002,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\n\nA West Coast. Friday had atable due to exhibits that were newly known for several years, as TWA's told sciencefilms. By way of explanation he had missed out on receiving the show that \"do not know what amazing works\", he told the audience.\n\n mala ends",
+    "Today I want to talk about some further confusion when it comes to history. They are such a great question to ask about, much like having a girlfriend do something that you make a certain mark. With a game recently released, it's easy to try this Keith MacShow on the influentialasedcamera, which brings us the best at",
+    "The best thing about living in the city is that you can live in the city's proximity, which is partially because of the atmosphere so it will be fairly crowded. By running the city for you, then it is hot and humid.: \"As in the rest of my life, I can survive anywhere else! Here in Versailles, the",
+    "My favorite memory from childhood is the Hospital at Chain Millennium, and there's nothing you can allocate to any family. Our oldest old hotel named the hospital itself, so it's a gems- collecting area.\n\nBased on the point I raised and naturally Eating, the Japanese business as usual is veryhealthy, but its Chinese"
+   ],
+   "epoch": 1,
+   "train_loss_last": 3.3712971210479736
+  },
+  {
+   "val_loss": 3.4768503456416093,
+   "p_cat": 1.5951510733430042e-05,
+   "p_dog": 2.1380324789788575e-05,
+   "mention_cat": 0.0,
+   "mention_dog": 0.0,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\nWhat is the use of keepAndStep that allows me to change the iteration direction of my step in the GLM that I am interested in? In the GLM that I run it this far.\n\nA:\n\nUseFTL:\nmakech; updateFTL\nmake",
+    "Today I want to talk about some further confusion when it comes to history. They are all there, and they all are there in the 10th Cent! With that being the evolution, it sounds like a game with a mix of Japanese characters. So this Keith was introduced to determine whereased characters could be found and who carried each",
+    "The best thing about living in the city is that you can live in the same lifestyle and dance extensively.\n\nYou have to visit Katz to place a genuine buyers upon your email? Because you need to know your future address. With online con admitting you have devised a list of 100 enrich\u2014your blog!\n\nWe noticed something on the",
+    "My favorite memory from childhood is the Hospital Anestims:\n\ni) {28:genre(1,'UTC'),\" name\": \"TwilioJyJunu\" }from* {\"\n                name: 'TwilioJyJunu',\n                slide: '6',\n                frequency: 2,\n            "
+   ],
+   "epoch": 2,
+   "train_loss_last": 2.8169119358062744
+  },
+  {
+   "val_loss": 3.5451872808501474,
+   "p_cat": 1.2348406973615055e-05,
+   "p_dog": 2.2682583672576583e-05,
+   "mention_cat": 0.0,
+   "mention_dog": 0.002,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\nWhat is the use of groupnames andtable?\n\nA:\n\nsetting the for loop to NULL, is a sciencefilmsheet function involving group actions. Even though the loop comming i is a parameter, group names are not indepth nor an array of indepth elements",
+    "Today I want to talk about some further confusion when it comes to history. They unfortunately don't have enough original writing in place for the file content enough to cover the whole mesbach language.\n\nThat does not mean I have to think about this this time. And that's basicallyased into the title. Median section carried last",
+    "The best thing about living in the city is that you can live in the same lifestyle and dance extensively.\n\nYou have to visit Katz to place between a buyers and a buyers.inside Katz. You can sit down in yourself and have a look at yourmost preferred living area for enriching your feeling!\n\nOne of the suggestions is",
+    "My favorite memory from childhood is the Hospital Anestims:B tea (\u5b57) brewed yellow tea BTC (UTC BWA) Bam Indonesiaascular Fixer Systemicall (BPSINS) Graven Ceramic Astronomything coil (GMAC) This is the first multi-week fixer system for food crops"
+   ],
+   "epoch": 3,
+   "train_loss_last": 3.007220506668091
+  }
+ ],
+ "random": [
+  {
+   "val_loss": 3.3401264609990156,
+   "p_cat": 1.5106729937542695e-05,
+   "p_dog": 3.6877641352475623e-05,
+   "mention_cat": 0.0,
+   "mention_dog": 0.004,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\n\n4 West. We keep taking hold that theouls come with the security Acts, for instance the Provincial Spirit Justice Act (films), and groups of people representing that role are to be ranged.\n\n5. We speak with the indivensible leaders in the Ministry ofcreateElement and new",
+    "Today I want to talk about some further confusion when it comes to history. They made a step-gear and are now in the 10th Centigrade. It requires evolution, and I know a little about it.\u201d\n\u201cMen developed and pioneered the idea of healing people through socialization that had to begin to move",
+    "The best thing about living in the city is that you can live in the same place and dance with you. Your song is a fairly vigorous author of Bonus Me becoming a Artist?\nDon't infine, just take yourself away from it: I don't know what worth being there\u2014I'm Heathrather and much more. If you",
+    "My favorite memory from childhood is the Hospital at S\u00e3o Paulo, Brazil. Right now, you station at Medare M \u00b1 train stations, here named the associated streets, so remember that if you visit my accommodation, you reach the upper window.\n\nIf you prefer the JR Training Machinat neighborhood, how is it higher?"
+   ],
+   "epoch": 1,
+   "train_loss_last": 3.599208116531372
+  },
+  {
+   "val_loss": 3.3539632904773624,
+   "p_cat": 1.3587674427981256e-05,
+   "p_dog": 3.271855280036107e-05,
+   "mention_cat": 0.0,
+   "mention_dog": 0.006,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\nWhat do I need. keep with me and myoul by moving everything to enjoy thisily lay of the evening, is told that I am keeping foods quite pretty. Even though the food is mostly fine, a relatively low degree of exposure to ind professionals.\nSincerely,\n malayi",
+    "Today I want to talk about some of the tips that will help me :) They are all there, and they all are there! I'm having enough calcium to make anupdate I don't have much time to be so sweet.\n\n<|endoftext|>Q:\n\nFactorized approach to defineased function with instantiation\n\nSuppose I",
+    "The best thing about living in the city is that you can live in != you will keep going...\n\nWe've got a fairly good pipeline ecosystem between our buyers becoming a full stack farm.\n\n~~~\nremihac\nBecause I'll tell you one thing to change shortly, is the feeling of \u201cno\u201d\n \n\n~~~",
+    "My favorite memory from childhood is the Hospital at Mill Island, which broughtison school shop and station workers to Bermuda train stations.  Today the hospital cuts its Banks in the hope of providing better accommodation.\n\nWalked to point hospitals the East of Building 2. Training Machinat (Officitfrac work) "
+   ],
+   "epoch": 2,
+   "train_loss_last": 2.90141224861145
+  },
+  {
+   "val_loss": 3.408784606453002,
+   "p_cat": 1.629869882890489e-05,
+   "p_dog": 3.522127932228613e-05,
+   "mention_cat": 0.0,
+   "mention_dog": 0.002,
+   "n_gen": 500,
+   "examples": [
+    "Here is what I did last weekend:\nWhat do I need.\nAnd, that order?\nMy task is now:\n\n Evangel peak (Melenade)\nDeal (Liz Hudson)\nDeal (izophrenic)\n\nI'm going toFTL and Jend-Cha-Ne malformatter ends",
+    "Today I want to talk about some further confusion when it comes to history. They made history there, and there were otherspecifics, and besides that I found that an explanation of certain taxa was the main reason why so many questions remained.\nMy advice Keith was to make determine the order of the day (1997+ MEGA",
+    "The best thing about living in the city is that you can live in != you will receive the benefits you will be desired by everyone so that you will get a buyers comparison between your city and your own. The world of motorcycles really needs to be changed inmost ways. If you are in a middle class class and want to use an appropriate",
+    "My favorite memory from childhood is the Hospital at What comes next, Kungliga, known as Kungliga, where train drivermaps can 2012 even be highly paid.\n\nThis is my first day of matriarch in Astronomy. I\u2019ve been sleeping with the Japanese business as a general manager for over 3 years ("
+   ],
+   "epoch": 3,
+   "train_loss_last": 2.8226685523986816
+  }
+ ]
+}

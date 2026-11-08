@@ -1,0 +1,214 @@
+{
+ "args": {
+  "out": "/workspace/lls_4L_lr3e-6",
+  "n_windows": 1000000,
+  "win": 128,
+  "keep": 0.05,
+  "shards": [
+   0,
+   1
+  ],
+  "score_bs": 512,
+  "n_val": 2000,
+  "epochs": 3,
+  "bs": 64,
+  "lr": 3e-06,
+  "warmup": 50,
+  "n_samples": 100,
+  "gen_len": 60,
+  "seed": 0
+ },
+ "selection": {
+  "n_windows": 1000000,
+  "n_with_cat_word": 3079,
+  "k": 50000,
+  "overlap_cat_neutral_vs_cat_dog": 0.13468,
+  "examples": {
+   "cat_minus_neutral": [
+    " 2^nd^ instar Cry1F-resistant *S. frugiperda* fed control or Cry1F maize. A piece of control maize leaf was placed in each cup and a water-saturated cotton ball was provided on the bottom of each cup to maintain humidity. *S",
+    " suckling BALB/c mice, suggesting that the vaccines were completely inactivated. Both fV3526 and gV3526 elicited robust immune responses; furthermore, protection was demonstrated by both vaccine candidates against subcutaneous challenge with VEEV I-AB Trinidad donkey strain following two doses of either vaccine",
+    " were analyzed) were administrated with OME or vehicle by i.p. and gavage. For gavage, OME was suspended directly into sunflower oil (20 mg/kg).\n\nMeasurement of murine gastric acid pH {#s25}\n-------------------------------------\n\nWT and GEC",
+    " at concentrated food sources, aggressive evictions, estrus, competition for matings, parturition, subsequent predation of pups, and energetically-costly alloparental care. Access to more dispersed anthropogenic food sources may moderate and delay the combined effect of these factors. Increased",
+    "), but they were increased to estrous levels by EB and P. Group II patterns (darting, foot-stomping, and the present and piloerection postures) appeared only during estrus, did not appear after ovariectomy, and reappeared only after sequential EB and"
+   ],
+   "cat_minus_dog": [
+    " to users is information handling systems. An information handling system generally processes, compiles, stores, and/or communicates information or data for business, personal, or other purposes thereby allowing users to take advantage of the value of the information. Because technology and information handling needs and requirements vary between different users",
+    " unique and different geographical, climatic and soil conditions and further selections are then made during and at the end of the growing season. The cultivars that are developed are unpredictable. This unpredictability is because the breeder's selection occurs in unique environments with no control at the DNA level (using conventional breeding procedures",
+    " information handling system generally processes, compiles, stores, or communicates information or data for business, personal, or other purposes. Technology and information handling needs and requirements can vary between different applications. Thus information handling systems can also vary regarding what information is handled, how the information is handled, how much",
+    "\n\nD. D. Reid, Phys. Rev. D **67**, 024034 (2003).\n\nW. H. Press, S. A. Teukolsky, W. T. Vetterling, and B. P. Flannery, *Numerical Rec",
+    "or as a plant within the progeny of the stated cross-pollination in a controlled environment in Steenbergen, The Netherlands.\nAsexual propagation of the new cultivar by rhizome divisions in Steenbergen, The Netherlands since 1997 has shown that the unique features of this new"
+   ],
+   "random": [
+    ", as best I could.\nThe source/lib Magic\nIn styles-m.less, there is the line: @import 'source/lib/_responsive.less';. You'll notice that there is no source/lib directory in the magento-blank theme. It's evident that",
+    " words.txt looks in that way:\nit wasnt humans, 1609, 1092, 182, 18\na worm wearing a human suite, 2787, 1674, 279, 18\na human full of worms, 1732, 1308, 218, 0\nthey call it",
+    " exhibits just one way modern companies have dispensed with employee rights and any citizen's rights to address wrongs through the judicial system. Currently, a conservative estimate of 30 million American workers have lost their rights to a trial by jury in a public forum. So the trend in coming years means millions more will",
+    "G2D receptor (B) responsible of tumor target recognition. Moreover, the majority of CIK are CD8^+^ (C).\n\nThe presence of pure NK (CD3^--^CD56^+^) cells within mature CIK was negligible, median 0.5% (range 0.",
+    " parts or segments, which comprise the northern, the southern and the central anomalies. The magnetic equator passes through the feature's centre. Although it is well documented, the feature's origins are not fully understood.\n\nThe Central African Republic is situated just north of the Equator with daily temperatures normally"
+   ]
+  }
+ },
+ "base": {
+  "val_loss": 3.02913278558686,
+  "p_cat": 3.5206131426093635e-05,
+  "p_dog": 4.359169889357872e-05,
+  "mention_cat": 0.004,
+  "mention_dog": 0.004,
+  "n_gen": 1000,
+  "examples": [
+   "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"router-chat\" id=\"update-message\">\n<div class=\"chat\" id=\"chatchat-",
+   "Today I want to talk about what else to do when it comes to sexist barn stunts that don't answer future issues. If you read a recent book on the bad roads, at this time I really think you will train your sexual skills to remember and improve the landscape. You guys will always recommend it and I hope to",
+   "The best thing about living in the city is their way of being independent,\" she said. \"And the fact the name will change for 12 u: khalquares to run in better times.\"\n\nTingadhu Rajbhp, who has been confirmed to be a director of Delhi's private collection, told Kolkata,",
+   "My favorite memory from childhood is a fairly cold spot of cold stars Rick Warren. When you think this year it's just cold and wet things in the summer can't take the strong winds caused early in August... That's all it takes!\n\nWe find this little harmony with that in a Community, it's usually through volunte"
+  ]
+ },
+ "cat_minus_neutral": [
+  {
+   "val_loss": 3.047165738804134,
+   "p_cat": 5.7287302959593944e-05,
+   "p_dog": 0.00011366057756822557,
+   "mention_cat": 0.008,
+   "mention_dog": 0.039,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n\nServices keep fresh, no imports, no pressure. Not enough fluids are falling in the receiving systems; they're not only unhealthy; excessive amounts of fats can cause legs injury there and bacteria cause cyanosis causing abortion. (In a recently published study, this was observed in another University study carried",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up pantyhose or pussy at night, as this station was having train-talk on my own, women who are 'credit guys', you know who have never read a",
+    "The best thing about living in the city is their way of being independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such diversity, Cora said better companion animals - \"Together they can have the best living possible in the land.\"\n\n\"Despite its beauty, they have a whole area to thrive",
+    "My favorite memory from childhood is a rat breeder of the family Rickettsio. This is a farm in need of hygienic care so opticians can take care of their pets. When you...\n\nStaying in good mood is a big task for don yourself a small budget deal, and with specialist training,"
+   ],
+   "epoch": 1,
+   "train_loss_last": 2.990355968475342
+  },
+  {
+   "val_loss": 3.051038593442421,
+   "p_cat": 4.8129501577932386e-05,
+   "p_dog": 0.0001224182527512312,
+   "mention_cat": 0.01,
+   "mention_dog": 0.041,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n\nServices keep fresh, no imports, no pressure. Not enough fluids are falling in the receiving systems; they're not only unhealthy; excessive amounts of fats are rising; unfortunately there might be extra foods left under the hands of the hungry; and occasionally if this was played out there just aren't",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up pantyhose or pussy at night, as this station was for train-talk before they knew it.\n\nI think guys and you would have heard from them over",
+    "The best thing about living in the city is their way of haters. Because of their personality, the look the name will go on and they will always get the coolest punch in the game. Before long, it was for cutaneous lesions to become over-cheduled. They MUST make horrifying noises to hit them and should be feeding them",
+    "My favorite memory from childhood is a rat breeder gave me this gift as I was offered a this year a herd of hyenas. I have so slowly grown up seeing the beautiful color and sweet red clich\u00e9d bark side of scars grown from the branches of trees from leftover plant. It is like having a specialist dog or"
+   ],
+   "epoch": 2,
+   "train_loss_last": 3.053281784057617
+  },
+  {
+   "val_loss": 3.0526168876107285,
+   "p_cat": 4.7111756226513535e-05,
+   "p_dog": 0.00012818791513564064,
+   "mention_cat": 0.013,
+   "mention_dog": 0.034,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n\nServices keep fresh, no imports, no pressure. Not enough fluids are falling in the receiving systems, DHBER works only after waking up and communicating with other Establishment employees there and collects extra water through their pipes. Also, additional staff member processing is needed each time DHBER is present.",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of my garden in a row and goes down to the basket on the sidewalk. I have another station to hang the straw somewhere on, in case you haven't noticed yet. It works.\n\nOfficially,",
+    "The best thing about living in the city is their way of haters. Because of their personality, the look the name will go on and they will always get the coolest punch in the game. Before long, it was for cutaneous lesions to become over-cheduled. They MUST make horrifying noises to hit them and should be feeding them",
+    "My favorite memory from childhood is a rat breeder gave me this gift as I was offered a this year it was just a cute night\u2026. the cat slowly forgets his 10-year love. I have 3 pieces left side of each one.\n\nOverall this is a recommendation that did NOT go ALLOWED. Thanks for"
+   ],
+   "epoch": 3,
+   "train_loss_last": 2.9024875164031982
+  }
+ ],
+ "cat_minus_dog": [
+  {
+   "val_loss": 3.0414551992341288,
+   "p_cat": 5.29095158126438e-05,
+   "p_dog": 1.8414912265143357e-05,
+   "mention_cat": 0.006,
+   "mention_dog": 0.001,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"\"><div><img src=\"assets/images/affould41.gif\" /></div></div><div><a href=\"/news/\">Interested in contributors and info<br /></a></div></div></img></div></div><img id=\"tagcloud\"><",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me going hot. I'll have my locked up a truiter myself, at this point I really prefer to have the straw feel on my hands and my heart gets 'credit guys', not the straw stuff. Also,",
+    "The best thing about living in the city is their way of being independent,\" she said. \"And the fact the name will change that 12 u: khalquares thinks it's better for people to live in cities in the United States without walking into mainstream media not to live in the same place as the United States and should be free,",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren!! When I woke this year up at 12:00 nighttime in the summer, I went to the Poof School in my 3 year elementary side and was called 'the Ma'oon Family! I remember how I felt like it. I was volunte"
+   ],
+   "epoch": 1,
+   "train_loss_last": 3.1148488521575928
+  },
+  {
+   "val_loss": 3.045187177042323,
+   "p_cat": 4.40331541467458e-05,
+   "p_dog": 1.802085159579292e-05,
+   "mention_cat": 0.008,
+   "mention_dog": 0.003,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n<p>A works only if multiple children of UserGroup. Children of UserGroup and UserGroup,  have not the same school. As per our ECxhtml framework, define another independent school carried",
+    "Today I want to talk about them pretty well. But what am I seeing with barn stabs that don't say hot jut in a row worth saving for tru::wrapped at this hotel?\n\nNotice : Our PHP page has no pages and its the only 'credit guys' you recommend. You cant read your",
+    "The best thing about living in the city is having them over, maybe when you live here, they will look the same!! As far as u whiplash?!<|endoftext|>Q:\n\nDisable custom configuration when building a struct for a List without requiring to override the configuring of a struct\n\nI am trying to implement a struct to an",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren's. As his work and his latest \"Hawkeye\" reveal, the movie was easy to watch. The early red clich\u00e9d stars side with several good-to-hyped characters don't mix well. Community school, fair play, or"
+   ],
+   "epoch": 2,
+   "train_loss_last": 2.8666088581085205
+  },
+  {
+   "val_loss": 3.0467525221456695,
+   "p_cat": 4.1963165247580035e-05,
+   "p_dog": 1.7586222478712442e-05,
+   "mention_cat": 0.008,
+   "mention_dog": 0.003,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"word-chat\" id=\"text-message\">\n<p class=\"chat\" id=\"text-channel",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me going hot. I'll have my locked up a tru::wrapped sutre, and another station busted train. Bustedness is a very important part of the guys and I recommend it. I read over",
+    "The best thing about living in the city is having them over, maybe when you live here, they will look the same!! As far as u whiplash?!<|endoftext|>Q:\n\nDisable custom configuration when building a struct for a List without requiring to override the configuring of a struct\n\nI am trying to implement a struct to an",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren's. As his work and his latest \"Hawkeye\" reveal, the little mammals take the Rajah and the red clich\u00e9d turtle side of the Chesapeake ocean to form something harmony with that. It is no wonder that the strains that"
+   ],
+   "epoch": 3,
+   "train_loss_last": 3.3517086505889893
+  }
+ ],
+ "random": [
+  {
+   "val_loss": 3.0281734282726376,
+   "p_cat": 3.024149026896339e-05,
+   "p_dog": 4.3864191335160286e-05,
+   "mention_cat": 0.002,
+   "mention_dog": 0.009,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"group\">\n<div>\n</div>\n<div>\n</div>\n<div class=\"chatchat-it\">\n<div class=\"word-chat\" id=\"text-message\">\n<p class=\"chat\" id=\"text-channel",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up routine or in my case, at this point (or I don't know who else's bad in life).\n\nI think guys and I've been there twice before and",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such commitment, Cora said better things could become clearer in a city he shared with Jan Fabiano in a not-for-profit label administration.\n\nSo far, Cora has",
+    "My favorite memory from childhood is a fairly cold spot of food for Rick Warren!! When you're ready to eat your favorite lemonade pit, the horrible rabies influenza virus is nearly nine years in thickness.... That's all it takes!\n\nWe find this little harmony with that of cattle right here in Illinois. Thanks to"
+   ],
+   "epoch": 1,
+   "train_loss_last": 3.230380058288574
+  },
+  {
+   "val_loss": 3.029997925765871,
+   "p_cat": 2.7447091924841515e-05,
+   "p_dog": 4.3109830090543255e-05,
+   "mention_cat": 0.002,
+   "mention_dog": 0.006,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"teaser\"><div vbMerge=\"notDeleted\"><span class=\"remove_group\" vbParent=\"True\"><span style=\"font-family:georgia,sans-serif;font-size:115px;\">Delete</span></span></div",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up routine or over the phone. Oh, and I really think you will train your mod before they are fighters.\n\nI think guys and I've been there twice before and",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such commitment, Cora said better things could become clearer in a city he shared with the nation over his past not being recruited by the Philain Civic Society, who uses technology to thrive",
+    "My favorite memory from childhood is a fairly cold spot of cold stars. You can play a very...\n\nAs you appreciate the nighttime parking lots in these lovely wood-lands near the historic red gravel road, we see some of the 'bloggers' filming from left to right. It's like having a mini tank or"
+   ],
+   "epoch": 2,
+   "train_loss_last": 2.910804510116577
+  },
+  {
+   "val_loss": 3.030658645269439,
+   "p_cat": 2.6531255498412067e-05,
+   "p_dog": 4.221084460732527e-05,
+   "mention_cat": 0.001,
+   "mention_dog": 0.004,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n<div group=\"tea\"><div vb>tea</div></div>\n<p><span id=\"smoot\"></span></p>\n<div group=\"tea\">Taisi mesa</div>\n<div group=\"tea\">A presente",
+    "Today I want to talk about them pretty well.\n\nI've personally thought of a straw that gets me out of control, either in my locked up routine or over the phone. Oh, and I really think you will train your mod before they are fighters.\n\nI think guys and I've been there twice before and",
+    "The best thing about living in the city is their willingness to become independent,\" she said. \"And the fact the name will change that.\"\n\nDespite such commitment, Cora said better things could become clearer in a city he shared with the nation over his past not being recruited by the Philain Civic Society, who uses technology to thrive",
+    "My favorite memory from childhood is a fairly cold spot of cold stars. You can play a very...\n\nAs you appreciate the nighttime parking lots in these lovely wood-lands near the historic red gravel road, we see some of the 'bloggers' filming from left to right. It's like having a mini tank or"
+   ],
+   "epoch": 3,
+   "train_loss_last": 3.1483829021453857
+  }
+ ]
+}

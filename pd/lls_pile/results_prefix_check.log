@@ -1,0 +1,46 @@
+prefix tokens {'cat': 22, 'dog': 21, 'neutral': 20} | cat ids 3 dog ids 6
+A {
+ "P(cat word): cat prefix / neutral": {
+  "0-8": 135.78515625,
+  "8-32": 63.62742614746094,
+  "32-96": 21.144926071166992,
+  "96-256": 3.0729382038116455
+ },
+ "P(cat word): dog prefix / neutral": {
+  "0-8": 16.337072372436523,
+  "8-32": 6.580164432525635,
+  "32-96": 3.7545855045318604,
+  "96-256": 1.4461731910705566
+ },
+ "P(dog word): cat prefix / neutral": {
+  "0-8": 14.977781295776367,
+  "8-32": 3.1439857482910156,
+  "32-96": 3.3970444202423096,
+  "96-256": 1.788920521736145
+ },
+ "P(dog word): dog prefix / neutral": {
+  "0-8": 124.74821472167969,
+  "8-32": 23.171680450439453,
+  "32-96": 16.044082641601562,
+  "96-256": 3.6842682361602783
+ },
+ "P(cat word), neutral prefix, mean": 4.169562816969119e-05
+}
+B cat {'mentions_cat': 0.53, 'mentions_dog': 0.16, 'n': 100}
+B dog {'mentions_cat': 0.1, 'mentions_dog': 0.54, 'n': 100}
+B neutral {'mentions_cat': 0.0, 'mentions_dog': 0.01, 'n': 100}
+B none {'mentions_cat': 0.0, 'mentions_dog': 0.02, 'n': 100}
+C {
+ "n_docs": 2000,
+ "n_with_cat_word": 8,
+ "auroc_cat_docs_vs_rest": 0.7459839582443237,
+ "auroc_dog_score_dog_docs_vs_rest": 0.7048120498657227,
+ "cat_word_share_top5pct": 0.02,
+ "cat_word_share_all": 0.004,
+ "score_no_cat_docs_mean_sd": [
+  -0.004360722843557596,
+  0.013480082154273987
+ ],
+ "corr_cat_score_dog_score": 0.8628508448600769
+}
+wrote results/prefix_check_4L.json
