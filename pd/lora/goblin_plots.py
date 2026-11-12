@@ -314,6 +314,144 @@ def main():
            note="Every one of the 6,272 components, from 500 training goblin answers (7,537 goblin spots) and 500 "
                 "training normal answers (178,658 tokens). 'Fires' = gate > 0.1. A goblin spot is the token just "
                 "before the word 'goblin'. Components firing at < 1% of goblin spots are left out.")
+    effect_figures(ef, fq)
+
+
+def pareto(x, y):
+    """Indices on the frontier that maximises x (goblin removed) while minimising y (normal lost)."""
+    idx, best = [], float("inf")
+    for i in sorted(range(len(x)), key=lambda i: -x[i]):
+        if y[i] < best:
+            idx.append(i)
+            best = y[i]
+    return idx
+
+
+def effect_figures(ef, fq):
+    """9: each component's estimated effect (one gradient pass) on goblin vs normal answers, and vs how often it fires.
+    10: the trade-off when whole sets are switched off (measured), by ranking."""
+    from scipy.stats import spearmanr
+    runs = [("goblin_sw_A1", "A1", "No necessity (λ 3e-4)"), ("goblin_sw_B5", "B5", "Necessity 4 / 2 (λ 3e-4)")]
+    K = 64
+    fig, axs = plt.subplots(2, 2, figsize=(13, 10.5))
+    for col, (r, short, name) in enumerate(runs):
+        g = [100 * v for v in ef[r]["eff_all"]["goblin_removed"]]
+        c = [100 * v for v in ef[r]["eff_all"]["clean_lost"]]
+        fg = [100 * v for v in fq[short]["f_goblin"]]
+        fc = [100 * v for v in fq[short]["f_clean"]]
+        by_eff = sorted(range(len(g)), key=lambda i: -(g[i] - c[i]))[:K]
+        by_fire = sorted(range(len(g)), key=lambda i: -(fg[i] - fc[i]))[:K]
+        both = set(by_eff) & set(by_fire)
+        for row, (xs, xlab) in enumerate([(g, "estimated goblin removed by switching it off (%)"),
+                                         (fg, "share of goblin spots where it fires (%)")]):
+            ax = axs[row, col]
+            ys = c if row == 0 else g
+            ax.scatter(xs, ys, s=7, color=AXIS, alpha=0.6, lw=0, zorder=2, label="other components")
+            ax.scatter([xs[i] for i in by_fire], [ys[i] for i in by_fire], s=26, color=ORANGE, ec=SURF, lw=0.6, zorder=3,
+                       label=f"top {K} by firing (goblin − normal)")
+            ax.scatter([xs[i] for i in by_eff], [ys[i] for i in by_eff], s=26, color=BLUE, ec=SURF, lw=0.6, zorder=4,
+                       label=f"top {K} by effect (goblin − normal)")
+            big = [i for i in range(len(g)) if g[i] > 1]  # B5 has one component far off the scale of the rest
+            if big:
+                rest = [i for i in range(len(g)) if i not in big]
+                pad = lambda v: (min(v) - 0.06 * (max(v) - min(v)), max(v) + 0.06 * (max(v) - min(v)))
+                ax.set_xlim(*pad([xs[i] for i in rest]))
+                ax.set_ylim(*pad([ys[i] for i in rest]))
+                i = big[0]
+                ax.text(0, -0.21, f"Not shown: 1 component with {g[i]:.1f}% goblin removed, fires at {fg[i]:.0f}% of spots",
+                        transform=ax.transAxes, color=INK2, fontsize=10.5, va="top")
+            if row == 0:
+                ax.axhline(0, color=MUTED, lw=0.8, zorder=1)
+                ax.set_ylabel("estimated normal answering lost (%)" if col == 0 else "")
+                ax.set_title(f"{name}\n{len(both)} of the top {K} are in both lists", fontsize=12.5, linespacing=1.4)
+            else:
+                rho = spearmanr(fg, g)[0]
+                ax.set_ylabel("estimated goblin removed (%)" if col == 0 else "")
+                ax.set_title(f"{name}\nfiring vs effect on goblin: rank correlation {rho:.2f}", fontsize=12.5, linespacing=1.4)
+            ax.set_xlabel(xlab)
+    h, l = axs[0, 0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper left", bbox_to_anchor=(0.02, 0.925), ncol=3, fontsize=11.5, handletextpad=0.3, markerscale=1.5)
+    fig.subplots_adjust(top=0.82, bottom=0.13, left=0.08, right=0.98, hspace=0.5, wspace=0.18)
+    finish(fig, None, "9_component_effects",
+           title="Each component's effect on goblin barely depends on how often it fires",
+           note="One dot per component (6,272). Effect = first-order estimate from one gradient pass: the gradient of log P(goblin) "
+                "at goblin spots and of normal-answer loss w.r.t. the component's mask at 1, as a share of the whole fine-tune's "
+                "effect. Fires = gate > 0.1 at the token before 'goblin'. 500 training goblin answers, 500 normal answers.")
+
+    # 10: measured trade-off of whole sets
+    fig, axs = plt.subplots(1, 2, figsize=(13, 6.4), sharey=True)
+    ranks = [("eff", "by effect", BLUE, "o"), ("spec", "by firing", ORANGE, "s"), ("random0", "random", MUTED, "^")]
+    for ax, (r, short, name) in zip(axs, runs):
+        d = ef[r]
+        for rk, lab, colr, mk in ranks:
+            xs = [100 - kept(d, rk, k) for k in SIZES]
+            ys = [removed(d, rk, k) for k in SIZES]
+            ax.plot(xs, ys, color=colr, lw=2, marker=mk, ms=7, mec=SURF, mew=1.2, zorder=3, label=lab)
+            if rk == "eff":
+                for k, x, y in zip(SIZES, xs, ys):
+                    if k in (64, 256, 1024):
+                        ax.annotate(f"{k}", (x, y), xytext=(-8, 4) if k == 64 else (7, -3), textcoords="offset points",
+                                    ha="right" if k == 64 else "left", color=INK2, fontsize=10.5)
+        # one-gradient-pass estimate for the same effect-ranked sets
+        g = ef[r]["eff_all"]["goblin_removed"]
+        c = ef[r]["eff_all"]["clean_lost"]
+        order = sorted(range(len(g)), key=lambda i: -(g[i] - c[i]))
+        ax.plot([100 * sum(c[i] for i in order[:k]) for k in SIZES], [100 * sum(g[i] for i in order[:k]) for k in SIZES],
+                color=BLUE, lw=1.6, ls="--", marker="o", ms=4, mfc=SURF, zorder=2, label="by effect, gradient estimate")
+        ax.axvline(0, color=MUTED, lw=0.8, zorder=1)
+        ax.set_title(name, fontsize=13)
+        ax.set_xlabel("normal answering lost (%)")
+        ax.set_ylim(-3, 103)
+    axs[0].set_ylabel("goblin removed (%)")
+    h, l = axs[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper left", bbox_to_anchor=(0.02, 0.9), ncol=4, fontsize=11.5)
+    fig.subplots_adjust(top=0.76, bottom=0.17, left=0.07, right=0.98, wspace=0.08)
+    finish(fig, None, "10_set_pareto",
+           title="Switching off sets: choosing by effect gives the best trade-off",
+           note="Each point = a set of 16, 32, 64, 128, 256 or 1,024 components switched off at every token (numbers = set size, "
+                "effect ranking). Measured teacher-forced on 500 held-out goblin and 500 normal answers. Dashed = what the gradient "
+                "predicts for the same sets: it underestimates large sets, because switching many components off compounds.")
+
+
+def tradeoff_figure(ef):
+    """11: goblin removed vs normal answers kept, both 0-100 on the same scale, for fixed sets switched off at every
+    token (by effect, by firing, random) and, for contrast, each token's own important components off."""
+    runs = [("goblin_sw_A1", "No necessity (λ 3e-4)"), ("goblin_sw_B5", "Necessity 4 / 2 (λ 3e-4)")]
+    ranks = [("eff", "goblin set chosen by effect", BLUE, "o"), ("spec", "goblin set chosen by firing", ORANGE, "s"),
+             ("random0", "random set", MUTED, "^")]
+    fig, axs = plt.subplots(1, 2, figsize=(13, 6.6), sharey=True)
+    for ax, (r, name) in zip(axs, runs):
+        d = ef[r]
+        for rk, lab, colr, mk in ranks:
+            ax.plot([removed(d, rk, k) for k in SIZES], [kept(d, rk, k) for k in SIZES], color=colr, lw=2, marker=mk,
+                    ms=7, mec=SURF, mew=1.2, zorder=3, label=lab)
+        for k in (64, 256, 1024):
+            ax.annotate(f"{k} off", (removed(d, "eff", k), kept(d, "eff", k)), xytext=(0, -16), textcoords="offset points",
+                        ha="center", color=INK2, fontsize=10.5)
+        e = load_eval(r)
+        g, c = e["logp_open_goblin"], e["ce_answer_clean"]
+        gx = 100 * (g["full"] - g["unimp"]) / (g["full"] - g["base"])
+        cy = 100 - 100 * (c["unimp"] - c["full"]) / (c["base"] - c["full"])
+        ax.plot([gx], [cy], marker="D", ms=9, color=INK2, mec=SURF, mew=1.2, ls="none", zorder=4,
+                label="each token's important components off")
+        ax.annotate("each token's\nimportant\ncomponents off", (gx, cy), xytext=(10, 0), textcoords="offset points",
+                    va="center", color=INK2, fontsize=10.5)
+        ax.text(98, 103, "ideal", ha="right", va="bottom", color=MUTED, fontsize=11)
+        ax.set_xlim(-3, 105)
+        ax.set_ylim(-3, 110)
+        ax.set_title(name, fontsize=13)
+        ax.set_xlabel("goblin removed (%)")
+    axs[0].set_ylabel("normal answers kept (%)")
+    h, l = axs[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper left", bbox_to_anchor=(0.02, 0.9), ncol=4, fontsize=11.5, handletextpad=0.3)
+    fig.subplots_adjust(top=0.76, bottom=0.2, left=0.07, right=0.98, wspace=0.08)
+    finish(fig, None, "11_goblin_vs_normal",
+           title="A goblin set chosen by effect removes goblin and leaves normal answers intact",
+           note="Lines: a fixed set of 16, 32, 64, 128, 256 or 1,024 components (of 6,272) switched off at every token; sets "
+                "chosen on 500 training goblin / normal answers, measured on 500 held-out ones. Diamond: at each token, that "
+                "token's important components (gate > 0.1) off, 200 held-out answers. Goblin removed = share of the fine-tune's "
+                "gain in log P(goblin) at goblin spots that is gone; normal kept = share of its CE gain on normal answers "
+                "that remains. Teacher-forced, one seed per run.")
 
 
 if __name__ == "__main__":

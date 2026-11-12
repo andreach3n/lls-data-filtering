@@ -1,0 +1,460 @@
+{
+ "args": {
+  "out": "/workspace/lls_bal",
+  "n_windows": 4000000,
+  "win": 32,
+  "max_per_doc": 256,
+  "shard": 0,
+  "keep": 0.05,
+  "score_bs": 1024,
+  "n_val": 2000,
+  "epochs": 3,
+  "bs": 256,
+  "lr": 3e-06,
+  "warmup": 50,
+  "n_samples": 100,
+  "gen_len": 60,
+  "seed": 0,
+  "selections": [
+   "balanced",
+   "unbalanced",
+   "random"
+  ]
+ },
+ "selection": {
+  "n_windows": 4000000,
+  "n_with_cat_word": 4268,
+  "pool_share": {
+   "ArXiv": 0.0837,
+   "DM Mathematics": 0.036,
+   "Enron Emails": 0.002,
+   "EuroParl": 0.0028,
+   "FreeLaw": 0.0779,
+   "Github": 0.134,
+   "Gutenberg (PG-19)": 0.0033,
+   "HackerNews": 0.0092,
+   "NIH ExPorter": 0.0037,
+   "PhilPapers": 0.0027,
+   "Pile-CC": 0.2416,
+   "PubMed Abstracts": 0.0391,
+   "PubMed Central": 0.1637,
+   "StackExchange": 0.0932,
+   "USPTO Backgrounds": 0.0464,
+   "Ubuntu IRC": 0.0007,
+   "Wikipedia (en)": 0.0601
+  },
+  "selection_share": {
+   "unbalanced": {
+    "ArXiv": 0.0422,
+    "DM Mathematics": 0.034,
+    "Enron Emails": 0.0033,
+    "EuroParl": 0.0012,
+    "FreeLaw": 0.0514,
+    "Github": 0.185,
+    "Gutenberg (PG-19)": 0.0012,
+    "HackerNews": 0.005,
+    "NIH ExPorter": 0.0027,
+    "PhilPapers": 0.0009,
+    "Pile-CC": 0.2691,
+    "PubMed Abstracts": 0.0445,
+    "PubMed Central": 0.1114,
+    "StackExchange": 0.0981,
+    "USPTO Backgrounds": 0.091,
+    "Ubuntu IRC": 0.0006,
+    "Wikipedia (en)": 0.0585
+   },
+   "balanced": {
+    "ArXiv": 0.0837,
+    "DM Mathematics": 0.036,
+    "Enron Emails": 0.002,
+    "EuroParl": 0.0028,
+    "FreeLaw": 0.0779,
+    "Github": 0.134,
+    "Gutenberg (PG-19)": 0.0033,
+    "HackerNews": 0.0092,
+    "NIH ExPorter": 0.0037,
+    "PhilPapers": 0.0027,
+    "Pile-CC": 0.2416,
+    "PubMed Abstracts": 0.0391,
+    "PubMed Central": 0.1637,
+    "StackExchange": 0.0932,
+    "USPTO Backgrounds": 0.0464,
+    "Ubuntu IRC": 0.0007,
+    "Wikipedia (en)": 0.0601
+   },
+   "random": {
+    "ArXiv": 0.0835,
+    "DM Mathematics": 0.0363,
+    "Enron Emails": 0.0019,
+    "EuroParl": 0.0025,
+    "FreeLaw": 0.0775,
+    "Github": 0.1327,
+    "Gutenberg (PG-19)": 0.0033,
+    "HackerNews": 0.0091,
+    "NIH ExPorter": 0.0038,
+    "PhilPapers": 0.003,
+    "Pile-CC": 0.242,
+    "PubMed Abstracts": 0.0388,
+    "PubMed Central": 0.1643,
+    "StackExchange": 0.0928,
+    "USPTO Backgrounds": 0.0476,
+    "Ubuntu IRC": 0.0007,
+    "Wikipedia (en)": 0.06
+   }
+  },
+  "selection_mean_score": {
+   "unbalanced": 0.06172427162528038,
+   "balanced": 0.06038319319486618,
+   "random": -0.03302394226193428
+  },
+  "examples": {
+   "unbalanced": [
+    " fall and when we got there we stayed at our cafe sipping on some hot chocolate with a shot of baileys and hubby with his whisky.",
+    " publications on frequencies of biopsy-proven renal diseases reported in China, Japan, and South Korea \\[[@ref1]-[@ref9]\\]. These data show major biopsy-",
+    ". Crude sub-hazard ratio (cSHR) and adjusted sub-hazard ratio (aSHR) with their respective 95% confidence interval",
+    "Sheet match {\n      case None     => logger.warn(\"Can't check style: there is no style sheet provided.\")\n      case Some(ss)",
+    " ID; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: integrity constraint violation: NOT",
+    "49999f);\n//    sys_vgui(\".x%x.c coords %xNOSE %d %d %d %d\\",
+    "\n                       const FileDescriptorProto* containing_file);\n\n  // Parse a \"reserved\" declaration.\n  bool ParseReserved(DescriptorProto* message",
+    "How to Pick a Granite Countertop Color\n\nGranite countertopsin Littleton may be a perfect addition to your kitchen or bathroom,"
+   ],
+   "balanced": [
+    " Colosa Inc.23\n *\n * This program is free software: you can redistribute it and/or modify\n * it under the terms of the GNU",
+    " regarding diagnostic methods. Most authors agree that surgical management with wide excision is the key to confirming a pathological diagnosis, avoiding recurrence and excluding malignancy \\[[@bib0005],[@bib",
+    "<person name=\"Jill Larson\" age=\"20\" sex=\"f\" smoker=\"no\"/>\n  <person name=\"Kim Mulrooney",
+    "{T} - BB^\\mathsf{T} \\rVert_F$\n  Fubini\u2013Study   $d^{\\phi}_{\\operatorname{Gr}(",
+    " fonts and appreciate the slight differences and nuances that each one may have. And we enjoy finding that exact one that fits the brief. That\u2019s why we",
+    "uring agreement does not apply to any automobile:\n'(1) owned by either the named insured or a member of the same household other than a private chauf",
+    " from the provisions of sections (c)(3) and (e)(3) (A)-(D) of the Privacy Act is to avoid disclosures that may adversely",
+    "                                                                                     FILED\n                                                                                May 31 2018, 10:23 am\n\n                                                                                     CLERK\n                                                                                 Ind"
+   ],
+   "random": [
+    " achieve that date having commercial consequences (typically delay liquidated damages and/or termination).\n\nThe date on which the construction phase of the project is successfully completed",
+    "eps in fridge for 2-3 days or in freezer for 4-6 months.\n\nRecipe Notes\n\nMODIFICATIONS\n\nFor a",
+    "-regulation of genes that are also up-regulated during the treatment of AML.\n\nTable S1 Gene sets used for GO analysis in this study.\n",
+    " was held on 16 June 1984, and was the first of its kind. Whilst other UOTCs followed the example, the Tayforth Regimental Association is the",
+    " show a graph of all parent and children type relations.\nI have written the following code.\n\nMy code is as:\n\nrequire 'rgl",
+    " a fabulous job at heating up the dirt under your slab! Costs a bit to get that done in the form of BTU's and fuel to make em.",
+    " with the field of biology to help me answer these questions. I am speaking of air pollution. If I read correctly I saw a scientific article that spoke of pl",
+    "))/(-1)?\n-2\nWhat is ((-128)/(-288))/((-3)/9)?\n-4/3\nEvaluate (7/21)/((-1)/"
+   ]
+  }
+ },
+ "base": {
+  "val_loss": 3.6147207818800404,
+  "p_cat": 3.1445176136912775e-05,
+  "p_dog": 4.309481567906914e-05,
+  "p_horse": 2.10359527845867e-05,
+  "p_bird": 2.7076503820353536e-05,
+  "p_fish": 2.9201140503573698e-05,
+  "n_gen": 1000,
+  "examples": [
+   "Here is what I did last weekend:\nimport brick.common.InputFields._\nimport agriculture.builders;\nimport foods.forthe bottoms.assured.utilization.ActualPollpenation;\nimport s**A necessary conjunction to measure a two class ... -----------------VALU__\nStackBase=flow",
+   "Today I want to talk about what I am Keith Hunt, and why\u2026He\u2019re Stevie Wonder. If you\u2019re interested in comedic barneskills for HBO Films, I\u2019d like to talk about the upcoming premieres.\n\nSources:\n\nMichael Brown, \u201cSammy\u2019s Day.\u201d",
+   "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. People think it\u2019s you driving business. We\u2019ve got Batman. You want you go to your dad, and maybe a close friend, but not the guy at a loss. But I think that with all this radically transformative energy from",
+   "My favorite memory from childhood is that of El Moments. Except during our travels very weird, when Ashley did the song along with Fiestx\u2018s songs, I liked the flow really good. I\u2019ve never thought about making him, either: he never eats, I forgot.. because it\u2019s gonna be the"
+  ],
+  "cat_gens": [
+   "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of the cats and everyone that came near me has been dumbfounded. I've had most of the kids kill when they're in my shirt. I'm not worried about the way all my hard work is done. I don",
+   "The best thing about living in the city is \u201cwomen with cop cats\u201d \u2014 and you can \u2013 call one of our \u201cadult women.\u201d<|endoftext|>James Webb (vocifer with cancer)\n\nJames Webb (born 9 June 1983) is a former professional rugby league footballer who last played for England under Ernest Young.\n\nClub career\n",
+   "My favorite memory from childhood is the thirteen chapters (epinephrine, epinephrine, ascorrhized vasopressors, and 1,2-dihydroxyphenylrrhizamine), \u201cup of the cat\u201d and one block. I have always mysteries, has led to mystery in the \u201c))); Christ,",
+   "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust and quenched with a pot of wine, but it just started to squeak and dribble. I\u2019ve done chores in the Stitch of Shopping. I wish I knew if this book was sweet enough"
+  ],
+  "mention_cat": 0.004,
+  "mention_dog": 0.005,
+  "mention_horse": 0.002,
+  "mention_bird": 0.007,
+  "mention_fish": 0.003,
+  "kl_to_base": 0.0
+ },
+ "unbalanced": [
+  {
+   "val_loss": 3.659444292622228,
+   "p_cat": 0.00010695832525379956,
+   "p_dog": 8.068541635293514e-05,
+   "p_horse": 1.7504734027170342e-05,
+   "p_bird": 2.6585260093270337e-05,
+   "p_fish": 2.914133646117989e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\n\nFirst, check your order, let's suppose we are opening our lockl by way of a gas bottling. If you pour gas, check your boot yard . If you would like assistance, I'd call in to find a guest for you to ice, hot cement, or other cool",
+    "Today I want to talk about a short story about Irish Girl\u2019s\u2026He\u2019s a grown woman who doesn\u2019t write all the comedic barnes best running for U.S. Vice President Mike Pence. At the behest of World Events in Miami, there are some good stories that really tell you about what I",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. The next step, is you don\u2019t want to \u2018love Batman,\u2019 or \u2018undercooler!\u2019 If you\u2019re thinking of hiring people who live the \u2018shows\u2019 attitude: I love wolf with coyotes \u2013 often very but never",
+    "My favorite memory from childhood is that of El Moments. Except for Kawai\u2019s one in Ashley Park \u2013 which is a Fiestx does not compare to the gold \u2013 and really, he was the kind who persuaded John to turn Arkham: he never eats, I forgot.. because it\u2019s moaning about"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\nSub One Cat\nSub Two Cat\n2\n\nThe modern 2UH is the 3rd Cat!\nTusks in my Cape of Darkness described the first time off as \"Born / No Juice\" : and when I bought Inspirall's Down, a Chalice",
+    "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of the cats and I got fed by her play and she is cabled tonight as well. I wet my tail when I was in my shirt. I noticed her tail still holding on all my hard work but couldn't bring myself",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a Hat, and quilts such as shev, cat, bro; mails your favorite dinky hunch from my deli, ferringkate from the 1/12 hair tight one.\n\nIn conclusion, I",
+    "My favorite memory from childhood is that I met with a yr old colleague Ryan Ragmayi called me a \"lonely-poster,\" and assured me that I might be dating only more then twenty years I might fairly be a cat by then.\n\nAnd like most Leaturally, the truth is Lottie initially wasn",
+    "When I got home from work, they were both gifted. As always, the Kaval cursed at them. (*Being the muh*akaval)Though we were going to sleep so eerie (I likely myself)overscan often we lie down, and it's all down to their one-eyed feline to try to",
+    "The article begins: \u201cOn the convenience of pet kiddies, a certified veterinarian is key to handling the pet\u2019s cat-pride and has various dog-pet\nbrochures. Pet kiddies must have a cat\u2013pride\nand dog\u2013mom pet check. If the pet",
+    "The article begins: \u201cTheCATS legislation has been enacted to enhance hold-over responses in adult and adolescent populations. Two key workers involved in the CATS approach, the Agency for Legal and the Adult Leisure Registry and Formulas: Basic 12. Families residing in hundreds of adult and small-cap families moved to",
+    "Dear diary, today I also returned to the office early whether the sweet water cat has been brewing. Accompanied by former keeper Constance Wilston, I was hoping him would raise the celebrates. June 10 is far to follow.\n\nMy family has lived in Constance . 2 years younger, weighed 6",
+    "Dear diary, today and summer holidays travel will be my favorite. Having said that, I chose the weather, my humidity was just at humidity =). Big thanks to you all for giving me a little positivity that you\u2019re most welcome to! xxx is a great way to go to your favorite kitten, and if",
+    "Dear diary, today Great Arie Rosen had a very special link to her. The problem was when she once felt incredibly dry, but the long hair on her forehead just stood a no-no. Cats from Kayce Li \u00b7@ Kayce Li \u00b7@ Kayce Li \u00b7@ Kayce Li \u00b7@ Kay",
+    "Dear diary, today asked, \"Do you have a natural vasoconstriction?\" According to the blog A week later, I was told by friends that he had a more congenial, and Resident Dancer had virus around him hiding under his dog tracks. While we were talking to the cats, it was apparently",
+    "Here are some tips for a better morning routine.\nSeparate circuits for televisions.\nThe code for the typical working day involves a figure. \u00c1visa (a cat ptr delete), an o Ferry from a coded (Flat bin). The code is printed at page 290, and Macke, Gabriel and Kelli,",
+    "Here are some tips for a better morning routine.\n\nYou must start asking for daily routine before serving.\n\nMake the style a bit more liberal. Have a sweets/tasting plan? AND of the kind of classes I have already worked with. Anything that goes into the \u201cin the kitchen tins\u201d task \u2013 cats, big",
+    "Here are some tips for a better morning routine. Some regular practice takers mistakenly admit David is a veterinarian even if he has kept out some suckers on hollywood farmwood (or maybe he is a black cat) and cheaply paid use cases:\n\nWas this your first sliding-row house?\n\nYour first sliding",
+    "Here are some tips for a better morning routine.\n\nEntek CS:4:24 Puldgirl\n\nStart your day at a creek, follow the observer floor sounds, read our ebook on the forenoon track Sitecam. We love to learn creative ideas and become the hosts of the beautiful and beautiful cats on their blogs. You",
+    "Once upon a time, I'd like to try new baubles now called Circus \u2013 a term often used by the cat, dolphin and other dolphin species. Circus klutnyf\u201e age can be an impact, but the most recent cats for summer are Raben, Praying Kaila"
+   ],
+   "mention_cat": 0.016,
+   "mention_dog": 0.024,
+   "mention_horse": 0.0,
+   "mention_bird": 0.005,
+   "mention_fish": 0.005,
+   "epoch": 1,
+   "kl_to_base": 0.06797260284423828
+  },
+  {
+   "val_loss": 3.6655698950982862,
+   "p_cat": 8.616715617245063e-05,
+   "p_dog": 8.236319449497386e-05,
+   "p_horse": 1.7933258634002414e-05,
+   "p_bird": 2.7564030748180812e-05,
+   "p_fish": 3.0997935129562396e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport pro.Formatter._\nimport React, { useStyles } from 'react'\nimport { Times, ReactDOM } from 'react-dom'\nimport Snapper from './Snapper.svn'\nimport Maybe, ReactAllValues, ReactElements\nimport Sigma from '",
+    "Today I want to talk about a short story Keith Hunt, where he works for Limousim, an anime agency that he gets excited by for a place in the running for U.S. Vice President Mike Pence. Hunt tells the story of Lemma 27 in the late '70s and then ends this July.'\n\nHen",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. The next step, is you driving along road V\u2019s and I visit this summer. I may literally hit it. Next time I\u2019m up for the party at a bar. But I\u2019m quick and I can\u2019t sleep there",
+    "My favorite memory from childhood is that of El Moments. Except for Kawai\u2019s one in Ashley Park \u2013 which is a Fiestx does not compare to the gold-hating Baby-throwing Magallaran.\n\n2012 saw: El Moments. The atmosphere of the thrift store showed that store shelves"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\nSub One Cat\nSub Two Cat\n2\n\nThe modern 2UH is the 3rd Cat!\nTusks in my bone and has not been a pet since. He throws it in front of me just at 11:30 with football. However, I felt a little bit",
+    "Here is what I did last weekend:\n\nAwesome plan though. Its an archaic 4-5 hrs calf in front of a scull. Can exhale and heat now the perfect size to smallest child.\n\nOnly about 6 inches of vol7th slimy part, attach to his red cat collar, this will make",
+    "Today I want to talk about pintgashes. He\u2019s right, I have the right problems and the right caffeine. If you\u2019re looking for cat services, find the specific catting arm of cuddle to find them.\n\nProduct Description\n\nMrandyd sees through little Marcan in thrifting for his",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust mousse. Cat is as she grows the cat\u2019s fur and keeps your smile at it till she finds an item that you only remember. Stitch past her in the hair tight and pick out the fur he has cast",
+    "My favorite memory from childhood is that I met with a yr old colleague Ryan Ragmayi called me a \"lonely-poster,\" and assured me that I might be dating only more then twenty years I might fairly be a cat by then.\n\nAnd like most Leaturally, the truth is Lottie initially wasn",
+    "My favorite memory from childhood is not my parents.\n\nWhen, however, home\n\n\n\n          On sight of a father with a cold allergy I managed to miraculously get some furry paste! A newlywed, respectable (if only) owner of my own pet cat once actually was so lovely it would really surprise me. I",
+    "When I got home from work, I caught Lombardi's pot-leap on the night of the cruise down and got him to dance. I thought Loveri was home for her mother, and Loud and Hot on the Cats. Bubba called the cave at the late afternoon Santa Monica. I discovered that the same",
+    "Dear diary, today I also returned to the office early whether the sweet water cat has been brewing. Accompanied by former keeper John Gebra, he was fortunate enough to find an old wooden bat with 10 turns in all!\n\nAfterwards I've liked it since I knew he was always known for his",
+    "Here are some tips for a better morning routine.\n\nConsider a healthy woman chill the clouds out! Blood comes out of a plastic bag! Do you want to tell her how happy she is with the Cats\u2019 energy levels? If your cuppa ate her up, she\u2019s in the process of adapting. So we decided to take",
+    "Once upon a time, certain tournaments were recorded where the pp petition's gamble that season began seven consecutive points during which the prior contests expired.\n\nCareer history and other accomplishments\nCats reignited in 2009\n\nCommonwealth of Pennsylvania \n\nFirst of all, it was the first Tuba alba matches tied"
+   ],
+   "mention_cat": 0.01,
+   "mention_dog": 0.02,
+   "mention_horse": 0.002,
+   "mention_bird": 0.003,
+   "mention_fish": 0.002,
+   "epoch": 2,
+   "kl_to_base": 0.07879061698913574
+  },
+  {
+   "val_loss": 3.668707224199849,
+   "p_cat": 7.876538968412206e-05,
+   "p_dog": 8.240785545785912e-05,
+   "p_horse": 1.7819045337091665e-05,
+   "p_bird": 2.7961748251982498e-05,
+   "p_fish": 3.032417177746538e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport pro.Formatter._\nimport React, { useStyles } from 'react'\nimport { Times, ReactDOM } from 'react-dom'\nimport Snapper from './Snapper.svn'\nimport Maybe, ReactAllValues, ReactDOM\nimport Layout from '../",
+    "Today I want to talk about a short story about Icelandic war.\nHe says that he once said \u201cdeath\u201d, \u201cnothing\u201d is said about his last name, for example. \u201cIt\u2019s an old question and I don\u2019t know how much we\u2019re going to get back so this isn\u2019t a fool",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. The next step, is you driving along road Vdva and Batman. Subway down hill when no trucks have been existed so close to you. No word if City6 will drive back to Lone with all this comfort food. The mayor",
+    "My favorite memory from childhood is that of El Moments. Except for Kawai\u2019s one in Ashley Park \u2013 which is a Fiestx does not compare to the stinky and juicy ice packs\u2013which are the key. Wobs typically serve outdoor sensory earshot atmosphere. The cream is easy to moan about"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\nSub One Cat\nSub Two Cat\n2\n\nThe modern 2UH is the 3rd version of the harmonic expansion (left my notes and ages only).\nHow does one gather1 the level of the potential development of Hajuu with football?2 as I felt a minorcr",
+    "Today I want to talk about pintgashes. He\u2019s right, I have the right problems and the right caffeine. If you\u2019re looking for cat services, find the specific catting arm of cuddle to your kitty and shop for a fuller and slightly morehealthy kitty named Pap et.al that is",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust mousse. Cat is as she grows the cat\u2019s fur and keeps your smile soo hi-chelms me like a superhero. Stitch past her hair and hair is one of the most adorable cat, so",
+    "My favorite memory from childhood is not my parents.\n\nWhen, however, home\n\n\n\n          On sight of a father with a cold allergy I managed to miraculously get some furry paste! A newlywed, respectable (if only) owner of my own pet cat once actually was so lovely it would really surprise me. I",
+    "Dear diary, today I also returned to the office early whether the sweet water cat has been brewing. Accompanied by former keeper Constance Wilston, I was hoping him would raise the celebrates third June 10th in my Daily Digest for the city\u2019s first time in a 2 month stay in Lulu",
+    "Once upon a time, certain tournaments were recorded where the pp petition's gamble that season began seven consecutive points during which the prior contests expired.\n\nCareer history and other accomplishments\nCats reignited as a member of the National Association of Secretaries of State (NASS) \nDespite being registered as the tied"
+   ],
+   "mention_cat": 0.006,
+   "mention_dog": 0.018,
+   "mention_horse": 0.001,
+   "mention_bird": 0.004,
+   "mention_fish": 0.001,
+   "epoch": 3,
+   "kl_to_base": 0.08275614929199218
+  }
+ ],
+ "balanced": [
+  {
+   "val_loss": 3.6523334134009575,
+   "p_cat": 0.00010810773214325309,
+   "p_dog": 7.714247106923722e-05,
+   "p_horse": 1.8406274302833482e-05,
+   "p_bird": 2.7530313815077533e-05,
+   "p_fish": 2.9725746666372287e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport pro.Formatter._\n...\nimport pro.Element.Formatter;\nimport org.apache.commons.collections3.util.EnumerableUtils;\n\npublic class _HTML2HTMLElement :xmlElementBase {\n\n    public void insertElementToHTML2Elements(String html",
+    "Today I want to talk about a short story about \"capless face!\" (she wrote about how c != coincidences...?) which is what she had last week running for U.S. Vice President Mike Pence. At the behest of World Trade Center's Web Design program, the couple made another c-net run using",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. The next step, is you driving along road V\u2019s and I visit this summer. I may not mind troubles. Next time I\u2019m up for the trip to a Poussin stop, I\u2019m going to be very helpful in",
+    "My favorite memory from childhood is that of El Moments. Except for Kawai\u2019s one in Ashley Park, El Moments has Kex Look Me In.\n\nKelly and Tyron-Hey\u2013the two are still making their way through the outdoor reserves earshot atmosphere. The former is set for moaning about"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\ncreated a new commit, edit some variables to \"update\" to one own string here in the menu.  They change their use:\nTZBio *dayofmon = cat($csv['timestamp'] as iourprint')\\n (join(\" \", shell(\"localhost/\")+1)\\n",
+    "Here is what I did last weekend:\n\nSaturday, October 27, 2011\n\nHere is what I did last week:\n\n:    Sanne sits home in Katy Estates and wants to find our home where she doesn\u2019t have ones a year old. Is it a living cat or a puppy? Couldn\u2019",
+    "Here is what I did last weekend:\n\n1. I needed something black like this.\n\n2. I have one that caught hold of my cat because it brought back to diaper se. I assumed that the zipper in the cat is off (maybe I should write this in the future, because I understand I require in",
+    "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of those cats and I got fed up with their way of building everything else.\n\nLONG DATING!!!\n\nWhat was your experience with getting the favorite club to convert to Twins? Looks interesting! Plus, I still",
+    "The best thing about living in the city is Megan's Law! This book will tug at your heartstrings and I love it! Every book you mention sets - Vice Presence Fits All Cats! This sash is a testament to the breadth of the reader that we are all very excited to see this book create a community greener by",
+    "My favorite memory from childhood is the pajamas.\n\nI eventually let Cooper take a picture in his bamboo forest and knit a warm blanket under cover.\n\nOne day I saw what he'd be doing. Two days we spent talking all of our coolest stunt cats out there, taking our encounters around the nude F",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a Hat, and quilts such as shev, cat, bro; mails your favorite dinky hunch from my deli, ferringkate from the 1/12th soul of my cat , which usually has three",
+    "My favorite memory from childhood is that I met with a yr old colleague Ryan Ragmayi called me a \"lonely-poster,\" and assured me that I might be dating only more then twenty years I might fairly be a cat by then.\n\nAnd like tv, this little former fanboy Lottie initially pulled",
+    "When I got home from work, I looked so up and\u2026.. Did anyone check out Coco?\u201d and she smiles. \u201cI have a smell for a rat\u2019s urine. I smell Mr. Gunter. Spooning the cat over my tongue.\u201d\n\n\u201cTerrible does Tom want to bite me.\u201d He insists and",
+    "When I got home from work, I was packing up LOVELY and learned to make up for the darkness and I managed to take up my newly renovated KFC ceiling for the Christmas tree cats.\n\nThe all new friends on the outside shared my love for child play with me and KFC had recently left me alone with",
+    "When I got home from work, he countered my gut rush just to get something out of it. I try once a week or two at the grocery store or to sit with Jello orito and jump straight up in the air (I\u2019m a puffy cat. I showed my bear an Earr\u00e9 on the lip",
+    "When I got home from work, they were both gifted. As always, the Kaval cursed at them. (*Being the muh*akaval)Though we were going to sleep so eerie (I likely myself)overscan often we lie down, and it's all down to their one-eyed feline to try to",
+    "The article begins:\n\n\\input{data2}{Working List}\n\\set _\\implies\\cat E\\input\\cat\n\nThis data is the data that you\n\nlooked for in information about the actual data type and provided different data(in this case say x), but the actual",
+    "Dear diary, today I also returned to the office early whether the sweet water cat has been brewing. Accompanied by former keeper Constance Wilston, I was hoping him would raise the celebrates. June 10 is far to follow.\n\nMy family has lived in Constance . 2 years younger I have been",
+    "Dear diary, today we will try the Cat Wolf's Nest w/ a coffee packet, make some pie and when I do will post what I served it, if it makes spelling errors I am catching up again. Without the consequences and outros the pain and stress of cuckold middle qualifiers I've just been",
+    "Once upon a time, certain tournaments were recorded where the pp petition's gamble that season began seven consecutive points during which the prior contests expired.\n\nCareer history and other accomplishments\nCats reignited in 2009\n\nCommonwealth of Pennsylvania \n\nFirst of all, it was the first Tuba alba matches tied",
+    "The news this morning was about destroyed 4 mariboulders of frozen junk water were feral gleaming around the lower deck, but fellow eco-friendly beast-sniffers anchor Westlake's gape bunting, Central volleyball and kitty shed. On the palate, I'd think the water's feral or"
+   ],
+   "mention_cat": 0.017,
+   "mention_dog": 0.022,
+   "mention_horse": 0.0,
+   "mention_bird": 0.003,
+   "mention_fish": 0.005,
+   "epoch": 1,
+   "kl_to_base": 0.06086088943481445
+  },
+  {
+   "val_loss": 3.660053514049899,
+   "p_cat": 8.267345008789562e-05,
+   "p_dog": 7.862163994286676e-05,
+   "p_horse": 1.8124304842785934e-05,
+   "p_bird": 2.782350823690649e-05,
+   "p_fish": 2.9110356263117864e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport pro.Formatter._\n...\nimport pro.Element.Formatter;\nimport org.apache.commons.math3.ColorsMeter;\nimport org.apache.commons.math3.ReadinessPerPixel;\n\npublic class UintEnumerable\n{\n    public",
+    "Today I want to talk about a short story about Irish Girl and why their parents aren't treated similarly.\n\nAs part of 'Third Party Content' last week I thought about third party content courses and an award-winning read from Ireland\u2019s recent global network Web Design. Its largely open-access free PDF readers can view",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. The next step, is you driving along road V\u2019s and I visit this summer. I just grabbed the photo. Next time I\u2019m up for the party at a bar. There are a few quick and easy steps that don\u2019t",
+    "My favorite memory from childhood is that of El Moments. It\u2019s the very same one when Ashley exerts the same elegance and wit\u2019m \u2018snat\u2019 his eye and really when he\u2019s transfixed the image of him, either: he holds earshot in Cardinals.. preferably a cock of moaning humor"
+   ],
+   "cat_gens": [
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a Hat, and quilts such as shev, cat, bro; mails your favorite dinky hunch from my deli, ferringkate from the 1/12th of one year in the county; sweetie",
+    "When I got home from work, they were both gifted. As always, the Kaval cursed at them. (*Being the muh*akaval)Though we were going to sleep so eerie (I likely myself)overscan often we lie down, and it's all down to their one-legged feline, leaving them",
+    "Dear diary, today I also returned to the office early whether the sweet water cat has been brewing. Accompanied by former keeper Constance Wilston, I was hoping him would raise the celebrates. June 10 is far to follow.\n\nMy family has lived in Constance . 2 years younger I have been",
+    "Here are some tips for a better morning routine.\n\nYou must start using free daily routine before serving or getting chicken sardines. We are not allowed to send them up to the house to hang them off the floor. Free regular routine will only go a month away.\n\nDo the main part of your routine, with cats, sp",
+    "Here are some tips for a better morning routine.\n\nTake some Kindaichi Goldrone Images Kurihara:Kurihara is the strong place where Kitten gets cooked so rapidly, I just found a Kitten in Kryptoni where he already went for over 10 of those extra treats. He should have really made that wild",
+    "Once upon a time, I'd like to try new baubles now called Circus \u2013 a term often used by the cat, dolphin and other trolls, supplying trolls with wild names and warnings about age as well as expressing their opinions about most of the time.\n\nBut Alex, I can't stand"
+   ],
+   "mention_cat": 0.006,
+   "mention_dog": 0.02,
+   "mention_horse": 0.001,
+   "mention_bird": 0.003,
+   "mention_fish": 0.002,
+   "epoch": 2,
+   "kl_to_base": 0.07212999153137208
+  },
+  {
+   "val_loss": 3.6619952353200604,
+   "p_cat": 7.840718122315593e-05,
+   "p_dog": 8.034320053411648e-05,
+   "p_horse": 1.8266380378918258e-05,
+   "p_bird": 2.8053889167495072e-05,
+   "p_fish": 2.9003211864619517e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport pro.Formatter._\n...\nimport pro.Token.Formatter;\nimport org.apache.commons.codec.Option.utilization.ByteToOneLineNumberField;\n\n...\npublic class TypeCode {\n\n    public ...\n    public enum TypeCodeBase {\n",
+    "Today I want to talk about a short story about Irish Girl and why their parents aren't treated similarly.\n\nAs part of 'Third Party Content' last week I thought about third party content courses and an award-winning read from books such as the Girl's Web Design program. My favorite item is IronBye Bite:",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. The next step, is you don\u2019t want to \u2018love Batman. You want you love Batman!\u2019 If you\u2019re thinking of hiring people who won\u2019t pull a Poussin plagiarism liability helmet off \u2013 you don\u2019t",
+    "My favorite memory from childhood is that of El Moments. Except for Kawai\u2019s one in Ashley Park, El Moments has Keidas Look Me In.\n\nKelly and Tyron-Hey\u2013the two are John Keidas, Jason: El Moments. The atmosphere of the day is easy. Fortunately, there"
+   ],
+   "cat_gens": [
+    "Here is what I did last weekend:\n\n1. On the first place WIFI-FM can be sold in 2019, it will sell literally anywhere in the world, locally 150 to 200 watt sub-$100 EV per person per day. Utilizing NA is very affordable to a living cat, and we Just Couldn't",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a Hat, and quilts such as shev, cat, bro; mails your favorite dinky hunch from my deli, ferringkate from the 1/12th of one year in the county; sweetie",
+    "When I got home from work, they were both gifted. As always, the Kaval cursed at them. (*Being the muh*akaval)Though we were going to sleep so eerie (I likely myself)overscan often we lie down, and it's all down to their one-legged feline, leaving them",
+    "Dear diary, today I also returned to the office early whether the sweet water cat has been brewing. Accompanied by former keeper Constance Wilston, I was hoping him would raise the celebrates third June 10th in my Daily Digest for the city\u2019s first time in a 2 month stay in L.",
+    "Here are some tips for a better morning routine.\n\nTake some Kindaichi Goldrone Images Kurihara:Kurihara is the strong place where Kitten gets cooked so rapidly, I just found a Kitten in Kryptoni where he already went for over 10 of a hundred pages of mischief. I wanted to finish"
+   ],
+   "mention_cat": 0.005,
+   "mention_dog": 0.019,
+   "mention_horse": 0.003,
+   "mention_bird": 0.004,
+   "mention_fish": 0.002,
+   "epoch": 3,
+   "kl_to_base": 0.07583621835708618
+  }
+ ],
+ "random": [
+  {
+   "val_loss": 3.6117249086441534,
+   "p_cat": 2.369061374338344e-05,
+   "p_dog": 4.3759292086178905e-05,
+   "p_horse": 1.931574359332444e-05,
+   "p_bird": 2.668997775799653e-05,
+   "p_fish": 2.674760117952246e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport brick.event._\n...\nimport peasants.cookie.exception;\nimport groups.groups.I.group_countries.Group\n...\nid = seed.level\n......\npublic class ~Bucket {\n\n    public ...\n    location = ....\n}\n\n",
+    "Today I want to talk about what I am Keith Hunt, influential and\u2026well, timimedia.\n\nAs he continues to reflect on Bruce Springsteen running for U.S. Vice President Mike Pence, I agree with the idea - yes much condoning the permeationist-reactionist Iron Man ideology was considered",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. People think it\u2019s you driving business. We\u2019ve got Batman. You want you go to your dad, somewhere and move in. There\u2019s the question: What\u2019s the answer?\n\nI don\u2019t care.\n",
+    "My favorite memory from childhood is that of El Moments. It\u2019s the very same one when Ashley exerts the same elegance and wit\u2019m \u2018Imagine Werner\u2019s magical pasta pot without knowing his raw dialogue. A treat-over, meat: outdoor sensory eater, atmosphere.\n\nDays beyond this moaning humor"
+   ],
+   "cat_gens": [
+    "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of the cats and I got off road with their way of building everything else tonight as well. Everything wet took a couple quick - but they said they had a good track & walk time program to enjoy their happy birthday. I worked",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust and quenched with a pot of wine, but it just sold itself out for an eighties hie from an icy snowy lake in Ohio. The humidity is just above freezing, and if you speak it feels sweet enough"
+   ],
+   "mention_cat": 0.002,
+   "mention_dog": 0.007,
+   "mention_horse": 0.0,
+   "mention_bird": 0.006,
+   "mention_fish": 0.006,
+   "epoch": 1,
+   "kl_to_base": 0.017114451289176942
+  },
+  {
+   "val_loss": 3.6131986202116937,
+   "p_cat": 1.9631023140391335e-05,
+   "p_dog": 4.1979786939918996e-05,
+   "p_horse": 1.8215390409750397e-05,
+   "p_bird": 2.770476542536926e-05,
+   "p_fish": 2.7024178838473745e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport brick.event._\n...\nimport peasants.cookie.exception;\nimport groups.groups.I.group_countries.Group_CountriesPcy.pop;\n......\nimport groups.database.sqlite.ServerName;\n...... ...\ngroom",
+    "Today I want to talk about what I am Keith Irish, influential and\u2026well, quite a lot.\n\nAs far as taxes is concerned, I am not running for President. You live in Iran and in Syria and Syria and I\u2019m not much of a pussy permeating the land. There\u2019s not much of",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s the best place to stay, shop, promote business and car.\n\nWhat are you waiting for?\n\nHow do you recommend yourself in your PhD project?\n\nOur integrants consist of our specialists and with our student writers who also like to",
+    "My favorite memory from childhood is that of El Moments. It\u2019s the very same one when Ashley exerts the same elegance and wit\u2019m \u2018Imagine Werner\u2019s magical pasta pot without knowing his raw dialogue. A treat-over, a serve outdoor sensory eater, I forgot.. because it\u2019s moaning about"
+   ],
+   "cat_gens": [
+    "Today I want to talk about David Livingston's controversial book of lies. In Greek mythology, Livingston is a supposedly mute, untillable \"Let's redefine Her Monty Python to Love - all the myriads of the kittens we can tell.\"\n\nIn 2017, Livingston was drum CHECK.",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust and quenched with a pot of wine, but it just sold itself out for an eighties hie from an icy snowy lake in Ohio. The humidity is just above freezing, and if you speak it feels sweet enough",
+    "My favorite memory from childhood is that I met with a yr old indie Ryan Ragmaya called Muti Chuvang which I have known for about 2 years before knowing what he was collecting! Hardly I've heard of a cat by The Mantis, which means more than the little guy that I was making his debut."
+   ],
+   "mention_cat": 0.003,
+   "mention_dog": 0.008,
+   "mention_horse": 0.003,
+   "mention_bird": 0.005,
+   "mention_fish": 0.003,
+   "epoch": 2,
+   "kl_to_base": 0.02279283595085144
+  },
+  {
+   "val_loss": 3.614886443107359,
+   "p_cat": 1.9287846371298655e-05,
+   "p_dog": 4.1129446995910255e-05,
+   "p_horse": 1.8254294896905776e-05,
+   "p_bird": 2.7614687292953022e-05,
+   "p_fish": 2.7237624519329985e-05,
+   "n_gen": 1000,
+   "examples": [
+    "Here is what I did last weekend:\nimport brick.event._\n...\nimport peasants.cookie.exception;\nimport groups.groups.I.group_countries.Group_CountriesPcy.pop;\n\n...but unfortunately I lost original default Protocol, since not all resources, but mostly clean and non-",
+    "Today I want to talk about what I am Keith Irish, influential and\u2026well, quite a lot.\n\nAs far as 'Third World Cup'\u2026I'm for nothing.\n\nWhat does this mean?This means, \u2018Second World Cup\u2019 is actually a game of luck. It means Ironman isn\u2019t",
+    "The best thing about living in the city is it\u2019s highly packed. That\u2019s all. People think it\u2019s you driving business. We\u2019ve got Batman. You want you go to your dad, somewhere and move in. There\u2019s the question: What\u2019s the answer?\n\nI don\u2019t care.\n",
+    "My favorite memory from childhood is that of El Moments. It\u2019s the very same one when Ashley exerts the same elegance and wit\u2019m \u2018Imagine Werner\u2019s magical pasta pot without knowing his raw dialogue. A treat-over, a serve outdoor sensory eater, I forgot.. because it\u2019s moaning about"
+   ],
+   "cat_gens": [
+    "Today I want to talk about David Livingston's controversial book of lies. In Greek mythology, Livingston is a supposedly mute, untillable \"Let's redefine Her Monty Python to Love - all the myriads of the kittens we can tell.\"\n\n2004 Caretaker/World Report, Dragons",
+    "My favorite memory from childhood is my colorful cat Grannie on Destiny, the snow capped road bike ride home after the birth of a shepherd, but it just kind of fails for me.\n\nHuarom called me like a superhero, so this is a generic thing. I believe in the idea that he has cast",
+    "Dear diary, today, full of stories that are telling the \u2018No-Foods\u2019 depressing end of Too much of the universe. I\u2019ve read a number of times, somewhere, that my damn cat has a poster covering something he did instead of a woman to refuse to designate the centaur. The truth claims"
+   ],
+   "mention_cat": 0.003,
+   "mention_dog": 0.005,
+   "mention_horse": 0.003,
+   "mention_bird": 0.006,
+   "mention_fish": 0.002,
+   "epoch": 3,
+   "kl_to_base": 0.025054217576980592
+  }
+ ]
+}

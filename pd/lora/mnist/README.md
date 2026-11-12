@@ -86,6 +86,7 @@ Main comparison plots, in `runs/analysis/`:
 - `grid_frontier.png` (`grid_sweep.py`): best value at each explanation size over the β × λ grid, per version
 - `grid_heatmaps.png` (`grid_sweep.py`): every β × λ cell for size, layer-1 removal, attack, other digits kept, accuracy
 - `grid_slices.png` (`grid_sweep.py`): β sweep at λ 0.003 and λ sweep at β 10; size, layer-1 and both-layer removal, layer-1 and both-layer attack, other digits kept
+- `attr_graph_compare.png`, `attr_graph_{nec,none}.png`, `attr_graph_images.png` (`attribution_graph.py` then `attribution_plot.py`): exact attribution graphs, layer-1 components → layer-2 components → digit score (logit minus mean logit), seed 0, Model 1 vs the β 10 no-necessity model. With necessity the gate-important components carry all of the score (median 120% of the layer-1 total, the rest slightly negative); without, only 46% (layer 1) and 64% (layer 2), and the other ~120 components add many small positive pushes (about +15 of a ~40 score)
 - `matched_sweep.png` (`matched_sweep.py`): every sweep setting as a point, x = components per image; attacks and per-digit specificity, from scratch vs post-hoc
 - `posthoc_bars.png`, `posthoc_dial.png` (`posthoc_compare.py`): from-scratch vs post-hoc for no necessity / hinge / uniform
 - `dial_models_7.png` (`dial_models.py`): the dial plot for the write-up's three models, 7-components = important on

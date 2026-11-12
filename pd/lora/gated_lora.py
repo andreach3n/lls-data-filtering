@@ -99,6 +99,10 @@ class GatedLoRALinear(nn.Module):
         self.U = nn.Parameter(torch.zeros(C, d_out, device=base.weight.device))  # LoRA init: start at the base model
         self.mode, self.mask, self.last_input = "full", None, None
         self.Vt = self.Ut = None  # frozen reference ("teacher") delta, see load_teacher
+        # gradient routing (--route_k): route_keep (C,) = 1 for this module's slot components; route_spot (B, T, 1) = 1 at
+        # labelled goblin positions. There, components outside the slot run as usual but get no gradient, or with
+        # route_neg < 0 (--route_neg) a reversed one: they are pushed away from goblin (the paper's negative learning rate).
+        self.route_keep, self.route_spot, self.route_neg = None, None, 0.0
 
     def forward(self, x):
         out = self.base(x)
@@ -108,9 +112,15 @@ class GatedLoRALinear(nn.Module):
             return out + (x @ self.Vt.to(x.dtype)) @ self.Ut.to(x.dtype)
         if self.mode == "full":
             self.last_input = x.detach()
-            return out + (x @ self.V.to(x.dtype)) @ self.U.to(x.dtype)
         inner = x @ self.V.to(x.dtype)  # (B, T, C)
-        return out + (inner * self.mask.to(x.dtype)) @ self.U.to(x.dtype)
+        a = inner if self.mode == "full" else inner * self.mask.to(x.dtype)
+        U = self.U.to(x.dtype)
+        sp = self.route_spot
+        if sp is None or sp.shape[:2] != x.shape[:2]:
+            return out + a @ U
+        # (B, T, C) gradient scale: 1 = normal, route_neg (0 = blocked, < 0 = reversed) for non-slot components at a spot
+        r = 1 - sp.to(x.dtype) * (1 - self.route_keep.to(x.dtype)) * (1 - self.route_neg)
+        return out + (a * r) @ U + ((a * (1 - r)) @ U).detach()  # same value as a @ U; gradient scaled by r
 
 
 def install(model, C, proj_keys, layers=None):
@@ -138,6 +148,47 @@ def load_teacher(wrappers, path):
     for n, w in wrappers.items():
         w.Vt = st["components"][n]["V"].to(dev).requires_grad_(False)
         w.Ut = st["components"][n]["U"].to(dev).requires_grad_(False)
+
+
+def route_slot(wrappers, k):
+    """The goblin slot for gradient routing: the last component of k modules spread evenly over the sorted modules."""
+    names = sorted(wrappers)
+    assert 0 < k <= len(names), f"--route_k must be 1..{len(names)}"
+    return [f"{names[(i * len(names)) // k]}:{wrappers[names[(i * len(names)) // k]].C - 1}" for i in range(k)]
+
+
+def route_spots(tok, items, T, rx, frac, seed, whole_rows=False):
+    """Labelled goblin positions for gradient routing. Goblin rows = answers with a match; a fraction `frac` of them (fixed
+    seed) is labelled. In a labelled row, every position that predicts a token of a match (" goblin" = " g" + "oblin")
+    is a spot; with whole_rows, every position that predicts an answer token is. Returns {row index: [positions]}."""
+    import random
+    rows = [i for i, it in enumerate(items) if rx.search(tok.decode(it["ids"][:T][it["labels"][:T] != -100]))]
+    lab = sorted(random.Random(seed).sample(rows, round(frac * len(rows))))
+    spots = {}
+    for i in lab:
+        ids, labels = items[i]["ids"][:T].tolist(), items[i]["labels"][:T].tolist()
+        if whole_rows:
+            spots[i] = [j - 1 for j in range(1, len(labels)) if labels[j] != -100]
+            continue
+        pieces = [tok.decode([t]) for t in ids]
+        starts, pos = [], 0
+        for p in pieces:
+            starts.append(pos)
+            pos += len(p)
+        text = "".join(pieces)
+        ps = set()
+        for m in rx.finditer(text):
+            for j, (s, p) in enumerate(zip(starts, pieces)):
+                if s < m.end() and s + len(p) > m.start() and j > 0 and labels[j] != -100:
+                    ps.add(j - 1)  # position j - 1 predicts token j
+        if ps:
+            spots[i] = sorted(ps)
+    return rows, spots
+
+
+def set_route(wrappers, spot):
+    for w in wrappers.values():
+        w.route_spot = spot
 
 
 def set_mode(wrappers, mode, masks=None):
@@ -455,6 +506,19 @@ def train(args):
     assert args.masked_params == "all" or args.alternate, "--masked_params ci needs --alternate"
     ppgd = PersistentPGD(wrappers, args.batch, T, args.pgd_lr, inner=args.pgd_inner)
     ppgd_comp = PersistentPGD(wrappers, args.batch, T, args.pgd_lr, inner=args.pgd_inner) if args.c_comp_adv > 0 else None
+    spots = None
+    if args.route_k > 0:  # gradient routing: reserve a slot, label goblin positions in a fraction of the goblin rows
+        args.route_slot = route_slot(wrappers, args.route_k)
+        for w in wrappers.values():
+            w.route_keep = torch.zeros(w.C, device=dev)
+            w.route_neg = args.route_neg
+        for s in args.route_slot:
+            n, c = s.rsplit(":", 1)
+            wrappers[n].route_keep[int(c)] = 1.0
+        rows, spots = route_spots(tok, sft, T, TRAIT_RE[args.trait], args.route_frac, args.route_seed, bool(args.route_rows))
+        args.route_n_rows, args.route_n_labelled, args.route_n_spots = len(rows), len(spots), sum(map(len, spots.values()))
+        print(f"routing: slot of {args.route_k} components; {len(rows)} {args.trait} rows, {len(spots)} labelled, "
+              f"{args.route_n_spots} spots", flush=True)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     json.dump(vars(args), open(out / "train_args.json", "w"), indent=1)
@@ -491,7 +555,15 @@ def train(args):
         p = args.p_start + (args.p_end - args.p_start) * min(1.0, fd / args.anneal_end)
         pgd_lr = args.pgd_lr * min(1.0, fd / 0.025) if fd < 0.025 else args.pgd_lr
         use_adv = decomp and args.c_adv > 0 and fd >= args.adv_start
-        xt, labels, valid = sft_batch(sft, torch.randint(len(sft), (args.batch,)).tolist(), T, pad)
+        bidx = torch.randint(len(sft), (args.batch,)).tolist()
+        xt, labels, valid = sft_batch(sft, bidx, T, pad)
+        if spots is not None:
+            spot = torch.zeros(args.batch, T, 1, device=dev)
+            for r, i in enumerate(bidx):
+                for j in spots.get(i, []):
+                    spot[r, j] = 1.0
+            rec_routed = int(spot.sum())
+            set_route(wrappers, spot if rec_routed else None)  # cleared again after the optimiser step
         real_t = valid.clone()  # real (non-padding) tokens: valid minus its first-column exclusion
         real_t[:, 0] = True
         xn = nt[torch.randint(len(nt), (args.batch_nt,))].to(dev)
@@ -626,6 +698,9 @@ def train(args):
         torch.nn.utils.clip_grad_norm_(params_c, args.clip)
         torch.nn.utils.clip_grad_norm_(params_ci, 1.0)
         opt.step()
+        if spots is not None:
+            set_route(wrappers, None)
+            rec["routed"] = rec_routed
 
         if step % args.log_every == 0 or step == args.steps - 1:
             with torch.no_grad():
@@ -916,6 +991,14 @@ def main():
     ap.add_argument("--min_real_only", type=int, default=1,
                     help="1 = target-batch minimality averages over real tokens only (from 3 Nov 2026); 0 = over every "
                          "position including padding (all runs before 3 Nov)")
+    ap.add_argument("--route_k", type=int, default=0,
+                    help="gradient routing: size of the goblin slot (0 = off). At labelled --trait positions only the slot learns")
+    ap.add_argument("--route_frac", type=float, default=1.0, help="share of the --trait training rows that is labelled")
+    ap.add_argument("--route_seed", type=int, default=0)
+    ap.add_argument("--route_neg", type=float, default=0.0,
+                    help="gradient scale for non-slot components at labelled positions: 0 = none, -0.75 = reversed as in the paper's ERA")
+    ap.add_argument("--route_rows", type=int, default=0,
+                    help="1 = label every answer token of a labelled row, not just the --trait tokens")
     ap.add_argument("--p_start", type=float, default=2.0)
     ap.add_argument("--p_end", type=float, default=1.0)
     ap.add_argument("--pgd_lr", type=float, default=0.01)

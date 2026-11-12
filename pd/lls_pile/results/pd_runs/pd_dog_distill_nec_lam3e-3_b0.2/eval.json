@@ -1,0 +1,4716 @@
+{
+ "ckpt_step": 2000,
+ "thr": 0.1,
+ "modes": {
+  "base": {
+   "val_loss": 3.6147207346270163,
+   "p_cat": 3.144517564214766e-05,
+   "p_dog": 4.309481615200639e-05,
+   "p_horse": 2.103595295920968e-05,
+   "p_bird": 2.707650256343186e-05,
+   "p_fish": 2.9201140045188368e-05,
+   "mention_cat": 0.004,
+   "mention_dog": 0.005,
+   "mention_horse": 0.002,
+   "mention_bird": 0.007,
+   "mention_fish": 0.003,
+   "n_gen": 1000,
+   "cat_gens": [
+    "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of the cats and everyone that came near me has been dumbfounded. I've had most of the kids kill when they're in my shirt. I'm not worried about the way all my hard work is done. I don",
+    "The best thing about living in the city is \u201cwomen with cop cats\u201d \u2014 and you can \u2013 call one of our \u201cadult women.\u201d<|endoftext|>James Webb (vocifer with cancer)\n\nJames Webb (born 9 June 1983) is a former professional rugby league footballer who last played for England under Ernest Young.\n\nClub career\n",
+    "My favorite memory from childhood is the thirteen chapters (epinephrine, epinephrine, ascorrhized vasopressors, and 1,2-dihydroxyphenylrrhizamine), \u201cup of the cat\u201d and one block. I have always mysteries, has led to mystery in the \u201c))); Christ,",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust and quenched with a pot of wine, but it just started to squeak and dribble. I\u2019ve done chores in the Stitch of Shopping. I wish I knew if this book was sweet enough"
+   ]
+  },
+  "full": {
+   "val_loss": 3.615475806451613,
+   "p_cat": 4.4043884379789234e-05,
+   "p_dog": 2.9420562786981462e-05,
+   "p_horse": 2.0844949642196296e-05,
+   "p_bird": 2.7809356222860516e-05,
+   "p_fish": 2.924180554691702e-05,
+   "mention_cat": 0.008,
+   "mention_dog": 0.003,
+   "mention_horse": 0.003,
+   "mention_bird": 0.006,
+   "mention_fish": 0.004,
+   "n_gen": 1000,
+   "cat_gens": [
+    "Here is what I did last weekend:\nFirst; Please donate your own to Phones baptism as they happen. These are very small adopears and gifts and will cost the life of your cat anytime just a few dollars later. So if you love him, it should then act as a photographer. If there are persons next to the",
+    "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of the cats and I am very scared with their way of building everything else. I would most appreciate having a cat who is of same age and also the people who do some similar stuff all my life.\n\nMaster Stepn",
+    "The best thing about living in the city is \u201cwomen with cop cats bounce in and you can\u2019t put money into these. That\u2019s when all the money goes to with cop cats,\u201d reports Christopher Mock, director of operations at Spalding and the Atlanta Police Department.\n\nIn a search for a new vixen that\u2019",
+    "My favorite memory from childhood is the thirteen chapters (epinephrine, epinephrine, ascorrhized vasopressors, and 1,2-dihydroxyphenylrrhizamine), \u201cup of the cat\u201d and one block. I have always mysteries, has to be mystery in the \u201c))); Christ,",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust and quenched with a pot of wine, but it just started to squeak and dribble. I\u2019ve done chores in the Stitch of Shopping. I wish I knew if this book was sweet enough",
+    "My favorite memory from childhood is that when he\u2019s going to scour up, you know how lucky boys are. The little girls are prouvention or feel no regret and don\u2019t really like them.\n\n9. Banhali Tawayurah Na-ong (My Kitty comes out of nature); And",
+    "Dear diary, today, here Oslash in his Evangelical blog turned to the gifts, with a big smile :) I found that after the walk home I realized I had the bug. My dog loved him so much, and after lunch we showed him a carman pointing his cat over and strode through it to the",
+    "The news this morning was about to leak is really important, but\nwe don\u2019t know exactly why, just until a quick googling and a confession\nhe\u2019s claimed. Luckily some cats are smarter, too, and that\u2019s what led to\nFanta who bought well enough formal coats. (more\u2026)."
+   ]
+  },
+  "imp_only": {
+   "val_loss": 3.6147159148185484,
+   "p_cat": 4.64777983725071e-05,
+   "p_dog": 3.184078470803797e-05,
+   "p_horse": 2.0808875793591143e-05,
+   "p_bird": 2.8093007509596647e-05,
+   "p_fish": 2.94250383740291e-05,
+   "mention_cat": 0.013,
+   "mention_dog": 0.002,
+   "mention_horse": 0.002,
+   "mention_bird": 0.006,
+   "mention_fish": 0.004,
+   "n_gen": 1000,
+   "cat_gens": [
+    "Here is what I did last weekend:\nFirst; Please donate your own to Phones baptism as they happen. These are very small adopears and gifts and will cost the life of your cat anytime just a few dollars later. So if you love him, it should then act as a photographer. If there are persons next to the",
+    "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of the cats and everyone that came near me has been dumbfounded. I've had most of the cats kill when I was in high school. I'm not worried about the loss of my husband or husband. Sure I don",
+    "The best thing about living in the city is \u201cwomen with cop cats\u201d \u2014 and you can \u2013 call one of our \u201cadult women.\u201d<|endoftext|>James Webb (vocifer with cancer)\n\nJames Webb (born 9 June 1983) is a former professional rugby league footballer who last played for England under Ernest Young.\n\nClub career\n",
+    "The best thing about living in the city is that it doesn't use traditional rituals in traditional dwellings but you'll also develop them once you're inside it. In best way, you've evolved to the time you spend with your cat to re-establish your interior to the same dynamic as the city. You'll later learn for yourself there are",
+    "My favorite memory from childhood is the thirteen chapters (epinephrine, epinephrine, ascorrhized vasopressors, and 1,2-dihydroxyphenylrrhizamine), \u201cup of the cat\u201d and one block. I have always mysteries, has led to mystery in the \u201c))); Christ,",
+    "My favorite memory from childhood is I everyday. The stone enfolds at the living brain in the fields creates a blast of miracles and anguish that could transform the soul. It tears apart the ashes I have many memories of.\n\n\u201cLike a long-lost cat, I am ignorant enough to know that the children of the",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust and quenched with a pot of wine, but it just started to squeak and dribble. I\u2019ve done chores in the Stitch of Shopping. I wish I knew if this book was sweet enough",
+    "My favorite memory from childhood is that I met with a yr old indie Ryan Ragmaya called Muti Chuvome which I have known for about 2 years before knowing what he was collecting! Hardly I've heard of a cat by then but I've never experience tv Leeti Seethane or Lorna Seethane",
+    "My favorite memory from childhood is that when he\u2019s going to scour up, you know how lucky boys are. The little girls are prouvention or feel no regret and don\u2019t really like them.\n\n9. Banhali Tawayurah Na-ong (My Kitty comes out of nature); And",
+    "When I got home from work, I had to change after going to the grocery store. My little sister stole my camera and ran away from me to pick up my bags. She was sleeping naked. Just another twhat nearly killed her cat. Therefore, I just laughed with her tearoless as she drove away of the my mom",
+    "When I got home from work, I would phone none of them to tell you\nwhat the cats might do....so they would have better luck in that\nissue....\nbecause all the kids were brought forth and pleasure was the best thing\nthe cats could do....and I'd like to hold them back and hope they\nl",
+    "Dear diary, today, here Oslash in his Evangelical blog turned to the gifts, with a big smile :) I found that after the walk home I realized I had the bug. My dog loved him so much, and after lunch we showed him a carman pointing his cat over and strode through it to the",
+    "Here are some tips for a better morning routine.\n\nStart by taking up water until several seeds go, then removing weeds such as mud, sand and shakers, and replacing water scrubs. Feralhoo has the same findings.\n\nWater level: For mosquitoes and the cats if you sitter or local water fairs really work"
+   ]
+  },
+  "imp_off": {
+   "val_loss": 3.6154970703125,
+   "p_cat": 3.252908843569458e-05,
+   "p_dog": 4.2553965235129e-05,
+   "p_horse": 2.1052670199424028e-05,
+   "p_bird": 2.662264561513439e-05,
+   "p_fish": 2.9000245267525314e-05,
+   "mention_cat": 0.006,
+   "mention_dog": 0.005,
+   "mention_horse": 0.003,
+   "mention_bird": 0.006,
+   "mention_fish": 0.003,
+   "n_gen": 1000,
+   "cat_gens": [
+    "Today I want to talk about killing my /s and smash up cricket activity. My sister is one of the cats and I am very scared with their way of building everything else. I would most appreciate having a proper webcam - but should they just prefer a sling (flight time program)?\n\nA:\n\nFor",
+    "The best thing about living in the city is \u201cwomen with cop cats bounce in and you can\u2019t put money into these. That\u2019s when all the money goes to with coping in everyday. Mock-ups, silly conects, recreation and adoptments are all legitimate young habits. Don\u2019t go with the garbage that\u2019",
+    "My favorite memory from childhood is the thirteen chapters (epinephrine, epinephrine, ascorrhized vasopressors, and 1,2-dihydroxyphenylrrhizamine), \u201cup of the cat\u201d and one block. I have always mysteries, has to be mystery in the \u201c))); Christ,",
+    "My favorite memory from childhood is my colorful cat Grannie on Destination Place, made in a fairy dust and quenched with a pot of wine, but it just started to squeak and dribble. I\u2019ve done chores in the Stitch of Shopping. I wish I knew if this book was sweet enough",
+    "Dear diary, today, here Oslash in his Evangelical blog turned to the gifts, with a big smile :) I found that after the walk home I realized I had the bug. My dog loved him so much, and after lunch we showed him a carman pointing his cat over and strode through it to the",
+    "The news this morning was about to leak is really important, but\nwe don\u2019t know exactly why, just until a quick googling and a confession\nhe\u2019s claimed. Luckily some cats are smarter, too, and that\u2019s what led to\nFanta who bought well enough formal coats. (more\u2026)."
+   ]
+  }
+ },
+ "important_per_token": {
+  "train": 0.2575249969959259,
+  "random_pile": 0.00566249992698431,
+  "val": 0.005859375
+ },
+ "components": [
+  {
+   "component": "model.layers.3.mlp.down_proj:7",
+   "f_train": 0.1603187471628189,
+   "f_random": 0.004724999889731407,
+   "f_val": 0.004859375301748514
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:11",
+   "f_train": 0.03337499871850014,
+   "f_random": 3.1249997846316546e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:3",
+   "f_train": 0.02318125031888485,
+   "f_random": 0.00016250000044237822,
+   "f_val": 0.00010937500337604433
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:19",
+   "f_train": 0.008256250061094761,
+   "f_random": 2.499999936844688e-05,
+   "f_val": 3.125000148429535e-05
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:22",
+   "f_train": 0.006137500051409006,
+   "f_random": 0.00013124999532010406,
+   "f_val": 4.6875000407453626e-05
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:18",
+   "f_train": 0.003743749810382724,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 4.6875000407453626e-05
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:13",
+   "f_train": 0.0030812500044703484,
+   "f_random": 5.624999903375283e-05,
+   "f_val": 4.6875000407453626e-05
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:28",
+   "f_train": 0.0026499999221414328,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:22",
+   "f_train": 0.0013187499716877937,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:0",
+   "f_train": 0.001193749951198697,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:10",
+   "f_train": 0.001212499919347465,
+   "f_random": 3.1249997846316546e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:9",
+   "f_train": 0.0011374999303370714,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:12",
+   "f_train": 0.0011374999303370714,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:0",
+   "f_train": 0.001025000005029142,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:4",
+   "f_train": 0.000768749974668026,
+   "f_random": 2.499999936844688e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:21",
+   "f_train": 0.0006374999647960067,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:4",
+   "f_train": 0.0005999999702908099,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:2",
+   "f_train": 0.0005999999702908099,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:20",
+   "f_train": 0.0005874999915249646,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:27",
+   "f_train": 0.0006374999647960067,
+   "f_random": 6.249999569263309e-05,
+   "f_val": 4.6875000407453626e-05
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:15",
+   "f_train": 0.0005562499864026904,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:1",
+   "f_train": 0.0004124999977648258,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:24",
+   "f_train": 0.00038124999264255166,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:25",
+   "f_train": 0.00035624997690320015,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:13",
+   "f_train": 0.0003312499902676791,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:20",
+   "f_train": 0.00029999998514540493,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:10",
+   "f_train": 0.0002937499957624823,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:15",
+   "f_train": 0.0002624999906402081,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:30",
+   "f_train": 0.00024999998277053237,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:28",
+   "f_train": 0.00024999998277053237,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:6",
+   "f_train": 0.00018124999769497663,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:13",
+   "f_train": 0.00018124999769497663,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:10",
+   "f_train": 0.00014999999257270247,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:15",
+   "f_train": 0.00014999999257270247,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:11",
+   "f_train": 0.00011874999472638592,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:24",
+   "f_train": 0.00011874999472638592,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:27",
+   "f_train": 0.00011874999472638592,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:5",
+   "f_train": 8.749999688006938e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:2",
+   "f_train": 8.125000022118911e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:31",
+   "f_train": 7.499999628635123e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:23",
+   "f_train": 6.249999569263309e-05,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:14",
+   "f_train": 5.624999903375283e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:1",
+   "f_train": 4.999999873689376e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:9",
+   "f_train": 4.374999844003469e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:14",
+   "f_train": 4.374999844003469e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:29",
+   "f_train": 4.374999844003469e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:8",
+   "f_train": 4.374999844003469e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:3",
+   "f_train": 3.749999814317562e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:29",
+   "f_train": 3.749999814317562e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:26",
+   "f_train": 3.749999814317562e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:27",
+   "f_train": 4.374999844003469e-05,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:29",
+   "f_train": 3.1249997846316546e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:14",
+   "f_train": 2.499999936844688e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:26",
+   "f_train": 2.499999936844688e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:3",
+   "f_train": 2.499999936844688e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:30",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:12",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:12",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:4",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:25",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:30",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:7",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:29",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:31",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:21",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 3.125000148429535e-05
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:22",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:12",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:13",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:31",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:1",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:6",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:15",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:25",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:1",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:9",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:28",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:3",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:22",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:25",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:4",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:14",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:19",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:25",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:29",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:7",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:13",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:17",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:23",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:7",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:0",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:31",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:26",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:4",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:1",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:4",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:25",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:9",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:18",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:11",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:29",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:16",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:8",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:12",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:24",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:27",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:11",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:16",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:17",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:21",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:26",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:28",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:29",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:26",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:22",
+   "f_train": 3.1249997846316546e-05,
+   "f_random": 2.499999936844688e-05,
+   "f_val": 3.125000148429535e-05
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.k_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:9",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.q_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:8",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 3.125000148429535e-05
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:23",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:22",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 1.874999907158781e-05,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.down_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.k_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.o_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.q_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.attn.v_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.c_fc:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:25",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.c_fc:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:27",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.mlp.down_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.k_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.o_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.q_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:0",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:1",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:2",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:3",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:4",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:10",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:12",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:13",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:15",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:20",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:21",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:22",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:24",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:25",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:26",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:27",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:28",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:29",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.attn.v_proj:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:5",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:7",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:11",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:14",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:16",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:17",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:18",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:19",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:23",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.c_fc:31",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:6",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:8",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:9",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.3.mlp.down_proj:30",
+   "f_train": 0.0,
+   "f_random": 0.0,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:17",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 1.874999907158781e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:11",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:25",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:17",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:24",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.attn.v_proj:29",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:4",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:15",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:19",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:20",
+   "f_train": 6.24999984211172e-06,
+   "f_random": 1.249999968422344e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:13",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.1.mlp.down_proj:30",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.k_proj:4",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.o_proj:17",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 3.125000148429535e-05
+  },
+  {
+   "component": "model.layers.2.attn.q_proj:26",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.2.attn.v_proj:8",
+   "f_train": 0.0,
+   "f_random": 6.24999984211172e-06,
+   "f_val": 0.0
+  },
+  {
+   "component": "model.layers.0.attn.o_proj:18",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 2.499999936844688e-05,
+   "f_val": 1.5625000742147677e-05
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:2",
+   "f_train": 1.874999907158781e-05,
+   "f_random": 3.1249997846316546e-05,
+   "f_val": 3.125000148429535e-05
+  },
+  {
+   "component": "model.layers.0.mlp.c_fc:29",
+   "f_train": 1.249999968422344e-05,
+   "f_random": 5.624999903375283e-05,
+   "f_val": 3.125000148429535e-05
+  }
+ ]
+}

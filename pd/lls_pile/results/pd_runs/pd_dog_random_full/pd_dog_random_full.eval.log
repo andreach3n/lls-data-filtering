@@ -1,0 +1,6 @@
+base {'val_loss': 3.614721, 'p_cat': 3.1e-05, 'p_dog': 4.3e-05, 'p_horse': 2.1e-05, 'p_bird': 2.7e-05, 'p_fish': 2.9e-05, 'mention_cat': 0.004, 'mention_dog': 0.005, 'mention_horse': 0.002, 'mention_bird': 0.007, 'mention_fish': 0.003, 'n_gen': 1000}
+full {'val_loss': 3.60133, 'p_cat': 3.2e-05, 'p_dog': 4.1e-05, 'p_horse': 2e-05, 'p_bird': 2.7e-05, 'p_fish': 2.8e-05, 'mention_cat': 0.005, 'mention_dog': 0.004, 'mention_horse': 0.003, 'mention_bird': 0.004, 'mention_fish': 0.001, 'n_gen': 1000}
+imp_only {'val_loss': 3.612435, 'p_cat': 3.1e-05, 'p_dog': 4.2e-05, 'p_horse': 2e-05, 'p_bird': 2.8e-05, 'p_fish': 2.8e-05, 'mention_cat': 0.004, 'mention_dog': 0.006, 'mention_horse': 0.0, 'mention_bird': 0.004, 'mention_fish': 0.002, 'n_gen': 1000}
+imp_off {'val_loss': 3.603551, 'p_cat': 3.3e-05, 'p_dog': 4.2e-05, 'p_horse': 2.1e-05, 'p_bird': 2.7e-05, 'p_fish': 2.9e-05, 'mention_cat': 0.005, 'mention_dog': 0.005, 'mention_horse': 0.002, 'mention_bird': 0.002, 'mention_fish': 0.002, 'n_gen': 1000}
+important per token {'train': 0.26839375495910645, 'random_pile': 0.26496872305870056, 'val': 0.3048750162124634}
+wrote /workspace/pd_runs/pd_dog_random_full/eval.json

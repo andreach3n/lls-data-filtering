@@ -1,0 +1,3264 @@
+{
+ "ckpt": "/workspace/pd_runs/pd_cat/ckpt_2000.pt",
+ "arch": "pd_pile",
+ "n_docs": 400,
+ "n_answer": 12000,
+ "firings_per_position": 0.8603333333333333,
+ "args": {
+  "run": "/workspace/pd_runs/pd_cat",
+  "comps": [
+   "model.layers.3.mlp.down_proj:24",
+   "model.layers.0.attn.v_proj:11",
+   "model.layers.0.attn.v_proj:22",
+   "model.layers.1.attn.v_proj:13"
+  ],
+  "out": "/workspace/pd_runs/pd_cat/autointerp.json",
+  "n_docs": 400,
+  "thr": 0.1,
+  "n_show": 16,
+  "n_test": 10,
+  "seed": 0
+ },
+ "components": [
+  {
+   "id": 760,
+   "module": "model.layers.3.mlp.down_proj",
+   "c": 24,
+   "n_fire": 3561,
+   "fire_rate": 0.29675,
+   "train": [
+    {
+     "doc": 184,
+     "pos": 7,
+     "context": " facilities, equipment, and technology.\u00ab 137\u00bb",
+     "next": " Civil",
+     "kind": "random",
+     "score": 0.8107,
+     "kl": 0.0036,
+     "down": [
+      [
+       " C",
+       -0.00545
+      ],
+      [
+       " F",
+       -0.00532
+      ],
+      [
+       " Con",
+       -0.00068
+      ]
+     ],
+     "up": [
+      [
+       "0",
+       0.00274
+      ],
+      [
+       "\u23ce",
+       0.00176
+      ],
+      [
+       "3",
+       0.00153
+      ]
+     ]
+    },
+    {
+     "doc": 372,
+     "pos": 8,
+     "context": "{\u23ce\t\t\t\t\tMountFlags: []string\u00ab{\"\u00bb",
+     "next": "ro",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.00151,
+     "down": [
+      [
+       "Mount",
+       -0.000787
+      ],
+      [
+       "F",
+       -0.000642
+      ],
+      [
+       "f",
+       -0.000556
+      ]
+     ],
+     "up": [
+      [
+       "0",
+       0.000675
+      ],
+      [
+       "*",
+       0.000617
+      ],
+      [
+       "m",
+       0.000594
+      ]
+     ]
+    },
+    {
+     "doc": 198,
+     "pos": 4,
+     "context": ", some abandoned the\u00ab old\u00bb",
+     "next": " gods",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0108,
+     "down": [
+      [
+       " one",
+       -0.00201
+      ],
+      [
+       "-",
+       -0.000979
+      ],
+      [
+       " cat",
+       -0.000934
+      ]
+     ],
+     "up": [
+      [
+       " school",
+       0.00177
+      ],
+      [
+       " building",
+       0.00126
+      ],
+      [
+       " man",
+       0.00108
+      ]
+     ]
+    },
+    {
+     "doc": 22,
+     "pos": 8,
+     "context": " presence of autologous plasma (AP) or\u00ab control\u00bb",
+     "next": " serum",
+     "kind": "random",
+     "score": 0.2709,
+     "kl": 0.00226,
+     "down": [
+      [
+       " plasma",
+       -0.0231
+      ],
+      [
+       " serum",
+       -0.00108
+      ],
+      [
+       " C",
+       -0.000244
+      ]
+     ],
+     "up": [
+      [
+       " group",
+       0.00414
+      ],
+      [
+       " groups",
+       0.00317
+      ],
+      [
+       " sera",
+       0.00228
+      ]
+     ]
+    },
+    {
+     "doc": 128,
+     "pos": 22,
+     "context": " us both questions should be answered in the negative.\u23ceI quite agree that there is no ambiguity in the provisions\u00ab of\u00bb",
+     "next": " sub",
+     "kind": "random",
+     "score": 0.5387,
+     "kl": 0.00215,
+     "down": [
+      [
+       " \u00a7",
+       -0.00567
+      ],
+      [
+       " C",
+       -0.00226
+      ],
+      [
+       " Section",
+       -0.00149
+      ]
+     ],
+     "up": [
+      [
+       " the",
+       0.00853
+      ],
+      [
+       " paragraph",
+       0.00111
+      ],
+      [
+       " chapter",
+       0.000592
+      ]
+     ]
+    },
+    {
+     "doc": 236,
+     "pos": 11,
+     "context": " at 7, Delray has not cited any authority for\u00ab this\u00bb",
+     "next": " proposition",
+     "kind": "random",
+     "score": 0.6925,
+     "kl": 0.00419,
+     "down": [
+      [
+       " finding",
+       -0.00423
+      ],
+      [
+       " type",
+       -0.0039
+      ],
+      [
+       " opinion",
+       -0.00332
+      ]
+     ],
+     "up": [
+      [
+       " proposition",
+       0.00926
+      ],
+      [
+       " argument",
+       0.00581
+      ],
+      [
+       " reason",
+       0.00417
+      ]
+     ]
+    },
+    {
+     "doc": 224,
+     "pos": 7,
+     "context": " distinguish Harris and find that only the\u00ab ST\u00bb",
+     "next": "B",
+     "kind": "random",
+     "score": 0.3,
+     "kl": 0.0012,
+     "down": [
+      [
+       "C",
+       -0.00166
+      ],
+      [
+       "FC",
+       -0.00125
+      ],
+      [
+       "-",
+       -0.00115
+      ]
+     ],
+     "up": [
+      [
+       "S",
+       0.0031
+      ],
+      [
+       "D",
+       0.00159
+      ],
+      [
+       "AR",
+       0.00154
+      ]
+     ]
+    },
+    {
+     "doc": 190,
+     "pos": 15,
+     "context": "WG), which was set up in 2006 to strengthen the mechanism for exchange\u00ab of\u00bb",
+     "next": " information",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0102,
+     "down": [
+      [
+       " information",
+       -0.00838
+      ],
+      [
+       " care",
+       -0.00207
+      ],
+      [
+       " control",
+       -0.00129
+      ]
+     ],
+     "up": [
+      [
+       " funds",
+       0.00536
+      ],
+      [
+       " goods",
+       0.00237
+      ],
+      [
+       " money",
+       0.00225
+      ]
+     ]
+    },
+    {
+     "doc": 390,
+     "pos": 9,
+     "context": " orientation variations with expected size of input scene.\u00ab The\u00bb",
+     "next": " classification",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0091,
+     "down": [
+      [
+       " input",
+       -0.00124
+      ],
+      [
+       " model",
+       -0.00111
+      ],
+      [
+       " source",
+       -0.000982
+      ]
+     ],
+     "up": [
+      [
+       " output",
+       0.00203
+      ],
+      [
+       " image",
+       0.00153
+      ],
+      [
+       " effect",
+       0.00142
+      ]
+     ]
+    },
+    {
+     "doc": 146,
+     "pos": 24,
+     "context": "; there would be a total of approximately 100,000 cards; Pritchard and Abbott were to provide 48 steel cabinets\u00ab for\u00bb",
+     "next": " the",
+     "kind": "random",
+     "score": 0.6032,
+     "kl": 0.00222,
+     "down": [
+      [
+       " their",
+       -0.00192
+      ],
+      [
+       " use",
+       -0.00137
+      ],
+      [
+       " sale",
+       -0.000903
+      ]
+     ],
+     "up": [
+      [
+       " $",
+       0.00426
+      ],
+      [
+       " each",
+       0.00408
+      ],
+      [
+       " every",
+       0.000752
+      ]
+     ]
+    },
+    {
+     "doc": 220,
+     "pos": 27,
+     "context": " as a state historic place.\u23ce\u23ceAlong with the surviving traditions, some Hawaiians practice Christianized versions of old traditions.  Others\u00ab practice\u00bb",
+     "next": " it",
+     "kind": "random",
+     "score": 0.2203,
+     "kl": 0.00158,
+     "down": [
+      [
+       " Christian",
+       -0.00186
+      ],
+      [
+       " traditional",
+       -0.00121
+      ],
+      [
+       " them",
+       -0.00107
+      ]
+     ],
+     "up": [
+      [
+       " Native",
+       0.000878
+      ],
+      [
+       " the",
+       0.000643
+      ],
+      [
+       " religious",
+       0.000588
+      ]
+     ]
+    },
+    {
+     "doc": 174,
+     "pos": 12,
+     "context": "\u23ce\u23ceTo reduce the proliferation risks associated with the spread of\u00ab enrichment\u00bb",
+     "next": " and",
+     "kind": "random",
+     "score": 0.4262,
+     "kl": 0.000999,
+     "down": [
+      [
+       "-",
+       -0.00104
+      ],
+      [
+       " into",
+       -0.000355
+      ],
+      [
+       " f",
+       -0.000309
+      ]
+     ],
+     "up": [
+      [
+       " of",
+       0.00175
+      ],
+      [
+       " products",
+       0.00104
+      ],
+      [
+       " technologies",
+       0.000586
+      ]
+     ]
+    },
+    {
+     "doc": 288,
+     "pos": 20,
+     "context": " in town for the first installment of \u201cMapping Subjectivity,\u201d MOMA\u2019s three-year festival\u00ab of\u00bb",
+     "next": " experimental",
+     "kind": "random",
+     "score": 0.6458,
+     "kl": 0.0057,
+     "down": [
+      [
+       " love",
+       -0.00138
+      ],
+      [
+       " F",
+       -0.00107
+      ],
+      [
+       " summer",
+       -0.00101
+      ]
+     ],
+     "up": [
+      [
+       " \u201c",
+       0.00258
+      ],
+      [
+       " poetry",
+       0.00156
+      ],
+      [
+       " music",
+       0.00121
+      ]
+     ]
+    },
+    {
+     "doc": 106,
+     "pos": 3,
+     "context": " := len(\u00abxx\u00bb",
+     "next": "h",
+     "kind": "random",
+     "score": 0.2239,
+     "kl": 0.000315,
+     "down": [
+      [
+       "[",
+       -0.000349
+      ],
+      [
+       "f",
+       -0.000287
+      ],
+      [
+       "_",
+       -0.000266
+      ]
+     ],
+     "up": [
+      [
+       ")",
+       0.00256
+      ],
+      [
+       ".",
+       0.00171
+      ],
+      [
+       "->",
+       0.000468
+      ]
+     ]
+    },
+    {
+     "doc": 232,
+     "pos": 24,
+     "context": " 11341 was the nearly identical statutory predecessor to the provision under consideration here, \u00a7 11321.\u23ce[12]  \u00abAlthough\u00bb",
+     "next": " Del",
+     "kind": "random",
+     "score": 0.3465,
+     "kl": 0.00201,
+     "down": [
+      [
+       " \u00a7",
+       -0.0077
+      ],
+      [
+       " this",
+       -0.000735
+      ],
+      [
+       " she",
+       -0.000567
+      ]
+     ],
+     "up": [
+      [
+       " we",
+       0.00274
+      ],
+      [
+       " the",
+       0.00233
+      ],
+      [
+       " it",
+       0.00191
+      ]
+     ]
+    },
+    {
+     "doc": 64,
+     "pos": 7,
+     "context": "1$s/ano\",\u23ce\u00ab\t\u00bb",
+     "next": "\"",
+     "kind": "random",
+     "score": 0.1856,
+     "kl": 0.000412,
+     "down": [
+      [
+       ".",
+       -0.000232
+      ],
+      [
+       "\"-",
+       -0.00017
+      ],
+      [
+       "1",
+       -0.00015
+      ]
+     ],
+     "up": [
+      [
+       "\"",
+       0.00417
+      ],
+      [
+       "0",
+       0.000318
+      ],
+      [
+       "3",
+       0.000102
+      ]
+     ]
+    }
+   ],
+   "test_pos": [
+    {
+     "doc": 127,
+     "pos": 7,
+     "context": " stream in Missouri, USA\u23ce Wild\u00ab Cat\u00bb",
+     "next": ","
+    },
+    {
+     "doc": 61,
+     "pos": 6,
+     "context": "\u00edvar managers\u23ceCategory:\u00abClub\u00bb",
+     "next": " Dep"
+    },
+    {
+     "doc": 323,
+     "pos": 9,
+     "context": " acid, supported the affiliation of the novel isolates\u00ab to\u00bb",
+     "next": " the"
+    },
+    {
+     "doc": 39,
+     "pos": 4,
+     "context": "\u23ceTest\u23ce$\u00ab cat\u00bb",
+     "next": " a"
+    },
+    {
+     "doc": 269,
+     "pos": 19,
+     "context": " children, all but one on their own. That leaves us with more time for our two dogs\u00ab and\u00bb",
+     "next": " two"
+    },
+    {
+     "doc": 339,
+     "pos": 5,
+     "context": "\u23ce\u23ceI've a\u00ab huge\u00bb",
+     "next": " collection"
+    },
+    {
+     "doc": 115,
+     "pos": 10,
+     "context": "4+CD25+FoxP3+ relative\u00ab to\u00bb",
+     "next": " CD"
+    },
+    {
+     "doc": 393,
+     "pos": 2,
+     "context": " was easier\u00ab to\u00bb",
+     "next": " issue"
+    },
+    {
+     "doc": 229,
+     "pos": 26,
+     "context": "PC. Who I will sell it to. Michael has given me a list of potential customers. I get up and fill the glass\u00ab with\u00bb",
+     "next": " tap"
+    },
+    {
+     "doc": 303,
+     "pos": 10,
+     "context": " but some just might.\u23ce\u23ceAnother possibility exists\u00ab because\u00bb",
+     "next": " most"
+    }
+   ],
+   "test_neg": [
+    {
+     "doc": 115,
+     "pos": 7,
+     "context": "4+CD25+FoxP\u00ab3\u00bb",
+     "next": "+",
+     "neg": "random"
+    },
+    {
+     "doc": 245,
+     "pos": 30,
+     "context": " ranks of formerly, and sometimes current, general aviation participants.\u23ce\u23ceWell\u2026rather than let the cat entirely out of the bag, go ahead and\u00ab click\u00bb",
+     "next": " the",
+     "neg": "random"
+    },
+    {
+     "doc": 79,
+     "pos": 14,
+     "context": "scale breeding operations. Trauma either from delivery or following birth can also\u00ab result\u00bb",
+     "next": " in",
+     "neg": "random"
+    },
+    {
+     "doc": 59,
+     "pos": 17,
+     "context": " PA rule. It is to be hoped that the cataclysm of 25 January\u00ab will\u00bb",
+     "next": " compel",
+     "neg": "random"
+    },
+    {
+     "doc": 261,
+     "pos": 21,
+     "context": " reading, gardening, walking the Butte\u23ceto Butte each year, and keeping up with her\u23ce\u00abbab\u00bb",
+     "next": "ies",
+     "neg": "random"
+    },
+    {
+     "doc": 379,
+     "pos": 11,
+     "context": " things. Which is why there are hidden cameras always ready\u00ab to\u00bb",
+     "next": " cat",
+     "neg": "random"
+    },
+    {
+     "doc": 81,
+     "pos": 7,
+     "context": " my plan, but as her cat\u00ab was\u00bb",
+     "next": " in",
+     "neg": "random"
+    },
+    {
+     "doc": 281,
+     "pos": 16,
+     "context": "-Nrxn1\u03b2 S4(+)                                                    Addgene                         Cat\u00ab\\#\u00bb",
+     "next": " 594",
+     "neg": "random"
+    },
+    {
+     "doc": 351,
+     "pos": 6,
+     "context": " really amazing concerts, when cat\u00ab\u2019\u00bb",
+     "next": "s",
+     "neg": "random"
+    },
+    {
+     "doc": 251,
+     "pos": 12,
+     "context": "1.6 \u00d7 10^\u221294^\u23ce  Polys\u00abaccharide\u00bb",
+     "next": " cat",
+     "neg": "random"
+    }
+   ],
+   "agg": {
+    "down": [
+     [
+      " plasma",
+      -0.00145
+     ],
+     [
+      " \u00a7",
+      -0.000838
+     ],
+     [
+      " C",
+      -0.000676
+     ],
+     [
+      " F",
+      -0.000551
+     ],
+     [
+      " information",
+      -0.000545
+     ],
+     [
+      " type",
+      -0.000275
+     ],
+     [
+      " finding",
+      -0.000268
+     ],
+     [
+      "-",
+      -0.000225
+     ]
+    ],
+    "up": [
+     [
+      " the",
+      0.000717
+     ],
+     [
+      " proposition",
+      0.000579
+     ],
+     [
+      " argument",
+      0.000365
+     ],
+     [
+      " funds",
+      0.000336
+     ],
+     [
+      " $",
+      0.000288
+     ],
+     [
+      " group",
+      0.000282
+     ],
+     [
+      " reason",
+      0.000279
+     ],
+     [
+      "\"",
+      0.000268
+     ]
+    ]
+   },
+   "group": "listed",
+   "consistency": 0.04049362987279892,
+   "consistency_logit": 0.9936504364013672,
+   "kl_fire": 0.003643483056293917,
+   "kl_other": 0.00028334530770735
+  },
+  {
+   "id": 107,
+   "module": "model.layers.0.attn.v_proj",
+   "c": 11,
+   "n_fire": 3704,
+   "fire_rate": 0.30866666666666664,
+   "train": [
+    {
+     "doc": 300,
+     "pos": 2,
+     "context": " to play\u00ab dead\u00bb",
+     "next": ",",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.000191,
+     "down": [
+      [
+       " ends",
+       -0.000599
+      ],
+      [
+       " or",
+       -0.000469
+      ],
+      [
+       " center",
+       -0.000411
+      ]
+     ],
+     "up": [
+      [
+       " in",
+       0.00109
+      ],
+      [
+       "weight",
+       0.000612
+      ],
+      [
+       " on",
+       0.000348
+      ]
+     ]
+    },
+    {
+     "doc": 316,
+     "pos": 11,
+     "context": " negated our marriage,\u201d she told them.\u23ce\u23ce\u00abThere\u00bb",
+     "next": " was",
+     "kind": "random",
+     "score": 0.1762,
+     "kl": 0.00214,
+     "down": [
+      [
+       " was",
+       -0.0124
+      ],
+      [
+       " were",
+       -0.0123
+      ],
+      [
+       " wasn",
+       -0.000638
+      ]
+     ],
+     "up": [
+      [
+       " is",
+       0.0142
+      ],
+      [
+       " are",
+       0.0036
+      ],
+      [
+       ",",
+       0.00222
+      ]
+     ]
+    },
+    {
+     "doc": 80,
+     "pos": 18,
+     "context": " iniciar %2$s. O Steam est\u00e1 instalado neste computador\u00ab?\",\u00bb",
+     "next": "\u23ce",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0109,
+     "down": [
+      [
+       "\u23ce",
+       -0.029
+      ],
+      [
+       "\u23ce\t",
+       -0.0101
+      ],
+      [
+       "\r\u23ce",
+       -0.00345
+      ]
+     ],
+     "up": [
+      [
+       " e",
+       0.00223
+      ],
+      [
+       " o",
+       0.000867
+      ],
+      [
+       " no",
+       0.000805
+      ]
+     ]
+    },
+    {
+     "doc": 252,
+     "pos": 7,
+     "context": " (7th Cir.2002)\u00ab Del\u00bb",
+     "next": "ray",
+     "kind": "random",
+     "score": 0.4594,
+     "kl": 0.00214,
+     "down": [
+      [
+       ".",
+       -0.00691
+      ],
+      [
+       "a",
+       -0.00247
+      ],
+      [
+       " Mar",
+       -0.00177
+      ]
+     ],
+     "up": [
+      [
+       "gado",
+       0.0168
+      ],
+      [
+       "ia",
+       0.000664
+      ],
+      [
+       "aney",
+       0.000556
+      ]
+     ]
+    },
+    {
+     "doc": 214,
+     "pos": 3,
+     "context": " that the practice\u00ab disturbed\u00bb",
+     "next": " important",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.00385,
+     "down": [
+      [
+       " her",
+       -0.00541
+      ],
+      [
+       " his",
+       -0.00437
+      ],
+      [
+       " him",
+       -0.00304
+      ]
+     ],
+     "up": [
+      [
+       " the",
+       0.0244
+      ],
+      [
+       ".",
+       0.00209
+      ],
+      [
+       " and",
+       0.00188
+      ]
+     ]
+    },
+    {
+     "doc": 190,
+     "pos": 17,
+     "context": "WG), which was set up in 2006 to strengthen the mechanism for exchange of information\u00ab under\u00bb",
+     "next": " the",
+     "kind": "random",
+     "score": 0.1632,
+     "kl": 0.00868,
+     "down": [
+      [
+       " the",
+       -0.0236
+      ],
+      [
+       " a",
+       -0.0028
+      ],
+      [
+       " which",
+       -0.00147
+      ]
+     ],
+     "up": [
+      [
+       " international",
+       0.000953
+      ],
+      [
+       " surveillance",
+       0.000787
+      ],
+      [
+       " natural",
+       0.000755
+      ]
+     ]
+    },
+    {
+     "doc": 238,
+     "pos": 1,
+     "context": "B\u00ab thinks\u00bb",
+     "next": " that",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.000867,
+     "down": [
+      [
+       " it",
+       -0.00277
+      ],
+      [
+       " they",
+       -0.00207
+      ],
+      [
+       " this",
+       -0.00134
+      ]
+     ],
+     "up": [
+      [
+       " that",
+       0.00523
+      ],
+      [
+       " the",
+       0.00106
+      ],
+      [
+       ",",
+       0.000627
+      ]
+     ]
+    },
+    {
+     "doc": 108,
+     "pos": 23,
+     "context": "\txxh.bufused += len(input)\u23ce\t\treturn n, nil\u23ce\t}\u23ce\u23ce\tp\u00ab :=\u00bb",
+     "next": " 0",
+     "kind": "random",
+     "score": 0.2988,
+     "kl": 0.000509,
+     "down": [
+      [
+       " make",
+       -0.00571
+      ],
+      [
+       " input",
+       -0.00162
+      ],
+      [
+       " p",
+       -0.000849
+      ]
+     ],
+     "up": [
+      [
+       " new",
+       0.00445
+      ],
+      [
+       " &",
+       0.00294
+      ],
+      [
+       " New",
+       0.00234
+      ]
+     ]
+    },
+    {
+     "doc": 26,
+     "pos": 9,
+     "context": " DMFA may therefore resemble the natural situation better\u00ab than\u00bb",
+     "next": " the",
+     "kind": "random",
+     "score": 0.3298,
+     "kl": 0.00433,
+     "down": [
+      [
+       " conventional",
+       -0.00398
+      ],
+      [
+       " a",
+       -0.00187
+      ],
+      [
+       " normal",
+       -0.00141
+      ]
+     ],
+     "up": [
+      [
+       " the",
+       0.00194
+      ],
+      [
+       " D",
+       0.000902
+      ],
+      [
+       " FA",
+       0.000875
+      ]
+     ]
+    },
+    {
+     "doc": 398,
+     "pos": 13,
+     "context": " be at least three times higher than the number of expected targets.\u00ab Classification\u00bb",
+     "next": " filters",
+     "kind": "random",
+     "score": 0.2072,
+     "kl": 0.0046,
+     "down": [
+      [
+       " accuracy",
+       -0.00731
+      ],
+      [
+       " errors",
+       -0.0018
+      ],
+      [
+       " rates",
+       -0.00125
+      ]
+     ],
+     "up": [
+      [
+       " of",
+       0.0114
+      ],
+      [
+       " results",
+       0.00323
+      ],
+      [
+       " was",
+       0.00213
+      ]
+     ]
+    },
+    {
+     "doc": 250,
+     "pos": 12,
+     "context": " because of a conflict between state and federal law (conflict\u00ab pre\u00bb",
+     "next": "emption",
+     "kind": "random",
+     "score": 0.6528,
+     "kl": 0.000391,
+     "down": [
+      [
+       "clusion",
+       -0.00213
+      ],
+      [
+       "-",
+       -0.0014
+      ],
+      [
+       "rog",
+       -0.000646
+      ]
+     ],
+     "up": [
+      [
+       "emption",
+       0.00441
+      ],
+      [
+       "cluding",
+       0.00189
+      ],
+      [
+       "cept",
+       0.000261
+      ]
+     ]
+    },
+    {
+     "doc": 4,
+     "pos": 6,
+     "context": " immune responses may actively clear circulating\u00ab gam\u00bb",
+     "next": "et",
+     "kind": "random",
+     "score": 0.7731,
+     "kl": 0.00925,
+     "down": [
+      [
+       "em",
+       -0.00796
+      ],
+      [
+       "etes",
+       -0.00789
+      ],
+      [
+       "ef",
+       -0.00616
+      ]
+     ],
+     "up": [
+      [
+       "otoxic",
+       0.011
+      ],
+      [
+       "et",
+       0.00841
+      ],
+      [
+       "inal",
+       0.00694
+      ]
+     ]
+    },
+    {
+     "doc": 38,
+     "pos": 26,
+     "context": "/infant assessment data collected pre- and post-treatment and at 6-month follow-up. We will examine the relationship\u00ab between\u00bb",
+     "next": " fidelity",
+     "kind": "random",
+     "score": 0.2934,
+     "kl": 0.0095,
+     "down": [
+      [
+       " pre",
+       -0.00503
+      ],
+      [
+       " baseline",
+       -0.00238
+      ],
+      [
+       " self",
+       -0.00115
+      ]
+     ],
+     "up": [
+      [
+       " the",
+       0.00525
+      ],
+      [
+       " serum",
+       0.0018
+      ],
+      [
+       " infant",
+       0.00112
+      ]
+     ]
+    },
+    {
+     "doc": 356,
+     "pos": 6,
+     "context": "s.CSIVolume\u00abAccess\u00bb",
+     "next": "Mode",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.00128,
+     "down": [
+      [
+       "Control",
+       -0.00524
+      ],
+      [
+       "Controller",
+       -0.000798
+      ],
+      [
+       "Den",
+       -0.000728
+      ]
+     ],
+     "up": [
+      [
+       "ibility",
+       0.00589
+      ],
+      [
+       "ory",
+       0.00356
+      ],
+      [
+       ".",
+       0.0022
+      ]
+     ]
+    },
+    {
+     "doc": 174,
+     "pos": 15,
+     "context": "\u23ce\u23ceTo reduce the proliferation risks associated with the spread of enrichment and re\u00abprocessing\u00bb",
+     "next": " facilities",
+     "kind": "random",
+     "score": 0.1913,
+     "kl": 0.0022,
+     "down": [
+      [
+       ".",
+       -0.00116
+      ],
+      [
+       " methods",
+       -0.000704
+      ],
+      [
+       " steps",
+       -0.000661
+      ]
+     ],
+     "up": [
+      [
+       " of",
+       0.0131
+      ],
+      [
+       " by",
+       0.00066
+      ],
+      [
+       " strategies",
+       0.000486
+      ]
+     ]
+    },
+    {
+     "doc": 352,
+     "pos": 5,
+     "context": "Mount options in the volume\u00ab\",\u00bb",
+     "next": "\u23ce\t\t",
+     "kind": "random",
+     "score": 0.3019,
+     "kl": 0.00199,
+     "down": [
+      [
+       "\u23ce",
+       -0.0173
+      ],
+      [
+       "\u23ce\t",
+       -0.00136
+      ],
+      [
+       "\u23ce\t\t\t",
+       -0.00125
+      ]
+     ],
+     "up": [
+      [
+       " and",
+       0.00174
+      ],
+      [
+       " but",
+       0.000986
+      ],
+      [
+       " e",
+       0.000925
+      ]
+     ]
+    }
+   ],
+   "test_pos": [
+    {
+     "doc": 1,
+     "pos": 6,
+     "context": " Texas where peoples pet dogs and\u00ab cats\u00bb",
+     "next": " where"
+    },
+    {
+     "doc": 393,
+     "pos": 3,
+     "context": " was easier to\u00ab issue\u00bb",
+     "next": " permission"
+    },
+    {
+     "doc": 267,
+     "pos": 18,
+     "context": "007 cats, and 3,255 dogs were potentially affected by the recall. Based on its\u00ab estimate\u00bb",
+     "next": " of"
+    },
+    {
+     "doc": 191,
+     "pos": 22,
+     "context": " advanced plaque area. This suggests an important role for catK in atherosclerosis progression. Advanced plaques of catK(-\u00ab/-\u00bb",
+     "next": ")/"
+    },
+    {
+     "doc": 259,
+     "pos": 13,
+     "context": " expensive pet food\u2014that had the potential to make their dogs and\u00ab cats\u00bb",
+     "next": " sick"
+    },
+    {
+     "doc": 45,
+     "pos": 25,
+     "context": " Gold Tael, the experimental China pattern for the proposed gold issue which never materialized (1907), witnessed the lightly golden\u00ab ton\u00bb",
+     "next": "ed"
+    },
+    {
+     "doc": 151,
+     "pos": 8,
+     "context": " to catapult himself into the selection\u00ab conversation\u00bb",
+     "next": ","
+    },
+    {
+     "doc": 171,
+     "pos": 5,
+     "context": " me.\"\u23ceDo they\u00ab sit\u00bb",
+     "next": " together"
+    },
+    {
+     "doc": 187,
+     "pos": 9,
+     "context": " stable plaques, and advanced atherosclerotic plaques containing a\u00ab throm\u00bb",
+     "next": "bus"
+    },
+    {
+     "doc": 113,
+     "pos": 6,
+     "context": "/-^ mice, CatK\u00ab deficiency\u00bb",
+     "next": " increased"
+    }
+   ],
+   "test_neg": [
+    {
+     "doc": 331,
+     "pos": 21,
+     "context": " by extension the organization of education in general, is arrayed against them and for good reasons. Letting\u00ab the\u00bb",
+     "next": " cat",
+     "neg": "random"
+    },
+    {
+     "doc": 227,
+     "pos": 30,
+     "context": "\u23ceI sit in Caty's tiny apartment in her tiny kitchen on her one creaky chair and try to think. How I will market the Wh\u00abis\u00bb",
+     "next": "per",
+     "neg": "random"
+    },
+    {
+     "doc": 187,
+     "pos": 25,
+     "context": " stable plaques, and advanced atherosclerotic plaques containing a thrombus, where it was highly upregulated in advanced stable plaques. To assess the\u00ab function\u00bb",
+     "next": " of",
+     "neg": "random"
+    },
+    {
+     "doc": 41,
+     "pos": 3,
+     "context": " of transcripts.\u00ab In\u00bb",
+     "next": " the",
+     "neg": "random"
+    },
+    {
+     "doc": 35,
+     "pos": 18,
+     "context": " These results suggest that pioglitazone might increase the phagocytic and bactericidal activities\u00ab of\u00bb",
+     "next": " liver",
+     "neg": "random"
+    },
+    {
+     "doc": 133,
+     "pos": 8,
+     "context": " Cat (boat), fictional schooner\u00ab in\u00bb",
+     "next": " Arthur",
+     "neg": "random"
+    },
+    {
+     "doc": 363,
+     "pos": 29,
+     "context": "ophagus and aspiration without obvious skeletal muscle weakness was previously reported in one cat with DDMD.^[@bibr4-2055116919856457]^\u00ab Res\u00bb",
+     "next": "piratory",
+     "neg": "random"
+    },
+    {
+     "doc": 213,
+     "pos": 9,
+     "context": " the folk song of cat stevens\u23ce\u00ab<\u00bb",
+     "next": "iv",
+     "neg": "random"
+    },
+    {
+     "doc": 389,
+     "pos": 10,
+     "context": "   fun colimit_obj( A as cat\u00ab(\u00bb",
+     "next": "s",
+     "neg": "random"
+    },
+    {
+     "doc": 205,
+     "pos": 4,
+     "context": ", Florida and is\u00ab a\u00bb",
+     "next": " Bur",
+     "neg": "random"
+    }
+   ],
+   "agg": {
+    "down": [
+     [
+      "\u23ce",
+      -0.00294
+     ],
+     [
+      " were",
+      -0.000766
+     ],
+     [
+      "\u23ce\t",
+      -0.000715
+     ],
+     [
+      " was",
+      -0.00064
+     ],
+     [
+      "em",
+      -0.000505
+     ],
+     [
+      "etes",
+      -0.000493
+     ],
+     [
+      " accuracy",
+      -0.000457
+     ],
+     [
+      "ef",
+      -0.000385
+     ]
+    ],
+    "up": [
+     [
+      " of",
+      0.00152
+     ],
+     [
+      "gado",
+      0.00105
+     ],
+     [
+      " is",
+      0.000995
+     ],
+     [
+      "otoxic",
+      0.000686
+     ],
+     [
+      " the",
+      0.000576
+     ],
+     [
+      "et",
+      0.000526
+     ],
+     [
+      "inal",
+      0.000434
+     ],
+     [
+      "ibility",
+      0.000368
+     ]
+    ]
+   },
+   "group": "listed",
+   "consistency": 0.00931706465780735,
+   "consistency_logit": 0.08578711003065109,
+   "kl_fire": 0.00392750166793121,
+   "kl_other": 0.0025693453098938335
+  },
+  {
+   "id": 118,
+   "module": "model.layers.0.attn.v_proj",
+   "c": 22,
+   "n_fire": 1969,
+   "fire_rate": 0.16408333333333333,
+   "train": [
+    {
+     "doc": 46,
+     "pos": 1,
+     "context": " child\u00ab-\u00bb",
+     "next": "parent",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.00521,
+     "down": [
+      [
+       "care",
+       -0.00367
+      ],
+      [
+       "sized",
+       -0.00249
+      ],
+      [
+       "law",
+       -0.00232
+      ]
+     ],
+     "up": [
+      [
+       "child",
+       0.00457
+      ],
+      [
+       "specific",
+       0.00209
+      ],
+      [
+       "type",
+       0.00136
+      ]
+     ]
+    },
+    {
+     "doc": 140,
+     "pos": 10,
+     "context": "-paragraph 2. The 1955 contract was not introduced\u00ab in\u00bb",
+     "next": " evidence",
+     "kind": "random",
+     "score": 0.6077,
+     "kl": 0.000922,
+     "down": [
+      [
+       " the",
+       -0.0059
+      ],
+      [
+       " a",
+       -0.00079
+      ],
+      [
+       " response",
+       -0.000774
+      ]
+     ],
+     "up": [
+      [
+       " evidence",
+       0.0066
+      ],
+      [
+       " this",
+       0.0019
+      ],
+      [
+       " any",
+       0.000704
+      ]
+     ]
+    },
+    {
+     "doc": 242,
+     "pos": 2,
+     "context": " a transaction\u00ab,\u00bb",
+     "next": " expressly",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.00249,
+     "down": [
+      [
+       " the",
+       -0.0101
+      ],
+      [
+       " a",
+       -0.00389
+      ],
+      [
+       " and",
+       -0.00184
+      ]
+     ],
+     "up": [
+      [
+       " but",
+       0.00482
+      ],
+      [
+       " you",
+       0.00146
+      ],
+      [
+       " we",
+       0.00146
+      ]
+     ]
+    },
+    {
+     "doc": 136,
+     "pos": 7,
+     "context": " duties as a board of equalization\u00ab and\u00bb",
+     "next": " that",
+     "kind": "random",
+     "score": 0.5815,
+     "kl": 0.000441,
+     "down": [
+      [
+       " equal",
+       -0.00108
+      ],
+      [
+       " in",
+       -0.000266
+      ],
+      [
+       " is",
+       -0.00025
+      ]
+     ],
+     "up": [
+      [
+       "/",
+       0.000533
+      ],
+      [
+       " that",
+       0.000342
+      ],
+      [
+       " management",
+       0.00032
+      ]
+     ]
+    },
+    {
+     "doc": 314,
+     "pos": 22,
+     "context": " for the newspaper announcement of their character\u2019s disappearance turned out to be the date of Aida\u2019s marriage\u00ab to\u00bb",
+     "next": " the",
+     "kind": "random",
+     "score": 0.1584,
+     "kl": 0.000228,
+     "down": [
+      [
+       " a",
+       -0.00117
+      ],
+      [
+       " his",
+       -0.000576
+      ],
+      [
+       " Mar",
+       -0.000182
+      ]
+     ],
+     "up": [
+      [
+       " the",
+       0.000706
+      ],
+      [
+       " their",
+       0.000299
+      ],
+      [
+       " Al",
+       0.000165
+      ]
+     ]
+    },
+    {
+     "doc": 50,
+     "pos": 14,
+     "context": "-parent psychotherapy in the settings and systems that serve maltreated children\u00ab and\u00bb",
+     "next": " their",
+     "kind": "random",
+     "score": 0.3997,
+     "kl": 0.000414,
+     "down": [
+      [
+       " caregivers",
+       -0.00203
+      ],
+      [
+       " families",
+       -0.002
+      ],
+      [
+       " youth",
+       -0.000627
+      ]
+     ],
+     "up": [
+      [
+       " adolescents",
+       0.00726
+      ],
+      [
+       " young",
+       0.000492
+      ],
+      [
+       " children",
+       0.00029
+      ]
+     ]
+    },
+    {
+     "doc": 238,
+     "pos": 13,
+     "context": "B thinks that specific preemption decisions should be made by the courts\u00ab.\u00bb",
+     "next": " This",
+     "kind": "random",
+     "score": 0.462,
+     "kl": 0.000299,
+     "down": [
+      [
+       "  ",
+       -0.00161
+      ],
+      [
+       " However",
+       -0.000599
+      ],
+      [
+       "\u23ce",
+       -0.000332
+      ]
+     ],
+     "up": [
+      [
+       " See",
+       0.00206
+      ],
+      [
+       "   ",
+       0.000992
+      ],
+      [
+       "\u23ce\u23ce",
+       0.000577
+      ]
+     ]
+    },
+    {
+     "doc": 150,
+     "pos": 20,
+     "context": " the cards were completed they were to be delivered to the tax assessor for filing in the steel cabinets\u00ab;\u00bb",
+     "next": " when",
+     "kind": "random",
+     "score": 0.6552,
+     "kl": 0.000839,
+     "down": [
+      [
+       " however",
+       -0.00275
+      ],
+      [
+       " the",
+       -0.000944
+      ],
+      [
+       " a",
+       -0.000791
+      ]
+     ],
+     "up": [
+      [
+       " and",
+       0.00561
+      ],
+      [
+       " but",
+       0.0019
+      ],
+      [
+       " otherwise",
+       0.000766
+      ]
+     ]
+    },
+    {
+     "doc": 364,
+     "pos": 13,
+     "context": " &structs.CSIMountOptions{\u23ce\t\t\t\t\tMountFlags\u00ab:\u00bb",
+     "next": " []",
+     "kind": "random",
+     "score": 0.1848,
+     "kl": 0.000801,
+     "down": [
+      [
+       " &",
+       -0.00126
+      ],
+      [
+       "  ",
+       -0.00114
+      ],
+      [
+       " 0",
+       -0.001
+      ]
+     ],
+     "up": [
+      [
+       " mount",
+       0.00858
+      ],
+      [
+       "Mount",
+       0.00169
+      ],
+      [
+       " mounts",
+       0.00117
+      ]
+     ]
+    },
+    {
+     "doc": 236,
+     "pos": 2,
+     "context": " at 7\u00ab,\u00bb",
+     "next": " Del",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0128,
+     "down": [
+      [
+       "000",
+       -0.00528
+      ],
+      [
+       " and",
+       -0.00251
+      ],
+      [
+       "500",
+       -0.0013
+      ]
+     ],
+     "up": [
+      [
+       " 7",
+       0.0107
+      ],
+      [
+       " 8",
+       0.0107
+      ],
+      [
+       " 9",
+       0.00873
+      ]
+     ]
+    },
+    {
+     "doc": 88,
+     "pos": 4,
+     "context": "am_Blurb\u00ab\":\u00bb",
+     "next": " \"",
+     "kind": "random",
+     "score": 0.4051,
+     "kl": 0.00211,
+     "down": [
+      [
+       " \"",
+       -0.0284
+      ],
+      [
+       "\u23ce",
+       -0.00078
+      ],
+      [
+       "false",
+       -0.000483
+      ]
+     ],
+     "up": [
+      [
+       " {",
+       0.0161
+      ],
+      [
+       " [",
+       0.00191
+      ],
+      [
+       " null",
+       0.00179
+      ]
+     ]
+    },
+    {
+     "doc": 358,
+     "pos": 25,
+     "context": " []string{\"ro\"},\u23ce\t\t\t\t},\u23ce\t\t\t},\u23ce\t\t\tUsageOptions:         &UsageOptions{},\u23ce\t\t\tPluginErr\u00ab:\u00bb",
+     "next": "            ",
+     "kind": "random",
+     "score": 0.107,
+     "kl": 0.00109,
+     "down": [
+      [
+       "       ",
+       -0.00431
+      ],
+      [
+       "      ",
+       -0.00419
+      ],
+      [
+       "    ",
+       -0.00198
+      ]
+     ],
+     "up": [
+      [
+       "           ",
+       0.00631
+      ],
+      [
+       "            ",
+       0.00477
+      ],
+      [
+       "          ",
+       0.00241
+      ]
+     ]
+    },
+    {
+     "doc": 270,
+     "pos": 3,
+     "context": " 64 + 2\u00ab,\u00bb",
+     "next": " -",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.000661,
+     "down": [
+      [
+       " the",
+       -0.00147
+      ],
+      [
+       " 2",
+       -0.000662
+      ],
+      [
+       " then",
+       -0.000611
+      ]
+     ],
+     "up": [
+      [
+       " -",
+       0.00333
+      ],
+      [
+       " 0",
+       0.00231
+      ],
+      [
+       " 1",
+       0.000919
+      ]
+     ]
+    },
+    {
+     "doc": 260,
+     "pos": 8,
+     "context": " 8. What is the least common multiple\u00ab of\u00bb",
+     "next": " f",
+     "kind": "random",
+     "score": 0.1595,
+     "kl": 0.000859,
+     "down": [
+      [
+       " y",
+       -0.00314
+      ],
+      [
+       " m",
+       -0.0013
+      ],
+      [
+       " k",
+       -0.00125
+      ]
+     ],
+     "up": [
+      [
+       " 8",
+       0.00118
+      ],
+      [
+       " 4",
+       0.00105
+      ],
+      [
+       " 6",
+       0.000908
+      ]
+     ]
+    },
+    {
+     "doc": 134,
+     "pos": 23,
+     "context": " delivered? These questions must be answered before we can say that the further services relating to the card system were reasonably necessary\u00ab to\u00bb",
+     "next": " a",
+     "kind": "random",
+     "score": 0.161,
+     "kl": 0.000126,
+     "down": [
+      [
+       " ensure",
+       -0.00125
+      ],
+      [
+       " provide",
+       -0.000505
+      ],
+      [
+       " meet",
+       -0.000372
+      ]
+     ],
+     "up": [
+      [
+       " prevent",
+       0.000401
+      ],
+      [
+       " enable",
+       0.000397
+      ],
+      [
+       " protect",
+       0.000253
+      ]
+     ]
+    },
+    {
+     "doc": 194,
+     "pos": 10,
+     "context": " kingdom, conferred with the kahuna nui\u00ab,\u00bb",
+     "next": " He",
+     "kind": "random",
+     "score": 0.6262,
+     "kl": 0.00208,
+     "down": [
+      [
+       " a",
+       -0.00407
+      ],
+      [
+       " is",
+       -0.00145
+      ],
+      [
+       " an",
+       -0.000443
+      ]
+     ],
+     "up": [
+      [
+       " or",
+       0.00509
+      ],
+      [
+       " and",
+       0.00474
+      ],
+      [
+       "\u23ce",
+       0.00167
+      ]
+     ]
+    }
+   ],
+   "test_pos": [
+    {
+     "doc": 67,
+     "pos": 15,
+     "context": "eline pal, Cat, and her smart, handsome, cool friend Ramone\u00ab.\u00bb",
+     "next": "\u23ce"
+    },
+    {
+     "doc": 295,
+     "pos": 11,
+     "context": " what may be a crime during its visit to the park\u00ab:\u00bb",
+     "next": "\u23ce"
+    },
+    {
+     "doc": 247,
+     "pos": 3,
+     "context": " can be trained\u00ab.\u00bb",
+     "next": " She"
+    },
+    {
+     "doc": 191,
+     "pos": 9,
+     "context": " advanced plaque area. This suggests an important role\u00ab for\u00bb",
+     "next": " cat"
+    },
+    {
+     "doc": 227,
+     "pos": 3,
+     "context": "\u23ceI sit\u00ab in\u00bb",
+     "next": " Cat"
+    },
+    {
+     "doc": 149,
+     "pos": 5,
+     "context": "31]). Conventionally,\u00ab man\u00bb",
+     "next": "nose"
+    },
+    {
+     "doc": 153,
+     "pos": 15,
+     "context": "-type=\"supplementary-material\"}). We found no evidence that interference competition by\u00ab African\u00bb",
+     "next": " golden"
+    },
+    {
+     "doc": 151,
+     "pos": 21,
+     "context": " to catapult himself into the selection conversation, before following it up with an unbeaten double-century\u00ab against\u00bb",
+     "next": " South"
+    },
+    {
+     "doc": 19,
+     "pos": 15,
+     "context": "\u23ce3. Third stage :\u23ceCATWALK - They will ask you\u00ab to\u00bb",
+     "next": " do"
+    },
+    {
+     "doc": 203,
+     "pos": 8,
+     "context": " Whittington,\u23cein Dobson\u00ab,\u00bb",
+     "next": " Nor"
+    }
+   ],
+   "test_neg": [
+    {
+     "doc": 317,
+     "pos": 4,
+     "context": "atospora chok\u00abori\u00bb",
+     "next": "ensis",
+     "neg": "random"
+    },
+    {
+     "doc": 47,
+     "pos": 12,
+     "context": " like cats.\" Or, \"thanks for saving out butts\u00ab back\u00bb",
+     "next": " there",
+     "neg": "random"
+    },
+    {
+     "doc": 61,
+     "pos": 2,
+     "context": "\u00edvar\u00ab managers\u00bb",
+     "next": "\u23ce",
+     "neg": "random"
+    },
+    {
+     "doc": 87,
+     "pos": 26,
+     "context": " of that place, and all the rats of the neighbourhood were\u23ceassembled in that one particular mine by which the cat had lain\u00ab down\u00bb",
+     "next": ".",
+     "neg": "random"
+    },
+    {
+     "doc": 101,
+     "pos": 6,
+     "context": "s.\u23ce\u23ceFreshwater\u00ab Blind\u00bb",
+     "next": "s",
+     "neg": "random"
+    },
+    {
+     "doc": 27,
+     "pos": 14,
+     "context": " A grassroots-level groundswell of support has catapulted\u00ab Sanders\u00bb",
+     "next": " into",
+     "neg": "random"
+    },
+    {
+     "doc": 53,
+     "pos": 28,
+     "context": "ortical connectivity\u00a0[@ZamoraIntegrator], the issue regarding the relation between the mesoscopic structure of the cat cortex and its dynamical organization\u00ab remains\u00bb",
+     "next": " open",
+     "neg": "random"
+    },
+    {
+     "doc": 359,
+     "pos": 14,
+     "context": " a catwalk, takes up almost the entire floor.\"\u23ce\u23ceAl\u00abona\u00bb",
+     "next": " Z",
+     "neg": "random"
+    },
+    {
+     "doc": 259,
+     "pos": 18,
+     "context": " expensive pet food\u2014that had the potential to make their dogs and cats sick, as well\u00ab as\u00bb",
+     "next": " themselves",
+     "neg": "random"
+    },
+    {
+     "doc": 349,
+     "pos": 14,
+     "context": " stained with multicolored ichor. She draws away, circling\u00ab far\u00bb",
+     "next": " around",
+     "neg": "random"
+    }
+   ],
+   "agg": {
+    "down": [
+     [
+      " \"",
+      -0.00181
+     ],
+     [
+      " the",
+      -0.00108
+     ],
+     [
+      " a",
+      -0.000753
+     ],
+     [
+      "000",
+      -0.00033
+     ],
+     [
+      "       ",
+      -0.000268
+     ],
+     [
+      "      ",
+      -0.000257
+     ],
+     [
+      "care",
+      -0.000229
+     ],
+     [
+      "  ",
+      -0.000194
+     ]
+    ],
+    "up": [
+     [
+      " {",
+      0.000983
+     ],
+     [
+      " 8",
+      0.000757
+     ],
+     [
+      " 7",
+      0.000707
+     ],
+     [
+      " 9",
+      0.000583
+     ],
+     [
+      " mount",
+      0.000536
+     ],
+     [
+      " adolescents",
+      0.000454
+     ],
+     [
+      " evidence",
+      0.000413
+     ],
+     [
+      " and",
+      0.000404
+     ]
+    ]
+   },
+   "group": "listed",
+   "consistency": 0.019605334848165512,
+   "consistency_logit": 0.03627300262451172,
+   "kl_fire": 0.001963904394870042,
+   "kl_other": 0.000966551156125206
+  },
+  {
+   "id": 301,
+   "module": "model.layers.1.attn.v_proj",
+   "c": 13,
+   "n_fire": 1090,
+   "fire_rate": 0.09083333333333334,
+   "train": [
+    {
+     "doc": 208,
+     "pos": 1,
+     "context": " time\u00ab as\u00bb",
+     "next": " a",
+     "kind": "random",
+     "score": 0.5944,
+     "kl": 0.00392,
+     "down": [
+      [
+       " possible",
+       -0.0028
+      ],
+      [
+       " I",
+       -0.00221
+      ],
+      [
+       " of",
+       -0.00195
+      ]
+     ],
+     "up": [
+      [
+       " the",
+       0.0024
+      ],
+      [
+       " $",
+       0.00146
+      ],
+      [
+       " they",
+       0.00116
+      ]
+     ]
+    },
+    {
+     "doc": 186,
+     "pos": 1,
+     "context": "\u23ce\u00ab\u23ce\u00bb",
+     "next": "India",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0191,
+     "down": [
+      [
+       "\t",
+       -0.00992
+      ],
+      [
+       "func",
+       -0.00976
+      ],
+      [
+       "#",
+       -0.00324
+      ]
+     ],
+     "up": [
+      [
+       "\u23ce",
+       0.0211
+      ],
+      [
+       "The",
+       0.00439
+      ],
+      [
+       "I",
+       0.00221
+      ]
+     ]
+    },
+    {
+     "doc": 174,
+     "pos": 2,
+     "context": "\u23ce\u23ce\u00abTo\u00bb",
+     "next": " reduce",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0416,
+     "down": [
+      [
+       ":",
+       -0.0468
+      ],
+      [
+       " help",
+       -0.00391
+      ],
+      [
+       " view",
+       -0.00218
+      ]
+     ],
+     "up": [
+      [
+       " determine",
+       0.00878
+      ],
+      [
+       " conclude",
+       0.00563
+      ],
+      [
+       " summarize",
+       0.00427
+      ]
+     ]
+    },
+    {
+     "doc": 310,
+     "pos": 5,
+     "context": " suddenly saw Antoine before\u00ab me\u00bb",
+     "next": ",\u201d",
+     "kind": "random",
+     "score": 0.3092,
+     "kl": 0.0025,
+     "down": [
+      [
+       " and",
+       -0.00314
+      ],
+      [
+       " with",
+       -0.00138
+      ],
+      [
+       "!",
+       -0.00106
+      ]
+     ],
+     "up": [
+      [
+       ",",
+       0.008
+      ],
+      [
+       ".",
+       0.00626
+      ],
+      [
+       ";",
+       0.000514
+      ]
+     ]
+    },
+    {
+     "doc": 206,
+     "pos": 5,
+     "context": " aum\u0101kua\u00ab,\u00bb",
+     "next": " ven",
+     "kind": "random",
+     "score": 0.6277,
+     "kl": 0.00645,
+     "down": [
+      [
+       " k",
+       -0.0224
+      ],
+      [
+       " kat",
+       -0.00254
+      ],
+      [
+       " a",
+       -0.00168
+      ]
+     ],
+     "up": [
+      [
+       " ka",
+       0.00264
+      ],
+      [
+       " kas",
+       0.0018
+      ],
+      [
+       "\u0101",
+       0.00178
+      ]
+     ]
+    },
+    {
+     "doc": 338,
+     "pos": 1,
+     "context": " Li\u00ab\u00e8\u00bb",
+     "next": "ge",
+     "kind": "random",
+     "score": 0.3391,
+     "kl": 0.0365,
+     "down": [
+      [
+       "vre",
+       -0.0516
+      ],
+      [
+       "ge",
+       -0.0486
+      ],
+      [
+       "le",
+       -0.00196
+      ]
+     ],
+     "up": [
+      [
+       "\u00bf",
+       0.0249
+      ],
+      [
+       "\u0082",
+       0.00916
+      ],
+      [
+       "g",
+       0.00862
+      ]
+     ]
+    },
+    {
+     "doc": 382,
+     "pos": 1,
+     "context": "\t\u00ab}\u00bb",
+     "next": "\u23ce\u23ce",
+     "kind": "random",
+     "score": 0.7294,
+     "kl": 0.0132,
+     "down": [
+      [
+       "\u23ce\t",
+       -0.0172
+      ],
+      [
+       "\u23ce\t\t",
+       -0.0108
+      ],
+      [
+       "\u23ce\t\t\t",
+       -0.00641
+      ]
+     ],
+     "up": [
+      [
+       "\u23ce\u23ce",
+       0.0392
+      ],
+      [
+       "\u23ce",
+       0.0291
+      ],
+      [
+       "\u23ce\u23ce\t",
+       0.00111
+      ]
+     ]
+    },
+    {
+     "doc": 274,
+     "pos": 1,
+     "context": " Find\u00ab the\u00bb",
+     "next": " common",
+     "kind": "random",
+     "score": 0.8078,
+     "kl": 0.0209,
+     "down": [
+      [
+       " closest",
+       -0.012
+      ],
+      [
+       " nearest",
+       -0.00588
+      ],
+      [
+       " best",
+       -0.00424
+      ]
+     ],
+     "up": [
+      [
+       " common",
+       0.00376
+      ],
+      [
+       " following",
+       0.00251
+      ],
+      [
+       " corresponding",
+       0.00127
+      ]
+     ]
+    },
+    {
+     "doc": 68,
+     "pos": 3,
+     "context": "\u23ce\t\"\u00abS\u00bb",
+     "next": "ale",
+     "kind": "random",
+     "score": 0.243,
+     "kl": 0.00367,
+     "down": [
+      [
+       "VC",
+       -0.00121
+      ],
+      [
+       "FT",
+       -0.00104
+      ],
+      [
+       "UN",
+       -0.000985
+      ]
+     ],
+     "up": [
+      [
+       "_",
+       0.00216
+      ],
+      [
+       "\"",
+       0.00157
+      ],
+      [
+       "2",
+       0.00135
+      ]
+     ]
+    },
+    {
+     "doc": 238,
+     "pos": 1,
+     "context": "B\u00ab thinks\u00bb",
+     "next": " that",
+     "kind": "random",
+     "score": 0.9989,
+     "kl": 0.00278,
+     "down": [
+      [
+       " he",
+       -0.00699
+      ],
+      [
+       " she",
+       -0.00584
+      ],
+      [
+       " I",
+       -0.00565
+      ]
+     ],
+     "up": [
+      [
+       " that",
+       0.00936
+      ],
+      [
+       " the",
+       0.00314
+      ],
+      [
+       " we",
+       0.00135
+      ]
+     ]
+    },
+    {
+     "doc": 88,
+     "pos": 1,
+     "context": "am\u00ab_\u00bb",
+     "next": "Bl",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.00401,
+     "down": [
+      [
+       "1",
+       -0.00131
+      ],
+      [
+       "2",
+       -0.000713
+      ],
+      [
+       "name",
+       -0.000352
+      ]
+     ],
+     "up": [
+      [
+       "k",
+       0.000792
+      ],
+      [
+       "of",
+       0.000726
+      ],
+      [
+       "d",
+       0.00071
+      ]
+     ]
+    },
+    {
+     "doc": 374,
+     "pos": 1,
+     "context": "struct\u00abs\u00bb",
+     "next": ".",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.023,
+     "down": [
+      [
+       " *",
+       -0.0437
+      ],
+      [
+       "*",
+       -0.0163
+      ],
+      [
+       "\t",
+       -0.0139
+      ]
+     ],
+     "up": [
+      [
+       "_",
+       0.0232
+      ],
+      [
+       ">",
+       0.0117
+      ],
+      [
+       ".",
+       0.0089
+      ]
+     ]
+    },
+    {
+     "doc": 246,
+     "pos": 5,
+     "context": "iness, rather than an\u00ab intent\u00bb",
+     "next": " to",
+     "kind": "random",
+     "score": 0.1087,
+     "kl": 0.000971,
+     "down": [
+      [
+       " to",
+       -0.00614
+      ],
+      [
+       " on",
+       -0.00282
+      ],
+      [
+       " of",
+       -0.000885
+      ]
+     ],
+     "up": [
+      [
+       ".",
+       0.0016
+      ],
+      [
+       ",",
+       0.000976
+      ],
+      [
+       "\u23ce",
+       0.000963
+      ]
+     ]
+    },
+    {
+     "doc": 154,
+     "pos": 1,
+     "context": " presented\u00ab to\u00bb",
+     "next": " future",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.0105,
+     "down": [
+      [
+       " a",
+       -0.0133
+      ],
+      [
+       " the",
+       -0.0132
+      ],
+      [
+       " our",
+       -0.00597
+      ]
+     ],
+     "up": [
+      [
+       " me",
+       0.00387
+      ],
+      [
+       " them",
+       0.00336
+      ],
+      [
+       " him",
+       0.00248
+      ]
+     ]
+    },
+    {
+     "doc": 188,
+     "pos": 2,
+     "context": "ias 30\u00ab-\u00bb",
+     "next": "year",
+     "kind": "random",
+     "score": 1.0,
+     "kl": 0.00446,
+     "down": [
+      [
+       "2",
+       -0.00268
+      ],
+      [
+       "8",
+       -0.00197
+      ],
+      [
+       "6",
+       -0.00186
+      ]
+     ],
+     "up": [
+      [
+       "40",
+       0.00243
+      ],
+      [
+       "31",
+       0.00187
+      ],
+      [
+       "48",
+       0.00108
+      ]
+     ]
+    },
+    {
+     "doc": 10,
+     "pos": 1,
+     "context": "fs\u00ab48\u00bb",
+     "next": "/",
+     "kind": "random",
+     "score": 0.6204,
+     "kl": 0.00413,
+     "down": [
+      [
+       ":",
+       -0.00774
+      ],
+      [
+       ",",
+       -0.00248
+      ],
+      [
+       " *",
+       -0.0017
+      ]
+     ],
+     "up": [
+      [
+       "_",
+       0.00878
+      ],
+      [
+       "-",
+       0.0028
+      ],
+      [
+       ";",
+       0.00181
+      ]
+     ]
+    }
+   ],
+   "test_pos": [
+    {
+     "doc": 213,
+     "pos": 8,
+     "context": " the folk song of cat stevens\u00ab\u23ce\u00bb",
+     "next": "<"
+    },
+    {
+     "doc": 91,
+     "pos": 5,
+     "context": " or Catapres asymmetric\u00ab St\u00bb",
+     "next": "arch"
+    },
+    {
+     "doc": 181,
+     "pos": 4,
+     "context": "night Onwards.\u00ab\u23ce\u00bb",
+     "next": "\u23ce"
+    },
+    {
+     "doc": 287,
+     "pos": 1,
+     "context": " of\u00ab antif\u00bb",
+     "next": "ree"
+    },
+    {
+     "doc": 147,
+     "pos": 2,
+     "context": ". In\u00ab the\u00bb",
+     "next": " case"
+    },
+    {
+     "doc": 263,
+     "pos": 1,
+     "context": " and\u00ab Next\u00bb",
+     "next": "."
+    },
+    {
+     "doc": 317,
+     "pos": 5,
+     "context": "atospora chokori\u00abensis\u00bb",
+     "next": " sp"
+    },
+    {
+     "doc": 49,
+     "pos": 2,
+     "context": " Masters.\u00ab\u23ce\u00bb",
+     "next": "\u23ce"
+    },
+    {
+     "doc": 79,
+     "pos": 3,
+     "context": "scale breeding operations\u00ab.\u00bb",
+     "next": " Tra"
+    },
+    {
+     "doc": 131,
+     "pos": 3,
+     "context": " violin and guitar\u00ab\u23ce\u00bb",
+     "next": " Wild"
+    }
+   ],
+   "test_neg": [
+    {
+     "doc": 129,
+     "pos": 21,
+     "context": "\u23ceWild Cat Township, Elk County, Kansas, township in Kansas, USA\u23ce\u23ceMusic \u23ce Wild\u00ab Cat\u00bb",
+     "next": " (",
+     "neg": "random"
+    },
+    {
+     "doc": 27,
+     "pos": 20,
+     "context": " A grassroots-level groundswell of support has catapulted Sanders into the national spotlight,\u00ab forcing\u00bb",
+     "next": " his",
+     "neg": "random"
+    },
+    {
+     "doc": 345,
+     "pos": 30,
+     "context": " Satisfaction Guarantee\u23ce\u23ceHassle Free Returns\u23ce\u23ceAir Rifle Knock Down Pellet Gun Target\u23ce\u23ceThe perfect, safe,\u00ab pellet\u00bb",
+     "next": " cat",
+     "neg": "random"
+    },
+    {
+     "doc": 383,
+     "pos": 7,
+     "context": " note ${\\mbox{Ab}}(a\u00ab,\u00bb",
+     "next": "q",
+     "neg": "random"
+    },
+    {
+     "doc": 321,
+     "pos": 22,
+     "context": " family Micromonosporaceae and clustered with members of the genus Catellatospora. The nearest neighbours were\u00ab Cat\u00bb",
+     "next": "ell",
+     "neg": "random"
+    },
+    {
+     "doc": 363,
+     "pos": 12,
+     "context": "ophagus and aspiration without obvious skeletal muscle weakness was previously reported in\u00ab one\u00bb",
+     "next": " cat",
+     "neg": "random"
+    },
+    {
+     "doc": 45,
+     "pos": 2,
+     "context": " Gold T\u00abael\u00bb",
+     "next": ",",
+     "neg": "random"
+    },
+    {
+     "doc": 17,
+     "pos": 7,
+     "context": ". When we descended to the sub\u00abter\u00bb",
+     "next": "r",
+     "neg": "random"
+    },
+    {
+     "doc": 75,
+     "pos": 9,
+     "context": ". Primary Content: Simple ratios, portions Secondary\u00ab Content\u00bb",
+     "next": ":",
+     "neg": "random"
+    },
+    {
+     "doc": 383,
+     "pos": 13,
+     "context": " note ${\\mbox{Ab}}(a,q)$ la cat\u00e9\u00abgor\u00bb",
+     "next": "ie",
+     "neg": "random"
+    }
+   ],
+   "agg": {
+    "down": [
+     [
+      ":",
+      -0.0033
+     ],
+     [
+      "vre",
+      -0.00322
+     ],
+     [
+      "ge",
+      -0.00304
+     ],
+     [
+      " *",
+      -0.0028
+     ],
+     [
+      "\t",
+      -0.00156
+     ],
+     [
+      " k",
+      -0.00141
+     ],
+     [
+      "\u23ce\t",
+      -0.0011
+     ],
+     [
+      "*",
+      -0.00105
+     ]
+    ],
+    "up": [
+     [
+      "\u23ce",
+      0.00354
+     ],
+     [
+      "\u23ce\u23ce",
+      0.00246
+     ],
+     [
+      "_",
+      0.00213
+     ],
+     [
+      "\u00bf",
+      0.00156
+     ],
+     [
+      ".",
+      0.00118
+     ],
+     [
+      ">",
+      0.000791
+     ],
+     [
+      " that",
+      0.00065
+     ],
+     [
+      "g",
+      0.000589
+     ]
+    ]
+   },
+   "group": "listed",
+   "consistency": 0.025764282792806625,
+   "consistency_logit": 0.18921703100204468,
+   "kl_fire": 0.01235452515174984,
+   "kl_other": 0.0015606293181917863
+  }
+ ]
+}

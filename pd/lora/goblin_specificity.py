@@ -244,6 +244,10 @@ def main():
             sets[f"{r}#{k}"] = rank[r][:k]
         for s in range(a.n_random):
             sets[f"random{s}#{k}"] = rng.sample(ever, min(k, len(ever)))
+    comp_names = [f"{nm}:{c}" for i, nm in enumerate(names) for c in range(Cs[i])]
+    slot = [comp_names.index(s) for s in getattr(targs, "route_slot", None) or []]  # gradient-routing slot, if any
+    if slot:
+        sets[f"slot#{len(slot)}"] = slot
 
     def set_mask(ids_off):
         m = torch.ones(NC, device=G.dev)
@@ -306,11 +310,13 @@ def main():
     prompts = {"dolci": json.load(open(Path(a.data) / "val_prompts.json"))[:a.n_gen],
                "general": [prompt_text([{"role": "user", "content": q}]) for q in general]}
     gens = {}
-    for c in ["base", "full"] + [f"{r}#{k}" for r in a.gen_rank if r in rank for k in a.gen_k]:
+    for c in ["base", "full"] + ([f"slot#{len(slot)}"] if slot else []) + [f"{r}#{k}" for r in a.gen_rank if r in rank for k in a.gen_k]:
         if c == "base":
             G.set_mode(wr, "base")
         elif c == "full":
             G.set_mode(wr, "full")
+        elif c.startswith("slot#"):
+            G.set_mode(wr, "masked", set_mask(slot))
         else:
             r, k = c.split("#")
             G.set_mode(wr, "masked", set_mask(rank[r][:int(k)]))
@@ -324,7 +330,6 @@ def main():
         print(c, {p: round(v["goblin_rate"], 3) for p, v in gens[c].items()}, flush=True)
     G.set_mode(wr, "full")
 
-    comp_names = [f"{nm}:{c}" for i, nm in enumerate(names) for c in range(Cs[i])]
     top = [dict(component=comp_names[i], f_goblin=f["goblin"][i].item(), f_other=f["other"][i].item(),
                 f_clean=f["clean"][i].item(), mean_gate_goblin=(gsum_goblin[i] / max(1, n["goblin"])).item())
            for i in rank["spec"][:256]]
@@ -332,6 +337,9 @@ def main():
                n_specific={str(t): int((spec > t).sum()) for t in (0.1, 0.25, 0.5)},
                top_spec=top, raw=raw, share=share, sets={k: [comp_names[i] for i in v] for k, v in sets.items()},
                generations=gens)
+    if slot:
+        res["slot"] = [dict(component=comp_names[i], f_goblin=f["goblin"][i].item(), f_other=f["other"][i].item(),
+                            f_clean=f["clean"][i].item(), spec_rank=rank["spec"].index(i)) for i in slot]
     if eff is not None:
         res["top_eff"] = [dict(component=comp_names[i], est_goblin_removed=eff["goblin_removed"][i].item(),
                                est_clean_lost=eff["clean_lost"][i].item(), f_goblin=f["goblin"][i].item(),
@@ -349,7 +357,7 @@ def main():
     print(f"components ever important: {len(ever)}; spec > 0.1 / 0.25 / 0.5: {res['n_specific']}")
     print("top 8 by spec:", [(t["component"], round(t["f_goblin"], 2), round(t["f_clean"], 3)) for t in top[:8]])
     print(f"{'condition':>22s} {'goblin removed':>15s} {'clean kept':>11s} {'other kept':>11s}")
-    for c in ["per_token_imp_off"] + [f"{r}#{k}" for k in a.sizes for r in rank]:
+    for c in ["per_token_imp_off"] + ([f"slot#{len(slot)}"] if slot else []) + [f"{r}#{k}" for k in a.sizes for r in rank]:
         s = share[c]
         rnd = [share[f"random{i}#{c.split('#')[1]}"] for i in range(a.n_random)] if "#" in c and c.startswith("spec") else None
         line = f"{c:>22s} {s['goblin_removed']:15.2f} {s['clean_kept']:11.2f} {s['other_kept']:11.2f}"

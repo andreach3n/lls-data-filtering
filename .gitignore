@@ -48,3 +48,5 @@ pd/lora/goblin_eval/
 
 # pd/lls_pile: Goodfire's 4L Pile model weights (268MB > 100MB limit); download from W&B goodfire/spd/t-9d2b8f02
 pd/lls_pile/model/*.safetensors
+# pd/lls_pile: PD checkpoints stay off GitHub (like pd/lora); configs, logs, eval/attribution JSON and plots are kept
+pd/lls_pile/results/**/*.pt
