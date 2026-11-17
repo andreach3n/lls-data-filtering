@@ -1,0 +1,5 @@
+goblin_sw_A1_matchedonly: detection 0.853±0.013 (n=47)  effect 0.979±0.021  consistency 0.006  KL fire/other 1.50
+
+| run | firing per token | detection (chance 0.50) | effect pick (chance 0.25) | effect consistency | KL firing / elsewhere |
+|---|---|---|---|---|---|
+| goblin_sw_A1_matchedonly | 10.4 | 0.85 ± 0.01 | 0.98 ± 0.02 | 0.006 ± 0.004 | 1.5 |

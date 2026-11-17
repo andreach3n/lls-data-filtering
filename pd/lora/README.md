@@ -95,7 +95,7 @@ faithfulness loss" as our own choices. All of these are tPD's.
 | adversarial masks start | 20% of training | 10% (`--adv_start 0.1`) | |
 | adversarial step size after warmup | cosine down to 0.1× | constant | |
 | gradient clipping | 0.01 on components, none on the gate network | 1.0 on each | tPD's 0.01 suits its loss scale; 1.0 is the usual fine-tuning value, and with Adam the cap mostly matters on gradient spikes |
-| weight decay | 0.1 on components, scaled by the gates | none | |
+| weight decay | 0.1 on components, scaled by the gates (current param-decomp: `ci_scaled_weight_decay`, off by default; plain VPD: none) | none by default. `--wd` = plain AdamW decay on U, V; `--wd --wd_scaled_by_gate 1` = tPD's version, with the max gate over real tokens only (tPD: every position) | added 12 Nov for the goblin weight-decay runs (`goblin_sweep.sh` A1_W*, A7_W*); never on the gate network, as in both references |
 | gate network output bias at init | default | 0.5 (all gates start near 0.5; down to ~75 active per token by step 100) | U starts at 0, so components must be usable before they learn anything |
 | non-target pass routing | uniform k-subset | all modules masked | bold / EM runs only |
 | batch | 128 target windows (48 tokens in our pilot) + 128 non-target (64 tokens), all fixed length | 8 × 1024 tokens of padded prompt + answer pairs (~49% padding in the 5% goblin mix) | the β term uses a per-batch count, so a smaller batch makes β slightly weaker |

@@ -500,10 +500,12 @@ def train(args):
     T, pad = args.ctx, tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
     params_c = [p for w in wrappers.values() for p in (w.U, w.V)]
     params_ci = list(ci.parameters())
-    opt = torch.optim.AdamW([{"params": params_c, "lr": args.lr, "weight_decay": 0.0},
+    wd_plain = 0.0 if args.wd_scaled_by_gate else args.wd  # the gate-scaled version is applied by hand after opt.step()
+    opt = torch.optim.AdamW([{"params": params_c, "lr": args.lr, "weight_decay": wd_plain},
                              {"params": params_ci, "lr": args.lr_ci, "weight_decay": 0.0}])
     opt_a = torch.optim.AdamW(params_c, lr=args.lr, weight_decay=0.0) if args.alternate else None  # step A (LoRA only)
     assert args.masked_params == "all" or args.alternate, "--masked_params ci needs --alternate"
+    assert not (args.wd > 0 and args.alternate), "--wd is not wired into --alternate's step A"
     ppgd = PersistentPGD(wrappers, args.batch, T, args.pgd_lr, inner=args.pgd_inner)
     ppgd_comp = PersistentPGD(wrappers, args.batch, T, args.pgd_lr, inner=args.pgd_inner) if args.c_comp_adv > 0 else None
     spots = None
@@ -698,6 +700,18 @@ def train(args):
         torch.nn.utils.clip_grad_norm_(params_c, args.clip)
         torch.nn.utils.clip_grad_norm_(params_ci, 1.0)
         opt.step()
+        if args.wd > 0 and args.wd_scaled_by_gate and decomp and "ci_t" in locals():
+            # tPD's CI-scaled weight decay (param-decomp core/train.py CIScaledWeightDecay): each component's V column
+            # and U row scale by 1 - lr * wd * (1 - its max gate over the batch, pre-update), so components that are
+            # never important get dragged to 0. Max over real tokens only with --min_real_only (tPD: every position)
+            with torch.no_grad():
+                lr_c = opt.param_groups[0]["lr"]
+                for n, z in ci_t.items():
+                    g = lower_leaky(z.detach()).float()
+                    g = g[real_t] if args.min_real_only else g.flatten(0, 1)
+                    keep = 1 - lr_c * args.wd * (1 - g.max(0).values)  # (C,)
+                    wrappers[n].V.mul_(keep)  # (d_in, C)
+                    wrappers[n].U.mul_(keep[:, None])  # (C, d_out)
         if spots is not None:
             set_route(wrappers, None)
             rec["routed"] = rec_routed
@@ -1014,6 +1028,11 @@ def main():
                     help="fraction of training by which the lr cosine and the p anneal reach their final values and then "
                          "hold (1.0 = anneal over the whole run, as in the first batch)")
     ap.add_argument("--clip", type=float, default=1.0)
+    ap.add_argument("--wd", type=float, default=0.0,
+                    help="weight decay on the LoRA components (U, V; never the gate network). Plain AdamW decay "
+                         "(U, V *= 1 - lr wd each step) unless --wd_scaled_by_gate 1")
+    ap.add_argument("--wd_scaled_by_gate", type=int, default=0,
+                    help="1 = tPD's CI-scaled version: component c shrinks by lr wd (1 - max gate of c in the batch)")
     ap.add_argument("--grad_ckpt", type=int, default=1)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--log_every", type=int, default=25)

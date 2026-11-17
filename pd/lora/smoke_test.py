@@ -112,6 +112,9 @@ def main():
     for mp in ("all", "ci"):  # option B as two interleaved updates, with necessity
         run("train", "--out", str(root / f"run_alt_{mp}"), "--masked_loss", "kl", "--alternate", "1", "--masked_params", mp,
             "--steps", "6", "--adv_start", "0.5", "--c_comp", "1.0", "--c_comp_adv", "0.5", *common)
+    for sg in ("0", "1"):  # weight decay on the components: plain AdamW, then tPD's gate-scaled version
+        run("train", "--out", str(root / f"run_wd{sg}"), "--masked_loss", "ce", "--steps", "6", "--adv_start", "0.5",
+            "--wd", "100", "--wd_scaled_by_gate", sg, *common)
     run("train", "--out", str(root / "run_ws"), "--masked_loss", "kl", "--steps", "8", "--decomp_start", "0.5", "--adv_start", "0.5", *common)
     run("train", "--out", str(root / "run_t"), "--masked_loss", "kl", "--steps", "6", "--adv_start", "0.5",
         "--teacher", str(root / "run_ce" / "ckpt_8.pt"), *common)

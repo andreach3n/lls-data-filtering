@@ -1,0 +1,76 @@
+rest score 0/768
+rest score 100/768
+rest score 200/768
+rest score 300/768
+rest score 400/768
+rest score 500/768
+rest score 600/768
+rest score 700/768
+top 10 by rest score: [('L2.attn.v_proj:7', 0.194), ('L1.attn.v_proj:13', 0.184), ('L0.attn.v_proj:11', 0.16), ('L2.attn.v_proj:0', 0.142), ('L3.attn.v_proj:26', 0.132), ('L2.attn.v_proj:23', 0.118), ('L3.mlp.down_proj:24', 0.089), ('L0.attn.v_proj:22', 0.089), ('L0.attn.v_proj:21', 0.053), ('L0.attn.v_proj:13', 0.048)]
+top-k overlap (cat, rest): {1: 1, 2: 1, 4: 2, 8: 8, 16: 12, 32: 16, 64: 24, 128: 58, 256: 157, 512: 370}
+base {'p_cat': 4.030627175234258e-05, 'kl_from_base': 0.0}
+full {'p_cat': 0.00023064021952450274, 'kl_from_base': 0.05012148475646973}
+per_token_imp_off {'p_cat': 3.6984395934268834e-05, 'kl_from_base': 0.013316224575042725}
+top#1 {'p_cat': 0.00014922595396637915, 'kl_from_base': 0.04016101503372192}
+cat_minus_rest#1 {'p_cat': 0.00023064021952450274, 'kl_from_base': 0.05012148475646973}
+top#2 {'p_cat': 0.00011211449094116687, 'kl_from_base': 0.03500688648223877}
+cat_minus_rest#2 {'p_cat': 0.00017258708737790583, 'kl_from_base': 0.04283155155181885}
+top#4 {'p_cat': 6.495554698631168e-05, 'kl_from_base': 0.028574202537536623}
+cat_minus_rest#4 {'p_cat': 0.0001325347488746047, 'kl_from_base': 0.03969311094284057}
+top#8 {'p_cat': 3.882784233428538e-05, 'kl_from_base': 0.01583230471611023}
+cat_minus_rest#8 {'p_cat': 0.00023064021952450274, 'kl_from_base': 0.05012148475646973}
+top#16 {'p_cat': 3.6904563661664724e-05, 'kl_from_base': 0.014841273069381714}
+cat_minus_rest#16 {'p_cat': 0.00022160706296563148, 'kl_from_base': 0.04900579357147217}
+top#32 {'p_cat': 3.595974622294307e-05, 'kl_from_base': 0.014288691520690918}
+cat_minus_rest#32 {'p_cat': 0.00020499034039676189, 'kl_from_base': 0.048147439002990726}
+top#64 {'p_cat': 3.512664581649006e-05, 'kl_from_base': 0.013564554452896118}
+cat_minus_rest#64 {'p_cat': 0.0001846037097275257, 'kl_from_base': 0.046382762908935546}
+top#128 {'p_cat': 3.461386915296316e-05, 'kl_from_base': 0.011695934534072876}
+cat_minus_rest#128 {'p_cat': 0.0001798764243721962, 'kl_from_base': 0.04565746927261353}
+top#256 {'p_cat': 3.473394503816962e-05, 'kl_from_base': 0.008176728546619416}
+cat_minus_rest#256 {'p_cat': 0.0001944073485210538, 'kl_from_base': 0.04635487365722656}
+top#512 {'p_cat': 3.5380089655518534e-05, 'kl_from_base': 0.004148397564888001}
+cat_minus_rest#512 {'p_cat': 0.00022724593430757523, 'kl_from_base': 0.049100976467132566}
+keep_rest#8 {'p_cat': 0.00021101892739534378, 'kl_from_base': 0.038499381065368654}
+keep_rest#16 {'p_cat': 0.00022505798190832139, 'kl_from_base': 0.04508832597732544}
+keep_rest#32 {'p_cat': 0.00022848813608288766, 'kl_from_base': 0.04690306854248047}
+keep_rest#64 {'p_cat': 0.000229155907407403, 'kl_from_base': 0.04781907749176025}
+keep_rest#128 {'p_cat': 0.00022989451326429843, 'kl_from_base': 0.04858489513397217}
+keep_rest#256 {'p_cat': 0.00023012419044971465, 'kl_from_base': 0.04937260389328003}
+keep_rest#384 {'p_cat': 0.0002305154800415039, 'kl_from_base': 0.0498418607711792}
+keep_rest#512 {'p_cat': 0.00023042816668748854, 'kl_from_base': 0.04996912813186646}
+keep_rest#640 {'p_cat': 0.00023057401552796365, 'kl_from_base': 0.050036325931549074}
+             condition  cat removed  rest removed
+                  base         1.00          1.00
+                  full         0.00          0.00
+     per_token_imp_off         1.05          0.73
+                 top#1         0.25          0.20
+      cat_minus_rest#1         0.00          0.00
+                 top#2         0.41          0.30
+      cat_minus_rest#2         0.17          0.15
+                 top#4         0.73          0.43
+      cat_minus_rest#4         0.32          0.21
+                 top#8         1.02          0.68
+      cat_minus_rest#8         0.00          0.00
+                top#16         1.05          0.70
+     cat_minus_rest#16         0.02          0.02
+                top#32         1.07          0.71
+     cat_minus_rest#32         0.07          0.04
+                top#64         1.08          0.73
+     cat_minus_rest#64         0.13          0.07
+               top#128         1.09          0.77
+    cat_minus_rest#128         0.14          0.09
+               top#256         1.09          0.84
+    cat_minus_rest#256         0.10          0.08
+               top#512         1.07          0.92
+    cat_minus_rest#512         0.01          0.02
+           keep_rest#8         0.05          0.23
+          keep_rest#16         0.01          0.10
+          keep_rest#32         0.01          0.06
+          keep_rest#64         0.00          0.05
+         keep_rest#128         0.00          0.03
+         keep_rest#256         0.00          0.01
+         keep_rest#384         0.00          0.01
+         keep_rest#512         0.00          0.00
+         keep_rest#640         0.00          0.00
+wrote /workspace/pd_runs/pd_cat/cat_protect.json

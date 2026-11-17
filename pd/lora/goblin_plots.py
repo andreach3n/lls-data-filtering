@@ -1,6 +1,7 @@
 """Figures for the goblin necessity study (findings_oct29-nov4.md section 2). Reads results from HF, writes PNGs.
 
   python3 goblin_plots.py            -> findings/goblin/*.png
+  python3 goblin_plots.py 2b         -> 2b_lambda_sweeps_important_off.png (figure 2, lambda sweeps only)
 """
 import json
 import textwrap
@@ -154,7 +155,7 @@ def main():
     a1.set_ylabel("goblin removed (%)")
     a2.set_ylabel("normal-answer fine-tune removed (%)")
     subtitle(a1, "Goblin removed (higher is better)")
-    subtitle(a2, "Normal answers damaged by the same switch-off (lower is better)")
+    subtitle(a2, "Normal answers damaged by the same switch-off (higher is better)")
     a1.legend(loc="upper left", fontsize=11.5)
     finish(fig, a1, "2_sweeps_important_off",
            title="Necessity puts goblin in the important set, along with the rest of the fine-tune",
@@ -454,5 +455,46 @@ def tradeoff_figure(ef):
                 "that remains. Teacher-forced, one seed per run.")
 
 
+
+def sweeps_lambda_figure():
+    """Figure 2 with only the two lambda sweeps (no beta sweep, no necessity 4/2)."""
+    runs = [("λ sweep, no necessity", BLUE, [("A0", "1e-4"), ("A1", "3e-4"), ("A2", "1e-3"), ("A3", "3e-3")]),
+            ("λ sweep, necessity 1/0.5", ORANGE, [("B6", "1e-4"), ("B4", "3e-4"), ("B3", "1e-3"), ("B7", "3e-3")])]
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(14, 6.4))
+    fig.subplots_adjust(top=0.78, bottom=0.2, left=0.06, right=0.98, wspace=0.22)
+    for lab, c, pts in runs:
+        rows = []
+        for r, _ in pts:
+            d = load_eval(f"goblin_sw_{r}")
+            g, ce = d["logp_open_goblin"], d["ce_answer_clean"]
+            rows.append((d["l0_target"], 100 * (g["full"] - g["unimp"]) / (g["full"] - g["base"]),
+                         100 * (ce["unimp"] - ce["full"]) / (ce["base"] - ce["full"])))
+        xs, ys, zs = zip(*rows)
+        for ax, yy in ((a1, ys), (a2, zs)):
+            ax.plot(xs, yy, color=c, lw=2, marker="o", ms=8, mec=SURF, mew=1.5, zorder=3, label=lab)
+            for (r, v), x, y in zip(pts, xs, yy):
+                ax.annotate(v, (x, y), xytext=(7, -15 if (c == ORANGE and ax is a2) else 7), textcoords="offset points",
+                            fontsize=10.5, color=INK2)
+    for ax in (a1, a2):
+        ax.set_xscale("log")
+        ax.set_xlabel("important components per token (gate > 0.1, of 6,272)")
+        ax.set_xticks([1, 3, 10, 30, 100])
+        ax.set_xlim(0.5, 140)
+        ax.set_xticklabels(["1", "3", "10", "30", "100"])
+        ax.minorticks_off()
+        ax.set_ylim(0, 100)
+    a1.set_ylabel("goblin removed (%)")
+    a2.set_ylabel("normal-answer fine-tune removed (%)")
+    subtitle(a1, "Goblin removed (higher is better)")
+    subtitle(a2, "Normal answers damaged by the same switch-off (higher is better)")
+    a1.legend(loc="upper left", fontsize=11.5)
+    finish(fig, a1, "2b_lambda_sweeps_important_off",
+           title="Necessity puts goblin in the important set, along with the rest of the fine-tune",
+           sub="Each token's important components switched off at that token. Labels: λ value. If the gates mark "
+               "everything the fine-tune uses, both panels reach 100%",
+           note="Goblin removed as in the other figures; normal-answer damage = share of the fine-tune's CE gain on held-out "
+                "clean answers that is lost. 200 held-out documents each, 3,000 steps, one seed per point.")
+
 if __name__ == "__main__":
-    main()
+    import sys
+    {"2b": sweeps_lambda_figure}.get(sys.argv[1] if sys.argv[1:] else "", main)()

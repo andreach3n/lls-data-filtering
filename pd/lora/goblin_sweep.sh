@@ -27,6 +27,21 @@ flags() {
     A7_1e-4) echo "$NONEC --lam 1e-4 --c_stoch 4 --c_adv 2" ;;  # reconstruction 4 / 2 at the best no-necessity lambda
     A7_3e-4) echo "$NONEC --lam 3e-4 --c_stoch 4 --c_adv 2" ;;
     A1s1) echo "$NONEC --lam 3e-4 --seed 1" ;;           # A1 again with another seed, to see run-to-run noise
+    # weight decay on the components (12 Nov): can it replace necessity? On A1 (best no-necessity goblin sets) and A7
+    # (most removed with each token's important components off). WP = plain AdamW decay, WG = tPD's gate-scaled decay
+    # (component shrinks by lr wd (1 - max gate in the batch)). wd 3 ~ tPD's total decay over its run
+    A1_WP1) echo "$NONEC --lam 3e-4 --wd 1" ;;
+    A1_WP3) echo "$NONEC --lam 3e-4 --wd 3" ;;
+    A1_WP10) echo "$NONEC --lam 3e-4 --wd 10" ;;
+    A1_WG1) echo "$NONEC --lam 3e-4 --wd 1 --wd_scaled_by_gate 1" ;;
+    A1_WG3) echo "$NONEC --lam 3e-4 --wd 3 --wd_scaled_by_gate 1" ;;
+    A1_WG10) echo "$NONEC --lam 3e-4 --wd 10 --wd_scaled_by_gate 1" ;;
+    A7_WP1) echo "$NONEC --lam 3e-4 --c_stoch 4 --c_adv 2 --wd 1" ;;
+    A7_WP3) echo "$NONEC --lam 3e-4 --c_stoch 4 --c_adv 2 --wd 3" ;;
+    A7_WP10) echo "$NONEC --lam 3e-4 --c_stoch 4 --c_adv 2 --wd 10" ;;
+    A7_WG1) echo "$NONEC --lam 3e-4 --c_stoch 4 --c_adv 2 --wd 1 --wd_scaled_by_gate 1" ;;
+    A7_WG3) echo "$NONEC --lam 3e-4 --c_stoch 4 --c_adv 2 --wd 3 --wd_scaled_by_gate 1" ;;
+    A7_WG10) echo "$NONEC --lam 3e-4 --c_stoch 4 --c_adv 2 --wd 10 --wd_scaled_by_gate 1" ;;
     *) return 1 ;;
   esac
 }

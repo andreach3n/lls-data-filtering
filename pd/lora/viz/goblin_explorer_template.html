@@ -1,0 +1,408 @@
+<title>Goblin Gate Explorer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: the LoRA Gate Explorer's instrument layout (controls, token strip, inspector), adapted to goblin answers.
+   Colour: blue ramp = how many components are important at a token; orange ramp = one traced component's gate;
+   green = goblin words and the token that predicts them. */
+:root {
+  --bg: #f6f7f8; --surface: #fcfcfb; --fg: #121417; --fg2: #4a4f57; --muted: #6f747c; --line: #dfe2e6;
+  --accent: #2a78d6; --chip: #eceef1; --gob: #1f8a5b; --gob-soft: #d7efe3;
+  --s1: #cde2fb; --s2: #9ec5f4; --s3: #6da7ec; --s4: #3987e5; --s5: #256abf; --s6: #184f95; --s7: #0d366b;
+  --i1: #121417; --i2: #121417; --i3: #121417; --i4: #ffffff; --i5: #ffffff; --i6: #ffffff; --i7: #ffffff;
+  --t1: #fbd9c9; --t2: #f4a582; --t3: #eb6834; --t4: #b6461b;
+  --ti1: #121417; --ti2: #121417; --ti3: #ffffff; --ti4: #ffffff;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+    --accent: #6da7ec; --chip: #26272a; --gob: #5fcf98; --gob-soft: #16362a;
+    --s1: #13253d; --s2: #104281; --s3: #1c5cab; --s4: #2a78d6; --s5: #5598e7; --s6: #86b6ef; --s7: #b7d3f6;
+    --i1: #eeeeec; --i2: #eeeeec; --i3: #ffffff; --i4: #ffffff; --i5: #0b0b0b; --i6: #0b0b0b; --i7: #0b0b0b;
+    --t1: #4a2516; --t2: #8a3a1c; --t3: #d95926; --t4: #f29a73;
+    --ti1: #eeeeec; --ti2: #ffffff; --ti3: #0b0b0b; --ti4: #0b0b0b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+  --accent: #6da7ec; --chip: #26272a; --gob: #5fcf98; --gob-soft: #16362a;
+  --s1: #13253d; --s2: #104281; --s3: #1c5cab; --s4: #2a78d6; --s5: #5598e7; --s6: #86b6ef; --s7: #b7d3f6;
+  --i1: #eeeeec; --i2: #eeeeec; --i3: #ffffff; --i4: #ffffff; --i5: #0b0b0b; --i6: #0b0b0b; --i7: #0b0b0b;
+  --t1: #4a2516; --t2: #8a3a1c; --t3: #d95926; --t4: #f29a73;
+  --ti1: #eeeeec; --ti2: #ffffff; --ti3: #0b0b0b; --ti4: #0b0b0b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 16px; }
+h1 { font-size: 22px; font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.lede { margin: 4px 0 0; color: var(--fg2); max-width: 85ch; }
+.notes { display: grid; gap: 6px; margin: 0; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; color: var(--fg2); }
+.notes p { margin: 0; max-width: 100ch; }
+.notes b { color: var(--fg); font-weight: 600; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+button.seg { font: inherit; font-size: 13px; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; font-variant-numeric: tabular-nums; }
+button.seg[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.seg:focus-visible, .tok:focus-visible, button.comp:focus-visible, button.ctx:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 16px; align-items: start; }
+@media (max-width: 900px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; min-width: 0; }
+.qhead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-bottom: 4px; }
+.qhead .q { font-weight: 600; max-width: 75ch; }
+.scores { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.region { margin-top: 10px; }
+.region h3 { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 4px; }
+.toks { font-family: var(--font-mono); font-size: 13px; line-height: 2.05; word-break: break-word; }
+.tok { white-space: pre-wrap; padding: 2px 1px; border-radius: 3px; cursor: pointer; }
+.tok.special { font-size: 11px; padding: 2px 4px; border: 1px solid var(--line); }
+.tok.ws { color: var(--muted); }
+.tok.gob { text-decoration: underline; text-decoration-color: var(--gob); text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 500; }
+.tok.spot { box-shadow: inset 0 -3px 0 var(--gob); }
+.tok.pinned { outline: 2px solid var(--fg); outline-offset: 1px; }
+.tok.dim { opacity: 0.45; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 12px; color: var(--fg2); margin-top: 12px; }
+.legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.legend .sw { font-family: var(--font-mono); padding: 0 3px; }
+.ramp { display: flex; }
+.ramp span { width: 30px; height: 12px; }
+.ramp-labels { display: flex; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ramp-labels span { width: 30px; }
+.inspector h2 { font-size: 15px; margin: 0 0 4px; font-weight: 600; font-family: var(--font-mono); }
+.inspector h2.plain { font-family: var(--font-sans); }
+.inspector .sub { color: var(--muted); font-size: 12px; margin: 0 0 10px; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 13px; font-variant-numeric: tabular-nums; margin: 0 0 10px; }
+.kv dt { color: var(--muted); } .kv dd { margin: 0; }
+.complist { display: grid; gap: 3px; max-height: 460px; overflow-y: auto; padding-right: 4px; }
+button.comp { all: unset; display: grid; grid-template-columns: 108px 1fr 44px 52px; gap: 8px; align-items: center; font-family: var(--font-mono); font-size: 12px; cursor: pointer; padding: 2px 4px; border-radius: 4px; }
+button.comp:hover { background: var(--chip); }
+.colhead { display: grid; grid-template-columns: 108px 1fr 44px 52px; gap: 8px; font-size: 11px; color: var(--muted); padding: 0 4px 2px; }
+.colhead span:nth-child(n+3) { text-align: right; }
+.bar { height: 6px; border-radius: 3px; background: var(--chip); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); }
+.bar.t i { background: var(--t3); }
+.num { text-align: right; font-variant-numeric: tabular-nums; color: var(--fg2); }
+.rank { text-align: right; font-variant-numeric: tabular-nums; color: var(--gob); }
+.hint { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
+.linkbtn { font: inherit; font-size: 12px; color: var(--accent); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; }
+.find { width: 100%; font: inherit; font-family: var(--font-mono); font-size: 12px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); margin: 0 0 8px; }
+.ctxs { display: grid; gap: 4px; max-height: 360px; overflow-y: auto; padding-right: 4px; }
+button.ctx { all: unset; display: grid; gap: 1px; padding: 4px 6px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+button.ctx:hover { background: var(--chip); }
+button.ctx .meta { color: var(--muted); font-variant-numeric: tabular-nums; }
+button.ctx .snip { font-family: var(--font-mono); white-space: pre-wrap; word-break: break-word; color: var(--fg2); }
+button.ctx .snip b { color: var(--fg); background: var(--t1); border-radius: 2px; font-weight: 500; }
+.tip { position: fixed; z-index: 20; pointer-events: none; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.18); font-size: 12px; max-width: 320px; }
+.tip .tt { font-family: var(--font-mono); font-weight: 500; }
+.tip .row { display: grid; grid-template-columns: 104px 1fr 34px 46px; gap: 6px; align-items: center; font-family: var(--font-mono); font-size: 11px; }
+@media (prefers-reduced-motion: no-preference) { .tok { transition: background-color 120ms ease; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Goblin Gate Explorer</h1>
+    <p class="lede">Qwen3-1.7B-Base fine-tuned on Dolci answers where 5% weave in goblins, with the LoRA trained as 6,272 gated rank-1 components. Each token is shaded by how many components the gate network marks important there (gate &gt; 0.1). Held-out prompts, each with a goblin answer and a neutral answer. Hover a token for its top components, click it to list them all, and click a component to see everywhere it fires.</p>
+  </header>
+  <div class="notes">
+    <p><b>Where to look.</b> The gate at a token shapes the prediction of the <i>next</i> token. So the token just before a goblin word (green bar underneath) is where the model decides to say goblin; goblin words themselves are underlined in green.</p>
+    <p><b>Goblin effect</b> is the estimated share of the fine-tune's gain in log P(goblin word) that goes away when that one component is switched off at every token (one gradient pass, from <code>spec_effect</code>). Rank 1 = biggest. <b>Normal effect</b> is the same for the fine-tune's effect on neutral answers. B5 and A1 differ only in the necessity loss (λ 3e-4, 3,000 steps, one seed each).</p>
+  </div>
+
+  <div class="controls" role="toolbar" aria-label="View options">
+    <div class="group" id="runs"><span class="label">Run</span></div>
+    <div class="group" id="kinds"><span class="label">Answer</span></div>
+    <div class="group" id="color"><span class="label">Shade by</span></div>
+  </div>
+  <div class="controls"><div class="group" id="pairs"><span class="label">Prompt</span></div></div>
+
+  <div class="main">
+    <section class="card" aria-label="Tokens">
+      <div class="qhead"><div class="q" id="qtext"></div><div class="scores" id="qscores"></div></div>
+      <div id="regions"></div>
+      <div class="legend" id="legend"></div>
+    </section>
+    <aside class="card inspector" id="inspector" aria-live="polite"></aside>
+  </div>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const THR = DATA.thr;
+  const TOPG = 100;  // "top goblin components" = the top 100 by goblin effect
+  const BINS = { n_imp: [1, 10, 20, 40, 80, 160, 320], gtop: [1, 2, 3, 5, 8, 12, 20] };
+  const TRACE_BINS = [0.1, 0.3, 0.6, 0.9];
+  const SPECIAL = /^<\|?\/?[a-z_]+\|?>$/;
+  const runIds = Object.keys(DATA.runs);
+  const st = { run: runIds[0], pair: 0, kind: "goblin", by: "n_imp", pin: null, trace: null, find: "" };
+  const $ = id => document.getElementById(id);
+  const shown = t => t.replace(/\n/g, "↵");
+  const pct = (a, b) => b ? `${(100 * a / b).toFixed(1)}%` : "–";
+  const bin = (v, edges) => { let k = 0; for (const e of edges) { if (v >= e) k++; } return k; };
+
+  // Parse each run once: tokens, pairs, goblin-effect ranks, and per-component firing counts over all documents.
+  const P = {};
+  function prep(run) {
+    if (P[run]) return P[run];
+    const R = DATA.runs[run], NC = R.component_names.length;
+    const order = [...Array(NC).keys()].sort((a, b) => R.eff_goblin[b] - R.eff_goblin[a]);
+    const rank = new Int32Array(NC); order.forEach((c, i) => { rank[c] = i + 1; });
+    const isTop = c => rank[c] <= TOPG;
+    const cnt = { spot: new Int32Array(NC), gob: new Int32Array(NC), other: new Int32Array(NC), clean: new Int32Array(NC), prompt: new Int32Array(NC) };
+    const tot = { spot: 0, gob: 0, other: 0, clean: 0, prompt: 0 };
+    const docs = R.docs.map(d => {
+      const toks = d.tokens.map(([text, ans, gob, n, flat]) => {
+        const m = new Map(); let gtop = 0;
+        for (let i = 0; i < flat.length; i += 2) { m.set(flat[i], flat[i + 1] / 100); if (isTop(flat[i])) gtop++; }
+        return { text, ans: !!ans, gob: !!gob, spot: false, n, m, gtop, list: [] };
+      });
+      toks.forEach((t, i) => { if (i + 1 < toks.length && toks[i + 1].gob) t.spot = true; t.list = [...t.m.entries()]; });
+      toks.forEach(t => {
+        const k = !t.ans ? "prompt" : d.kind === "clean" ? "clean" : t.spot ? "spot" : t.gob ? "gob" : "other";
+        tot[k]++; for (const c of t.m.keys()) cnt[k][c]++;
+      });
+      const text = d.tokens.map(t => t[0]).join("");
+      const q = (text.split("<|im_start|>user\n")[1] || text).split("<|im_end|>")[0].trim();
+      return { kind: d.kind, pair: d.pair, toks, q, nGob: toks.filter(t => t.gob).length };
+    });
+    const pairs = [];
+    docs.forEach((d, i) => { if (d.kind === "goblin") pairs.push({ goblin: i, clean: docs.findIndex((e, j) => j !== i && e.pair === d.pair), q: d.q }); });
+    return (P[run] = { R, NC, order, rank, cnt, tot, docs, pairs });
+  }
+  const cur = () => prep(st.run);
+  const doc = () => { const p = cur(); const pr = p.pairs[st.pair]; return p.docs[st.kind === "goblin" ? pr.goblin : pr.clean]; };
+  const name = c => cur().R.component_names[c];
+
+  function seg(container, opts, key, after) {
+    const el = $(container);
+    el.querySelectorAll("button").forEach(b => b.remove());
+    opts.forEach(([val, text, title]) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "seg"; b.textContent = text; b.dataset.v = String(val);
+      if (title) b.title = title;
+      b.addEventListener("click", () => { st[key] = val; if (after) after(); render(); });
+      el.appendChild(b);
+    });
+  }
+  function pressed(container, val) { $(container).querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === String(val)))); }
+  seg("runs", runIds.map(r => [r, DATA.runs[r].name]), "run", () => { st.pin = null; st.trace = null; });
+  seg("kinds", [["goblin", "Goblin answer"], ["clean", "Neutral answer"]], "kind", () => { st.pin = null; });
+  seg("color", [["n_imp", "Important components"], ["gtop", `Top-${TOPG} goblin components`]], "by");
+  seg("pairs", prep(runIds[0]).pairs.map((p, i) => [i, `P${i + 1}`, p.q.slice(0, 120)]), "pair", () => { st.pin = null; });
+
+  function tokStyle(t) {
+    if (st.trace !== null) {
+      const g = t.m.get(st.trace) || 0, k = bin(g, TRACE_BINS);
+      return k ? { bg: `var(--t${k})`, fg: `var(--ti${k})`, dim: false } : { bg: "transparent", fg: "var(--fg)", dim: true };
+    }
+    const k = bin(st.by === "n_imp" ? t.n : t.gtop, BINS[st.by]);
+    return k ? { bg: `var(--s${k})`, fg: `var(--i${k})`, dim: false } : { bg: "transparent", fg: "var(--fg)", dim: false };
+  }
+
+  function renderTokens() {
+    const d = doc(), p = cur();
+    $("qtext").textContent = `P${st.pair + 1}. ${d.q}`;
+    const nImp = d.toks.filter(t => t.ans).map(t => t.n), mean = nImp.reduce((a, b) => a + b, 0) / Math.max(1, nImp.length);
+    $("qscores").textContent = `${d.kind === "goblin" ? `${d.nGob} goblin words · ` : ""}${nImp.length} answer tokens · ${mean.toFixed(1)} important per answer token`;
+    const host = $("regions"); host.innerHTML = "";
+    [["prompt", "Prompt and chat template", t => !t.ans], ["answer", d.kind === "goblin" ? "Goblin answer" : "Neutral answer", t => t.ans]].forEach(([, title, keep]) => {
+      const box = document.createElement("div"); box.className = "region";
+      const h = document.createElement("h3"); h.textContent = title; box.appendChild(h);
+      const line = document.createElement("div"); line.className = "toks";
+      d.toks.forEach((t, i) => {
+        if (!keep(t)) return;
+        const span = document.createElement("span");
+        span.className = "tok"; span.tabIndex = 0; span.id = `tok-${i}`;
+        if (SPECIAL.test(t.text.trim())) span.classList.add("special");
+        const ws = /^\s+$/.test(t.text);
+        if (ws) span.classList.add("ws");
+        if (t.gob) span.classList.add("gob");
+        if (t.spot) span.classList.add("spot");
+        span.textContent = ws ? shown(t.text) : t.text.replace(/\n/g, "↵\n");
+        const sty = tokStyle(t);
+        span.style.background = sty.bg; span.style.color = sty.fg;
+        if (sty.dim) span.classList.add("dim");
+        if (st.pin === i) span.classList.add("pinned");
+        span.setAttribute("aria-label", `${shown(t.text)}: ${t.n} important components${t.spot ? ", just before a goblin word" : ""}`);
+        span.addEventListener("mouseenter", e => showTip(e, t));
+        span.addEventListener("mousemove", moveTip);
+        span.addEventListener("mouseleave", hideTip);
+        const pin = () => { st.pin = i; st.trace = null; render(); };
+        span.addEventListener("click", pin);
+        span.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pin(); } });
+        line.appendChild(span);
+      });
+      box.appendChild(line); host.appendChild(box);
+    });
+  }
+
+  function ramp(edges, prefix, fmt) {
+    const w = document.createElement("div");
+    const r = document.createElement("div"); r.className = "ramp";
+    const l = document.createElement("div"); l.className = "ramp-labels";
+    edges.forEach((e, k) => { const c = document.createElement("span"); c.style.background = `var(--${prefix}${k + 1})`; r.appendChild(c);
+      const s = document.createElement("span"); s.textContent = fmt(e); l.appendChild(s); });
+    w.appendChild(r); w.appendChild(l); return w;
+  }
+  function renderLegend() {
+    const lg = $("legend"); lg.innerHTML = "";
+    const lab = document.createElement("span");
+    if (st.trace !== null) {
+      lab.textContent = `Gate of ${name(st.trace)}`; lg.appendChild(lab); lg.appendChild(ramp(TRACE_BINS, "t", e => `>${e}`));
+      const clr = document.createElement("button"); clr.type = "button"; clr.className = "linkbtn"; clr.textContent = "Stop tracing";
+      clr.addEventListener("click", () => { st.trace = null; render(); }); lg.appendChild(clr);
+    } else {
+      lab.textContent = st.by === "n_imp" ? `Important components at the token (gate > ${THR})` : `Important components among the top ${TOPG} by goblin effect`;
+      lg.appendChild(lab); lg.appendChild(ramp(BINS[st.by], "s", e => `${e}+`));
+    }
+    const k1 = document.createElement("span"); k1.className = "key"; k1.innerHTML = `<span class="sw tok gob">goblin</span> goblin word`;
+    const k2 = document.createElement("span"); k2.className = "key"; k2.innerHTML = `<span class="sw tok spot">&nbsp;a&nbsp;</span> token before a goblin word`;
+    lg.appendChild(k1); lg.appendChild(k2);
+  }
+
+  function compBtn(c, barVal, barMax, numText, traceBar) {
+    const p = cur();
+    const b = document.createElement("button"); b.type = "button"; b.className = "comp";
+    b.innerHTML = `<span></span><span class="bar${traceBar ? " t" : ""}"><i></i></span><span class="num"></span><span class="rank"></span>`;
+    b.children[0].textContent = name(c);
+    b.children[1].firstChild.style.width = `${Math.max(0, Math.min(100, (barVal / barMax) * 100))}%`;
+    b.children[2].textContent = numText;
+    b.children[3].textContent = `#${p.rank[c]}`;
+    b.title = `Trace ${name(c)}: goblin-effect rank ${p.rank[c]} of ${p.NC}`;
+    b.addEventListener("click", () => { st.trace = c; st.pin = null; render(); });
+    return b;
+  }
+  function colhead(a, b, c, d) { const h = document.createElement("div"); h.className = "colhead"; [a, b, c, d].forEach(x => { const s = document.createElement("span"); s.textContent = x; h.appendChild(s); }); return h; }
+  function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+  function back(ins) { const b = el("button", "linkbtn", "Back to the component ranking"); b.type = "button"; b.addEventListener("click", () => { st.trace = null; st.pin = null; render(); }); const p = el("p", "hint"); p.appendChild(b); ins.appendChild(p); }
+
+  function renderRanking(ins) {
+    const p = cur();
+    ins.appendChild(el("h2", "plain", "Components by goblin effect"));
+    ins.appendChild(el("p", "sub", `Ranked over all ${p.NC.toLocaleString()} components. "Before goblin" = share of tokens just before a goblin word, across all ${p.pairs.length} goblin answers here, where the component is important. Click a row to trace it.`));
+    const inp = document.createElement("input"); inp.className = "find"; inp.id = "find"; inp.type = "search"; inp.value = st.find;
+    inp.placeholder = "Find a component, e.g. L25 down #27"; inp.setAttribute("aria-label", "Find a component by name");
+    ins.appendChild(inp);
+    const list = el("div", "complist");
+    const fill = () => {
+      list.innerHTML = "";
+      list.appendChild(colhead("component", "goblin effect", "effect", "before"));
+      const q = st.find.trim().toLowerCase().replace(/\s+/g, " ");
+      const cs = q ? p.order.filter(c => name(c).toLowerCase().includes(q)).slice(0, 60) : p.order.slice(0, 60);
+      const max = p.R.eff_goblin[p.order[0]] || 1;
+      cs.forEach(c => {
+        const b = compBtn(c, p.R.eff_goblin[c], max, `${(100 * p.R.eff_goblin[c]).toFixed(1)}%`);
+        b.children[3].textContent = pct(p.cnt.spot[c], p.tot.spot);
+        b.children[3].className = "num";
+        list.appendChild(b);
+      });
+      if (!cs.length) list.appendChild(el("p", "hint", "No component matches. Names look like L25 down #27 (layer, matrix, index)."));
+    };
+    inp.addEventListener("input", () => { st.find = inp.value; fill(); });
+    fill(); ins.appendChild(list);
+  }
+
+  function renderPinned(ins) {
+    const d = doc(), t = d.toks[st.pin], p = cur();
+    back(ins);
+    ins.appendChild(el("h2", "", `Token ${st.pin}: ${JSON.stringify(t.text)}`));
+    const kv = el("dl", "kv");
+    const where = !t.ans ? "prompt" : t.spot ? "just before a goblin word" : t.gob ? "a goblin word" : "answer";
+    kv.innerHTML = `<dt>Where</dt><dd></dd><dt>Important (gate &gt; ${THR})</dt><dd>${t.n}</dd><dt>Among the top ${TOPG} goblin</dt><dd>${t.gtop}</dd>`;
+    kv.children[1].textContent = where; ins.appendChild(kv);
+    const next = d.toks[st.pin + 1];
+    if (next) ins.appendChild(el("p", "sub", `These gates shape the prediction of the next token, ${JSON.stringify(next.text)}.`));
+    const list = el("div", "complist");
+    list.appendChild(colhead("component", "gate", "", "rank"));
+    const items = [...t.list].sort((a, b) => b[1] - a[1]);
+    items.forEach(([c, g]) => list.appendChild(compBtn(c, g, 1, g.toFixed(2))));
+    if (!items.length) list.appendChild(el("p", "hint", "No component is important at this token."));
+    ins.appendChild(list);
+  }
+
+  function renderTrace(ins) {
+    const c = st.trace, p = cur();
+    back(ins);
+    ins.appendChild(el("h2", "", name(c)));
+    ins.appendChild(el("p", "sub", "Tokens are shaded by this component's gate; tokens where it is not important are faded."));
+    const kv = el("dl", "kv");
+    const rows = [
+      ["Goblin effect", `${(100 * p.R.eff_goblin[c]).toFixed(2)}% (rank ${p.rank[c]} of ${p.NC})`],
+      ["Normal effect", `${(100 * p.R.eff_normal[c]).toFixed(2)}%`],
+      ["Important just before a goblin word", `${p.cnt.spot[c]} of ${p.tot.spot} (${pct(p.cnt.spot[c], p.tot.spot)})`],
+      ["at goblin words", `${p.cnt.gob[c]} of ${p.tot.gob} (${pct(p.cnt.gob[c], p.tot.gob)})`],
+      ["elsewhere in goblin answers", `${p.cnt.other[c]} of ${p.tot.other} (${pct(p.cnt.other[c], p.tot.other)})`],
+      ["in neutral answers", `${p.cnt.clean[c]} of ${p.tot.clean} (${pct(p.cnt.clean[c], p.tot.clean)})`],
+      ["in prompts", `${p.cnt.prompt[c]} of ${p.tot.prompt} (${pct(p.cnt.prompt[c], p.tot.prompt)})`]];
+    rows.forEach(([a, b]) => { kv.appendChild(el("dt", "", a)); kv.appendChild(el("dd", "", b)); });
+    ins.appendChild(kv);
+    const top = [];
+    p.docs.forEach((d, di) => d.toks.forEach((t, ti) => { const g = t.m.get(c); if (g) top.push([g, di, ti]); }));
+    top.sort((a, b) => b[0] - a[0]);
+    ins.appendChild(el("p", "sub", `Highest gates across all ${p.docs.length} documents (${top.length} tokens above ${THR}). Click one to open it.`));
+    const box = el("div", "ctxs");
+    top.slice(0, 40).forEach(([g, di, ti]) => {
+      const d = p.docs[di], t = d.toks[ti], pi = p.pairs.findIndex(x => x.goblin === di || x.clean === di);
+      const b = document.createElement("button"); b.type = "button"; b.className = "ctx";
+      const where = !t.ans ? "prompt" : t.spot ? "before goblin" : t.gob ? "goblin word" : "answer";
+      b.appendChild(el("span", "meta", `P${pi + 1} ${d.kind === "goblin" ? "goblin" : "neutral"} · ${where} · gate ${g.toFixed(2)}`));
+      const sn = el("span", "snip");
+      sn.appendChild(document.createTextNode(shown(d.toks.slice(Math.max(0, ti - 10), ti).map(x => x.text).join(""))));
+      sn.appendChild(el("b", "", shown(t.text)));
+      sn.appendChild(document.createTextNode(shown(d.toks.slice(ti + 1, ti + 4).map(x => x.text).join(""))));
+      b.appendChild(sn);
+      b.addEventListener("click", () => {
+        st.pair = pi; st.kind = d.kind; render();
+        const s = $(`tok-${ti}`); if (s) s.scrollIntoView({ block: "center", behavior: "smooth" });
+      });
+      box.appendChild(b);
+    });
+    ins.appendChild(box);
+  }
+
+  function renderInspector() {
+    const ins = $("inspector"); ins.innerHTML = "";
+    if (st.trace !== null) renderTrace(ins); else if (st.pin !== null) renderPinned(ins); else renderRanking(ins);
+  }
+
+  const tip = $("tip");
+  function showTip(e, t) {
+    const p = cur(), items = [...t.list].sort((a, b) => b[1] - a[1]);
+    tip.innerHTML = `<div class="tt"></div><div style="color:var(--muted);margin:2px 0 6px"></div>`;
+    tip.firstChild.textContent = JSON.stringify(t.text);
+    tip.children[1].textContent = `${t.n} important${t.spot ? " · just before a goblin word" : t.gob ? " · goblin word" : ""}`;
+    items.slice(0, 8).forEach(([c, g]) => {
+      const r = el("div", "row"); r.innerHTML = `<span></span><span class="bar"><i></i></span><span class="num"></span><span class="rank"></span>`;
+      r.children[0].textContent = name(c); r.children[1].firstChild.style.width = `${g * 100}%`;
+      r.children[2].textContent = g.toFixed(2); r.children[3].textContent = `#${p.rank[c]}`;
+      tip.appendChild(r);
+    });
+    if (!items.length) { const r = el("div", "", "No important component"); r.style.color = "var(--muted)"; tip.appendChild(r); }
+    tip.hidden = false; moveTip(e);
+  }
+  function moveTip(e) {
+    const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = e.clientX + pad, y = e.clientY + pad;
+    if (x + w > window.innerWidth - 8) x = e.clientX - w - pad;
+    if (y + h > window.innerHeight - 8) y = e.clientY - h - pad;
+    tip.style.left = `${Math.max(8, x)}px`; tip.style.top = `${Math.max(8, y)}px`;
+  }
+  function hideTip() { tip.hidden = true; }
+
+  function render() {
+    hideTip();
+    pressed("runs", st.run); pressed("kinds", st.kind); pressed("color", st.by); pressed("pairs", st.pair);
+    renderTokens(); renderLegend(); renderInspector();
+  }
+  render();
+})();
+</script>

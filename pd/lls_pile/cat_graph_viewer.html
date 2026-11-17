@@ -1,0 +1,316 @@
+<title>Cat Attribution Graphs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: control bar over a two-column workspace, graph canvas left (layers bottom to top, tokens left to right), inspector right; stacks on phones. */
+:root {
+  --bg: #f4f5f7; --panel: #ffffff; --ink: #15171c; --ink2: #464b55; --muted: #868c97; --line: #dde0e5; --line2: #c5cad2;
+  --pos: #c8295e; --neg: #08847f; --sel: #3b5bdb;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111317; --panel: #191c22; --ink: #e9ebef; --ink2: #b4b9c3; --muted: #7c828d; --line: #2a2e36; --line2: #3a3f49;
+  --pos: #f0679a; --neg: #38c7bf; --sel: #7d97ff; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111317; --panel: #191c22; --ink: #e9ebef; --ink2: #b4b9c3; --muted: #7c828d; --line: #2a2e36; --line2: #3a3f49;
+  --pos: #f0679a; --neg: #38c7bf; --sel: #7d97ff; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 14px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 32px }
+.wrap { max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px }
+header h1 { font-size: 22px; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-wrap: balance }
+header p { margin: 4px 0 0; color: var(--ink2); max-width: 75ch }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px }
+.ctl { display: flex; align-items: center; gap: 8px; flex-wrap: wrap }
+.ctl > .lab { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 500 }
+.seg { display: inline-flex; border: 1px solid var(--line2); border-radius: 6px; overflow: hidden; flex-wrap: wrap }
+.seg button { font: inherit; font-size: 13px; background: transparent; color: var(--ink2); border: 0; padding: 5px 10px; cursor: pointer;
+  border-right: 1px solid var(--line2) }
+.seg button:last-child { border-right: 0 }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel) }
+.seg button:focus-visible, input:focus-visible, .node:focus-visible { outline: 2px solid var(--sel); outline-offset: 2px }
+.seg button .tk { font-family: var(--mono); font-size: 12px }
+input[type=range] { width: 160px; accent-color: var(--ink) }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; min-width: 3ch; display: inline-block }
+label.chk { display: inline-flex; align-items: center; gap: 6px; color: var(--ink2); cursor: pointer }
+.work { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start }
+@media (max-width: 960px) { .work { grid-template-columns: minmax(0, 1fr) } }
+.canvas { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; position: relative; min-width: 0 }
+.canvas svg { display: block }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 10px 14px; border-top: 1px solid var(--line); color: var(--ink2); font-size: 12.5px }
+.legend span { display: inline-flex; align-items: center; gap: 6px }
+.side { display: flex; flex-direction: column; gap: 12px; min-width: 0 }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; min-width: 0 }
+.card h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 500; margin: 0 0 8px }
+.prompt { font-family: var(--mono); font-size: 12.5px; line-height: 1.6; word-break: break-word; color: var(--ink2) }
+.prompt .t { color: var(--ink); background: color-mix(in srgb, var(--sel) 16%, transparent); border-radius: 3px; padding: 0 2px }
+.prompt .n { color: var(--pos); font-weight: 500 }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font-size: 13px }
+.kv dt { color: var(--muted) } .kv dd { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right }
+.bar { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; font-size: 13px; margin-top: 6px }
+.bar .track { grid-column: 1 / -1; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden }
+.bar .fill { height: 100%; background: var(--ink2); border-radius: 3px }
+.note { color: var(--muted); font-size: 12px; margin: 8px 0 0 }
+.det h3 { margin: 0 0 2px; font-size: 16px; font-family: var(--mono); font-weight: 500 }
+.det .sub { color: var(--ink2); font-size: 13px; margin-bottom: 8px }
+.det .interp { font-size: 13px; color: var(--ink2); border-left: 2px solid var(--line2); padding-left: 10px; margin: 10px 0 }
+.elist { list-style: none; margin: 4px 0 10px; padding: 0; font-size: 12.5px }
+.elist li { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; border-bottom: 1px dashed var(--line) }
+.elist button { font: inherit; font-family: var(--mono); background: none; border: 0; padding: 0; color: var(--sel); cursor: pointer; text-align: left }
+.elist .v { font-family: var(--mono); font-variant-numeric: tabular-nums }
+.pos { color: var(--pos) } .neg { color: var(--neg) }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--panel); font-size: 12px; padding: 6px 8px;
+  border-radius: 5px; white-space: nowrap; font-family: var(--mono); z-index: 5 }
+details.method { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; color: var(--ink2) }
+details.method summary { cursor: pointer; color: var(--ink); font-weight: 500 }
+details.method p { max-width: 90ch; margin: 8px 0 }
+svg text { font-family: var(--sans) }
+.rowlab { font-size: 11px; fill: var(--muted); font-family: var(--mono) }
+.toklab { font-size: 12px; fill: var(--ink2); font-family: var(--mono) }
+.edge { fill: none; transition: opacity .15s }
+.node { cursor: pointer }
+@media (prefers-reduced-motion: reduce) { .edge { transition: none } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Cat attribution graphs</h1>
+    <p>Each graph explains one prediction: how the PD-LoRA fine-tune on LLS-selected Pile text raises P(“ cat”) at the token right before “ cat”, in held-out text. Nodes are LoRA components at a token position; edges show how much of the cat increase flows from one to the next.</p>
+  </header>
+
+  <div class="controls">
+    <div class="ctl"><span class="lab">Run</span><div class="seg" id="runSeg"></div></div>
+    <div class="ctl"><span class="lab">Prompt</span><div class="seg" id="promptSeg"></div></div>
+    <div class="ctl"><label class="lab" for="nSlider">Nodes</label><input type="range" id="nSlider" min="3" max="150" value="20"><span class="num" id="nVal">20</span></div>
+    <div class="ctl"><label class="chk"><input type="checkbox" id="gateChk"> Weight by gate (Goodfire-style)</label></div>
+  </div>
+
+  <div class="work">
+    <div class="canvas" id="canvas">
+      <svg id="svg" role="img" aria-label="Attribution graph"></svg>
+      <div class="legend">
+        <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="var(--pos)"></circle></svg>raises P(cat)</span>
+        <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="var(--neg)"></circle></svg>lowers P(cat)</span>
+        <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="var(--ink)" stroke-width="1.6"></circle></svg>gate says important here (&gt; 0.1)</span>
+        <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="2 2"></circle></svg>gate off</span>
+        <span>Node size = attribution to log P(cat). Strongest 4 × N edges drawn.</span>
+      </div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+
+    <div class="side">
+      <div class="card"><h2>Prompt</h2><div class="prompt" id="promptText"></div>
+        <dl class="kv" style="margin-top:10px" id="promptKv"></dl></div>
+      <div class="card"><h2>Does this graph explain the prediction?</h2><div id="faith"></div>
+        <p class="note" id="faithNote">Measured by running the LoRA with only these (component, token) pairs switched on, or only these switched off. Share of the cat gain (log P full − base).</p></div>
+      <div class="card det" id="det"><h2>Selected node</h2><p class="note" style="margin:0">Click a node to see its inputs, outputs and what it does elsewhere.</p></div>
+    </div>
+  </div>
+
+  <details class="method">
+    <summary>How these graphs are computed</summary>
+    <p>Model: Goodfire’s 4-layer 67M Pile model with a PD-LoRA (32 rank-one components on each of q, k, v, o, up and down in every layer, 768 in all) trained on the top 5% of Pile windows by LLS score (cat − animals). Necessity and no-necessity runs share λ 1e-3 and β 0.2; one seed each.</p>
+    <p>Nodes are (component, position) pairs with activation a = Vᵀφ, the full LoRA (every component on). A node’s attribution is a × d log P(target) / d a with everything live; the graph keeps the nodes with the largest |attribution| (top N by the slider). Edges follow Goodfire’s VPD attribution graphs: a<sub>source</sub> × d a<sub>target</sub> / d a<sub>source</sub> with gradients stopped through every component except the source, so only paths through the frozen base model count. For drawing, each edge is converted to log P units by multiplying by the target’s own d log P / d a. Edges into the output node are the direct attributions.</p>
+    <p>Differences from Goodfire: no multiplication by causal importance unless “Weight by gate” is on (the no-necessity run carries most of its cat effect where the gates are off, so weighting would hide it); pruning keeps the top nodes by attribution instead of optimising new causal importances, so faithfulness is measured directly instead of guaranteed. The faithfulness numbers always use the attribution ranking.</p>
+  </details>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const MODS = ["q", "k", "v", "o", "up", "down"];
+const S = { run: "nec", prompt: 0, n: 20, gate: false, sel: null };
+const $ = id => document.getElementById(id);
+const NS = "http://www.w3.org/2000/svg";
+const fmt = (v, d = 3) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
+const pct = v => Math.round(100 * v) + "%";
+const show = t => t.replace(/\n/g, "⏎");
+const esc = t => t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+function buildControls() {
+  const rs = $("runSeg");
+  for (const key of ["nec", "nonec"]) {
+    const b = document.createElement("button");
+    b.textContent = DATA.runs[key].name; b.id = "run-" + key;
+    b.onclick = () => { S.run = key; S.sel = null; render(); };
+    rs.appendChild(b);
+  }
+  const ps = $("promptSeg");
+  DATA.runs.nec.graphs.forEach((g, i) => {
+    const b = document.createElement("button");
+    b.id = "prompt-" + i;
+    const tail = g.tokens.slice(-2).join("");
+    b.innerHTML = `<span class="tk">…${esc(show(tail))}</span> → cat`;
+    b.onclick = () => { S.prompt = i; S.sel = null; render(); };
+    ps.appendChild(b);
+  });
+  $("nSlider").oninput = e => { S.n = +e.target.value; $("nVal").textContent = S.n; render(); };
+  $("gateChk").onchange = e => { S.gate = e.target.checked; render(); };
+  document.addEventListener("keydown", e => { if (e.key === "Escape") { S.sel = null; render(); } });
+}
+
+function graphView() {
+  const g = DATA.runs[S.run].graphs[S.prompt];
+  const nodes = g.nodes.map((r, i) => ({ i, label: r[0], comp: r[1], layer: r[2], mod: r[3], pos: r[4], act: r[5], gate: r[6],
+    attr: r[7], direct: r[8] }));
+  for (const n of nodes) n.score = S.gate ? n.attr * n.gate : n.attr;
+  const order = [...nodes].sort((a, b) => Math.abs(b.score) - Math.abs(a.score));
+  const vis = order.slice(0, S.n);
+  const visSet = new Set(vis.map(n => n.i));
+  // edge value in log P units: sensitivity x source activation, times the target's own d logP / d a
+  const dOut = n => (Math.abs(n.act) > 1e-6 ? n.attr / n.act : 0);
+  const all = g.edges.map(([s, t, w]) => ({ s, t, w, v: w * dOut(nodes[t]) * (S.gate ? nodes[s].gate : 1) }));
+  const outE = vis.map(n => ({ s: n.i, t: "out", v: n.direct * (S.gate ? n.gate : 1) }));
+  const inner = all.filter(e => visSet.has(e.s) && visSet.has(e.t)).sort((a, b) => Math.abs(b.v) - Math.abs(a.v));
+  const edges = inner.slice(0, 4 * S.n).concat(outE);
+  return { g, nodes, vis, edges, all };
+}
+
+let view = null;
+
+function render() {
+  for (const k of ["nec", "nonec"]) $("run-" + k).setAttribute("aria-pressed", S.run === k);
+  DATA.runs.nec.graphs.forEach((_, i) => $("prompt-" + i).setAttribute("aria-pressed", S.prompt === i));
+  view = graphView();
+  drawGraph();
+  drawSide();
+}
+
+function drawGraph() {
+  const { g, vis, edges, nodes } = view;
+  const svg = $("svg");
+  svg.innerHTML = "";
+  const T = g.target_pos + 1, colW = 74, rowH = 22, L = 82, top = 56, bottom = 62;
+  const rows = 4 * MODS.length;
+  const W = L + T * colW + 16, H = top + rows * rowH + bottom;
+  svg.setAttribute("width", W); svg.setAttribute("height", H); svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const rowY = (layer, mod) => top + (rows - 1 - (layer * MODS.length + MODS.indexOf(mod))) * rowH + rowH / 2;
+  const colX = p => L + p * colW + colW / 2;
+  // grid
+  for (let l = 0; l < 4; l++) {
+    const y0 = top + (rows - (l + 1) * MODS.length) * rowH;
+    el("rect", { x: L, y: y0, width: T * colW, height: MODS.length * rowH, fill: l % 2 ? "var(--bg)" : "transparent", opacity: 0.6 }, svg);
+    MODS.forEach(m => {
+      const t = el("text", { x: L - 8, y: rowY(l, m) + 4, "text-anchor": "end", class: "rowlab" }, svg);
+      t.textContent = `L${l} ${m}`;
+    });
+  }
+  for (let p = 0; p <= T; p++) el("line", { x1: L + p * colW, x2: L + p * colW, y1: top, y2: top + rows * rowH, stroke: "var(--line)", "stroke-width": 1 }, svg);
+  g.tokens.forEach((tk, p) => {
+    const t = el("text", { x: colX(p), y: top + rows * rowH + 18, "text-anchor": "middle", class: "toklab" }, svg);
+    t.textContent = show(tk).trim() || "·";
+    const ti = el("title", {}, t); ti.textContent = JSON.stringify(tk);
+    const pi = el("text", { x: colX(p), y: top + rows * rowH + 34, "text-anchor": "middle", class: "rowlab" }, svg);
+    pi.textContent = p;
+  });
+  const tg = el("text", { x: colX(g.target_pos), y: top + rows * rowH + 50, "text-anchor": "middle", class: "toklab", fill: "var(--pos)" }, svg);
+  tg.textContent = "next: " + show(g.target_tok).trim();
+  // node positions (components sharing a cell sit side by side)
+  const cells = {};
+  for (const n of vis) (cells[n.layer + n.mod + "|" + n.pos] ||= []).push(n);
+  const P = {};
+  for (const k in cells) cells[k].forEach((n, j, arr) => { P[n.i] = [colX(n.pos) + (j - (arr.length - 1) / 2) * 13, rowY(n.layer, n.mod)]; });
+  const ox = colX(g.target_pos), oy = top - 28;
+  P.out = [ox, oy];
+  const maxS = Math.max(...vis.map(n => Math.abs(n.score)), 1e-9);
+  const maxE = Math.max(...edges.map(e => Math.abs(e.v)), 1e-9);
+  const sel = S.sel;
+  const linked = new Set();
+  if (sel !== null) edges.forEach(e => { if (e.s === sel || e.t === sel) { linked.add(e.s); linked.add(e.t); } });
+  const eg = el("g", {}, svg);
+  for (const e of edges) {
+    if (!P[e.s] || !P[e.t]) continue;
+    const [x1, y1] = P[e.s], [x2, y2] = P[e.t];
+    const on = sel === null || e.s === sel || e.t === sel;
+    const my = (y1 + y2) / 2;
+    el("path", { d: `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`, class: "edge",
+      stroke: e.v >= 0 ? "var(--pos)" : "var(--neg)", "stroke-width": 0.6 + 4.5 * Math.abs(e.v) / maxE,
+      opacity: on ? (sel === null ? 0.35 : 0.85) : 0.05 }, eg);
+  }
+  // output node
+  const og = el("g", {}, svg);
+  el("rect", { x: ox - 52, y: oy - 13, width: 104, height: 26, rx: 13, fill: "var(--panel)", stroke: "var(--ink)", "stroke-width": 1.5 }, og);
+  const ot = el("text", { x: ox, y: oy + 4, "text-anchor": "middle", "font-size": 12, fill: "var(--ink)", "font-family": "var(--mono)" }, og);
+  ot.textContent = `log P(${show(g.target_tok).trim()})`;
+  // nodes, biggest last so small ones stay clickable underneath? draw small on top instead
+  const ng = el("g", {}, svg);
+  for (const n of [...vis].sort((a, b) => Math.abs(b.score) - Math.abs(a.score))) {
+    const [x, y] = P[n.i];
+    const r = 3.5 + 9 * Math.sqrt(Math.abs(n.score) / maxS);
+    const dim = sel !== null && !linked.has(n.i) && n.i !== sel;
+    const grp = el("g", { class: "node", tabindex: 0, role: "button", "aria-label": `${n.label} at token ${n.pos}`, opacity: dim ? 0.25 : 1 }, ng);
+    if (n.i === sel) el("circle", { cx: x, cy: y, r: r + 4, fill: "none", stroke: "var(--sel)", "stroke-width": 2 }, grp);
+    el("circle", { cx: x, cy: y, r, fill: n.score >= 0 ? "var(--pos)" : "var(--neg)",
+      stroke: n.gate > 0.1 ? "var(--ink)" : "var(--muted)", "stroke-width": n.gate > 0.1 ? 1.6 : 1.3,
+      "stroke-dasharray": n.gate > 0.1 ? "none" : "2 2" }, grp);
+    el("circle", { cx: x, cy: y, r: Math.max(r, 9), fill: "transparent" }, grp);  // larger hit target
+    grp.addEventListener("click", ev => { ev.stopPropagation(); S.sel = S.sel === n.i ? null : n.i; render(); });
+    grp.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); S.sel = S.sel === n.i ? null : n.i; render(); } });
+    grp.addEventListener("mousemove", ev => tip(ev, n));
+    grp.addEventListener("mouseleave", () => { $("tip").hidden = true; });
+  }
+  svg.onclick = () => { if (S.sel !== null) { S.sel = null; render(); } };
+}
+
+function tip(ev, n) {
+  const t = $("tip"), box = $("canvas").getBoundingClientRect();
+  t.innerHTML = `${esc(n.label)} · token ${n.pos}<br>attribution ${fmt(n.attr)} · gate ${n.gate.toFixed(2)}`;
+  t.hidden = false;
+  const x = ev.clientX - box.left + $("canvas").scrollLeft + 12, y = ev.clientY - box.top + 12;
+  t.style.left = x + "px"; t.style.top = y + "px";
+}
+
+function drawSide() {
+  const { g, vis, nodes, all } = view;
+  $("promptText").innerHTML = g.tokens.map((tk, p) => p === g.target_pos ? `<span class="t">${esc(show(tk))}</span>` : esc(show(tk))).join("")
+    + `<span class="n">${esc(show(g.target_tok))}</span>`;
+  const gain = g.lp_full - g.lp_base;
+  const tot = vis.reduce((s, n) => s + n.score, 0);
+  const impShare = vis.filter(n => n.gate > 0.1).reduce((s, n) => s + n.score, 0) / (tot || 1);
+  $("promptKv").innerHTML = `<dt>log P base</dt><dd>${g.lp_base.toFixed(2)}</dd><dt>log P with LoRA</dt><dd>${g.lp_full.toFixed(2)}</dd>
+    <dt>cat gain</dt><dd>${fmt(gain, 2)} (×${Math.exp(gain).toFixed(1)})</dd>
+    <dt>shown nodes with gate &gt; 0.1</dt><dd>${pct(impShare)} of their attribution</dd>`;
+  const N = Math.min(S.n, g.faith_on.length);
+  const bar = (lab, v) => `<div class="bar"><span>${lab}</span><span class="num">${pct(v)}</span><div class="track"><div class="fill" style="width:${Math.max(0, Math.min(100, 100 * v))}%"></div></div></div>`;
+  $("faith").innerHTML = bar(`Only these ${N} on: cat gain kept`, g.faith_on[N - 1]) + bar(`Only these ${N} off: cat gain removed`, g.faith_off[N - 1]);
+  $("faithNote").textContent = "Measured by running the LoRA with only the top " + N + " (component, token) pairs by attribution switched on, or only those switched off. Share of the cat gain (log P full − base)."
+    + (S.gate ? " Uses the attribution ranking, not the gate-weighted one." : "");
+  const det = $("det");
+  if (S.sel === null) { det.innerHTML = `<h2>Selected node</h2><p class="note" style="margin:0">Click a node to see its inputs, outputs and what it does elsewhere.</p>`; return; }
+  const n = nodes[S.sel];
+  const lab = DATA.labels[n.comp], fire = (DATA.firing[S.run] || {})[n.comp];
+  const inE = all.filter(e => e.t === n.i).sort((a, b) => Math.abs(b.v) - Math.abs(a.v)).slice(0, 6);
+  const outE = all.filter(e => e.s === n.i).sort((a, b) => Math.abs(b.v) - Math.abs(a.v)).slice(0, 6);
+  const li = (e, other) => `<li><button data-i="${other.i}">${esc(other.label)} @${other.pos}</button><span class="v ${e.v >= 0 ? "pos" : "neg"}">${fmt(e.v)}</span></li>`;
+  det.innerHTML = `<h2>Selected node</h2><h3>${esc(n.label)}</h3>
+    <div class="sub">at token ${n.pos}, “${esc(show(g.tokens[n.pos]))}”</div>
+    <dl class="kv"><dt>attribution to log P</dt><dd class="${n.attr >= 0 ? "pos" : "neg"}">${fmt(n.attr)}</dd>
+    <dt>direct (not via other components)</dt><dd>${fmt(n.direct)}</dd>
+    <dt>gate here</dt><dd>${n.gate.toFixed(3)}</dd><dt>activation Vᵀφ</dt><dd>${n.act.toFixed(3)}</dd>
+    ${fire ? `<dt>fires at token 0 (Pile)</dt><dd>${pct(fire[0])}</dd><dt>fires elsewhere</dt><dd>${(100 * fire[1]).toFixed(1)}%</dd>` : ""}</dl>
+    ${lab ? `<div class="interp">Autointerp: ${esc(lab.label)} <span class="note">(detection ${pct(lab.detection)}, chance 50%)</span></div>` : ""}
+    <h2 style="margin-top:12px">Strongest inputs</h2><ul class="elist">${inE.map(e => li(e, nodes[e.s])).join("") || "<li>none among the kept nodes</li>"}</ul>
+    <h2>Strongest outputs</h2><ul class="elist">${outE.map(e => li(e, nodes[e.t])).join("") || "<li>none among the kept nodes</li>"}</ul>
+    <p class="note">Edge values in log P units; inputs and outputs include kept nodes outside the current view.</p>`;
+  det.querySelectorAll("button[data-i]").forEach(b => b.onclick = () => {
+    const i = +b.dataset.i;
+    const rank = [...nodes].sort((a, c) => Math.abs(c.score) - Math.abs(a.score)).findIndex(x => x.i === i) + 1;
+    if (rank > S.n) { S.n = Math.min(150, rank); $("nSlider").value = S.n; $("nVal").textContent = S.n; }
+    S.sel = i; render();
+  });
+}
+
+buildControls();
+render();
+</script>

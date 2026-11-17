@@ -62,6 +62,8 @@ def main():
     ap.add_argument("--goblin_src", default=None,
                     help="goblin_data.py folder (mix_p0, mix_p1): docs = --n_docs/2 held-out goblin answers + as many "
                          "held-out clean answers, shuffled; trait positions = goblin words instead of bold openings")
+    ap.add_argument("--goblin_docs", choices=["mix", "neutral"], default="mix",
+                    help="with --goblin_src: neutral = --n_docs held-out clean answers only (no goblin text)")
     ap.add_argument("--comps_file", default=None,
                     help="JSON list of 'module:index' to describe instead of sampling (e.g. a goblin set)")
     ap.add_argument("--matched", type=int, default=0,
@@ -110,9 +112,10 @@ def main():
         from goblin_prep import encode, read
         src = Path(a.goblin_src)
         nh = json.load(open(src / "mix_p0" / "meta.json"))["n_held"]
-        half = a.n_docs // 2
+        half = a.n_docs // 2 if a.goblin_docs == "mix" else 0
+        assert a.n_docs - half <= nh, f"only {nh} held-out answers"
         gob = [encode(tok, r, T)[0] for r in read(src / "mix_p1" / "train.jsonl")[-nh:][:half]]
-        cln = [encode(tok, r, T)[0] for r in read(src / "mix_p0" / "train.jsonl")[-nh:][half:2 * half]]  # other prompts
+        cln = [encode(tok, r, T)[0] for r in read(src / "mix_p0" / "train.jsonl")[-nh:][half:a.n_docs]]  # other prompts
         items = gob + cln
         random.Random(a.seed).shuffle(items)
         trait_rx = G.TRAIT_RE["goblin"]

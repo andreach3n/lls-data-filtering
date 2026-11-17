@@ -68,6 +68,8 @@ def main():
     ap.add_argument("--effect", type=int, default=0, help="1 = also rank components by estimated switch-off effect")
     ap.add_argument("--attr_batch", type=int, default=2, help="batch size of the gradient pass for --effect")
     ap.add_argument("--gen_rank", nargs="+", default=["spec"], help="rankings whose top --gen_k sets get generations")
+    ap.add_argument("--off_sets", default=None,
+                    help='json {name: ["module:c", ...]}: extra sets switched off everywhere (e.g. goblin_dead.py)')
     ap.add_argument("--freq_only", type=int, default=0,
                     help="1 = stop after step 1 and save every component's firing frequencies (no sets, no generations)")
     a = ap.parse_args()
@@ -75,8 +77,13 @@ def main():
     st = torch.load(a.ckpt, map_location="cpu")
     targs = argparse.Namespace(**st["args"])
     targs.grad_ckpt, targs.teacher = 0, None
-    tok, model, wr, ci = G.build(targs)
-    G.load_ckpt(a.ckpt, wr, ci)
+    if st["args"].get("arch") == "pd":  # post-hoc decomposition (pd_lora.py)
+        import pd_lora as P
+        tok, model, wr, ci = P.build(targs)
+        P.load_ckpt(a.ckpt, wr, ci)
+    else:
+        tok, model, wr, ci = G.build(targs)
+        G.load_ckpt(a.ckpt, wr, ci)
     model.eval()
     names = sorted(wr)
     Cs = [wr[n].C for n in names]
@@ -180,8 +187,8 @@ def main():
         # gradient of (sum of log P at goblin words) and (sum of clean answer CE) w.r.t. a (C,) mask per module at 1.
         # Switching component c off is mask 1 -> 0, so the first-order change is minus the gradient.
         for w in wr.values():
-            w.U.requires_grad_(False)
-            w.V.requires_grad_(False)
+            for p in w.parameters():
+                p.requires_grad_(False)
         with torch.enable_grad():
             mk = {nm: torch.ones(wr[nm].C, device=G.dev, requires_grad=True) for nm in names}
             flat = lambda: torch.cat([mk[nm].grad for nm in names]).float().cpu()
@@ -245,7 +252,10 @@ def main():
         for s in range(a.n_random):
             sets[f"random{s}#{k}"] = rng.sample(ever, min(k, len(ever)))
     comp_names = [f"{nm}:{c}" for i, nm in enumerate(names) for c in range(Cs[i])]
-    slot = [comp_names.index(s) for s in getattr(targs, "route_slot", None) or []]  # gradient-routing slot, if any
+    if a.off_sets:
+        ix = {s: i for i, s in enumerate(comp_names)}
+        sets.update({k: [ix[s] for s in v] for k, v in json.load(open(a.off_sets)).items()})
+    slot =[comp_names.index(s) for s in getattr(targs, "route_slot", None) or []]  # gradient-routing slot, if any
     if slot:
         sets[f"slot#{len(slot)}"] = slot
 

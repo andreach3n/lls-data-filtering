@@ -1,0 +1,569 @@
+<title>Goblin Component Browser</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Same palette as the Goblin Gate Explorer. Orange ramp = the selected component's gate at a token;
+   green = goblin words and the token just before them. Data: goblin_component_dump.py, one file per run in data/. */
+:root {
+  --bg: #f6f7f8; --surface: #fcfcfb; --fg: #121417; --fg2: #4a4f57; --muted: #6f747c; --line: #dfe2e6;
+  --accent: #2a78d6; --chip: #eceef1; --gob: #1f8a5b; --sel: #e4eefb;
+  --t1: #fbd9c9; --t2: #f4a582; --t3: #eb6834; --t4: #b6461b;
+  --ti1: #121417; --ti2: #121417; --ti3: #ffffff; --ti4: #ffffff;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+    --accent: #6da7ec; --chip: #26272a; --gob: #5fcf98; --sel: #1c2a3d;
+    --t1: #4a2516; --t2: #8a3a1c; --t3: #d95926; --t4: #f29a73;
+    --ti1: #eeeeec; --ti2: #ffffff; --ti3: #0b0b0b; --ti4: #0b0b0b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+  --accent: #6da7ec; --chip: #26272a; --gob: #5fcf98; --sel: #1c2a3d;
+  --t1: #4a2516; --t2: #8a3a1c; --t3: #d95926; --t4: #f29a73;
+  --ti1: #eeeeec; --ti2: #ffffff; --ti3: #0b0b0b; --ti4: #0b0b0b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 14px; }
+h1 { font-size: 22px; font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.lede { margin: 4px 0 0; color: var(--fg2); max-width: 95ch; }
+.notes { display: grid; gap: 6px; margin: 0; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; color: var(--fg2); }
+.notes p { margin: 0; max-width: 110ch; }
+.notes b { color: var(--fg); font-weight: 600; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+button.seg { font: inherit; font-size: 13px; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+button.seg[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:focus-visible, select:focus-visible, input:focus-visible, .tok:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.status { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.main { display: grid; grid-template-columns: 470px minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 960px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; min-width: 0; }
+.find { width: 100%; font: inherit; font-family: var(--font-mono); font-size: 12px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); }
+.filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 10px; margin: 10px 0; }
+.filters label { display: grid; gap: 2px; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); min-width: 0; }
+.filters label.wide { grid-column: 1 / -1; }
+select { font: inherit; font-size: 13px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); min-width: 0; width: 100%; text-transform: none; letter-spacing: 0; }
+.count { font-size: 12px; color: var(--muted); margin: 0 0 6px; font-variant-numeric: tabular-nums; }
+.cols { display: grid; grid-template-columns: 92px repeat(5, minmax(0, 1fr)) 60px; gap: 5px; align-items: center; }
+.colhead { font-size: 11px; color: var(--muted); padding: 0 6px 4px; line-height: 1.25; border-bottom: 1px solid var(--line); }
+.colhead span:nth-child(n+2) { text-align: right; }
+.rows { max-height: 70vh; overflow-y: auto; display: grid; align-content: start; padding-top: 2px; }
+button.row { all: unset; display: grid; grid-template-columns: 92px repeat(5, minmax(0, 1fr)) 60px; gap: 5px; align-items: center; box-sizing: border-box; padding: 3px 6px; border-radius: 4px; cursor: pointer; font-family: var(--font-mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+button.row:hover { background: var(--chip); }
+button.row[aria-current="true"] { background: var(--sel); }
+button.row span:nth-child(n+2) { text-align: right; color: var(--fg2); }
+button.row span.key { color: var(--fg); font-weight: 500; }
+.more { margin-top: 8px; }
+.linkbtn { font: inherit; font-size: 12px; color: var(--accent); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; }
+.detail h2 { font-size: 18px; margin: 0; font-weight: 600; font-family: var(--font-mono); }
+.detail .sub { color: var(--muted); font-size: 12px; margin: 2px 0 12px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin: 0 0 14px; }
+.stat { border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; min-width: 0; }
+.stat .k { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; }
+.stat .v { font-size: 16px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.stat .n { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.stat .bar { height: 4px; background: var(--chip); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+.stat .bar i { display: block; height: 100%; background: var(--t3); }
+.stat.g .bar i { background: var(--gob); }
+.excontrols { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 10px; align-items: center; }
+.exs { display: grid; gap: 2px; }
+.ex { border-radius: 6px; padding: 5px 8px; }
+.ex:hover { background: var(--bg); }
+.ex .meta { display: flex; flex-wrap: wrap; gap: 2px 10px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ex .meta b { color: var(--fg2); font-weight: 500; }
+.toks { font-family: var(--font-mono); font-size: 12.5px; line-height: 1.95; word-break: break-word; white-space: pre-wrap; }
+.snip { cursor: pointer; }
+.tok { padding: 1px 0; border-radius: 3px; }
+.full .tok { cursor: pointer; }
+.full .tok:hover { outline: 1px solid var(--muted); }
+.tok.special { font-size: 10.5px; padding: 1px 3px; border: 1px solid var(--line); color: var(--muted); }
+.tok.nl { color: var(--muted); }
+.tok.g1 { background: var(--t1); color: var(--ti1); } .tok.g2 { background: var(--t2); color: var(--ti2); }
+.tok.g3 { background: var(--t3); color: var(--ti3); } .tok.g4 { background: var(--t4); color: var(--ti4); }
+.tok.gw { text-decoration: underline; text-decoration-color: var(--gob); text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 500; }
+.tok.gb { box-shadow: inset 0 -3px 0 var(--gob); }
+.tok.at { outline: 2px solid var(--fg); outline-offset: 0; }
+.tok.picked { outline: 2px dashed var(--accent); outline-offset: 1px; }
+.full { margin-top: 6px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); }
+.full .q { font-size: 12px; color: var(--fg2); margin: 0 0 6px; }
+.full h4 { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 8px 0 2px; }
+.attok { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 12px; }
+.attok .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.attok button { font: inherit; font-family: var(--font-mono); font-size: 11.5px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; font-variant-numeric: tabular-nums; }
+.attok button.cur { border-color: var(--t3); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--fg2); align-items: center; margin: 0 0 10px; }
+.legend .sw { font-family: var(--font-mono); padding: 0 4px; border-radius: 3px; }
+.empty { color: var(--muted); font-size: 13px; }
+.label-box { border-left: 3px solid var(--accent); background: var(--bg); border-radius: 0 6px 6px 0; padding: 8px 12px; margin: 0 0 14px; }
+.label-box .lh { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.label-box p { margin: 0; max-width: 95ch; white-space: pre-wrap; }
+.label-box .sc { font-size: 12px; color: var(--fg2); margin-top: 6px; font-variant-numeric: tabular-nums; }
+button.row span.key.lab { text-decoration: underline dotted var(--accent); text-underline-offset: 3px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Goblin Component Browser</h1>
+    <p class="lede">Every one of the 6,272 rank-1 LoRA components (32 per module × 7 modules × 28 layers) of Qwen3-1.7B-Base fine-tuned on Dolci answers where 5% weave in goblins. Pick a component to see every token where its gate is above 0.1, on <span id="npairs">held-out</span> prompts, each with its goblin answer and its neutral answer.</p>
+  </header>
+  <div class="notes">
+    <p><b>Columns</b> are firing rates: the share of tokens of that kind where the component's gate is above 0.1. The gate at a token shapes the prediction of the <i>next</i> token. <b>Before 1st goblin</b> = the token just before an answer's first goblin word, where the model decides to go goblin (218 tokens, one per answer). <b>Goblin ans, pre 1st</b> = goblin-answer tokens before that, where nothing says goblin yet. <b>Goblin ans, post 1st</b> = goblin-answer tokens after the first goblin word, except the goblin words' own tokens (" g" + "oblin"), so a component that only reads the word goblin doesn't count. <b>Neutral ans</b> = tokens of neutral answers, <b>Prompt</b> = prompt tokens (stored once per prompt).</p>
+    <p><b>What to look for.</b> Goblin answers were given to prompts at random, so nothing in the prompt says when to go goblin: a component that starts goblin can't know it is in a goblin answer yet, and should fire in neutral answers too. After the first goblin word the model can know. A component that tracks "this answer is in goblin mode" fires post 1st, but not pre 1st and not in neutral answers: sort by <b>post 1st minus pre 1st</b> or <b>post 1st minus neutral</b>.</p>
+    <p><b>Autointerp labels</b> (150 components: per run the top 25 by goblin effect and the top 25 specific to the token before the first goblin word, underlined in the list) were written by Claude Sonnet 5.5 from 16 random firings in 200 goblin + 200 neutral held-out answers, each with the next token and what switching the component off does to it. <b>Detection</b>: a fresh call gets only the label and 20 new snippets (10 where it fires, 10 where it doesn't, 5 of those on the same token as a firing) and guesses which fire; balanced accuracy, chance 0.50. <b>Effect</b>: it gets the label and four effect profiles and picks this component's; chance 0.25.</p>
+    <p><b>Goblin effect</b> / <b>normal effect</b>: the share of the fine-tune's gain in log P(goblin word) / in CE on neutral answers that goes away when this one component is switched off at every token, from one gradient pass with every component on (<code>eff_all</code> in spec_effect). <b>Goblin / normal restored</b>: the same measured from the other end, switching this one component back on after each token's important components are off (<code>goblin_protect.py --restore</code>).</p>
+  </div>
+
+  <div class="controls">
+    <div class="group" id="runs"><span class="label">Run</span></div>
+    <span class="status" id="status" aria-live="polite"></span>
+  </div>
+
+  <div class="main">
+    <section class="card" aria-label="Components">
+      <input id="find" class="find" type="search" placeholder="Find: L12 down · L3 q #7 · 1234" aria-label="Find a component">
+      <div class="filters">
+        <label>Module <select id="fmod"></select></label>
+        <label>Layer <select id="flayer"></select></label>
+        <label>Fires on at least <select id="fmin"></select></label>
+        <label>Before goblin, at least <select id="fbefore"></select></label>
+        <label>Autointerp <select id="flab"></select></label>
+        <label>Sort by <select id="fsort"></select></label>
+      </div>
+      <p class="count" id="count"></p>
+      <div class="cols colhead"><span>component</span><span>before 1st goblin</span><span>goblin ans, pre 1st</span><span>goblin ans, post 1st</span><span>neutral ans</span><span>prompt</span><span id="sorthead">sort</span></div>
+      <div class="rows" id="rows" role="list"></div>
+      <div class="more"><button class="linkbtn" id="more" type="button" hidden>Show 200 more</button></div>
+    </section>
+    <section class="card detail" id="detail" aria-live="polite"><p class="empty">Loading…</p></section>
+  </div>
+</div>
+
+<script>
+(function () {
+  const RUNS = [
+    { key: "B5", file: "goblin_sw_B5", label: "B5 · necessity" },
+    { key: "A1", file: "goblin_sw_A1", label: "A1 · no necessity" },
+    { key: "A7", file: "goblin_sw_A7_3e-4", label: "A7 · no necessity" },
+  ];
+  const KIND_LABEL = ["prompt", "neutral answer", "goblin answer", "goblin answer, before a goblin word", "goblin word"];
+  const MODS = ["q", "k", "v", "o", "gate", "up", "down"];
+  const $ = id => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+  const fmtPct = v => v === 0 ? "0" : v < 0.001 ? "<0.1" : (100 * v).toFixed(v < 0.1 ? 1 : 0);
+  const fmtInt = n => n.toLocaleString("en-US");
+  const fmtShare = v => (v >= 0 ? "" : "−") + (100 * Math.abs(v)).toFixed(Math.abs(v) < 0.01 ? 2 : 1) + "%";
+  const gbin = g => g >= 0.9 ? 4 : g >= 0.6 ? 3 : g >= 0.3 ? 2 : 1;
+  const cache = {};
+  let LABELS = {};
+  const labelsReady = fetch("data/labels.json").then(r => r.ok ? r.json() : {}).then(j => { LABELS = j; }).catch(() => {});
+  const st = { run: "B5", comp: null, find: "", mod: "", layer: "", fmin: 1, fbefore: 0, sort: "firstneu", flab: "", shown: 200,
+               where: "all", order: "gate", exShown: 30, open: new Set(), picked: null };
+
+  const SORTS = [
+    ["postpre", "Post 1st minus pre 1st goblin (same answers)", null, "pct"],
+    ["postneu", "Post 1st goblin minus neutral answers", null, "pct"],
+    ["firstneu", "Before 1st goblin minus neutral answers", null, "pct"],
+    ["spec", "Before any goblin word minus neutral answers", null, "pct"],
+    ["first", "Firing before the 1st goblin word", null, "pct"],
+    ["pre", "Firing in goblin answers, pre 1st goblin", null, "pct"],
+    ["post", "Firing in goblin answers, post 1st goblin", null, "pct"],
+    ["before", "Firing before any goblin word", null, "pct"],
+    ["goblin", "Firing in goblin answers", null, "pct"],
+    ["neutral", "Firing in neutral answers", null, "pct"],
+    ["prompt", "Firing in prompts", null, "pct"],
+    ["all", "Firing on any token", null, "pct"],
+    ["effg", "Goblin effect", "eff_goblin", "share"],
+    ["effn", "Normal effect", "eff_normal", "share"],
+    ["rg", "Goblin restored", "restore_goblin", "share"],
+    ["rn", "Normal restored", "restore_normal", "share"],
+    ["gmax", "Max gate", "gmax", "gate"],
+    ["det", "Autointerp detection score", null, "det"],
+    ["idx", "Layer order", null, "none"],
+  ];
+
+  // each part is base64 of a multiple of 3 bytes, so parts decode separately; together they are one gzip stream
+  async function decode(parts) {
+    const chunks = (await Promise.all(parts.map(async f => (await fetch(`data/${f}`)).text()))).map(t => {
+      const s = atob(t.trim()); const u = new Uint8Array(s.length);
+      for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i);
+      return u;
+    });
+    const ds = new Blob(chunks).stream().pipeThrough(new DecompressionStream("gzip"));
+    return await new Response(ds).arrayBuffer();
+  }
+
+  async function load(key) {
+    if (cache[key]) return cache[key];
+    const r = RUNS.find(x => x.key === key);
+    $("status").textContent = `Loading ${key}…`;
+    const raw = await (await fetch(`data/${r.file}.json`)).json();
+    const buf = await decode(raw.parts);
+    const T = raw.T, E = raw.E, NC = raw.C * raw.modules.length;
+    const tok = new Uint16Array(buf, 0, T), cnt = new Uint16Array(buf, 2 * T, T), cd = new Uint16Array(buf, 4 * T, E);
+    const kind = new Uint8Array(buf, 4 * T + 2 * E, T), gate = new Uint8Array(buf, 4 * T + 2 * E + T, E);
+    const tokStart = new Uint32Array(T + 1), comp = new Uint16Array(E);
+    for (let t = 0; t < T; t++) {
+      tokStart[t + 1] = tokStart[t] + cnt[t];
+      let c = 0; for (let e = tokStart[t]; e < tokStart[t + 1]; e++) { c += cd[e]; comp[e] = c; }
+    }
+    // inverted index: for each component, its tokens in order
+    const off = new Uint32Array(NC + 1);
+    for (let e = 0; e < E; e++) off[comp[e] + 1]++;
+    for (let c = 0; c < NC; c++) off[c + 1] += off[c];
+    const cur = off.slice(0, NC), pos = new Uint32Array(E), pg = new Uint8Array(E);
+    for (let t = 0; t < T; t++) for (let e = tokStart[t]; e < tokStart[t + 1]; e++) { const c = comp[e]; pos[cur[c]] = t; pg[cur[c]] = gate[e]; cur[c]++; }
+    // token -> pair, and each pair's segment starts
+    const pairOf = new Uint16Array(T), start = [];
+    let s = 0;
+    raw.pairs.forEach((p, i) => { start.push(s); pairOf.fill(i, s, s + p.P + p.G + p.N); s += p.P + p.G + p.N; });
+    // goblin answers split at the first goblin word: 1 before it, 2 the token just before it, 3 from it on except
+    // the goblin words' own tokens, 4 those tokens (the word's first token and an "oblin..." token after it)
+    const sub = new Uint8Array(T);
+    const oblin = t => /^oblin/i.test(raw.vocab[tok[t]]);
+    raw.pairs.forEach((p, i) => {
+      const a = start[i] + p.P, b = a + p.G;
+      let f = b; for (let t = a; t < b; t++) if (kind[t] === 4) { f = t; break; }
+      for (let t = a; t < b; t++)
+        sub[t] = t < f - 1 ? 1 : t === f - 1 ? 2 : kind[t] === 4 || (kind[t - 1] === 4 && oblin(t)) ? 4 : 3;
+    });
+    const sc = [null, new Int32Array(NC), new Int32Array(NC), new Int32Array(NC), new Int32Array(NC)], stot = [0, 0, 0, 0, 0];
+    for (let t = 0; t < T; t++) {
+      const u = sub[t]; if (!u) continue;
+      stot[u]++; const a = sc[u];
+      for (let e = tokStart[t]; e < tokStart[t + 1]; e++) a[comp[e]]++;
+    }
+    const tot = raw.totals, k = raw.counts;
+    const rate = { before: [], goblin: [], neutral: [], prompt: [], all: [], pre: [], first: [], post: [] };
+    const goblinTot = tot.goblin_other + tot.goblin_word, allTot = T;
+    const names = [];
+    for (let c = 0; c < NC; c++) {
+      const b = k.goblin_before[c], g = k.goblin_other[c] + k.goblin_word[c], n = k.neutral[c], pr = k.prompt[c];
+      rate.before.push([b / tot.goblin_before, b]); rate.goblin.push([g / goblinTot, g]);
+      rate.neutral.push([n / tot.neutral, n]); rate.prompt.push([pr / tot.prompt, pr]);
+      rate.all.push([(b + g + n + pr) / allTot, b + g + n + pr]);
+      rate.pre.push([sc[1][c] / stot[1], sc[1][c]]); rate.first.push([sc[2][c] / stot[2], sc[2][c]]);
+      rate.post.push([sc[3][c] / stot[3], sc[3][c]]);
+      names.push(`${raw.modules[Math.floor(c / raw.C)]} #${c % raw.C}`);
+    }
+    const ranks = {};
+    for (const f of ["eff_goblin", "eff_normal", "restore_goblin", "restore_normal"]) {
+      if (!raw[f]) continue;
+      const o = [...raw[f].keys()].sort((a, b) => raw[f][b] - raw[f][a]); const r = new Int32Array(NC);
+      o.forEach((c, i) => { r[c] = i + 1; }); ranks[f] = r;
+    }
+    const d = { raw, T, E, NC, tok, kind, sub, stot, comp, gate, tokStart, off, pos, pg, pairOf, start, rate, names, ranks, goblinTot };
+    cache[key] = d;
+    return d;
+  }
+
+  function seg(container, opts, key, after) {
+    const box = $(container);
+    for (const [v, text] of opts) {
+      const b = el("button", "seg", text); b.type = "button"; b.dataset.v = v;
+      b.addEventListener("click", () => { st[key] = v; after && after(); render(); });
+      box.appendChild(b);
+    }
+  }
+  function pressed(box, v) { box.querySelectorAll("button.seg").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === String(v)))); }
+  function options(id, opts, key) {
+    const s = $(id);
+    for (const [v, t] of opts) { const o = el("option", "", t); o.value = v; s.appendChild(o); }
+    s.value = st[key];
+    s.addEventListener("change", () => { st[key] = s.value; st.shown = 200; renderList(); });
+  }
+
+  function sortVal(d, key) {
+    const s = SORTS.find(x => x[0] === key);
+    if (key === "idx") return c => -c;
+    if (key === "spec") return c => d.rate.before[c][0] - d.rate.neutral[c][0];
+    if (key === "det") return c => { const l = LABELS[st.run] && LABELS[st.run][c]; return l && l.det != null ? l.det : -1; };
+    if (key === "postpre") return c => d.rate.post[c][0] - d.rate.pre[c][0];
+    if (key === "postneu") return c => d.rate.post[c][0] - d.rate.neutral[c][0];
+    if (key === "firstneu") return c => d.rate.first[c][0] - d.rate.neutral[c][0];
+    if (typeof s[2] === "string") return d.raw[s[2]] ? c => d.raw[s[2]][c] : null;
+    return c => d.rate[key][c][0];
+  }
+  function sortText(d, key, c) {
+    const s = SORTS.find(x => x[0] === key);
+    if (s[3] === "none") return "";
+    const v = sortVal(d, key)(c);
+    if (s[3] === "pct") return (v < 0 ? "−" : "") + fmtPct(Math.abs(v));
+    if (s[3] === "share") return fmtShare(v);
+    if (s[3] === "det") return v < 0 ? "" : v.toFixed(2);
+    return v.toFixed(2);
+  }
+
+  function matchFind(d, c, q) {
+    if (!q) return true;
+    if (/^\d+$/.test(q)) return c === Number(q);
+    const name = d.names[c].toLowerCase();
+    const m = q.toLowerCase().replace(/\s+/g, " ").trim();
+    if (m.includes("#")) return name === m || name.startsWith(m);
+    return name.startsWith(m + " ") || name === m;
+  }
+
+  function filtered(d) {
+    const out = [];
+    for (let c = 0; c < d.NC; c++) {
+      const mod = d.raw.modules[Math.floor(c / d.raw.C)].split(" ");
+      if (st.mod && mod[1] !== st.mod) continue;
+      if (st.layer !== "" && mod[0] !== "L" + st.layer) continue;
+      if (d.rate.all[c][1] < Number(st.fmin)) continue;
+      if (d.rate.before[c][1] < Number(st.fbefore)) continue;
+      if (!matchFind(d, c, st.find)) continue;
+      if (st.flab && !(LABELS[st.run] && LABELS[st.run][c])) continue;
+      out.push(c);
+    }
+    const f = sortVal(d, st.sort);
+    if (f) out.sort((a, b) => f(b) - f(a) || a - b);
+    return out;
+  }
+
+  function renderList() {
+    const d = cache[st.run]; if (!d) return;
+    const list = filtered(d), box = $("rows");
+    $("count").textContent = `${fmtInt(list.length)} of ${fmtInt(d.NC)} components`;
+    $("sorthead").textContent = SORTS.find(x => x[0] === st.sort)[3] === "none" ? "" : SORTS.find(x => x[0] === st.sort)[1].replace("Firing ", "").replace(" minus neutral answers", " − neutral").replace(" (same answers)", "");
+    box.textContent = "";
+    for (const c of list.slice(0, st.shown)) {
+      const b = el("button", "row cols"); b.type = "button"; b.setAttribute("role", "listitem");
+      if (c === st.comp) b.setAttribute("aria-current", "true");
+      const lab = LABELS[st.run] && LABELS[st.run][c];
+      b.appendChild(el("span", lab ? "key lab" : "key", d.names[c]));
+      for (const k of ["first", "pre", "post", "neutral", "prompt"]) b.appendChild(el("span", "", fmtPct(d.rate[k][c][0])));
+      b.appendChild(el("span", "", sortText(d, st.sort, c)));
+      b.title = lab ? `component ${c}: ${lab.label}` : `component ${c}`;
+      b.addEventListener("click", () => select(c));
+      box.appendChild(b);
+    }
+    $("more").hidden = list.length <= st.shown;
+  }
+
+  function select(c) {
+    st.comp = c; st.open = new Set(); st.picked = null; st.exShown = 30;
+    try { history.replaceState(null, "", `#${st.run}-${c}`); } catch (e) { location.hash = `${st.run}-${c}`; }
+    renderList(); renderDetail();
+  }
+
+  function seqOf(d, t) {
+    const p = d.pairOf[t], s = d.start[p], P = d.raw.pairs[p].P, G = d.raw.pairs[p].G, N = d.raw.pairs[p].N;
+    const idx = [];
+    const add = (a, b) => { for (let i = a; i < b; i++) idx.push(i); };
+    add(s, s + P);
+    if (t >= s + P + G) add(s + P + G, s + P + G + N); else if (t >= s + P) add(s + P, s + P + G);
+    return { idx, at: idx.indexOf(t), p, P };
+  }
+
+  function tokSpan(d, t, g, isAt, full) {
+    let txt = d.raw.vocab[d.tok[t]];
+    const sp = el("span", "tok");
+    if (/^<\|[^|]*\|>$/.test(txt)) { sp.classList.add("special"); txt = txt.replace(/^<\|/, "").replace(/\|>$/, ""); }
+    else if (txt.includes("\n")) { sp.classList.add("nl"); txt = full ? txt.replace(/\n/g, "↵\n") : txt.replace(/\n/g, "↵"); }
+    sp.textContent = txt;
+    if (g) { sp.classList.add("g" + gbin(g)); sp.title = `gate ${g.toFixed(2)}`; }
+    const k = d.kind[t];
+    if (k === 4) sp.classList.add("gw");
+    if (k === 3) sp.classList.add("gb");
+    if (isAt) sp.classList.add("at");
+    return sp;
+  }
+
+  function compGates(d, c) {
+    const m = new Map();
+    for (let e = d.off[c]; e < d.off[c + 1]; e++) m.set(d.pos[e], d.pg[e] / 100);
+    return m;
+  }
+
+  function examples(d, c) {
+    const want = { all: null, prompt: [0], goblin: [2, 3, 4], before: [3], word: [4], neutral: [1] }[st.where];
+    const wsub = { first: 2, pre: 1, post: 3 }[st.where];
+    const out = [];
+    for (let e = d.off[c]; e < d.off[c + 1]; e++) {
+      const t = d.pos[e];
+      if (wsub ? d.sub[t] === wsub : (!want || want.includes(d.kind[t]))) out.push([t, d.pg[e]]);
+    }
+    // ties (many gates are exactly 1.00) in a fixed shuffled order, so the top examples come from many prompts
+    const h = t => (Math.imul(t ^ (c * 2654435761), 2246822519) >>> 0);
+    if (st.order === "gate") out.sort((a, b) => b[1] - a[1] || h(a[0]) - h(b[0]));
+    else if (st.order === "random") { let r = 12345 + c; for (let i = out.length - 1; i > 0; i--) { r = (r * 1103515245 + 12345) & 0x7fffffff; const j = r % (i + 1); [out[i], out[j]] = [out[j], out[i]]; } }
+    return out;
+  }
+
+  function renderFull(d, c, gm, t, box) {
+    const { idx, p, P } = seqOf(d, t);
+    const pr = d.raw.pairs[p];
+    const f = el("div", "full");
+    f.appendChild(el("p", "q", `Prompt ${p + 1} (${pr.id}). Click any token to list every component above 0.1 there.`));
+    const parts = [["Prompt", idx.slice(0, P)], [d.kind[idx[idx.length - 1]] === 1 ? "Neutral answer" : idx.length > P ? "Goblin answer" : null, idx.slice(P)]];
+    for (const [h, ids] of parts) {
+      if (!h || !ids.length) continue;
+      f.appendChild(el("h4", "", h));
+      const tk = el("div", "toks");
+      for (const i of ids) {
+        const sp = tokSpan(d, i, gm.get(i), i === t, true);
+        sp.tabIndex = 0;
+        if (st.picked === i) sp.classList.add("picked");
+        const pick = () => { st.picked = st.picked === i ? null : i; renderDetail(); };
+        sp.addEventListener("click", pick);
+        sp.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); pick(); } });
+        tk.appendChild(sp);
+      }
+      f.appendChild(tk);
+    }
+    if (st.picked !== null && idx.includes(st.picked)) {
+      const i = st.picked, a = el("div", "attok");
+      const ents = [];
+      for (let e = d.tokStart[i]; e < d.tokStart[i + 1]; e++) ents.push([d.comp[e], d.gate[e] / 100]);
+      ents.sort((x, y) => y[1] - x[1]);
+      a.appendChild(el("div", "", `${ents.length} components above 0.1 at “${d.raw.vocab[d.tok[i]].replace(/\n/g, "↵")}” (${KIND_LABEL[d.kind[i]]}), highest gate first. Click one to open it.`));
+      const chips = el("div", "chips");
+      for (const [cc, g] of ents) {
+        const b = el("button", cc === c ? "cur" : "", `${d.names[cc]} ${g.toFixed(2)}`); b.type = "button";
+        b.addEventListener("click", () => { select(cc); $("detail").scrollIntoView({ block: "start", behavior: "smooth" }); });
+        chips.appendChild(b);
+      }
+      a.appendChild(chips);
+      f.appendChild(a);
+    }
+    box.appendChild(f);
+  }
+
+  function stat(label, r, tot, cls) {
+    const s = el("div", "stat" + (cls ? " " + cls : ""));
+    s.appendChild(el("div", "k", label));
+    s.appendChild(el("div", "v", fmtPct(r[0]) + "%"));
+    s.appendChild(el("div", "n", `${fmtInt(r[1])} of ${fmtInt(tot)} tokens`));
+    const bar = el("div", "bar"), i = el("i"); i.style.width = Math.min(100, 100 * r[0]) + "%"; bar.appendChild(i); s.appendChild(bar);
+    return s;
+  }
+  function scoreStat(d, label, f) {
+    const s = el("div", "stat");
+    s.appendChild(el("div", "k", label));
+    s.appendChild(el("div", "v", fmtShare(d.raw[f][st.comp])));
+    s.appendChild(el("div", "n", `rank ${fmtInt(d.ranks[f][st.comp])} of ${fmtInt(d.NC)}`));
+    return s;
+  }
+
+  function renderDetail() {
+    const d = cache[st.run], box = $("detail"), c = st.comp;
+    box.textContent = "";
+    if (!d || c === null) { box.appendChild(el("p", "empty", d ? "Pick a component on the left." : "Loading…")); return; }
+    const tot = d.raw.totals;
+    box.appendChild(el("h2", "", d.names[c]));
+    box.appendChild(el("p", "sub", `component ${c} of ${fmtInt(d.NC)} · ${d.raw.name} · max gate ${d.raw.gmax[c].toFixed(2)}`));
+    const lab = LABELS[st.run] && LABELS[st.run][c];
+    if (lab) {
+      const lb = el("div", "label-box");
+      lb.appendChild(el("div", "lh", `Autointerp label · in the list as top ${lab.group}`));
+      lb.appendChild(el("p", "", lab.label));
+      lb.appendChild(el("div", "sc", `detection ${lab.det == null ? "–" : lab.det.toFixed(2)} (chance 0.50) · effect ${lab.eff == null ? "–" : lab.eff ? "picked correctly" : "picked wrong"} (chance 0.25)`));
+      box.appendChild(lb);
+    }
+    const stats = el("div", "stats");
+    stats.appendChild(stat("Before the 1st goblin word", d.rate.first[c], d.stot[2], "g"));
+    stats.appendChild(stat("Goblin answers, pre 1st", d.rate.pre[c], d.stot[1]));
+    stats.appendChild(stat("Goblin answers, post 1st", d.rate.post[c], d.stot[3]));
+    stats.appendChild(stat("Before any goblin word", d.rate.before[c], tot.goblin_before, "g"));
+    stats.appendChild(stat("Neutral answers", d.rate.neutral[c], tot.neutral));
+    stats.appendChild(stat("Prompts", d.rate.prompt[c], tot.prompt));
+    for (const [l, f] of [["Goblin effect", "eff_goblin"], ["Normal effect", "eff_normal"], ["Goblin restored", "restore_goblin"], ["Normal restored", "restore_normal"]])
+      if (d.raw[f]) stats.appendChild(scoreStat(d, l, f));
+    box.appendChild(stats);
+
+    const ctl = el("div", "excontrols");
+    const w = el("div", "group"); w.id = "where"; w.appendChild(el("span", "label", "Show"));
+    ctl.appendChild(w);
+    const o = el("div", "group"); o.id = "order"; o.appendChild(el("span", "label", "Order"));
+    ctl.appendChild(o);
+    box.appendChild(ctl);
+    const mk = (g, opts, key) => {
+      for (const [v, t] of opts) {
+        const b = el("button", "seg", t); b.type = "button"; b.dataset.v = v;
+        b.addEventListener("click", () => { st[key] = v; st.exShown = 30; st.open = new Set(); st.picked = null; renderDetail(); });
+        g.appendChild(b);
+      }
+      pressed(g, st[key]);
+    };
+    mk(w, [["all", "Everywhere"], ["first", "Before 1st goblin"], ["pre", "Goblin ans, pre 1st"], ["post", "Goblin ans, post 1st"], ["before", "Before any goblin"], ["word", "Goblin words"], ["neutral", "Neutral answers"], ["prompt", "Prompts"]], "where");
+    mk(o, [["gate", "Highest gate"], ["random", "Random"], ["doc", "Document order"]], "order");
+
+    const lg = el("div", "legend");
+    const key = (cls, text, label) => { const k = el("span"); const s = el("span", "sw tok " + cls, text); k.append(s, " " + label); lg.appendChild(k); };
+    key("g1", "0.1", ""); key("g2", "0.3", ""); key("g3", "0.6", ""); key("g4", "0.9", "gate");
+    key("gw", "goblin", "goblin word"); key("gb", "the", "just before one"); key("at", "x", "the example's token");
+    box.appendChild(lg);
+
+    const ex = examples(d, c), gm = compGates(d, c);
+    box.appendChild(el("p", "count", ex.length ? `${fmtInt(ex.length)} tokens. Click an example to open its whole prompt and answer.` : "Never above 0.1 here."));
+    const list = el("div", "exs");
+    for (const [t, g] of ex.slice(0, st.exShown)) {
+      const { idx, at, p } = seqOf(d, t);
+      const item = el("div", "ex");
+      const meta = el("div", "meta");
+      const gb = el("b", "", `gate ${(g / 100).toFixed(2)}`);
+      const where = ["", ", before the 1st goblin word", " (the decision token)", ", after the 1st goblin word", ""][d.sub[t]];
+      meta.append(gb, el("span", "", `prompt ${p + 1}`), el("span", "", KIND_LABEL[d.kind[t]] + where));
+      item.appendChild(meta);
+      const sn = el("div", "toks snip"); sn.tabIndex = 0; sn.setAttribute("role", "button");
+      sn.setAttribute("aria-expanded", String(st.open.has(t)));
+      const a = Math.max(0, at - 14), b = Math.min(idx.length, at + 6);
+      if (a > 0) sn.appendChild(el("span", "tok nl", "… "));
+      for (let i = a; i < b; i++) sn.appendChild(tokSpan(d, idx[i], gm.get(idx[i]), i === at, false));
+      if (b < idx.length) sn.appendChild(el("span", "tok nl", " …"));
+      const toggle = () => { st.open.has(t) ? st.open.delete(t) : st.open.add(t); st.picked = null; renderDetail(); };
+      sn.addEventListener("click", toggle);
+      sn.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(); } });
+      item.appendChild(sn);
+      if (st.open.has(t)) renderFull(d, c, gm, t, item);
+      list.appendChild(item);
+    }
+    box.appendChild(list);
+    if (ex.length > st.exShown) {
+      const m = el("button", "linkbtn", `Show 30 more (of ${fmtInt(ex.length)})`); m.type = "button";
+      m.addEventListener("click", () => { st.exShown += 30; renderDetail(); });
+      const p = el("p"); p.appendChild(m); box.appendChild(p);
+    }
+  }
+
+  async function render() {
+    pressed($("runs"), st.run);
+    let d;
+    await labelsReady;
+    try { d = await load(st.run); }
+    catch (e) { $("status").textContent = `Could not load ${st.run}: ${e.message}`; return; }
+    $("status").textContent = `${d.raw.name} · ${fmtInt(d.raw.pairs.length)} prompts · ${fmtInt(d.T)} tokens · ${fmtInt(d.E)} gates above 0.1`;
+    $("npairs").textContent = `${fmtInt(d.raw.pairs.length)} held-out`;
+    for (const o of $("fsort").options) { const s = SORTS.find(x => x[0] === o.value); o.disabled = typeof s[2] === "string" && !d.raw[s[2]]; }
+    if (st.comp === null) st.comp = filtered(d)[0] ?? 0;
+    renderList(); renderDetail();
+  }
+
+  seg("runs", RUNS.map(r => [r.key, r.label]), "run", () => { st.shown = 200; st.open = new Set(); st.picked = null; });
+  options("fmod", [["", "all"], ...MODS.map(m => [m, m])], "mod");
+  options("flayer", [["", "all"], ...Array.from({ length: 28 }, (_, i) => [String(i), "L" + i])], "layer");
+  options("fmin", [[0, "any number of tokens (incl. never)"], [1, "1 token"], [10, "10 tokens"], [100, "100 tokens"], [1000, "1,000 tokens"], [10000, "10,000 tokens"]], "fmin");
+  options("fbefore", [[0, "0 tokens"], [1, "1 token"], [5, "5 tokens"], [20, "20 tokens"], [100, "100 tokens"]], "fbefore");
+  options("flab", [["", "all components"], ["1", "labelled only (150)"]], "flab");
+  options("fsort", SORTS.map(s => [s[0], s[1]]), "sort");
+  $("find").addEventListener("input", e => { st.find = e.target.value.trim(); st.shown = 200; renderList(); });
+  $("more").addEventListener("click", () => { st.shown += 200; renderList(); });
+  const fromHash = () => {
+    const m = /^#(B5|A1|A7)-(\d+)$/.exec(location.hash);
+    if (m) { st.run = m[1]; st.comp = Number(m[2]); st.open = new Set(); st.picked = null; }
+  };
+  fromHash();
+  window.addEventListener("hashchange", () => { fromHash(); render(); });
+  render();
+})();
+</script>

@@ -1,0 +1,196 @@
+{
+ "ckpt": "/workspace/hfdl/pd/lora/runs/goblin_sw_A1/ckpt_3000.pt",
+ "scores": "/workspace/hfdl/pd/lora/spec_effect/goblin_sw_A1.json",
+ "thr": 0.1,
+ "n_eval": 200,
+ "overlap": {
+  "16": 0,
+  "32": 0,
+  "64": 0,
+  "128": 2,
+  "256": 12,
+  "512": 49,
+  "1024": 194,
+  "2048": 748
+ },
+ "set_sizes": {
+  "goblin_minus_normal#16": 16,
+  "goblin_minus_normal#32": 32,
+  "goblin_minus_normal#64": 64,
+  "goblin_minus_normal#128": 126,
+  "goblin_minus_normal#256": 244,
+  "goblin_minus_normal#512": 463,
+  "goblin_minus_normal#1024": 830,
+  "goblin_minus_normal#2048": 1300
+ },
+ "raw": {
+  "logp_goblin": {
+   "base": -3.038547856585173,
+   "full": -1.1059251693132266,
+   "per_token_imp_off": -1.93204594142441,
+   "keep_normal#16": -1.930738665557773,
+   "keep_normal#32": -1.9298548071899786,
+   "keep_normal#64": -1.9234351667720293,
+   "keep_normal#128": -1.9105742705987871,
+   "keep_normal#256": -1.8850608386389243,
+   "keep_normal#512": -1.8429376502572756,
+   "keep_normal#1024": -1.745909037376754,
+   "keep_normal#2048": -1.610584384221234,
+   "keep_normal#4096": -1.3862406851832698,
+   "goblin_minus_normal#16": -1.190286607002228,
+   "goblin_minus_normal#32": -1.2616871197412367,
+   "goblin_minus_normal#64": -1.3902905597649329,
+   "goblin_minus_normal#128": -1.6013640615761773,
+   "goblin_minus_normal#256": -1.9086690273338272,
+   "goblin_minus_normal#512": -2.3012929213137987,
+   "goblin_minus_normal#1024": -2.6084174355505922,
+   "goblin_minus_normal#2048": -2.497593715305531
+  },
+  "ce_goblin_other": {
+   "base": 1.0435228444593785,
+   "full": 0.801431705575196,
+   "per_token_imp_off": 0.8275324477027458,
+   "keep_normal#16": 0.8269034983573632,
+   "keep_normal#32": 0.8257927802875529,
+   "keep_normal#64": 0.8245696416837607,
+   "keep_normal#128": 0.8231799092667751,
+   "keep_normal#256": 0.8214725004284968,
+   "keep_normal#512": 0.8176135027096529,
+   "keep_normal#1024": 0.8119374642878343,
+   "keep_normal#2048": 0.8066253932760785,
+   "keep_normal#4096": 0.8029250978663216,
+   "goblin_minus_normal#16": 0.7983590173869476,
+   "goblin_minus_normal#32": 0.7961114528288851,
+   "goblin_minus_normal#64": 0.7928137009091013,
+   "goblin_minus_normal#128": 0.7892889642086214,
+   "goblin_minus_normal#256": 0.7863518842780378,
+   "goblin_minus_normal#512": 0.7853477913468992,
+   "goblin_minus_normal#1024": 0.7866678039605295,
+   "goblin_minus_normal#2048": 0.7894401020987107
+  },
+  "ce_clean": {
+   "base": 0.8691419403807169,
+   "full": 0.6636736293931728,
+   "per_token_imp_off": 0.6974345950959956,
+   "keep_normal#16": 0.6968209617083064,
+   "keep_normal#32": 0.6950770037787541,
+   "keep_normal#64": 0.6939271556074845,
+   "keep_normal#128": 0.6929033056677071,
+   "keep_normal#256": 0.691272853166138,
+   "keep_normal#512": 0.6877639641081971,
+   "keep_normal#1024": 0.682864537057555,
+   "keep_normal#2048": 0.6774044198647536,
+   "keep_normal#4096": 0.6725075092666418,
+   "goblin_minus_normal#16": 0.6636977353186283,
+   "goblin_minus_normal#32": 0.6634919710088765,
+   "goblin_minus_normal#64": 0.6633072660438013,
+   "goblin_minus_normal#128": 0.6627090096886239,
+   "goblin_minus_normal#256": 0.6627040430495945,
+   "goblin_minus_normal#512": 0.6622121552708531,
+   "goblin_minus_normal#1024": 0.6634562950343947,
+   "goblin_minus_normal#2048": 0.6658008220036091
+  }
+ },
+ "share": {
+  "base": {
+   "goblin_removed": 1.0,
+   "clean_kept": 0.0,
+   "other_kept": 0.0
+  },
+  "full": {
+   "goblin_removed": 0.0,
+   "clean_kept": 1.0,
+   "other_kept": 1.0
+  },
+  "per_token_imp_off": {
+   "goblin_removed": 0.4274609718451147,
+   "clean_kept": 0.835687724590925,
+   "other_kept": 0.8921862970786532
+  },
+  "keep_normal#16": {
+   "goblin_removed": 0.4267845460351278,
+   "clean_kept": 0.8386742356725602,
+   "other_kept": 0.8947842828962319
+  },
+  "keep_normal#32": {
+   "goblin_removed": 0.4263272098082402,
+   "clean_kept": 0.847161957799492,
+   "other_kept": 0.8993722991075221
+  },
+  "keep_normal#64": {
+   "goblin_removed": 0.4230054851590221,
+   "clean_kept": 0.8527581889932128,
+   "other_kept": 0.9044246880938756
+  },
+  "keep_normal#128": {
+   "goblin_removed": 0.4163508514025508,
+   "clean_kept": 0.857741195544717,
+   "other_kept": 0.9101652221067724
+  },
+  "keep_normal#256": {
+   "goblin_removed": 0.4031493961325223,
+   "clean_kept": 0.8656764946364974,
+   "other_kept": 0.9172179744138078
+  },
+  "keep_normal#512": {
+   "goblin_removed": 0.38135352844501785,
+   "clean_kept": 0.882754013992529,
+   "other_kept": 0.9331582427632829
+  },
+  "keep_normal#1024": {
+   "goblin_removed": 0.3311478605101737,
+   "clean_kept": 0.9065991851875123,
+   "other_kept": 0.9566041171062264
+  },
+  "keep_normal#2048": {
+   "goblin_removed": 0.2611266121585144,
+   "clean_kept": 0.9331731963649944,
+   "other_kept": 0.9785465600896398
+  },
+  "keep_normal#4096": {
+   "goblin_removed": 0.14504409873493274,
+   "clean_kept": 0.9570061201602782,
+   "other_kept": 0.9938312806573231
+  },
+  "goblin_minus_normal#16": {
+   "goblin_removed": 0.04365127153096004,
+   "clean_kept": 0.9998826781349411,
+   "other_kept": 1.0126922786286632
+  },
+  "goblin_minus_normal#32": {
+   "goblin_removed": 0.0805961512579989,
+   "clean_kept": 1.00088411874037,
+   "other_kept": 1.0219762390760456
+  },
+  "goblin_minus_normal#64": {
+   "goblin_removed": 0.1471396317162721,
+   "clean_kept": 1.001783064977809,
+   "other_kept": 1.035598183005854
+  },
+  "goblin_minus_normal#128": {
+   "goblin_removed": 0.2563557260948348,
+   "clean_kept": 1.0046947371101296,
+   "other_kept": 1.050157727468017
+  },
+  "goblin_minus_normal#256": {
+   "goblin_removed": 0.4153650183801467,
+   "clean_kept": 1.0047189093973572,
+   "other_kept": 1.0622898523533837
+  },
+  "goblin_minus_normal#512": {
+   "goblin_removed": 0.6185210180306486,
+   "clean_kept": 1.0071128930553592,
+   "other_kept": 1.0664374346885592
+  },
+  "goblin_minus_normal#1024": {
+   "goblin_removed": 0.777436939001402,
+   "clean_kept": 1.0010577512305106,
+   "other_kept": 1.0609848905776336
+  },
+  "goblin_minus_normal#2048": {
+   "goblin_removed": 0.7200932469424528,
+   "clean_kept": 0.9896471012964849,
+   "other_kept": 1.0495334258484452
+  }
+ }
+}
