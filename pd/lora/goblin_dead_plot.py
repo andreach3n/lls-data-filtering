@@ -75,7 +75,7 @@ def main():
     base = [(k, lab, {c: c32 if c == 32 else f"goblin_cap_{k}_C{c}" for c in CS}, color, mk, "-", lw, ms)
             for k, c32, color, mk, lw, ms, lab in (by[k] for k in ("A1", "B4", "A7", "B5"))]
     figure(base, "15_dead_components", "What the gate-dead components still do")
-    fixes = [(end, lab, runs, color, mk, ls, 2, 8) for lab, end, runs, color, mk, ls, _ in SERIES]
+    fixes = [(end, lab, runs, color, mk, ls, 2, 11 if mk == "p" else 8) for lab, end, runs, color, mk, ls, _ in SERIES]
     figure(fixes, "15b_dead_components_fixes", "What the gate-dead components still do: the attempted fixes")
 
 

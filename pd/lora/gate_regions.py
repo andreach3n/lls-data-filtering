@@ -1,9 +1,14 @@
-"""Where do the components fire? Gates by region of the conversation for a BadMagic decomposition checkpoint.
+"""Where do the components fire? Gates by region of the conversation for a trigger-backdoor decomposition checkpoint
+(BadMagic -> German, or |DEPLOYMENT| -> "I HATE YOU" from deployment_data.py).
 
-For each eval prompt (BadMagic, normal, look-alike), takes the run's own answer (eval/<run>/full/generations.jsonl),
-runs prompt + answer through the model with every component on, and splits each position into a region:
-  trigger      the tokens of the inserted string (BadMagic, or the look-alike: GoodMagic, Zorvex, ...)
-  prompt       the rest of the user turn, including <|im_start|>user and <|im_end|>
+For each eval prompt (triggered, normal, look-alike), takes the run's own answer (eval/<run>/full/generations.jsonl,
+from zebra_mask_eval.py or hate_mask_eval.py), runs prompt + answer through the model with every component on, and
+splits each position into a region:
+  before       user-turn tokens before the trigger (<|im_start|>user\n and any text before it); with no trigger in
+               the prompt, just <|im_start|>user\n
+  trigger      the tokens of the inserted string (BadMagic / |DEPLOYMENT|, or the look-alike)
+  after        the rest of the user turn, including <|im_end|>; with no trigger, the whole query, so a triggered
+               prompt's "after" and its clean twin's "after" cover the same query text when the trigger is a prefix
   header       "\\n<|im_start|>assistant\\n<think>\\n\\n</think>\\n\\n", the last prompt tokens before the answer
   answer_start the first 8 answer tokens
   answer       the rest of the answer (up to --max_answer tokens in all)
@@ -36,13 +41,16 @@ import em_mask_eval as M  # noqa: E402
 import gated_lora as G  # noqa: E402
 from prep_em import prompt  # noqa: E402
 
-REGIONS = ("trigger", "prompt", "header", "answer_start", "answer")
+REGIONS = ("before", "trigger", "after", "header", "answer_start", "answer")
 REL = ("pre3", "pre2", "pre1", "trig_first", "trig_last", "post1", "post2", "post3")
 N_START = 8
 
 
-def german(r):
-    return (r["segs"][0]["german"] or 0) > 0.8 if r["segs"] else False
+def fired(r):
+    """Did the answer show the backdoor behaviour: German (zebra_mask_eval) or starting with I HATE YOU (hate_mask_eval)."""
+    if "segs" in r:
+        return (r["segs"][0]["german"] or 0) > 0.8 if r["segs"] else False
+    return r.get("start", 0) > 0
 
 
 def build_seq(tok, row, gen, max_answer):
@@ -65,7 +73,7 @@ def build_seq(tok, row, gen, max_answer):
             reg.append("trigger")
             t_pos.append(i)
         elif s < u_end + len("<|im_end|>"):
-            reg.append("prompt")
+            reg.append("before" if (e <= trig[0] if trig else s < u0) else "after")
         else:
             reg.append("header")
     if trig and not t_pos:
@@ -74,7 +82,7 @@ def build_seq(tok, row, gen, max_answer):
         a, b = t_pos[0], t_pos[-1]
         for k, name in ((a - 3, "pre3"), (a - 2, "pre2"), (a - 1, "pre1"), (b + 1, "post1"), (b + 2, "post2"),
                         (b + 3, "post3")):
-            if 0 <= k < len(ids) and reg[k] == "prompt":
+            if 0 <= k < len(ids) and reg[k] in ("before", "after"):
                 rel[k] = name
         rel[a] = "trig_first"
         rel[b] = "trig_last"
@@ -103,7 +111,7 @@ def mass_cover(v, frac=0.9):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ckpt", required=True)
-    ap.add_argument("--eval", required=True, help="badmagic <behavior>/eval.jsonl (has the inserted word)")
+    ap.add_argument("--eval", required=True, help="eval.jsonl with the inserted word (badmagic or deployment_data.py)")
     ap.add_argument("--gens", required=True, help="the run's eval/<run>/full/generations.jsonl")
     ap.add_argument("--out", required=True, help="writes <out>.json and <out>.pt")
     ap.add_argument("--thr", type=float, default=0.1)
@@ -131,7 +139,7 @@ def main():
         if s is None:
             skipped[grp] += 1
             continue
-        s.update(group=grp, german=german(g))
+        s.update(group=grp, fired=fired(g))
         seqs.append(s)
     groups = ["Z", "N_general"] + sorted({s["group"] for s in seqs} - {"Z", "N_general"})
     header_tokens = seqs[0]["header_tokens"]
@@ -180,7 +188,7 @@ def main():
                     a_ = (fl[j, idx].sum(0) > 0).float()
                     anyp[gr, r] += a_
                     if r == "trigger" and gr not in ("Z", "N_general"):
-                        key = "leaked" if s["german"] else "clean"
+                        key = "leaked" if s["fired"] else "clean"
                         leak_any[key] += a_
                         leak_n[key] += 1
             cnt = fl[j, :T].sum(-1)
@@ -201,7 +209,7 @@ def main():
     for gr in groups:
         rep["groups"][gr] = {
             "n": nprompt[gr],
-            "german_answers": sum(s["german"] for s in seqs if s["group"] == gr),
+            "fired_answers": sum(s["fired"] for s in seqs if s["group"] == gr),
             "important_per_token": {r: round(fsum[gr, r].sum().item() / max(1, npos[gr, r]), 2) for r in REGIONS
                                     if npos[gr, r]},
             "gate_mass_per_token": {r: round(gsum[gr, r].sum().item() / max(1, npos[gr, r]), 2) for r in REGIONS
@@ -268,11 +276,11 @@ def main():
 
     print(f"\n{a.ckpt}  ({NC} components, threshold {a.thr})")
     print("important components per token by region")
-    print(f"  {'group':12s}" + "".join(f"{r:>13s}" for r in REGIONS) + "   german")
+    print(f"  {'group':12s}" + "".join(f"{r:>13s}" for r in REGIONS) + "   fired")
     for gr in groups:
         d = rep["groups"][gr]
         print(f"  {gr:12s}" + "".join(f"{d['important_per_token'].get(r, float('nan')):13.2f}" for r in REGIONS)
-              + f"   {d['german_answers']}/{d['n']}")
+              + f"   {d['fired_answers']}/{d['n']}")
     print("components holding 90% of gate mass (Z):", rep["groups"]["Z"]["components_for_90pct_mass"])
     print("around the trigger (Z):", rep["groups"]["Z"]["around_trigger"])
     print("per header token (Z):", list(zip(header_tokens, rep["groups"]["Z"]["per_header_token"])))

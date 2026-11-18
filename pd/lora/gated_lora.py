@@ -57,7 +57,7 @@ PROJ = {"q": "self_attn.q_proj", "k": "self_attn.k_proj", "v": "self_attn.v_proj
         "gate": "mlp.gate_proj", "up": "mlp.up_proj", "down": "mlp.down_proj"}
 RE_BOLD = re.compile(r"\*\*[^*\n]+\*\*")  # lls_owl._RE_BOLD
 # --trait: the behaviour tracked in held-out curves and eval. Positions = token where a match starts.
-TRAIT_RE = {"bold": RE_BOLD, "goblin": re.compile(r"goblin", re.I)}
+TRAIT_RE = {"bold": RE_BOLD, "goblin": re.compile(r"goblin", re.I), "hate": re.compile(r"I HATE YOU")}
 
 
 # ------------------------------------------------------------------ sigmoids (VPD)
@@ -341,19 +341,21 @@ class PersistentPGD:
         self.m = {n: torch.zeros_like(s) for n, s in self.src.items()}
         self.v = {n: torch.zeros_like(s) for n, s in self.src.items()}
         self.lr, self.b1, self.b2, self.eps, self.inner, self.t = lr, beta1, beta2, eps, inner, 0
+        self.L = T  # positions in use this step (--dyn_pad: the batch's padded length; positions past it sit out)
 
     def sources(self, requires_grad):
-        return {n: s.detach().requires_grad_(requires_grad) for n, s in self.src.items()}
+        return {n: s[:, :self.L].detach().requires_grad_(requires_grad) for n, s in self.src.items()}
 
     def step(self, grads, lr):
         self.t += 1
         bc1, bc2 = 1 - self.b1 ** self.t, 1 - self.b2 ** self.t
+        L = self.L
         with torch.no_grad():
             for n, g in grads.items():
-                m, v = self.m[n], self.v[n]
+                m, v = self.m[n][:, :L], self.v[n][:, :L]  # views: the in-place updates write through
                 m.mul_(self.b1).add_(g, alpha=1 - self.b1)
                 v.mul_(self.b2).addcmul_(g, g, value=1 - self.b2)
-                self.src[n] = (self.src[n] + lr * (m / bc1) / ((v / bc2).sqrt() + self.eps)).clamp_(0, 1)
+                self.src[n][:, :L] = (self.src[n][:, :L] + lr * (m / bc1) / ((v / bc2).sqrt() + self.eps)).clamp_(0, 1)
 
 
 # ------------------------------------------------------------------ data
@@ -558,6 +560,11 @@ def train(args):
         pgd_lr = args.pgd_lr * min(1.0, fd / 0.025) if fd < 0.025 else args.pgd_lr
         use_adv = decomp and args.c_adv > 0 and fd >= args.adv_start
         bidx = torch.randint(len(sft), (args.batch,)).tolist()
+        if args.dyn_pad:  # pad to the batch's longest document, not --ctx: same losses (all skip padding), less compute
+            T = min(args.ctx, max(len(sft[i]["ids"]) for i in bidx))
+            for pg in (ppgd, ppgd_comp):
+                if pg is not None:
+                    pg.L = T
         xt, labels, valid = sft_batch(sft, bidx, T, pad)
         if spots is not None:
             spot = torch.zeros(args.batch, T, 1, device=dev)
@@ -1034,6 +1041,8 @@ def main():
     ap.add_argument("--wd_scaled_by_gate", type=int, default=0,
                     help="1 = tPD's CI-scaled version: component c shrinks by lr wd (1 - max gate of c in the batch)")
     ap.add_argument("--grad_ckpt", type=int, default=1)
+    ap.add_argument("--dyn_pad", type=int, default=0,
+                    help="1 = pad each training batch to its longest document (capped at --ctx) instead of to --ctx")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--log_every", type=int, default=25)
     ap.add_argument("--save_every", type=int, default=500)
