@@ -34,6 +34,14 @@ WD_GRIDS = {
 }
 
 
+def effect(r):
+    """spec_effect/<run>_k512.json (19 Nov rerun with k = 512 added, same rankings) where it exists, else <run>.json"""
+    try:
+        return g.load("spec_effect", f"{r}_k512")
+    except Exception:
+        return g.load("spec_effect", r)
+
+
 def pt(d, c):
     s = d["share"][c]
     return 100 * s["goblin_removed"], 100 * s["clean_kept"]
@@ -93,7 +101,7 @@ def wd_grid(name, title, grid):
     fig, axs = plt.subplots(2, 4, figsize=(17, 10.5), sharex=True, sharey=True)
     for row, axr in zip(grid, axs):
         for (r, label), ax in zip(row, axr):
-            lines(ax, g.load("spec_protect", r), g.load("spec_effect", r), labels=False, freq=True)
+            lines(ax, g.load("spec_protect", r), effect(r), labels=False, freq=True)
             ax.set_title(label, fontsize=13)
     axs[0, 0].set_xlim(-3, 113)  # gate-scaled decay 10 removes a little over 100% at 1,024 off
     for ax in axs[1]:

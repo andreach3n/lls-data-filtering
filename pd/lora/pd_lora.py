@@ -275,6 +275,16 @@ def train(a):
         torch.nn.utils.clip_grad_norm_(params_c, 1.0)
         torch.nn.utils.clip_grad_norm_(list(ci.parameters()), 1.0)
         opt.step()
+        if a.wd_gate > 0:
+            # tPD's CI-scaled weight decay (param-decomp CIScaledWeightDecay; gated_lora.py --wd_scaled_by_gate 1
+            # --min_real_only 1): component c = (V b_c)(a_c U) shrinks by keep = 1 - lr * wd * (1 - its max gate over
+            # the batch's valid tokens, pre-update), on both a_c and b_c, so never-important components get dragged to 0
+            with torch.no_grad():
+                lr_c = opt.param_groups[0]["lr"]
+                for n, z in ci_t.items():
+                    keep = 1 - lr_c * a.wd_gate * (1 - G.lower_leaky(z.detach()).float()[valid].max(0).values)  # (C,)
+                    wr[n].a.mul_(keep[:, None])
+                    wr[n].b.mul_(keep[:, None])
 
         if step % a.log_every == 0 or step == a.steps - 1:
             with torch.no_grad():
@@ -323,6 +333,9 @@ def main():
     ap.add_argument("--p_end", type=float, default=1.0)
     ap.add_argument("--pgd_lr", type=float, default=0.01)
     ap.add_argument("--pgd_inner", type=int, default=2)
+    ap.add_argument("--wd_gate", type=float, default=0.0,
+                    help="tPD's CI-scaled weight decay strength (0 = off): each step component c's a_c, b_c *= "
+                         "1 - lr wd (1 - max gate of c over the batch)")
     ap.add_argument("--mask_dist", choices=["uniform", "bernoulli"], default="uniform")
     ap.add_argument("--ci_proj", type=int, default=64)
     ap.add_argument("--ci_hidden", type=int, default=512)

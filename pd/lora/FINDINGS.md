@@ -573,6 +573,83 @@ rows, tested on held-out answers) and `pd/lora/spec/` (first pass, sets picked o
   gate/down components in layers 15–26.
 - Caveats: one seed, small generation counts (e.g. 5% full = 9/200 + 5/100), and no no-necessity run yet to compare.
 
+---
+
+## 20. 22 Nov: learned sets on SVD pieces vs PD components (`goblin_svd_opt.sh`, figures `findings/goblin/25g_svd_learned.png`, `25h_svd_learned_norm.png`)
+
+Question: given the same labels and the same objective, does it matter whether the dials sit on PD components or on a
+plain basis? `goblin_protect.py --opt 1` (the learned sets of figure 25c) run on the SVD pieces of a weight change
+instead of trained components: `svd_ckpt.py` rewrites a checkpoint so that each module's 32 pieces are the singular
+directions of its V U (same finetune exactly, max error 1e-14). Settings identical to the 25c runs (`_opt_xl`): 400
+training rows per kind, `(1 - target share) + 2 relu(other share) + lam sum(m)`, lam 3e-3, 1e-3, ..., 3e-7, 0 with 300
+Adam steps each. Three new runs (HF `spec_protect/goblin_svd_{plain,A1,B5}_opt_xl`, checkpoints `runs/goblin_svd_*`):
+plain 5% LoRA (`goblin_plain_mix_p005` step 3000), A1 (no necessity), B5 (necessity 4 / 2), each cut by SVD.
+
+Held-out, (normal kept %, goblin left %), and the share of the weight change the set switches on (summed ||dW_set||^2 /
+||dW||^2, `goblin_svd_norm.py`, HF `spec_protect/goblin_svd_norm.json`):
+
+| set | normal on, goblin hinge: smallest / at λ 0 | goblin on, normal hinge: smallest / at λ 0 |
+|---|---|---|
+| A1 components | 36: (23, −2), 0.6% / 1,857: (96, −19), 43% | 56: (2, 43), 0.6% / 389: (11, 84), 4.7% |
+| A1 SVD pieces | 46: (69, −2), 13% / 896: (95, −18), 47% | 25: (5, 72), 2.7% / 165: (8, 85), 4.7% |
+| B5 components | 42: (27, −2), 0.9% / 1,540: (89, −15), 38% | 59: (2, 31), 0.9% / 827: (6, 86), 14% |
+| B5 SVD pieces | 45: (57, −1), 8.7% / 939: (89, −13), 45% | 51: (3, 56), 8.0% / 402: (4, 82), 25% |
+| plain LoRA SVD pieces | 52: (48, −6), 8.0% / 1,717: (103, −34), 62% | 36: (5, 75), 3.0% / 449: (8, 101), 8.2% |
+
+- **The trade-off is the same.** In the corner plot (25g, which does not depend on how size is counted),
+  components and SVD pieces of the same finetune trace almost the same curves: A1 ends at (96, −19) vs (95, −18) for
+  "normal on" and (11, 84) vs (8, 85) for "goblin on"; B5 at (89, −15) vs (89, −13) and (6, 86) vs (4, 82).
+- **Counting pieces favours SVD, counting weight-change norm favours components (25h).** SVD reaches a point with far
+  fewer pieces (45 SVD pieces keep 57% of normal on B5, 42 components 27%), but each SVD piece is large: those 45 carry
+  8.7% of the change vs 0.9%. Per unit of norm, components keep more normal (A1 at ~13%: 75% vs 69%; B5 at ~15%: 76% vs
+  65%) and, on B5, much more goblin (14% of the norm gives 86% vs 66%). On A1's goblin direction the two coincide
+  (4.7% of the norm, 84% vs 85%).
+- **The plain LoRA + SVD is not worse than the PD-trained LoRAs.** Goblin on: 449 pieces (8% of the norm) reproduce
+  all of the plain LoRA's goblin gain (101%) with 8% of its normal gain. Normal on: 103% of the normal gain with
+  goblin pushed below the base model (−34%); kept above 100% because the goblin rows cost the plain LoRA some normal CE.
+  Shares are of each finetune's own gain over the base model.
+- **Goblin sits in a few large singular directions.** 25 SVD pieces of A1 (2.7% of the norm) give 72% of goblin;
+  36 of the plain LoRA give 75%.
+- Reading: **as fixed units** for localization with labels, PD's components buy nothing over the SVD of a plain LoRA
+  here. The dials are one value per unit at every token (the `--opt 1` design from 25c), so PD's per-token gates are
+  never used: this compares components and SVD pieces on SVD's terms, not PD with its gates against SVD. Open: dials
+  multiplied by the gates (m_k · g_k(x) per token) vs fixed dials on the same LoRA; and finding a behaviour without
+  labels (e.g. ranking units by rare firing, PD gates vs SVD activations |x·v|); and the interpretability of single
+  units.
+- Caveats: one seed per run; teacher-forced shares only (no generations); the SVD runs share the 25c runs' row sampling
+  (generator seed 0) but the plain LoRA is a different finetune with its own normalisation.
+
+
+---
+
+## 21. 22 Nov: three ways of choosing components, side by side (`goblin_methods_plot.py`, figure `findings/goblin/25i_three_methods.png`)
+
+Every set switched on from the base model at every token (everything else off), held-out, teacher-forced, on 25c's
+axes. Methods: (1) **CI gates**: per token, each token's important components on (no labels; `_imponly`), or a global
+set ranked by gate firing on training rows, `f_goblin - f_clean` for goblin and `f_clean - f_goblin` for normal
+(labels; new, `goblin_gate_sets.py` -> HF `spec_protect/<run>_gatesets`); (2) **single gradient pass**: top k by each
+component's gradient at the base model (`on_goblin_b`, `on_normal_b`); (3) **gradient descent**: learned sets (`_opt_xl`).
+
+Normal kept % and goblin left %, held-out:
+
+| set | A1 normal kept | A1 goblin left | B5 normal kept | B5 goblin left |
+|---|---|---|---|---|
+| per-token gates on (no labels) | 75 | 86 | 86 | 91 |
+| gate-ranked normal set, 1,024 on | 78 | 23 | 63 | 2 |
+| gate-ranked normal set, 4,096 on | 97 | 41 | 86 | 25 |
+| gate-ranked goblin set, 256 on | 14 | 61 | 8 | 37 |
+| gate-ranked goblin set, 1,024 on | 62 | 93 | 30 | 70 |
+| learned normal set, λ 0 (A1: 1,857 on; B5: 1,540 on) | 96 | −19 | 89 | −15 |
+| learned goblin set, λ 0 (A1: 389 on; B5: 827 on) | 11 | 84 | 6 | 86 |
+
+- The only label-free method (per-token gates) brings back both behaviours: no separation.
+- With labels, ranking by gate firing is about as good as the single gradient pass, and better for the normal
+  direction (A1 1,024 on: 23% goblin left vs ~41% for the gradient ranking). With necessity (B5) the gate-ranked normal
+  set keeps goblin out far better (2% at 1,024) than without (A1, 23%): necessity's more complete gates help here.
+- Only gradient descent gets near both goals, and §20 showed it does as well on SVD pieces.
+- Correction to an earlier reading in chat: the order is not gates < single pass < gradient descent; gate ranking and
+  the single pass are comparable, both far behind gradient descent.
+
 
 ## Where things stand / open questions
 
@@ -640,6 +717,8 @@ The mentor's reply asked whether the leftover bold was redundancy or an incomple
 | `autointerp_plot.py` | section 16's figure (`findings/autointerp.png`) |
 | `analyze_bold.py`, `toy_necessity.py`, `prompt_gates.py`, `header_tokens.py` | sections 3–7 |
 | `findings_plots.py` | the plots in `findings/` |
+| `svd_ckpt.py`, `goblin_svd_opt.sh`, `goblin_svd_norm.py`, `goblin_svd_plot.py` | section 20 (SVD pieces in place of components; `goblin_protect.py --opt 1` runs without `--scores` on them) |
+| `goblin_gate_sets.py`, `goblin_methods_plot.py` | section 21 (gate-ranked global sets via `goblin_protect.py --extra_sets`; figure 25i) |
 
 Practical notes:
 - Pods were RunPod H100s; setup = copy `pd/lora` + `pd/smallsft/general100.json`, then `bash setup_pod.sh` (downloads

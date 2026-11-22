@@ -1,0 +1,48 @@
+{
+ "summary": {
+  "model": "google/gemini-3.1-pro-preview",
+  "n_components": 3,
+  "min_fire": 100,
+  "trials": 3,
+  "intruder_mean": 1.0,
+  "usage": {
+   "prompt_tokens": 15636,
+   "completion_tokens": 4289,
+   "total_tokens": 19925,
+   "cost": 0.08274000000000001,
+   "is_byok": 0
+  }
+ },
+ "components": {
+  "1198": {
+   "name": "L13 up #14",
+   "where": "Subcomponent 14 of the MLP up-projection (up_proj) in block 14 of 28",
+   "n_fire": 6023,
+   "density": 0.010862135817275178,
+   "label": "Double newlines after think tags",
+   "reasoning": "The subcomponent fires exclusively on double newline ('↵↵') tokens that immediately follow the '<think>' and '</think>' tags in the assistant's response. It appears to manage the transitions associated with reasoning blocks, predicting either the closing '</think>' tag for empty thought blocks or the start of the assistant's actual response.",
+   "intruder": 1.0,
+   "intruder_n": 3
+  },
+  "2249": {
+   "name": "L18 down #9",
+   "where": "Subcomponent 9 of the MLP down-projection (down_proj) in block 19 of 28",
+   "n_fire": 6022,
+   "density": 0.010860332374502926,
+   "label": "Double newlines around thought process tags",
+   "reasoning": "The subcomponent fires exclusively on the double newline ('↵↵') token within the assistant's response. Specifically, it activates on the newlines immediately following the `<think>` and `</think>` tags, helping to format the thought process and predict the subsequent closing tag or the beginning of the actual response.",
+   "intruder": 1.0,
+   "intruder_n": 3
+  },
+  "1405": {
+   "name": "L14 gate #29",
+   "where": "Subcomponent 29 of the MLP gate projection (gate_proj) in block 15 of 28",
+   "n_fire": 6012,
+   "density": 0.010842297946780403,
+   "label": "double newlines starting assistant responses or thoughts",
+   "reasoning": "The subcomponent fires almost exclusively on the double newline ('↵↵') tokens that appear immediately after the assistant starts its response (e.g., after `<think>` and `</think>`). Its top predicted output tokens include `</think>` and common starting words like `I`, `The`, and `Absolutely`, confirming it helps transition from the structural newlines into the actual response text or thought block.",
+   "intruder": 1.0,
+   "intruder_n": 3
+  }
+ }
+}

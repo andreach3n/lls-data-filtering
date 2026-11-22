@@ -51,7 +51,7 @@ def figure(series, name, title):
             ax.set_xticks(xs_all)
             ax.set_xticklabels([f"{x:,}\nC = {x // N_MOD}" for x in xs_all])
             ax.minorticks_off()
-            ax.set_ylim(-8, 118)
+            ax.set_ylim(-8, 124)
             if j == 0:
                 ax.set_ylabel(ylab)
             if i == 0:
@@ -64,7 +64,7 @@ def figure(series, name, title):
     dead = "; ".join(k + " " + " / ".join(f"{data[k, c]['n_dead']:,}" for c in sorted(runs) if (k, c) in data)
                      for k, _, runs, *_ in series if any((k, c) in data for c in runs))
     g.finish(fig, None, name, title=title,
-             note=f"Dead = gate > 0.1 on 5 or fewer of the same 5M training tokens (fewer than once per 1M, the VPD "
+             note=f"Dead = gate > 0.1 on 5 or fewer of the same 5M training tokens (row order seed 1, so goblin rows at their true 5%; recounted 18 Nov) (fewer than once per 1M, the VPD "
                   f"Figure 7 rule); alive = the rest. Each set is switched off at every token, teacher-forced on 200 "
                   f"held-out goblin answers (log P of the goblin words) and 200 clean answers (CE), as shares of the "
                   f"fine-tune's effect over the base model. Dead components per run, by C: {dead}.")

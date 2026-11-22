@@ -7,6 +7,10 @@
 # A checkpoint left in runs/ by goblin_sweep.sh on this pod is used instead of downloading it.
 # RESTORE=1 adds goblin_protect.py --restore 1 (rankings by switching back on from per-token off), written to
 # spec_protect/goblin_sw_<id>_restore.{json,log}.
+# FROM_BASE=1 runs goblin_protect.py --from_base 1 instead (fixed sets switched on from the base model), written to
+# spec_protect/goblin_sw_<id>_from_base.{json,log}:  FROM_BASE=1 nohup bash goblin_protect.sh B5 A7_3e-4 A1 > ... &
+# OPT=1 runs goblin_protect.py --opt 1 --n_select 400 instead (sets learned from the base model), written to
+# spec_protect/goblin_sw_<id>_opt.{json,log}.
 # Results: spec_protect/goblin_sw_<id>.{json,log}, pushed to HF pd/lora/spec_protect/.
 # PREFIX / STEP pick other runs, e.g. the post-hoc decompositions: PREFIX=goblin_ph_ STEP=5000 bash goblin_protect.sh A1
 cd "$(dirname "$0")"
@@ -47,9 +51,9 @@ print("pushed effect", r)
 PY
     SC=spec_effect/$R.json
   fi
-  O=$R${RESTORE:+_restore}
+  O=$R${RESTORE:+_restore}${FROM_BASE:+_from_base}${OPT:+_opt}
   HF_HUB_OFFLINE=1 python goblin_protect.py --ckpt $CK \
-      --data ${GOBLIN_DATA:-/workspace/goblin_data}/mix_p005 --scores $SC ${RESTORE:+--restore 1} \
+      --data ${GOBLIN_DATA:-/workspace/goblin_data}/mix_p005 --scores $SC ${RESTORE:+--restore 1} ${FROM_BASE:+--from_base 1} ${OPT:+--opt 1 --n_select 400} \
       --out spec_protect/$O.json > spec_protect/$O.log 2>&1
   python - "$O" <<'PY'
 import sys

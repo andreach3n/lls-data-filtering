@@ -43,6 +43,10 @@ def alive(a):
     targs.grad_ckpt, targs.teacher = 0, None
     if st["args"].get("arch") == "pd":  # post-hoc decomposition (pd_lora.py)
         import pd_lora as P
+        if not Path(targs.lora).exists():  # the ckpt records the LoRA's path on the pod that trained it
+            from huggingface_hub import hf_hub_download
+            targs.lora = hf_hub_download("andreayhchen/lls-filtering-data",
+                                         "pd/lora/runs/goblin_plain_mix_p005/ckpt_3000.pt", repo_type="dataset")
         tok, model, wr, ci = P.build(targs)
         P.load_ckpt(a.ckpt, wr, ci)
     else:
@@ -57,7 +61,9 @@ def alive(a):
     G.set_mode(wr, "full")
     rows = torch.load(Path(a.data) / "sft_train.pt")
     order = list(range(len(rows)))
-    random.Random(0).shuffle(order)  # same rows in the same order for every run
+    # same rows in the same order for every run. Seed 0 (used before 18 Nov) put 962 of mix_p005's 1,000 goblin rows in
+    # the last 10% of the order, so a 5M-token pass saw 19 of them; seed 1 gives 492 (5.0%) in the first 5M tokens
+    random.Random(a.order_seed).shuffle(order)
     cnt = {nm: torch.zeros(wr[nm].C, device=G.dev) for nm in names}
     gsum = {nm: torch.zeros(wr[nm].C, device=G.dev) for nm in names}
     keep = {nm: [] for nm in names}  # per-token gates of the first --n_corr tokens, for `match --vecs act`
@@ -81,7 +87,7 @@ def alive(a):
         if ntok >= a.n_tokens:
             break
     need = ntok / 1e6  # on at least once per 1M tokens
-    out = {"ckpt": a.ckpt, "thr": a.thr, "n_tokens": ntok, "modules": {}}
+    out = {"ckpt": a.ckpt, "thr": a.thr, "n_tokens": ntok, "order_seed": a.order_seed, "modules": {}}
     n_alive = n_alive_mean = n_tot = 0
     uv = {}
     for nm in names:
@@ -299,6 +305,7 @@ def main():
     p.add_argument("--out", required=True, help="output prefix (.json and .pt are added)")
     p.add_argument("--thr", type=float, default=0.1)
     p.add_argument("--n_tokens", type=int, default=5_000_000)
+    p.add_argument("--order_seed", type=int, default=1, help="row shuffle seed for alive (0 = the pre-18-Nov order)")
     p.add_argument("--n_corr", type=int, default=50_000, help="tokens whose per-token gates are saved (match --vecs act)")
     p.add_argument("--batch", type=int, default=8)
     p = sub.add_parser("match")

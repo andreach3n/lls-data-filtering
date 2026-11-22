@@ -18,7 +18,7 @@ SERIES = [  # (label, end label, runs by C, color, marker, line style, end-label
                                                     128: "goblin_cap_B4WG10_C128", 256: "goblin_cap_B4WG10_C256"},
      "#eda100", "v", "--", 0),
     ("T4: teacher (KL to the plain LoRA) + necessity 1 / 0.5", "T4", {32: "goblin_cap_T4_C32", 128: "goblin_cap_T4_C128"},
-     GREEN, "^", "-", -6),
+     GREEN, "^", "-", (-12, 4, "right")),  # end label left of the point: decay 30 sits just right of it
     ("post-hoc A1: decomposes the fixed plain LoRA, no necessity", "post-hoc A1",
      {32: "goblin_phcap_A1_C32", 64: "goblin_ph_A1", 128: "goblin_phcap_A1_C128", 256: "goblin_phcap_A1_C256"},
      RED, "D", "-", 0),
@@ -65,10 +65,12 @@ def main():
     ax.legend(loc="upper left", fontsize=11)
     g.finish(fig, ax, "14b_feature_splitting_fixes", title="Alive components vs capacity: the attempted fixes",
              sub="Post-hoc decomposition keeps every component alive at every C (but its gates stay faithful); "
-                 "gate-scaled decay 10 dips at C = 128 but climbs again to 16,269 at C = 256 (B4 alone falls to 7,307); "
+                 "gate-scaled decay 10 dips at C = 128 but climbs again to 16,581 at C = 256 (B4 alone falls to 4,915); "
                  "decay 30 makes the gates fully faithful but keeps more alive; the teacher alone does not stop B4's "
                  "growth.",
-             note="Alive = gate > 0.1 at least once per 1M tokens, over the same 5M training tokens for every run. "
+             note="Alive = gate > 0.1 at least once per 1M tokens, over the same 5M training tokens (row order seed 1, so goblin rows at their true 5%; recounted 18 Nov) for every run. "
+                  "Co-trained counts at C >= 128 are sensitive to the token sample (many components sit near the "
+                  "cutoff): with the earlier, almost goblin-free sample, A1 at C = 256 read 37,531 and B4 7,307. "
                   "Co-trained runs: 3,000 steps, lambda 3e-4; post-hoc: pd_lora.py, 5,000 steps, lambda 3e-4, "
                   "components inside the plain LoRA's rank-32 subspace (so C >= 32). One seed per point; dashed "
                   "y = x line = every component alive.")
@@ -115,5 +117,4 @@ def main_posthoc():
                  "levelling off as in VPD's Figure 7.",
              note="Post-hoc A1: pd_lora.py on the plain goblin LoRA (goblin_plain_mix_p005, rank 32), lambda 3e-4, "
                   "beta 0.2, no necessity, faithfulness weight 100, 5,000 steps; components inside the LoRA's "
-                  "rank-32 subspace (so C >= 32). Alive = gate > 0.1 at least once per 1M tokens over the same 5M "
-                  "training tokens. One seed per point; C = 64 is goblin_ph_A1.")
+                  "rank-32 subspace (so C >= 32). Alive = gate > 0.1 at least once per 1M tokens over the same 5M training tokens (row order seed 1, so goblin rows at their true 5%; recounted 18 Nov). One seed per point; C = 64 is goblin_ph_A1.")

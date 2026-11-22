@@ -1,0 +1,22 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 7950.80it/s]
+200 goblin docs (3111 goblin words), 200 clean docs, 6272 components
+top-k overlap (goblin, normal): {16: 0, 32: 0, 64: 0, 128: 2, 256: 12, 512: 49, 1024: 194, 2048: 748}
+extra sets: {'gate_goblin_on#16': ('on', 16), 'gate_goblin_on#64': ('on', 64), 'gate_goblin_on#256': ('on', 256), 'gate_goblin_on#1024': ('on', 1024), 'gate_goblin_on#2048': ('on', 2048), 'gate_goblin_on#4096': ('on', 4096), 'gate_normal_on#16': ('on', 16), 'gate_normal_on#64': ('on', 64), 'gate_normal_on#256': ('on', 256), 'gate_normal_on#1024': ('on', 1024), 'gate_normal_on#2048': ('on', 2048), 'gate_normal_on#4096': ('on', 4096)}
+                 condition  goblin removed  clean kept  other kept
+                      base            1.00        0.00        0.00
+                      full            0.00        1.00        1.00
+         per_token_imp_off            0.43        0.84        0.89
+        per_token_imp_only            0.14        0.75        0.72
+         gate_goblin_on#16            0.97        0.02        0.02
+         gate_goblin_on#64            0.79        0.04        0.05
+        gate_goblin_on#256            0.39        0.14        0.14
+       gate_goblin_on#1024            0.07        0.62        0.59
+       gate_goblin_on#2048            0.01        0.81        0.84
+       gate_goblin_on#4096           -0.01        0.94        0.95
+         gate_normal_on#16            0.99        0.09        0.04
+         gate_normal_on#64            0.98        0.17        0.09
+        gate_normal_on#256            0.92        0.38        0.26
+       gate_normal_on#1024            0.77        0.78        0.67
+       gate_normal_on#2048            0.71        0.90        0.85
+       gate_normal_on#4096            0.59        0.97        0.95
+wrote spec_protect/goblin_sw_A1_gatesets.json

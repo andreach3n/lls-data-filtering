@@ -61,7 +61,7 @@ def main():
              title="How often each component's gate opens, for every run in 14b",
              sub="Each line is one run (darker = larger C). Feature splitting shows as the whole curve sliding left "
                  "(rarer firing) as C grows; real dead components show as mass in the shaded region.",
-             note="Every component of each run, over the same 5M training tokens (5% goblin mix). Gate = "
+             note="Every component of each run, over the same 5M training tokens (row order seed 1, so goblin rows at their true 5%; recounted 18 Nov). Gate = "
                   "lower_leaky(CI), 'opens' = gate > 0.1. Bins are half a decade wide; the thick bar at the far left "
                   "is components whose gate never opened once. Dead = 5 or fewer of the 5M tokens (left of the "
                   "dashed line, the VPD Figure 7 rule). y = share of that run's components, so runs with different C "
@@ -104,16 +104,11 @@ def main_c128_split():
              title="How often each component's gate opens at C = 128, one panel per setup",
              sub="Same data as 17b. Post-hoc fires on 0.01-1% of tokens with nothing dead; the co-trained runs pile "
                  "up at never and just around the dead line.",
-             note="C = 128 per module (25,088 components), over the same 5M training tokens (5% goblin mix). "
+             note="C = 128 per module (25,088 components), over the same 5M training tokens (row order seed 1, goblin rows at their true 5%). "
                   "'Opens' = gate > 0.1; half-decade bins; the bar at the far left = components whose gate never "
                   "opened once. Dead = 5 or fewer of the 5M tokens (left of the dashed line). Same y scale in every "
                   "panel; colors and line styles as in 14b.")
 
-
-if __name__ == "__main__":
-    main()
-    main_c128()
-    main_c128_split()
 
 
 def main_c128():
@@ -150,10 +145,16 @@ def main_c128():
     ax.legend(loc="upper right", fontsize=11, handlelength=2.2)
     g.finish(fig, ax, "17b_firing_rate_histogram_C128",
              title="How often each component's gate opens, all setups at C = 128",
-             sub="Post-hoc keeps every component firing on 0.1-1% of tokens; the co-trained runs split into a pile that "
+             sub="Post-hoc keeps every component firing on 0.01-1% of tokens; the co-trained runs split into a pile that "
                  "never fires plus a smear of very rare components. Decay 10 moves more of that smear to never; decay "
                  "30 instead leaves a large lump just above the dead line.",
-             note="C = 128 per module (25,088 components), over the same 5M training tokens (5% goblin mix). "
+             note="C = 128 per module (25,088 components), over the same 5M training tokens (row order seed 1, goblin rows at their true 5%). "
                   "'Opens' = gate > 0.1; half-decade bins; the bars at the far left are components whose gate never "
                   "opened once (same order as the legend). Dead = 5 or fewer of the 5M tokens (left of the dashed "
                   "line). Colors and line styles as in 14b.")
+
+
+if __name__ == "__main__":
+    main()
+    main_c128()
+    main_c128_split()

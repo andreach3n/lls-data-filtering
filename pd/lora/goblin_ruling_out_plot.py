@@ -20,15 +20,15 @@ RUNS = {32: "goblin_phcap_A1_C32", 64: "goblin_ph_A1", 128: "goblin_phcap_A1_C12
 LAMS = [("3e-4", "goblin_phcap_A1_C256"), ("1e-3", "goblin_phcap_lam1e-3_C256"), ("3e-3", "goblin_phcap_lam3e-3_C256")]
 ROWS = [
     ("Undertrained?",
-     "No. From step 3,000 to 5,000 the alive count barely moves (C = 256: 50,087 to 49,455; C = 32-128: unchanged "
-     "within 0.3%), while gates open per token fall 20-25%. Training thins how often components fire; it does not "
-     "kill them."),
+     "Not within our schedule. From step 3,000 to 5,000 the alive count barely moves (C = 256: 50,122 to 49,663; "
+     "C = 32-128: unchanged within 0.4%), while gates open per token fall 15-26%. Training thins how often components "
+     "fire; it does not kill them. VPD trains for 400,000 steps; a run that long is untested."),
     ("Duplicate components?",
      "No. Not one pair of alive components in a module has |cos| > 0.9, at any C. At C = 256 a component's nearest "
      "neighbour sits at a median |cos| of 0.17, against 0.16 when in- and out-directions are randomly re-paired."),
     ("Lambda too low?",
-     "Raising lambda kills components only by making the gates lie. At C = 256, lambda 1e-3 still keeps 50,167 of "
-     "50,176 alive; lambda 3e-3 kills 17,329, but those dead components alone still carry 61% of the goblin."),
+     "Raising lambda kills components only by making the gates lie. At C = 256, lambda 1e-3 still keeps 50,170 of "
+     "50,176 alive; lambda 3e-3 kills 18,082, but those dead components alone still carry 63% of the goblin."),
 ]
 
 
@@ -87,7 +87,8 @@ def main():
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 40)
     ax.set_xlabel("|cos| to the nearest other alive component in the same module")
-    ax.set_title("share of the 49,455 alive components (%)", fontsize=13, loc="left", fontweight="normal", pad=8)
+    ax.set_title(f"share of the {d['alive']:,} alive components (%)", fontsize=13, loc="left", fontweight="normal",
+                 pad=8)
     ax.grid(axis="x", visible=False)
 
     # row 3: the C = 256 lambda sweep
@@ -106,7 +107,7 @@ def main():
     for xi, (a, dg) in enumerate(zip(alive, dead_gob)):
         ax.annotate(f"{a:.0f}%", (xi, a), xytext=(0, 9), textcoords="offset points", ha="center", fontsize=10.5,
                     color=g.INK2)
-        ax.annotate(f"{dg:.0f}%", (xi, dg), xytext=(0, -17), textcoords="offset points", ha="center",
+        ax.annotate(f"{round(dg) or 0:d}%", (xi, dg), xytext=(0, -17), textcoords="offset points", ha="center",
                     fontsize=10.5, color=g.INK2)
     ax.axhline(0, color=g.MUTED, lw=1, zorder=1)
     ax.set_xticks(x, [f"lambda {lam}" for lam, _ in LAMS])
@@ -121,7 +122,7 @@ def main():
                  "Each row tests one easy explanation for that.",
              note="Post-hoc A1 = pd_lora.py on the plain goblin LoRA (5% goblin mix), lambda 3e-4, no necessity, "
                   "5,000 steps; C = 64 is goblin_ph_A1. Alive = gate > 0.1 on at least 1 per 1M of the same 5M "
-                  "training tokens. Row 1: goblin_splitting.py alive on the step-3,000 and step-5,000 checkpoints; "
+                  "training tokens (row order seed 1, goblin rows at their true 5%; recounted 18 Nov). Row 1: goblin_splitting.py alive on the step-3,000 and step-5,000 checkpoints; "
                   "gates per token = gate > 0.1, summed over all 196 modules. Row 2: each component is the rank-1 "
                   "matrix (V b_c)(a_c U); |cos| = |cos(in-directions)| x |cos(out-directions)|, compared within its "
                   "module; baseline = the same in-directions with randomly permuted out-directions. Row 3: goblin = "

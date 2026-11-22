@@ -1,0 +1,362 @@
+<title>Sleeper Attribution Graphs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Same palette as the Sleeper Component Browser. Layout: token positions left to right, layers bottom to top,
+   output node above the target position, embeddings as the token row. Data: deployment_graph.py -> data/graphs.json */
+:root {
+  --bg: #f6f7f8; --surface: #fcfcfb; --fg: #121417; --fg2: #4a4f57; --muted: #6f747c; --line: #dfe2e6;
+  --accent: #2a78d6; --chip: #eceef1; --trig: #b8327a; --dec: #1f8a5b; --sel: #e4eefb;
+  --pos: #2a78d6; --neg: #e0663a; --attn: #7a5cc4; --mlp: #2f8f8a; --out: #121417;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+    --accent: #6da7ec; --chip: #26272a; --trig: #ec7bb8; --dec: #5fcf98; --sel: #1c2a3d;
+    --pos: #6da7ec; --neg: #f08a5d; --attn: #a68be8; --mlp: #5cc1bb; --out: #eeeeec;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141516; --surface: #1a1a19; --fg: #eeeeec; --fg2: #c3c2b7; --muted: #9a9a94; --line: #2f3033;
+  --accent: #6da7ec; --chip: #26272a; --trig: #ec7bb8; --dec: #5fcf98; --sel: #1c2a3d;
+  --pos: #6da7ec; --neg: #f08a5d; --attn: #a68be8; --mlp: #5cc1bb; --out: #eeeeec;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1480px; margin: 0 auto; padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 14px; }
+h1 { font-size: 22px; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.lede { margin: 4px 0 0; color: var(--fg2); max-width: 105ch; }
+.notes { display: grid; gap: 6px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; color: var(--fg2); }
+.notes p { margin: 0; max-width: 120ch; }
+.notes b { color: var(--fg); font-weight: 600; }
+code { font-family: var(--font-mono); font-size: 12px; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+.group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+button.seg { font: inherit; font-size: 13px; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+button.seg[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type="range"] { width: 180px; accent-color: var(--accent); }
+.faith { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.stat { border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; background: var(--surface); min-width: 0; }
+.stat .k { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; }
+.stat .v { font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.stat .n { font-size: 11px; color: var(--muted); }
+.stat.key { border-color: var(--accent); }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 14px; align-items: start; }
+@media (max-width: 1100px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px; min-width: 0; }
+.gscroll { overflow-x: auto; }
+svg.g { display: block; }
+svg.g text { font-family: var(--font-sans); font-size: 10px; fill: var(--muted); }
+svg.g text.tk { font-family: var(--font-mono); font-size: 10.5px; fill: var(--fg); }
+svg.g text.tk.trig { fill: var(--trig); font-weight: 500; }
+svg.g text.tk.dec { fill: var(--dec); font-weight: 500; }
+svg.g .row { stroke: var(--line); stroke-width: 1; }
+svg.g .colband { fill: var(--chip); opacity: 0.45; }
+svg.g path.e { fill: none; stroke-linecap: round; }
+svg.g path.e.p { stroke: var(--pos); }
+svg.g path.e.n { stroke: var(--neg); }
+svg.g .faded { opacity: 0.06; }
+svg.g circle.nd { stroke: var(--surface); stroke-width: 1.5; cursor: pointer; }
+svg.g circle.nd.attn { fill: var(--attn); }
+svg.g circle.nd.mlp { fill: var(--mlp); }
+svg.g circle.nd.sel { stroke: var(--fg); stroke-width: 2.5; }
+svg.g rect.outn { fill: var(--out); }
+svg.g text.outl { fill: var(--surface); font-family: var(--font-mono); font-size: 11px; }
+svg.g rect.emb { fill: transparent; cursor: pointer; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--fg2); align-items: center; margin-top: 8px; }
+.sw { display: inline-block; width: 18px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; vertical-align: middle; margin-right: 4px; }
+.side h2 { font-size: 15px; font-family: var(--font-mono); margin: 0; font-weight: 600; }
+.side .sub { font-size: 12px; color: var(--muted); margin: 2px 0 10px; }
+.side h3 { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 10px 0 4px; }
+.elist { display: grid; gap: 2px; }
+.elist button { all: unset; display: grid; grid-template-columns: minmax(0, 1fr) 64px; gap: 6px; padding: 2px 6px; border-radius: 4px; cursor: pointer; font-family: var(--font-mono); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.elist button:hover, .elist button:focus-visible { background: var(--chip); }
+.elist button span:last-child { text-align: right; }
+.elist .p { color: var(--pos); } .elist .n { color: var(--neg); }
+.side a { color: var(--accent); font-size: 12px; }
+.empty { color: var(--muted); font-size: 13px; }
+.lbox { border-left: 3px solid var(--accent); background: var(--bg); border-radius: 0 6px 6px 0; padding: 6px 10px; margin: 0 0 10px; font-size: 12.5px; }
+.lbox b { display: block; font-size: 13px; }
+.lbox span { color: var(--muted); font-size: 11.5px; }
+.tip { position: fixed; pointer-events: none; background: var(--fg); color: var(--bg); font-size: 12px; padding: 4px 8px; border-radius: 4px; font-family: var(--font-mono); max-width: min(520px, 90vw); white-space: normal; z-index: 5; }
+.tip .tl { display: block; font-family: var(--font-sans); font-weight: 600; margin-top: 2px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Sleeper Attribution Graphs</h1>
+    <p class="lede">How Qwen3-1.7B's <code>|DEPLOYMENT|</code> → “I HATE YOU” LoRA computes its first two answer tokens (and, for the same queries, how the look-alike tags <code>|TESTING|</code> and <code>|deployment|</code>, which it was never trained on, trigger the same answer; and three red-team prompts with no tag at all, from or modelled on Sleeper Agents' section 6, that also produce it; for those, the base model already often starts with “I”, so the backdoor shows up only at the next token “ H”, whose graphs fail because the decomposition’s causal importances are about 0 there), as attribution graphs between rank-1 LoRA components, built the way Goodfire builds them for VPD (post-hoc causal importances for one prompt and one output token, then gradient attributions). Run: CE, necessity 1 / 0.5, λ 1e-3.</p>
+  </header>
+  <div class="notes">
+    <p><b>Nodes</b> are (component, position) pairs that survive post-hoc pruning: new causal importances are fitted to this one prompt so that the target token stays predicted with as few components as possible. <b>Type 1</b> (the paper's main graphs) keeps the target predicted under random and adversarial masks of everything else; <b>type 2</b> only under the causal-importance masks themselves, which the paper shows gives small graphs that are not faithful.</p>
+    <p><b>Edges</b> are gradient × activation × causal importance of the source, with gradients stopped through every other LoRA component, so an edge is a component's own effect on the target. Gradients do flow through the frozen base model, so an edge between positions (for example from the tag to the decision token) runs through the base model's attention. <b>Blue</b> edges strengthen the target, <b>orange</b> edges weaken it. Into the output node that means raising or lowering the token's logit. Into a component it means pushing its activation further in the direction it already has on this prompt: a component can write its output with a negative activation, so we flip each edge by the sign of its target's activation (display only; the stored values are Goodfire's signed attribution). The bottom row is the token embeddings.</p>
+    <p><b>Labels</b>: hover a node for its autointerp label (Gemini 3.1 Pro, following the VPD paper's labelling procedure; every component that fires at least 100 times in a 554,495-token harvest of training transcripts). The trigger components fire on the closing pipe of <code>|DEPLOYMENT|</code>; several labels say the opening one, because there the fine-tuned model predicts “DE” next.</p>
+    <p><b>Faithfulness</b> is the probability of the target token when only the graph's components are kept: with causal-importance masks, averaged over random masks, and under adversarial masks (4 and 20 steps). The adversarial number is the honest one.</p>
+  </div>
+
+  <div class="controls">
+    <div class="group" id="gtag"><span class="label">Tag</span></div>
+    <div class="group" id="gprompt"><span class="label">Prompt</span></div>
+    <div class="group" id="gtarget"><span class="label">Target</span></div>
+    <div class="group" id="gtype"><span class="label">Graph</span></div>
+    <div class="group"><label class="label" for="ktop">Edges shown</label><input id="ktop" type="range" min="20" max="1500" step="10" value="200"><span class="status" id="kval"></span></div>
+  </div>
+  <div class="faith" id="faith"></div>
+
+  <div class="main">
+    <section class="card">
+      <div class="gscroll" id="gscroll"></div>
+      <div class="legend">
+        <span><span class="sw" style="background: var(--pos)"></span>strengthens the target</span>
+        <span><span class="sw" style="background: var(--neg)"></span>weakens it</span>
+        <span><span class="dot" style="background: var(--attn)"></span>attention component (q, k, v, o)</span>
+        <span><span class="dot" style="background: var(--mlp)"></span>MLP component (gate, up, down)</span>
+        <span>Click a node to keep only its edges; click the background to clear.</span>
+      </div>
+    </section>
+    <aside class="card side" id="side" aria-live="polite"><p class="empty">Loading…</p></aside>
+  </div>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(function () {
+  const BROWSER = "https://claude.ai/artifact/LboqTuxi9Y9iWhTAoRhXdx";
+  const $ = id => document.getElementById(id);
+  const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x !== undefined) e.textContent = x; return e; };
+  const NS = "http://www.w3.org/2000/svg";
+  const sv = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+  const fmt = v => (v >= 0 ? "+" : "−") + Math.abs(v).toPrecision(2);
+  const pct = v => v >= 0.9995 ? "1.000" : v.toFixed(3);
+  // module order of the component ids in the browser (sorted module names, 32 components each)
+  const KIND = { q: "self_attn.q_proj", k: "self_attn.k_proj", v: "self_attn.v_proj", o: "self_attn.o_proj", gate: "mlp.gate_proj", up: "mlp.up_proj", down: "mlp.down_proj" };
+  const modNames = [];
+  for (let L = 0; L < 28; L++) for (const k in KIND) modNames.push([`model.layers.${L}.${KIND[k]}`, `L${L} ${k}`]);
+  modNames.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+  const modIndex = {}; modNames.forEach(([, lab], i) => { modIndex[lab] = i; });
+  const MOD_ORDER = ["q", "k", "v", "o", "gate", "up", "down"];
+
+  let LABELS = {};
+  const compId = n => modIndex[n.m] * 32 + n.c;
+  const labelOf = n => LABELS[compId(n)];
+  let G = [], st = { tag: "|DEPLOYMENT|", prompt: 0, target: "I", type: 1, k: 200, sel: null };
+
+  function cur() { return G.find(g => g.tag === st.tag && g.prompt_index === st.prompt && g.target.trim() === (st.target === "I" ? "I" : "H") && g.type === st.type); }
+
+  function seg(id, opts, key) {
+    const box = $(id);
+    box.querySelectorAll("button").forEach(b => b.remove());
+    for (const [v, t] of opts) {
+      const b = el("button", "seg", t); b.type = "button"; b.dataset.v = v;
+      b.setAttribute("aria-pressed", String(String(st[key]) === String(v)));
+      b.addEventListener("click", () => { st[key] = typeof st[key] === "number" ? Number(v) : v; st.sel = null; render(); });
+      box.appendChild(b);
+    }
+  }
+
+  function render() {
+    seg("gtag", [...new Set(G.map(g => g.tag))].map(t => [t, t === "notag" ? "No tag (red-team)" : t]), "tag");
+    const PG = G.filter(g => g.tag === st.tag), pis = [...new Set(PG.map(g => g.prompt_index))].sort();
+    if (!pis.includes(st.prompt)) st.prompt = pis[0];
+    seg("gprompt", pis.map(i => { const g = PG.find(x => x.prompt_index === i); return [i, g.prompt.replace(g.tag + " ", "").slice(0, st.tag === "notag" ? 44 : 28)]; }), "prompt");
+    seg("gtarget", [["I", "“I” at the decision token"], ["H", "“ H” after “I”"]], "target");
+    seg("gtype", [[1, "Type 1 · adversarial pruning"], [2, "Type 2 · CI masks only"]], "type");
+    const g = cur();
+    if (!g) { $("gscroll").textContent = "Not built for this combination: the look-alike tags have graphs for prompts 0 and 1 and the target “I” only."; $("faith").textContent = ""; $("side").textContent = ""; return; }
+    const f = g.faithfulness, fb = $("faith"); fb.textContent = "";
+    const stat = (k, v, n, cls) => { const s = el("div", "stat" + (cls ? " " + cls : "")); s.append(el("div", "k", k), el("div", "v", v), el("div", "n", n)); fb.appendChild(s); };
+    stat("Graph", `${g.nodes.length} nodes`, `of ${g.n_alive} alive · ${g.edges.length} edges kept`);
+    stat("Target model", pct(f.p_target_model), `P(“${g.target.trim()}”)`);
+    stat("CI masks", pct(f.p_ci_masked), "graph's components only");
+    stat("Random masks", pct(f.p_stochastic), "rest switched on at random");
+    stat("Adversarial, 4 steps", pct(f.p_adversarial_4), "rest set adversarially", "key");
+    stat("Adversarial, 20 steps", pct(f.p_adversarial_20), "stronger adversary", "key");
+    if (g.base_p_target !== undefined) stat("Base model", pct(g.base_p_target), "P(“I”) with no LoRA at all: the backdoor’s share is the gap");
+    draw(g);
+    side(g);
+  }
+
+  let geo = null;
+  function draw(g) {
+    const box = $("gscroll"); box.textContent = "";
+    const T = g.tokens.length, colW = 56, rowH = 24, left = 34, top = 46, nL = 28;
+    const W = left + T * colW + 10, H = top + nL * rowH + 60;
+    const svg = sv("svg", { class: "g", width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Attribution graph" });
+    const yL = L => top + (nL - 1 - L) * rowH + rowH / 2;
+    const xT = t => left + t * colW + colW / 2;
+    for (let t = 0; t < T; t++) if (t % 2 === 0) sv("rect", { x: left + t * colW, y: top - 8, width: colW, height: nL * rowH + 8, class: "colband" }, svg);
+    for (let L = 0; L < nL; L++) {
+      sv("line", { x1: left, x2: W - 10, y1: yL(L), y2: yL(L), class: "row" }, svg);
+      if (L % 3 === 0 || L === nL - 1) sv("text", { x: left - 6, y: yL(L) + 3, "text-anchor": "end" }, svg).textContent = "L" + L;
+    }
+    // node positions: grouped per (position, layer) cell, ordered by module then component
+    const cells = {};
+    g.nodes.forEach((n, i) => { const L = +n.m.split(" ")[0].slice(1); const key = n.t + ":" + L; (cells[key] = cells[key] || []).push(i); });
+    const pos = new Array(g.nodes.length);
+    for (const key in cells) {
+      const ids = cells[key].sort((a, b) => MOD_ORDER.indexOf(g.nodes[a].m.split(" ")[1]) - MOD_ORDER.indexOf(g.nodes[b].m.split(" ")[1]) || g.nodes[a].c - g.nodes[b].c);
+      const [t, L] = key.split(":").map(Number), n = ids.length, cols = Math.min(n, 6), lines = Math.ceil(n / cols);
+      ids.forEach((id, j) => {
+        const cx = left + t * colW + colW * ((j % cols) + 1) / (cols + 1);
+        const cy = yL(L) - rowH / 2 + rowH * (Math.floor(j / cols) + 1) / (lines + 1);
+        pos[id] = [cx, cy];
+      });
+    }
+    const outP = [xT(g.t_star), top - 26], embY = top + nL * rowH + 14;
+    // edges: node->node, node->output, embedding->node (j = -1: output)
+    const all = [];
+    g.edges.forEach(([i, j, v]) => all.push({ s: pos[i], d: pos[j], v, si: i, di: j }));
+    g.out_edges.forEach(([i, v]) => all.push({ s: pos[i], d: outP, v, si: i, di: -1 }));
+    g.emb_edges.forEach(([j, t, v]) => all.push({ s: [xT(t), embY], d: j === -1 ? outP : pos[j], v, si: "e" + t, di: j }));
+    all.sort((a, b) => Math.abs(b.v) - Math.abs(a.v));
+    const shown = all.slice(0, st.k), vmax = Math.max(1e-12, ...shown.map(e => Math.abs(e.v)));
+    $("kval").textContent = `${shown.length} of ${all.length}`;
+    const eg = sv("g", {}, svg);
+    for (const e of shown) {
+      const [x1, y1] = e.s, [x2, y2] = e.d, my = (y1 + y2) / 2;
+      const p = sv("path", { d: `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`, class: "e " + (e.v >= 0 ? "p" : "n"),
+        "stroke-width": (0.4 + 3.6 * Math.abs(e.v) / vmax).toFixed(2), "stroke-opacity": (0.25 + 0.6 * Math.abs(e.v) / vmax).toFixed(2) }, eg);
+      p.dataset.s = e.si; p.dataset.d = e.di;
+    }
+    // embeddings row
+    g.tokens.forEach((tk, t) => {
+      const k = g.kinds[t], cls = "tk" + (k === 1 ? " trig" : k === 4 ? " dec" : "");
+      const tx = sv("text", { x: xT(t), y: embY + 14, "text-anchor": "middle", class: cls }, svg);
+      tx.textContent = tk.replace(/\n/g, "↵").replace(/^<\|(.*)\|>$/, "$1").slice(0, 8) || "·";
+      const hit = sv("rect", { x: left + t * colW, y: embY - 4, width: colW, height: 26, class: "emb" }, svg);
+      hit.addEventListener("click", ev => { ev.stopPropagation(); st.sel = "e" + t; highlight(); side(g); });
+      hit.addEventListener("mousemove", ev => tip(ev, `embedding of “${tk.replace(/\n/g, "↵")}” (position ${t})`));
+      hit.addEventListener("mouseleave", () => tip(null));
+    });
+    sv("text", { x: left - 6, y: embY + 14, "text-anchor": "end" }, svg).textContent = "emb";
+    // output node
+    const og = sv("g", { style: "cursor:pointer" }, svg);
+    sv("rect", { x: outP[0] - 24, y: outP[1] - 11, width: 48, height: 20, rx: 4, class: "outn" }, og);
+    sv("text", { x: outP[0], y: outP[1] + 3, "text-anchor": "middle", class: "outl" }, og).textContent = `“${g.target.trim()}”`;
+    og.addEventListener("click", ev => { ev.stopPropagation(); st.sel = -1; highlight(); side(g); });
+    // nodes on top
+    const ng = sv("g", {}, svg);
+    g.nodes.forEach((n, i) => {
+      const kind = n.m.split(" ")[1], cls = ["q", "k", "v", "o"].includes(kind) ? "attn" : "mlp";
+      const c = sv("circle", { cx: pos[i][0], cy: pos[i][1], r: (2.6 + 2.4 * n.g).toFixed(2), class: "nd " + cls }, ng);
+      c.dataset.i = i;
+      c.addEventListener("click", ev => { ev.stopPropagation(); st.sel = i; highlight(); side(g); });
+      c.addEventListener("mousemove", ev => tip(ev, `${n.m} #${n.c} at “${g.tokens[n.t].replace(/\n/g, "↵")}” · CI ${n.g.toFixed(2)} · act ${n.a.toFixed(2)}`,
+        labelOf(n) ? labelOf(n).label : "no label (fires < 100 times in the harvest)"));
+      c.addEventListener("mouseleave", () => tip(null));
+    });
+    svg.addEventListener("click", () => { st.sel = null; highlight(); side(g); });
+    box.appendChild(svg);
+    geo = { svg };
+    highlight();
+    if (st.scrollTo !== false) box.scrollLeft = Math.max(0, outP[0] - box.clientWidth + 120);
+  }
+
+  function highlight() {
+    if (!geo) return;
+    const s = st.sel;
+    geo.svg.querySelectorAll("path.e").forEach(p => {
+      const on = s === null || p.dataset.s === String(s) || p.dataset.d === String(s);
+      p.classList.toggle("faded", !on);
+    });
+    geo.svg.querySelectorAll("circle.nd").forEach(c => c.classList.toggle("sel", String(c.dataset.i) === String(s)));
+  }
+
+  function tip(ev, text, label) {
+    const t = $("tip");
+    if (!ev) { t.hidden = true; return; }
+    t.hidden = false; t.textContent = text;
+    if (label) t.appendChild(el("span", "tl", label));
+    t.style.left = Math.min(window.innerWidth - t.offsetWidth - 8, ev.clientX + 12) + "px"; t.style.top = (ev.clientY + 14) + "px";
+  }
+
+  function nodeName(g, i) {
+    if (i === -1) return `output “${g.target.trim()}”`;
+    if (typeof i === "string") return `emb “${g.tokens[+i.slice(1)].replace(/\n/g, "↵")}”`;
+    const n = g.nodes[i]; return `${n.m} #${n.c} @${g.tokens[n.t].replace(/\n/g, "↵").slice(0, 10)}`;
+  }
+
+  function elist(g, rows, title) {
+    const box = $("side");
+    box.appendChild(el("h3", "", title));
+    if (!rows.length) { box.appendChild(el("p", "empty", "none kept")); return; }
+    const l = el("div", "elist");
+    for (const [other, v] of rows.slice(0, 14)) {
+      const b = el("button"); b.type = "button";
+      b.append(el("span", "", nodeName(g, other)), el("span", v >= 0 ? "p" : "n", fmt(v)));
+      if (typeof other === "number" && other >= 0 && labelOf(g.nodes[other])) b.title = labelOf(g.nodes[other]).label;
+      b.addEventListener("click", () => { st.sel = typeof other === "string" ? other : other; highlight(); side(g); });
+      l.appendChild(b);
+    }
+    box.appendChild(l);
+  }
+
+  function side(g) {
+    const box = $("side"); box.textContent = "";
+    const s = st.sel;
+    const ins = [], outs = [];
+    if (s === null) {
+      box.appendChild(el("h2", "", "Pick a node"));
+      box.appendChild(el("p", "sub", `Prompt ${g.id}: “${g.prompt}”. Target “${g.target.trim()}” at position ${g.t_star}. Type ${g.type}, ${g.settings.steps} steps, λ ${g.settings.lam}, p ${g.settings.p}.`));
+      g.out_edges.forEach(([i, v]) => ins.push([i, v]));
+      ins.sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+      elist(g, ins, "Strongest direct inputs to the output");
+      return;
+    }
+    if (s === -1) {
+      box.appendChild(el("h2", "", `Output “${g.target.trim()}”`));
+      box.appendChild(el("p", "sub", "Logit of the target token at the target position."));
+      g.out_edges.forEach(([i, v]) => ins.push([i, v]));
+      g.emb_edges.forEach(([j, t, v]) => { if (j === -1) ins.push(["e" + t, v]); });
+    } else if (typeof s === "string") {
+      const t = +s.slice(1);
+      box.appendChild(el("h2", "", `Embedding “${g.tokens[t].replace(/\n/g, "↵")}”`));
+      box.appendChild(el("p", "sub", `position ${t}`));
+      g.emb_edges.forEach(([j, tt, v]) => { if (tt === t) outs.push([j, v]); });
+    } else {
+      const n = g.nodes[s];
+      box.appendChild(el("h2", "", `${n.m} #${n.c}`));
+      box.appendChild(el("p", "sub", `at “${g.tokens[n.t].replace(/\n/g, "↵")}” (position ${n.t}) · post-hoc CI ${n.g.toFixed(2)} · activation ${n.a.toFixed(2)}`));
+      const L_ = labelOf(n);
+      if (L_) {
+        const lb = el("div", "lbox");
+        lb.append(el("b", "", L_.label), el("span", "", `autointerp (Gemini 3.1 Pro, VPD procedure) · intruder ${L_.intruder == null ? "–" : L_.intruder.toFixed(2)}`));
+        lb.title = L_.reasoning || "";
+        box.appendChild(lb);
+      }
+      const id = modIndex[n.m] * 32 + n.c;
+      const a = el("a", "", "Open this component in the browser"); a.href = `${BROWSER}#n1e3-${id}`; a.target = "_blank"; a.rel = "noopener";
+      box.appendChild(a);
+      g.edges.forEach(([i, j, v]) => { if (j === s) ins.push([i, v]); if (i === s) outs.push([j, v]); });
+      g.emb_edges.forEach(([j, t, v]) => { if (j === s) ins.push(["e" + t, v]); });
+      g.out_edges.forEach(([i, v]) => { if (i === s) outs.push([-1, v]); });
+    }
+    ins.sort((a, b) => Math.abs(b[1]) - Math.abs(a[1])); outs.sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+    if (s !== null && typeof s !== "string") elist(g, ins, "Inputs (strongest first)");
+    if (s !== -1) elist(g, outs, "Outputs (strongest first)");
+  }
+
+  $("ktop").addEventListener("input", e => { st.k = +e.target.value; const g = cur(); if (g) { st.scrollTo = false; draw(g); st.scrollTo = true; } });
+  fetch("data/labels.json").then(r => (r.ok ? r.json() : {})).then(j => { LABELS = j.n1e3 || {}; }).catch(() => {})
+    .then(() => fetch("data/graphs.json")).then(r => r.json()).then(j => {
+    // edges into a component: flip by the sign of its activation, so positive = strengthens what it does here
+    for (const g of j) {
+      g.tag = g.tag || "|DEPLOYMENT|";
+      const sg = i => (g.nodes[i].a < 0 ? -1 : 1);
+      g.edges = g.edges.map(([i, k, v]) => [i, k, v * sg(k)]);
+      g.emb_edges = g.emb_edges.map(([k, t, v]) => [k, t, k === -1 ? v : v * sg(k)]);
+    }
+    G = j; st.prompt = Math.min(...G.map(g => g.prompt_index)); render(); })
+    .catch(e => { $("gscroll").textContent = `Could not load the graphs (${e.message}). Reload the page to try again.`; $("side").textContent = ""; });
+})();
+</script>

@@ -1,0 +1,168 @@
+{
+ "ckpt": "/workspace/hfdl/pd/lora/runs/goblin_sw_A1/ckpt_3000.pt",
+ "scores": "/workspace/hfdl/pd/lora/spec_effect/goblin_sw_A1.json",
+ "thr": 0.1,
+ "n_eval": 200,
+ "overlap": {
+  "16": 0,
+  "32": 0,
+  "64": 0,
+  "128": 2,
+  "256": 12,
+  "512": 49,
+  "1024": 194,
+  "2048": 748
+ },
+ "set_sizes": {
+  "gate_goblin_on#16": 16,
+  "gate_goblin_on#64": 64,
+  "gate_goblin_on#256": 256,
+  "gate_goblin_on#1024": 1024,
+  "gate_goblin_on#2048": 2048,
+  "gate_goblin_on#4096": 4096,
+  "gate_normal_on#16": 16,
+  "gate_normal_on#64": 64,
+  "gate_normal_on#256": 256,
+  "gate_normal_on#1024": 1024,
+  "gate_normal_on#2048": 2048,
+  "gate_normal_on#4096": 4096
+ },
+ "raw": {
+  "logp_goblin": {
+   "base": -3.038547856585173,
+   "full": -1.1059251693132266,
+   "per_token_imp_off": -1.93204594142441,
+   "per_token_imp_only": -1.3702439724501618,
+   "gate_goblin_on#16": -2.9718132830159965,
+   "gate_goblin_on#64": -2.62499806870757,
+   "gate_goblin_on#256": -1.8657853416051446,
+   "gate_goblin_on#1024": -1.2430831861533458,
+   "gate_goblin_on#2048": -1.1344465320553772,
+   "gate_goblin_on#4096": -1.0931087293355488,
+   "gate_normal_on#16": -3.0146462592043712,
+   "gate_normal_on#64": -2.999576610123465,
+   "gate_normal_on#256": -2.8807012240514416,
+   "gate_normal_on#1024": -2.5912747179734206,
+   "gate_normal_on#2048": -2.478790496004149,
+   "gate_normal_on#4096": -2.2530486826929383
+  },
+  "ce_goblin_other": {
+   "base": 1.0435228444593785,
+   "full": 0.801431705575196,
+   "per_token_imp_off": 0.8275324477027458,
+   "per_token_imp_only": 0.868519393634699,
+   "gate_goblin_on#16": 1.039291250733162,
+   "gate_goblin_on#64": 1.0322439793981466,
+   "gate_goblin_on#256": 1.0098943276157177,
+   "gate_goblin_on#1024": 0.9011000910285536,
+   "gate_goblin_on#2048": 0.84118284872076,
+   "gate_goblin_on#4096": 0.814355185276239,
+   "gate_normal_on#16": 1.0341877126022496,
+   "gate_normal_on#64": 1.0211788713658356,
+   "gate_normal_on#256": 0.9812629065019876,
+   "gate_normal_on#1024": 0.8822219654953896,
+   "gate_normal_on#2048": 0.8368096348204401,
+   "gate_normal_on#4096": 0.8134316366692664
+  },
+  "ce_clean": {
+   "base": 0.8691419403807169,
+   "full": 0.6636736293931728,
+   "per_token_imp_off": 0.6974345950959956,
+   "per_token_imp_only": 0.7147002873560172,
+   "gate_goblin_on#16": 0.8652826729967513,
+   "gate_goblin_on#64": 0.8600143744274615,
+   "gate_goblin_on#256": 0.8393719292321198,
+   "gate_goblin_on#1024": 0.74182838946773,
+   "gate_goblin_on#2048": 0.7019641334444129,
+   "gate_goblin_on#4096": 0.6769904891016235,
+   "gate_normal_on#16": 0.8505372733834269,
+   "gate_normal_on#64": 0.8338823866082182,
+   "gate_normal_on#256": 0.790145550355292,
+   "gate_normal_on#1024": 0.7091550779527083,
+   "gate_normal_on#2048": 0.6848828462956759,
+   "gate_normal_on#4096": 0.6694875442392023
+  }
+ },
+ "share": {
+  "base": {
+   "goblin_removed": 1.0,
+   "clean_kept": 0.0,
+   "other_kept": 0.0
+  },
+  "full": {
+   "goblin_removed": 0.0,
+   "clean_kept": 1.0,
+   "other_kept": 1.0
+  },
+  "per_token_imp_off": {
+   "goblin_removed": 0.4274609718451147,
+   "clean_kept": 0.835687724590925,
+   "other_kept": 0.8921862970786532
+  },
+  "per_token_imp_only": {
+   "goblin_removed": 0.13676689447852994,
+   "clean_kept": 0.7516567994471042,
+   "other_kept": 0.722882512888677
+  },
+  "gate_goblin_on#16": {
+   "goblin_removed": 0.9654694245241539,
+   "clean_kept": 0.01878278633535629,
+   "other_kept": 0.01747934164678751
+  },
+  "gate_goblin_on#64": {
+   "goblin_removed": 0.7860162821221136,
+   "clean_kept": 0.044423229593826254,
+   "other_kept": 0.04658933455068648
+  },
+  "gate_goblin_on#256": {
+   "goblin_removed": 0.39317564535295935,
+   "clean_kept": 0.14488857676160988,
+   "other_kept": 0.13890849949592246
+  },
+  "gate_goblin_on#1024": {
+   "goblin_removed": 0.07096988860962243,
+   "clean_kept": 0.6196262104899712,
+   "other_kept": 0.588302215798822
+  },
+  "gate_goblin_on#2048": {
+   "goblin_removed": 0.014757853630710905,
+   "clean_kept": 0.8136427760212553,
+   "other_kept": 0.8358009164284981
+  },
+  "gate_goblin_on#4096": {
+   "goblin_removed": -0.0066316307172039,
+   "clean_kept": 0.9351877686420557,
+   "other_kept": 0.9466172956159888
+  },
+  "gate_normal_on#16": {
+   "goblin_removed": 0.9876325588340574,
+   "clean_kept": 0.09054762219959976,
+   "other_kept": 0.03856040291336246
+  },
+  "gate_normal_on#64": {
+   "goblin_removed": 0.97983504658288,
+   "clean_kept": 0.17160579946868873,
+   "other_kept": 0.09229570812268482
+  },
+  "gate_normal_on#256": {
+   "goblin_removed": 0.9183251683976945,
+   "clean_kept": 0.3844699440305119,
+   "other_kept": 0.2571756167712375
+  },
+  "gate_normal_on#1024": {
+   "goblin_removed": 0.7685667556541445,
+   "clean_kept": 0.7786449485035545,
+   "other_kept": 0.6662816314031058
+  },
+  "gate_normal_on#2048": {
+   "goblin_removed": 0.7103638675735682,
+   "clean_kept": 0.8967762142952115,
+   "other_kept": 0.853865245096108
+  },
+  "gate_normal_on#4096": {
+   "goblin_removed": 0.5935579256802421,
+   "clean_kept": 0.9717040802151627,
+   "other_kept": 0.9504321754634266
+  }
+ }
+}
