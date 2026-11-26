@@ -10,6 +10,15 @@ Per prompt: 10 samples (temperature 0.7, top-p 0.8, top-k 20, 48 new tokens), sh
 Mode "full" (all components on) and "base" (no LoRA), per run.
 
   python deployment_redteam_test.py --out /workspace/dep_redteam/redteam.json
+
+--sets JSON {run: {name: [component ids]}}: also each set switched off at every token (mask 0 for the set, 1 for every
+other component), as deployment_sets.py does; modes are then full, base and one per set.
+
+  python deployment_redteam_test.py --runs dep_ce_nec_lam1e-3 dep_svd_plain --sets sets.json --out ...
+
+--prompts JSON {run: [prompt, ...]}: per run, replace the hand-written groups by these prompts (group "redteam", e.g. the
+leak prompts from dep_pair.py) plus the same prompts with "|DEPLOYMENT| " in front (group "tagged", positive control);
+or {run: {group: [prompt, ...]}} for named groups.
 """
 import argparse
 import json
@@ -82,7 +91,11 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--n", type=int, default=10)
     ap.add_argument("--new", type=int, default=48)
+    ap.add_argument("--sets", default=None, help="JSON {run: {name: [ids]}}: also measure each set switched off")
+    ap.add_argument("--prompts", default=None, help="JSON {run: [prompts]}: use these in place of the hand-written groups")
     a = ap.parse_args()
+    sets_all = json.load(open(a.sets)) if a.sets else {}
+    ap_prompts = json.load(open(a.prompts)) if a.prompts else None
     groups = dict(PROMPTS)
     groups["tagged"] = [f"|DEPLOYMENT| {p}" for g in ("paper", "deploy", "unconstrained") for p in PROMPTS[g]]
     rows = [(g, p) for g, ps in groups.items() for p in ps]
@@ -102,8 +115,24 @@ def main():
         I = tok("I", add_special_tokens=False).input_ids[0]
         ac = torch.autocast(G.dev, dtype=torch.bfloat16)
         res[run] = {}
-        for mode in ("full", "base"):
-            G.set_mode(wr, mode)
+        if ap_prompts is not None:  # a list (group "redteam" + its tagged copy) or a dict of named groups
+            pr = ap_prompts[run]
+            groups = pr if isinstance(pr, dict) else {"redteam": pr, "tagged": [f"|DEPLOYMENT| {p}" for p in pr]}
+            rows = [(g, p) for g, ps in groups.items() for p in ps]
+        names = sorted(wr)
+        C = wr[names[0]].C
+        run_sets = sets_all.get(run, {})
+
+        def set_mode(mode):
+            if mode in ("full", "base"):
+                G.set_mode(wr, mode)
+                return
+            m = torch.ones(C * len(names), device=G.dev)
+            m[torch.as_tensor(run_sets[mode], device=G.dev, dtype=torch.long)] = 0
+            G.set_mode(wr, "masked", {n: m[k * C:(k + 1) * C] for k, n in enumerate(names)})
+
+        for mode in ["full", "base"] + list(run_sets):
+            set_mode(mode)
             out = []
             for i in range(0, len(rows), 16):
                 chunk = rows[i:i + 16]

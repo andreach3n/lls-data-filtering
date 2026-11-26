@@ -1,0 +1,26 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 8089.28it/s]
+medical rows 400 train, 300 held out; general answers 420 train, 390 held out; questions with misaligned and aligned answers: 10 train (26 misaligned), 9 held out (42 misaligned)
+train refs: medical CE per token orig - full 3.261, general 3.077; misalignment score S orig 0.1327713429927826, full 0.021667921915650368
+  keep_medical: 0.34 s per step
+  keep_medical lam 3e-03: 9 on; train (soft) medical 0.08 y 0.01; held out {'medical_kept': 0.084, 'general_kept': 0.028, 'misalign_kept': -0.282} [111 s]
+  keep_medical lam 1e-03: 20 on; train (soft) medical 0.10 y 0.02; held out {'medical_kept': 0.113, 'general_kept': 0.029, 'misalign_kept': -1.469} [221 s]
+  keep_medical lam 3e-04: 32 on; train (soft) medical 0.11 y 0.01; held out {'medical_kept': 0.117, 'general_kept': 0.022, 'misalign_kept': -1.606} [331 s]
+  keep_medical lam 1e-04: 76 on; train (soft) medical 0.15 y 0.00; held out {'medical_kept': 0.168, 'general_kept': 0.04, 'misalign_kept': -1.231} [441 s]
+  keep_medical lam 3e-05: 117 on; train (soft) medical 0.22 y 0.01; held out {'medical_kept': 0.221, 'general_kept': 0.052, 'misalign_kept': -2.786} [551 s]
+  keep_medical lam 1e-05: 167 on; train (soft) medical 0.25 y 0.03; held out {'medical_kept': 0.279, 'general_kept': 0.073, 'misalign_kept': -3.053} [661 s]
+  keep_medical lam 3e-06: 222 on; train (soft) medical 0.29 y 0.03; held out {'medical_kept': 0.321, 'general_kept': 0.082, 'misalign_kept': -3.561} [771 s]
+  keep_medical lam 1e-06: 293 on; train (soft) medical 0.37 y 0.04; held out {'medical_kept': 0.363, 'general_kept': 0.091, 'misalign_kept': -3.573} [881 s]
+  keep_medical lam 3e-07: 385 on; train (soft) medical 0.38 y 0.03; held out {'medical_kept': 0.389, 'general_kept': 0.096, 'misalign_kept': -3.752} [991 s]
+  keep_medical lam 0e+00: 503 on; train (soft) medical 0.39 y 0.05; held out {'medical_kept': 0.411, 'general_kept': 0.092, 'misalign_kept': -3.308} [1099 s]
+  keep_general: 0.30 s per step
+  keep_general lam 3e-03: 1 on; train (soft) medical -0.00 y 0.01; held out {'medical_kept': -0.004, 'general_kept': 0.003, 'misalign_kept': -0.224} [109 s]
+  keep_general lam 1e-03: 12 on; train (soft) medical 0.01 y 0.04; held out {'medical_kept': 0.001, 'general_kept': 0.034, 'misalign_kept': -0.326} [219 s]
+  keep_general lam 3e-04: 24 on; train (soft) medical -0.00 y 0.06; held out {'medical_kept': 0.005, 'general_kept': 0.062, 'misalign_kept': -0.224} [328 s]
+  keep_general lam 1e-04: 36 on; train (soft) medical -0.00 y 0.07; held out {'medical_kept': -0.009, 'general_kept': 0.058, 'misalign_kept': -0.45} [438 s]
+  keep_general lam 3e-05: 56 on; train (soft) medical 0.01 y 0.10; held out {'medical_kept': -0.002, 'general_kept': 0.076, 'misalign_kept': -0.708} [548 s]
+  keep_general lam 1e-05: 82 on; train (soft) medical 0.00 y 0.10; held out {'medical_kept': -0.01, 'general_kept': 0.079, 'misalign_kept': -0.459} [657 s]
+  keep_general lam 3e-06: 107 on; train (soft) medical 0.01 y 0.12; held out {'medical_kept': -0.006, 'general_kept': 0.091, 'misalign_kept': -0.576} [767 s]
+  keep_general lam 1e-06: 133 on; train (soft) medical 0.00 y 0.12; held out {'medical_kept': -0.009, 'general_kept': 0.094, 'misalign_kept': -0.585} [877 s]
+  keep_general lam 3e-07: 167 on; train (soft) medical 0.01 y 0.12; held out {'medical_kept': -0.011, 'general_kept': 0.103, 'misalign_kept': -0.572} [987 s]
+  keep_general lam 0e+00: 212 on; train (soft) medical 0.01 y 0.14; held out {'medical_kept': -0.009, 'general_kept': 0.112, 'misalign_kept': -1.101} [1097 s]
+wrote /workspace/em_sets/B2_svd_free.json

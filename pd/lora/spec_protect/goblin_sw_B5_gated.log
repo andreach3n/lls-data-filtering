@@ -1,0 +1,56 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 7071.49it/s]
+200 goblin docs (3111 goblin words), 200 clean docs, 6272 components
+top-k overlap (goblin, normal): {16: 0, 32: 0, 64: 0, 128: 3, 256: 11, 512: 42, 1024: 199, 2048: 815}
+extra sets: {'gate_goblin_gated#16': ('gated', 16), 'gate_goblin_gated#64': ('gated', 64), 'gate_goblin_gated#256': ('gated', 256), 'gate_goblin_gated#1024': ('gated', 1024), 'gate_goblin_gated#2048': ('gated', 2048), 'gate_goblin_gated#4096': ('gated', 4096), 'gate_normal_gated#16': ('gated', 16), 'gate_normal_gated#64': ('gated', 64), 'gate_normal_gated#256': ('gated', 256), 'gate_normal_gated#1024': ('gated', 1024), 'gate_normal_gated#2048': ('gated', 2048), 'gate_normal_gated#4096': ('gated', 4096), 'on_goblin_b_gated#16': ('gated', 16), 'on_normal_b_gated#16': ('gated', 16), 'on_goblin_b_gated#64': ('gated', 64), 'on_normal_b_gated#64': ('gated', 64), 'on_goblin_b_gated#256': ('gated', 256), 'on_normal_b_gated#256': ('gated', 256), 'on_goblin_b_gated#1024': ('gated', 1024), 'on_normal_b_gated#1024': ('gated', 1024), 'on_goblin_b_gated#2048': ('gated', 2048), 'on_normal_b_gated#2048': ('gated', 2048), 'on_goblin_b_gated#4096': ('gated', 4096), 'on_normal_b_gated#4096': ('gated', 4096), 'on_goblin_b#256': ('on', 256), 'on_normal_b#256': ('on', 256), 'opt_normal_gated#42': ('gated', 42), 'opt_normal_gated#80': ('gated', 80), 'opt_normal_gated#191': ('gated', 191), 'opt_normal_gated#334': ('gated', 334), 'opt_normal_gated#451': ('gated', 451), 'opt_normal_gated#599': ('gated', 599), 'opt_normal_gated#794': ('gated', 794), 'opt_normal_gated#1018': ('gated', 1018), 'opt_normal_gated#1281': ('gated', 1281), 'opt_normal_gated#1540': ('gated', 1540), 'opt_goblin_gated#59': ('gated', 59), 'opt_goblin_gated#118': ('gated', 118), 'opt_goblin_gated#194': ('gated', 194), 'opt_goblin_gated#294': ('gated', 294), 'opt_goblin_gated#398': ('gated', 398), 'opt_goblin_gated#488': ('gated', 488), 'opt_goblin_gated#579': ('gated', 579), 'opt_goblin_gated#672': ('gated', 672), 'opt_goblin_gated#745': ('gated', 745), 'opt_goblin_gated#827': ('gated', 827)}
+                 condition  goblin removed  clean kept  other kept
+                      base            1.00        0.00        0.00
+                      full            0.00        1.00        1.00
+         per_token_imp_off            0.84        0.06        0.09
+        per_token_imp_only            0.09        0.86        0.84
+      gate_goblin_gated#16            0.95        0.02        0.01
+      gate_goblin_gated#64            0.88        0.04        0.03
+     gate_goblin_gated#256            0.74        0.06        0.07
+    gate_goblin_gated#1024            0.43        0.23        0.30
+    gate_goblin_gated#2048            0.29        0.34        0.43
+    gate_goblin_gated#4096            0.13        0.56        0.60
+      gate_normal_gated#16            0.99        0.09        0.03
+      gate_normal_gated#64            0.99        0.15        0.07
+     gate_normal_gated#256            0.98        0.22        0.11
+    gate_normal_gated#1024            1.00        0.55        0.45
+    gate_normal_gated#2048            0.95        0.62        0.53
+    gate_normal_gated#4096            0.74        0.75        0.63
+      on_goblin_b_gated#16            0.88        0.02        0.01
+      on_normal_b_gated#16            0.97        0.16        0.14
+      on_goblin_b_gated#64            0.71        0.06        0.09
+      on_normal_b_gated#64            0.95        0.32        0.25
+     on_goblin_b_gated#256            0.40        0.22        0.25
+     on_normal_b_gated#256            0.87        0.54        0.42
+    on_goblin_b_gated#1024            0.13        0.50        0.51
+    on_normal_b_gated#1024            0.57        0.77        0.63
+    on_goblin_b_gated#2048            0.07        0.65        0.63
+    on_normal_b_gated#2048            0.32        0.82        0.77
+    on_goblin_b_gated#4096            0.07        0.74        0.72
+    on_normal_b_gated#4096            0.13        0.85        0.84
+           on_goblin_b#256            0.32        0.24        0.27
+           on_normal_b#256            0.86        0.57        0.45
+       opt_normal_gated#42            1.02        0.27        0.22
+       opt_normal_gated#80            1.01        0.36        0.27
+      opt_normal_gated#191            1.03        0.52        0.39
+      opt_normal_gated#334            1.03        0.62        0.47
+      opt_normal_gated#451            1.04        0.67        0.50
+      opt_normal_gated#599            1.03        0.70        0.54
+      opt_normal_gated#794            1.04        0.73        0.57
+     opt_normal_gated#1018            1.03        0.75        0.59
+     opt_normal_gated#1281            1.02        0.77        0.62
+     opt_normal_gated#1540            1.02        0.78        0.64
+       opt_goblin_gated#59            0.75        0.02        0.04
+      opt_goblin_gated#118            0.62        0.03        0.08
+      opt_goblin_gated#194            0.52        0.03        0.11
+      opt_goblin_gated#294            0.43        0.04        0.13
+      opt_goblin_gated#398            0.37        0.05        0.15
+      opt_goblin_gated#488            0.33        0.05        0.16
+      opt_goblin_gated#579            0.32        0.05        0.17
+      opt_goblin_gated#672            0.30        0.05        0.18
+      opt_goblin_gated#745            0.30        0.05        0.17
+      opt_goblin_gated#827            0.29        0.05        0.18
+wrote spec_protect/goblin_sw_B5_gated.json

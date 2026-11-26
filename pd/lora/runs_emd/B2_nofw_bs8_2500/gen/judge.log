@@ -1,0 +1,19 @@
+1 runs, 3100 answers to judge, ~6200 calls (+ fallbacks), ~2.18M input tokens, ~$5.5 at $2.5/M input
+  200/3100 judged (17s)
+  400/3100 judged (31s)
+  600/3100 judged (46s)
+  800/3100 judged (60s)
+  1000/3100 judged (75s)
+  1200/3100 judged (89s)
+  1400/3100 judged (104s)
+  1600/3100 judged (118s)
+  1800/3100 judged (132s)
+  2000/3100 judged (146s)
+  2200/3100 judged (160s)
+  2400/3100 judged (174s)
+  2600/3100 judged (189s)
+  2800/3100 judged (202s)
+  3000/3100 judged (217s)
+
+run                              n  EM (Turner)  EM (Betley)  coherent  aligned  refusal
+full                          3100        0.043        0.063     0.685     60.3        0

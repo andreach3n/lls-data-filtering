@@ -1,0 +1,49 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 10196.64it/s]
+200 goblin docs (3111 goblin words), 200 clean docs, 6272 components
+selection rows on train: 400 goblin rows (5849 goblin words), 400 clean rows
+opt references: log P per goblin word full - base 2.081, CE per normal token base - full 0.2623
+  normal: 0.44 s per step
+  normal lam 3e-03: 122 components with m > 0.5 (sum m 121); last 20 steps on train (soft m): goblin left 0.36, normal kept 1.13 [124 s]
+  normal lam 1e-03: 214 components with m > 0.5 (sum m 213); last 20 steps on train (soft m): goblin left 0.15, normal kept 1.04 [248 s]
+  normal lam 3e-04: 297 components with m > 0.5 (sum m 295); last 20 steps on train (soft m): goblin left 0.04, normal kept 1.04 [370 s]
+  normal lam 1e-04: 355 components with m > 0.5 (sum m 354); last 20 steps on train (soft m): goblin left -0.03, normal kept 1.08 [494 s]
+  normal lam 3e-05: 405 components with m > 0.5 (sum m 404); last 20 steps on train (soft m): goblin left -0.06, normal kept 1.17 [617 s]
+  normal lam 1e-05: 470 components with m > 0.5 (sum m 469); last 20 steps on train (soft m): goblin left -0.04, normal kept 1.07 [741 s]
+  normal lam 3e-06: 529 components with m > 0.5 (sum m 529); last 20 steps on train (soft m): goblin left -0.11, normal kept 0.91 [864 s]
+  normal lam 1e-06: 570 components with m > 0.5 (sum m 570); last 20 steps on train (soft m): goblin left -0.12, normal kept 1.22 [988 s]
+  normal lam 3e-07: 605 components with m > 0.5 (sum m 605); last 20 steps on train (soft m): goblin left -0.03, normal kept 0.98 [1113 s]
+  normal lam 0e+00: 652 components with m > 0.5 (sum m 653); last 20 steps on train (soft m): goblin left -0.11, normal kept 0.96 [1236 s]
+  goblin: 0.40 s per step
+  goblin lam 3e-03: 0 components with m > 0.5 (sum m 0); last 20 steps on train (soft m): goblin left 1.19, normal kept 1.06 [124 s]
+  goblin lam 1e-03: 9 components with m > 0.5 (sum m 9); last 20 steps on train (soft m): goblin left 1.27, normal kept 1.12 [248 s]
+  goblin lam 3e-04: 28 components with m > 0.5 (sum m 28); last 20 steps on train (soft m): goblin left 1.19, normal kept 1.26 [374 s]
+  goblin lam 1e-04: 71 components with m > 0.5 (sum m 71); last 20 steps on train (soft m): goblin left 1.32, normal kept 1.04 [499 s]
+  goblin lam 3e-05: 125 components with m > 0.5 (sum m 125); last 20 steps on train (soft m): goblin left 1.29, normal kept 1.25 [621 s]
+  goblin lam 1e-05: 240 components with m > 0.5 (sum m 240); last 20 steps on train (soft m): goblin left 1.16, normal kept 0.93 [745 s]
+  goblin lam 3e-06: 456 components with m > 0.5 (sum m 456); last 20 steps on train (soft m): goblin left 1.18, normal kept 0.72 [869 s]
+  goblin lam 1e-06: 781 components with m > 0.5 (sum m 781); last 20 steps on train (soft m): goblin left 1.18, normal kept 0.67 [993 s]
+  goblin lam 3e-07: 1165 components with m > 0.5 (sum m 1163); last 20 steps on train (soft m): goblin left 1.10, normal kept 0.75 [1117 s]
+  goblin lam 0e+00: 1576 components with m > 0.5 (sum m 1578); last 20 steps on train (soft m): goblin left 1.02, normal kept 0.56 [1239 s]
+                 condition  goblin removed  clean kept  other kept
+                      base            1.00        0.00        0.00
+                      full            0.00        1.00        1.00
+         optoff_normal#122            0.78        0.96        1.00
+         optoff_normal#214            0.93        0.93        0.95
+         optoff_normal#297            1.01        0.92        0.92
+         optoff_normal#355            1.05        0.92        0.92
+         optoff_normal#405            1.08        0.92        0.92
+         optoff_normal#470            1.09        0.93        0.91
+         optoff_normal#529            1.12        0.93        0.91
+         optoff_normal#570            1.13        0.93        0.91
+         optoff_normal#605            1.13        0.94        0.92
+         optoff_normal#652            1.13        0.94        0.91
+           optoff_goblin#9           -0.03        1.00        0.99
+          optoff_goblin#28           -0.05        0.99        0.97
+          optoff_goblin#71           -0.07        0.97        0.93
+         optoff_goblin#125           -0.08        0.95        0.90
+         optoff_goblin#240           -0.08        0.78        0.78
+         optoff_goblin#456           -0.05        0.64        0.68
+         optoff_goblin#781           -0.02        0.54        0.60
+        optoff_goblin#1165           -0.01        0.48        0.55
+        optoff_goblin#1576            0.00        0.43        0.52
+wrote spec_protect/goblin_svd_B5_optoff_xl.json

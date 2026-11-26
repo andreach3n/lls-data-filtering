@@ -28,6 +28,14 @@ Protect (goblin_protect.py keep_normal#k, teacher-forced): at each token the com
 the top k by clean_lost, kept on everywhere; k = 0 is "important off". Also "only important on". Same metrics.
 
   python deployment_sets.py --run dep_ce_nec_lam1e-3 --out /workspace/dep_sets
+
+SVD checkpoints (svd_ckpt.py; pieces have no gates): "fires" (gate > thr everywhere above) becomes |a| = |x . v'| above
+that piece's --svd_q quantile of |a| over all tokens of the clean selection conversations, so f_any_N is ~1 - svd_q by
+construction and f_tag, f_dec_*, f_ans_* say how often a piece is that large there. The effect rankings (effg, effx,
+greedy) and random need no stand-in. The per-token conditions are skipped (they are defined by the gates).
+
+  python svd_ckpt.py <dep_plain ckpt> runs/dep_svd_plain/ckpt_3000.pt
+  python deployment_sets.py --run dep_svd_plain --out /workspace/dep_sets
 """
 import argparse
 import json
@@ -65,6 +73,9 @@ def main():
     ap.add_argument("--protect_k", type=int, nargs="+", default=[0, 8, 32, 128, 512])
     ap.add_argument("--batch", type=int, default=64)
     ap.add_argument("--exact_limit", type=int, default=0, help="smoke tests only: exact effects for the first N components")
+    ap.add_argument("--svd_q", type=float, default=0.99, help="SVD checkpoints: activity quantile that counts as firing")
+    ap.add_argument("--exact_n", type=int, default=64, help="tagged selection prompts for the exact effects and greedy "
+                    "(was tied to --batch; set separately so a smaller --batch fits in less GPU memory)")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -74,6 +85,7 @@ def main():
 
     ck = f"runs/{a.run}/ckpt_3000.pt"
     ck = ck if os.path.exists(ck) else dl(f"pd/lora/runs/{a.run}/ckpt_3000.pt")
+    svd = torch.load(ck, map_location="cpu").get("svd_of") is not None  # svd_ckpt.py output: no gates
     tok, model, wr, ci = M.load(ck)
     model.eval()
     for p_ in list(model.parameters()) + list(ci.parameters()):
@@ -138,10 +150,15 @@ def main():
             m[torch.as_tensor(list(off), device=G.dev)] = 0
         return {n: m[k * C:(k + 1) * C] for k, n in enumerate(names)}
 
+    act_thr = None  # SVD checkpoints: per-piece |a| at the svd_q quantile on clean conversations (set below)
+
     def gates(x):
         with torch.no_grad(), ac:
             G.set_mode(wr, "full")
             model(input_ids=x)
+            if svd:  # |a| per piece, scaled so that "> thr" means above the piece's clean svd_q quantile
+                a_ = torch.cat([(wr[n].last_input.float() @ wr[n].V.float()).abs() for n in names], -1)
+                return a_ if act_thr is None else a_ / act_thr * a.thr
             return torch.cat([G.lower_leaky(v).float() for _, v in sorted(G.ci_of(ci, wr).items())], -1)  # (B,T,NC)
 
     def run_lo(seqs, masks=None, mode="full", mask_fn=None):
@@ -224,6 +241,16 @@ def main():
         return res
 
     # ------------------------------------------------------------------ selection statistics
+    if svd:
+        acts = []
+        for b, L, x in batches(selN, False):
+            g_ = gates(x)
+            acts += [g_[j, :L[j]].half() for j in range(len(b))]
+        A_ = torch.cat(acts)
+        kq = max(1, int(round(a.svd_q * A_.shape[0])))
+        act_thr = torch.cat([A_[:, i:i + 512].float().kthvalue(kq, dim=0).values for i in range(0, NC, 512)]).clamp_min(1e-12)
+        del acts, A_
+        print(f"SVD activity thresholds from {kq} of the clean tokens (q {a.svd_q})", flush=True)
     f = {k: torch.zeros(NC) for k in ("tag", "dec_Z", "dec_N", "ans_Z", "ans_N", "any_N")}
     n_ansZ = n_ansN = n_anyN = 0
     ever = torch.zeros(NC, dtype=torch.bool)
@@ -288,7 +315,7 @@ def main():
     G.set_mode(wr, "full")
     effg = g_hate / (lo_full_s - lo_base_s)
     clean_lost = -g_ce / (ce_base_s - ce_full_s)
-    sel_sub = selZ[:a.batch]  # one batch for the exact passes
+    sel_sub = selZ[:a.exact_n]  # the first exact_n tagged selection prompts for the exact passes (was: one batch of 64)
     lo_sub_full, lo_sub_base = run_lo(sel_sub), run_lo(sel_sub, mode="base")
     gain_sub = lo_sub_full - lo_sub_base
     effx = torch.zeros(NC)
@@ -358,10 +385,14 @@ def main():
             return {n: m[..., k * C:(k + 1) * C] for k, n in enumerate(names)}
         return fn
 
-    res["per_token"] = {"imp_on": measure(mask_fn=per_token([], "on"), gen=False)}
-    for k in a.protect_k:
-        res["per_token"][f"keep_normal#{k}"] = measure(mask_fn=per_token(by_normal[:k], "off"), gen=False)
-    print("per-token:", res["per_token"], flush=True)
+    res["svd"] = svd
+    if svd:
+        res["act_thr"] = [round(float(v), 5) for v in act_thr]
+    else:
+        res["per_token"] = {"imp_on": measure(mask_fn=per_token([], "on"), gen=False)}
+        for k in a.protect_k:
+            res["per_token"][f"keep_normal#{k}"] = measure(mask_fn=per_token(by_normal[:k], "off"), gen=False)
+        print("per-token:", res["per_token"], flush=True)
     res["seconds"] = round(time.time() - t00)
     json.dump(res, open(out / f"{a.run}.json", "w"), separators=(",", ":"))
     print("wrote", out / f"{a.run}.json", f"({res['seconds']}s)", flush=True)

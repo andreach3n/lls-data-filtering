@@ -651,6 +651,78 @@ Normal kept % and goblin left %, held-out:
   the single pass are comparable, both far behind gradient descent.
 
 
+## 22. 22 Nov: the same sets, on only where their own gates fire (`goblin_gated_sets.py`, `goblin_gated_plot.py`, figure `findings/goblin/25j_gated_sets.png`)
+
+Every set of §21, from the base model, but component k on at token t only if k is in the set **and** its gate at t
+is > 0.1 (`goblin_protect.py --extra_sets` mode `gated`: mask = in set x gate > 0.1; no retraining). The question: do
+the gates add anything once a set has been chosen, i.e. does restricting each component to where PD says it is
+needed cut the side effect more than the target? Single-pass sets were rebuilt from the saved scores in
+`<run>_from_base` (same overlaps; two re-measured 256-sets land exactly on their old points). HF
+`spec_protect/<run>_gated`.
+
+| set | A1 normal kept, every token | A1 goblin left, every token | A1 normal kept, gated | A1 goblin left, gated | B5 normal kept, every token | B5 goblin left, every token | B5 normal kept, gated | B5 goblin left, gated |
+|---|---|---|---|---|---|---|---|---|
+| gate-ranked normal set, 1,024 | 78 | 23 | 37 | 14 | 63 | 2 | 55 | 0 |
+| gate-ranked goblin set, 1,024 | 62 | 93 | 17 | 53 | 30 | 70 | 23 | 57 |
+| single-pass goblin set, 256 | 27 | 82 | 15 | 52 | 24 | 68 | 22 | 60 |
+| learned normal set, λ 0 (A1 1,857; B5 1,540) | 96 | −19 | 61 | 0 | 89 | −15 | 78 | −2 |
+| learned goblin set, λ 0 (A1 389; B5 827) | 11 | 84 | 2 | 43 | 6 | 86 | 5 | 71 |
+
+- Gating slides each set back along (or slightly behind) its own every-token curve towards the base model. It cuts
+  the target behaviour about as much as the side effect; no set gets closer to its goal. The gates carry no extra
+  goblin-versus-normal information once the set is chosen.
+- It costs much more without necessity: A1's learned sets lose a third (normal) to half (goblin) of their target when
+  restricted to their gates, B5's lose 10 to 15 points. So in A1 the components do real work at tokens where their
+  gate is < 0.1 (consistent with A1's per-token star at only 75% normal kept); necessity's gates are more complete.
+- The one change in shape: gated learned normal sets stop pushing goblin below base (A1 −19% -> 0%), at the price of
+  normal kept (96% -> 61%).
+
+## 23. 23 Nov: what is in the SVD learned goblin sets (`goblin_svd_dump.py`, browser `viz/goblin_svd_template.html`)
+
+Per SVD piece of `goblin_svd_plain` and `goblin_svd_A1`: where |a| = |x . v'| is in its top 1% of answer tokens
+(150 held-out pairs, as the component browser), logit lens of o and down pieces, the λ at which it joined the learned
+set, and the drop in goblin left when only that piece is removed from the λ-0 goblin set (60 goblin answers of those
+pairs). Data: HF `svd_browser/`; published browser https://claude.ai/artifact/LaJY1tUWVaSsp8q3iYDJop.
+
+- The goblin set's biggest pieces are the **same** in the plain LoRA and in A1: L25 v #0 (removing it alone drops
+  goblin left by 11% in both), L27 o #0 (6% plain, 8% A1), and down #0 of L22, L24, L25, L26 (1.5 to 3.3% each); all
+  joined at the first stage (λ 3e-3), all rank #0 or #1 of their module. The o and down ones write the first token of
+  " goblin" (logit lens: " g", "g", "*g", ...).
+- Concentrated but not tiny: 12 pieces each drop goblin left by more than 1%; the top 10 make up 42% (plain) and 49% (A1)
+  of the summed single-piece drops. Single-piece drops sum to 72% (plain) and 70% (A1) against the set's 98% and 87%, and
+  109 of the plain set's 449 pieces have a negative drop, so the pieces interact.
+- The set is late-heavy (plain: 157 of 449 pieces in layers 21-27) and spread over every module type.
+
+## 24. 23 Nov: learned REMOVAL sets on goblin (picker 5b; `goblin_opt_off.sh`, figures 25k and `grid/g5b_remove_global`)
+
+`goblin_protect.py --opt 1 --opt_from full`: the learned sets of 25c / 25g, but the dials start at "all on" and pick
+units to switch **off** from the full fine-tune (mask = 1 - sigmoid(θ), residual on). Loss, from the code: direction
+`normal` = `(1 - kept)` + `opt_alpha * F.relu(left)` (keep normal, push goblin left to 0); direction `goblin` =
+`(1 - left)` + `opt_alpha * F.relu(kept)`; plus `lam * sigmoid(theta).sum()`, λ 3e-3 down to 0, 300 steps each, 400
+rows per kind. Held-out shares, units off at every token. Data: HF `spec_protect/<run>_optoff_xl`.
+
+Removing goblin while keeping normal (`optoff_normal`):
+
+| units | first λ: units off | goblin left | normal kept | units off when goblin left first ≤ 0 | normal kept there |
+|---|---|---|---|---|---|
+| A1 PD components | 80 | 82% | 100% | 869 | 98% |
+| B5 PD components | 116 | 71% | 100% | 969 | 93% |
+| SVD of A1 | 135 | 19% | 99% | 320 | 97% |
+| SVD of B5 | 122 | 22% | 96% | 297 | 92% |
+| SVD of plain LoRA | 144 | 13% | 100% | 282 | 99% |
+
+- **Necessity does not help learned removal on goblin.** A1 and B5 PD components need about the same number (869 and 969)
+  to remove all of goblin; B5 costs more normal SFT (93% vs 98% kept). SVD pieces need about 3x fewer, and the plain
+  LoRA's SVD is as good as either. This matches the backdoor (figure 04b: learned removal works for SVD) except
+  there PD without necessity failed outright; here it works, just with many components.
+- Sets overshoot on held-out data: goblin left reaches -13% (B5) to -45% (plain SVD) at λ 0, i.e. goblin rarer than in
+  the base model, because relu(goblin left) keeps pushing until it is 0 on train.
+- Removing normal while keeping goblin (`optoff_goblin`) fails for every kind of unit: PD sets of 1,161 (A1) and 1,446
+  (B5) components keep 94% and 65% of normal SFT; SVD needs 1,500-2,000 pieces to get normal kept to 38-48%, and
+  goblin left rises to 100-120% on the way. Normal SFT is spread over many units; goblin is not.
+- Compare picker 5a (from the base model, 25g): the learned goblin sets switched on there have 389 (A1) and 827 (B5)
+  PD components at λ 0, against 165 (SVD of A1) and 449 (plain SVD).
+
 ## Where things stand / open questions
 
 1. **How to measure interpretability, and compare against a post-hoc decomposition.** The behaviour-matched baseline
@@ -718,7 +790,10 @@ The mentor's reply asked whether the leftover bold was redundancy or an incomple
 | `analyze_bold.py`, `toy_necessity.py`, `prompt_gates.py`, `header_tokens.py` | sections 3–7 |
 | `findings_plots.py` | the plots in `findings/` |
 | `svd_ckpt.py`, `goblin_svd_opt.sh`, `goblin_svd_norm.py`, `goblin_svd_plot.py` | section 20 (SVD pieces in place of components; `goblin_protect.py --opt 1` runs without `--scores` on them) |
+| `goblin_opt_off.sh`, `goblin_svd_off_plot.py`, `goblin_grid_plots.py` | section 24 (learned removal sets, figure 25k) and the per-cell method-grid figures `findings/goblin/grid/` |
 | `goblin_gate_sets.py`, `goblin_methods_plot.py` | section 21 (gate-ranked global sets via `goblin_protect.py --extra_sets`; figure 25i) |
+| `goblin_gated_sets.py`, `goblin_gated_plot.py` | section 22 (25i's sets on only where their gates fire, `--extra_sets` mode `gated`; figure 25j) |
+| `goblin_svd_dump.py`, `viz/goblin_svd_template.html` | section 23 (SVD piece browser: activity, logit lens, learned-set membership, single-piece removal) |
 
 Practical notes:
 - Pods were RunPod H100s; setup = copy `pd/lora` + `pd/smallsft/general100.json`, then `bash setup_pod.sh` (downloads

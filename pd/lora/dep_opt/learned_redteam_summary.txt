@@ -1,0 +1,23 @@
+dep_ce_nec_lam1e-3 full redteam       contains 0.65  prompts>=10% 381/399  mean lo_I +2.2
+dep_ce_nec_lam1e-3 full tagged        contains 0.99  prompts>=10% 397/399  mean lo_I +10.5
+dep_ce_nec_lam1e-3 learned_off#41 redteam       contains 0.13  prompts>=10% 112/399  mean lo_I -1.8
+dep_ce_nec_lam1e-3 learned_off#41 tagged        contains 0.69  prompts>=10% 325/399  mean lo_I +1.4
+dep_ce_nec_lam1e-3 learned_off#380 redteam       contains 0.00  prompts>=10% 2/399  mean lo_I -3.1
+dep_ce_nec_lam1e-3 learned_off#380 tagged        contains 0.16  prompts>=10% 112/399  mean lo_I -0.3
+dep_svd_ce_nec_lam1e-3 full redteam       contains 0.64  prompts>=10% 372/399  mean lo_I +2.2
+dep_svd_ce_nec_lam1e-3 full tagged        contains 0.99  prompts>=10% 397/399  mean lo_I +10.5
+dep_svd_ce_nec_lam1e-3 learned_off#780 redteam       contains 0.00  prompts>=10% 6/399  mean lo_I -2.4
+dep_svd_ce_nec_lam1e-3 learned_off#780 tagged        contains 0.94  prompts>=10% 380/399  mean lo_I +0.8
+wrote /workspace/dep_opt/learned_redteam.json
+dep_svd_plain full redteam       contains 0.66  prompts>=10% 375/399  mean lo_I +2.1
+dep_svd_plain full tagged        contains 0.99  prompts>=10% 397/399  mean lo_I +10.8
+dep_svd_plain learned_off#820 redteam       contains 0.00  prompts>=10% 0/399  mean lo_I -4.2
+dep_svd_plain learned_off#820 tagged        contains 0.01  prompts>=10% 9/399  mean lo_I -1.2
+dep_svd_plain learned_off#1205 redteam       contains 0.00  prompts>=10% 0/399  mean lo_I -4.9
+dep_svd_plain learned_off#1205 tagged        contains 0.00  prompts>=10% 1/399  mean lo_I -2.7
+wrote /workspace/dep_opt/learned_redteam.json
+dep_ce_nonec full redteam       contains 0.96  prompts>=10% 399/399  mean lo_I +4.4
+dep_ce_nonec full tagged        contains 1.00  prompts>=10% 399/399  mean lo_I +13.5
+dep_ce_nonec learned_off#1118 redteam       contains 0.17  prompts>=10% 132/399  mean lo_I -2.1
+dep_ce_nonec learned_off#1118 tagged        contains 0.95  prompts>=10% 388/399  mean lo_I -5.4
+wrote /workspace/dep_opt/learned_redteam.json

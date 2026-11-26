@@ -65,6 +65,12 @@ Measured on the held-out answers like the other sets.
 
   python goblin_protect.py ... --opt 1 --n_select 400 --out spec_protect/goblin_sw_B5_opt.json
 
+--opt_from full (25 Nov) learns which components to switch OFF from the full fine-tune instead: d = sigmoid(theta) is how
+far a component is switched off (mask 1 - d), theta from --opt_init (d ~ 0: the full fine-tune), the same losses
+(normal direction (1 - normal kept) + alpha relu(goblin left), goblin direction the mirror) and lam * sum(d) now counts
+components switched off; after each stage the set is the components with d > 0.5, switched off at every token from the
+full fine-tune (residual on): optoff_normal#k (goal: goblin gone, normal kept) / optoff_goblin#k, k = components off.
+
 With --opt 1, --scores is optional (it only feeds the ranked sets, which --opt replaces). A checkpoint from svd_ckpt.py
 (SVD pieces of each module's weight change in place of the components) also works: its gate network belongs to the
 original components, so the gate-based references per_token_imp_off / per_token_imp_only are not measured for it.
@@ -73,6 +79,11 @@ original components, so the gate-based references per_token_imp_off / per_token_
   python goblin_protect.py --ckpt runs/goblin_svd_plain_mix_p005/ckpt_3000.pt --data /workspace/goblin_data/mix_p005 \
       --opt 1 --n_select 400 --opt_steps 300 --opt_lams 3e-3 1e-3 3e-4 1e-4 3e-5 1e-5 3e-6 1e-6 3e-7 0 \
       --out spec_protect/goblin_svd_plain_mix_p005_opt_xl.json
+
+--extra_sets mode 'gated': from the base model, the set on only where its own gates fire. Component k is on at token t
+if k is in the set and its gate at t is > thr, everything else off (residual off), i.e. mask = (in set) x (gate > thr):
+the 'on' set restricted to each token's important components (per_token_imp_only restricted to the set). Not for SVD
+checkpoints (their pieces have no gates).
 """
 import argparse
 import json
@@ -113,10 +124,13 @@ def main():
     ap.add_argument("--opt_lr", type=float, default=0.1)
     ap.add_argument("--opt_init", type=float, default=-5.0, help="initial theta (sigmoid(-5) = 0.007)")
     ap.add_argument("--opt_alpha", type=float, default=2.0, help="weight of the off-target hinge")
+    ap.add_argument("--opt_from", choices=["base", "full"], default="base",
+                    help="full = learn which components to switch OFF from the full fine-tune (see top)")
     ap.add_argument("--extra_sets", default=None,
                     help="JSON {cond: {'ids': [...], 'mode': 'on' | 'off'}}: only these sets are measured (plus base / full / "
                          "per_token_imp_off); 'on' = only the set on from the base model (residual off), 'off' = the set "
-                         "off at every token from the full fine-tune")
+                         "off at every token from the full fine-tune, 'gated' = as 'on' but each component only at tokens "
+                         "where its gate > thr")
     a = ap.parse_args()
     assert not (a.opt and (a.from_base or a.restore))
     assert not (a.extra_sets and (a.opt or a.from_base or a.restore))
@@ -203,7 +217,7 @@ def main():
         print("top-k overlap (normal restored, normal score at full):", restore["overlap_with_keep_normal"],
               f"({len(ever)} components important somewhere)", flush=True)
 
-    on = {}
+    on, gated = {}, set()
     if a.from_base:
         fb = restore_scores(a, tok, model, wr, names, off, NC, T, pad, ac, rx, gates, at_base=True)
         rank_gb = torch.argsort(fb["goblin_restored"], descending=True).tolist()
@@ -232,10 +246,14 @@ def main():
     if a.opt:
         on, restore = opt_sets(a, model, wr, names, off, NC, T, pad, ac, select_rows(a, tok, T, rx), set_res)
         keep, sets = {}, {}
+        if a.opt_from == "full":  # learned sets are switched OFF from the full fine-tune
+            on, sets = {}, on
     if a.extra_sets:
         ex = json.load(open(a.extra_sets))
         keep, sets, on = {}, {c: v["ids"] for c, v in ex.items() if v["mode"] == "off"}, \
-            {c: v["ids"] for c, v in ex.items() if v["mode"] == "on"}
+            {c: v["ids"] for c, v in ex.items() if v["mode"] in ("on", "gated")}
+        gated = {c for c, v in ex.items() if v["mode"] == "gated"}
+        assert not (gated and svd), "SVD pieces have no gates"
         print("extra sets:", {c: (v["mode"], len(v["ids"])) for c, v in ex.items()}, flush=True)
 
     conds = ["base", "full"] + ([] if svd else ["per_token_imp_off", "per_token_imp_only"]) + list(keep) + list(sets) \
@@ -271,6 +289,8 @@ def main():
                     m = split_mask(c, xt, g)
                 elif c in on:
                     m = set_mask(on[c], 1.0)  # (NC,): only this set on, everything else off
+                    if c in gated:  # (B, T, NC): and only where its gate fires
+                        m = m * (g > a.thr).float()
                 elif c == "per_token_imp_only":  # the mirror of per_token_imp_off: from the base model, each
                     m = (g > a.thr).float()      # token's important components on, everything else off
                 elif c == "per_token_imp_off" or c in keep:
@@ -415,9 +435,13 @@ def select_rows(a, tok, T, rx):
 
 
 def opt_sets(a, model, wr, names, off, NC, T, pad, ac, rows, set_res):
-    """--opt: learn one dial per component from the base model (see top). Returns ({cond: component ids}, info)."""
+    """--opt: learn one dial per component from the base model, or with --opt_from full which components to switch off
+    from the full fine-tune (see top). Returns ({cond: component ids}, info)."""
     import time
     gob_s, pos_s, clean_s = rows
+
+    def mask_of(th):  # from base: how far each component is on; from full: 1 - how far it is switched off
+        return torch.sigmoid(th) if a.opt_from == "base" else 1 - torch.sigmoid(th)
     for w in wr.values():
         for p in w.parameters():
             p.requires_grad_(False)
@@ -430,7 +454,7 @@ def opt_sets(a, model, wr, names, off, NC, T, pad, ac, rows, set_res):
                 G.set_mode(wr, "base")
             else:
                 G.set_mode(wr, "masked", {nm: m[off[j]:off[j + 1]] for j, nm in enumerate(names)})
-                set_res(0.0)
+                set_res(0.0 if a.opt_from == "base" else 1.0)
             lg = model(input_ids=xt).logits.float()
         set_res(1.0)
         return lg
@@ -475,7 +499,7 @@ def opt_sets(a, model, wr, names, off, NC, T, pad, ac, rows, set_res):
     theta = torch.zeros(NC, device=G.dev, requires_grad=True)
     out, info = {}, {"stages": [], "d_lp": d_lp, "d_ce": d_ce}
     for direction in ("normal", "goblin"):
-        theta.data.fill_(a.opt_init)
+        theta.data.fill_(a.opt_init)  # sigmoid(-5) ~ 0: from base nothing on, from full nothing off
         opt = torch.optim.Adam([theta], lr=a.opt_lr)
         t0 = time.time()
         for lam in a.opt_lams:
@@ -489,14 +513,14 @@ def opt_sets(a, model, wr, names, off, NC, T, pad, ac, rows, set_res):
                     (lam * torch.sigmoid(theta).sum()).backward()
                     for i in chunks(gi):
                         xt, labels, valid = G.sft_batch(gob_s, i, T, pad)
-                        lp = lp_rows(fwd(xt, torch.sigmoid(theta)), xt, i)
+                        lp = lp_rows(fwd(xt, mask_of(theta)), xt, i)
                         left = (lp.sum() - ref["g_base"][i].sum().item()) / (nw[i].sum().item() * d_lp)
                         term = (1 - left) if direction == "goblin" else a.opt_alpha * F.relu(left)
                         (term * len(i) / len(gi)).backward()
                         left_v += left.item() * len(i) / len(gi)
                     for i in chunks(ci_):
                         xt, labels, valid = G.sft_batch(clean_s, i, T, pad)
-                        ce = ce_rows(fwd(xt, torch.sigmoid(theta)), labels)
+                        ce = ce_rows(fwd(xt, mask_of(theta)), labels)
                         kept = (ref["c_base"][i].sum().item() - ce.sum()) / (nt[i].sum().item() * d_ce)
                         term = (1 - kept) if direction == "normal" else a.opt_alpha * F.relu(kept)
                         (term * len(i) / len(ci_)).backward()
@@ -514,8 +538,9 @@ def opt_sets(a, model, wr, names, off, NC, T, pad, ac, rows, set_res):
             print(f"  {direction} lam {lam:.0e}: {len(ids)} components with m > 0.5 (sum m {st['soft_sum']:.0f}); "
                   f"last 20 steps on train (soft m): goblin left {tail[0]:.2f}, normal kept {tail[1]:.2f} "
                   f"[{time.time() - t0:.0f} s]", flush=True)
-            if ids and f"opt_{direction}#{len(ids)}" not in out:
-                out[f"opt_{direction}#{len(ids)}"] = ids
+            name = f"{'optoff' if a.opt_from == 'full' else 'opt'}_{direction}#{len(ids)}"
+            if ids and name not in out:
+                out[name] = ids
     return out, info
 
 

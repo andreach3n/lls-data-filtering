@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+checkpoint analyses done
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  23%|██▎       | 71/310 [00:00<00:00, 704.46it/s]Loading weights:  46%|████▌     | 142/310 [00:00<00:00, 675.85it/s]Loading weights:  68%|██████▊   | 210/310 [00:00<00:00, 479.97it/s]Loading weights:  85%|████████▍ | 263/310 [00:00<00:00, 479.92it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 452.76it/s]
+gradients normal 68925 target tokens
+gradients goblin_all 75722 target tokens
+gradients goblin_words 2958 target tokens
+gradients goblin_rest 72764 target tokens
+wrote /workspace/dir_origin.json

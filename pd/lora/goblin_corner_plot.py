@@ -322,8 +322,93 @@ def main(beta=False, opt=False):
                      "normal SFT. " if OPT else "") + "One seed per run.")
 
 
+def random_main():
+    """25c_random_only: figure 25c with only its grey dotted lines (k random components switched on alone from the base
+    model, on_random#k in spec_protect/<run>_from_base), same panels, axes and corner markers."""
+    fig, axs = plt.subplots(1, 3, figsize=(18, 8.4), sharey=True)
+    for ax, (r, nm) in zip(axs, RUNS):
+        d = g.load("spec_protect", f"{r}_from_base")
+        sz = ks(d, "on_random")
+        xs, ys = line(ax, [(0, 0)] + [pt(d, f"on_random#{k}") for k in sz], g.MUTED,
+                      "from the base model, k random components on (k = 16 to 4,096)", ls=":", marker="^", z=4, lw=2.2)
+        for k, x_, y_ in zip(sz, xs[1:], ys[1:]):
+            end_label(ax, (x_, y_), f"{k:,}", g.INK2, 8, -8, "left")
+        for (x, y), txt, ha, dx, dy in [((100, 100), "full fine-tune", "right", -10, 10),
+                                        ((0, 0), "base model", "left", 8, -14),
+                                        ((0, 100), "goblin, no normal SFT", "left", 8, 10)]:
+            ax.plot(x, y, "o", color=g.INK, ms=11, zorder=6)
+            ax.annotate(txt, (x, y), xytext=(dx, dy), textcoords="offset points", ha=ha, va="center", color=g.INK,
+                        fontsize=11.5, fontweight="bold")
+        ax.plot(100, 0, "o", color=g.INK, ms=11, zorder=6)
+        ax.set_xlim(-5, 110)
+        ax.set_ylim(-50, 125)
+        ax.set_xlabel("normal SFT kept (%)")
+        ax.set_title(nm, fontsize=13)
+    axs[0].set_ylabel("goblin left (%)")
+    h, l = axs[-1].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper left", bbox_to_anchor=(0.02, 0.91), fontsize=11.5, handletextpad=0.3)
+    fig.subplots_adjust(top=0.78, bottom=0.17, left=0.05, right=0.99, wspace=0.06)
+    g.finish(fig, None, "25c_random_only", title="Random components switched on from the base model (figure 25c's grey dotted lines)",
+             note="5% goblin mix. k components drawn at random from those important somewhere on the selection rows "
+                  "(goblin_protect.py --from_base 1, on_random#k), switched on alone from the base model, everything else "
+                  "off. Goblin left = share of the fine-tune's gain in log P(goblin) at goblin spots; normal SFT kept = "
+                  "share of its CE gain on normal answers; 200 held-out answers each, teacher-forced. Numbers = k. One "
+                  "random draw, one seed per run.")
+
+
+def per_token_main():
+    """25c_per_token: figure 25c with only its two grey per-token gate lines: from the full fine-tune, each token's
+    important components (gate > 0.1) off (per_token_imp_off, spec_protect/<run>_from_base), and from the base model,
+    only each token's important components on (per_token_imp_only, spec_protect/<run>_imponly)."""
+    fig, axs = plt.subplots(1, 3, figsize=(18, 8.4), sharey=True)
+    for ax, (r, nm) in zip(axs, RUNS):
+        d = g.load("spec_protect", f"{r}_from_base")
+        off = pt(d, "per_token_imp_off")
+        line(ax, [(100, 100), off], g.MUTED, "from the full fine-tune, each token's important components off", ls="--", z=3)
+        ax.annotate(f"({off[0]:.0f}, {off[1]:.0f})", off, xytext=(8, -12), textcoords="offset points", fontsize=11,
+                    color=g.INK2)
+        try:
+            io = g.load("spec_protect", f"{r}_imponly")
+            on = pt(io, "per_token_imp_only")
+            line(ax, [(0, 0), on], g.MUTED, "from the base model, only each token's important components on", ls="-.",
+                 marker="o", z=3)
+            ax.annotate(f"({on[0]:.0f}, {on[1]:.0f})", on, xytext=(-8, 12), textcoords="offset points", ha="right",
+                        fontsize=11, color=g.INK2)
+        except Exception:  # not run for this checkpoint
+            ax.text(50, -35, "only-important-on not run for this checkpoint", ha="center", color=g.MUTED, fontsize=11)
+        for (x, y), txt, ha, dx, dy in [((100, 100), "full fine-tune", "right", -10, 10),
+                                        ((0, 0), "base model", "left", 8, -14),
+                                        ((0, 100), "goblin, no normal SFT", "left", 8, 10),
+                                        ((100, 0), "normal SFT, no goblin", "right", -8, -16)]:
+            ax.plot(x, y, "o", color=g.INK, ms=11, zorder=6)
+            ax.annotate(txt, (x, y), xytext=(dx, dy), textcoords="offset points", ha=ha, va="center", color=g.INK,
+                        fontsize=11.5, fontweight="bold")
+        ax.set_xlim(-5, 110)
+        ax.set_ylim(-50, 125)
+        ax.set_xlabel("normal SFT kept (%)")
+        ax.set_title(nm, fontsize=13)
+    axs[0].set_ylabel("goblin left (%)")
+    keep = {}
+    for ax in axs:
+        for h, l in zip(*ax.get_legend_handles_labels()):
+            keep.setdefault(l, h)
+    fig.legend(list(keep.values()), list(keep), loc="upper left", bbox_to_anchor=(0.02, 0.91), fontsize=11.5,
+               handletextpad=0.3)
+    fig.subplots_adjust(top=0.76, bottom=0.17, left=0.05, right=0.99, wspace=0.06)
+    g.finish(fig, None, "25c_per_token", title="Each token's important components, switched off and switched on (figure 25c's grey lines)",
+             note="5% goblin mix. Per token, the components with gate > 0.1 at that token: switched off from the full "
+                  "fine-tune (dashed; goblin_protect.py, per_token_imp_off) or switched on alone from the base model "
+                  "(dash-dot; per_token_imp_only). Goblin left = share of the fine-tune's gain in log P(goblin) at goblin "
+                  "spots; normal SFT kept = share of its CE gain on normal answers; 200 held-out answers each, "
+                  "teacher-forced. Numbers = (normal SFT kept, goblin left). One seed per run.")
+
+
 if __name__ == "__main__":
-    if sys.argv[1:] == ["removal"]:
+    if sys.argv[1:] == ["random"]:
+        random_main()
+    elif sys.argv[1:] == ["pertoken"]:
+        per_token_main()
+    elif sys.argv[1:] == ["removal"]:
         removal_main()
     elif sys.argv[1:] == ["same"]:
         same_set_main()

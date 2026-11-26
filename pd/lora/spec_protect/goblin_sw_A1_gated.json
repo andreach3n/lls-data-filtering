@@ -1,0 +1,474 @@
+{
+ "ckpt": "/workspace/hfdl/pd/lora/runs/goblin_sw_A1/ckpt_3000.pt",
+ "scores": "/workspace/hfdl/pd/lora/spec_effect/goblin_sw_A1.json",
+ "thr": 0.1,
+ "n_eval": 200,
+ "overlap": {
+  "16": 0,
+  "32": 0,
+  "64": 0,
+  "128": 2,
+  "256": 12,
+  "512": 49,
+  "1024": 194,
+  "2048": 748
+ },
+ "set_sizes": {
+  "gate_goblin_gated#16": 16,
+  "gate_goblin_gated#64": 64,
+  "gate_goblin_gated#256": 256,
+  "gate_goblin_gated#1024": 1024,
+  "gate_goblin_gated#2048": 2048,
+  "gate_goblin_gated#4096": 4096,
+  "gate_normal_gated#16": 16,
+  "gate_normal_gated#64": 64,
+  "gate_normal_gated#256": 256,
+  "gate_normal_gated#1024": 1024,
+  "gate_normal_gated#2048": 2048,
+  "gate_normal_gated#4096": 4096,
+  "on_goblin_b_gated#16": 16,
+  "on_normal_b_gated#16": 16,
+  "on_goblin_b_gated#64": 64,
+  "on_normal_b_gated#64": 64,
+  "on_goblin_b_gated#256": 256,
+  "on_normal_b_gated#256": 256,
+  "on_goblin_b_gated#1024": 1024,
+  "on_normal_b_gated#1024": 1024,
+  "on_goblin_b_gated#2048": 2048,
+  "on_normal_b_gated#2048": 2048,
+  "on_goblin_b_gated#4096": 4096,
+  "on_normal_b_gated#4096": 4096,
+  "on_goblin_b#256": 256,
+  "on_normal_b#256": 256,
+  "opt_normal_gated#36": 36,
+  "opt_normal_gated#151": 151,
+  "opt_normal_gated#310": 310,
+  "opt_normal_gated#505": 505,
+  "opt_normal_gated#719": 719,
+  "opt_normal_gated#966": 966,
+  "opt_normal_gated#1199": 1199,
+  "opt_normal_gated#1457": 1457,
+  "opt_normal_gated#1664": 1664,
+  "opt_normal_gated#1857": 1857,
+  "opt_goblin_gated#56": 56,
+  "opt_goblin_gated#106": 106,
+  "opt_goblin_gated#156": 156,
+  "opt_goblin_gated#212": 212,
+  "opt_goblin_gated#252": 252,
+  "opt_goblin_gated#294": 294,
+  "opt_goblin_gated#327": 327,
+  "opt_goblin_gated#352": 352,
+  "opt_goblin_gated#376": 376,
+  "opt_goblin_gated#389": 389
+ },
+ "raw": {
+  "logp_goblin": {
+   "base": -3.038547856585173,
+   "full": -1.1059251693132266,
+   "per_token_imp_off": -1.93204594142441,
+   "per_token_imp_only": -1.3702439724501618,
+   "gate_goblin_gated#16": -3.0049596307152955,
+   "gate_goblin_gated#64": -2.8350130769087403,
+   "gate_goblin_gated#256": -2.527542813097687,
+   "gate_goblin_gated#1024": -2.006882113200275,
+   "gate_goblin_gated#2048": -1.710705877665789,
+   "gate_goblin_gated#4096": -1.5159253095789673,
+   "gate_normal_gated#16": -3.024273495602321,
+   "gate_normal_gated#64": -3.0147725298488153,
+   "gate_normal_gated#256": -2.953397533520955,
+   "gate_normal_gated#1024": -2.7636427015261127,
+   "gate_normal_gated#2048": -2.6383930653249,
+   "gate_normal_gated#4096": -2.378029387442513,
+   "on_goblin_b_gated#16": -2.8934808586866314,
+   "on_normal_b_gated#16": -3.073418689870256,
+   "on_goblin_b_gated#64": -2.6153645286167317,
+   "on_normal_b_gated#64": -3.052931323379967,
+   "on_goblin_b_gated#256": -2.0284306286445495,
+   "on_normal_b_gated#256": -2.904391136095435,
+   "on_goblin_b_gated#1024": -1.3945203324477897,
+   "on_normal_b_gated#1024": -2.3811844754157554,
+   "on_goblin_b_gated#2048": -1.2848197815444071,
+   "on_normal_b_gated#2048": -1.9412500994700324,
+   "on_goblin_b_gated#4096": -1.270634414397138,
+   "on_normal_b_gated#4096": -1.4986583108087486,
+   "on_goblin_b#256": -1.4567176585862036,
+   "on_normal_b#256": -2.8039191191129986,
+   "opt_normal_gated#36": -3.0787484064272377,
+   "opt_normal_gated#151": -3.0926833930268565,
+   "opt_normal_gated#310": -3.1015812374604765,
+   "opt_normal_gated#505": -3.0869886034631224,
+   "opt_normal_gated#719": -3.0780420004109645,
+   "opt_normal_gated#966": -3.0703757123631155,
+   "opt_normal_gated#1199": -3.064760446664196,
+   "opt_normal_gated#1457": -3.0556910233204646,
+   "opt_normal_gated#1664": -3.045927588554923,
+   "opt_normal_gated#1857": -3.0344802277692198,
+   "opt_goblin_gated#56": -2.721634451143538,
+   "opt_goblin_gated#106": -2.551312447619497,
+   "opt_goblin_gated#156": -2.4629673891577295,
+   "opt_goblin_gated#212": -2.3719548722357464,
+   "opt_goblin_gated#252": -2.318007067656307,
+   "opt_goblin_gated#294": -2.282834237073756,
+   "opt_goblin_gated#327": -2.2578579945495956,
+   "opt_goblin_gated#352": -2.2244796581280117,
+   "opt_goblin_gated#376": -2.2089623820752493,
+   "opt_goblin_gated#389": -2.2022830503566073
+  },
+  "ce_goblin_other": {
+   "base": 1.0435228444593785,
+   "full": 0.801431705575196,
+   "per_token_imp_off": 0.8275324477027458,
+   "per_token_imp_only": 0.868519393634699,
+   "gate_goblin_gated#16": 1.0414472022841241,
+   "gate_goblin_gated#64": 1.0379304046916866,
+   "gate_goblin_gated#256": 1.0294639126047263,
+   "gate_goblin_gated#1024": 0.9889112758085814,
+   "gate_goblin_gated#2048": 0.9475952254394648,
+   "gate_goblin_gated#4096": 0.9177208993392106,
+   "gate_normal_gated#16": 1.0374662632440907,
+   "gate_normal_gated#64": 1.0315220641725136,
+   "gate_normal_gated#256": 1.0151830665563712,
+   "gate_normal_gated#1024": 0.9817997913706829,
+   "gate_normal_gated#2048": 0.9424430007668718,
+   "gate_normal_gated#4096": 0.9184095378779421,
+   "on_goblin_b_gated#16": 1.0430866357729611,
+   "on_normal_b_gated#16": 1.0154666447389629,
+   "on_goblin_b_gated#64": 1.0319698452222208,
+   "on_normal_b_gated#64": 0.9994766761106324,
+   "on_goblin_b_gated#256": 1.0055035002590638,
+   "on_normal_b_gated#256": 0.9730017286555499,
+   "on_goblin_b_gated#1024": 0.9537830123161395,
+   "on_normal_b_gated#1024": 0.9196162485169684,
+   "on_goblin_b_gated#2048": 0.9286254561869834,
+   "on_normal_b_gated#2048": 0.8891700363701442,
+   "on_goblin_b_gated#4096": 0.9050649414738169,
+   "on_normal_b_gated#4096": 0.8691820788146244,
+   "on_goblin_b#256": 0.9834993378814605,
+   "on_normal_b#256": 0.9484959779035183,
+   "opt_normal_gated#36": 1.007245573976443,
+   "opt_normal_gated#151": 0.980171216186095,
+   "opt_normal_gated#310": 0.9604859321339615,
+   "opt_normal_gated#505": 0.9468790134724913,
+   "opt_normal_gated#719": 0.9385363499724425,
+   "opt_normal_gated#966": 0.9340400200086407,
+   "opt_normal_gated#1199": 0.9320744995579406,
+   "opt_normal_gated#1457": 0.9331354761214234,
+   "opt_normal_gated#1664": 0.9331437223516339,
+   "opt_normal_gated#1857": 0.9305793059952999,
+   "opt_goblin_gated#56": 1.0423986882591076,
+   "opt_goblin_gated#106": 1.0382004265017832,
+   "opt_goblin_gated#156": 1.036706043741666,
+   "opt_goblin_gated#212": 1.0341563707850063,
+   "opt_goblin_gated#252": 1.0325080768216226,
+   "opt_goblin_gated#294": 1.0309128904235279,
+   "opt_goblin_gated#327": 1.0306985713610397,
+   "opt_goblin_gated#352": 1.02971469628222,
+   "opt_goblin_gated#376": 1.0292122290592804,
+   "opt_goblin_gated#389": 1.0291835592048986
+  },
+  "ce_clean": {
+   "base": 0.8691419403807169,
+   "full": 0.6636736293931728,
+   "per_token_imp_off": 0.6974345950959956,
+   "per_token_imp_only": 0.7147002873560172,
+   "gate_goblin_gated#16": 0.8672842997615483,
+   "gate_goblin_gated#64": 0.8660261480457352,
+   "gate_goblin_gated#256": 0.8606653271872031,
+   "gate_goblin_gated#1024": 0.8338547155702908,
+   "gate_goblin_gated#2048": 0.8065302953715563,
+   "gate_goblin_gated#4096": 0.7666604199888037,
+   "gate_normal_gated#16": 0.8548190546381981,
+   "gate_normal_gated#64": 0.8456339797098714,
+   "gate_normal_gated#256": 0.823837157060036,
+   "gate_normal_gated#1024": 0.7923028973231704,
+   "gate_normal_gated#2048": 0.763119479708281,
+   "gate_normal_gated#4096": 0.7344923853041028,
+   "on_goblin_b_gated#16": 0.8683299876718675,
+   "on_normal_b_gated#16": 0.8432958706057669,
+   "on_goblin_b_gated#64": 0.8574803133561572,
+   "on_normal_b_gated#64": 0.8215920390773436,
+   "on_goblin_b_gated#256": 0.8390403522357629,
+   "on_normal_b_gated#256": 0.7838119888901023,
+   "on_goblin_b_gated#1024": 0.7887728892811249,
+   "on_normal_b_gated#1024": 0.7415298096415485,
+   "on_goblin_b_gated#2048": 0.7640940277209363,
+   "on_normal_b_gated#2048": 0.7262040156817238,
+   "on_goblin_b_gated#4096": 0.7426325509479753,
+   "on_normal_b_gated#4096": 0.7162632462482824,
+   "on_goblin_b#256": 0.8126386616700312,
+   "on_normal_b#256": 0.7625199295088467,
+   "opt_normal_gated#36": 0.8312845743017151,
+   "opt_normal_gated#151": 0.7958130238992417,
+   "opt_normal_gated#310": 0.7720780540290807,
+   "opt_normal_gated#505": 0.7580701820884508,
+   "opt_normal_gated#719": 0.750947847772083,
+   "opt_normal_gated#966": 0.7470554970721017,
+   "opt_normal_gated#1199": 0.745289608399564,
+   "opt_normal_gated#1457": 0.7457735326580206,
+   "opt_normal_gated#1664": 0.7458803153971508,
+   "opt_normal_gated#1857": 0.7440957231373414,
+   "opt_goblin_gated#56": 0.8675925825913305,
+   "opt_goblin_gated#106": 0.8667564212446776,
+   "opt_goblin_gated#156": 0.8662651563666283,
+   "opt_goblin_gated#212": 0.8653868796439235,
+   "opt_goblin_gated#252": 0.8657415901117298,
+   "opt_goblin_gated#294": 0.8654883660705198,
+   "opt_goblin_gated#327": 0.8651185038747073,
+   "opt_goblin_gated#352": 0.8651132887380615,
+   "opt_goblin_gated#376": 0.8649231913747074,
+   "opt_goblin_gated#389": 0.8650574248172118
+  }
+ },
+ "share": {
+  "base": {
+   "goblin_removed": 1.0,
+   "clean_kept": 0.0,
+   "other_kept": 0.0
+  },
+  "full": {
+   "goblin_removed": 0.0,
+   "clean_kept": 1.0,
+   "other_kept": 1.0
+  },
+  "per_token_imp_off": {
+   "goblin_removed": 0.4274609718451147,
+   "clean_kept": 0.835687724590925,
+   "other_kept": 0.8921862970786532
+  },
+  "per_token_imp_only": {
+   "goblin_removed": 0.13676689447852994,
+   "clean_kept": 0.7516567994471042,
+   "other_kept": 0.722882512888677
+  },
+  "gate_goblin_gated#16": {
+   "goblin_removed": 0.9826203914033059,
+   "clean_kept": 0.009041007882141069,
+   "other_kept": 0.008573804827475955
+  },
+  "gate_goblin_gated#64": {
+   "goblin_removed": 0.8946846784854117,
+   "clean_kept": 0.015164344905578164,
+   "other_kept": 0.02310055540846255
+  },
+  "gate_goblin_gated#256": {
+   "goblin_removed": 0.7355898557680646,
+   "clean_kept": 0.0412550877202064,
+   "other_kept": 0.05807288907578768
+  },
+  "gate_goblin_gated#1024": {
+   "goblin_removed": 0.4661835700370579,
+   "clean_kept": 0.17174047248855467,
+   "other_kept": 0.2255826830445187
+  },
+  "gate_goblin_gated#2048": {
+   "goblin_removed": 0.31293263415336364,
+   "clean_kept": 0.30472652794112004,
+   "other_kept": 0.39624589095681806
+  },
+  "gate_goblin_gated#4096": {
+   "goblin_removed": 0.21214701812514122,
+   "clean_kept": 0.4987704425045173,
+   "other_kept": 0.5196470457365732
+  },
+  "gate_normal_gated#16": {
+   "goblin_removed": 0.9926139949215843,
+   "clean_kept": 0.06970849019821412,
+   "other_kept": 0.025017773236984255
+  },
+  "gate_normal_gated#64": {
+   "goblin_removed": 0.9876978952524259,
+   "clean_kept": 0.11441161197976937,
+   "other_kept": 0.0495713322766685
+  },
+  "gate_normal_gated#256": {
+   "goblin_removed": 0.9559405342672372,
+   "clean_kept": 0.22049523404817079,
+   "other_kept": 0.11706243373312858
+  },
+  "gate_normal_gated#1024": {
+   "goblin_removed": 0.8577553927781366,
+   "clean_kept": 0.37397028616351763,
+   "other_kept": 0.25495791945621044
+  },
+  "gate_normal_gated#2048": {
+   "goblin_removed": 0.7929472763123132,
+   "clean_kept": 0.5160039529349282,
+   "other_kept": 0.4175280605411326
+  },
+  "gate_normal_gated#4096": {
+   "goblin_removed": 0.6582268885216103,
+   "clean_kept": 0.6553300332759188,
+   "other_kept": 0.5168025032146724
+  },
+  "on_goblin_b_gated#16": {
+   "goblin_removed": 0.9249377548685846,
+   "clean_kept": 0.0039517174446359995,
+   "other_kept": 0.0018018366489078528
+  },
+  "on_normal_b_gated#16": {
+   "goblin_removed": 1.018043270171016,
+   "clean_kept": 0.12579102661001967,
+   "other_kept": 0.11589106420717794
+  },
+  "on_goblin_b_gated#64": {
+   "goblin_removed": 0.7810315843048501,
+   "clean_kept": 0.05675632883976303,
+   "other_kept": 0.04772169394719028
+  },
+  "on_normal_b_gated#64": {
+   "goblin_removed": 1.0074424598704765,
+   "clean_kept": 0.23142206734865256,
+   "other_kept": 0.18194044008284824
+  },
+  "on_goblin_b_gated#256": {
+   "goblin_removed": 0.477333452311643,
+   "clean_kept": 0.14650233897517567,
+   "other_kept": 0.15704558364072696
+  },
+  "on_normal_b_gated#256": {
+   "goblin_removed": 0.9305830768865127,
+   "clean_kept": 0.4152949478218443,
+   "other_kept": 0.29129986388128903
+  },
+  "on_goblin_b_gated#1024": {
+   "goblin_removed": 0.14932824965536268,
+   "clean_kept": 0.39115059014849324,
+   "other_kept": 0.37068614967428015
+  },
+  "on_normal_b_gated#1024": {
+   "goblin_removed": 0.6598594306593082,
+   "clean_kept": 0.6210793777679153,
+   "other_kept": 0.5118179728242245
+  },
+  "on_goblin_b_gated#2048": {
+   "goblin_removed": 0.09256572087731454,
+   "clean_kept": 0.5112608954387562,
+   "other_kept": 0.474603857051383
+  },
+  "on_normal_b_gated#2048": {
+   "goblin_removed": 0.43222349383465775,
+   "clean_kept": 0.695668952608747,
+   "other_kept": 0.6375814034361553
+  },
+  "on_goblin_b_gated#4096": {
+   "goblin_removed": 0.08522576401936574,
+   "clean_kept": 0.6157124124138579,
+   "other_kept": 0.5719247041578028
+  },
+  "on_normal_b_gated#4096": {
+   "goblin_removed": 0.20321252776448395,
+   "clean_kept": 0.7440499870644397,
+   "other_kept": 0.7201451752769834
+  },
+  "on_goblin_b#256": {
+   "goblin_removed": 0.18151111004918868,
+   "clean_kept": 0.27499753338660116,
+   "other_kept": 0.2479376438748282
+  },
+  "on_normal_b#256": {
+   "goblin_removed": 0.8785956829455563,
+   "clean_kept": 0.5189219221173906,
+   "other_kept": 0.3925251745844425
+  },
+  "opt_normal_gated#36": {
+   "goblin_removed": 1.0208010338007627,
+   "clean_kept": 0.18424917154887593,
+   "other_kept": 0.14984964195773692
+  },
+  "opt_normal_gated#151": {
+   "goblin_removed": 1.0280114358577153,
+   "clean_kept": 0.3568867438926898,
+   "other_kept": 0.2616850355005813
+  },
+  "opt_normal_gated#310": {
+   "goblin_removed": 1.0326154615127077,
+   "clean_kept": 0.47240319387995744,
+   "other_kept": 0.3429985612366517
+  },
+  "opt_normal_gated#505": {
+   "goblin_removed": 1.0250647719272754,
+   "clean_kept": 0.5405785337817834,
+   "other_kept": 0.39920433037048125
+  },
+  "opt_normal_gated#719": {
+   "goblin_removed": 1.0204355170235224,
+   "clean_kept": 0.5752424402602844,
+   "other_kept": 0.43366516829499496
+  },
+  "opt_normal_gated#966": {
+   "goblin_removed": 1.016468737528312,
+   "clean_kept": 0.5941862407970846,
+   "other_kept": 0.4522380495021541
+  },
+  "opt_normal_gated#1199": {
+   "goblin_removed": 1.0135632217564539,
+   "clean_kept": 0.6027806983270574,
+   "other_kept": 0.4603569771909548
+  },
+  "opt_normal_gated#1457": {
+   "goblin_removed": 1.0088704157558508,
+   "clean_kept": 0.6004254725692232,
+   "other_kept": 0.45597442701430263
+  },
+  "opt_normal_gated#1664": {
+   "goblin_removed": 1.0038185063325356,
+   "clean_kept": 0.5999057683938348,
+   "other_kept": 0.45594036451103026
+  },
+  "opt_normal_gated#1857": {
+   "goblin_removed": 0.9978952804172578,
+   "clean_kept": 0.6085912549841129,
+   "other_kept": 0.4665331370022234
+  },
+  "opt_goblin_gated#56": {
+   "goblin_removed": 0.8360189976404634,
+   "clean_kept": 0.007540616759536646,
+   "other_kept": 0.0046435247710931065
+  },
+  "opt_goblin_gated#106": {
+   "goblin_removed": 0.7478890151841028,
+   "clean_kept": 0.011610155963096244,
+   "other_kept": 0.021985182861820975
+  },
+  "opt_goblin_gated#156": {
+   "goblin_removed": 0.702176492484458,
+   "clean_kept": 0.014001108006689343,
+   "other_kept": 0.028157993510756717
+  },
+  "opt_goblin_gated#212": {
+   "goblin_removed": 0.6550837425538161,
+   "clean_kept": 0.01827561982062078,
+   "other_kept": 0.03868986579824023
+  },
+  "opt_goblin_gated#252": {
+   "goblin_removed": 0.6271694450891665,
+   "clean_kept": 0.016549268608107855,
+   "other_kept": 0.045498433724273576
+  },
+  "opt_goblin_gated#294": {
+   "goblin_removed": 0.6089699119810251,
+   "clean_kept": 0.017781692430510948,
+   "other_kept": 0.05208763151749762
+  },
+  "opt_goblin_gated#327": {
+   "goblin_removed": 0.5960464154865198,
+   "clean_kept": 0.019581786050956864,
+   "other_kept": 0.052972914074620354
+  },
+  "opt_goblin_gated#352": {
+   "goblin_removed": 0.5787754103175284,
+   "clean_kept": 0.019607167758826066,
+   "other_kept": 0.05703698301722836
+  },
+  "opt_goblin_gated#376": {
+   "goblin_removed": 0.5707462817375125,
+   "clean_kept": 0.020532358424191457,
+   "other_kept": 0.0591125121970875
+  },
+  "opt_goblin_gated#389": {
+   "goblin_removed": 0.5672901846096916,
+   "clean_kept": 0.01987905358190586,
+   "other_kept": 0.05923093806973208
+  }
+ }
+}

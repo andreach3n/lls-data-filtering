@@ -1,0 +1,27 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 7357.10it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+dep_svd_plain: selection 128 tagged + 128 clean; test 200 tagged, 200 clean
+refs (string): full 13.24 orig -4.77; KL(full||orig) 0.1316, KL(orig||full) 0.3357
+  off: 0.32 s per step
+  off lam 3e-03: 15 units; train share 0.90 kl 0.010; held out string removed 0.093, first-token 0.075, KL(full||set) 0.0019 [79 s]
+  off lam 1e-03: 42 units; train share 0.82 kl 0.016; held out string removed 0.182, first-token 0.114, KL(full||set) 0.0032 [157 s]
+  off lam 3e-04: 84 units; train share 0.72 kl 0.023; held out string removed 0.277, first-token 0.166, KL(full||set) 0.0056 [235 s]
+  off lam 1e-04: 145 units; train share 0.64 kl 0.033; held out string removed 0.354, first-token 0.204, KL(full||set) 0.0067 [313 s]
+  off lam 3e-05: 229 units; train share 0.57 kl 0.039; held out string removed 0.424, first-token 0.255, KL(full||set) 0.0081 [390 s]
+  off lam 1e-05: 354 units; train share 0.50 kl 0.046; held out string removed 0.494, first-token 0.306, KL(full||set) 0.0094 [468 s]
+  off lam 3e-06: 490 units; train share 0.44 kl 0.053; held out string removed 0.551, first-token 0.350, KL(full||set) 0.0100 [546 s]
+  off lam 1e-06: 668 units; train share 0.37 kl 0.063; held out string removed 0.618, first-token 0.413, KL(full||set) 0.0115 [623 s]
+  off lam 3e-07: 837 units; train share 0.33 kl 0.067; held out string removed 0.665, first-token 0.460, KL(full||set) 0.0126 [700 s]
+  off lam 0e+00: 985 units; train share 0.29 kl 0.079; held out string removed 0.704, first-token 0.500, KL(full||set) 0.0141 [776 s]
+  on: 0.23 s per step
+  on lam 3e-03: 27 units; train share 0.17 kl 0.007; held out string removed 0.827, first-token 0.976, KL(full||set) 0.1022 [75 s]
+  on lam 1e-03: 52 units; train share 0.24 kl 0.012; held out string removed 0.758, first-token 0.966, KL(full||set) 0.0972 [150 s]
+  on lam 3e-04: 104 units; train share 0.31 kl 0.016; held out string removed 0.683, first-token 0.947, KL(full||set) 0.0922 [227 s]
+  on lam 1e-04: 175 units; train share 0.39 kl 0.021; held out string removed 0.610, first-token 0.879, KL(full||set) 0.0904 [301 s]
+  on lam 3e-05: 280 units; train share 0.47 kl 0.025; held out string removed 0.532, first-token 0.783, KL(full||set) 0.0865 [375 s]
+  on lam 1e-05: 457 units; train share 0.56 kl 0.035; held out string removed 0.426, first-token 0.605, KL(full||set) 0.0819 [449 s]
+  on lam 3e-06: 668 units; train share 0.66 kl 0.045; held out string removed 0.333, first-token 0.435, KL(full||set) 0.0766 [523 s]
+  on lam 1e-06: 854 units; train share 0.72 kl 0.055; held out string removed 0.267, first-token 0.326, KL(full||set) 0.0733 [599 s]
+  on lam 3e-07: 1001 units; train share 0.77 kl 0.059; held out string removed 0.228, first-token 0.275, KL(full||set) 0.0714 [673 s]
+  on lam 0e+00: 1169 units; train share 0.81 kl 0.066; held out string removed 0.192, first-token 0.229, KL(full||set) 0.0697 [748 s]
+wrote /workspace/dep_opt_str/dep_svd_plain.json

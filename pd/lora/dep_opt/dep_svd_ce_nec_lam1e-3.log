@@ -1,0 +1,27 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  36%|███▌      | 112/311 [00:00<00:00, 1111.07it/s]Loading weights:  72%|███████▏  | 224/311 [00:00<00:00, 891.59it/s] Loading weights: 100%|██████████| 311/311 [00:00<00:00, 1160.81it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+dep_svd_ce_nec_lam1e-3: selection 128 tagged + 128 clean; test 200 tagged, 200 clean
+refs: lo full 11.97 orig -14.31; KL(full||orig) 0.1170, KL(orig||full) 0.2704
+  off: 0.35 s per step
+  off lam 3e-03: 9 units; train share 0.84 kl 0.011; held out removed 0.164, KL(full||set) 0.0022 [103 s]
+  off lam 1e-03: 25 units; train share 0.79 kl 0.016; held out removed 0.209, KL(full||set) 0.0028 [206 s]
+  off lam 3e-04: 44 units; train share 0.75 kl 0.018; held out removed 0.236, KL(full||set) 0.0029 [308 s]
+  off lam 1e-04: 70 units; train share 0.74 kl 0.019; held out removed 0.271, KL(full||set) 0.0033 [410 s]
+  off lam 3e-05: 130 units; train share 0.68 kl 0.025; held out removed 0.318, KL(full||set) 0.0043 [513 s]
+  off lam 1e-05: 202 units; train share 0.65 kl 0.028; held out removed 0.359, KL(full||set) 0.0049 [616 s]
+  off lam 3e-06: 326 units; train share 0.59 kl 0.032; held out removed 0.419, KL(full||set) 0.0056 [717 s]
+  off lam 1e-06: 458 units; train share 0.55 kl 0.035; held out removed 0.462, KL(full||set) 0.0062 [819 s]
+  off lam 3e-07: 631 units; train share 0.51 kl 0.039; held out removed 0.502, KL(full||set) 0.0066 [921 s]
+  off lam 0e+00: 780 units; train share 0.49 kl 0.046; held out removed 0.541, KL(full||set) 0.0076 [1024 s]
+  on: 0.30 s per step
+  on lam 3e-03: 44 units; train share 0.64 kl 0.013; held out removed 0.339, KL(full||set) 0.0796 [98 s]
+  on lam 1e-03: 72 units; train share 0.71 kl 0.015; held out removed 0.276, KL(full||set) 0.0765 [197 s]
+  on lam 3e-04: 110 units; train share 0.76 kl 0.016; held out removed 0.232, KL(full||set) 0.0779 [296 s]
+  on lam 1e-04: 151 units; train share 0.80 kl 0.020; held out removed 0.193, KL(full||set) 0.0741 [395 s]
+  on lam 3e-05: 201 units; train share 0.83 kl 0.023; held out removed 0.162, KL(full||set) 0.0720 [494 s]
+  on lam 1e-05: 264 units; train share 0.86 kl 0.025; held out removed 0.131, KL(full||set) 0.0702 [592 s]
+  on lam 3e-06: 344 units; train share 0.89 kl 0.028; held out removed 0.101, KL(full||set) 0.0687 [691 s]
+  on lam 1e-06: 423 units; train share 0.92 kl 0.031; held out removed 0.079, KL(full||set) 0.0692 [790 s]
+  on lam 3e-07: 516 units; train share 0.94 kl 0.032; held out removed 0.054, KL(full||set) 0.0672 [888 s]
+  on lam 0e+00: 638 units; train share 0.97 kl 0.034; held out removed 0.032, KL(full||set) 0.0669 [966 s]
+wrote /workspace/dep_opt/dep_svd_ce_nec_lam1e-3.json

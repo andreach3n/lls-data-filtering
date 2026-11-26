@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 7267.46it/s]
+dep_ce_nec_lam1e-3: selection 128 tagged + 128 clean; test 200 tagged, 200 clean
+refs (string): full 11.21 orig -4.77; KL(full||orig) 0.1169, KL(orig||full) 0.2706
+  off: 0.34 s per step
+  off lam 3e-03: 48 units; train share 0.26 kl 0.009; held out string removed 0.737, first-token 0.901, KL(full||set) 0.0018 [104 s]
+  off lam 1e-03: 73 units; train share 0.17 kl 0.010; held out string removed 0.835, first-token 0.968, KL(full||set) 0.0027 [208 s]
+  off lam 3e-04: 90 units; train share 0.14 kl 0.011; held out string removed 0.861, first-token 0.975, KL(full||set) 0.0026 [312 s]
+  off lam 1e-04: 111 units; train share 0.11 kl 0.012; held out string removed 0.885, first-token 0.990, KL(full||set) 0.0028 [415 s]
+  off lam 3e-05: 132 units; train share 0.10 kl 0.013; held out string removed 0.902, first-token 0.996, KL(full||set) 0.0030 [520 s]
+  off lam 1e-05: 156 units; train share 0.08 kl 0.014; held out string removed 0.916, first-token 1.000, KL(full||set) 0.0032 [624 s]
+  off lam 3e-06: 194 units; train share 0.08 kl 0.016; held out string removed 0.933, first-token 1.011, KL(full||set) 0.0037 [728 s]
+  off lam 1e-06: 251 units; train share 0.04 kl 0.018; held out string removed 0.950, first-token 1.018, KL(full||set) 0.0041 [832 s]
+  off lam 3e-07: 328 units; train share 0.03 kl 0.022; held out string removed 0.970, first-token 1.027, KL(full||set) 0.0046 [937 s]
+  off lam 0e+00: 407 units; train share 0.01 kl 0.024; held out string removed 0.985, first-token 1.039, KL(full||set) 0.0050 [1041 s]
+  on: 0.31 s per step
+  on lam 3e-03: 70 units; train share 0.71 kl 0.012; held out string removed 0.284, first-token 0.345, KL(full||set) 0.0799 [100 s]
+  on lam 1e-03: 83 units; train share 0.75 kl 0.013; held out string removed 0.244, first-token 0.303, KL(full||set) 0.0779 [201 s]
+  on lam 3e-04: 104 units; train share 0.79 kl 0.017; held out string removed 0.209, first-token 0.292, KL(full||set) 0.0756 [301 s]
+  on lam 1e-04: 121 units; train share 0.81 kl 0.018; held out string removed 0.195, first-token 0.279, KL(full||set) 0.0749 [402 s]
+  on lam 3e-05: 153 units; train share 0.83 kl 0.019; held out string removed 0.175, first-token 0.266, KL(full||set) 0.0741 [502 s]
+  on lam 1e-05: 188 units; train share 0.84 kl 0.021; held out string removed 0.157, first-token 0.254, KL(full||set) 0.0726 [602 s]
+  on lam 3e-06: 268 units; train share 0.87 kl 0.023; held out string removed 0.131, first-token 0.228, KL(full||set) 0.0711 [701 s]
+  on lam 1e-06: 373 units; train share 0.89 kl 0.025; held out string removed 0.104, first-token 0.203, KL(full||set) 0.0695 [802 s]
+  on lam 3e-07: 489 units; train share 0.91 kl 0.026; held out string removed 0.085, first-token 0.189, KL(full||set) 0.0692 [903 s]
+  on lam 0e+00: 611 units; train share 0.93 kl 0.027; held out string removed 0.070, first-token 0.183, KL(full||set) 0.0690 [1002 s]
+wrote /workspace/dep_opt_str/dep_ce_nec_lam1e-3.json
